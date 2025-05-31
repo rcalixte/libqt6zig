@@ -14,6 +14,15 @@ func cppComment(s string) string {
 	return "/* " + uncomment.Replace(s) + " */"
 }
 
+func (p CppParameter) cParameterName() string {
+	paramName := p.ParameterName
+	if zigReservedWord(paramName) {
+		paramName += "_val"
+	}
+
+	return paramName
+}
+
 func (p CppParameter) RenderTypeCabi() string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" {
 		return "libqt_string"
@@ -150,7 +159,6 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 func emitParametersCpp(m CppMethod, includeHidden bool) string {
 	tmp := make([]string, 0, len(m.Parameters))
 	for _, p := range m.Parameters {
-
 		tmp = append(tmp, ifv(p.Const && p.QtClassType(), "const ", "")+p.RenderTypeQtCpp()+" "+p.ParameterName)
 	}
 
@@ -193,7 +201,8 @@ func emitCABIParameterTypesCpp(m CppMethod, includeHidden bool, currentClass str
 	}
 	if includeHidden {
 		for _, p := range m.HiddenParams {
-			tmp = append(tmp, p.RenderTypeQtCpp())
+			maybeConst := ifv(p.Const, "const ", "")
+			tmp = append(tmp, maybeConst+p.RenderTypeQtCpp())
 		}
 	}
 
@@ -208,7 +217,23 @@ func emitParametersCabi(m CppMethod, selfType string) string {
 	}
 
 	for _, p := range m.Parameters {
-		tmp = append(tmp, p.RenderTypeCabi()+" "+p.ParameterName)
+		pType := p.RenderTypeCabi()
+		maybeConst := ifv(p.Const && !strings.HasPrefix(pType, "const "), "const ", "")
+		tmp = append(tmp, maybeConst+pType+" "+p.ParameterName)
+	}
+
+	return strings.Join(tmp, ", ")
+}
+
+func emitParameterTypesCabi(m CppMethod, selfType string) string {
+	tmp := make([]string, 0, len(m.Parameters)+1)
+
+	if !m.IsStatic && selfType != "" {
+		tmp = append(tmp, selfType)
+	}
+
+	for _, p := range m.Parameters {
+		tmp = append(tmp, p.RenderTypeCabi())
 	}
 
 	return strings.Join(tmp, ", ")
@@ -304,33 +329,16 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 		preamble += indent + kType.RenderTypeCabi() + "* " + nameprefix + "_first = static_cast<" + kType.RenderTypeCabi() + "*>(" + p.ParameterName + ".first);\n"
 		preamble += indent + vType.RenderTypeCabi() + "* " + nameprefix + "_second = static_cast<" + vType.RenderTypeCabi() + "*>(" + p.ParameterName + ".second);\n"
 
-		qhostaddressKey := false
-		switch kType.RenderTypeQtCpp() {
-		case "QString":
-			preamble += indent + nameprefix + "_QPair.first = QString::fromUtf8(" + nameprefix + "_first->data, " + nameprefix + "_first->len);\n"
-		case "QByteArray":
-			preamble += indent + nameprefix + "_QPair.first = QByteArray::fromRawData(" + nameprefix + "_first->data, " + nameprefix + "_first->len);\n"
-		case "QHostAddress":
-			preamble += indent + nameprefix + "_QPair.first = **" + nameprefix + "_first;\n"
-			qhostaddressKey = true
-		case "QCborValue":
-			preamble += indent + nameprefix + "_QPair.first = **" + nameprefix + "_first;\n"
-		default:
-			preamble += indent + nameprefix + "_QPair.first = *" + nameprefix + "_first;\n"
-		}
+		kType.ParameterName = nameprefix + "_first[0]"
+		addPreK, addFwdK := emitCABI2CppForwarding(kType, indent+"\t", currentClass)
+		preamble += addPreK
 
-		switch vType.RenderTypeQtCpp() {
-		case "QString":
-			preamble += indent + nameprefix + "_QPair.second = QString::fromUtf8(" + nameprefix + "_second->data, " + nameprefix + "_second->len);\n"
-		case "QByteArray":
-			preamble += indent + nameprefix + "_QPair.second = QByteArray::fromRawData(" + nameprefix + "_second->data, " + nameprefix + "_second->len);\n"
-		default:
-			if qhostaddressKey {
-				preamble += indent + nameprefix + "_QPair.second = *" + nameprefix + "_second;\n"
-			} else {
-				preamble += indent + nameprefix + "_QPair.second = **" + nameprefix + "_second;\n"
-			}
-		}
+		vType.ParameterName = nameprefix + "_second[0]"
+		addPreV, addFwdV := emitCABI2CppForwarding(vType, indent+"\t", currentClass)
+		preamble += addPreV
+
+		preamble += indent + nameprefix + "_QPair.first = " + addFwdK + ";\n"
+		preamble += indent + nameprefix + "_QPair.second = " + addFwdV + ";\n"
 
 		return preamble, nameprefix + "_QPair"
 
@@ -692,20 +700,6 @@ func getReferencedTypes(src *CppParsedHeader, zfs *zigFileState) []string {
 				ParameterType: cn.Class.ClassName,
 			})
 		}
-		var inheritedMethods []InheritedMethod
-		seenMethods := make(map[string]struct{})
-		for _, base := range c.DirectInherits {
-			inherited := collectInheritedMethodsForZig(base, seenMethods, zfs)
-			if inherited != nil {
-				inheritedMethods = append(inheritedMethods, inherited...)
-			}
-		}
-		for _, im := range inheritedMethods {
-			for _, p := range im.Method.Parameters {
-				maybeAddType(p)
-			}
-			maybeAddType(im.Method.ReturnType)
-		}
 	}
 
 	// Some types (e.g. QRgb) are found but are typedefs, not classes
@@ -831,33 +825,10 @@ var (
 	}
 
 	noQtConnect = map[string]struct{}{
-		"QAudioDecoder":               {},
-		"QChildEvent":                 {},
-		"QCloseEvent":                 {},
-		"QCompleter":                  {},
-		"QDynamicPropertyChangeEvent": {},
-		"QEnterEvent":                 {},
-		"QEvent":                      {},
-		"QExposeEvent":                {},
-		"QFocusEvent":                 {},
-		"QHoverEvent":                 {},
-		"QIconDragEvent":              {},
-		"QInputEvent":                 {},
-		"QKeyEvent":                   {},
-		"QMouseEvent":                 {},
-		"QMoveEvent":                  {},
-		"QNativeGestureEvent":         {},
-		"QPaintEvent":                 {},
-		"QPlatformSurfaceEvent":       {},
-		"QPointerEvent":               {},
-		"QPrintDialog":                {},
-		"QResizeEvent":                {},
-		"QShowEvent":                  {},
-		"QSinglePointEvent":           {},
-		"QTabletEvent":                {},
-		"QTimerEvent":                 {},
-		"QWheelEvent":                 {},
-		"QsciScintillaBase":           {},
+		"QAudioDecoder":     {},
+		"QCompleter":        {},
+		"QPrintDialog":      {},
+		"QsciScintillaBase": {},
 	}
 
 	nonPolymorphicClasses = map[string]struct{}{
@@ -876,46 +847,8 @@ var (
 		"QVariant":                    {},
 	}
 
-	privateAndSkippedMethods = map[string]struct{}{
-		"QAbstractListModel_HasChildren":     {},
-		"QAbstractListModel_Parent":          {},
-		"QAbstractTableModel_HasChildren":    {},
-		"QAbstractTableModel_Parent":         {},
-		"QHostAddress_IsInSubnetWithSubnet":  {},
-		"QListWidget_SetModel":               {},
-		"QPaintDeviceWindow_PaintEngine":     {},
-		"QPdfLinkModel_ColumnCount":          {},
-		"QPdfLinkModel_HasChildren":          {},
-		"QPdfLinkModel_Parent":               {},
-		"QPdfSearchModel_ColumnCount":        {},
-		"QPdfSearchModel_HasChildren":        {},
-		"QPdfSearchModel_Parent":             {},
-		"QRasterWindow_PaintEngine":          {},
-		"QSaveFile_Close":                    {},
-		"QSinglePointEvent_Clone":            {},
-		"QStringListModel_ColumnCount":       {},
-		"QStringListModel_HasChildren":       {},
-		"QStringListModel_Parent":            {},
-		"QTableWidget_SetModel":              {},
-		"QTreeWidget_SetModel":               {},
-		"QWaveDecoder_ReadData":              {},
-		"QWaveDecoder_WriteData":             {},
-		"QsciScintillaBase_InputMethodQuery": {},
-		"QsciScintilla_InputMethodQuery":     {},
-	}
-
-	skipNoOverride = map[string]struct{}{
-		"QBoxLayout_IndexOfWithQLayoutItem":     {},
-		"QFormLayout_IndexOfWithQLayoutItem":    {},
-		"QGridLayout_IndexOfWithQLayoutItem":    {},
-		"QHBoxLayout_IndexOfWithQLayoutItem":    {},
-		"QRasterWindow_PaintEngine":             {},
-		"QSinglePointEvent_Clone":               {},
-		"QStackedLayout_IndexOfWithQLayoutItem": {},
-		"QVBoxLayout_IndexOfWithQLayoutItem":    {},
-		"QWaveDecoder_ReadData":                 {},
-		"QWaveDecoder_WriteData":                {},
-		"QsciScintillaBase_InputMethodQuery":    {},
+	skippedMethods = map[string]struct{}{
+		"QHostAddress_IsInSubnetWithSubnet": {}, // linker error
 	}
 )
 
@@ -956,11 +889,11 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 			if c.ClassName != "QTest::QTouchEventSequence" {
 				overriddenClassName := "Virtual" + strings.Replace(cppClassName, `::`, ``, -1)
 
-				var publicTypes, privateCallbacks, callbackSetters, baseSetters, privateCallbackVars, privateBaseFlags []string
+				var publicTypes, privateCallbacks, callbackSetters, baseSetters, privateCallbackVars, privateBaseFlags, friendFuncs []string
 
 				className := cppClassName
 				ret.WriteString("// This class is a subclass of " + className + " so that we can call protected methods\n")
-				ret.WriteString("class " + overriddenClassName + " : public " + className + " {\n\n")
+				ret.WriteString("class " + overriddenClassName + " final : public " + className + " {\n\n")
 
 				seenProtectedEnums := map[string]struct{}{}
 				allProtectedEnums := getAllProtectedEnums(&c, seenProtectedEnums)
@@ -976,23 +909,15 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 
 				for _, m := range virtualMethods {
 					var showHiddenParams bool
-					if _, ok := seenMethodVariants[m.SafeMethodName()]; ok {
-						continue
-					}
-					if b, ok := seenMethodVariants[m.MethodName]; ok {
-						if b {
-							continue
-						} else {
-							showHiddenParams = true
-							seenMethodVariants[m.MethodName] = true
-						}
-					}
 					baseName := methodPrefixName + "_" + m.SafeMethodName()
-					if _, ok := privateAndSkippedMethods[baseName]; ok {
+					if _, ok := seenMethodVariants[baseName]; ok {
+						showHiddenParams = true
+					} else {
+						seenMethodVariants[baseName] = false
+					}
+					if _, ok := skippedMethods[baseName]; ok {
 						continue
 					}
-					seenMethodVariants[m.MethodName] = false
-					seenMethodVariants[m.SafeMethodName()] = false
 
 					callbackType := baseName + "_Callback"
 					callbackName := strings.ToLower(callbackType)
@@ -1018,23 +943,31 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 					}
 
 					// Callback types
-					publicTypes = append(publicTypes, "\tusing "+callbackType+" = "+m.ReturnType.RenderTypeQtCpp()+
-						" (*)("+maybeSelf+commaParams+emitCABIParameterTypesCpp(m, showHiddenParams, c.ClassName)+");\n")
+					publicTypes = append(publicTypes, "\tusing "+callbackType+" = "+m.ReturnType.RenderTypeCabi()+
+						" (*)("+maybeSelf+commaParams+emitParameterTypesCabi(m, "")+");\n")
 
 					// Instance callback storage
 					privateCallbacks = append(privateCallbacks, "\t"+callbackType+" "+callbackName+" = nullptr;\n")
-					callbackSetters = append(callbackSetters, "\t"+"void set"+callbackType+"("+callbackType+" cb) { "+callbackName+" = cb; }\n")
-					baseSetters = append(baseSetters, "\t"+"void set"+baseName+"_IsBase(bool value) const { "+isBaseName+" = value; }\n")
+					callbackSetters = append(callbackSetters, "\tinline void set"+callbackType+"("+callbackType+" cb) { "+callbackName+" = cb; }\n")
+					baseSetters = append(baseSetters, "\tinline void set"+baseName+"_IsBase(bool value) const { "+isBaseName+" = value; }\n")
 					privateCallbackVars = append(privateCallbackVars, callbackName)
 
 					// Instance base flags
 					privateBaseFlags = append(privateBaseFlags, "    mutable bool "+isBaseName+" = false;\n")
 
-					seenCallbacks[callbackName] = struct{}{}
+					// Friend functions
+					if m.IsProtected {
+						friendFuncs = append(friendFuncs, "\tfriend "+m.ReturnType.RenderTypeCabi()+" "+className+"_"+m.SafeMethodName()+"("+emitParametersCabi(m, maybeConst+cppClassName+"*")+");\n")
+						friendFuncs = append(friendFuncs, "\tfriend "+m.ReturnType.RenderTypeCabi()+" "+className+"_QBase"+m.SafeMethodName()+"("+emitParametersCabi(m, maybeConst+cppClassName+"*")+");\n")
+					}
+
+					seenCallbacks[callbackType] = struct{}{}
 				}
 
 				// Virtual method public types
-				ret.WriteString("public:\n\t// Virtual class public types (including callbacks)\n" + strings.Join(publicTypes, "") + "\n")
+				ret.WriteString("public:\n\t// Virtual class boolean flag\n")
+				ret.WriteString("\tbool is" + overriddenClassName + "= true;\n\n")
+				ret.WriteString("\t// Virtual class public types (including callbacks)\n" + strings.Join(publicTypes, "") + "\n")
 
 				// Virtual method protected types
 				ret.WriteString("protected:\n\t// Instance callback storage\n" + strings.Join(privateCallbacks, "") +
@@ -1069,23 +1002,20 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 				ret.WriteString("// Base flag setters\n" + strings.Join(baseSetters, "") + "\n")
 
 				seenVirtuals := map[string]bool{}
+
 				for _, m := range virtualMethods {
 					var showHiddenParams bool
-					if _, ok := seenVirtuals[m.SafeMethodName()]; ok {
+					baseName := methodPrefixName + "_" + m.SafeMethodName()
+					if _, ok := seenVirtuals[baseName]; ok {
 						continue
 					}
-					if b, ok := seenVirtuals[m.MethodName]; ok {
-						if b {
-							continue
-						} else {
-							showHiddenParams = true
-							seenVirtuals[m.MethodName] = true
-						}
+					if _, ok := seenVirtuals[baseName]; ok {
+						showHiddenParams = true
+					} else {
+						seenVirtuals[baseName] = false
 					}
-					seenVirtuals[m.MethodName] = false
-					seenVirtuals[m.SafeMethodName()] = false
 
-					if _, ok := privateAndSkippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
+					if _, ok := skippedMethods[baseName]; ok {
 						continue
 					}
 
@@ -1093,7 +1023,15 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 					maybeOverride := ifv(m.IsVirtual, "override ", "")
 					maybeVirtual := ifv(m.IsVirtual, "virtual ", "")
 
-					// hack
+					var maybeReturn2, retTransformP, retTransformF string
+					if !m.ReturnType.Void() {
+						maybeReturn2 = m.ReturnType.RenderTypeCabi() + " callback_ret = "
+						returnParam := m.ReturnType // copy
+						returnParam.ParameterName = "callback_ret"
+						retTransformP, retTransformF = emitCABI2CppForwarding(returnParam, "\t\t", cppClassName)
+					}
+
+					// fixes for QsciLexerAsm
 					if methodPrefixName == "QsciLexerAsm" {
 						maybeOverride = "override "
 					}
@@ -1101,23 +1039,11 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 						maybeOverride = ""
 					}
 
-					if (filename == "qabstractitemmodel.h" || filename == "qstringlistmodel.h") && (m.IsVirtual || !m.IsProtected) {
-						maybeOverride = "override "
-					}
-
+					var customCallback, maybeElse, maybeThis, signalCode string
 					maybeParams := emitParameterNames(m, showHiddenParams)
 					maybeFunc := emitParametersCpp(m, showHiddenParams)
-
-					var commaParams, customCallback, maybeElse, maybeThis string
-					if len(m.Parameters) > 0 {
-						commaParams = ", "
-					}
-					if showHiddenParams && (len(m.Parameters) > 0 || len(m.HiddenParams) > 0) {
-						commaParams = ", "
-					}
 					indent := "\t\t"
 					methodExec := maybeReturn + methodPrefixName + "::" + m.CppCallTarget() + "(" + maybeParams + ");"
-					baseName := methodPrefixName + "_" + m.SafeMethodName()
 					callbackName := strings.ToLower(baseName) + "_callback"
 					isBaseName := strings.ToLower(baseName) + "_isbase"
 
@@ -1129,6 +1055,25 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 						maybeThis = "this"
 					}
 
+					paramArgs := []string{}
+					if maybeThis != "" {
+						paramArgs = append(paramArgs, maybeThis)
+					}
+
+					for i, p := range m.Parameters {
+						signalCode += emitAssignCppToCabi(fmt.Sprintf("\t\t%s cbval%d = ", p.RenderTypeCabi(), i+1), p, p.cParameterName())
+						paramArgs = append(paramArgs, fmt.Sprintf("cbval%d", i+1))
+					}
+
+					retString := ifv(len(signalCode) > 0, signalCode+"\n", "")
+					if m.ReturnType.QtClassType() && !m.ReturnType.Pointer && m.ReturnType.ParameterType != "QString" && m.ReturnType.ParameterType != "QByteArray" {
+						retString += maybeReturn2 + callbackName + "(" + strings.Join(paramArgs, ", ") + ");\n"
+						retString += "return *callback_ret;\n"
+					} else {
+						retString += maybeReturn2 + callbackName + "(" + strings.Join(paramArgs, ", ") + ");\n"
+						retString += retTransformP + ifv(m.ReturnType.Void(), "", "return "+retTransformF+";\n")
+					}
+
 					if !m.IsPureVirtual && !m.IsPrivate {
 						customCallback += indent + "if (" + isBaseName + ") {\n"
 						customCallback += indent + "\t" + isBaseName + " = false;\n"
@@ -1136,20 +1081,32 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 						customCallback += indent + "}"
 						maybeElse = "else "
 					}
+
 					if m.IsPureVirtual || m.IsPrivate {
-						customCallback += indent + "\t" + maybeReturn + callbackName + "(" + maybeThis + commaParams + maybeParams + ");\n"
+						customCallback += indent + "if (" + callbackName + " != nullptr) {\n"
+						customCallback += indent + "\t" + retString
+						if !m.ReturnType.Void() {
+							customCallback += indent + "} else {\n"
+							customCallback += indent + "\t" + maybeReturn + "{};\n"
+						}
+						customCallback += indent + "}\n"
 					} else {
 						customCallback += indent + maybeElse + "if (" + callbackName + " != nullptr) {\n"
-						customCallback += indent + "\t" + maybeReturn + callbackName + "(" + maybeThis + commaParams + maybeParams + ");\n"
+						customCallback += indent + "\t" + retString
 						customCallback += indent + "} else {\n"
 						customCallback += indent + "\t" + methodExec + "\n"
 						customCallback += indent + "}\n"
 					}
 
 					maybeConst := ifv(m.IsConst, "const ", "")
+
 					ret.WriteString("\n\t// Virtual method for C ABI access and custom callback\n" +
 						"\t" + maybeVirtual + m.ReturnType.RenderTypeQtCpp() + " " + m.CppCallTarget() + "(" + maybeFunc + ") " +
 						maybeConst + maybeOverride + "{\n" + customCallback + "\t}\n")
+				}
+
+				if len(friendFuncs) > 0 {
+					ret.WriteString("\n\t// Friend functions\n" + strings.Join(friendFuncs, ""))
 				}
 
 				ret.WriteString("};\n\n")
@@ -1428,65 +1385,6 @@ extern "C" {
 		if virtualEligible && len(virtualMethods) > 0 {
 			virtualMethods = append(virtualMethods, protectedMethods...)
 		}
-		seenInheritedMethods := make(map[string]struct{})
-
-		// Collect inherited methods from parent classes
-		var inheritedMethods []InheritedMethod
-
-		for _, base := range c.DirectInherits {
-			inherited := collectInheritedMethodsForZig(base, seenInheritedMethods, &zfs)
-
-			for _, im := range inherited {
-				if !im.Method.IsVirtual {
-					continue
-				}
-				inheritedMethods = append(inheritedMethods, im)
-			}
-		}
-
-		// Add inherited methods to baseMethods
-		for _, im := range inheritedMethods {
-			if im.SourceClass == "QObject" && (c.ClassName == "QNetworkInformation" || c.ClassName == "QSessionManager" ||
-				c.ClassName == "QScroller" || c.ClassName == "QInputMethod" || c.ClassName == "QWebEngineHistoryModel" ||
-				c.ClassName == "QWebEngineHistory" || c.ClassName == "QClipboard") {
-				continue
-			}
-			if im.SourceClass == "QAbstractItemModel" && c.ClassName == "QAbstractListModel" {
-				continue
-			}
-			if im.SourceClass == "QAbstractListModel" && c.ClassName == "QWebEngineHistoryModel" {
-				continue
-			}
-			if im.SourceClass == "QAbstractItemModel" && c.ClassName == "QWebEngineHistoryModel" {
-				continue
-			}
-			if im.SourceClass == "QStyle" && (c.ClassName == "QCommonStyle" || c.ClassName == "QProxyStyle") && strings.Contains(im.Method.MethodName, "olish") {
-				continue
-			}
-			if im.SourceClass == "QCommonStyle" && c.ClassName == "QProxyStyle" && strings.Contains(im.Method.MethodName, "olish") {
-				continue
-			}
-			if im.SourceClass == "QFile" && c.ClassName == "QTemporaryFile" && strings.Contains(im.Method.MethodName, "open") {
-				continue
-			}
-			if im.SourceClass == "QLayout" && (c.ClassName == "QFormLayout" || c.ClassName == "QGridLayout" || c.ClassName == "QGraphicsGridLayout") && strings.Contains(im.Method.MethodName, "itemAt") {
-				continue
-			}
-			if im.SourceClass == "QLayout" && c.ClassName == "QGridLayout" && strings.Contains(im.Method.MethodName, "addItem") {
-				continue
-			}
-			if im.SourceClass == "QGraphicsLayout" && c.ClassName == "QGraphicsGridLayout" && strings.Contains(im.Method.MethodName, "itemAt") {
-				continue
-			}
-			if im.SourceClass == "QAbstractFileIconProvider" && c.ClassName == "QFileIconProvider" && strings.Contains(im.Method.MethodName, "con") {
-				continue
-			}
-			if !virtualEligible && (im.Method.IsProtected || im.Method.IsPrivate) {
-				continue
-			}
-			im.Method.InheritedFrom = im.SourceClass
-			baseMethods = append(baseMethods, im.Method)
-		}
 
 		seenVirtualsMap := map[string]struct{}{}
 		for _, m := range c.Methods {
@@ -1529,7 +1427,7 @@ extern "C" {
 			if m.IsProtected && !m.IsVirtual {
 				continue
 			}
-			if _, ok := privateAndSkippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+			if _, ok := skippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
 			if (m.IsProtected || m.IsPrivate) && (!virtualEligible || len(virtualMethods) == 0) {
@@ -1579,10 +1477,6 @@ extern "C" {
 				continue
 			}
 
-			if _, ok := skipNoOverride[methodPrefixName+"_"+m.SafeMethodName()]; ok {
-				continue
-			}
-
 			if !AllowVirtual(m) {
 				continue
 			}
@@ -1601,7 +1495,7 @@ extern "C" {
 			if c.ClassName == "QTest::QTouchEventSequence" || !virtualEligible {
 				continue
 			}
-			if _, ok := privateAndSkippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
+			if _, ok := skippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
 			if _, exists := seenClassMethods[methodPrefixName+"_"+m.SafeMethodName()]; !exists {
@@ -1619,6 +1513,10 @@ extern "C" {
 			ret.WriteString("void " + methodPrefixName + "_On" + m.SafeMethodName() + "(" + maybeConst + methodPrefixName + "* self, intptr_t slot);\n")
 			ret.WriteString(m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_QBase" + m.SafeMethodName() + "(" +
 				emitParametersCabi(m, maybeConst+cppClassName) + ");\n")
+		}
+
+		for _, m := range c.PrivateSignals {
+			ret.WriteString(fmt.Sprintf("%s %s_Connect_%s(%s* self, intptr_t slot);\n", m.ReturnType.RenderTypeCabi(), methodPrefixName, m.SafeMethodName(), methodPrefixName))
 		}
 
 		// delete
@@ -1691,8 +1589,6 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 		cppClassName := strings.Replace(c.ClassName, `::`, ``, -1)
 		virtualEligible := AllowVirtualForClass(c.ClassName)
 
-		seenInheritedMethods := make(map[string]struct{})
-
 		// Add protected methods first
 		if virtualEligible && len(virtualMethods) > 0 {
 			virtualMethods = append(virtualMethods, protectedMethods...)
@@ -1704,63 +1600,6 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 				continue
 			}
 			allVirtualsMap[c.ClassName+"_"+m.SafeMethodName()] = struct{}{}
-		}
-
-		// Collect inherited methods from parent classes
-		var inheritedMethods []InheritedMethod
-
-		for _, base := range c.DirectInherits {
-			inherited := collectInheritedMethodsForZig(base, seenInheritedMethods, &zfs)
-			for _, im := range inherited {
-				if !im.Method.IsVirtual {
-					continue
-				}
-				inheritedMethods = append(inheritedMethods, im)
-			}
-		}
-
-		// Add inherited methods to baseMethods
-		for _, im := range inheritedMethods {
-			if im.SourceClass == "QObject" && (c.ClassName == "QNetworkInformation" || c.ClassName == "QSessionManager" ||
-				c.ClassName == "QScroller" || c.ClassName == "QInputMethod" || c.ClassName == "QWebEngineHistoryModel" ||
-				c.ClassName == "QWebEngineHistory" || c.ClassName == "QClipboard") {
-				continue
-			}
-			if im.SourceClass == "QAbstractItemModel" && c.ClassName == "QAbstractListModel" {
-				continue
-			}
-			if im.SourceClass == "QAbstractListModel" && c.ClassName == "QWebEngineHistoryModel" {
-				continue
-			}
-			if im.SourceClass == "QAbstractItemModel" && c.ClassName == "QWebEngineHistoryModel" {
-				continue
-			}
-			if im.SourceClass == "QStyle" && (c.ClassName == "QCommonStyle" || c.ClassName == "QProxyStyle") && strings.Contains(im.Method.MethodName, "olish") {
-				continue
-			}
-			if im.SourceClass == "QCommonStyle" && c.ClassName == "QProxyStyle" && strings.Contains(im.Method.MethodName, "olish") {
-				continue
-			}
-			if im.SourceClass == "QFile" && c.ClassName == "QTemporaryFile" && strings.Contains(im.Method.MethodName, "open") {
-				continue
-			}
-			if im.SourceClass == "QLayout" && (c.ClassName == "QFormLayout" || c.ClassName == "QGridLayout" || c.ClassName == "QGraphicsGridLayout") && strings.Contains(im.Method.MethodName, "itemAt") {
-				continue
-			}
-			if im.SourceClass == "QLayout" && c.ClassName == "QGridLayout" && strings.Contains(im.Method.MethodName, "addItem") {
-				continue
-			}
-			if im.SourceClass == "QGraphicsLayout" && c.ClassName == "QGraphicsGridLayout" && strings.Contains(im.Method.MethodName, "itemAt") {
-				continue
-			}
-			if im.SourceClass == "QAbstractFileIconProvider" && c.ClassName == "QFileIconProvider" && strings.Contains(im.Method.MethodName, "con") {
-				continue
-			}
-			if !virtualEligible && (im.Method.IsProtected || im.Method.IsPrivate) {
-				continue
-			}
-			im.Method.InheritedFrom = im.SourceClass
-			baseMethods = append(baseMethods, im.Method)
 		}
 
 		seenVirtualsMap := map[string]struct{}{}
@@ -1860,30 +1699,23 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 			if m.IsProtected && !m.IsVirtual {
 				continue
 			}
-			if _, ok := allVirtualsMap[c.ClassName+"_"+m.SafeMethodName()]; ok {
+			mSafeMethodName := m.SafeMethodName()
+			baseName := c.ClassName + "_" + mSafeMethodName
+			if _, ok := allVirtualsMap[baseName]; ok {
 				continue
 			}
-			if _, ok := privateAndSkippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+			if _, ok := skippedMethods[baseName]; ok {
 				continue
 			}
 			if (m.IsProtected || m.IsPrivate) && (!virtualEligible || len(virtualMethods) == 0) {
 				continue
 			}
 			var showHiddenParams bool
-			if _, ok := seenMethodVariants[m.SafeMethodName()]; ok {
-				continue
+			if _, ok := seenMethodVariants[baseName]; ok {
+				showHiddenParams = true
+			} else {
+				seenMethodVariants[baseName] = false
 			}
-			if b, ok := seenMethodVariants[m.MethodName]; ok {
-				if b {
-					continue
-				} else {
-					showHiddenParams = true
-					seenMethodVariants[m.MethodName] = true
-				}
-			}
-			seenMethodVariants[m.MethodName] = false
-			seenMethodVariants[m.SafeMethodName()] = false
-
 			preamble, forwarding := emitParametersCABI2CppForwarding(m.Parameters, "\t", c.ClassName)
 
 			// Need to take an extra 'self' parameter
@@ -1997,7 +1829,7 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 						goto writeString
 					}
 
-					virtualCallTarget = ifv(m.IsPrivate || m.IsProtected, vVar+"->", "self->")
+					virtualCallTarget = ifv(m.IsPrivate || m.IsProtected, vVar+"->", "((Virtual"+cppClassName+"*)self)->")
 					vVarTarget = vVar + "->" + m.CppCallTarget() + "(" + forwarding + ")"
 					virtualCallTarget += m.CppCallTarget() + "(" + forwarding + ")"
 					maybeElse = "\t} else {\n\t\t"
@@ -2010,7 +1842,8 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 						returnCallTarget = vVarTarget
 						emptyReturn = ifv(!m.ReturnType.Void(), "return {};\n", "")
 					}
-					virtualStart = "if (auto* " + vVar + " = dynamic_cast<" + maybeConst + "Virtual" + c.ClassName + "*>(self)) {"
+					virtualStart = "auto* " + vVar + " = dynamic_cast<" + maybeConst + "Virtual" + c.ClassName + "*>(self);\n"
+					virtualStart += "if (" + vVar + " && " + vVar + "->isVirtual" + c.ClassName + ") {\n"
 					virtualClose = maybeElse + baseClose + "}\n"
 				}
 
@@ -2021,9 +1854,6 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 					virtualClose + emptyReturn + "}\n\n")
 
 				if !virtualEligible {
-					goto ToSignal
-				}
-				if _, ok := skipNoOverride[methodPrefixName+"_"+m.SafeMethodName()]; ok {
 					goto ToSignal
 				}
 				if !AllowVirtual(m) {
@@ -2040,7 +1870,8 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 
 					ret.WriteString("// Subclass method to allow providing a virtual method re-implementation\n")
 					ret.WriteString("void " + methodPrefixName + "_On" + m.SafeMethodName() + "(" + maybeConst + methodPrefixName + "* self, intptr_t slot) {\n\t" +
-						"	if (auto* " + vVar + " = " + maybeConstCast + "dynamic_cast<" + maybeConst + "Virtual" + c.ClassName + "*>(self))" + closeConstCast + " {\n\t\t" +
+						"  auto* " + vVar + " = " + maybeConstCast + "dynamic_cast<" + maybeConst + "Virtual" + c.ClassName + "*>(self)" + closeConstCast + ";\n" +
+						"  if ( " + vVar + " && " + vVar + "->isVirtual" + c.ClassName + ") {\n" +
 						vVar + "->set" + callbackName + "(reinterpret_cast<Virtual" + c.ClassName + "::" + callbackName + ">(slot));\n\t}\n}\n\n")
 
 					ret.WriteString("// Virtual base class handler implementation\n")
@@ -2068,8 +1899,8 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 				paramArgs := []string{"slot"}
 				paramArgDefs := []string{"intptr_t cb"}
 
-				var signalCode, sigCode string
-				var bindingParams, sigParams, slotParams []string
+				var signalCode, sigCode, sigRet string
+				var bindingParams, sigParams []string
 
 				for i, p := range m.Parameters {
 					signalCode += emitAssignCppToCabi(fmt.Sprintf("\t\t%s sigval%d = ", p.RenderTypeCabi(), i+1), p, p.ParameterName)
@@ -2078,39 +1909,22 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 					paramArgs = append(paramArgs, fmt.Sprintf("sigval%d", i+1))
 					paramArgDefs = append(paramArgDefs, p.RenderTypeCabi()+" "+p.ParameterName)
 					bindingParams = append(bindingParams, fmt.Sprintf("sigval%d", i+1))
-					if !p.QtClassType() {
-						slotParams = append(slotParams, p.ParameterName)
-					} else if p.QtClassType() && p.ByRef {
-						if p.Const {
-							slotParams = append(slotParams, "const_cast<"+p.RenderTypeCabi()+">(&"+p.ParameterName+")")
-						}
-					}
 				}
 
-				if len(bindingParams) == 1 {
-					bindingFunc += ", " + bindingParams[0]
-				} else if len(bindingParams) > 1 {
-					for _, p := range bindingParams {
-						bindingFunc += ", " + p
-					}
+				if len(bindingParams) > 0 {
+					bindingFunc += ", " + strings.Join(bindingParams, ", ")
 				}
-				var sigRet, slotRet string
-				for _, p := range sigParams {
-					sigRet += ", " + p
-				}
-				for _, p := range slotParams {
-					slotRet += ", " + p
+				if len(sigParams) > 0 {
+					sigRet += ", " + strings.Join(sigParams, ", ")
 				}
 
 				signalCode += "\t" + bindingFunc + ");\n\t});\n"
 
 				ret.WriteString(
-					`void ` + methodPrefixName + `_Connect_` + m.SafeMethodName() + `(` + methodPrefixName + `* self, intptr_t slot) {` + "\n" +
+					"void " + methodPrefixName + "_Connect_" + m.SafeMethodName() + "(" + methodPrefixName + "* self, intptr_t slot) {\n" +
 						"\tvoid (*slotFunc)(" + cppClassName + "*" + sigRet + ") = reinterpret_cast<void (*)(" + cppClassName + "*" + sigRet + ")>(slot);\n" +
-						"\t" + cppClassName + "::connect(self, &" + c.ClassName + `::` + m.CppCallTarget() + ", [self, slotFunc](" + emitParametersCpp(m, showHiddenParams) + ") {\n" +
-						signalCode +
-						"}\n" +
-						"\n",
+						"\t" + cppClassName + "::connect(self, &" + c.ClassName + "::" + m.CppCallTarget() + ", [self, slotFunc](" + emitParametersCpp(m, showHiddenParams) + ") {\n" +
+						signalCode + "}\n\n",
 				)
 			}
 		}
@@ -2134,7 +1948,7 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 				continue
 			}
 
-			if _, ok := privateAndSkippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
+			if _, ok := skippedMethods[methodPrefixName+"_"+m.SafeMethodName()]; ok {
 				continue
 			}
 
@@ -2156,7 +1970,7 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 					maybeConst = "const "
 				}
 				vVar = "v" + strings.ToLower(cppClassName)
-				virtualTarget = maybeConstCast + "dynamic_cast<" + maybeConst + maybeVirtual + cppClassName + "*>(self))" + closeConstCast + " {"
+				virtualTarget = maybeConstCast + "dynamic_cast<" + maybeConst + maybeVirtual + cppClassName + "*>(self)" + closeConstCast
 			}
 
 			baseName := methodPrefixName + "_" + m.SafeMethodName()
@@ -2171,7 +1985,7 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 				// 2. Create a new heap instance from that temporary
 				// The exceptions are QString and QByteArray.
 				var emptyReturn string
-				maybeSelf := ifv(m.IsPrivate || m.IsProtected, vVar+"->", "self->")
+				maybeSelf := ifv(m.IsPrivate || m.IsProtected, vVar+"->", "((Virtual"+cppClassName+"*)self)->")
 				maybeElse := "\t} else {\nreturn new " + m.ReturnType.RenderTypeQtCpp() + "(" + maybeSelf + vbCallTarget + ");\n}"
 
 				// private hack/workaround
@@ -2183,7 +1997,8 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 				ret.WriteString(
 					m.ReturnType.RenderTypeCabi() + " " + baseName + "(" +
 						emitParametersCabi(m, maybeConst+cppClassName+"*") + ") {" +
-						vbpreamble + "\t" + "if (auto* " + vVar + " = " + virtualTarget + "\n" +
+						"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
+						vbpreamble + "\tif (" + vVar + " && " + vVar + "->isVirtual" + methodPrefixName + ") {\n" +
 						"\t\treturn new " + m.ReturnType.RenderTypeQtCpp() + "(" + vVar + "->" + vbCallTarget + ");\n" +
 						maybeElse + emptyReturn + "\n}\n\n")
 
@@ -2192,7 +2007,8 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 				ret.WriteString(
 					m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_QBase" + m.SafeMethodName() + "(" +
 						emitParametersCabi(m, maybeConst+cppClassName+"*") + ") {" +
-						vbpreamble + "\tif (auto* " + vVar + " = " + virtualTarget + "\n" +
+						"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
+						vbpreamble + "\tif (" + vVar + " && " + vVar + "->isVirtual" + methodPrefixName + ") {\n" +
 						vVar + "->set" + isBaseName + "(true);\n" +
 						"\t\treturn new " + m.ReturnType.RenderTypeQtCpp() + "(" + vVar + "->" + vbCallTarget + ");\n" +
 						maybeElse + emptyReturn + "\n}\n\n")
@@ -2203,25 +2019,71 @@ func emitBindingCpp(src *CppParsedHeader, filename, packageName string) (string,
 					continue
 				}
 
+				var elseReturn string
 				virtualReturn := emitAssignCppToCabi("\treturn ", m.ReturnType, vVar+"->"+vbCallTarget)
+
+				if m.IsPrivate || m.IsProtected || m.IsPureVirtual || strings.HasPrefix(cppClassName, "QsciLexer") {
+					elseReturn = emitAssignCppToCabi("\treturn ", m.ReturnType, "((Virtual"+cppClassName+"*)self)->"+vbCallTarget)
+				} else {
+					elseReturn = emitAssignCppToCabi("\treturn ", m.ReturnType, "self->"+cppClassName+"::"+vbCallTarget)
+				}
+
 				ret.WriteString(m.ReturnType.RenderTypeCabi() + " " + baseName +
 					"(" + emitParametersCabi(m, maybeConst+cppClassName+"*") + ") {" +
-					vbpreamble + "\tif (auto* " + vVar + " = " + virtualTarget + "\n" +
-					virtualReturn + "\t} else {\n" + virtualReturn + "\n}\n}\n\n")
+					"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
+					vbpreamble + "\tif (" + vVar + " && " + vVar + "->isVirtual" + methodPrefixName + ") {\n" +
+					virtualReturn + "\t} else {\n" + elseReturn + "\n}\n}\n\n")
 
 				ret.WriteString("// Base class handler implementation\n")
 				ret.WriteString(m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_QBase" + m.SafeMethodName() +
 					"(" + emitParametersCabi(m, maybeConst+cppClassName+"*") + ") {" +
-					vbpreamble + "\tif (auto* " + vVar + " = " + virtualTarget + "\n" +
+					"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
+					vbpreamble + "\tif (" + vVar + " && " + vVar + "->isVirtual" + methodPrefixName + ") {\n" +
 					vVar + "->set" + isBaseName + "(true);\n" +
-					virtualReturn + "\t} else {\n" + virtualReturn + "\n}\n}\n\n")
+					virtualReturn + "\t} else {\n" + elseReturn + "\n}\n}\n\n")
 			}
 
 			callbackName := baseName + "_Callback"
 			ret.WriteString("// Auxiliary method to allow providing re-implementation\n")
 			ret.WriteString("void " + methodPrefixName + "_On" + m.SafeMethodName() + "(" + maybeConst + methodPrefixName + "* self, intptr_t slot) {\n" +
-				"\tif (auto* " + vVar + " = " + virtualTarget + "\n" +
+				"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
+				"\tif (" + vVar + " && " + vVar + "->isVirtual" + methodPrefixName + ") {\n" +
 				vVar + "->set" + callbackName + "(reinterpret_cast<Virtual" + c.ClassName + "::" + callbackName + ">(slot));\n}\n}\n\n")
+		}
+
+		for _, m := range c.PrivateSignals {
+			signalTarget := "slotFunc(self"
+			bindingFunc := "\t" + ifv(m.ReturnType.Void(), "", "return ") + signalTarget
+			paramArgs := []string{"slot"}
+			paramArgDefs := []string{"intptr_t cb"}
+
+			var signalCode, sigCode, sigRet string
+			var bindingParams, sigParams []string
+
+			for i, p := range m.Parameters {
+				signalCode += emitAssignCppToCabi(fmt.Sprintf("\t\t%s sigval%d = ", p.RenderTypeCabi(), i+1), p, p.ParameterName)
+				sigCode += p.RenderTypeCabi()
+				sigParams = append(sigParams, p.RenderTypeCabi())
+				paramArgs = append(paramArgs, fmt.Sprintf("sigval%d", i+1))
+				paramArgDefs = append(paramArgDefs, p.RenderTypeCabi()+" "+p.ParameterName)
+				bindingParams = append(bindingParams, fmt.Sprintf("sigval%d", i+1))
+			}
+
+			if len(bindingParams) > 0 {
+				bindingFunc += ", " + strings.Join(bindingParams, ", ")
+			}
+			if len(sigParams) > 0 {
+				sigRet += ", " + strings.Join(sigParams, ", ")
+			}
+
+			signalCode += "\t" + bindingFunc + ");\n\t});\n"
+
+			ret.WriteString(
+				"void " + methodPrefixName + "_Connect_" + m.SafeMethodName() + "(" + methodPrefixName + "* self, intptr_t slot) {\n" +
+					"\tvoid (*slotFunc)(" + cppClassName + "*" + sigRet + ") = reinterpret_cast<void (*)(" + cppClassName + "*" + sigRet + ")>(slot);\n" +
+					"\t" + cppClassName + "::connect(self, &" + c.ClassName + "::" + m.CppCallTarget() + ", [self, slotFunc](" + emitParametersCpp(m, false) + ") {\n" +
+					signalCode + "}\n\n",
+			)
 		}
 
 		// Delete
