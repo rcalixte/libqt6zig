@@ -156,12 +156,20 @@ pub fn build(b: *std.Build) !void {
     options.addOption(bool, "skip_restricted", skip_restricted);
     libqt6zig.addOptions("build_options", options);
 
-    // Add the module that provides the Qt bindings for the internal library
-    const qt_bindings = b.createModule(.{
+    // Add the modules that provide the Qt bindings and typedefs for the internal library
+    const qtc_bindings = b.createModule(.{
         .root_source_file = translate_c.getOutput(),
     });
 
-    libqt6zig.addImport("qt6c", qt_bindings);
+    const qtzig_types = b.createModule(.{
+        .root_source_file = b.path("include/libqtc.zig"),
+    });
+
+    qtzig_types.addImport("qt6c", qtc_bindings);
+
+    libqt6zig.addImport("qt6c", qtc_bindings);
+    libqt6zig.addImport("qt6zig", qtzig_types);
+    libqt6zig.addImport("qtzig", qtzig_types);
 
     b.modules.put("libqt6zig", libqt6zig) catch {};
 }
