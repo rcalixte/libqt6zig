@@ -24,11 +24,9 @@ func (p CppParameter) cParameterName() string {
 }
 
 func (p CppParameter) RenderTypeCabi() string {
-	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" {
+	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
+		p.ParameterType == "QAnyStringView" {
 		return "libqt_string"
-
-	} else if p.ParameterType == "QAnyStringView" {
-		return "char*"
 
 	} else if p.ParameterType == "QStringList" {
 		return "libqt_list /* of libqt_string */"
@@ -273,7 +271,8 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 		return preamble, nameprefix + "_" + p.ParameterType
 
 	} else if p.ParameterType == "QAnyStringView" {
-		return preamble, p.ParameterType + "(" + nameprefix + ")"
+		preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
+		return preamble, p.ParameterType + "(" + nameprefix + "_QString)"
 
 	} else if listType, ok := p.QListOf(); ok {
 
@@ -450,9 +449,9 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		afterCall += indent + "libqt_string " + namePrefix + "_str;\n"
 		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_b.length();\n"
-		afterCall += indent + namePrefix + "_str.data = static_cast<char*>(malloc((" + namePrefix + "_str.len + 1) * sizeof(char)));\n"
-		afterCall += indent + "memcpy(" + namePrefix + "_str.data, " + namePrefix + "_b.data(), " + namePrefix + "_str.len);\n"
-		afterCall += indent + namePrefix + "_str.data[" + namePrefix + "_str.len] = '\\0';\n"
+		afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc((" + namePrefix + "_str.len + 1) * sizeof(char)));\n"
+		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_b.data(), " + namePrefix + "_str.len);\n"
+		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + "_str.len] = '\\0';\n"
 		afterCall += indent + assignExpression + namePrefix + "_str;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
@@ -465,9 +464,9 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 
 		afterCall += indent + "libqt_string " + namePrefix + "_str;\n"
 		afterCall += indent + namePrefix + "_str.len = " + namePrefix + "_qb.length();\n"
-		afterCall += indent + namePrefix + "_str.data = static_cast<char*>(malloc((" + namePrefix + "_str.len + 1) * sizeof(char)));\n"
-		afterCall += indent + "memcpy(" + namePrefix + "_str.data, " + namePrefix + "_qb.data(), " + namePrefix + "_str.len);\n"
-		afterCall += indent + namePrefix + "_str.data[" + namePrefix + "_str.len] = '\\0';\n"
+		afterCall += indent + namePrefix + "_str.data = static_cast<const char*>(malloc((" + namePrefix + "_str.len + 1) * sizeof(char)));\n"
+		afterCall += indent + "memcpy((void*)" + namePrefix + "_str.data, " + namePrefix + "_qb.data(), " + namePrefix + "_str.len);\n"
+		afterCall += indent + "((char*)" + namePrefix + "_str.data)[" + namePrefix + "_str.len] = '\\0';\n"
 		afterCall += indent + assignExpression + namePrefix + "_str;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
@@ -483,9 +482,9 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + "for (size_t i = 0; i < " + namePrefix + "_ret.length(); ++i) {\n"
 		afterCall += indent + "\tQByteArray " + namePrefix + "_b = " + namePrefix + "_ret[i].toUtf8();\n"
 		afterCall += indent + "\t" + namePrefix + "_arr[i].len = " + namePrefix + "_b.length();\n"
-		afterCall += indent + "\t" + namePrefix + "_arr[i].data = static_cast<char*>(malloc((" + namePrefix + "_arr[i].len + 1) * sizeof(char)));\n"
-		afterCall += indent + "\tmemcpy(" + namePrefix + "_arr[i].data, " + namePrefix + "_b.data(), " + namePrefix + "_arr[i].len);\n"
-		afterCall += indent + namePrefix + "_arr[i].data[" + namePrefix + "_arr[i].len] = '\\0';\n"
+		afterCall += indent + "\t" + namePrefix + "_arr[i].data = static_cast<const char*>(malloc((" + namePrefix + "_arr[i].len + 1) * sizeof(char)));\n"
+		afterCall += indent + "\tmemcpy((void*)" + namePrefix + "_arr[i].data, " + namePrefix + "_b.data(), " + namePrefix + "_arr[i].len);\n"
+		afterCall += indent + "((char*)" + namePrefix + "_arr[i].data)[" + namePrefix + "_arr[i].len] = '\\0';\n"
 		afterCall += indent + "}\n"
 		afterCall += indent + "libqt_list " + namePrefix + "_out;\n"
 		afterCall += indent + "" + namePrefix + "_out.len = " + namePrefix + "_ret.length();\n"
@@ -1157,7 +1156,9 @@ extern "C" {
 		ret.WriteString("// Based on the macro from Qt (LGPLv3), see https://www.qt.io/qt-licensing/\n" +
 			"// Macro is trivial and used here under fair use\n" +
 			"// Usage does not imply derivation\n" +
-			"#define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))\n\n")
+			"#ifndef QT_VERSION_CHECK\n" +
+			"#define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))\n" +
+			"#endif\n\n")
 	}
 
 	zfs := zigFileState{
