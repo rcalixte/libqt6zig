@@ -29,7 +29,7 @@ typedef struct libqt_pair libqt_pair;
 // QString
 struct libqt_string {
     size_t len;
-    char* data;
+    const char* data;
 };
 
 // QAnyStringView, QByteArrayView, and similar view types
@@ -64,14 +64,14 @@ struct libqt_pair {
 };
 
 // Generic function to free Qt-allocated memory
-static inline void libqt_free(void* ptr) { free(ptr); }
+static inline void libqt_free(const void* ptr) { free((void*)ptr); }
 
 // Helper functions for common cases
-static inline void libqt_string_free(libqt_string* str) {
+static inline void libqt_string_free(const libqt_string* str) {
     if (str && str->data) {
-        libqt_free(str->data);
-        str->data = NULL;
-        str->len = 0;
+        free((void*)str->data);
+        *(const char**)&str->data = NULL;
+        *(size_t*)&str->len = 0;
     }
 }
 
