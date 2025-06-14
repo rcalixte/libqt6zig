@@ -66,16 +66,16 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetwork
         QByteArray _lv_first_qb = _lv_ret.first;
         libqt_string _lv_first_str;
         _lv_first_str.len = _lv_first_qb.length();
-        _lv_first_str.data = static_cast<char*>(malloc((_lv_first_str.len + 1) * sizeof(char)));
-        memcpy(_lv_first_str.data, _lv_first_qb.data(), _lv_first_str.len);
-        _lv_first_str.data[_lv_first_str.len] = '\0';
+        _lv_first_str.data = static_cast<const char*>(malloc((_lv_first_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_first_str.data, _lv_first_qb.data(), _lv_first_str.len);
+        ((char*)_lv_first_str.data)[_lv_first_str.len] = '\0';
         *_lv_first = _lv_first_str;
         QByteArray _lv_second_qb = _lv_ret.second;
         libqt_string _lv_second_str;
         _lv_second_str.len = _lv_second_qb.length();
-        _lv_second_str.data = static_cast<char*>(malloc((_lv_second_str.len + 1) * sizeof(char)));
-        memcpy(_lv_second_str.data, _lv_second_qb.data(), _lv_second_str.len);
-        _lv_second_str.data[_lv_second_str.len] = '\0';
+        _lv_second_str.data = static_cast<const char*>(malloc((_lv_second_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_second_str.data, _lv_second_qb.data(), _lv_second_str.len);
+        ((char*)_lv_second_str.data)[_lv_second_str.len] = '\0';
         *_lv_second = _lv_second_str;
         libqt_pair _lv_out;
         _lv_out.first = static_cast<void*>(_lv_first);
@@ -180,9 +180,9 @@ libqt_string QAbstractNetworkCache_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -224,9 +224,9 @@ libqt_string QAbstractNetworkCache_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -236,9 +236,9 @@ libqt_string QAbstractNetworkCache_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

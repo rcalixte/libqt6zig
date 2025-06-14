@@ -99,9 +99,9 @@ libqt_string QWebEnginePage_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -119,9 +119,9 @@ libqt_string QWebEnginePage_SelectedText(const QWebEnginePage* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -174,9 +174,9 @@ libqt_string QWebEnginePage_Title(const QWebEnginePage* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -374,9 +374,9 @@ void QWebEnginePage_Connect_LinkHovered(QWebEnginePage* self, intptr_t slot) {
         QByteArray url_b = url_ret.toUtf8();
         libqt_string url_str;
         url_str.len = url_b.length();
-        url_str.data = static_cast<char*>(malloc((url_str.len + 1) * sizeof(char)));
-        memcpy(url_str.data, url_b.data(), url_str.len);
-        url_str.data[url_str.len] = '\0';
+        url_str.data = static_cast<const char*>(malloc((url_str.len + 1) * sizeof(char)));
+        memcpy((void*)url_str.data, url_b.data(), url_str.len);
+        ((char*)url_str.data)[url_str.len] = '\0';
         libqt_string sigval1 = url_str;
         slotFunc(self, sigval1);
     });
@@ -540,9 +540,9 @@ void QWebEnginePage_Connect_ProxyAuthenticationRequired(QWebEnginePage* self, in
         QByteArray proxyHost_b = proxyHost_ret.toUtf8();
         libqt_string proxyHost_str;
         proxyHost_str.len = proxyHost_b.length();
-        proxyHost_str.data = static_cast<char*>(malloc((proxyHost_str.len + 1) * sizeof(char)));
-        memcpy(proxyHost_str.data, proxyHost_b.data(), proxyHost_str.len);
-        proxyHost_str.data[proxyHost_str.len] = '\0';
+        proxyHost_str.data = static_cast<const char*>(malloc((proxyHost_str.len + 1) * sizeof(char)));
+        memcpy((void*)proxyHost_str.data, proxyHost_b.data(), proxyHost_str.len);
+        ((char*)proxyHost_str.data)[proxyHost_str.len] = '\0';
         libqt_string sigval3 = proxyHost_str;
         slotFunc(self, sigval1, sigval2, sigval3);
     });
@@ -616,9 +616,9 @@ void QWebEnginePage_Connect_TitleChanged(QWebEnginePage* self, intptr_t slot) {
         QByteArray title_b = title_ret.toUtf8();
         libqt_string title_str;
         title_str.len = title_b.length();
-        title_str.data = static_cast<char*>(malloc((title_str.len + 1) * sizeof(char)));
-        memcpy(title_str.data, title_b.data(), title_str.len);
-        title_str.data[title_str.len] = '\0';
+        title_str.data = static_cast<const char*>(malloc((title_str.len + 1) * sizeof(char)));
+        memcpy((void*)title_str.data, title_b.data(), title_str.len);
+        ((char*)title_str.data)[title_str.len] = '\0';
         libqt_string sigval1 = title_str;
         slotFunc(self, sigval1);
     });
@@ -743,9 +743,9 @@ void QWebEnginePage_Connect_PdfPrintingFinished(QWebEnginePage* self, intptr_t s
         QByteArray filePath_b = filePath_ret.toUtf8();
         libqt_string filePath_str;
         filePath_str.len = filePath_b.length();
-        filePath_str.data = static_cast<char*>(malloc((filePath_str.len + 1) * sizeof(char)));
-        memcpy(filePath_str.data, filePath_b.data(), filePath_str.len);
-        filePath_str.data[filePath_str.len] = '\0';
+        filePath_str.data = static_cast<const char*>(malloc((filePath_str.len + 1) * sizeof(char)));
+        memcpy((void*)filePath_str.data, filePath_b.data(), filePath_str.len);
+        ((char*)filePath_str.data)[filePath_str.len] = '\0';
         libqt_string sigval1 = filePath_str;
         bool sigval2 = success;
         slotFunc(self, sigval1, sigval2);
@@ -830,9 +830,9 @@ libqt_string QWebEnginePage_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -842,9 +842,9 @@ libqt_string QWebEnginePage_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -1003,9 +1003,9 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -1022,9 +1022,9 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -1062,9 +1062,9 @@ libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage*
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -1081,9 +1081,9 @@ libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage*
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;

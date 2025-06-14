@@ -232,11 +232,9 @@ pub const qnetworkinterface = struct {
     /// ``` self: QtC.QNetworkInterface, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkInterface_Name(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.Name: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -245,11 +243,9 @@ pub const qnetworkinterface = struct {
     /// ``` self: QtC.QNetworkInterface, allocator: std.mem.Allocator ```
     pub fn HumanReadableName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkInterface_HumanReadableName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.HumanReadableName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -272,11 +268,9 @@ pub const qnetworkinterface = struct {
     /// ``` self: QtC.QNetworkInterface, allocator: std.mem.Allocator ```
     pub fn HardwareAddress(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkInterface_HardwareAddress(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.HardwareAddress: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -288,9 +282,7 @@ pub const qnetworkinterface = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkAddressEntry, _arr.len) catch @panic("qnetworkinterface.AddressEntries: Memory allocation failed");
         const _data: [*]QtC.QNetworkAddressEntry = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -300,7 +292,7 @@ pub const qnetworkinterface = struct {
     pub fn InterfaceIndexFromName(name: []const u8) i32 {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         return qtc.QNetworkInterface_InterfaceIndexFromName(name_str);
     }
@@ -311,7 +303,7 @@ pub const qnetworkinterface = struct {
     pub fn InterfaceFromName(name: []const u8) QtC.QNetworkInterface {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         return qtc.QNetworkInterface_InterfaceFromName(name_str);
     }
@@ -328,11 +320,9 @@ pub const qnetworkinterface = struct {
     /// ``` index: i32, allocator: std.mem.Allocator ```
     pub fn InterfaceNameFromIndex(index: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkInterface_InterfaceNameFromIndex(@intCast(index));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkinterface.InterfaceNameFromIndex: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -344,9 +334,7 @@ pub const qnetworkinterface = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkInterface, _arr.len) catch @panic("qnetworkinterface.AllInterfaces: Memory allocation failed");
         const _data: [*]QtC.QNetworkInterface = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -358,9 +346,7 @@ pub const qnetworkinterface = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QHostAddress, _arr.len) catch @panic("qnetworkinterface.AllAddresses: Memory allocation failed");
         const _data: [*]QtC.QHostAddress = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

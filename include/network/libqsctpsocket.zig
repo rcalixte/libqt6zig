@@ -31,7 +31,7 @@ pub const qsctpsocket = struct {
 
     /// ``` self: QtC.QSctpSocket, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QSctpSocket_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -58,13 +58,11 @@ pub const qsctpsocket = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QSctpSocket_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -157,7 +155,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, maxlen: i64 ```
     pub fn ReadData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QSctpSocket_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
@@ -176,7 +174,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, maxlen: i64 ```
     pub fn QBaseReadData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QSctpSocket_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
@@ -184,7 +182,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, maxlen: i64 ```
     pub fn ReadLineData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QSctpSocket_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
@@ -203,7 +201,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, maxlen: i64 ```
     pub fn QBaseReadLineData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QSctpSocket_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
@@ -211,14 +209,12 @@ pub const qsctpsocket = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QSctpSocket_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -226,14 +222,12 @@ pub const qsctpsocket = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QSctpSocket_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -334,11 +328,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, allocator: std.mem.Allocator ```
     pub fn PeerName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSocket_PeerName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.PeerName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -421,11 +413,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, allocator: std.mem.Allocator ```
     pub fn ProtocolTag(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSocket_ProtocolTag(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.ProtocolTag: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -437,7 +427,7 @@ pub const qsctpsocket = struct {
     pub fn SetProtocolTag(self: ?*anyopaque, tag: []const u8) void {
         const tag_str = qtc.struct_libqt_string{
             .len = tag.len,
-            .data = @constCast(tag.ptr),
+            .data = tag.ptr,
         };
         qtc.QAbstractSocket_SetProtocolTag(@ptrCast(self), tag_str);
     }
@@ -691,7 +681,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, maxlen: i64 ```
     pub fn Read(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
@@ -702,11 +692,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadWithMaxlen(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadWithMaxlen(@ptrCast(self), @intCast(maxlen));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.ReadWithMaxlen: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -717,11 +705,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.ReadAll: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -731,7 +717,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, maxlen: i64 ```
     pub fn ReadLine(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
@@ -742,11 +728,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.ReadLine2: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -792,7 +776,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, lenVal: i64 ```
     pub fn Write(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
@@ -802,7 +786,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8 ```
     pub fn WriteWithData(self: ?*anyopaque, data: []const u8) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QIODevice_WriteWithData(@ptrCast(self), data_Cstring);
     }
 
@@ -814,7 +798,7 @@ pub const qsctpsocket = struct {
     pub fn Write2(self: ?*anyopaque, data: []u8) i64 {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         return qtc.QIODevice_Write2(@ptrCast(self), data_str);
     }
@@ -825,7 +809,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, maxlen: i64 ```
     pub fn Peek(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
 
@@ -836,11 +820,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn PeekWithMaxlen(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_PeekWithMaxlen(@ptrCast(self), @intCast(maxlen));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.PeekWithMaxlen: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -877,7 +859,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, c: []const u8 ```
     pub fn GetChar(self: ?*anyopaque, c: []const u8) bool {
-        const c_Cstring = @constCast(c.ptr);
+        const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
     }
 
@@ -888,11 +870,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QIODevice_ErrorString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.ErrorString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1011,11 +991,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsctpsocket.ReadLine1: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -1026,11 +1004,9 @@ pub const qsctpsocket = struct {
     /// ``` self: QtC.QSctpSocket, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsctpsocket.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1040,7 +1016,11 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -1134,9 +1114,7 @@ pub const qsctpsocket = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsctpsocket.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1182,8 +1160,8 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -1229,7 +1207,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -1239,7 +1217,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -1252,17 +1230,17 @@ pub const qsctpsocket = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsctpsocket.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qsctpsocket.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1318,7 +1296,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -1355,8 +1333,8 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -1454,7 +1432,7 @@ pub const qsctpsocket = struct {
     pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i64) void {
         const hostName_str = qtc.struct_libqt_string{
             .len = hostName.len,
-            .data = @constCast(hostName.ptr),
+            .data = hostName.ptr,
         };
         qtc.QSctpSocket_ConnectToHost(@ptrCast(self), hostName_str, @intCast(port), @intCast(mode), @intCast(protocol));
     }
@@ -1469,7 +1447,7 @@ pub const qsctpsocket = struct {
     pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i64) void {
         const hostName_str = qtc.struct_libqt_string{
             .len = hostName.len,
-            .data = @constCast(hostName.ptr),
+            .data = hostName.ptr,
         };
         qtc.QSctpSocket_QBaseConnectToHost(@ptrCast(self), hostName_str, @intCast(port), @intCast(mode), @intCast(protocol));
     }
@@ -1922,7 +1900,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, lenVal: i64 ```
     pub fn WriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QSctpSocket_WriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
@@ -1934,7 +1912,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, data: []const u8, lenVal: i64 ```
     pub fn QBaseWriteData(self: ?*anyopaque, data: []const u8, lenVal: i64) i64 {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QSctpSocket_QBaseWriteData(@ptrCast(self), data_Cstring, @intCast(lenVal));
     }
 
@@ -2619,7 +2597,7 @@ pub const qsctpsocket = struct {
     pub fn SetPeerName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QSctpSocket_SetPeerName(@ptrCast(self), name_str);
     }
@@ -2634,7 +2612,7 @@ pub const qsctpsocket = struct {
     pub fn QBaseSetPeerName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QSctpSocket_QBaseSetPeerName(@ptrCast(self), name_str);
     }
@@ -2693,7 +2671,7 @@ pub const qsctpsocket = struct {
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.struct_libqt_string{
             .len = errorString.len,
-            .data = @constCast(errorString.ptr),
+            .data = errorString.ptr,
         };
         qtc.QSctpSocket_SetErrorString(@ptrCast(self), errorString_str);
     }
@@ -2708,7 +2686,7 @@ pub const qsctpsocket = struct {
     pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
         const errorString_str = qtc.struct_libqt_string{
             .len = errorString.len,
-            .data = @constCast(errorString.ptr),
+            .data = errorString.ptr,
         };
         qtc.QSctpSocket_QBaseSetErrorString(@ptrCast(self), errorString_str);
     }
@@ -2798,7 +2776,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QSctpSocket_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -2810,7 +2788,7 @@ pub const qsctpsocket = struct {
     ///
     /// ``` self: QtC.QSctpSocket, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QSctpSocket_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

@@ -85,9 +85,9 @@ libqt_string QFileSystemWatcher_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -113,9 +113,9 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_AddPaths(QFileSystemWatcher*
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -146,9 +146,9 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_RemovePaths(QFileSystemWatch
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -167,9 +167,9 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_Files(const QFileSystemWatch
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -188,9 +188,9 @@ libqt_list /* of libqt_string */ QFileSystemWatcher_Directories(const QFileSyste
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -205,9 +205,9 @@ libqt_string QFileSystemWatcher_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -217,9 +217,9 @@ libqt_string QFileSystemWatcher_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -550,9 +550,9 @@ void QFileSystemWatcher_Connect_FileChanged(QFileSystemWatcher* self, intptr_t s
         QByteArray path_b = path_ret.toUtf8();
         libqt_string path_str;
         path_str.len = path_b.length();
-        path_str.data = static_cast<char*>(malloc((path_str.len + 1) * sizeof(char)));
-        memcpy(path_str.data, path_b.data(), path_str.len);
-        path_str.data[path_str.len] = '\0';
+        path_str.data = static_cast<const char*>(malloc((path_str.len + 1) * sizeof(char)));
+        memcpy((void*)path_str.data, path_b.data(), path_str.len);
+        ((char*)path_str.data)[path_str.len] = '\0';
         libqt_string sigval1 = path_str;
         slotFunc(self, sigval1);
     });
@@ -566,9 +566,9 @@ void QFileSystemWatcher_Connect_DirectoryChanged(QFileSystemWatcher* self, intpt
         QByteArray path_b = path_ret.toUtf8();
         libqt_string path_str;
         path_str.len = path_b.length();
-        path_str.data = static_cast<char*>(malloc((path_str.len + 1) * sizeof(char)));
-        memcpy(path_str.data, path_b.data(), path_str.len);
-        path_str.data[path_str.len] = '\0';
+        path_str.data = static_cast<const char*>(malloc((path_str.len + 1) * sizeof(char)));
+        memcpy((void*)path_str.data, path_b.data(), path_str.len);
+        ((char*)path_str.data)[path_str.len] = '\0';
         libqt_string sigval1 = path_str;
         slotFunc(self, sigval1);
     });

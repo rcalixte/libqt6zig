@@ -19,7 +19,7 @@ pub const qstatictext = struct {
     pub fn New2(text: []const u8) QtC.QStaticText {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QStaticText_new2(text_str);
@@ -52,7 +52,7 @@ pub const qstatictext = struct {
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QStaticText_SetText(@ptrCast(self), text_str);
     }
@@ -62,11 +62,9 @@ pub const qstatictext = struct {
     /// ``` self: QtC.QStaticText, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStaticText_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatictext.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

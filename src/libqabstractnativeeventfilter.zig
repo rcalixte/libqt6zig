@@ -16,7 +16,7 @@ pub const qabstractnativeeventfilter = struct {
     pub fn NativeEventFilter(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QAbstractNativeEventFilter_NativeEventFilter(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -38,7 +38,7 @@ pub const qabstractnativeeventfilter = struct {
     pub fn QBaseNativeEventFilter(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QAbstractNativeEventFilter_QBaseNativeEventFilter(@ptrCast(self), eventType_str, message, @intCast(result));
     }

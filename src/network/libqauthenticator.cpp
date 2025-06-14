@@ -34,9 +34,9 @@ libqt_string QAuthenticator_User(const QAuthenticator* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -51,9 +51,9 @@ libqt_string QAuthenticator_Password(const QAuthenticator* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -68,9 +68,9 @@ libqt_string QAuthenticator_Realm(const QAuthenticator* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -96,9 +96,9 @@ libqt_map /* of libqt_string to QVariant* */ QAuthenticator_Options(const QAuthe
         QByteArray _hashkey_b = _hashkey_ret.toUtf8();
         libqt_string _hashkey_str;
         _hashkey_str.len = _hashkey_b.length();
-        _hashkey_str.data = static_cast<char*>(malloc((_hashkey_str.len + 1) * sizeof(char)));
-        memcpy(_hashkey_str.data, _hashkey_b.data(), _hashkey_str.len);
-        _hashkey_str.data[_hashkey_str.len] = '\0';
+        _hashkey_str.data = static_cast<const char*>(malloc((_hashkey_str.len + 1) * sizeof(char)));
+        memcpy((void*)_hashkey_str.data, _hashkey_b.data(), _hashkey_str.len);
+        ((char*)_hashkey_str.data)[_hashkey_str.len] = '\0';
         _karr[_ctr] = _hashkey_str;
         _varr[_ctr] = new QVariant(_itr->second);
         _ctr++;

@@ -39,17 +39,17 @@ pub const qgenericpluginfactory = struct {
         const _arr: qtc.struct_libqt_list = qtc.QGenericPluginFactory_Keys();
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qgenericpluginfactory.Keys: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qgenericpluginfactory.Keys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -60,11 +60,11 @@ pub const qgenericpluginfactory = struct {
     pub fn Create(param1: []const u8, param2: []const u8) QtC.QObject {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         const param2_str = qtc.struct_libqt_string{
             .len = param2.len,
-            .data = @constCast(param2.ptr),
+            .data = param2.ptr,
         };
         return qtc.QGenericPluginFactory_Create(param1_str, param2_str);
     }

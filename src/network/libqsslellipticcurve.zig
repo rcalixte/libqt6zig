@@ -52,7 +52,7 @@ pub const qsslellipticcurve = struct {
     pub fn FromShortName(name: []const u8) QtC.QSslEllipticCurve {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         return qtc.QSslEllipticCurve_FromShortName(name_str);
     }
@@ -63,7 +63,7 @@ pub const qsslellipticcurve = struct {
     pub fn FromLongName(name: []const u8) QtC.QSslEllipticCurve {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         return qtc.QSslEllipticCurve_FromLongName(name_str);
     }
@@ -73,11 +73,9 @@ pub const qsslellipticcurve = struct {
     /// ``` self: QtC.QSslEllipticCurve, allocator: std.mem.Allocator ```
     pub fn ShortName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslEllipticCurve_ShortName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslellipticcurve.ShortName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -86,11 +84,9 @@ pub const qsslellipticcurve = struct {
     /// ``` self: QtC.QSslEllipticCurve, allocator: std.mem.Allocator ```
     pub fn LongName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSslEllipticCurve_LongName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslellipticcurve.LongName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

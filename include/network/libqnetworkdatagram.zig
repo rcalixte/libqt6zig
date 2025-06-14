@@ -17,7 +17,7 @@ pub const qnetworkdatagram = struct {
     pub fn New2(data: []u8) QtC.QNetworkDatagram {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
 
         return qtc.QNetworkDatagram_new2(data_str);
@@ -36,7 +36,7 @@ pub const qnetworkdatagram = struct {
     pub fn New4(data: []u8, destinationAddress: ?*anyopaque) QtC.QNetworkDatagram {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
 
         return qtc.QNetworkDatagram_new4(data_str, @ptrCast(destinationAddress));
@@ -48,7 +48,7 @@ pub const qnetworkdatagram = struct {
     pub fn New5(data: []u8, destinationAddress: ?*anyopaque, port: u16) QtC.QNetworkDatagram {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
 
         return qtc.QNetworkDatagram_new5(data_str, @ptrCast(destinationAddress), @intCast(port));
@@ -164,11 +164,9 @@ pub const qnetworkdatagram = struct {
     /// ``` self: QtC.QNetworkDatagram, allocator: std.mem.Allocator ```
     pub fn Data(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QNetworkDatagram_Data(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkdatagram.Data: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -178,7 +176,7 @@ pub const qnetworkdatagram = struct {
     pub fn SetData(self: ?*anyopaque, data: []u8) void {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         qtc.QNetworkDatagram_SetData(@ptrCast(self), data_str);
     }
@@ -189,7 +187,7 @@ pub const qnetworkdatagram = struct {
     pub fn MakeReply(self: ?*anyopaque, payload: []u8) QtC.QNetworkDatagram {
         const payload_str = qtc.struct_libqt_string{
             .len = payload.len,
-            .data = @constCast(payload.ptr),
+            .data = payload.ptr,
         };
         return qtc.QNetworkDatagram_MakeReply(@ptrCast(self), payload_str);
     }

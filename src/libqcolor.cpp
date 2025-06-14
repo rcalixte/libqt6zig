@@ -75,8 +75,9 @@ void QColor_MoveAssign(QColor* self, QColor* other) {
     *self = std::move(*other);
 }
 
-QColor* QColor_FromString(char* name) {
-    return new QColor(QColor::fromString(QAnyStringView(name)));
+QColor* QColor_FromString(libqt_string name) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new QColor(QColor::fromString(QAnyStringView(name_QString)));
 }
 
 void QColor_OperatorAssign(QColor* self, int color) {
@@ -93,9 +94,9 @@ libqt_string QColor_Name(const QColor* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -114,9 +115,9 @@ libqt_list /* of libqt_string */ QColor_ColorNames() {
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -474,8 +475,9 @@ bool QColor_IsValidColor(const libqt_string name) {
     return QColor::isValidColor(name_QString);
 }
 
-bool QColor_IsValidColorName(char* param1) {
-    return QColor::isValidColorName(QAnyStringView(param1));
+bool QColor_IsValidColorName(libqt_string param1) {
+    QString param1_QString = QString::fromUtf8(param1.data, param1.len);
+    return QColor::isValidColorName(QAnyStringView(param1_QString));
 }
 
 libqt_string QColor_Name1(const QColor* self, int format) {
@@ -484,9 +486,9 @@ libqt_string QColor_Name1(const QColor* self, int format) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

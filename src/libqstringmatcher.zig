@@ -18,7 +18,7 @@ pub const qstringmatcher = struct {
     pub fn New2(pattern: []const u8) QtC.QStringMatcher {
         const pattern_str = qtc.struct_libqt_string{
             .len = pattern.len,
-            .data = @constCast(pattern.ptr),
+            .data = pattern.ptr,
         };
 
         return qtc.QStringMatcher_new2(pattern_str);
@@ -44,7 +44,7 @@ pub const qstringmatcher = struct {
     pub fn New5(pattern: []const u8, cs: i64) QtC.QStringMatcher {
         const pattern_str = qtc.struct_libqt_string{
             .len = pattern.len,
-            .data = @constCast(pattern.ptr),
+            .data = pattern.ptr,
         };
 
         return qtc.QStringMatcher_new5(pattern_str, @intCast(cs));
@@ -70,7 +70,7 @@ pub const qstringmatcher = struct {
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
         const pattern_str = qtc.struct_libqt_string{
             .len = pattern.len,
-            .data = @constCast(pattern.ptr),
+            .data = pattern.ptr,
         };
         qtc.QStringMatcher_SetPattern(@ptrCast(self), pattern_str);
     }
@@ -88,7 +88,7 @@ pub const qstringmatcher = struct {
     pub fn IndexIn(self: ?*anyopaque, str: []const u8) i64 {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
-            .data = @constCast(str.ptr),
+            .data = str.ptr,
         };
         return qtc.QStringMatcher_IndexIn(@ptrCast(self), str_str);
     }
@@ -105,11 +105,9 @@ pub const qstringmatcher = struct {
     /// ``` self: QtC.QStringMatcher, allocator: std.mem.Allocator ```
     pub fn Pattern(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStringMatcher_Pattern(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstringmatcher.Pattern: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -126,7 +124,7 @@ pub const qstringmatcher = struct {
     pub fn IndexIn22(self: ?*anyopaque, str: []const u8, from: i64) i64 {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
-            .data = @constCast(str.ptr),
+            .data = str.ptr,
         };
         return qtc.QStringMatcher_IndexIn22(@ptrCast(self), str_str, @intCast(from));
     }

@@ -34,7 +34,7 @@ pub const qaccessibleobject = struct {
     pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QAccessibleObject_SetText(@ptrCast(self), @intCast(t), text_str);
     }
@@ -64,17 +64,15 @@ pub const qaccessibleobject = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAccessibleInterface_Relations(@ptrCast(self), @intCast(match));
         defer {
             const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                qtc.libqt_free(_pair[_i].first);
-                qtc.libqt_free(_pair[_i].second);
+            for (0.._arr.len) |i| {
+                qtc.libqt_free(_pair[i].first);
+                qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleobject.Relations: Memory allocation failed");
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -130,11 +128,9 @@ pub const qaccessibleobject = struct {
     /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleInterface_Text(@ptrCast(self), @intCast(t));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleobject.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -429,11 +425,9 @@ pub const qaccessibleapplication = struct {
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleApplication_Text(@ptrCast(self), @intCast(t));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -453,11 +447,9 @@ pub const qaccessibleapplication = struct {
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
     pub fn QBaseText(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleApplication_QBaseText(@ptrCast(self), @intCast(t));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -692,7 +684,7 @@ pub const qaccessibleapplication = struct {
     pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QAccessibleApplication_SetText(@ptrCast(self), @intCast(t), text_str);
     }
@@ -707,7 +699,7 @@ pub const qaccessibleapplication = struct {
     pub fn QBaseSetText(self: ?*anyopaque, t: i64, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QAccessibleApplication_QBaseSetText(@ptrCast(self), @intCast(t), text_str);
     }
@@ -767,17 +759,15 @@ pub const qaccessibleapplication = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAccessibleApplication_Relations(@ptrCast(self), @intCast(match));
         defer {
             const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                qtc.libqt_free(_pair[_i].first);
-                qtc.libqt_free(_pair[_i].second);
+            for (0.._arr.len) |i| {
+                qtc.libqt_free(_pair[i].first);
+                qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -792,17 +782,15 @@ pub const qaccessibleapplication = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAccessibleApplication_QBaseRelations(@ptrCast(self), @intCast(match));
         defer {
             const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                qtc.libqt_free(_pair[_i].first);
-                qtc.libqt_free(_pair[_i].second);
+            for (0.._arr.len) |i| {
+                qtc.libqt_free(_pair[i].first);
+                qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
         const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

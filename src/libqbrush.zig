@@ -318,17 +318,15 @@ pub const qgradient = struct {
         const _arr: qtc.struct_libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
             const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                qtc.libqt_free(_pair[_i].first);
-                qtc.libqt_free(_pair[_i].second);
+            for (0.._arr.len) |i| {
+                qtc.libqt_free(_pair[i].first);
+                qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_f64_qtcqcolor, _arr.len) catch @panic("qgradient.Stops: Memory allocation failed");
         const _data: [*]struct_f64_qtcqcolor = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -501,17 +499,15 @@ pub const qlineargradient = struct {
         const _arr: qtc.struct_libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
             const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                qtc.libqt_free(_pair[_i].first);
-                qtc.libqt_free(_pair[_i].second);
+            for (0.._arr.len) |i| {
+                qtc.libqt_free(_pair[i].first);
+                qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_f64_qtcqcolor, _arr.len) catch @panic("qlineargradient.Stops: Memory allocation failed");
         const _data: [*]struct_f64_qtcqcolor = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -766,17 +762,15 @@ pub const qradialgradient = struct {
         const _arr: qtc.struct_libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
             const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                qtc.libqt_free(_pair[_i].first);
-                qtc.libqt_free(_pair[_i].second);
+            for (0.._arr.len) |i| {
+                qtc.libqt_free(_pair[i].first);
+                qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_f64_qtcqcolor, _arr.len) catch @panic("qradialgradient.Stops: Memory allocation failed");
         const _data: [*]struct_f64_qtcqcolor = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -954,17 +948,15 @@ pub const qconicalgradient = struct {
         const _arr: qtc.struct_libqt_list = qtc.QGradient_Stops(@ptrCast(self));
         defer {
             const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
-            for (0.._arr.len) |_i| {
-                qtc.libqt_free(_pair[_i].first);
-                qtc.libqt_free(_pair[_i].second);
+            for (0.._arr.len) |i| {
+                qtc.libqt_free(_pair[i].first);
+                qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc(struct_f64_qtcqcolor, _arr.len) catch @panic("qconicalgradient.Stops: Memory allocation failed");
         const _data: [*]struct_f64_qtcqcolor = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

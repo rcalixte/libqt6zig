@@ -138,9 +138,9 @@ class VirtualQIconEnginePlugin final : public QIconEnginePlugin {
             QByteArray filename_b = filename_ret.toUtf8();
             libqt_string filename_str;
             filename_str.len = filename_b.length();
-            filename_str.data = static_cast<char*>(malloc((filename_str.len + 1) * sizeof(char)));
-            memcpy(filename_str.data, filename_b.data(), filename_str.len);
-            filename_str.data[filename_str.len] = '\0';
+            filename_str.data = static_cast<const char*>(malloc((filename_str.len + 1) * sizeof(char)));
+            memcpy((void*)filename_str.data, filename_b.data(), filename_str.len);
+            ((char*)filename_str.data)[filename_str.len] = '\0';
             libqt_string cbval1 = filename_str;
 
             QIconEngine* callback_ret = qiconengineplugin_create_callback(this, cbval1);

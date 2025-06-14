@@ -30,7 +30,7 @@ pub const qgraphicseffect = struct {
 
     /// ``` self: QtC.QGraphicsEffect, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QGraphicsEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -57,13 +57,11 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QGraphicsEffect_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicseffect.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -313,14 +311,12 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsEffect_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicseffect.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -328,14 +324,12 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsEffect_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicseffect.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -446,11 +440,9 @@ pub const qgraphicseffect = struct {
     /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicseffect.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -460,7 +452,11 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -554,9 +550,7 @@ pub const qgraphicseffect = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicseffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -602,8 +596,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -649,7 +643,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -659,7 +653,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -672,17 +666,17 @@ pub const qgraphicseffect = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicseffect.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qgraphicseffect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -738,7 +732,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -775,8 +769,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -1103,7 +1097,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1115,7 +1109,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1209,7 +1203,7 @@ pub const qgraphicscolorizeeffect = struct {
 
     /// ``` self: QtC.QGraphicsColorizeEffect, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QGraphicsColorizeEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -1236,13 +1230,11 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QGraphicsColorizeEffect_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicscolorizeeffect.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1331,14 +1323,12 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsColorizeEffect_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicscolorizeeffect.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1346,14 +1336,12 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsColorizeEffect_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicscolorizeeffect.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1418,11 +1406,9 @@ pub const qgraphicscolorizeeffect = struct {
     /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicscolorizeeffect.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1432,7 +1418,11 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -1526,9 +1516,7 @@ pub const qgraphicscolorizeeffect = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicscolorizeeffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1574,8 +1562,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -1621,7 +1609,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -1631,7 +1619,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -1644,17 +1632,17 @@ pub const qgraphicscolorizeeffect = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicscolorizeeffect.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qgraphicscolorizeeffect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1710,7 +1698,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -1747,8 +1735,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -2306,7 +2294,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsColorizeEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -2318,7 +2306,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsColorizeEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -2412,7 +2400,7 @@ pub const qgraphicsblureffect = struct {
 
     /// ``` self: QtC.QGraphicsBlurEffect, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QGraphicsBlurEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -2439,13 +2427,11 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QGraphicsBlurEffect_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsblureffect.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2559,14 +2545,12 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsBlurEffect_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsblureffect.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2574,14 +2558,12 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsBlurEffect_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsblureffect.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2646,11 +2628,9 @@ pub const qgraphicsblureffect = struct {
     /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsblureffect.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2660,7 +2640,11 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -2754,9 +2738,7 @@ pub const qgraphicsblureffect = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicsblureffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2802,8 +2784,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -2849,7 +2831,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -2859,7 +2841,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -2872,17 +2854,17 @@ pub const qgraphicsblureffect = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicsblureffect.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qgraphicsblureffect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -2938,7 +2920,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -2975,8 +2957,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -3501,7 +3483,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsBlurEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -3513,7 +3495,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsBlurEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -3607,7 +3589,7 @@ pub const qgraphicsdropshadoweffect = struct {
 
     /// ``` self: QtC.QGraphicsDropShadowEffect, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QGraphicsDropShadowEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -3634,13 +3616,11 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QGraphicsDropShadowEffect_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsdropshadoweffect.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3824,14 +3804,12 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsDropShadowEffect_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsdropshadoweffect.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3839,14 +3817,12 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsDropShadowEffect_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsdropshadoweffect.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3911,11 +3887,9 @@ pub const qgraphicsdropshadoweffect = struct {
     /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsdropshadoweffect.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3925,7 +3899,11 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -4019,9 +3997,7 @@ pub const qgraphicsdropshadoweffect = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicsdropshadoweffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4067,8 +4043,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -4114,7 +4090,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -4124,7 +4100,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -4137,17 +4113,17 @@ pub const qgraphicsdropshadoweffect = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicsdropshadoweffect.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qgraphicsdropshadoweffect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -4203,7 +4179,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -4240,8 +4216,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -4766,7 +4742,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsDropShadowEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -4778,7 +4754,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsDropShadowEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -4872,7 +4848,7 @@ pub const qgraphicsopacityeffect = struct {
 
     /// ``` self: QtC.QGraphicsOpacityEffect, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QGraphicsOpacityEffect_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -4899,13 +4875,11 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QGraphicsOpacityEffect_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsopacityeffect.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -4994,14 +4968,12 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsOpacityEffect_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsopacityeffect.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -5009,14 +4981,12 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGraphicsOpacityEffect_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsopacityeffect.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -5081,11 +5051,9 @@ pub const qgraphicsopacityeffect = struct {
     /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsopacityeffect.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -5095,7 +5063,11 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -5189,9 +5161,7 @@ pub const qgraphicsopacityeffect = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicsopacityeffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -5237,8 +5207,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -5284,7 +5254,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -5294,7 +5264,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -5307,17 +5277,17 @@ pub const qgraphicsopacityeffect = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicsopacityeffect.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qgraphicsopacityeffect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -5373,7 +5343,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -5410,8 +5380,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -5969,7 +5939,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsOpacityEffect_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -5981,7 +5951,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGraphicsOpacityEffect_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

@@ -18,7 +18,7 @@ pub const qmessageauthenticationcode = struct {
     pub fn New2(method: i64, key: []u8) QtC.QMessageAuthenticationCode {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
 
         return qtc.QMessageAuthenticationCode_new2(@intCast(method), key_str);
@@ -37,7 +37,7 @@ pub const qmessageauthenticationcode = struct {
     pub fn SetKey(self: ?*anyopaque, key: []u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         qtc.QMessageAuthenticationCode_SetKey(@ptrCast(self), key_str);
     }
@@ -46,7 +46,7 @@ pub const qmessageauthenticationcode = struct {
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, data: []const u8, length: i64 ```
     pub fn AddData(self: ?*anyopaque, data: []const u8, length: i64) void {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         qtc.QMessageAuthenticationCode_AddData(@ptrCast(self), data_Cstring, @intCast(length));
     }
 
@@ -56,7 +56,7 @@ pub const qmessageauthenticationcode = struct {
     pub fn AddDataWithData(self: ?*anyopaque, data: []u8) void {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         qtc.QMessageAuthenticationCode_AddDataWithData(@ptrCast(self), data_str);
     }
@@ -73,11 +73,9 @@ pub const qmessageauthenticationcode = struct {
     /// ``` self: QtC.QMessageAuthenticationCode, allocator: std.mem.Allocator ```
     pub fn Result(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QMessageAuthenticationCode_Result(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.Result: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -87,18 +85,16 @@ pub const qmessageauthenticationcode = struct {
     pub fn Hash(message: []u8, key: []u8, method: i64, allocator: std.mem.Allocator) []u8 {
         const message_str = qtc.struct_libqt_string{
             .len = message.len,
-            .data = @constCast(message.ptr),
+            .data = message.ptr,
         };
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         const _bytearray: qtc.struct_libqt_string = qtc.QMessageAuthenticationCode_Hash(message_str, key_str, @intCast(method));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.Hash: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

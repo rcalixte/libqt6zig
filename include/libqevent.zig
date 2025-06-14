@@ -355,9 +355,7 @@ pub const qpointerevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qpointerevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -796,9 +794,7 @@ pub const qsinglepointevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qsinglepointevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1241,9 +1237,7 @@ pub const qenterevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qenterevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1898,9 +1892,7 @@ pub const qmouseevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qmouseevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2517,9 +2509,7 @@ pub const qhoverevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qhoverevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3153,9 +3143,7 @@ pub const qwheelevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qwheelevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3704,9 +3692,7 @@ pub const qtabletevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qtabletevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4312,9 +4298,7 @@ pub const qnativegestureevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qnativegestureevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4722,7 +4706,7 @@ pub const qkeyevent = struct {
     pub fn New3(typeVal: i64, key: i32, modifiers: i64, text: []const u8) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QKeyEvent_new3(@intCast(typeVal), @intCast(key), @intCast(modifiers), text_str);
@@ -4734,7 +4718,7 @@ pub const qkeyevent = struct {
     pub fn New4(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QKeyEvent_new4(@intCast(typeVal), @intCast(key), @intCast(modifiers), text_str, autorep);
@@ -4746,7 +4730,7 @@ pub const qkeyevent = struct {
     pub fn New5(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QKeyEvent_new5(@intCast(typeVal), @intCast(key), @intCast(modifiers), text_str, autorep, @intCast(count));
@@ -4758,7 +4742,7 @@ pub const qkeyevent = struct {
     pub fn New6(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QKeyEvent_new6(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str);
@@ -4770,7 +4754,7 @@ pub const qkeyevent = struct {
     pub fn New7(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QKeyEvent_new7(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str, autorep);
@@ -4782,7 +4766,7 @@ pub const qkeyevent = struct {
     pub fn New8(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QKeyEvent_new8(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str, autorep, @intCast(count));
@@ -4794,7 +4778,7 @@ pub const qkeyevent = struct {
     pub fn New9(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: ?*anyopaque) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QKeyEvent_new9(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers), text_str, autorep, @intCast(count), @ptrCast(device));
@@ -4858,11 +4842,9 @@ pub const qkeyevent = struct {
     /// ``` self: QtC.QKeyEvent, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QKeyEvent_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeyevent.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7187,7 +7169,7 @@ pub const qinputmethodevent = struct {
     pub fn New2(preeditText: []const u8, attributes: []QtC.QInputMethodEvent__Attribute) QtC.QInputMethodEvent {
         const preeditText_str = qtc.struct_libqt_string{
             .len = preeditText.len,
-            .data = @constCast(preeditText.ptr),
+            .data = preeditText.ptr,
         };
         const attributes_list = qtc.struct_libqt_list{
             .len = attributes.len,
@@ -7228,7 +7210,7 @@ pub const qinputmethodevent = struct {
     pub fn SetCommitString(self: ?*anyopaque, commitString: []const u8) void {
         const commitString_str = qtc.struct_libqt_string{
             .len = commitString.len,
-            .data = @constCast(commitString.ptr),
+            .data = commitString.ptr,
         };
         qtc.QInputMethodEvent_SetCommitString(@ptrCast(self), commitString_str);
     }
@@ -7241,9 +7223,7 @@ pub const qinputmethodevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QInputMethodEvent__Attribute, _arr.len) catch @panic("qinputmethodevent.Attributes: Memory allocation failed");
         const _data: [*]QtC.QInputMethodEvent__Attribute = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -7252,11 +7232,9 @@ pub const qinputmethodevent = struct {
     /// ``` self: QtC.QInputMethodEvent, allocator: std.mem.Allocator ```
     pub fn PreeditString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QInputMethodEvent_PreeditString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethodevent.PreeditString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7265,11 +7243,9 @@ pub const qinputmethodevent = struct {
     /// ``` self: QtC.QInputMethodEvent, allocator: std.mem.Allocator ```
     pub fn CommitString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QInputMethodEvent_CommitString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethodevent.CommitString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7293,7 +7269,7 @@ pub const qinputmethodevent = struct {
     pub fn SetCommitString2(self: ?*anyopaque, commitString: []const u8, replaceFrom: i32) void {
         const commitString_str = qtc.struct_libqt_string{
             .len = commitString.len,
-            .data = @constCast(commitString.ptr),
+            .data = commitString.ptr,
         };
         qtc.QInputMethodEvent_SetCommitString2(@ptrCast(self), commitString_str, @intCast(replaceFrom));
     }
@@ -7304,7 +7280,7 @@ pub const qinputmethodevent = struct {
     pub fn SetCommitString3(self: ?*anyopaque, commitString: []const u8, replaceFrom: i32, replaceLength: i32) void {
         const commitString_str = qtc.struct_libqt_string{
             .len = commitString.len,
-            .data = @constCast(commitString.ptr),
+            .data = commitString.ptr,
         };
         qtc.QInputMethodEvent_SetCommitString3(@ptrCast(self), commitString_str, @intCast(replaceFrom), @intCast(replaceLength));
     }
@@ -8923,7 +8899,7 @@ pub const qstatustipevent = struct {
     pub fn New(tip: []const u8) QtC.QStatusTipEvent {
         const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
-            .data = @constCast(tip.ptr),
+            .data = tip.ptr,
         };
 
         return qtc.QStatusTipEvent_new(tip_str);
@@ -8959,11 +8935,9 @@ pub const qstatustipevent = struct {
     /// ``` self: QtC.QStatusTipEvent, allocator: std.mem.Allocator ```
     pub fn Tip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStatusTipEvent_Tip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatustipevent.Tip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -9108,7 +9082,7 @@ pub const qwhatsthisclickedevent = struct {
     pub fn New(href: []const u8) QtC.QWhatsThisClickedEvent {
         const href_str = qtc.struct_libqt_string{
             .len = href.len,
-            .data = @constCast(href.ptr),
+            .data = href.ptr,
         };
 
         return qtc.QWhatsThisClickedEvent_new(href_str);
@@ -9144,11 +9118,9 @@ pub const qwhatsthisclickedevent = struct {
     /// ``` self: QtC.QWhatsThisClickedEvent, allocator: std.mem.Allocator ```
     pub fn Href(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWhatsThisClickedEvent_Href(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwhatsthisclickedevent.Href: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -9481,7 +9453,7 @@ pub const qfileopenevent = struct {
     pub fn New(file: []const u8) QtC.QFileOpenEvent {
         const file_str = qtc.struct_libqt_string{
             .len = file.len,
-            .data = @constCast(file.ptr),
+            .data = file.ptr,
         };
 
         return qtc.QFileOpenEvent_new(file_str);
@@ -9524,11 +9496,9 @@ pub const qfileopenevent = struct {
     /// ``` self: QtC.QFileOpenEvent, allocator: std.mem.Allocator ```
     pub fn File(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFileOpenEvent_File(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileopenevent.File: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -10337,9 +10307,7 @@ pub const qtouchevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qtouchevent.TouchPoints: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -10464,9 +10432,7 @@ pub const qtouchevent = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qtouchevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

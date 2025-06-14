@@ -33,7 +33,7 @@ pub const qcombobox = struct {
 
     /// ``` self: QtC.QComboBox, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QComboBox_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -60,13 +60,11 @@ pub const qcombobox = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QComboBox_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -139,7 +137,7 @@ pub const qcombobox = struct {
     pub fn FindText(self: ?*anyopaque, text: []const u8) i32 {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QComboBox_FindText(@ptrCast(self), text_str);
     }
@@ -213,7 +211,7 @@ pub const qcombobox = struct {
     pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
         const placeholderText_str = qtc.struct_libqt_string{
             .len = placeholderText.len,
-            .data = @constCast(placeholderText.ptr),
+            .data = placeholderText.ptr,
         };
         qtc.QComboBox_SetPlaceholderText(@ptrCast(self), placeholderText_str);
     }
@@ -223,11 +221,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn PlaceholderText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QComboBox_PlaceholderText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.PlaceholderText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -373,11 +369,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn CurrentText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QComboBox_CurrentText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.CurrentText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -393,11 +387,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, index: i32, allocator: std.mem.Allocator ```
     pub fn ItemText(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QComboBox_ItemText(@ptrCast(self), @intCast(index));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.ItemText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -421,7 +413,7 @@ pub const qcombobox = struct {
     pub fn AddItem(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_AddItem(@ptrCast(self), text_str);
     }
@@ -432,7 +424,7 @@ pub const qcombobox = struct {
     pub fn AddItem2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_AddItem2(@ptrCast(self), @ptrCast(icon), text_str);
     }
@@ -443,10 +435,10 @@ pub const qcombobox = struct {
     pub fn AddItems(self: ?*anyopaque, texts: [][]const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.struct_libqt_string, texts.len) catch @panic("qcombobox.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, _i| {
-            texts_arr[_i] = .{
+        for (texts, 0..texts.len) |item, i| {
+            texts_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const texts_list = qtc.struct_libqt_list{
@@ -462,7 +454,7 @@ pub const qcombobox = struct {
     pub fn InsertItem(self: ?*anyopaque, index: i32, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_InsertItem(@ptrCast(self), @intCast(index), text_str);
     }
@@ -473,7 +465,7 @@ pub const qcombobox = struct {
     pub fn InsertItem2(self: ?*anyopaque, index: i32, icon: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_InsertItem2(@ptrCast(self), @intCast(index), @ptrCast(icon), text_str);
     }
@@ -484,10 +476,10 @@ pub const qcombobox = struct {
     pub fn InsertItems(self: ?*anyopaque, index: i32, texts: [][]const u8, allocator: std.mem.Allocator) void {
         var texts_arr = allocator.alloc(qtc.struct_libqt_string, texts.len) catch @panic("qcombobox.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, _i| {
-            texts_arr[_i] = .{
+        for (texts, 0..texts.len) |item, i| {
+            texts_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const texts_list = qtc.struct_libqt_list{
@@ -517,7 +509,7 @@ pub const qcombobox = struct {
     pub fn SetItemText(self: ?*anyopaque, index: i32, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_SetItemText(@ptrCast(self), @intCast(index), text_str);
     }
@@ -727,7 +719,7 @@ pub const qcombobox = struct {
     pub fn SetEditText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_SetEditText(@ptrCast(self), text_str);
     }
@@ -745,7 +737,7 @@ pub const qcombobox = struct {
     pub fn SetCurrentText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_SetCurrentText(@ptrCast(self), text_str);
     }
@@ -756,7 +748,7 @@ pub const qcombobox = struct {
     pub fn EditTextChanged(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QComboBox_EditTextChanged(@ptrCast(self), param1_str);
     }
@@ -788,7 +780,7 @@ pub const qcombobox = struct {
     pub fn TextActivated(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QComboBox_TextActivated(@ptrCast(self), param1_str);
     }
@@ -820,7 +812,7 @@ pub const qcombobox = struct {
     pub fn TextHighlighted(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QComboBox_TextHighlighted(@ptrCast(self), param1_str);
     }
@@ -852,7 +844,7 @@ pub const qcombobox = struct {
     pub fn CurrentTextChanged(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QComboBox_CurrentTextChanged(@ptrCast(self), param1_str);
     }
@@ -1243,14 +1235,12 @@ pub const qcombobox = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QComboBox_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1258,14 +1248,12 @@ pub const qcombobox = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QComboBox_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1275,7 +1263,7 @@ pub const qcombobox = struct {
     pub fn FindText2(self: ?*anyopaque, text: []const u8, flags: i64) i32 {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QComboBox_FindText2(@ptrCast(self), text_str, @intCast(flags));
     }
@@ -1314,7 +1302,7 @@ pub const qcombobox = struct {
     pub fn AddItem22(self: ?*anyopaque, text: []const u8, userData: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_AddItem22(@ptrCast(self), text_str, @ptrCast(userData));
     }
@@ -1325,7 +1313,7 @@ pub const qcombobox = struct {
     pub fn AddItem3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, userData: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_AddItem3(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(userData));
     }
@@ -1336,7 +1324,7 @@ pub const qcombobox = struct {
     pub fn InsertItem3(self: ?*anyopaque, index: i32, text: []const u8, userData: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_InsertItem3(@ptrCast(self), @intCast(index), text_str, @ptrCast(userData));
     }
@@ -1347,7 +1335,7 @@ pub const qcombobox = struct {
     pub fn InsertItem4(self: ?*anyopaque, index: i32, icon: ?*anyopaque, text: []const u8, userData: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QComboBox_InsertItem4(@ptrCast(self), @intCast(index), @ptrCast(icon), text_str, @ptrCast(userData));
     }
@@ -2240,7 +2228,7 @@ pub const qcombobox = struct {
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
-            .data = @constCast(windowTitle.ptr),
+            .data = windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
@@ -2253,7 +2241,7 @@ pub const qcombobox = struct {
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
-            .data = @constCast(styleSheet.ptr),
+            .data = styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
@@ -2265,11 +2253,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.StyleSheet: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2280,11 +2266,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.WindowTitle: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2314,7 +2298,7 @@ pub const qcombobox = struct {
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
-            .data = @constCast(windowIconText.ptr),
+            .data = windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
@@ -2326,11 +2310,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.WindowIconText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2342,7 +2324,7 @@ pub const qcombobox = struct {
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
-            .data = @constCast(windowRole.ptr),
+            .data = windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
@@ -2354,11 +2336,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.WindowRole: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2370,7 +2350,7 @@ pub const qcombobox = struct {
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
-            .data = @constCast(filePath.ptr),
+            .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
@@ -2382,11 +2362,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.WindowFilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2425,7 +2403,7 @@ pub const qcombobox = struct {
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
-            .data = @constCast(toolTip.ptr),
+            .data = toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
@@ -2437,11 +2415,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2471,7 +2447,7 @@ pub const qcombobox = struct {
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
-            .data = @constCast(statusTip.ptr),
+            .data = statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
@@ -2483,11 +2459,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.StatusTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2499,7 +2473,7 @@ pub const qcombobox = struct {
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
-            .data = @constCast(whatsThis.ptr),
+            .data = whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
@@ -2511,11 +2485,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.WhatsThis: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2526,11 +2498,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.AccessibleName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2542,7 +2512,7 @@ pub const qcombobox = struct {
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
@@ -2554,11 +2524,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.AccessibleDescription: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2570,7 +2538,7 @@ pub const qcombobox = struct {
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
@@ -3122,11 +3090,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcombobox.SaveGeometry: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -3138,7 +3104,7 @@ pub const qcombobox = struct {
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
-            .data = @constCast(geometry.ptr),
+            .data = geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
@@ -3476,9 +3442,7 @@ pub const qcombobox = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qcombobox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3490,7 +3454,7 @@ pub const qcombobox = struct {
     pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
@@ -3503,7 +3467,7 @@ pub const qcombobox = struct {
     pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
     }
@@ -3516,7 +3480,7 @@ pub const qcombobox = struct {
     pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
@@ -3529,7 +3493,7 @@ pub const qcombobox = struct {
     pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
@@ -3722,7 +3686,7 @@ pub const qcombobox = struct {
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
-            .data = @constCast(title.ptr),
+            .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
@@ -3762,7 +3726,7 @@ pub const qcombobox = struct {
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
-            .data = @constCast(iconText.ptr),
+            .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
@@ -3954,11 +3918,9 @@ pub const qcombobox = struct {
     /// ``` self: QtC.QComboBox, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcombobox.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3968,7 +3930,11 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -4062,9 +4028,7 @@ pub const qcombobox = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcombobox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4101,8 +4065,8 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -4148,7 +4112,7 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -4158,7 +4122,7 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -4171,17 +4135,17 @@ pub const qcombobox = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcombobox.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qcombobox.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -4237,7 +4201,7 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -4274,8 +4238,8 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -4976,7 +4940,7 @@ pub const qcombobox = struct {
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QComboBox_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -4991,7 +4955,7 @@ pub const qcombobox = struct {
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QComboBox_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -5609,7 +5573,7 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QComboBox_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -5621,7 +5585,7 @@ pub const qcombobox = struct {
     ///
     /// ``` self: QtC.QComboBox, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QComboBox_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

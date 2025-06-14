@@ -113,9 +113,9 @@ libqt_string QLabel_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -125,9 +125,9 @@ libqt_string QLabel_Text(const QLabel* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -237,9 +237,9 @@ libqt_string QLabel_SelectedText(const QLabel* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -289,9 +289,9 @@ void QLabel_Connect_LinkActivated(QLabel* self, intptr_t slot) {
         QByteArray link_b = link_ret.toUtf8();
         libqt_string link_str;
         link_str.len = link_b.length();
-        link_str.data = static_cast<char*>(malloc((link_str.len + 1) * sizeof(char)));
-        memcpy(link_str.data, link_b.data(), link_str.len);
-        link_str.data[link_str.len] = '\0';
+        link_str.data = static_cast<const char*>(malloc((link_str.len + 1) * sizeof(char)));
+        memcpy((void*)link_str.data, link_b.data(), link_str.len);
+        ((char*)link_str.data)[link_str.len] = '\0';
         libqt_string sigval1 = link_str;
         slotFunc(self, sigval1);
     });
@@ -310,9 +310,9 @@ void QLabel_Connect_LinkHovered(QLabel* self, intptr_t slot) {
         QByteArray link_b = link_ret.toUtf8();
         libqt_string link_str;
         link_str.len = link_b.length();
-        link_str.data = static_cast<char*>(malloc((link_str.len + 1) * sizeof(char)));
-        memcpy(link_str.data, link_b.data(), link_str.len);
-        link_str.data[link_str.len] = '\0';
+        link_str.data = static_cast<const char*>(malloc((link_str.len + 1) * sizeof(char)));
+        memcpy((void*)link_str.data, link_b.data(), link_str.len);
+        ((char*)link_str.data)[link_str.len] = '\0';
         libqt_string sigval1 = link_str;
         slotFunc(self, sigval1);
     });
@@ -324,9 +324,9 @@ libqt_string QLabel_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -336,9 +336,9 @@ libqt_string QLabel_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

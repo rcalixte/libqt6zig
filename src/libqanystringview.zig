@@ -9,14 +9,24 @@ pub const qanystringview = struct {
     ///
     /// ``` other: []const u8 ```
     pub fn New(other: []const u8) QtC.QAnyStringView {
-        return qtc.QAnyStringView_new(@constCast(other.ptr));
+        const other_str = qtc.struct_libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+
+        return qtc.QAnyStringView_new(other_str);
     }
 
     /// New2 constructs a new QAnyStringView object and invalidates the source QAnyStringView object.
     ///
     /// ``` other: []const u8 ```
     pub fn New2(other: []const u8) QtC.QAnyStringView {
-        return qtc.QAnyStringView_new2(@constCast(other.ptr));
+        const other_str = qtc.struct_libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+
+        return qtc.QAnyStringView_new2(other_str);
     }
 
     /// New3 constructs a new QAnyStringView object.
@@ -32,7 +42,7 @@ pub const qanystringview = struct {
     pub fn New4(str: []u8) QtC.QAnyStringView {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
-            .data = @constCast(str.ptr),
+            .data = str.ptr,
         };
 
         return qtc.QAnyStringView_new4(str_str);
@@ -44,7 +54,7 @@ pub const qanystringview = struct {
     pub fn New5(str: []const u8) QtC.QAnyStringView {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
-            .data = @constCast(str.ptr),
+            .data = str.ptr,
         };
 
         return qtc.QAnyStringView_new5(str_str);
@@ -61,7 +71,12 @@ pub const qanystringview = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn New7(param1: []const u8) QtC.QAnyStringView {
-        return qtc.QAnyStringView_new7(@constCast(param1.ptr));
+        const param1_str = qtc.struct_libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+
+        return qtc.QAnyStringView_new7(param1_str);
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -83,11 +98,9 @@ pub const qanystringview = struct {
     /// ``` self: QtC.QAnyStringView, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAnyStringView_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qanystringview.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -109,14 +122,30 @@ pub const qanystringview = struct {
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Compare(lhs: []const u8, rhs: []const u8) i32 {
-        return qtc.QAnyStringView_Compare(@constCast(lhs.ptr), @constCast(rhs.ptr));
+        const lhs_str = qtc.struct_libqt_string{
+            .len = lhs.len,
+            .data = lhs.ptr,
+        };
+        const rhs_str = qtc.struct_libqt_string{
+            .len = rhs.len,
+            .data = rhs.ptr,
+        };
+        return qtc.QAnyStringView_Compare(lhs_str, rhs_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#equal)
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Equal(lhs: []const u8, rhs: []const u8) bool {
-        return qtc.QAnyStringView_Equal(@constCast(lhs.ptr), @constCast(rhs.ptr));
+        const lhs_str = qtc.struct_libqt_string{
+            .len = lhs.len,
+            .data = lhs.ptr,
+        };
+        const rhs_str = qtc.struct_libqt_string{
+            .len = rhs.len,
+            .data = rhs.ptr,
+        };
+        return qtc.QAnyStringView_Equal(lhs_str, rhs_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#front)
@@ -172,7 +201,15 @@ pub const qanystringview = struct {
     ///
     /// ``` lhs: []const u8, rhs: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i64) i32 {
-        return qtc.QAnyStringView_Compare3(@constCast(lhs.ptr), @constCast(rhs.ptr), @intCast(cs));
+        const lhs_str = qtc.struct_libqt_string{
+            .len = lhs.len,
+            .data = lhs.ptr,
+        };
+        const rhs_str = qtc.struct_libqt_string{
+            .len = rhs.len,
+            .data = rhs.ptr,
+        };
+        return qtc.QAnyStringView_Compare3(lhs_str, rhs_str, @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#dtor.QAnyStringView)

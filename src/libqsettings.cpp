@@ -134,9 +134,9 @@ libqt_string QSettings_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -160,8 +160,9 @@ void QSettings_SetAtomicSyncRequired(QSettings* self, bool enable) {
     self->setAtomicSyncRequired(enable);
 }
 
-void QSettings_BeginGroup(QSettings* self, char* prefix) {
-    self->beginGroup(QAnyStringView(prefix));
+void QSettings_BeginGroup(QSettings* self, libqt_string prefix) {
+    QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
+    self->beginGroup(QAnyStringView(prefix_QString));
 }
 
 void QSettings_EndGroup(QSettings* self) {
@@ -174,18 +175,20 @@ libqt_string QSettings_Group(const QSettings* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
-int QSettings_BeginReadArray(QSettings* self, char* prefix) {
-    return self->beginReadArray(QAnyStringView(prefix));
+int QSettings_BeginReadArray(QSettings* self, libqt_string prefix) {
+    QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
+    return self->beginReadArray(QAnyStringView(prefix_QString));
 }
 
-void QSettings_BeginWriteArray(QSettings* self, char* prefix) {
-    self->beginWriteArray(QAnyStringView(prefix));
+void QSettings_BeginWriteArray(QSettings* self, libqt_string prefix) {
+    QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
+    self->beginWriteArray(QAnyStringView(prefix_QString));
 }
 
 void QSettings_EndArray(QSettings* self) {
@@ -206,9 +209,9 @@ libqt_list /* of libqt_string */ QSettings_AllKeys(const QSettings* self) {
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -227,9 +230,9 @@ libqt_list /* of libqt_string */ QSettings_ChildKeys(const QSettings* self) {
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -248,9 +251,9 @@ libqt_list /* of libqt_string */ QSettings_ChildGroups(const QSettings* self) {
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -263,24 +266,29 @@ bool QSettings_IsWritable(const QSettings* self) {
     return self->isWritable();
 }
 
-void QSettings_SetValue(QSettings* self, char* key, const QVariant* value) {
-    self->setValue(QAnyStringView(key), *value);
+void QSettings_SetValue(QSettings* self, libqt_string key, const QVariant* value) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    self->setValue(QAnyStringView(key_QString), *value);
 }
 
-QVariant* QSettings_Value(const QSettings* self, char* key, const QVariant* defaultValue) {
-    return new QVariant(self->value(QAnyStringView(key), *defaultValue));
+QVariant* QSettings_Value(const QSettings* self, libqt_string key, const QVariant* defaultValue) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return new QVariant(self->value(QAnyStringView(key_QString), *defaultValue));
 }
 
-QVariant* QSettings_ValueWithKey(const QSettings* self, char* key) {
-    return new QVariant(self->value(QAnyStringView(key)));
+QVariant* QSettings_ValueWithKey(const QSettings* self, libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return new QVariant(self->value(QAnyStringView(key_QString)));
 }
 
-void QSettings_Remove(QSettings* self, char* key) {
-    self->remove(QAnyStringView(key));
+void QSettings_Remove(QSettings* self, libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    self->remove(QAnyStringView(key_QString));
 }
 
-bool QSettings_Contains(const QSettings* self, char* key) {
-    return self->contains(QAnyStringView(key));
+bool QSettings_Contains(const QSettings* self, libqt_string key) {
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->contains(QAnyStringView(key_QString));
 }
 
 void QSettings_SetFallbacksEnabled(QSettings* self, bool b) {
@@ -297,9 +305,9 @@ libqt_string QSettings_FileName(const QSettings* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -317,9 +325,9 @@ libqt_string QSettings_OrganizationName(const QSettings* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -329,9 +337,9 @@ libqt_string QSettings_ApplicationName(const QSettings* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -354,9 +362,9 @@ libqt_string QSettings_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -366,14 +374,15 @@ libqt_string QSettings_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
-void QSettings_BeginWriteArray2(QSettings* self, char* prefix, int size) {
-    self->beginWriteArray(QAnyStringView(prefix), static_cast<int>(size));
+void QSettings_BeginWriteArray2(QSettings* self, libqt_string prefix, int size) {
+    QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
+    self->beginWriteArray(QAnyStringView(prefix_QString), static_cast<int>(size));
 }
 
 // Derived class handler implementation

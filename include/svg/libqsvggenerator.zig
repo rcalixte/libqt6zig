@@ -17,11 +17,9 @@ pub const qsvggenerator = struct {
     /// ``` self: QtC.QSvgGenerator, allocator: std.mem.Allocator ```
     pub fn Title(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSvgGenerator_Title(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsvggenerator.Title: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -31,7 +29,7 @@ pub const qsvggenerator = struct {
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
-            .data = @constCast(title.ptr),
+            .data = title.ptr,
         };
         qtc.QSvgGenerator_SetTitle(@ptrCast(self), title_str);
     }
@@ -41,11 +39,9 @@ pub const qsvggenerator = struct {
     /// ``` self: QtC.QSvgGenerator, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSvgGenerator_Description(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsvggenerator.Description: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -55,7 +51,7 @@ pub const qsvggenerator = struct {
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QSvgGenerator_SetDescription(@ptrCast(self), description_str);
     }
@@ -107,11 +103,9 @@ pub const qsvggenerator = struct {
     /// ``` self: QtC.QSvgGenerator, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSvgGenerator_FileName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsvggenerator.FileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -121,7 +115,7 @@ pub const qsvggenerator = struct {
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         qtc.QSvgGenerator_SetFileName(@ptrCast(self), fileName_str);
     }

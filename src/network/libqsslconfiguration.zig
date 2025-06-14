@@ -107,9 +107,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.LocalCertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -153,9 +151,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.PeerCertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -195,9 +191,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCipher, _arr.len) catch @panic("qsslconfiguration.Ciphers: Memory allocation failed");
         const _data: [*]QtC.QSslCipher = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -218,7 +212,7 @@ pub const qsslconfiguration = struct {
     pub fn SetCiphersWithCiphers(self: ?*anyopaque, ciphers: []const u8) void {
         const ciphers_str = qtc.struct_libqt_string{
             .len = ciphers.len,
-            .data = @constCast(ciphers.ptr),
+            .data = ciphers.ptr,
         };
         qtc.QSslConfiguration_SetCiphersWithCiphers(@ptrCast(self), ciphers_str);
     }
@@ -231,9 +225,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCipher, _arr.len) catch @panic("qsslconfiguration.SupportedCiphers: Memory allocation failed");
         const _data: [*]QtC.QSslCipher = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -245,9 +237,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.CaCertificates: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -268,7 +258,7 @@ pub const qsslconfiguration = struct {
     pub fn AddCaCertificates(self: ?*anyopaque, path: []const u8) bool {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         return qtc.QSslConfiguration_AddCaCertificates(@ptrCast(self), path_str);
     }
@@ -299,9 +289,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslconfiguration.SystemCaCertificates: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -324,11 +312,9 @@ pub const qsslconfiguration = struct {
     /// ``` self: QtC.QSslConfiguration, allocator: std.mem.Allocator ```
     pub fn SessionTicket(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QSslConfiguration_SessionTicket(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslconfiguration.SessionTicket: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -338,7 +324,7 @@ pub const qsslconfiguration = struct {
     pub fn SetSessionTicket(self: ?*anyopaque, sessionTicket: []u8) void {
         const sessionTicket_str = qtc.struct_libqt_string{
             .len = sessionTicket.len,
-            .data = @constCast(sessionTicket.ptr),
+            .data = sessionTicket.ptr,
         };
         qtc.QSslConfiguration_SetSessionTicket(@ptrCast(self), sessionTicket_str);
     }
@@ -365,9 +351,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslEllipticCurve, _arr.len) catch @panic("qsslconfiguration.EllipticCurves: Memory allocation failed");
         const _data: [*]QtC.QSslEllipticCurve = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -390,9 +374,7 @@ pub const qsslconfiguration = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslEllipticCurve, _arr.len) catch @panic("qsslconfiguration.SupportedEllipticCurves: Memory allocation failed");
         const _data: [*]QtC.QSslEllipticCurve = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -401,11 +383,9 @@ pub const qsslconfiguration = struct {
     /// ``` self: QtC.QSslConfiguration, allocator: std.mem.Allocator ```
     pub fn PreSharedKeyIdentityHint(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QSslConfiguration_PreSharedKeyIdentityHint(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslconfiguration.PreSharedKeyIdentityHint: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -415,7 +395,7 @@ pub const qsslconfiguration = struct {
     pub fn SetPreSharedKeyIdentityHint(self: ?*anyopaque, hint: []u8) void {
         const hint_str = qtc.struct_libqt_string{
             .len = hint.len,
-            .data = @constCast(hint.ptr),
+            .data = hint.ptr,
         };
         qtc.QSslConfiguration_SetPreSharedKeyIdentityHint(@ptrCast(self), hint_str);
     }
@@ -440,7 +420,7 @@ pub const qsslconfiguration = struct {
     pub fn SetBackendConfigurationOption(self: ?*anyopaque, name: []u8, value: ?*anyopaque) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QSslConfiguration_SetBackendConfigurationOption(@ptrCast(self), name_str, @ptrCast(value));
     }
@@ -542,10 +522,10 @@ pub const qsslconfiguration = struct {
     pub fn SetAllowedNextProtocols(self: ?*anyopaque, protocols: [][]u8, allocator: std.mem.Allocator) void {
         var protocols_arr = allocator.alloc(qtc.struct_libqt_string, protocols.len) catch @panic("qsslconfiguration.SetAllowedNextProtocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
-        for (protocols, 0..protocols.len) |item, _i| {
-            protocols_arr[_i] = .{
+        for (protocols, 0..protocols.len) |item, i| {
+            protocols_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const protocols_list = qtc.struct_libqt_list{
@@ -562,17 +542,17 @@ pub const qsslconfiguration = struct {
         const _arr: qtc.struct_libqt_list = qtc.QSslConfiguration_AllowedNextProtocols(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsslconfiguration.AllowedNextProtocols: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslconfiguration.AllowedNextProtocols: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -582,11 +562,9 @@ pub const qsslconfiguration = struct {
     /// ``` self: QtC.QSslConfiguration, allocator: std.mem.Allocator ```
     pub fn NextNegotiatedProtocol(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QSslConfiguration_NextNegotiatedProtocol(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslconfiguration.NextNegotiatedProtocol: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -603,7 +581,7 @@ pub const qsslconfiguration = struct {
     pub fn AddCaCertificates2(self: ?*anyopaque, path: []const u8, format: i64) bool {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         return qtc.QSslConfiguration_AddCaCertificates2(@ptrCast(self), path_str, @intCast(format));
     }
@@ -614,7 +592,7 @@ pub const qsslconfiguration = struct {
     pub fn AddCaCertificates3(self: ?*anyopaque, path: []const u8, format: i64, syntax: i64) bool {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         return qtc.QSslConfiguration_AddCaCertificates3(@ptrCast(self), path_str, @intCast(format), @intCast(syntax));
     }

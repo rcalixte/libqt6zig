@@ -901,9 +901,9 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             QByteArray prefix_b = prefix_ret.toUtf8();
             libqt_string prefix_str;
             prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
-            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
-            prefix_str.data[prefix_str.len] = '\0';
+            prefix_str.data = static_cast<const char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
+            ((char*)prefix_str.data)[prefix_str.len] = '\0';
             libqt_string cbval2 = prefix_str;
 
             bool callback_ret = qscilexercsharp_readproperties_callback(this, cbval1, cbval2);
@@ -927,9 +927,9 @@ class VirtualQsciLexerCSharp final : public QsciLexerCSharp {
             QByteArray prefix_b = prefix_ret.toUtf8();
             libqt_string prefix_str;
             prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<char*>(malloc((prefix_str.len + 1) * sizeof(char)));
-            memcpy(prefix_str.data, prefix_b.data(), prefix_str.len);
-            prefix_str.data[prefix_str.len] = '\0';
+            prefix_str.data = static_cast<const char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
+            ((char*)prefix_str.data)[prefix_str.len] = '\0';
             libqt_string cbval2 = prefix_str;
 
             bool callback_ret = qscilexercsharp_writeproperties_callback(this, cbval1, cbval2);

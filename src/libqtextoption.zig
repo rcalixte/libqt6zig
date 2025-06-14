@@ -123,9 +123,7 @@ pub const qtextoption = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(f64, _arr.len) catch @panic("qtextoption.TabArray: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -148,9 +146,7 @@ pub const qtextoption = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextOption__Tab, _arr.len) catch @panic("qtextoption.Tabs: Memory allocation failed");
         const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

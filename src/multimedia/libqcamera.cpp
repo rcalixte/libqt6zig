@@ -82,9 +82,9 @@ libqt_string QCamera_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -126,9 +126,9 @@ libqt_string QCamera_ErrorString(const QCamera* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -353,9 +353,9 @@ void QCamera_Connect_ErrorOccurred(QCamera* self, intptr_t slot) {
         QByteArray errorString_b = errorString_ret.toUtf8();
         libqt_string errorString_str;
         errorString_str.len = errorString_b.length();
-        errorString_str.data = static_cast<char*>(malloc((errorString_str.len + 1) * sizeof(char)));
-        memcpy(errorString_str.data, errorString_b.data(), errorString_str.len);
-        errorString_str.data[errorString_str.len] = '\0';
+        errorString_str.data = static_cast<const char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+        memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
+        ((char*)errorString_str.data)[errorString_str.len] = '\0';
         libqt_string sigval2 = errorString_str;
         slotFunc(self, sigval1, sigval2);
     });
@@ -652,9 +652,9 @@ libqt_string QCamera_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -664,9 +664,9 @@ libqt_string QCamera_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

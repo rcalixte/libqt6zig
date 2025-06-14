@@ -95,7 +95,7 @@ pub const qtextcursor = struct {
     pub fn InsertText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QTextCursor_InsertText(@ptrCast(self), text_str);
     }
@@ -106,7 +106,7 @@ pub const qtextcursor = struct {
     pub fn InsertText2(self: ?*anyopaque, text: []const u8, format: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QTextCursor_InsertText2(@ptrCast(self), text_str, @ptrCast(format));
     }
@@ -228,11 +228,9 @@ pub const qtextcursor = struct {
     /// ``` self: QtC.QTextCursor, allocator: std.mem.Allocator ```
     pub fn SelectedText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCursor_SelectedText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcursor.SelectedText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -452,7 +450,7 @@ pub const qtextcursor = struct {
     pub fn InsertHtml(self: ?*anyopaque, html: []const u8) void {
         const html_str = qtc.struct_libqt_string{
             .len = html.len,
-            .data = @constCast(html.ptr),
+            .data = html.ptr,
         };
         qtc.QTextCursor_InsertHtml(@ptrCast(self), html_str);
     }
@@ -463,7 +461,7 @@ pub const qtextcursor = struct {
     pub fn InsertMarkdown(self: ?*anyopaque, markdown: []const u8) void {
         const markdown_str = qtc.struct_libqt_string{
             .len = markdown.len,
-            .data = @constCast(markdown.ptr),
+            .data = markdown.ptr,
         };
         qtc.QTextCursor_InsertMarkdown(@ptrCast(self), markdown_str);
     }
@@ -488,7 +486,7 @@ pub const qtextcursor = struct {
     pub fn InsertImageWithName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QTextCursor_InsertImageWithName(@ptrCast(self), name_str);
     }
@@ -618,7 +616,7 @@ pub const qtextcursor = struct {
     pub fn InsertMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i64) void {
         const markdown_str = qtc.struct_libqt_string{
             .len = markdown.len,
-            .data = @constCast(markdown.ptr),
+            .data = markdown.ptr,
         };
         qtc.QTextCursor_InsertMarkdown2(@ptrCast(self), markdown_str, @intCast(features));
     }
@@ -629,7 +627,7 @@ pub const qtextcursor = struct {
     pub fn InsertImage2(self: ?*anyopaque, image: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QTextCursor_InsertImage2(@ptrCast(self), @ptrCast(image), name_str);
     }

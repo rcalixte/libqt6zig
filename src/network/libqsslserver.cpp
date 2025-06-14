@@ -69,9 +69,9 @@ libqt_string QSslServer_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -176,9 +176,9 @@ void QSslServer_Connect_AlertSent(QSslServer* self, intptr_t slot) {
         QByteArray description_b = description_ret.toUtf8();
         libqt_string description_str;
         description_str.len = description_b.length();
-        description_str.data = static_cast<char*>(malloc((description_str.len + 1) * sizeof(char)));
-        memcpy(description_str.data, description_b.data(), description_str.len);
-        description_str.data[description_str.len] = '\0';
+        description_str.data = static_cast<const char*>(malloc((description_str.len + 1) * sizeof(char)));
+        memcpy((void*)description_str.data, description_b.data(), description_str.len);
+        ((char*)description_str.data)[description_str.len] = '\0';
         libqt_string sigval4 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3, sigval4);
     });
@@ -200,9 +200,9 @@ void QSslServer_Connect_AlertReceived(QSslServer* self, intptr_t slot) {
         QByteArray description_b = description_ret.toUtf8();
         libqt_string description_str;
         description_str.len = description_b.length();
-        description_str.data = static_cast<char*>(malloc((description_str.len + 1) * sizeof(char)));
-        memcpy(description_str.data, description_b.data(), description_str.len);
-        description_str.data[description_str.len] = '\0';
+        description_str.data = static_cast<const char*>(malloc((description_str.len + 1) * sizeof(char)));
+        memcpy((void*)description_str.data, description_b.data(), description_str.len);
+        ((char*)description_str.data)[description_str.len] = '\0';
         libqt_string sigval4 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3, sigval4);
     });
@@ -241,9 +241,9 @@ libqt_string QSslServer_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -253,9 +253,9 @@ libqt_string QSslServer_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

@@ -8,7 +8,7 @@ pub const qloggingcategory = struct {
     ///
     /// ``` category: []const u8 ```
     pub fn New(category: []const u8) QtC.QLoggingCategory {
-        const category_Cstring = @constCast(category.ptr);
+        const category_Cstring = category.ptr;
 
         return qtc.QLoggingCategory_new(category_Cstring);
     }
@@ -76,7 +76,7 @@ pub const qloggingcategory = struct {
     pub fn SetFilterRules(rules: []const u8) void {
         const rules_str = qtc.struct_libqt_string{
             .len = rules.len,
-            .data = @constCast(rules.ptr),
+            .data = rules.ptr,
         };
         qtc.QLoggingCategory_SetFilterRules(rules_str);
     }

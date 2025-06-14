@@ -30,7 +30,7 @@ pub const qthreadpool = struct {
 
     /// ``` self: QtC.QThreadPool, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QThreadPool_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -57,13 +57,11 @@ pub const qthreadpool = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QThreadPool_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qthreadpool.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -204,14 +202,12 @@ pub const qthreadpool = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QThreadPool_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qthreadpool.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -219,14 +215,12 @@ pub const qthreadpool = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QThreadPool_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qthreadpool.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -251,11 +245,9 @@ pub const qthreadpool = struct {
     /// ``` self: QtC.QThreadPool, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qthreadpool.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -265,7 +257,11 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -359,9 +355,7 @@ pub const qthreadpool = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qthreadpool.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -407,8 +401,8 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -454,7 +448,7 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -464,7 +458,7 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -477,17 +471,17 @@ pub const qthreadpool = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qthreadpool.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qthreadpool.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -543,7 +537,7 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -580,8 +574,8 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -908,7 +902,7 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QThreadPool_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -920,7 +914,7 @@ pub const qthreadpool = struct {
     ///
     /// ``` self: QtC.QThreadPool, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QThreadPool_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

@@ -64,9 +64,9 @@ libqt_string QBarCategoryAxis_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -127,9 +127,9 @@ libqt_list /* of libqt_string */ QBarCategoryAxis_Categories(QBarCategoryAxis* s
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -148,9 +148,9 @@ libqt_string QBarCategoryAxis_At(const QBarCategoryAxis* self, int index) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -165,9 +165,9 @@ libqt_string QBarCategoryAxis_Min(const QBarCategoryAxis* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -182,9 +182,9 @@ libqt_string QBarCategoryAxis_Max(const QBarCategoryAxis* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -218,9 +218,9 @@ void QBarCategoryAxis_Connect_MinChanged(QBarCategoryAxis* self, intptr_t slot) 
         QByteArray min_b = min_ret.toUtf8();
         libqt_string min_str;
         min_str.len = min_b.length();
-        min_str.data = static_cast<char*>(malloc((min_str.len + 1) * sizeof(char)));
-        memcpy(min_str.data, min_b.data(), min_str.len);
-        min_str.data[min_str.len] = '\0';
+        min_str.data = static_cast<const char*>(malloc((min_str.len + 1) * sizeof(char)));
+        memcpy((void*)min_str.data, min_b.data(), min_str.len);
+        ((char*)min_str.data)[min_str.len] = '\0';
         libqt_string sigval1 = min_str;
         slotFunc(self, sigval1);
     });
@@ -239,9 +239,9 @@ void QBarCategoryAxis_Connect_MaxChanged(QBarCategoryAxis* self, intptr_t slot) 
         QByteArray max_b = max_ret.toUtf8();
         libqt_string max_str;
         max_str.len = max_b.length();
-        max_str.data = static_cast<char*>(malloc((max_str.len + 1) * sizeof(char)));
-        memcpy(max_str.data, max_b.data(), max_str.len);
-        max_str.data[max_str.len] = '\0';
+        max_str.data = static_cast<const char*>(malloc((max_str.len + 1) * sizeof(char)));
+        memcpy((void*)max_str.data, max_b.data(), max_str.len);
+        ((char*)max_str.data)[max_str.len] = '\0';
         libqt_string sigval1 = max_str;
         slotFunc(self, sigval1);
     });
@@ -261,18 +261,18 @@ void QBarCategoryAxis_Connect_RangeChanged(QBarCategoryAxis* self, intptr_t slot
         QByteArray min_b = min_ret.toUtf8();
         libqt_string min_str;
         min_str.len = min_b.length();
-        min_str.data = static_cast<char*>(malloc((min_str.len + 1) * sizeof(char)));
-        memcpy(min_str.data, min_b.data(), min_str.len);
-        min_str.data[min_str.len] = '\0';
+        min_str.data = static_cast<const char*>(malloc((min_str.len + 1) * sizeof(char)));
+        memcpy((void*)min_str.data, min_b.data(), min_str.len);
+        ((char*)min_str.data)[min_str.len] = '\0';
         libqt_string sigval1 = min_str;
         const QString max_ret = max;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray max_b = max_ret.toUtf8();
         libqt_string max_str;
         max_str.len = max_b.length();
-        max_str.data = static_cast<char*>(malloc((max_str.len + 1) * sizeof(char)));
-        memcpy(max_str.data, max_b.data(), max_str.len);
-        max_str.data[max_str.len] = '\0';
+        max_str.data = static_cast<const char*>(malloc((max_str.len + 1) * sizeof(char)));
+        memcpy((void*)max_str.data, max_b.data(), max_str.len);
+        ((char*)max_str.data)[max_str.len] = '\0';
         libqt_string sigval2 = max_str;
         slotFunc(self, sigval1, sigval2);
     });
@@ -295,9 +295,9 @@ libqt_string QBarCategoryAxis_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -307,9 +307,9 @@ libqt_string QBarCategoryAxis_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

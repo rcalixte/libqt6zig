@@ -229,9 +229,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
                 QByteArray oldFiles_lv_b = oldFiles_lv_ret.toUtf8();
                 libqt_string oldFiles_lv_str;
                 oldFiles_lv_str.len = oldFiles_lv_b.length();
-                oldFiles_lv_str.data = static_cast<char*>(malloc((oldFiles_lv_str.len + 1) * sizeof(char)));
-                memcpy(oldFiles_lv_str.data, oldFiles_lv_b.data(), oldFiles_lv_str.len);
-                oldFiles_lv_str.data[oldFiles_lv_str.len] = '\0';
+                oldFiles_lv_str.data = static_cast<const char*>(malloc((oldFiles_lv_str.len + 1) * sizeof(char)));
+                memcpy((void*)oldFiles_lv_str.data, oldFiles_lv_b.data(), oldFiles_lv_str.len);
+                ((char*)oldFiles_lv_str.data)[oldFiles_lv_str.len] = '\0';
                 oldFiles_arr[i] = oldFiles_lv_str;
             }
             libqt_list oldFiles_out;
@@ -247,9 +247,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
                 QByteArray acceptedMimeTypes_lv_b = acceptedMimeTypes_lv_ret.toUtf8();
                 libqt_string acceptedMimeTypes_lv_str;
                 acceptedMimeTypes_lv_str.len = acceptedMimeTypes_lv_b.length();
-                acceptedMimeTypes_lv_str.data = static_cast<char*>(malloc((acceptedMimeTypes_lv_str.len + 1) * sizeof(char)));
-                memcpy(acceptedMimeTypes_lv_str.data, acceptedMimeTypes_lv_b.data(), acceptedMimeTypes_lv_str.len);
-                acceptedMimeTypes_lv_str.data[acceptedMimeTypes_lv_str.len] = '\0';
+                acceptedMimeTypes_lv_str.data = static_cast<const char*>(malloc((acceptedMimeTypes_lv_str.len + 1) * sizeof(char)));
+                memcpy((void*)acceptedMimeTypes_lv_str.data, acceptedMimeTypes_lv_b.data(), acceptedMimeTypes_lv_str.len);
+                ((char*)acceptedMimeTypes_lv_str.data)[acceptedMimeTypes_lv_str.len] = '\0';
                 acceptedMimeTypes_arr[i] = acceptedMimeTypes_lv_str;
             }
             libqt_list acceptedMimeTypes_out;
@@ -285,9 +285,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray msg_b = msg_ret.toUtf8();
             libqt_string msg_str;
             msg_str.len = msg_b.length();
-            msg_str.data = static_cast<char*>(malloc((msg_str.len + 1) * sizeof(char)));
-            memcpy(msg_str.data, msg_b.data(), msg_str.len);
-            msg_str.data[msg_str.len] = '\0';
+            msg_str.data = static_cast<const char*>(malloc((msg_str.len + 1) * sizeof(char)));
+            memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
+            ((char*)msg_str.data)[msg_str.len] = '\0';
             libqt_string cbval2 = msg_str;
 
             qwebenginepage_javascriptalert_callback(this, cbval1, cbval2);
@@ -310,9 +310,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray msg_b = msg_ret.toUtf8();
             libqt_string msg_str;
             msg_str.len = msg_b.length();
-            msg_str.data = static_cast<char*>(malloc((msg_str.len + 1) * sizeof(char)));
-            memcpy(msg_str.data, msg_b.data(), msg_str.len);
-            msg_str.data[msg_str.len] = '\0';
+            msg_str.data = static_cast<const char*>(malloc((msg_str.len + 1) * sizeof(char)));
+            memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
+            ((char*)msg_str.data)[msg_str.len] = '\0';
             libqt_string cbval2 = msg_str;
 
             bool callback_ret = qwebenginepage_javascriptconfirm_callback(this, cbval1, cbval2);
@@ -334,9 +334,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray message_b = message_ret.toUtf8();
             libqt_string message_str;
             message_str.len = message_b.length();
-            message_str.data = static_cast<char*>(malloc((message_str.len + 1) * sizeof(char)));
-            memcpy(message_str.data, message_b.data(), message_str.len);
-            message_str.data[message_str.len] = '\0';
+            message_str.data = static_cast<const char*>(malloc((message_str.len + 1) * sizeof(char)));
+            memcpy((void*)message_str.data, message_b.data(), message_str.len);
+            ((char*)message_str.data)[message_str.len] = '\0';
             libqt_string cbval2 = message_str;
             int cbval3 = lineNumber;
             const QString sourceID_ret = sourceID;
@@ -344,9 +344,9 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray sourceID_b = sourceID_ret.toUtf8();
             libqt_string sourceID_str;
             sourceID_str.len = sourceID_b.length();
-            sourceID_str.data = static_cast<char*>(malloc((sourceID_str.len + 1) * sizeof(char)));
-            memcpy(sourceID_str.data, sourceID_b.data(), sourceID_str.len);
-            sourceID_str.data[sourceID_str.len] = '\0';
+            sourceID_str.data = static_cast<const char*>(malloc((sourceID_str.len + 1) * sizeof(char)));
+            memcpy((void*)sourceID_str.data, sourceID_b.data(), sourceID_str.len);
+            ((char*)sourceID_str.data)[sourceID_str.len] = '\0';
             libqt_string cbval4 = sourceID_str;
 
             qwebenginepage_javascriptconsolemessage_callback(this, cbval1, cbval2, cbval3, cbval4);

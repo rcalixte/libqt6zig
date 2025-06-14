@@ -77,9 +77,9 @@ libqt_string QFileSystemModel_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -96,9 +96,9 @@ void QFileSystemModel_Connect_RootPathChanged(QFileSystemModel* self, intptr_t s
         QByteArray newPath_b = newPath_ret.toUtf8();
         libqt_string newPath_str;
         newPath_str.len = newPath_b.length();
-        newPath_str.data = static_cast<char*>(malloc((newPath_str.len + 1) * sizeof(char)));
-        memcpy(newPath_str.data, newPath_b.data(), newPath_str.len);
-        newPath_str.data[newPath_str.len] = '\0';
+        newPath_str.data = static_cast<const char*>(malloc((newPath_str.len + 1) * sizeof(char)));
+        memcpy((void*)newPath_str.data, newPath_b.data(), newPath_str.len);
+        ((char*)newPath_str.data)[newPath_str.len] = '\0';
         libqt_string sigval1 = newPath_str;
         slotFunc(self, sigval1);
     });
@@ -119,27 +119,27 @@ void QFileSystemModel_Connect_FileRenamed(QFileSystemModel* self, intptr_t slot)
         QByteArray path_b = path_ret.toUtf8();
         libqt_string path_str;
         path_str.len = path_b.length();
-        path_str.data = static_cast<char*>(malloc((path_str.len + 1) * sizeof(char)));
-        memcpy(path_str.data, path_b.data(), path_str.len);
-        path_str.data[path_str.len] = '\0';
+        path_str.data = static_cast<const char*>(malloc((path_str.len + 1) * sizeof(char)));
+        memcpy((void*)path_str.data, path_b.data(), path_str.len);
+        ((char*)path_str.data)[path_str.len] = '\0';
         libqt_string sigval1 = path_str;
         const QString oldName_ret = oldName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray oldName_b = oldName_ret.toUtf8();
         libqt_string oldName_str;
         oldName_str.len = oldName_b.length();
-        oldName_str.data = static_cast<char*>(malloc((oldName_str.len + 1) * sizeof(char)));
-        memcpy(oldName_str.data, oldName_b.data(), oldName_str.len);
-        oldName_str.data[oldName_str.len] = '\0';
+        oldName_str.data = static_cast<const char*>(malloc((oldName_str.len + 1) * sizeof(char)));
+        memcpy((void*)oldName_str.data, oldName_b.data(), oldName_str.len);
+        ((char*)oldName_str.data)[oldName_str.len] = '\0';
         libqt_string sigval2 = oldName_str;
         const QString newName_ret = newName;
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray newName_b = newName_ret.toUtf8();
         libqt_string newName_str;
         newName_str.len = newName_b.length();
-        newName_str.data = static_cast<char*>(malloc((newName_str.len + 1) * sizeof(char)));
-        memcpy(newName_str.data, newName_b.data(), newName_str.len);
-        newName_str.data[newName_str.len] = '\0';
+        newName_str.data = static_cast<const char*>(malloc((newName_str.len + 1) * sizeof(char)));
+        memcpy((void*)newName_str.data, newName_b.data(), newName_str.len);
+        ((char*)newName_str.data)[newName_str.len] = '\0';
         libqt_string sigval3 = newName_str;
         slotFunc(self, sigval1, sigval2, sigval3);
     });
@@ -158,9 +158,9 @@ void QFileSystemModel_Connect_DirectoryLoaded(QFileSystemModel* self, intptr_t s
         QByteArray path_b = path_ret.toUtf8();
         libqt_string path_str;
         path_str.len = path_b.length();
-        path_str.data = static_cast<char*>(malloc((path_str.len + 1) * sizeof(char)));
-        memcpy(path_str.data, path_b.data(), path_str.len);
-        path_str.data[path_str.len] = '\0';
+        path_str.data = static_cast<const char*>(malloc((path_str.len + 1) * sizeof(char)));
+        memcpy((void*)path_str.data, path_b.data(), path_str.len);
+        ((char*)path_str.data)[path_str.len] = '\0';
         libqt_string sigval1 = path_str;
         slotFunc(self, sigval1);
     });
@@ -186,9 +186,9 @@ libqt_string QFileSystemModel_RootPath(const QFileSystemModel* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -257,9 +257,9 @@ libqt_list /* of libqt_string */ QFileSystemModel_NameFilters(const QFileSystemM
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-        memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-        _lv_str.data[_lv_str.len] = '\0';
+        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+        ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
     }
     libqt_list _out;
@@ -290,9 +290,9 @@ libqt_string QFileSystemModel_FilePath(const QFileSystemModel* self, const QMode
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -310,9 +310,9 @@ libqt_string QFileSystemModel_Type(const QFileSystemModel* self, const QModelInd
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -335,9 +335,9 @@ libqt_string QFileSystemModel_FileName(const QFileSystemModel* self, const QMode
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -363,9 +363,9 @@ libqt_string QFileSystemModel_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -375,9 +375,9 @@ libqt_string QFileSystemModel_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -784,9 +784,9 @@ libqt_list /* of libqt_string */ QFileSystemModel_MimeTypes(const QFileSystemMod
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -803,9 +803,9 @@ libqt_list /* of libqt_string */ QFileSystemModel_MimeTypes(const QFileSystemMod
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -829,9 +829,9 @@ libqt_list /* of libqt_string */ QFileSystemModel_QBaseMimeTypes(const QFileSyst
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -848,9 +848,9 @@ libqt_list /* of libqt_string */ QFileSystemModel_QBaseMimeTypes(const QFileSyst
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -981,9 +981,9 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_RoleNames(const QFileSys
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
-            memcpy(_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _hashval_str.data[_hashval_str.len] = '\0';
+            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }
@@ -1003,9 +1003,9 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_RoleNames(const QFileSys
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
-            memcpy(_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _hashval_str.data[_hashval_str.len] = '\0';
+            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }
@@ -1032,9 +1032,9 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_QBaseRoleNames(const QFi
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
-            memcpy(_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _hashval_str.data[_hashval_str.len] = '\0';
+            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }
@@ -1054,9 +1054,9 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_QBaseRoleNames(const QFi
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
-            memcpy(_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
-            _hashval_str.data[_hashval_str.len] = '\0';
+            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
+            ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
             _ctr++;
         }

@@ -513,9 +513,9 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             const QByteArray text_qb = text;
             libqt_string text_str;
             text_str.len = text_qb.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_qb.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_qb.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
             bool cbval2 = rectangular;
 
@@ -1110,9 +1110,9 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
-            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
-            eventType_str.data[eventType_str.len] = '\0';
+            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
+            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;

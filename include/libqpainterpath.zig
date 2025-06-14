@@ -200,7 +200,7 @@ pub const qpainterpath = struct {
     pub fn AddText(self: ?*anyopaque, point: ?*anyopaque, f: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainterPath_AddText(@ptrCast(self), @ptrCast(point), @ptrCast(f), text_str);
     }
@@ -211,7 +211,7 @@ pub const qpainterpath = struct {
     pub fn AddText2(self: ?*anyopaque, x: f64, y: f64, f: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainterPath_AddText2(@ptrCast(self), @floatCast(x), @floatCast(y), @ptrCast(f), text_str);
     }
@@ -646,9 +646,7 @@ pub const qpainterpathstroker = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(f64, _arr.len) catch @panic("qpainterpathstroker.DashPattern: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

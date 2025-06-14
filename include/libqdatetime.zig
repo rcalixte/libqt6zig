@@ -213,11 +213,9 @@ pub const qdate = struct {
     /// ``` self: QtC.QDate, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDate_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -227,14 +225,12 @@ pub const qdate = struct {
     pub fn ToStringWithFormat(self: ?*anyopaque, format: []const u8, allocator: std.mem.Allocator) []const u8 {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         const _str = qtc.QDate_ToStringWithFormat(@ptrCast(self), format_str);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToStringWithFormat: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -314,7 +310,7 @@ pub const qdate = struct {
     pub fn FromStringWithStringVal(stringVal: []const u8) QtC.QDate {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         return qtc.QDate_FromStringWithStringVal(stringVal_str);
     }
@@ -325,11 +321,11 @@ pub const qdate = struct {
     pub fn FromString4(stringVal: []const u8, format: []const u8) QtC.QDate {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         return qtc.QDate_FromString4(stringVal_str, format_str);
     }
@@ -402,11 +398,9 @@ pub const qdate = struct {
     /// ``` self: QtC.QDate, format: qnamespace_enums.DateFormat, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDate_ToString1(@ptrCast(self), @intCast(format));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -416,14 +410,12 @@ pub const qdate = struct {
     pub fn ToString22(self: ?*anyopaque, format: []const u8, cal: QtC.QCalendar, allocator: std.mem.Allocator) []const u8 {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         const _str = qtc.QDate_ToString22(@ptrCast(self), format_str, @ptrCast(cal));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString22: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -433,7 +425,7 @@ pub const qdate = struct {
     pub fn FromString23(stringVal: []const u8, format: i64) QtC.QDate {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         return qtc.QDate_FromString23(stringVal_str, @intCast(format));
     }
@@ -444,11 +436,11 @@ pub const qdate = struct {
     pub fn FromString34(stringVal: []const u8, format: []const u8, cal: QtC.QCalendar) QtC.QDate {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         return qtc.QDate_FromString34(stringVal_str, format_str, @ptrCast(cal));
     }
@@ -575,11 +567,9 @@ pub const qtime = struct {
     /// ``` self: QtC.QTime, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTime_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -589,14 +579,12 @@ pub const qtime = struct {
     pub fn ToStringWithFormat(self: ?*anyopaque, format: []const u8, allocator: std.mem.Allocator) []const u8 {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         const _str = qtc.QTime_ToStringWithFormat(@ptrCast(self), format_str);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToStringWithFormat: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -662,7 +650,7 @@ pub const qtime = struct {
     pub fn FromStringWithStringVal(stringVal: []const u8) QtC.QTime {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         return qtc.QTime_FromStringWithStringVal(stringVal_str);
     }
@@ -673,11 +661,11 @@ pub const qtime = struct {
     pub fn FromString4(stringVal: []const u8, format: []const u8) QtC.QTime {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         return qtc.QTime_FromString4(stringVal_str, format_str);
     }
@@ -694,11 +682,9 @@ pub const qtime = struct {
     /// ``` self: QtC.QTime, f: qnamespace_enums.DateFormat, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, f: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTime_ToString1(@ptrCast(self), @intCast(f));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -715,7 +701,7 @@ pub const qtime = struct {
     pub fn FromString23(stringVal: []const u8, format: i64) QtC.QTime {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         return qtc.QTime_FromString23(stringVal_str, @intCast(format));
     }
@@ -849,11 +835,9 @@ pub const qdatetime = struct {
     /// ``` self: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn TimeZoneAbbreviation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTime_TimeZoneAbbreviation(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.TimeZoneAbbreviation: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -932,11 +916,9 @@ pub const qdatetime = struct {
     /// ``` self: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTime_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -946,14 +928,12 @@ pub const qdatetime = struct {
     pub fn ToStringWithFormat(self: ?*anyopaque, format: []const u8, allocator: std.mem.Allocator) []const u8 {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         const _str = qtc.QDateTime_ToStringWithFormat(@ptrCast(self), format_str);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToStringWithFormat: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1068,7 +1048,7 @@ pub const qdatetime = struct {
     pub fn FromStringWithStringVal(stringVal: []const u8) QtC.QDateTime {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         return qtc.QDateTime_FromStringWithStringVal(stringVal_str);
     }
@@ -1079,11 +1059,11 @@ pub const qdatetime = struct {
     pub fn FromString4(stringVal: []const u8, format: []const u8) QtC.QDateTime {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         return qtc.QDateTime_FromString4(stringVal_str, format_str);
     }
@@ -1135,11 +1115,9 @@ pub const qdatetime = struct {
     /// ``` self: QtC.QDateTime, format: qnamespace_enums.DateFormat, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTime_ToString1(@ptrCast(self), @intCast(format));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1149,14 +1127,12 @@ pub const qdatetime = struct {
     pub fn ToString22(self: ?*anyopaque, format: []const u8, cal: QtC.QCalendar, allocator: std.mem.Allocator) []const u8 {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         const _str = qtc.QDateTime_ToString22(@ptrCast(self), format_str, @ptrCast(cal));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString22: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1166,7 +1142,7 @@ pub const qdatetime = struct {
     pub fn FromString23(stringVal: []const u8, format: i64) QtC.QDateTime {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         return qtc.QDateTime_FromString23(stringVal_str, @intCast(format));
     }
@@ -1177,11 +1153,11 @@ pub const qdatetime = struct {
     pub fn FromString34(stringVal: []const u8, format: []const u8, cal: QtC.QCalendar) QtC.QDateTime {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         return qtc.QDateTime_FromString34(stringVal_str, format_str, @ptrCast(cal));
     }

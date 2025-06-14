@@ -61,7 +61,7 @@ pub const qcolor = struct {
     pub fn New8(name: []const u8) QtC.QColor {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QColor_new8(name_str);
@@ -71,7 +71,7 @@ pub const qcolor = struct {
     ///
     /// ``` aname: []const u8 ```
     pub fn New9(aname: []const u8) QtC.QColor {
-        const aname_Cstring = @constCast(aname.ptr);
+        const aname_Cstring = aname.ptr;
 
         return qtc.QColor_new9(aname_Cstring);
     }
@@ -129,7 +129,11 @@ pub const qcolor = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromString(name: []const u8) QtC.QColor {
-        return qtc.QColor_FromString(@constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QColor_FromString(name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator=)
@@ -151,11 +155,9 @@ pub const qcolor = struct {
     /// ``` self: QtC.QColor, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QColor_Name(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolor.Name: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -165,7 +167,7 @@ pub const qcolor = struct {
     pub fn SetNamedColor(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QColor_SetNamedColor(@ptrCast(self), name_str);
     }
@@ -177,17 +179,17 @@ pub const qcolor = struct {
         const _arr: qtc.struct_libqt_list = qtc.QColor_ColorNames();
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcolor.ColorNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qcolor.ColorNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -800,7 +802,7 @@ pub const qcolor = struct {
     pub fn IsValidColor(name: []const u8) bool {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         return qtc.QColor_IsValidColor(name_str);
     }
@@ -809,7 +811,11 @@ pub const qcolor = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn IsValidColorName(param1: []const u8) bool {
-        return qtc.QColor_IsValidColorName(@constCast(param1.ptr));
+        const param1_str = qtc.struct_libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        return qtc.QColor_IsValidColorName(param1_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#name)
@@ -817,11 +823,9 @@ pub const qcolor = struct {
     /// ``` self: QtC.QColor, format: qcolor_enums.NameFormat, allocator: std.mem.Allocator ```
     pub fn Name1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QColor_Name1(@ptrCast(self), @intCast(format));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolor.Name1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

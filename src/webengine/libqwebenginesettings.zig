@@ -11,7 +11,7 @@ pub const qwebenginesettings = struct {
     pub fn SetFontFamily(self: ?*anyopaque, which: i64, family: []const u8) void {
         const family_str = qtc.struct_libqt_string{
             .len = family.len,
-            .data = @constCast(family.ptr),
+            .data = family.ptr,
         };
         qtc.QWebEngineSettings_SetFontFamily(@ptrCast(self), @intCast(which), family_str);
     }
@@ -21,11 +21,9 @@ pub const qwebenginesettings = struct {
     /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, which: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineSettings_FontFamily(@ptrCast(self), @intCast(which));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginesettings.FontFamily: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -84,7 +82,7 @@ pub const qwebenginesettings = struct {
     pub fn SetDefaultTextEncoding(self: ?*anyopaque, encoding: []const u8) void {
         const encoding_str = qtc.struct_libqt_string{
             .len = encoding.len,
-            .data = @constCast(encoding.ptr),
+            .data = encoding.ptr,
         };
         qtc.QWebEngineSettings_SetDefaultTextEncoding(@ptrCast(self), encoding_str);
     }
@@ -94,11 +92,9 @@ pub const qwebenginesettings = struct {
     /// ``` self: QtC.QWebEngineSettings, allocator: std.mem.Allocator ```
     pub fn DefaultTextEncoding(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineSettings_DefaultTextEncoding(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginesettings.DefaultTextEncoding: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

@@ -45,11 +45,9 @@ pub const qauthenticator = struct {
     /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
     pub fn User(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAuthenticator_User(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.User: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -59,7 +57,7 @@ pub const qauthenticator = struct {
     pub fn SetUser(self: ?*anyopaque, user: []const u8) void {
         const user_str = qtc.struct_libqt_string{
             .len = user.len,
-            .data = @constCast(user.ptr),
+            .data = user.ptr,
         };
         qtc.QAuthenticator_SetUser(@ptrCast(self), user_str);
     }
@@ -69,11 +67,9 @@ pub const qauthenticator = struct {
     /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
     pub fn Password(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAuthenticator_Password(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.Password: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -83,7 +79,7 @@ pub const qauthenticator = struct {
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
         const password_str = qtc.struct_libqt_string{
             .len = password.len,
-            .data = @constCast(password.ptr),
+            .data = password.ptr,
         };
         qtc.QAuthenticator_SetPassword(@ptrCast(self), password_str);
     }
@@ -93,11 +89,9 @@ pub const qauthenticator = struct {
     /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
     pub fn Realm(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAuthenticator_Realm(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.Realm: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -107,7 +101,7 @@ pub const qauthenticator = struct {
     pub fn SetRealm(self: ?*anyopaque, realm: []const u8) void {
         const realm_str = qtc.struct_libqt_string{
             .len = realm.len,
-            .data = @constCast(realm.ptr),
+            .data = realm.ptr,
         };
         qtc.QAuthenticator_SetRealm(@ptrCast(self), realm_str);
     }
@@ -118,7 +112,7 @@ pub const qauthenticator = struct {
     pub fn Option(self: ?*anyopaque, opt: []const u8) QtC.QVariant {
         const opt_str = qtc.struct_libqt_string{
             .len = opt.len,
-            .data = @constCast(opt.ptr),
+            .data = opt.ptr,
         };
         return qtc.QAuthenticator_Option(@ptrCast(self), opt_str);
     }
@@ -131,19 +125,19 @@ pub const qauthenticator = struct {
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
-            for (0.._map.len) |_i| {
-                qtc.libqt_free(_keys[_i].data);
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
             const _entry_slice = std.mem.span(_key.data);
-            const _value = _values[_i];
+            const _value = _values[i];
             _ret.put(allocator, _entry_slice, _value) catch @panic("qauthenticator.Options: Memory allocation failed");
         }
         return _ret;
@@ -155,7 +149,7 @@ pub const qauthenticator = struct {
     pub fn SetOption(self: ?*anyopaque, opt: []const u8, value: ?*anyopaque) void {
         const opt_str = qtc.struct_libqt_string{
             .len = opt.len,
-            .data = @constCast(opt.ptr),
+            .data = opt.ptr,
         };
         qtc.QAuthenticator_SetOption(@ptrCast(self), opt_str, @ptrCast(value));
     }

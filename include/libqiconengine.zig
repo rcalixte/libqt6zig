@@ -118,7 +118,7 @@ pub const qiconengine = struct {
     pub fn AddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64, state: i64) void {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         qtc.QIconEngine_AddFile(@ptrCast(self), fileName_str, @ptrCast(size), @intCast(mode), @intCast(state));
     }
@@ -140,7 +140,7 @@ pub const qiconengine = struct {
     pub fn QBaseAddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64, state: i64) void {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         qtc.QIconEngine_QBaseAddFile(@ptrCast(self), fileName_str, @ptrCast(size), @intCast(mode), @intCast(state));
     }
@@ -150,11 +150,9 @@ pub const qiconengine = struct {
     /// ``` self: QtC.QIconEngine, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QIconEngine_Key(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qiconengine.Key: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -174,11 +172,9 @@ pub const qiconengine = struct {
     /// ``` self: QtC.QIconEngine, allocator: std.mem.Allocator ```
     pub fn QBaseKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QIconEngine_QBaseKey(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qiconengine.Key: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -265,9 +261,7 @@ pub const qiconengine = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -290,9 +284,7 @@ pub const qiconengine = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -301,11 +293,9 @@ pub const qiconengine = struct {
     /// ``` self: QtC.QIconEngine, allocator: std.mem.Allocator ```
     pub fn IconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QIconEngine_IconName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qiconengine.IconName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -325,11 +315,9 @@ pub const qiconengine = struct {
     /// ``` self: QtC.QIconEngine, allocator: std.mem.Allocator ```
     pub fn QBaseIconName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QIconEngine_QBaseIconName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qiconengine.IconName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

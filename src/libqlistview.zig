@@ -37,7 +37,7 @@ pub const qlistview = struct {
 
     /// ``` self: QtC.QListView, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QListView_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -64,13 +64,11 @@ pub const qlistview = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QListView_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1100,9 +1098,7 @@ pub const qlistview = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qlistview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1125,9 +1121,7 @@ pub const qlistview = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qlistview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1260,14 +1254,12 @@ pub const qlistview = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QListView_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1275,14 +1267,12 @@ pub const qlistview = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QListView_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2034,9 +2024,7 @@ pub const qlistview = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qlistview.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3083,7 +3071,7 @@ pub const qlistview = struct {
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
-            .data = @constCast(windowTitle.ptr),
+            .data = windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
@@ -3096,7 +3084,7 @@ pub const qlistview = struct {
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
-            .data = @constCast(styleSheet.ptr),
+            .data = styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
@@ -3108,11 +3096,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.StyleSheet: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3123,11 +3109,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.WindowTitle: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3157,7 +3141,7 @@ pub const qlistview = struct {
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
-            .data = @constCast(windowIconText.ptr),
+            .data = windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
@@ -3169,11 +3153,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.WindowIconText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3185,7 +3167,7 @@ pub const qlistview = struct {
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
-            .data = @constCast(windowRole.ptr),
+            .data = windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
@@ -3197,11 +3179,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.WindowRole: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3213,7 +3193,7 @@ pub const qlistview = struct {
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
-            .data = @constCast(filePath.ptr),
+            .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
@@ -3225,11 +3205,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.WindowFilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3268,7 +3246,7 @@ pub const qlistview = struct {
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
-            .data = @constCast(toolTip.ptr),
+            .data = toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
@@ -3280,11 +3258,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3314,7 +3290,7 @@ pub const qlistview = struct {
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
-            .data = @constCast(statusTip.ptr),
+            .data = statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
@@ -3326,11 +3302,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.StatusTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3342,7 +3316,7 @@ pub const qlistview = struct {
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
-            .data = @constCast(whatsThis.ptr),
+            .data = whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
@@ -3354,11 +3328,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.WhatsThis: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3369,11 +3341,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.AccessibleName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3385,7 +3355,7 @@ pub const qlistview = struct {
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
@@ -3397,11 +3367,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.AccessibleDescription: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3413,7 +3381,7 @@ pub const qlistview = struct {
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
@@ -3956,11 +3924,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlistview.SaveGeometry: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -3972,7 +3938,7 @@ pub const qlistview = struct {
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
-            .data = @constCast(geometry.ptr),
+            .data = geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
@@ -4310,9 +4276,7 @@ pub const qlistview = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qlistview.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4324,7 +4288,7 @@ pub const qlistview = struct {
     pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
@@ -4337,7 +4301,7 @@ pub const qlistview = struct {
     pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
     }
@@ -4350,7 +4314,7 @@ pub const qlistview = struct {
     pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
@@ -4363,7 +4327,7 @@ pub const qlistview = struct {
     pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
@@ -4556,7 +4520,7 @@ pub const qlistview = struct {
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
-            .data = @constCast(title.ptr),
+            .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
@@ -4596,7 +4560,7 @@ pub const qlistview = struct {
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
-            .data = @constCast(iconText.ptr),
+            .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
@@ -4788,11 +4752,9 @@ pub const qlistview = struct {
     /// ``` self: QtC.QListView, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlistview.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -4802,7 +4764,11 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -4896,9 +4862,7 @@ pub const qlistview = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qlistview.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4935,8 +4899,8 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -4982,7 +4946,7 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -4992,7 +4956,7 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -5005,17 +4969,17 @@ pub const qlistview = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qlistview.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qlistview.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -5071,7 +5035,7 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -5108,8 +5072,8 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -5315,7 +5279,7 @@ pub const qlistview = struct {
     pub fn KeyboardSearch(self: ?*anyopaque, search: []const u8) void {
         const search_str = qtc.struct_libqt_string{
             .len = search.len,
-            .data = @constCast(search.ptr),
+            .data = search.ptr,
         };
         qtc.QListView_KeyboardSearch(@ptrCast(self), search_str);
     }
@@ -5330,7 +5294,7 @@ pub const qlistview = struct {
     pub fn QBaseKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
         const search_str = qtc.struct_libqt_string{
             .len = search.len,
-            .data = @constCast(search.ptr),
+            .data = search.ptr,
         };
         qtc.QListView_QBaseKeyboardSearch(@ptrCast(self), search_str);
     }
@@ -6874,7 +6838,7 @@ pub const qlistview = struct {
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QListView_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -6889,7 +6853,7 @@ pub const qlistview = struct {
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QListView_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -7870,7 +7834,7 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QListView_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -7882,7 +7846,7 @@ pub const qlistview = struct {
     ///
     /// ``` self: QtC.QListView, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QListView_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

@@ -38,7 +38,7 @@ pub const qtooltip = struct {
     pub fn ShowText(pos: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QToolTip_ShowText(@ptrCast(pos), text_str);
     }
@@ -62,11 +62,9 @@ pub const qtooltip = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn Text(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QToolTip_Text();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtooltip.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -104,7 +102,7 @@ pub const qtooltip = struct {
     pub fn ShowText3(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QToolTip_ShowText3(@ptrCast(pos), text_str, @ptrCast(w));
     }
@@ -115,7 +113,7 @@ pub const qtooltip = struct {
     pub fn ShowText4(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque, rect: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QToolTip_ShowText4(@ptrCast(pos), text_str, @ptrCast(w), @ptrCast(rect));
     }
@@ -126,7 +124,7 @@ pub const qtooltip = struct {
     pub fn ShowText5(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque, rect: ?*anyopaque, msecShowTime: i32) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QToolTip_ShowText5(@ptrCast(pos), text_str, @ptrCast(w), @ptrCast(rect), @intCast(msecShowTime));
     }

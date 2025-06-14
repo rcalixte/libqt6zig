@@ -144,9 +144,9 @@ class VirtualQValidator final : public QValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<char*>(malloc((param1_str.len + 1) * sizeof(char)));
-            memcpy(param1_str.data, param1_b.data(), param1_str.len);
-            param1_str.data[param1_str.len] = '\0';
+            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
+            ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
             int* cbval2 = &param2;
 
@@ -168,9 +168,9 @@ class VirtualQValidator final : public QValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<char*>(malloc((param1_str.len + 1) * sizeof(char)));
-            memcpy(param1_str.data, param1_b.data(), param1_str.len);
-            param1_str.data[param1_str.len] = '\0';
+            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
+            ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
 
             qvalidator_fixup_callback(this, cbval1);
@@ -502,9 +502,9 @@ class VirtualQIntValidator final : public QIntValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<char*>(malloc((param1_str.len + 1) * sizeof(char)));
-            memcpy(param1_str.data, param1_b.data(), param1_str.len);
-            param1_str.data[param1_str.len] = '\0';
+            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
+            ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
             int* cbval2 = &param2;
 
@@ -526,9 +526,9 @@ class VirtualQIntValidator final : public QIntValidator {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
-            memcpy(input_str.data, input_b.data(), input_str.len);
-            input_str.data[input_str.len] = '\0';
+            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy((void*)input_str.data, input_b.data(), input_str.len);
+            ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
 
             qintvalidator_fixup_callback(this, cbval1);
@@ -860,9 +860,9 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<char*>(malloc((param1_str.len + 1) * sizeof(char)));
-            memcpy(param1_str.data, param1_b.data(), param1_str.len);
-            param1_str.data[param1_str.len] = '\0';
+            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
+            ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
             int* cbval2 = &param2;
 
@@ -884,9 +884,9 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
-            memcpy(input_str.data, input_b.data(), input_str.len);
-            input_str.data[input_str.len] = '\0';
+            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy((void*)input_str.data, input_b.data(), input_str.len);
+            ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
 
             qdoublevalidator_fixup_callback(this, cbval1);
@@ -1218,9 +1218,9 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
-            memcpy(input_str.data, input_b.data(), input_str.len);
-            input_str.data[input_str.len] = '\0';
+            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy((void*)input_str.data, input_b.data(), input_str.len);
+            ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
             int* cbval2 = &pos;
 
@@ -1242,9 +1242,9 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<char*>(malloc((param1_str.len + 1) * sizeof(char)));
-            memcpy(param1_str.data, param1_b.data(), param1_str.len);
-            param1_str.data[param1_str.len] = '\0';
+            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
+            ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
 
             qregularexpressionvalidator_fixup_callback(this, cbval1);

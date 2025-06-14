@@ -235,11 +235,9 @@ pub const qvideoframeformat = struct {
     /// ``` self: QtC.QVideoFrameFormat, allocator: std.mem.Allocator ```
     pub fn VertexShaderFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QVideoFrameFormat_VertexShaderFileName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.VertexShaderFileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -248,11 +246,9 @@ pub const qvideoframeformat = struct {
     /// ``` self: QtC.QVideoFrameFormat, allocator: std.mem.Allocator ```
     pub fn FragmentShaderFileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QVideoFrameFormat_FragmentShaderFileName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.FragmentShaderFileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -289,11 +285,9 @@ pub const qvideoframeformat = struct {
     /// ``` pixelFormat: qvideoframeformat_enums.PixelFormat, allocator: std.mem.Allocator ```
     pub fn PixelFormatToString(pixelFormat: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QVideoFrameFormat_PixelFormatToString(@intCast(pixelFormat));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.PixelFormatToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

@@ -17,7 +17,7 @@ pub const qdiriterator = struct {
     pub fn New2(path: []const u8) QtC.QDirIterator {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
 
         return qtc.QDirIterator_new2(path_str);
@@ -29,7 +29,7 @@ pub const qdiriterator = struct {
     pub fn New3(path: []const u8, filter: i64) QtC.QDirIterator {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
 
         return qtc.QDirIterator_new3(path_str, @intCast(filter));
@@ -41,14 +41,14 @@ pub const qdiriterator = struct {
     pub fn New4(path: []const u8, nameFilters: [][]const u8, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         var nameFilters_arr = allocator.alloc(qtc.struct_libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, _i| {
-            nameFilters_arr[_i] = .{
+        for (nameFilters, 0..nameFilters.len) |item, i| {
+            nameFilters_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const nameFilters_list = qtc.struct_libqt_list{
@@ -72,7 +72,7 @@ pub const qdiriterator = struct {
     pub fn New6(path: []const u8, flags: i64) QtC.QDirIterator {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
 
         return qtc.QDirIterator_new6(path_str, @intCast(flags));
@@ -84,7 +84,7 @@ pub const qdiriterator = struct {
     pub fn New7(path: []const u8, filter: i64, flags: i64) QtC.QDirIterator {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
 
         return qtc.QDirIterator_new7(path_str, @intCast(filter), @intCast(flags));
@@ -96,14 +96,14 @@ pub const qdiriterator = struct {
     pub fn New8(path: []const u8, nameFilters: [][]const u8, filters: i64, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         var nameFilters_arr = allocator.alloc(qtc.struct_libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, _i| {
-            nameFilters_arr[_i] = .{
+        for (nameFilters, 0..nameFilters.len) |item, i| {
+            nameFilters_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const nameFilters_list = qtc.struct_libqt_list{
@@ -120,14 +120,14 @@ pub const qdiriterator = struct {
     pub fn New9(path: []const u8, nameFilters: [][]const u8, filters: i64, flags: i64, allocator: std.mem.Allocator) QtC.QDirIterator {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         var nameFilters_arr = allocator.alloc(qtc.struct_libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
-        for (nameFilters, 0..nameFilters.len) |item, _i| {
-            nameFilters_arr[_i] = .{
+        for (nameFilters, 0..nameFilters.len) |item, i| {
+            nameFilters_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const nameFilters_list = qtc.struct_libqt_list{
@@ -143,11 +143,9 @@ pub const qdiriterator = struct {
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn Next(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_Next(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.Next: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -170,11 +168,9 @@ pub const qdiriterator = struct {
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_FileName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.FileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -183,11 +179,9 @@ pub const qdiriterator = struct {
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_FilePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.FilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -203,11 +197,9 @@ pub const qdiriterator = struct {
     /// ``` self: QtC.QDirIterator, allocator: std.mem.Allocator ```
     pub fn Path(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDirIterator_Path(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdiriterator.Path: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

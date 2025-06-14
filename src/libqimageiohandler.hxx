@@ -425,9 +425,9 @@ class VirtualQImageIOPlugin final : public QImageIOPlugin {
             const QByteArray format_qb = format;
             libqt_string format_str;
             format_str.len = format_qb.length();
-            format_str.data = static_cast<char*>(malloc((format_str.len + 1) * sizeof(char)));
-            memcpy(format_str.data, format_qb.data(), format_str.len);
-            format_str.data[format_str.len] = '\0';
+            format_str.data = static_cast<const char*>(malloc((format_str.len + 1) * sizeof(char)));
+            memcpy((void*)format_str.data, format_qb.data(), format_str.len);
+            ((char*)format_str.data)[format_str.len] = '\0';
             libqt_string cbval2 = format_str;
 
             int callback_ret = qimageioplugin_capabilities_callback(this, cbval1, cbval2);
@@ -444,9 +444,9 @@ class VirtualQImageIOPlugin final : public QImageIOPlugin {
             const QByteArray format_qb = format;
             libqt_string format_str;
             format_str.len = format_qb.length();
-            format_str.data = static_cast<char*>(malloc((format_str.len + 1) * sizeof(char)));
-            memcpy(format_str.data, format_qb.data(), format_str.len);
-            format_str.data[format_str.len] = '\0';
+            format_str.data = static_cast<const char*>(malloc((format_str.len + 1) * sizeof(char)));
+            memcpy((void*)format_str.data, format_qb.data(), format_str.len);
+            ((char*)format_str.data)[format_str.len] = '\0';
             libqt_string cbval2 = format_str;
 
             QImageIOHandler* callback_ret = qimageioplugin_create_callback(this, cbval1, cbval2);

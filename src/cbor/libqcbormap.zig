@@ -72,9 +72,7 @@ pub const qcbormap = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QCborValue, _arr.len) catch @panic("qcbormap.Keys: Memory allocation failed");
         const _data: [*]QtC.QCborValue = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -91,7 +89,7 @@ pub const qcbormap = struct {
     pub fn Value2(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_Value2(@ptrCast(self), key_str);
     }
@@ -116,7 +114,7 @@ pub const qcbormap = struct {
     pub fn OperatorSubscript2(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_OperatorSubscript2(@ptrCast(self), key_str);
     }
@@ -141,7 +139,7 @@ pub const qcbormap = struct {
     pub fn OperatorSubscript6(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_OperatorSubscript6(@ptrCast(self), key_str);
     }
@@ -166,7 +164,7 @@ pub const qcbormap = struct {
     pub fn Take2(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_Take2(@ptrCast(self), key_str);
     }
@@ -191,7 +189,7 @@ pub const qcbormap = struct {
     pub fn Remove2(self: ?*anyopaque, key: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         qtc.QCborMap_Remove2(@ptrCast(self), key_str);
     }
@@ -216,7 +214,7 @@ pub const qcbormap = struct {
     pub fn Contains2(self: ?*anyopaque, key: []const u8) bool {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_Contains2(@ptrCast(self), key_str);
     }
@@ -360,7 +358,7 @@ pub const qcbormap = struct {
     pub fn Find2(self: ?*anyopaque, key: []const u8) QtC.QCborMap__Iterator {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_Find2(@ptrCast(self), key_str);
     }
@@ -385,7 +383,7 @@ pub const qcbormap = struct {
     pub fn ConstFind2(self: ?*anyopaque, key: []const u8) QtC.QCborMap__ConstIterator {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_ConstFind2(@ptrCast(self), key_str);
     }
@@ -410,7 +408,7 @@ pub const qcbormap = struct {
     pub fn Find6(self: ?*anyopaque, key: []const u8) QtC.QCborMap__ConstIterator {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_Find6(@ptrCast(self), key_str);
     }
@@ -435,7 +433,7 @@ pub const qcbormap = struct {
     pub fn Insert3(self: ?*anyopaque, key: []const u8, value_: ?*anyopaque) QtC.QCborMap__Iterator {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QCborMap_Insert3(@ptrCast(self), key_str, @ptrCast(value_));
     }
@@ -466,16 +464,16 @@ pub const qcbormap = struct {
         defer allocator.free(mapVal_keys);
         const mapVal_values = allocator.alloc(QtC.QVariant, mapVal.count()) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
         defer allocator.free(mapVal_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var mapVal_it = mapVal.iterator();
         while (mapVal_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            mapVal_keys[_i] = qtc.struct_libqt_string{
+            mapVal_keys[i] = qtc.struct_libqt_string{
                 .len = key.len,
-                .data = @ptrCast(@constCast(key.ptr)),
+                .data = key.ptr,
             };
-            mapVal_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            mapVal_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const mapVal_map = qtc.struct_libqt_map{
             .len = mapVal.count(),
@@ -493,16 +491,16 @@ pub const qcbormap = struct {
         defer allocator.free(hash_keys);
         const hash_values = allocator.alloc(QtC.QVariant, hash.count()) catch @panic("qcbormap.FromVariantHash: Memory allocation failed");
         defer allocator.free(hash_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var hash_it = hash.iterator();
         while (hash_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            hash_keys[_i] = qtc.struct_libqt_string{
+            hash_keys[i] = qtc.struct_libqt_string{
                 .len = key.len,
-                .data = @ptrCast(@constCast(key.ptr)),
+                .data = key.ptr,
             };
-            hash_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            hash_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const hash_map = qtc.struct_libqt_map{
             .len = hash.count(),
@@ -527,19 +525,19 @@ pub const qcbormap = struct {
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
-            for (0.._map.len) |_i| {
-                qtc.libqt_free(_keys[_i].data);
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
             const _entry_slice = std.mem.span(_key.data);
-            const _value = _values[_i];
+            const _value = _values[i];
             _ret.put(allocator, _entry_slice, _value) catch @panic("qcbormap.ToVariantMap: Memory allocation failed");
         }
         return _ret;
@@ -553,19 +551,19 @@ pub const qcbormap = struct {
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
             const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
-            for (0.._map.len) |_i| {
-                qtc.libqt_free(_keys[_i].data);
+            for (0.._map.len) |i| {
+                qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
         const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
             const _entry_slice = std.mem.span(_key.data);
-            const _value = _values[_i];
+            const _value = _values[i];
             _ret.put(allocator, _entry_slice, _value) catch @panic("qcbormap.ToVariantHash: Memory allocation failed");
         }
         return _ret;

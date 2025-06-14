@@ -11,7 +11,7 @@ pub const qlockfile = struct {
     pub fn New(fileName: []const u8) QtC.QLockFile {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
 
         return qtc.QLockFile_new(fileName_str);
@@ -22,11 +22,9 @@ pub const qlockfile = struct {
     /// ``` self: QtC.QLockFile, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLockFile_FileName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlockfile.FileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

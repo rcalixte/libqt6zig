@@ -1042,9 +1042,9 @@ class VirtualQWizard final : public QWizard {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
-            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
-            eventType_str.data[eventType_str.len] = '\0';
+            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
+            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;
@@ -2454,9 +2454,9 @@ class VirtualQWizardPage final : public QWizardPage {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
-            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
-            eventType_str.data[eventType_str.len] = '\0';
+            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
+            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;
@@ -2685,9 +2685,9 @@ class VirtualQWizardPage final : public QWizardPage {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
-            memcpy(name_str.data, name_b.data(), name_str.len);
-            name_str.data[name_str.len] = '\0';
+            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy((void*)name_str.data, name_b.data(), name_str.len);
+            ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer
@@ -2710,9 +2710,9 @@ class VirtualQWizardPage final : public QWizardPage {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
-            memcpy(name_str.data, name_b.data(), name_str.len);
-            name_str.data[name_str.len] = '\0';
+            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy((void*)name_str.data, name_b.data(), name_str.len);
+            ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
 
             QVariant* callback_ret = qwizardpage_field_callback(this, cbval1);
@@ -2733,9 +2733,9 @@ class VirtualQWizardPage final : public QWizardPage {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
-            memcpy(name_str.data, name_b.data(), name_str.len);
-            name_str.data[name_str.len] = '\0';
+            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy((void*)name_str.data, name_b.data(), name_str.len);
+            ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
             QWidget* cbval2 = widget;
 
@@ -2769,9 +2769,9 @@ class VirtualQWizardPage final : public QWizardPage {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
-            memcpy(name_str.data, name_b.data(), name_str.len);
-            name_str.data[name_str.len] = '\0';
+            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy((void*)name_str.data, name_b.data(), name_str.len);
+            ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
             QWidget* cbval2 = widget;
             const char* cbval3 = (const char*)property;
@@ -2793,9 +2793,9 @@ class VirtualQWizardPage final : public QWizardPage {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
-            memcpy(name_str.data, name_b.data(), name_str.len);
-            name_str.data[name_str.len] = '\0';
+            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy((void*)name_str.data, name_b.data(), name_str.len);
+            ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
             QWidget* cbval2 = widget;
             const char* cbval3 = (const char*)property;

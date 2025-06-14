@@ -60,11 +60,9 @@ pub const qlibraryinfo = struct {
     /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
     pub fn Path(p: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLibraryInfo_Path(@intCast(p));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlibraryinfo.Path: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -73,11 +71,9 @@ pub const qlibraryinfo = struct {
     /// ``` location: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
     pub fn Location(location: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLibraryInfo_Location(@intCast(location));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlibraryinfo.Location: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -87,22 +83,22 @@ pub const qlibraryinfo = struct {
     pub fn PlatformPluginArguments(platformName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const platformName_str = qtc.struct_libqt_string{
             .len = platformName.len,
-            .data = @constCast(platformName.ptr),
+            .data = platformName.ptr,
         };
         const _arr: qtc.struct_libqt_list = qtc.QLibraryInfo_PlatformPluginArguments(platformName_str);
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qlibraryinfo.PlatformPluginArguments: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qlibraryinfo.PlatformPluginArguments: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }

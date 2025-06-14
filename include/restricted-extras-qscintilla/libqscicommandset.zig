@@ -27,9 +27,7 @@ pub const qscicommandset = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QsciCommand, _arr.len) catch @panic("qscicommandset.Commands: Memory allocation failed");
         const _data: [*]QtC.QsciCommand = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -65,7 +63,7 @@ pub const qscicommandset = struct {
     ///
     /// ``` self: QtC.QsciCommandSet, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_Cstring = @constCast(prefix.ptr);
+        const prefix_Cstring = prefix.ptr;
         return qtc.QsciCommandSet_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
 
@@ -73,7 +71,7 @@ pub const qscicommandset = struct {
     ///
     /// ``` self: QtC.QsciCommandSet, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_Cstring = @constCast(prefix.ptr);
+        const prefix_Cstring = prefix.ptr;
         return qtc.QsciCommandSet_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
 };

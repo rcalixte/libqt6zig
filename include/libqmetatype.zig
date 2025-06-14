@@ -59,7 +59,7 @@ pub const qmetatype = struct {
     pub fn RegisterNormalizedTypedef(normalizedTypeName: []u8, typeVal: QtC.QMetaType) void {
         const normalizedTypeName_str = qtc.struct_libqt_string{
             .len = normalizedTypeName.len,
-            .data = @constCast(normalizedTypeName.ptr),
+            .data = normalizedTypeName.ptr,
         };
         qtc.QMetaType_RegisterNormalizedTypedef(normalizedTypeName_str, @ptrCast(typeVal));
     }
@@ -68,7 +68,7 @@ pub const qmetatype = struct {
     ///
     /// ``` typeName: []const u8 ```
     pub fn Type(typeName: []const u8) i32 {
-        const typeName_Cstring = @constCast(typeName.ptr);
+        const typeName_Cstring = typeName.ptr;
         return qtc.QMetaType_Type(typeName_Cstring);
     }
 
@@ -78,7 +78,7 @@ pub const qmetatype = struct {
     pub fn TypeWithTypeName(typeName: []u8) i32 {
         const typeName_str = qtc.struct_libqt_string{
             .len = typeName.len,
-            .data = @constCast(typeName.ptr),
+            .data = typeName.ptr,
         };
         return qtc.QMetaType_TypeWithTypeName(typeName_str);
     }
@@ -299,7 +299,7 @@ pub const qmetatype = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromName(name: []const u8) QtC.QMetaType {
-        return qtc.QMetaType_FromName(@ptrCast(@constCast(&name)));
+        return qtc.QMetaType_FromName(name.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#debugStream)

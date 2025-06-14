@@ -152,9 +152,9 @@ class VirtualQMimeData final : public QMimeData {
             QByteArray mimetype_b = mimetype_ret.toUtf8();
             libqt_string mimetype_str;
             mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<char*>(malloc((mimetype_str.len + 1) * sizeof(char)));
-            memcpy(mimetype_str.data, mimetype_b.data(), mimetype_str.len);
-            mimetype_str.data[mimetype_str.len] = '\0';
+            mimetype_str.data = static_cast<const char*>(malloc((mimetype_str.len + 1) * sizeof(char)));
+            memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
+            ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
             libqt_string cbval1 = mimetype_str;
 
             bool callback_ret = qmimedata_hasformat_callback(this, cbval1);
@@ -195,9 +195,9 @@ class VirtualQMimeData final : public QMimeData {
             QByteArray mimetype_b = mimetype_ret.toUtf8();
             libqt_string mimetype_str;
             mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<char*>(malloc((mimetype_str.len + 1) * sizeof(char)));
-            memcpy(mimetype_str.data, mimetype_b.data(), mimetype_str.len);
-            mimetype_str.data[mimetype_str.len] = '\0';
+            mimetype_str.data = static_cast<const char*>(malloc((mimetype_str.len + 1) * sizeof(char)));
+            memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
+            ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
             libqt_string cbval1 = mimetype_str;
             QMetaType* cbval2 = new QMetaType(preferredType);
 

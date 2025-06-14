@@ -77,7 +77,7 @@ pub const qpicture = struct {
     ///
     /// ``` self: QtC.QPicture, data: []const u8, size: u32 ```
     pub fn SetData(self: ?*anyopaque, data: []const u8, size: u32) void {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         qtc.QPicture_SetData(@ptrCast(self), data_Cstring, @intCast(size));
     }
 
@@ -96,7 +96,7 @@ pub const qpicture = struct {
     ///
     /// ``` self: QtC.QPicture, data: []const u8, size: u32 ```
     pub fn QBaseSetData(self: ?*anyopaque, data: []const u8, size: u32) void {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         qtc.QPicture_QBaseSetData(@ptrCast(self), data_Cstring, @intCast(size));
     }
 
@@ -120,7 +120,7 @@ pub const qpicture = struct {
     pub fn LoadWithFileName(self: ?*anyopaque, fileName: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         return qtc.QPicture_LoadWithFileName(@ptrCast(self), fileName_str);
     }
@@ -138,7 +138,7 @@ pub const qpicture = struct {
     pub fn SaveWithFileName(self: ?*anyopaque, fileName: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         return qtc.QPicture_SaveWithFileName(@ptrCast(self), fileName_str);
     }

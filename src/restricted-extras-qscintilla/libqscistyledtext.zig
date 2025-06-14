@@ -10,7 +10,7 @@ pub const qscistyledtext = struct {
     pub fn New(text: []const u8, style: i32) QtC.QsciStyledText {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QsciStyledText_new(text_str, @intCast(style));
@@ -22,7 +22,7 @@ pub const qscistyledtext = struct {
     pub fn New2(text: []const u8, style: ?*anyopaque) QtC.QsciStyledText {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QsciStyledText_new2(text_str, @ptrCast(style));
@@ -47,11 +47,9 @@ pub const qscistyledtext = struct {
     /// ``` self: QtC.QsciStyledText, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QsciStyledText_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscistyledtext.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

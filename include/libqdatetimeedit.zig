@@ -77,7 +77,7 @@ pub const qdatetimeedit = struct {
 
     /// ``` self: QtC.QDateTimeEdit, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QDateTimeEdit_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -104,13 +104,11 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QDateTimeEdit_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -371,11 +369,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, section: qdatetimeedit_enums.Section, allocator: std.mem.Allocator ```
     pub fn SectionText(self: ?*anyopaque, section: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_SectionText(@ptrCast(self), @intCast(section));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.SectionText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -384,11 +380,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn DisplayFormat(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_DisplayFormat(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.DisplayFormat: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -398,7 +392,7 @@ pub const qdatetimeedit = struct {
     pub fn SetDisplayFormat(self: ?*anyopaque, format: []const u8) void {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         qtc.QDateTimeEdit_SetDisplayFormat(@ptrCast(self), format_str);
     }
@@ -700,7 +694,7 @@ pub const qdatetimeedit = struct {
     pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QDateTimeEdit_Validate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -722,7 +716,7 @@ pub const qdatetimeedit = struct {
     pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QDateTimeEdit_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -733,7 +727,7 @@ pub const qdatetimeedit = struct {
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QDateTimeEdit_Fixup(@ptrCast(self), input_str);
     }
@@ -755,7 +749,7 @@ pub const qdatetimeedit = struct {
     pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QDateTimeEdit_QBaseFixup(@ptrCast(self), input_str);
     }
@@ -766,7 +760,7 @@ pub const qdatetimeedit = struct {
     pub fn DateTimeFromText(self: ?*anyopaque, text: []const u8) QtC.QDateTime {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QDateTimeEdit_DateTimeFromText(@ptrCast(self), text_str);
     }
@@ -788,7 +782,7 @@ pub const qdatetimeedit = struct {
     pub fn QBaseDateTimeFromText(self: ?*anyopaque, text: []const u8) QtC.QDateTime {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QDateTimeEdit_QBaseDateTimeFromText(@ptrCast(self), text_str);
     }
@@ -798,11 +792,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, dt: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn TextFromDateTime(self: ?*anyopaque, dt: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_TextFromDateTime(@ptrCast(self), @ptrCast(dt));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.TextFromDateTime: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -822,11 +814,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, dt: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn QBaseTextFromDateTime(self: ?*anyopaque, dt: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_QBaseTextFromDateTime(@ptrCast(self), @ptrCast(dt));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.TextFromDateTime: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -934,14 +924,12 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QDateTimeEdit_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -949,14 +937,12 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QDateTimeEdit_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1012,11 +998,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSpinBox_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1027,11 +1011,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn SpecialValueText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.SpecialValueText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1043,7 +1025,7 @@ pub const qdatetimeedit = struct {
     pub fn SetSpecialValueText(self: ?*anyopaque, txt: []const u8) void {
         const txt_str = qtc.struct_libqt_string{
             .len = txt.len,
-            .data = @constCast(txt.ptr),
+            .data = txt.ptr,
         };
         qtc.QAbstractSpinBox_SetSpecialValueText(@ptrCast(self), txt_str);
     }
@@ -2109,7 +2091,7 @@ pub const qdatetimeedit = struct {
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
-            .data = @constCast(windowTitle.ptr),
+            .data = windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
@@ -2122,7 +2104,7 @@ pub const qdatetimeedit = struct {
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
-            .data = @constCast(styleSheet.ptr),
+            .data = styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
@@ -2134,11 +2116,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.StyleSheet: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2149,11 +2129,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.WindowTitle: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2183,7 +2161,7 @@ pub const qdatetimeedit = struct {
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
-            .data = @constCast(windowIconText.ptr),
+            .data = windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
@@ -2195,11 +2173,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.WindowIconText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2211,7 +2187,7 @@ pub const qdatetimeedit = struct {
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
-            .data = @constCast(windowRole.ptr),
+            .data = windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
@@ -2223,11 +2199,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.WindowRole: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2239,7 +2213,7 @@ pub const qdatetimeedit = struct {
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
-            .data = @constCast(filePath.ptr),
+            .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
@@ -2251,11 +2225,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.WindowFilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2294,7 +2266,7 @@ pub const qdatetimeedit = struct {
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
-            .data = @constCast(toolTip.ptr),
+            .data = toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
@@ -2306,11 +2278,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2340,7 +2310,7 @@ pub const qdatetimeedit = struct {
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
-            .data = @constCast(statusTip.ptr),
+            .data = statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
@@ -2352,11 +2322,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.StatusTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2368,7 +2336,7 @@ pub const qdatetimeedit = struct {
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
-            .data = @constCast(whatsThis.ptr),
+            .data = whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
@@ -2380,11 +2348,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.WhatsThis: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2395,11 +2361,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.AccessibleName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2411,7 +2375,7 @@ pub const qdatetimeedit = struct {
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
@@ -2423,11 +2387,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.AccessibleDescription: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2439,7 +2401,7 @@ pub const qdatetimeedit = struct {
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
@@ -2991,11 +2953,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdatetimeedit.SaveGeometry: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -3007,7 +2967,7 @@ pub const qdatetimeedit = struct {
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
-            .data = @constCast(geometry.ptr),
+            .data = geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
@@ -3345,9 +3305,7 @@ pub const qdatetimeedit = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qdatetimeedit.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3359,7 +3317,7 @@ pub const qdatetimeedit = struct {
     pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
@@ -3372,7 +3330,7 @@ pub const qdatetimeedit = struct {
     pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
     }
@@ -3385,7 +3343,7 @@ pub const qdatetimeedit = struct {
     pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
@@ -3398,7 +3356,7 @@ pub const qdatetimeedit = struct {
     pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
@@ -3591,7 +3549,7 @@ pub const qdatetimeedit = struct {
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
-            .data = @constCast(title.ptr),
+            .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
@@ -3631,7 +3589,7 @@ pub const qdatetimeedit = struct {
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
-            .data = @constCast(iconText.ptr),
+            .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
@@ -3823,11 +3781,9 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3837,7 +3793,11 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -3931,9 +3891,7 @@ pub const qdatetimeedit = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdatetimeedit.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3970,8 +3928,8 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -4017,7 +3975,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -4027,7 +3985,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -4040,17 +3998,17 @@ pub const qdatetimeedit = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdatetimeedit.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qdatetimeedit.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -4106,7 +4064,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -4143,8 +4101,8 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -5208,7 +5166,7 @@ pub const qdatetimeedit = struct {
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QDateTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -5223,7 +5181,7 @@ pub const qdatetimeedit = struct {
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QDateTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -5874,7 +5832,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QDateTimeEdit_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -5886,7 +5844,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QDateTimeEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -5994,7 +5952,7 @@ pub const qtimeedit = struct {
 
     /// ``` self: QtC.QTimeEdit, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QTimeEdit_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -6021,13 +5979,11 @@ pub const qtimeedit = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QTimeEdit_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6049,14 +6005,12 @@ pub const qtimeedit = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QTimeEdit_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6064,14 +6018,12 @@ pub const qtimeedit = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QTimeEdit_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6406,11 +6358,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, section: qdatetimeedit_enums.Section, allocator: std.mem.Allocator ```
     pub fn SectionText(self: ?*anyopaque, section: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_SectionText(@ptrCast(self), @intCast(section));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.SectionText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6421,11 +6371,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn DisplayFormat(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_DisplayFormat(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.DisplayFormat: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6437,7 +6385,7 @@ pub const qtimeedit = struct {
     pub fn SetDisplayFormat(self: ?*anyopaque, format: []const u8) void {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         qtc.QDateTimeEdit_SetDisplayFormat(@ptrCast(self), format_str);
     }
@@ -6611,11 +6559,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSpinBox_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6626,11 +6572,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn SpecialValueText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.SpecialValueText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6642,7 +6586,7 @@ pub const qtimeedit = struct {
     pub fn SetSpecialValueText(self: ?*anyopaque, txt: []const u8) void {
         const txt_str = qtc.struct_libqt_string{
             .len = txt.len,
-            .data = @constCast(txt.ptr),
+            .data = txt.ptr,
         };
         qtc.QAbstractSpinBox_SetSpecialValueText(@ptrCast(self), txt_str);
     }
@@ -7708,7 +7652,7 @@ pub const qtimeedit = struct {
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
-            .data = @constCast(windowTitle.ptr),
+            .data = windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
@@ -7721,7 +7665,7 @@ pub const qtimeedit = struct {
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
-            .data = @constCast(styleSheet.ptr),
+            .data = styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
@@ -7733,11 +7677,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.StyleSheet: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7748,11 +7690,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.WindowTitle: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7782,7 +7722,7 @@ pub const qtimeedit = struct {
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
-            .data = @constCast(windowIconText.ptr),
+            .data = windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
@@ -7794,11 +7734,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.WindowIconText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7810,7 +7748,7 @@ pub const qtimeedit = struct {
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
-            .data = @constCast(windowRole.ptr),
+            .data = windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
@@ -7822,11 +7760,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.WindowRole: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7838,7 +7774,7 @@ pub const qtimeedit = struct {
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
-            .data = @constCast(filePath.ptr),
+            .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
@@ -7850,11 +7786,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.WindowFilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7893,7 +7827,7 @@ pub const qtimeedit = struct {
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
-            .data = @constCast(toolTip.ptr),
+            .data = toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
@@ -7905,11 +7839,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7939,7 +7871,7 @@ pub const qtimeedit = struct {
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
-            .data = @constCast(statusTip.ptr),
+            .data = statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
@@ -7951,11 +7883,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.StatusTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7967,7 +7897,7 @@ pub const qtimeedit = struct {
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
-            .data = @constCast(whatsThis.ptr),
+            .data = whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
@@ -7979,11 +7909,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.WhatsThis: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7994,11 +7922,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.AccessibleName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -8010,7 +7936,7 @@ pub const qtimeedit = struct {
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
@@ -8022,11 +7948,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.AccessibleDescription: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -8038,7 +7962,7 @@ pub const qtimeedit = struct {
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
@@ -8590,11 +8514,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtimeedit.SaveGeometry: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -8606,7 +8528,7 @@ pub const qtimeedit = struct {
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
-            .data = @constCast(geometry.ptr),
+            .data = geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
@@ -8944,9 +8866,7 @@ pub const qtimeedit = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtimeedit.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -8958,7 +8878,7 @@ pub const qtimeedit = struct {
     pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
@@ -8971,7 +8891,7 @@ pub const qtimeedit = struct {
     pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
     }
@@ -8984,7 +8904,7 @@ pub const qtimeedit = struct {
     pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
@@ -8997,7 +8917,7 @@ pub const qtimeedit = struct {
     pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
@@ -9190,7 +9110,7 @@ pub const qtimeedit = struct {
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
-            .data = @constCast(title.ptr),
+            .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
@@ -9230,7 +9150,7 @@ pub const qtimeedit = struct {
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
-            .data = @constCast(iconText.ptr),
+            .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
@@ -9422,11 +9342,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -9436,7 +9354,11 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -9530,9 +9452,7 @@ pub const qtimeedit = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtimeedit.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -9569,8 +9489,8 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -9616,7 +9536,7 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -9626,7 +9546,7 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -9639,17 +9559,17 @@ pub const qtimeedit = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtimeedit.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qtimeedit.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -9705,7 +9625,7 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -9742,8 +9662,8 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -10147,7 +10067,7 @@ pub const qtimeedit = struct {
     pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QTimeEdit_Validate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -10162,7 +10082,7 @@ pub const qtimeedit = struct {
     pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QTimeEdit_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -10188,7 +10108,7 @@ pub const qtimeedit = struct {
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QTimeEdit_Fixup(@ptrCast(self), input_str);
     }
@@ -10203,7 +10123,7 @@ pub const qtimeedit = struct {
     pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QTimeEdit_QBaseFixup(@ptrCast(self), input_str);
     }
@@ -10229,7 +10149,7 @@ pub const qtimeedit = struct {
     pub fn DateTimeFromText(self: ?*anyopaque, text: []const u8) QtC.QDateTime {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QTimeEdit_DateTimeFromText(@ptrCast(self), text_str);
     }
@@ -10244,7 +10164,7 @@ pub const qtimeedit = struct {
     pub fn QBaseDateTimeFromText(self: ?*anyopaque, text: []const u8) QtC.QDateTime {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QTimeEdit_QBaseDateTimeFromText(@ptrCast(self), text_str);
     }
@@ -10269,11 +10189,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, dt: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn TextFromDateTime(self: ?*anyopaque, dt: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeEdit_TextFromDateTime(@ptrCast(self), @ptrCast(dt));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.TextFromDateTime: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -10286,11 +10204,9 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, dt: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn QBaseTextFromDateTime(self: ?*anyopaque, dt: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTimeEdit_QBaseTextFromDateTime(@ptrCast(self), @ptrCast(dt));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.TextFromDateTime: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -11371,7 +11287,7 @@ pub const qtimeedit = struct {
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -11386,7 +11302,7 @@ pub const qtimeedit = struct {
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -12037,7 +11953,7 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QTimeEdit_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -12049,7 +11965,7 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QTimeEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -12157,7 +12073,7 @@ pub const qdateedit = struct {
 
     /// ``` self: QtC.QDateEdit, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QDateEdit_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -12184,13 +12100,11 @@ pub const qdateedit = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QDateEdit_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -12212,14 +12126,12 @@ pub const qdateedit = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QDateEdit_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -12227,14 +12139,12 @@ pub const qdateedit = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QDateEdit_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -12569,11 +12479,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, section: qdatetimeedit_enums.Section, allocator: std.mem.Allocator ```
     pub fn SectionText(self: ?*anyopaque, section: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_SectionText(@ptrCast(self), @intCast(section));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.SectionText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -12584,11 +12492,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn DisplayFormat(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_DisplayFormat(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.DisplayFormat: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -12600,7 +12506,7 @@ pub const qdateedit = struct {
     pub fn SetDisplayFormat(self: ?*anyopaque, format: []const u8) void {
         const format_str = qtc.struct_libqt_string{
             .len = format.len,
-            .data = @constCast(format.ptr),
+            .data = format.ptr,
         };
         qtc.QDateTimeEdit_SetDisplayFormat(@ptrCast(self), format_str);
     }
@@ -12774,11 +12680,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSpinBox_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -12789,11 +12693,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn SpecialValueText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.SpecialValueText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -12805,7 +12707,7 @@ pub const qdateedit = struct {
     pub fn SetSpecialValueText(self: ?*anyopaque, txt: []const u8) void {
         const txt_str = qtc.struct_libqt_string{
             .len = txt.len,
-            .data = @constCast(txt.ptr),
+            .data = txt.ptr,
         };
         qtc.QAbstractSpinBox_SetSpecialValueText(@ptrCast(self), txt_str);
     }
@@ -13871,7 +13773,7 @@ pub const qdateedit = struct {
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
         const windowTitle_str = qtc.struct_libqt_string{
             .len = windowTitle.len,
-            .data = @constCast(windowTitle.ptr),
+            .data = windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self), windowTitle_str);
     }
@@ -13884,7 +13786,7 @@ pub const qdateedit = struct {
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
         const styleSheet_str = qtc.struct_libqt_string{
             .len = styleSheet.len,
-            .data = @constCast(styleSheet.ptr),
+            .data = styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self), styleSheet_str);
     }
@@ -13896,11 +13798,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn StyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StyleSheet(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.StyleSheet: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -13911,11 +13811,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn WindowTitle(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowTitle(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.WindowTitle: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -13945,7 +13843,7 @@ pub const qdateedit = struct {
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
         const windowIconText_str = qtc.struct_libqt_string{
             .len = windowIconText.len,
-            .data = @constCast(windowIconText.ptr),
+            .data = windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self), windowIconText_str);
     }
@@ -13957,11 +13855,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn WindowIconText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowIconText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.WindowIconText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -13973,7 +13869,7 @@ pub const qdateedit = struct {
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
         const windowRole_str = qtc.struct_libqt_string{
             .len = windowRole.len,
-            .data = @constCast(windowRole.ptr),
+            .data = windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self), windowRole_str);
     }
@@ -13985,11 +13881,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn WindowRole(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowRole(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.WindowRole: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14001,7 +13895,7 @@ pub const qdateedit = struct {
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
         const filePath_str = qtc.struct_libqt_string{
             .len = filePath.len,
-            .data = @constCast(filePath.ptr),
+            .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self), filePath_str);
     }
@@ -14013,11 +13907,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn WindowFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WindowFilePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.WindowFilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14056,7 +13948,7 @@ pub const qdateedit = struct {
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
         const toolTip_str = qtc.struct_libqt_string{
             .len = toolTip.len,
-            .data = @constCast(toolTip.ptr),
+            .data = toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self), toolTip_str);
     }
@@ -14068,11 +13960,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14102,7 +13992,7 @@ pub const qdateedit = struct {
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
         const statusTip_str = qtc.struct_libqt_string{
             .len = statusTip.len,
-            .data = @constCast(statusTip.ptr),
+            .data = statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self), statusTip_str);
     }
@@ -14114,11 +14004,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn StatusTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_StatusTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.StatusTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14130,7 +14018,7 @@ pub const qdateedit = struct {
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
         const whatsThis_str = qtc.struct_libqt_string{
             .len = whatsThis.len,
-            .data = @constCast(whatsThis.ptr),
+            .data = whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self), whatsThis_str);
     }
@@ -14142,11 +14030,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn WhatsThis(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_WhatsThis(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.WhatsThis: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14157,11 +14043,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.AccessibleName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14173,7 +14057,7 @@ pub const qdateedit = struct {
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self), name_str);
     }
@@ -14185,11 +14069,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn AccessibleDescription(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWidget_AccessibleDescription(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.AccessibleDescription: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -14201,7 +14083,7 @@ pub const qdateedit = struct {
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self), description_str);
     }
@@ -14753,11 +14635,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdateedit.SaveGeometry: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -14769,7 +14649,7 @@ pub const qdateedit = struct {
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
         const geometry_str = qtc.struct_libqt_string{
             .len = geometry.len,
-            .data = @constCast(geometry.ptr),
+            .data = geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self), geometry_str);
     }
@@ -15107,9 +14987,7 @@ pub const qdateedit = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qdateedit.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -15121,7 +14999,7 @@ pub const qdateedit = struct {
     pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
     }
@@ -15134,7 +15012,7 @@ pub const qdateedit = struct {
     pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
     }
@@ -15147,7 +15025,7 @@ pub const qdateedit = struct {
     pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
@@ -15160,7 +15038,7 @@ pub const qdateedit = struct {
     pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
@@ -15353,7 +15231,7 @@ pub const qdateedit = struct {
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
-            .data = @constCast(title.ptr),
+            .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self), title_str);
     }
@@ -15393,7 +15271,7 @@ pub const qdateedit = struct {
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
         const iconText_str = qtc.struct_libqt_string{
             .len = iconText.len,
-            .data = @constCast(iconText.ptr),
+            .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self), iconText_str);
     }
@@ -15585,11 +15463,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -15599,7 +15475,11 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -15693,9 +15573,7 @@ pub const qdateedit = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdateedit.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -15732,8 +15610,8 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -15779,7 +15657,7 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -15789,7 +15667,7 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -15802,17 +15680,17 @@ pub const qdateedit = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdateedit.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qdateedit.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -15868,7 +15746,7 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -15905,8 +15783,8 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -16310,7 +16188,7 @@ pub const qdateedit = struct {
     pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QDateEdit_Validate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -16325,7 +16203,7 @@ pub const qdateedit = struct {
     pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QDateEdit_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -16351,7 +16229,7 @@ pub const qdateedit = struct {
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QDateEdit_Fixup(@ptrCast(self), input_str);
     }
@@ -16366,7 +16244,7 @@ pub const qdateedit = struct {
     pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QDateEdit_QBaseFixup(@ptrCast(self), input_str);
     }
@@ -16392,7 +16270,7 @@ pub const qdateedit = struct {
     pub fn DateTimeFromText(self: ?*anyopaque, text: []const u8) QtC.QDateTime {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QDateEdit_DateTimeFromText(@ptrCast(self), text_str);
     }
@@ -16407,7 +16285,7 @@ pub const qdateedit = struct {
     pub fn QBaseDateTimeFromText(self: ?*anyopaque, text: []const u8) QtC.QDateTime {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QDateEdit_QBaseDateTimeFromText(@ptrCast(self), text_str);
     }
@@ -16432,11 +16310,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, dt: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn TextFromDateTime(self: ?*anyopaque, dt: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateEdit_TextFromDateTime(@ptrCast(self), @ptrCast(dt));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.TextFromDateTime: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -16449,11 +16325,9 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, dt: QtC.QDateTime, allocator: std.mem.Allocator ```
     pub fn QBaseTextFromDateTime(self: ?*anyopaque, dt: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateEdit_QBaseTextFromDateTime(@ptrCast(self), @ptrCast(dt));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.TextFromDateTime: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -17534,7 +17408,7 @@ pub const qdateedit = struct {
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QDateEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -17549,7 +17423,7 @@ pub const qdateedit = struct {
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
-            .data = @constCast(eventType.ptr),
+            .data = eventType.ptr,
         };
         return qtc.QDateEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
     }
@@ -18200,7 +18074,7 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QDateEdit_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -18212,7 +18086,7 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QDateEdit_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

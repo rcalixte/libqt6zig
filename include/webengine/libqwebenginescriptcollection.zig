@@ -31,15 +31,13 @@ pub const qwebenginescriptcollection = struct {
     pub fn Find(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []QtC.QWebEngineScript {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         const _arr: qtc.struct_libqt_list = qtc.QWebEngineScriptCollection_Find(@ptrCast(self), name_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineScript, _arr.len) catch @panic("qwebenginescriptcollection.Find: Memory allocation failed");
         const _data: [*]QtC.QWebEngineScript = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -83,9 +81,7 @@ pub const qwebenginescriptcollection = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineScript, _arr.len) catch @panic("qwebenginescriptcollection.ToList: Memory allocation failed");
         const _data: [*]QtC.QWebEngineScript = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

@@ -62,9 +62,7 @@ pub const qglyphrun = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u32, _arr.len) catch @panic("qglyphrun.GlyphIndexes: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -87,9 +85,7 @@ pub const qglyphrun = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qglyphrun.Positions: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

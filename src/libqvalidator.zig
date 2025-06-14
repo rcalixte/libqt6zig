@@ -30,7 +30,7 @@ pub const qvalidator = struct {
 
     /// ``` self: QtC.QValidator, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QValidator_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -57,13 +57,11 @@ pub const qvalidator = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QValidator_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvalidator.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -87,7 +85,7 @@ pub const qvalidator = struct {
     pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         return qtc.QValidator_Validate(@ptrCast(self), param1_str, @intCast(param2));
     }
@@ -109,7 +107,7 @@ pub const qvalidator = struct {
     pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         return qtc.QValidator_QBaseValidate(@ptrCast(self), param1_str, @intCast(param2));
     }
@@ -120,7 +118,7 @@ pub const qvalidator = struct {
     pub fn Fixup(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QValidator_Fixup(@ptrCast(self), param1_str);
     }
@@ -142,7 +140,7 @@ pub const qvalidator = struct {
     pub fn QBaseFixup(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QValidator_QBaseFixup(@ptrCast(self), param1_str);
     }
@@ -165,14 +163,12 @@ pub const qvalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QValidator_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvalidator.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -180,14 +176,12 @@ pub const qvalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QValidator_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvalidator.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -198,11 +192,9 @@ pub const qvalidator = struct {
     /// ``` self: QtC.QValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvalidator.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -212,7 +204,11 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -306,9 +302,7 @@ pub const qvalidator = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qvalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -354,8 +348,8 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -401,7 +395,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -411,7 +405,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -424,17 +418,17 @@ pub const qvalidator = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qvalidator.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qvalidator.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -490,7 +484,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -527,8 +521,8 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -855,7 +849,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -867,7 +861,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -975,7 +969,7 @@ pub const qintvalidator = struct {
 
     /// ``` self: QtC.QIntValidator, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QIntValidator_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -1002,13 +996,11 @@ pub const qintvalidator = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QIntValidator_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qintvalidator.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1018,7 +1010,7 @@ pub const qintvalidator = struct {
     pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         return qtc.QIntValidator_Validate(@ptrCast(self), param1_str, @intCast(param2));
     }
@@ -1040,7 +1032,7 @@ pub const qintvalidator = struct {
     pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         return qtc.QIntValidator_QBaseValidate(@ptrCast(self), param1_str, @intCast(param2));
     }
@@ -1051,7 +1043,7 @@ pub const qintvalidator = struct {
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QIntValidator_Fixup(@ptrCast(self), input_str);
     }
@@ -1073,7 +1065,7 @@ pub const qintvalidator = struct {
     pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QIntValidator_QBaseFixup(@ptrCast(self), input_str);
     }
@@ -1145,14 +1137,12 @@ pub const qintvalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QIntValidator_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qintvalidator.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1160,14 +1150,12 @@ pub const qintvalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QIntValidator_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qintvalidator.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1214,11 +1202,9 @@ pub const qintvalidator = struct {
     /// ``` self: QtC.QIntValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qintvalidator.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1228,7 +1214,11 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -1322,9 +1312,7 @@ pub const qintvalidator = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qintvalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1370,8 +1358,8 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -1417,7 +1405,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -1427,7 +1415,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -1440,17 +1428,17 @@ pub const qintvalidator = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qintvalidator.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qintvalidator.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1506,7 +1494,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -1543,8 +1531,8 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -1871,7 +1859,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QIntValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1883,7 +1871,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QIntValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1991,7 +1979,7 @@ pub const qdoublevalidator = struct {
 
     /// ``` self: QtC.QDoubleValidator, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QDoubleValidator_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -2018,13 +2006,11 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QDoubleValidator_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublevalidator.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2034,7 +2020,7 @@ pub const qdoublevalidator = struct {
     pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         return qtc.QDoubleValidator_Validate(@ptrCast(self), param1_str, @intCast(param2));
     }
@@ -2056,7 +2042,7 @@ pub const qdoublevalidator = struct {
     pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         return qtc.QDoubleValidator_QBaseValidate(@ptrCast(self), param1_str, @intCast(param2));
     }
@@ -2067,7 +2053,7 @@ pub const qdoublevalidator = struct {
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QDoubleValidator_Fixup(@ptrCast(self), input_str);
     }
@@ -2089,7 +2075,7 @@ pub const qdoublevalidator = struct {
     pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         qtc.QDoubleValidator_QBaseFixup(@ptrCast(self), input_str);
     }
@@ -2224,14 +2210,12 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QDoubleValidator_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublevalidator.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2239,14 +2223,12 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QDoubleValidator_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublevalidator.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2293,11 +2275,9 @@ pub const qdoublevalidator = struct {
     /// ``` self: QtC.QDoubleValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdoublevalidator.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2307,7 +2287,11 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -2401,9 +2385,7 @@ pub const qdoublevalidator = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdoublevalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2449,8 +2431,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -2496,7 +2478,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -2506,7 +2488,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -2519,17 +2501,17 @@ pub const qdoublevalidator = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdoublevalidator.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qdoublevalidator.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -2585,7 +2567,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -2622,8 +2604,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -2950,7 +2932,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QDoubleValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -2962,7 +2944,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QDoubleValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -3070,7 +3052,7 @@ pub const qregularexpressionvalidator = struct {
 
     /// ``` self: QtC.QRegularExpressionValidator, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QRegularExpressionValidator_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -3097,13 +3079,11 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QRegularExpressionValidator_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionvalidator.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3113,7 +3093,7 @@ pub const qregularexpressionvalidator = struct {
     pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QRegularExpressionValidator_Validate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -3135,7 +3115,7 @@ pub const qregularexpressionvalidator = struct {
     pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
-            .data = @constCast(input.ptr),
+            .data = input.ptr,
         };
         return qtc.QRegularExpressionValidator_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
     }
@@ -3172,14 +3152,12 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QRegularExpressionValidator_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionvalidator.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3187,14 +3165,12 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QRegularExpressionValidator_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionvalidator.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3241,11 +3217,9 @@ pub const qregularexpressionvalidator = struct {
     /// ``` self: QtC.QRegularExpressionValidator, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionvalidator.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3255,7 +3229,11 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -3349,9 +3327,7 @@ pub const qregularexpressionvalidator = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qregularexpressionvalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3397,8 +3373,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -3444,7 +3420,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -3454,7 +3430,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -3467,17 +3443,17 @@ pub const qregularexpressionvalidator = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qregularexpressionvalidator.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qregularexpressionvalidator.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -3533,7 +3509,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -3570,8 +3546,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -3603,7 +3579,7 @@ pub const qregularexpressionvalidator = struct {
     pub fn Fixup(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QRegularExpressionValidator_Fixup(@ptrCast(self), param1_str);
     }
@@ -3618,7 +3594,7 @@ pub const qregularexpressionvalidator = struct {
     pub fn QBaseFixup(self: ?*anyopaque, param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QRegularExpressionValidator_QBaseFixup(@ptrCast(self), param1_str);
     }
@@ -3939,7 +3915,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QRegularExpressionValidator_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -3951,7 +3927,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QRegularExpressionValidator_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

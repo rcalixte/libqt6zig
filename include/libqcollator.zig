@@ -141,11 +141,11 @@ pub const qcollator = struct {
     pub fn Compare(self: ?*anyopaque, s1: []const u8, s2: []const u8) i32 {
         const s1_str = qtc.struct_libqt_string{
             .len = s1.len,
-            .data = @constCast(s1.ptr),
+            .data = s1.ptr,
         };
         const s2_str = qtc.struct_libqt_string{
             .len = s2.len,
-            .data = @constCast(s2.ptr),
+            .data = s2.ptr,
         };
         return qtc.QCollator_Compare(@ptrCast(self), s1_str, s2_str);
     }
@@ -163,11 +163,11 @@ pub const qcollator = struct {
     pub fn OperatorCall(self: ?*anyopaque, s1: []const u8, s2: []const u8) bool {
         const s1_str = qtc.struct_libqt_string{
             .len = s1.len,
-            .data = @constCast(s1.ptr),
+            .data = s1.ptr,
         };
         const s2_str = qtc.struct_libqt_string{
             .len = s2.len,
-            .data = @constCast(s2.ptr),
+            .data = s2.ptr,
         };
         return qtc.QCollator_OperatorCall(@ptrCast(self), s1_str, s2_str);
     }
@@ -178,7 +178,7 @@ pub const qcollator = struct {
     pub fn SortKey(self: ?*anyopaque, stringVal: []const u8) QtC.QCollatorSortKey {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
-            .data = @constCast(stringVal.ptr),
+            .data = stringVal.ptr,
         };
         return qtc.QCollator_SortKey(@ptrCast(self), stringVal_str);
     }

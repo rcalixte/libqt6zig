@@ -62,7 +62,7 @@ pub const qimage = struct {
     pub fn New8(fileName: []const u8) QtC.QImage {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
 
         return qtc.QImage_new8(fileName_str);
@@ -81,9 +81,9 @@ pub const qimage = struct {
     pub fn New10(fileName: []const u8, format: []const u8) QtC.QImage {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
 
         return qtc.QImage_new10(fileName_str, format_Cstring);
     }
@@ -461,9 +461,7 @@ pub const qimage = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u32, _arr.len) catch @panic("qimage.ColorTable: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -678,7 +676,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, device: QtC.QIODevice, format: []const u8 ```
     pub fn Load(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_Load(@ptrCast(self), @ptrCast(device), format_Cstring);
     }
 
@@ -688,7 +686,7 @@ pub const qimage = struct {
     pub fn LoadWithFileName(self: ?*anyopaque, fileName: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         return qtc.QImage_LoadWithFileName(@ptrCast(self), fileName_str);
     }
@@ -697,7 +695,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, data: []const u8 ```
     pub fn LoadFromData(self: ?*anyopaque, data: []const u8) bool {
-        return qtc.QImage_LoadFromData(@ptrCast(self), @ptrCast(@constCast(&data)));
+        return qtc.QImage_LoadFromData(@ptrCast(self), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -713,7 +711,7 @@ pub const qimage = struct {
     pub fn LoadFromDataWithData(self: ?*anyopaque, data: []u8) bool {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         return qtc.QImage_LoadFromDataWithData(@ptrCast(self), data_str);
     }
@@ -724,7 +722,7 @@ pub const qimage = struct {
     pub fn Save(self: ?*anyopaque, fileName: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         return qtc.QImage_Save(@ptrCast(self), fileName_str);
     }
@@ -740,7 +738,7 @@ pub const qimage = struct {
     ///
     /// ``` data: []const u8 ```
     pub fn FromData(data: []const u8) QtC.QImage {
-        return qtc.QImage_FromData(@ptrCast(@constCast(&data)));
+        return qtc.QImage_FromData(data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
@@ -756,7 +754,7 @@ pub const qimage = struct {
     pub fn FromDataWithData(data: []u8) QtC.QImage {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         return qtc.QImage_FromDataWithData(data_str);
     }
@@ -842,17 +840,17 @@ pub const qimage = struct {
         const _arr: qtc.struct_libqt_list = qtc.QImage_TextKeys(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qimage.TextKeys: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qimage.TextKeys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -862,11 +860,9 @@ pub const qimage = struct {
     /// ``` self: QtC.QImage, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QImage_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimage.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -876,11 +872,11 @@ pub const qimage = struct {
     pub fn SetText(self: ?*anyopaque, key: []const u8, value: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
         qtc.QImage_SetText(@ptrCast(self), key_str, value_str);
     }
@@ -1281,9 +1277,9 @@ pub const qimage = struct {
     pub fn Load2(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_Load2(@ptrCast(self), fileName_str, format_Cstring);
     }
 
@@ -1291,15 +1287,15 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, data: []const u8, format: []const u8 ```
     pub fn LoadFromData22(self: ?*anyopaque, data: []const u8, format: []const u8) bool {
-        const format_Cstring = @constCast(format.ptr);
-        return qtc.QImage_LoadFromData22(@ptrCast(self), @ptrCast(@constCast(&data)), format_Cstring);
+        const format_Cstring = format.ptr;
+        return qtc.QImage_LoadFromData22(@ptrCast(self), data.ptr, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
     ///
     /// ``` self: QtC.QImage, buf: ?*u8, lenVal: i32, format: []const u8 ```
     pub fn LoadFromData3(self: ?*anyopaque, buf: ?*anyopaque, lenVal: i32, format: []const u8) bool {
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_LoadFromData3(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring);
     }
 
@@ -1309,9 +1305,9 @@ pub const qimage = struct {
     pub fn LoadFromData23(self: ?*anyopaque, data: []u8, format: []const u8) bool {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_LoadFromData23(@ptrCast(self), data_str, format_Cstring);
     }
 
@@ -1321,9 +1317,9 @@ pub const qimage = struct {
     pub fn Save2(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_Save2(@ptrCast(self), fileName_str, format_Cstring);
     }
 
@@ -1333,9 +1329,9 @@ pub const qimage = struct {
     pub fn Save3(self: ?*anyopaque, fileName: []const u8, format: []const u8, quality: i32) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_Save3(@ptrCast(self), fileName_str, format_Cstring, @intCast(quality));
     }
 
@@ -1343,7 +1339,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, device: QtC.QIODevice, format: []const u8 ```
     pub fn Save22(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_Save22(@ptrCast(self), @ptrCast(device), format_Cstring);
     }
 
@@ -1351,7 +1347,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, device: QtC.QIODevice, format: []const u8, quality: i32 ```
     pub fn Save32(self: ?*anyopaque, device: ?*anyopaque, format: []const u8, quality: i32) bool {
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_Save32(@ptrCast(self), @ptrCast(device), format_Cstring, @intCast(quality));
     }
 
@@ -1359,15 +1355,15 @@ pub const qimage = struct {
     ///
     /// ``` data: []const u8, format: []const u8 ```
     pub fn FromData22(data: []const u8, format: []const u8) QtC.QImage {
-        const format_Cstring = @constCast(format.ptr);
-        return qtc.QImage_FromData22(@ptrCast(@constCast(&data)), format_Cstring);
+        const format_Cstring = format.ptr;
+        return qtc.QImage_FromData22(data.ptr, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
     ///
     /// ``` data: ?*u8, size: i32, format: []const u8 ```
     pub fn FromData3(data: ?*anyopaque, size: i32, format: []const u8) QtC.QImage {
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_FromData3(@intCast(data), @intCast(size), format_Cstring);
     }
 
@@ -1377,9 +1373,9 @@ pub const qimage = struct {
     pub fn FromData23(data: []u8, format: []const u8) QtC.QImage {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
-        const format_Cstring = @constCast(format.ptr);
+        const format_Cstring = format.ptr;
         return qtc.QImage_FromData23(data_str, format_Cstring);
     }
 
@@ -1389,14 +1385,12 @@ pub const qimage = struct {
     pub fn Text1(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         const _str = qtc.QImage_Text1(@ptrCast(self), key_str);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimage.Text1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

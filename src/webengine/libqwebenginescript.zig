@@ -31,11 +31,9 @@ pub const qwebenginescript = struct {
     /// ``` self: QtC.QWebEngineScript, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineScript_Name(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginescript.Name: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -45,7 +43,7 @@ pub const qwebenginescript = struct {
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QWebEngineScript_SetName(@ptrCast(self), name_str);
     }
@@ -69,11 +67,9 @@ pub const qwebenginescript = struct {
     /// ``` self: QtC.QWebEngineScript, allocator: std.mem.Allocator ```
     pub fn SourceCode(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineScript_SourceCode(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginescript.SourceCode: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -83,7 +79,7 @@ pub const qwebenginescript = struct {
     pub fn SetSourceCode(self: ?*anyopaque, sourceCode: []const u8) void {
         const sourceCode_str = qtc.struct_libqt_string{
             .len = sourceCode.len,
-            .data = @constCast(sourceCode.ptr),
+            .data = sourceCode.ptr,
         };
         qtc.QWebEngineScript_SetSourceCode(@ptrCast(self), sourceCode_str);
     }

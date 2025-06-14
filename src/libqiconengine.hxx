@@ -199,9 +199,9 @@ class VirtualQIconEngine final : public QIconEngine {
             QByteArray fileName_b = fileName_ret.toUtf8();
             libqt_string fileName_str;
             fileName_str.len = fileName_b.length();
-            fileName_str.data = static_cast<char*>(malloc((fileName_str.len + 1) * sizeof(char)));
-            memcpy(fileName_str.data, fileName_b.data(), fileName_str.len);
-            fileName_str.data[fileName_str.len] = '\0';
+            fileName_str.data = static_cast<const char*>(malloc((fileName_str.len + 1) * sizeof(char)));
+            memcpy((void*)fileName_str.data, fileName_b.data(), fileName_str.len);
+            ((char*)fileName_str.data)[fileName_str.len] = '\0';
             libqt_string cbval1 = fileName_str;
             const QSize& size_ret = size;
             // Cast returned reference into pointer

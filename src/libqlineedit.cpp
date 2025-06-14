@@ -107,9 +107,9 @@ libqt_string QLineEdit_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -119,9 +119,9 @@ libqt_string QLineEdit_Text(const QLineEdit* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -131,9 +131,9 @@ libqt_string QLineEdit_DisplayText(const QLineEdit* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -143,9 +143,9 @@ libqt_string QLineEdit_PlaceholderText(const QLineEdit* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -284,9 +284,9 @@ libqt_string QLineEdit_SelectedText(const QLineEdit* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -332,9 +332,9 @@ libqt_string QLineEdit_InputMask(const QLineEdit* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -426,9 +426,9 @@ void QLineEdit_Connect_TextChanged(QLineEdit* self, intptr_t slot) {
         QByteArray param1_b = param1_ret.toUtf8();
         libqt_string param1_str;
         param1_str.len = param1_b.length();
-        param1_str.data = static_cast<char*>(malloc((param1_str.len + 1) * sizeof(char)));
-        memcpy(param1_str.data, param1_b.data(), param1_str.len);
-        param1_str.data[param1_str.len] = '\0';
+        param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+        memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
+        ((char*)param1_str.data)[param1_str.len] = '\0';
         libqt_string sigval1 = param1_str;
         slotFunc(self, sigval1);
     });
@@ -447,9 +447,9 @@ void QLineEdit_Connect_TextEdited(QLineEdit* self, intptr_t slot) {
         QByteArray param1_b = param1_ret.toUtf8();
         libqt_string param1_str;
         param1_str.len = param1_b.length();
-        param1_str.data = static_cast<char*>(malloc((param1_str.len + 1) * sizeof(char)));
-        memcpy(param1_str.data, param1_b.data(), param1_str.len);
-        param1_str.data[param1_str.len] = '\0';
+        param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+        memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
+        ((char*)param1_str.data)[param1_str.len] = '\0';
         libqt_string sigval1 = param1_str;
         slotFunc(self, sigval1);
     });
@@ -522,9 +522,9 @@ libqt_string QLineEdit_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -534,9 +534,9 @@ libqt_string QLineEdit_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

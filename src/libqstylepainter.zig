@@ -71,7 +71,7 @@ pub const qstylepainter = struct {
     pub fn DrawItemText(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QStylePainter_DrawItemText(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pal), enabled, text_str);
     }
@@ -96,7 +96,7 @@ pub const qstylepainter = struct {
     pub fn DrawItemText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i64) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QStylePainter_DrawItemText6(@ptrCast(self), @ptrCast(r), @intCast(flags), @ptrCast(pal), enabled, text_str, @intCast(textRole));
     }
@@ -1438,7 +1438,7 @@ pub const qstylepainter = struct {
     pub fn DrawText(self: ?*anyopaque, p: ?*anyopaque, s: []const u8) void {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
-            .data = @constCast(s.ptr),
+            .data = s.ptr,
         };
         qtc.QPainter_DrawText(@ptrCast(self), @ptrCast(p), s_str);
     }
@@ -1451,7 +1451,7 @@ pub const qstylepainter = struct {
     pub fn DrawText2(self: ?*anyopaque, p: ?*anyopaque, s: []const u8) void {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
-            .data = @constCast(s.ptr),
+            .data = s.ptr,
         };
         qtc.QPainter_DrawText2(@ptrCast(self), @ptrCast(p), s_str);
     }
@@ -1464,7 +1464,7 @@ pub const qstylepainter = struct {
     pub fn DrawText3(self: ?*anyopaque, x: i32, y: i32, s: []const u8) void {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
-            .data = @constCast(s.ptr),
+            .data = s.ptr,
         };
         qtc.QPainter_DrawText3(@ptrCast(self), @intCast(x), @intCast(y), s_str);
     }
@@ -1477,7 +1477,7 @@ pub const qstylepainter = struct {
     pub fn DrawText4(self: ?*anyopaque, p: ?*anyopaque, str: []const u8, tf: i32, justificationPadding: i32) void {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
-            .data = @constCast(str.ptr),
+            .data = str.ptr,
         };
         qtc.QPainter_DrawText4(@ptrCast(self), @ptrCast(p), str_str, @intCast(tf), @intCast(justificationPadding));
     }
@@ -1490,7 +1490,7 @@ pub const qstylepainter = struct {
     pub fn DrawText5(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText5(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str);
     }
@@ -1503,7 +1503,7 @@ pub const qstylepainter = struct {
     pub fn DrawText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText6(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str);
     }
@@ -1516,7 +1516,7 @@ pub const qstylepainter = struct {
     pub fn DrawText7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText7(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str);
     }
@@ -1529,7 +1529,7 @@ pub const qstylepainter = struct {
     pub fn DrawText8(self: ?*anyopaque, r: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText8(@ptrCast(self), @ptrCast(r), text_str);
     }
@@ -1542,7 +1542,7 @@ pub const qstylepainter = struct {
     pub fn BoundingRect(self: ?*anyopaque, rect: ?*anyopaque, flags: i32, text: []const u8) QtC.QRectF {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QPainter_BoundingRect(@ptrCast(self), @ptrCast(rect), @intCast(flags), text_str);
     }
@@ -1555,7 +1555,7 @@ pub const qstylepainter = struct {
     pub fn BoundingRect2(self: ?*anyopaque, rect: ?*anyopaque, flags: i32, text: []const u8) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QPainter_BoundingRect2(@ptrCast(self), @ptrCast(rect), @intCast(flags), text_str);
     }
@@ -1568,7 +1568,7 @@ pub const qstylepainter = struct {
     pub fn BoundingRect3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QPainter_BoundingRect3(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str);
     }
@@ -1581,7 +1581,7 @@ pub const qstylepainter = struct {
     pub fn BoundingRect4(self: ?*anyopaque, rect: ?*anyopaque, text: []const u8) QtC.QRectF {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QPainter_BoundingRect4(@ptrCast(self), @ptrCast(rect), text_str);
     }
@@ -2080,7 +2080,7 @@ pub const qstylepainter = struct {
     pub fn DrawText42(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, br: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText42(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @ptrCast(br));
     }
@@ -2093,7 +2093,7 @@ pub const qstylepainter = struct {
     pub fn DrawText43(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, br: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText43(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @ptrCast(br));
     }
@@ -2106,7 +2106,7 @@ pub const qstylepainter = struct {
     pub fn DrawText72(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, br: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText72(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str, @ptrCast(br));
     }
@@ -2119,7 +2119,7 @@ pub const qstylepainter = struct {
     pub fn DrawText32(self: ?*anyopaque, r: ?*anyopaque, text: []const u8, o: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QPainter_DrawText32(@ptrCast(self), @ptrCast(r), text_str, @ptrCast(o));
     }
@@ -2132,7 +2132,7 @@ pub const qstylepainter = struct {
     pub fn BoundingRect32(self: ?*anyopaque, rect: ?*anyopaque, text: []const u8, o: ?*anyopaque) QtC.QRectF {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         return qtc.QPainter_BoundingRect32(@ptrCast(self), @ptrCast(rect), text_str, @ptrCast(o));
     }

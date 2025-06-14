@@ -138,9 +138,9 @@ class VirtualQStylePlugin final : public QStylePlugin {
             QByteArray key_b = key_ret.toUtf8();
             libqt_string key_str;
             key_str.len = key_b.length();
-            key_str.data = static_cast<char*>(malloc((key_str.len + 1) * sizeof(char)));
-            memcpy(key_str.data, key_b.data(), key_str.len);
-            key_str.data[key_str.len] = '\0';
+            key_str.data = static_cast<const char*>(malloc((key_str.len + 1) * sizeof(char)));
+            memcpy((void*)key_str.data, key_b.data(), key_str.len);
+            ((char*)key_str.data)[key_str.len] = '\0';
             libqt_string cbval1 = key_str;
 
             QStyle* callback_ret = qstyleplugin_create_callback(this, cbval1);

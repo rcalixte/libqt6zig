@@ -18,7 +18,7 @@ pub const qresource = struct {
     pub fn New2(file: []const u8) QtC.QResource {
         const file_str = qtc.struct_libqt_string{
             .len = file.len,
-            .data = @constCast(file.ptr),
+            .data = file.ptr,
         };
 
         return qtc.QResource_new2(file_str);
@@ -30,7 +30,7 @@ pub const qresource = struct {
     pub fn New3(file: []const u8, locale: ?*anyopaque) QtC.QResource {
         const file_str = qtc.struct_libqt_string{
             .len = file.len,
-            .data = @constCast(file.ptr),
+            .data = file.ptr,
         };
 
         return qtc.QResource_new3(file_str, @ptrCast(locale));
@@ -42,7 +42,7 @@ pub const qresource = struct {
     pub fn SetFileName(self: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.struct_libqt_string{
             .len = file.len,
-            .data = @constCast(file.ptr),
+            .data = file.ptr,
         };
         qtc.QResource_SetFileName(@ptrCast(self), file_str);
     }
@@ -52,11 +52,9 @@ pub const qresource = struct {
     /// ``` self: QtC.QResource, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QResource_FileName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qresource.FileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -65,11 +63,9 @@ pub const qresource = struct {
     /// ``` self: QtC.QResource, allocator: std.mem.Allocator ```
     pub fn AbsoluteFilePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QResource_AbsoluteFilePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qresource.AbsoluteFilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -127,11 +123,9 @@ pub const qresource = struct {
     /// ``` self: QtC.QResource, allocator: std.mem.Allocator ```
     pub fn UncompressedData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QResource_UncompressedData(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qresource.UncompressedData: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -148,7 +142,7 @@ pub const qresource = struct {
     pub fn RegisterResource(rccFilename: []const u8) bool {
         const rccFilename_str = qtc.struct_libqt_string{
             .len = rccFilename.len,
-            .data = @constCast(rccFilename.ptr),
+            .data = rccFilename.ptr,
         };
         return qtc.QResource_RegisterResource(rccFilename_str);
     }
@@ -159,7 +153,7 @@ pub const qresource = struct {
     pub fn UnregisterResource(rccFilename: []const u8) bool {
         const rccFilename_str = qtc.struct_libqt_string{
             .len = rccFilename.len,
-            .data = @constCast(rccFilename.ptr),
+            .data = rccFilename.ptr,
         };
         return qtc.QResource_UnregisterResource(rccFilename_str);
     }
@@ -184,11 +178,11 @@ pub const qresource = struct {
     pub fn RegisterResource2(rccFilename: []const u8, resourceRoot: []const u8) bool {
         const rccFilename_str = qtc.struct_libqt_string{
             .len = rccFilename.len,
-            .data = @constCast(rccFilename.ptr),
+            .data = rccFilename.ptr,
         };
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
-            .data = @constCast(resourceRoot.ptr),
+            .data = resourceRoot.ptr,
         };
         return qtc.QResource_RegisterResource2(rccFilename_str, resourceRoot_str);
     }
@@ -199,11 +193,11 @@ pub const qresource = struct {
     pub fn UnregisterResource2(rccFilename: []const u8, resourceRoot: []const u8) bool {
         const rccFilename_str = qtc.struct_libqt_string{
             .len = rccFilename.len,
-            .data = @constCast(rccFilename.ptr),
+            .data = rccFilename.ptr,
         };
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
-            .data = @constCast(resourceRoot.ptr),
+            .data = resourceRoot.ptr,
         };
         return qtc.QResource_UnregisterResource2(rccFilename_str, resourceRoot_str);
     }
@@ -214,7 +208,7 @@ pub const qresource = struct {
     pub fn RegisterResource22(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
-            .data = @constCast(resourceRoot.ptr),
+            .data = resourceRoot.ptr,
         };
         return qtc.QResource_RegisterResource22(@intCast(rccData), resourceRoot_str);
     }
@@ -225,7 +219,7 @@ pub const qresource = struct {
     pub fn UnregisterResource22(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
-            .data = @constCast(resourceRoot.ptr),
+            .data = resourceRoot.ptr,
         };
         return qtc.QResource_UnregisterResource22(@intCast(rccData), resourceRoot_str);
     }

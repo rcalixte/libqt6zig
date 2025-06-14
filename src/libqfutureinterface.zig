@@ -137,7 +137,7 @@ pub const qfutureinterfacebase = struct {
     pub fn SetProgressValueAndText(self: ?*anyopaque, progressValue: i32, progressText: []const u8) void {
         const progressText_str = qtc.struct_libqt_string{
             .len = progressText.len,
-            .data = @constCast(progressText.ptr),
+            .data = progressText.ptr,
         };
         qtc.QFutureInterfaceBase_SetProgressValueAndText(@ptrCast(self), @intCast(progressValue), progressText_str);
     }
@@ -147,11 +147,9 @@ pub const qfutureinterfacebase = struct {
     /// ``` self: QtC.QFutureInterfaceBase, allocator: std.mem.Allocator ```
     pub fn ProgressText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFutureInterfaceBase_ProgressText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfutureinterfacebase.ProgressText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

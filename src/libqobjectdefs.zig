@@ -38,7 +38,7 @@ pub const qgenericargument = struct {
     ///
     /// ``` aName: []const u8 ```
     pub fn New5(aName: []const u8) QtC.QGenericArgument {
-        const aName_Cstring = @constCast(aName.ptr);
+        const aName_Cstring = aName.ptr;
 
         return qtc.QGenericArgument_new5(aName_Cstring);
     }
@@ -47,7 +47,7 @@ pub const qgenericargument = struct {
     ///
     /// ``` aName: []const u8, aData: ?*anyopaque ```
     pub fn New6(aName: []const u8, aData: ?*anyopaque) QtC.QGenericArgument {
-        const aName_Cstring = @constCast(aName.ptr);
+        const aName_Cstring = aName.ptr;
 
         return qtc.QGenericArgument_new6(aName_Cstring, aData);
     }
@@ -125,7 +125,7 @@ pub const qgenericreturnargument = struct {
     ///
     /// ``` aName: []const u8 ```
     pub fn New5(aName: []const u8) QtC.QGenericReturnArgument {
-        const aName_Cstring = @constCast(aName.ptr);
+        const aName_Cstring = aName.ptr;
 
         return qtc.QGenericReturnArgument_new5(aName_Cstring);
     }
@@ -134,7 +134,7 @@ pub const qgenericreturnargument = struct {
     ///
     /// ``` aName: []const u8, aData: ?*anyopaque ```
     pub fn New6(aName: []const u8, aData: ?*anyopaque) QtC.QGenericReturnArgument {
-        const aName_Cstring = @constCast(aName.ptr);
+        const aName_Cstring = aName.ptr;
 
         return qtc.QGenericReturnArgument_new6(aName_Cstring, aData);
     }
@@ -238,14 +238,12 @@ pub const qmetaobject = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(self: ?*anyopaque, s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QMetaObject_Tr(@ptrCast(self), s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmetaobject.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -323,7 +321,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, constructor: []const u8 ```
     pub fn IndexOfConstructor(self: ?*anyopaque, constructor: []const u8) i32 {
-        const constructor_Cstring = @constCast(constructor.ptr);
+        const constructor_Cstring = constructor.ptr;
         return qtc.QMetaObject_IndexOfConstructor(@ptrCast(self), constructor_Cstring);
     }
 
@@ -331,7 +329,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, method: []const u8 ```
     pub fn IndexOfMethod(self: ?*anyopaque, method: []const u8) i32 {
-        const method_Cstring = @constCast(method.ptr);
+        const method_Cstring = method.ptr;
         return qtc.QMetaObject_IndexOfMethod(@ptrCast(self), method_Cstring);
     }
 
@@ -339,7 +337,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, signal: []const u8 ```
     pub fn IndexOfSignal(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QMetaObject_IndexOfSignal(@ptrCast(self), signal_Cstring);
     }
 
@@ -347,7 +345,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, slot: []const u8 ```
     pub fn IndexOfSlot(self: ?*anyopaque, slot: []const u8) i32 {
-        const slot_Cstring = @constCast(slot.ptr);
+        const slot_Cstring = slot.ptr;
         return qtc.QMetaObject_IndexOfSlot(@ptrCast(self), slot_Cstring);
     }
 
@@ -355,7 +353,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, name: []const u8 ```
     pub fn IndexOfEnumerator(self: ?*anyopaque, name: []const u8) i32 {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QMetaObject_IndexOfEnumerator(@ptrCast(self), name_Cstring);
     }
 
@@ -363,7 +361,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, name: []const u8 ```
     pub fn IndexOfProperty(self: ?*anyopaque, name: []const u8) i32 {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QMetaObject_IndexOfProperty(@ptrCast(self), name_Cstring);
     }
 
@@ -371,7 +369,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, name: []const u8 ```
     pub fn IndexOfClassInfo(self: ?*anyopaque, name: []const u8) i32 {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QMetaObject_IndexOfClassInfo(@ptrCast(self), name_Cstring);
     }
 
@@ -421,8 +419,8 @@ pub const qmetaobject = struct {
     ///
     /// ``` signal: []const u8, method: []const u8 ```
     pub fn CheckConnectArgs(signal: []const u8, method: []const u8) bool {
-        const signal_Cstring = @constCast(signal.ptr);
-        const method_Cstring = @constCast(method.ptr);
+        const signal_Cstring = signal.ptr;
+        const method_Cstring = method.ptr;
         return qtc.QMetaObject_CheckConnectArgs(signal_Cstring, method_Cstring);
     }
 
@@ -437,13 +435,11 @@ pub const qmetaobject = struct {
     ///
     /// ``` method: []const u8, allocator: std.mem.Allocator ```
     pub fn NormalizedSignature(method: []const u8, allocator: std.mem.Allocator) []u8 {
-        const method_Cstring = @constCast(method.ptr);
+        const method_Cstring = method.ptr;
         const _bytearray: qtc.struct_libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedSignature: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -451,13 +447,11 @@ pub const qmetaobject = struct {
     ///
     /// ``` typeVal: []const u8, allocator: std.mem.Allocator ```
     pub fn NormalizedType(typeVal: []const u8, allocator: std.mem.Allocator) []u8 {
-        const typeVal_Cstring = @constCast(typeVal.ptr);
+        const typeVal_Cstring = typeVal.ptr;
         const _bytearray: qtc.struct_libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedType: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -514,7 +508,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument ```
     pub fn InvokeMethod(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal));
     }
 
@@ -522,7 +516,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument ```
     pub fn InvokeMethod2(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod2(@ptrCast(obj), member_Cstring, @ptrCast(retVal));
     }
 
@@ -530,7 +524,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn InvokeMethod3(obj: ?*anyopaque, member: []const u8, typeVal: i64) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod3(@ptrCast(obj), member_Cstring, @intCast(typeVal));
     }
 
@@ -538,7 +532,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8 ```
     pub fn InvokeMethod4(obj: ?*anyopaque, member: []const u8) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod4(@ptrCast(obj), member_Cstring);
     }
 
@@ -567,14 +561,12 @@ pub const qmetaobject = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(self: ?*anyopaque, s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QMetaObject_Tr3(@ptrCast(self), s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmetaobject.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -596,7 +588,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument ```
     pub fn InvokeMethod5(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod5(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0));
     }
 
@@ -604,7 +596,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
     pub fn InvokeMethod6(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod6(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1));
     }
 
@@ -612,7 +604,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument ```
     pub fn InvokeMethod7(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod7(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
@@ -620,7 +612,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument ```
     pub fn InvokeMethod8(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod8(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
@@ -628,7 +620,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument ```
     pub fn InvokeMethod9(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod9(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
@@ -636,7 +628,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument ```
     pub fn InvokeMethod10(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod10(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
@@ -644,7 +636,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument ```
     pub fn InvokeMethod11(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod11(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
@@ -652,7 +644,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument ```
     pub fn InvokeMethod12(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod12(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
@@ -660,7 +652,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument ```
     pub fn InvokeMethod13(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod13(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
@@ -668,7 +660,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, param3: qnamespace_enums.ConnectionType, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument ```
     pub fn InvokeMethod14(obj: ?*anyopaque, member: []const u8, param3: i64, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod14(@ptrCast(obj), member_Cstring, @intCast(param3), @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
@@ -676,7 +668,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument ```
     pub fn InvokeMethod42(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod42(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0));
     }
 
@@ -684,7 +676,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
     pub fn InvokeMethod52(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod52(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1));
     }
 
@@ -692,7 +684,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument ```
     pub fn InvokeMethod62(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod62(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
@@ -700,7 +692,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument ```
     pub fn InvokeMethod72(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod72(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
@@ -708,7 +700,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument ```
     pub fn InvokeMethod82(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod82(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
@@ -716,7 +708,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument ```
     pub fn InvokeMethod92(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod92(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
@@ -724,7 +716,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument ```
     pub fn InvokeMethod102(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod102(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
@@ -732,7 +724,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument ```
     pub fn InvokeMethod112(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod112(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
@@ -740,7 +732,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument ```
     pub fn InvokeMethod122(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod122(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
@@ -748,7 +740,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument ```
     pub fn InvokeMethod132(obj: ?*anyopaque, member: []const u8, retVal: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod132(@ptrCast(obj), member_Cstring, @ptrCast(retVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
@@ -756,7 +748,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument ```
     pub fn InvokeMethod43(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod43(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0));
     }
 
@@ -764,7 +756,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
     pub fn InvokeMethod53(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod53(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1));
     }
 
@@ -772,7 +764,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument ```
     pub fn InvokeMethod63(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod63(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
@@ -780,7 +772,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument ```
     pub fn InvokeMethod73(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod73(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
@@ -788,7 +780,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument ```
     pub fn InvokeMethod83(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod83(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
@@ -796,7 +788,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument ```
     pub fn InvokeMethod93(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod93(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
@@ -804,7 +796,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument ```
     pub fn InvokeMethod103(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod103(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
@@ -812,7 +804,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument ```
     pub fn InvokeMethod113(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod113(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
@@ -820,7 +812,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument ```
     pub fn InvokeMethod123(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod123(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
@@ -828,7 +820,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, typeVal: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument ```
     pub fn InvokeMethod133(obj: ?*anyopaque, member: []const u8, typeVal: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod133(@ptrCast(obj), member_Cstring, @intCast(typeVal), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
@@ -836,7 +828,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument ```
     pub fn InvokeMethod32(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod32(@ptrCast(obj), member_Cstring, @ptrCast(val0));
     }
 
@@ -844,7 +836,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
     pub fn InvokeMethod44(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod44(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1));
     }
 
@@ -852,7 +844,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument ```
     pub fn InvokeMethod54(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod54(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
@@ -860,7 +852,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument ```
     pub fn InvokeMethod64(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod64(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
@@ -868,7 +860,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument ```
     pub fn InvokeMethod74(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod74(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
@@ -876,7 +868,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument ```
     pub fn InvokeMethod84(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod84(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
@@ -884,7 +876,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument ```
     pub fn InvokeMethod94(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod94(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
@@ -892,7 +884,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument ```
     pub fn InvokeMethod104(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod104(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
@@ -900,7 +892,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument ```
     pub fn InvokeMethod114(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod114(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
@@ -908,7 +900,7 @@ pub const qmetaobject = struct {
     ///
     /// ``` obj: QtC.QObject, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument ```
     pub fn InvokeMethod124(obj: ?*anyopaque, member: []const u8, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        const member_Cstring = @constCast(member.ptr);
+        const member_Cstring = member.ptr;
         return qtc.QMetaObject_InvokeMethod124(@ptrCast(obj), member_Cstring, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 

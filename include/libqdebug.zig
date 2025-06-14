@@ -210,7 +210,7 @@ pub const qdebug = struct {
     ///
     /// ``` self: QtC.QDebug, t: []const u8 ```
     pub fn OperatorShiftLeft2(self: ?*anyopaque, t: []const u8) QtC.QDebug {
-        const t_Cstring = @constCast(t.ptr);
+        const t_Cstring = t.ptr;
         return qtc.QDebug_OperatorShiftLeft2(@ptrCast(self), t_Cstring);
     }
 
@@ -220,7 +220,7 @@ pub const qdebug = struct {
     pub fn OperatorShiftLeftWithQString(self: ?*anyopaque, t: []const u8) QtC.QDebug {
         const t_str = qtc.struct_libqt_string{
             .len = t.len,
-            .data = @constCast(t.ptr),
+            .data = t.ptr,
         };
         return qtc.QDebug_OperatorShiftLeftWithQString(@ptrCast(self), t_str);
     }
@@ -231,7 +231,7 @@ pub const qdebug = struct {
     pub fn OperatorShiftLeftWithQByteArray(self: ?*anyopaque, t: []u8) QtC.QDebug {
         const t_str = qtc.struct_libqt_string{
             .len = t.len,
-            .data = @constCast(t.ptr),
+            .data = t.ptr,
         };
         return qtc.QDebug_OperatorShiftLeftWithQByteArray(@ptrCast(self), t_str);
     }
@@ -240,7 +240,7 @@ pub const qdebug = struct {
     ///
     /// ``` self: QtC.QDebug, t: []const u8 ```
     pub fn OperatorShiftLeftWithQByteArrayView(self: ?*anyopaque, t: []const u8) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithQByteArrayView(@ptrCast(self), @ptrCast(@constCast(&t)));
+        return qtc.QDebug_OperatorShiftLeftWithQByteArrayView(@ptrCast(self), t.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)

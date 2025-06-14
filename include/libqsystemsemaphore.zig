@@ -11,7 +11,7 @@ pub const qsystemsemaphore = struct {
     pub fn New(key: []const u8) QtC.QSystemSemaphore {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
 
         return qtc.QSystemSemaphore_new(key_str);
@@ -23,7 +23,7 @@ pub const qsystemsemaphore = struct {
     pub fn New2(key: []const u8, initialValue: i32) QtC.QSystemSemaphore {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
 
         return qtc.QSystemSemaphore_new2(key_str, @intCast(initialValue));
@@ -35,7 +35,7 @@ pub const qsystemsemaphore = struct {
     pub fn New3(key: []const u8, initialValue: i32, mode: i64) QtC.QSystemSemaphore {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
 
         return qtc.QSystemSemaphore_new3(key_str, @intCast(initialValue), @intCast(mode));
@@ -45,13 +45,11 @@ pub const qsystemsemaphore = struct {
     ///
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const sourceText_Cstring = @constCast(sourceText.ptr);
+        const sourceText_Cstring = sourceText.ptr;
         const _str = qtc.QSystemSemaphore_Tr(sourceText_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -61,7 +59,7 @@ pub const qsystemsemaphore = struct {
     pub fn SetKey(self: ?*anyopaque, key: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         qtc.QSystemSemaphore_SetKey(@ptrCast(self), key_str);
     }
@@ -71,11 +69,9 @@ pub const qsystemsemaphore = struct {
     /// ``` self: QtC.QSystemSemaphore, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSystemSemaphore_Key(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.Key: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -105,11 +101,9 @@ pub const qsystemsemaphore = struct {
     /// ``` self: QtC.QSystemSemaphore, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSystemSemaphore_ErrorString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.ErrorString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -117,14 +111,12 @@ pub const qsystemsemaphore = struct {
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const sourceText_Cstring = @constCast(sourceText.ptr);
-        const disambiguation_Cstring = @constCast(disambiguation.ptr);
+        const sourceText_Cstring = sourceText.ptr;
+        const disambiguation_Cstring = disambiguation.ptr;
         const _str = qtc.QSystemSemaphore_Tr2(sourceText_Cstring, disambiguation_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -132,14 +124,12 @@ pub const qsystemsemaphore = struct {
     ///
     /// ``` sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const sourceText_Cstring = @constCast(sourceText.ptr);
-        const disambiguation_Cstring = @constCast(disambiguation.ptr);
+        const sourceText_Cstring = sourceText.ptr;
+        const disambiguation_Cstring = disambiguation.ptr;
         const _str = qtc.QSystemSemaphore_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -149,7 +139,7 @@ pub const qsystemsemaphore = struct {
     pub fn SetKey2(self: ?*anyopaque, key: []const u8, initialValue: i32) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         qtc.QSystemSemaphore_SetKey2(@ptrCast(self), key_str, @intCast(initialValue));
     }
@@ -160,7 +150,7 @@ pub const qsystemsemaphore = struct {
     pub fn SetKey3(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i64) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         qtc.QSystemSemaphore_SetKey3(@ptrCast(self), key_str, @intCast(initialValue), @intCast(mode));
     }

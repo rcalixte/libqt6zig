@@ -242,11 +242,9 @@ pub const qtextformat = struct {
     /// ``` self: QtC.QTextFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -286,9 +284,7 @@ pub const qtextformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -315,10 +311,10 @@ pub const qtextformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtextformat.Properties: Memory allocation failed");
         }
         return _ret;
@@ -573,7 +569,7 @@ pub const qtextcharformat = struct {
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
         const family_str = qtc.struct_libqt_string{
             .len = family.len,
-            .data = @constCast(family.ptr),
+            .data = family.ptr,
         };
         qtc.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
     }
@@ -583,11 +579,9 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.FontFamily: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -597,10 +591,10 @@ pub const qtextcharformat = struct {
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
         var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtextcharformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, _i| {
-            families_arr[_i] = .{
+        for (families, 0..families.len) |item, i| {
+            families_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const families_list = qtc.struct_libqt_list{
@@ -623,7 +617,7 @@ pub const qtextcharformat = struct {
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
         const styleName_str = qtc.struct_libqt_string{
             .len = styleName.len,
-            .data = @constCast(styleName.ptr),
+            .data = styleName.ptr,
         };
         qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
     }
@@ -921,7 +915,7 @@ pub const qtextcharformat = struct {
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
         const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
-            .data = @constCast(tip.ptr),
+            .data = tip.ptr,
         };
         qtc.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
     }
@@ -931,11 +925,9 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1001,7 +993,7 @@ pub const qtextcharformat = struct {
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
         qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
     }
@@ -1011,11 +1003,9 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.AnchorHref: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1025,10 +1015,10 @@ pub const qtextcharformat = struct {
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
         var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtextcharformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
-        for (names, 0..names.len) |item, _i| {
-            names_arr[_i] = .{
+        for (names, 0..names.len) |item, i| {
+            names_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const names_list = qtc.struct_libqt_list{
@@ -1045,17 +1035,17 @@ pub const qtextcharformat = struct {
         const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtextcharformat.AnchorNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qtextcharformat.AnchorNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1235,11 +1225,9 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextcharformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1289,9 +1277,7 @@ pub const qtextcharformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextcharformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1322,10 +1308,10 @@ pub const qtextcharformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtextcharformat.Properties: Memory allocation failed");
         }
         return _ret;
@@ -1803,9 +1789,7 @@ pub const qtextblockformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextOption__Tab, _arr.len) catch @panic("qtextblockformat.TabPositions: Memory allocation failed");
         const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1956,11 +1940,9 @@ pub const qtextblockformat = struct {
     /// ``` self: QtC.QTextBlockFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextblockformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2010,9 +1992,7 @@ pub const qtextblockformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextblockformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2043,10 +2023,10 @@ pub const qtextblockformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtextblockformat.Properties: Memory allocation failed");
         }
         return _ret;
@@ -2371,7 +2351,7 @@ pub const qtextlistformat = struct {
     pub fn SetNumberPrefix(self: ?*anyopaque, numberPrefix: []const u8) void {
         const numberPrefix_str = qtc.struct_libqt_string{
             .len = numberPrefix.len,
-            .data = @constCast(numberPrefix.ptr),
+            .data = numberPrefix.ptr,
         };
         qtc.QTextListFormat_SetNumberPrefix(@ptrCast(self), numberPrefix_str);
     }
@@ -2381,11 +2361,9 @@ pub const qtextlistformat = struct {
     /// ``` self: QtC.QTextListFormat, allocator: std.mem.Allocator ```
     pub fn NumberPrefix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextListFormat_NumberPrefix(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.NumberPrefix: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2395,7 +2373,7 @@ pub const qtextlistformat = struct {
     pub fn SetNumberSuffix(self: ?*anyopaque, numberSuffix: []const u8) void {
         const numberSuffix_str = qtc.struct_libqt_string{
             .len = numberSuffix.len,
-            .data = @constCast(numberSuffix.ptr),
+            .data = numberSuffix.ptr,
         };
         qtc.QTextListFormat_SetNumberSuffix(@ptrCast(self), numberSuffix_str);
     }
@@ -2405,11 +2383,9 @@ pub const qtextlistformat = struct {
     /// ``` self: QtC.QTextListFormat, allocator: std.mem.Allocator ```
     pub fn NumberSuffix(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextListFormat_NumberSuffix(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.NumberSuffix: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2546,11 +2522,9 @@ pub const qtextlistformat = struct {
     /// ``` self: QtC.QTextListFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2600,9 +2574,7 @@ pub const qtextlistformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextlistformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2633,10 +2605,10 @@ pub const qtextlistformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtextlistformat.Properties: Memory allocation failed");
         }
         return _ret;
@@ -2926,7 +2898,7 @@ pub const qtextimageformat = struct {
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QTextImageFormat_SetName(@ptrCast(self), name_str);
     }
@@ -2936,11 +2908,9 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextImageFormat_Name(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.Name: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3019,7 +2989,7 @@ pub const qtextimageformat = struct {
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
         const family_str = qtc.struct_libqt_string{
             .len = family.len,
-            .data = @constCast(family.ptr),
+            .data = family.ptr,
         };
         qtc.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
     }
@@ -3031,11 +3001,9 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.FontFamily: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3047,10 +3015,10 @@ pub const qtextimageformat = struct {
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
         var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtextimageformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, _i| {
-            families_arr[_i] = .{
+        for (families, 0..families.len) |item, i| {
+            families_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const families_list = qtc.struct_libqt_list{
@@ -3077,7 +3045,7 @@ pub const qtextimageformat = struct {
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
         const styleName_str = qtc.struct_libqt_string{
             .len = styleName.len,
-            .data = @constCast(styleName.ptr),
+            .data = styleName.ptr,
         };
         qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
     }
@@ -3459,7 +3427,7 @@ pub const qtextimageformat = struct {
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
         const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
-            .data = @constCast(tip.ptr),
+            .data = tip.ptr,
         };
         qtc.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
     }
@@ -3471,11 +3439,9 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3559,7 +3525,7 @@ pub const qtextimageformat = struct {
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
         qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
     }
@@ -3571,11 +3537,9 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.AnchorHref: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3587,10 +3551,10 @@ pub const qtextimageformat = struct {
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
         var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtextimageformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
-        for (names, 0..names.len) |item, _i| {
-            names_arr[_i] = .{
+        for (names, 0..names.len) |item, i| {
+            names_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const names_list = qtc.struct_libqt_list{
@@ -3609,17 +3573,17 @@ pub const qtextimageformat = struct {
         const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtextimageformat.AnchorNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qtextimageformat.AnchorNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -3811,11 +3775,9 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextimageformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3865,9 +3827,7 @@ pub const qtextimageformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextimageformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -3898,10 +3858,10 @@ pub const qtextimageformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtextimageformat.Properties: Memory allocation failed");
         }
         return _ret;
@@ -4521,11 +4481,9 @@ pub const qtextframeformat = struct {
     /// ``` self: QtC.QTextFrameFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextframeformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -4575,9 +4533,7 @@ pub const qtextframeformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextframeformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4608,10 +4564,10 @@ pub const qtextframeformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtextframeformat.Properties: Memory allocation failed");
         }
         return _ret;
@@ -4928,9 +4884,7 @@ pub const qtexttableformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttableformat.ColumnWidthConstraints: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -5396,11 +5350,9 @@ pub const qtexttableformat = struct {
     /// ``` self: QtC.QTextTableFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttableformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -5450,9 +5402,7 @@ pub const qtexttableformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttableformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -5483,10 +5433,10 @@ pub const qtexttableformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtexttableformat.Properties: Memory allocation failed");
         }
         return _ret;
@@ -6048,7 +5998,7 @@ pub const qtexttablecellformat = struct {
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
         const family_str = qtc.struct_libqt_string{
             .len = family.len,
-            .data = @constCast(family.ptr),
+            .data = family.ptr,
         };
         qtc.QTextCharFormat_SetFontFamily(@ptrCast(self), family_str);
     }
@@ -6060,11 +6010,9 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn FontFamily(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_FontFamily(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.FontFamily: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6076,10 +6024,10 @@ pub const qtexttablecellformat = struct {
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
         var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtexttablecellformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, _i| {
-            families_arr[_i] = .{
+        for (families, 0..families.len) |item, i| {
+            families_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const families_list = qtc.struct_libqt_list{
@@ -6106,7 +6054,7 @@ pub const qtexttablecellformat = struct {
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
         const styleName_str = qtc.struct_libqt_string{
             .len = styleName.len,
-            .data = @constCast(styleName.ptr),
+            .data = styleName.ptr,
         };
         qtc.QTextCharFormat_SetFontStyleName(@ptrCast(self), styleName_str);
     }
@@ -6488,7 +6436,7 @@ pub const qtexttablecellformat = struct {
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
         const tip_str = qtc.struct_libqt_string{
             .len = tip.len,
-            .data = @constCast(tip.ptr),
+            .data = tip.ptr,
         };
         qtc.QTextCharFormat_SetToolTip(@ptrCast(self), tip_str);
     }
@@ -6500,11 +6448,9 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn ToolTip(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_ToolTip(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.ToolTip: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6588,7 +6534,7 @@ pub const qtexttablecellformat = struct {
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
         qtc.QTextCharFormat_SetAnchorHref(@ptrCast(self), value_str);
     }
@@ -6600,11 +6546,9 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn AnchorHref(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextCharFormat_AnchorHref(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.AnchorHref: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6616,10 +6560,10 @@ pub const qtexttablecellformat = struct {
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
         var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtexttablecellformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
-        for (names, 0..names.len) |item, _i| {
-            names_arr[_i] = .{
+        for (names, 0..names.len) |item, i| {
+            names_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const names_list = qtc.struct_libqt_list{
@@ -6638,17 +6582,17 @@ pub const qtexttablecellformat = struct {
         const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtexttablecellformat.AnchorNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qtexttablecellformat.AnchorNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -6840,11 +6784,9 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn StringProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextFormat_StringProperty(@ptrCast(self), @intCast(propertyId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttablecellformat.StringProperty: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6894,9 +6836,7 @@ pub const qtexttablecellformat = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttablecellformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -6927,10 +6867,10 @@ pub const qtexttablecellformat = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qtexttablecellformat.Properties: Memory allocation failed");
         }
         return _ret;

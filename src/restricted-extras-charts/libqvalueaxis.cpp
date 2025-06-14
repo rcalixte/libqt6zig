@@ -63,9 +63,9 @@ libqt_string QValueAxis_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -140,9 +140,9 @@ libqt_string QValueAxis_LabelFormat(const QValueAxis* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -224,9 +224,9 @@ void QValueAxis_Connect_LabelFormatChanged(QValueAxis* self, intptr_t slot) {
         QByteArray format_b = format_ret.toUtf8();
         libqt_string format_str;
         format_str.len = format_b.length();
-        format_str.data = static_cast<char*>(malloc((format_str.len + 1) * sizeof(char)));
-        memcpy(format_str.data, format_b.data(), format_str.len);
-        format_str.data[format_str.len] = '\0';
+        format_str.data = static_cast<const char*>(malloc((format_str.len + 1) * sizeof(char)));
+        memcpy((void*)format_str.data, format_b.data(), format_str.len);
+        ((char*)format_str.data)[format_str.len] = '\0';
         libqt_string sigval1 = format_str;
         slotFunc(self, sigval1);
     });
@@ -274,9 +274,9 @@ libqt_string QValueAxis_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -286,9 +286,9 @@ libqt_string QValueAxis_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

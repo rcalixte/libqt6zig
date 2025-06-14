@@ -19,7 +19,7 @@ pub const qundocommand = struct {
     pub fn New2(text: []const u8) QtC.QUndoCommand {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QUndoCommand_new2(text_str);
@@ -38,7 +38,7 @@ pub const qundocommand = struct {
     pub fn New4(text: []const u8, parent: ?*anyopaque) QtC.QUndoCommand {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QUndoCommand_new4(text_str, @ptrCast(parent));
@@ -99,11 +99,9 @@ pub const qundocommand = struct {
     /// ``` self: QtC.QUndoCommand, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoCommand_Text(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundocommand.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -112,11 +110,9 @@ pub const qundocommand = struct {
     /// ``` self: QtC.QUndoCommand, allocator: std.mem.Allocator ```
     pub fn ActionText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoCommand_ActionText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundocommand.ActionText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -126,7 +122,7 @@ pub const qundocommand = struct {
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QUndoCommand_SetText(@ptrCast(self), text_str);
     }
@@ -244,7 +240,7 @@ pub const qundostack = struct {
 
     /// ``` self: QtC.QUndoStack, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QUndoStack_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -271,13 +267,11 @@ pub const qundostack = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QUndoStack_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -314,11 +308,9 @@ pub const qundostack = struct {
     /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
     pub fn UndoText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoStack_UndoText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.UndoText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -327,11 +319,9 @@ pub const qundostack = struct {
     /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
     pub fn RedoText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoStack_RedoText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.RedoText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -354,11 +344,9 @@ pub const qundostack = struct {
     /// ``` self: QtC.QUndoStack, idx: i32, allocator: std.mem.Allocator ```
     pub fn Text(self: ?*anyopaque, idx: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUndoStack_Text(@ptrCast(self), @intCast(idx));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Text: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -403,7 +391,7 @@ pub const qundostack = struct {
     pub fn BeginMacro(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QUndoStack_BeginMacro(@ptrCast(self), text_str);
     }
@@ -540,7 +528,7 @@ pub const qundostack = struct {
     pub fn UndoTextChanged(self: ?*anyopaque, undoText: []const u8) void {
         const undoText_str = qtc.struct_libqt_string{
             .len = undoText.len,
-            .data = @constCast(undoText.ptr),
+            .data = undoText.ptr,
         };
         qtc.QUndoStack_UndoTextChanged(@ptrCast(self), undoText_str);
     }
@@ -558,7 +546,7 @@ pub const qundostack = struct {
     pub fn RedoTextChanged(self: ?*anyopaque, redoText: []const u8) void {
         const redoText_str = qtc.struct_libqt_string{
             .len = redoText.len,
-            .data = @constCast(redoText.ptr),
+            .data = redoText.ptr,
         };
         qtc.QUndoStack_RedoTextChanged(@ptrCast(self), redoText_str);
     }
@@ -574,14 +562,12 @@ pub const qundostack = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QUndoStack_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -589,14 +575,12 @@ pub const qundostack = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QUndoStack_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -606,7 +590,7 @@ pub const qundostack = struct {
     pub fn CreateUndoAction2(self: ?*anyopaque, parent: ?*anyopaque, prefix: []const u8) QtC.QAction {
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         return qtc.QUndoStack_CreateUndoAction2(@ptrCast(self), @ptrCast(parent), prefix_str);
     }
@@ -617,7 +601,7 @@ pub const qundostack = struct {
     pub fn CreateRedoAction2(self: ?*anyopaque, parent: ?*anyopaque, prefix: []const u8) QtC.QAction {
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         return qtc.QUndoStack_CreateRedoAction2(@ptrCast(self), @ptrCast(parent), prefix_str);
     }
@@ -636,11 +620,9 @@ pub const qundostack = struct {
     /// ``` self: QtC.QUndoStack, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -650,7 +632,11 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -744,9 +730,7 @@ pub const qundostack = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qundostack.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -792,8 +776,8 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -839,7 +823,7 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -849,7 +833,7 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -862,17 +846,17 @@ pub const qundostack = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qundostack.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qundostack.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -928,7 +912,7 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -965,8 +949,8 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -1293,7 +1277,7 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QUndoStack_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1305,7 +1289,7 @@ pub const qundostack = struct {
     ///
     /// ``` self: QtC.QUndoStack, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QUndoStack_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

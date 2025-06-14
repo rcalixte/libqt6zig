@@ -14,9 +14,9 @@ libqt_string QItemEditorCreatorBase_ValuePropertyName(const QItemEditorCreatorBa
     QByteArray _qb = self->valuePropertyName();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _qb.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -84,17 +84,17 @@ libqt_string QItemEditorFactory_ValuePropertyName(const QItemEditorFactory* self
         QByteArray _qb = vqitemeditorfactory->valuePropertyName(static_cast<int>(userType));
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _qb.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = self->QItemEditorFactory::valuePropertyName(static_cast<int>(userType));
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _qb.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -107,17 +107,17 @@ libqt_string QItemEditorFactory_QBaseValuePropertyName(const QItemEditorFactory*
         QByteArray _qb = vqitemeditorfactory->valuePropertyName(static_cast<int>(userType));
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _qb.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QByteArray _qb = self->QItemEditorFactory::valuePropertyName(static_cast<int>(userType));
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _qb.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _qb.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }

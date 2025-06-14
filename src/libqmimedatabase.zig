@@ -18,7 +18,7 @@ pub const qmimedatabase = struct {
     pub fn MimeTypeForName(self: ?*anyopaque, nameOrAlias: []const u8) QtC.QMimeType {
         const nameOrAlias_str = qtc.struct_libqt_string{
             .len = nameOrAlias.len,
-            .data = @constCast(nameOrAlias.ptr),
+            .data = nameOrAlias.ptr,
         };
         return qtc.QMimeDatabase_MimeTypeForName(@ptrCast(self), nameOrAlias_str);
     }
@@ -29,7 +29,7 @@ pub const qmimedatabase = struct {
     pub fn MimeTypeForFile(self: ?*anyopaque, fileName: []const u8) QtC.QMimeType {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         return qtc.QMimeDatabase_MimeTypeForFile(@ptrCast(self), fileName_str);
     }
@@ -47,15 +47,13 @@ pub const qmimedatabase = struct {
     pub fn MimeTypesForFileName(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []QtC.QMimeType {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         const _arr: qtc.struct_libqt_list = qtc.QMimeDatabase_MimeTypesForFileName(@ptrCast(self), fileName_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMimeType, _arr.len) catch @panic("qmimedatabase.MimeTypesForFileName: Memory allocation failed");
         const _data: [*]QtC.QMimeType = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -65,7 +63,7 @@ pub const qmimedatabase = struct {
     pub fn MimeTypeForData(self: ?*anyopaque, data: []u8) QtC.QMimeType {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         return qtc.QMimeDatabase_MimeTypeForData(@ptrCast(self), data_str);
     }
@@ -90,7 +88,7 @@ pub const qmimedatabase = struct {
     pub fn MimeTypeForFileNameAndData(self: ?*anyopaque, fileName: []const u8, device: ?*anyopaque) QtC.QMimeType {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         return qtc.QMimeDatabase_MimeTypeForFileNameAndData(@ptrCast(self), fileName_str, @ptrCast(device));
     }
@@ -101,11 +99,11 @@ pub const qmimedatabase = struct {
     pub fn MimeTypeForFileNameAndData2(self: ?*anyopaque, fileName: []const u8, data: []u8) QtC.QMimeType {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         return qtc.QMimeDatabase_MimeTypeForFileNameAndData2(@ptrCast(self), fileName_str, data_str);
     }
@@ -116,14 +114,12 @@ pub const qmimedatabase = struct {
     pub fn SuffixForFileName(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         const _str = qtc.QMimeDatabase_SuffixForFileName(@ptrCast(self), fileName_str);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimedatabase.SuffixForFileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -135,9 +131,7 @@ pub const qmimedatabase = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMimeType, _arr.len) catch @panic("qmimedatabase.AllMimeTypes: Memory allocation failed");
         const _data: [*]QtC.QMimeType = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -147,7 +141,7 @@ pub const qmimedatabase = struct {
     pub fn MimeTypeForFile2(self: ?*anyopaque, fileName: []const u8, mode: i64) QtC.QMimeType {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
         return qtc.QMimeDatabase_MimeTypeForFile2(@ptrCast(self), fileName_str, @intCast(mode));
     }

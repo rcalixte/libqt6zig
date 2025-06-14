@@ -387,9 +387,9 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
             QByteArray hostName_b = hostName_ret.toUtf8();
             libqt_string hostName_str;
             hostName_str.len = hostName_b.length();
-            hostName_str.data = static_cast<char*>(malloc((hostName_str.len + 1) * sizeof(char)));
-            memcpy(hostName_str.data, hostName_b.data(), hostName_str.len);
-            hostName_str.data[hostName_str.len] = '\0';
+            hostName_str.data = static_cast<const char*>(malloc((hostName_str.len + 1) * sizeof(char)));
+            memcpy((void*)hostName_str.data, hostName_b.data(), hostName_str.len);
+            ((char*)hostName_str.data)[hostName_str.len] = '\0';
             libqt_string cbval1 = hostName_str;
             uint16_t cbval2 = static_cast<uint16_t>(port);
             int cbval3 = static_cast<int>(mode);
@@ -963,9 +963,9 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
-            memcpy(name_str.data, name_b.data(), name_str.len);
-            name_str.data[name_str.len] = '\0';
+            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy((void*)name_str.data, name_b.data(), name_str.len);
+            ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
 
             qabstractsocket_setpeername_callback(this, cbval1);
@@ -999,9 +999,9 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
             QByteArray errorString_b = errorString_ret.toUtf8();
             libqt_string errorString_str;
             errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<char*>(malloc((errorString_str.len + 1) * sizeof(char)));
-            memcpy(errorString_str.data, errorString_b.data(), errorString_str.len);
-            errorString_str.data[errorString_str.len] = '\0';
+            errorString_str.data = static_cast<const char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
+            ((char*)errorString_str.data)[errorString_str.len] = '\0';
             libqt_string cbval1 = errorString_str;
 
             qabstractsocket_seterrorstring_callback(this, cbval1);

@@ -38,11 +38,9 @@ pub const qprinterinfo = struct {
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn PrinterName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPrinterInfo_PrinterName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprinterinfo.PrinterName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -51,11 +49,9 @@ pub const qprinterinfo = struct {
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPrinterInfo_Description(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprinterinfo.Description: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -64,11 +60,9 @@ pub const qprinterinfo = struct {
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn Location(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPrinterInfo_Location(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprinterinfo.Location: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -77,11 +71,9 @@ pub const qprinterinfo = struct {
     /// ``` self: QtC.QPrinterInfo, allocator: std.mem.Allocator ```
     pub fn MakeAndModel(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPrinterInfo_MakeAndModel(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprinterinfo.MakeAndModel: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -121,9 +113,7 @@ pub const qprinterinfo = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPageSize, _arr.len) catch @panic("qprinterinfo.SupportedPageSizes: Memory allocation failed");
         const _data: [*]QtC.QPageSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -163,9 +153,7 @@ pub const qprinterinfo = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qprinterinfo.SupportedResolutions: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -184,9 +172,7 @@ pub const qprinterinfo = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(qprinter_enums.DuplexMode, _arr.len) catch @panic("qprinterinfo.SupportedDuplexModes: Memory allocation failed");
         const _data: [*]qprinter_enums.DuplexMode = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -205,9 +191,7 @@ pub const qprinterinfo = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(qprinter_enums.ColorMode, _arr.len) catch @panic("qprinterinfo.SupportedColorModes: Memory allocation failed");
         const _data: [*]qprinter_enums.ColorMode = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -218,17 +202,17 @@ pub const qprinterinfo = struct {
         const _arr: qtc.struct_libqt_list = qtc.QPrinterInfo_AvailablePrinterNames();
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qprinterinfo.AvailablePrinterNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qprinterinfo.AvailablePrinterNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -241,9 +225,7 @@ pub const qprinterinfo = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPrinterInfo, _arr.len) catch @panic("qprinterinfo.AvailablePrinters: Memory allocation failed");
         const _data: [*]QtC.QPrinterInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -252,11 +234,9 @@ pub const qprinterinfo = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn DefaultPrinterName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPrinterInfo_DefaultPrinterName();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qprinterinfo.DefaultPrinterName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -273,7 +253,7 @@ pub const qprinterinfo = struct {
     pub fn PrinterInfo(printerName: []const u8) QtC.QPrinterInfo {
         const printerName_str = qtc.struct_libqt_string{
             .len = printerName.len,
-            .data = @constCast(printerName.ptr),
+            .data = printerName.ptr,
         };
         return qtc.QPrinterInfo_PrinterInfo(printerName_str);
     }

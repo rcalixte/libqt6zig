@@ -1064,9 +1064,9 @@ class VirtualQColumnView final : public QColumnView {
             QByteArray search_b = search_ret.toUtf8();
             libqt_string search_str;
             search_str.len = search_b.length();
-            search_str.data = static_cast<char*>(malloc((search_str.len + 1) * sizeof(char)));
-            memcpy(search_str.data, search_b.data(), search_str.len);
-            search_str.data[search_str.len] = '\0';
+            search_str.data = static_cast<const char*>(malloc((search_str.len + 1) * sizeof(char)));
+            memcpy((void*)search_str.data, search_b.data(), search_str.len);
+            ((char*)search_str.data)[search_str.len] = '\0';
             libqt_string cbval1 = search_str;
 
             qcolumnview_keyboardsearch_callback(this, cbval1);
@@ -2002,9 +2002,9 @@ class VirtualQColumnView final : public QColumnView {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
-            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
-            eventType_str.data[eventType_str.len] = '\0';
+            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
+            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;

@@ -9,14 +9,14 @@ pub const qbytearrayview = struct {
     ///
     /// ``` other: []const u8 ```
     pub fn New(other: []const u8) QtC.QByteArrayView {
-        return qtc.QByteArrayView_new(@ptrCast(@constCast(&other)));
+        return qtc.QByteArrayView_new(other.ptr);
     }
 
     /// New2 constructs a new QByteArrayView object and invalidates the source QByteArrayView object.
     ///
     /// ``` other: []const u8 ```
     pub fn New2(other: []const u8) QtC.QByteArrayView {
-        return qtc.QByteArrayView_new2(@ptrCast(@constCast(&other)));
+        return qtc.QByteArrayView_new2(other.ptr);
     }
 
     /// New3 constructs a new QByteArrayView object.
@@ -30,7 +30,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn New4(param1: []const u8) QtC.QByteArrayView {
-        return qtc.QByteArrayView_new4(@ptrCast(@constCast(&param1)));
+        return qtc.QByteArrayView_new4(param1.ptr);
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -52,11 +52,9 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QByteArrayView_ToByteArray(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearrayview.ToByteArray: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -102,11 +100,9 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
     pub fn First(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QByteArrayView_First(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.First: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -115,11 +111,9 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
     pub fn Last(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QByteArrayView_Last(@ptrCast(self), @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Last: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -128,11 +122,9 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView, pos: i64, allocator: std.mem.Allocator ```
     pub fn Sliced(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QByteArrayView_Sliced(@ptrCast(self), @intCast(pos));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Sliced: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -141,11 +133,9 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView, pos: i64, n: i64, allocator: std.mem.Allocator ```
     pub fn Sliced2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QByteArrayView_Sliced2(@ptrCast(self), @intCast(pos), @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Sliced2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -154,11 +144,9 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView, lenVal: i64, allocator: std.mem.Allocator ```
     pub fn Chopped(self: ?*anyopaque, lenVal: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QByteArrayView_Chopped(@ptrCast(self), @intCast(lenVal));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Chopped: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -181,11 +169,9 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView, allocator: std.mem.Allocator ```
     pub fn Trimmed(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QByteArrayView_Trimmed(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Trimmed: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -263,7 +249,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, other: []const u8 ```
     pub fn StartsWith(self: ?*anyopaque, other: []const u8) bool {
-        return qtc.QByteArrayView_StartsWith(@ptrCast(self), @ptrCast(@constCast(&other)));
+        return qtc.QByteArrayView_StartsWith(@ptrCast(self), other.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#startsWith)
@@ -277,7 +263,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, other: []const u8 ```
     pub fn EndsWith(self: ?*anyopaque, other: []const u8) bool {
-        return qtc.QByteArrayView_EndsWith(@ptrCast(self), @ptrCast(@constCast(&other)));
+        return qtc.QByteArrayView_EndsWith(@ptrCast(self), other.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
@@ -291,7 +277,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn IndexOf(self: ?*anyopaque, a: []const u8) i64 {
-        return qtc.QByteArrayView_IndexOf(@ptrCast(self), @ptrCast(@constCast(&a)));
+        return qtc.QByteArrayView_IndexOf(@ptrCast(self), a.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
@@ -305,7 +291,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Contains(self: ?*anyopaque, a: []const u8) bool {
-        return qtc.QByteArrayView_Contains(@ptrCast(self), @ptrCast(@constCast(&a)));
+        return qtc.QByteArrayView_Contains(@ptrCast(self), a.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
@@ -319,14 +305,14 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn LastIndexOf(self: ?*anyopaque, a: []const u8) i64 {
-        return qtc.QByteArrayView_LastIndexOf(@ptrCast(self), @ptrCast(@constCast(&a)));
+        return qtc.QByteArrayView_LastIndexOf(@ptrCast(self), a.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, from: i64 ```
     pub fn LastIndexOf2(self: ?*anyopaque, a: []const u8, from: i64) i64 {
-        return qtc.QByteArrayView_LastIndexOf2(@ptrCast(self), @ptrCast(@constCast(&a)), @intCast(from));
+        return qtc.QByteArrayView_LastIndexOf2(@ptrCast(self), a.ptr, @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
@@ -340,7 +326,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Count(self: ?*anyopaque, a: []const u8) i64 {
-        return qtc.QByteArrayView_Count(@ptrCast(self), @ptrCast(@constCast(&a)));
+        return qtc.QByteArrayView_Count(@ptrCast(self), a.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#count)
@@ -354,7 +340,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Compare(self: ?*anyopaque, a: []const u8) i32 {
-        return qtc.QByteArrayView_Compare(@ptrCast(self), @ptrCast(@constCast(&a)));
+        return qtc.QByteArrayView_Compare(@ptrCast(self), a.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#isValidUtf8)
@@ -582,7 +568,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, from: i64 ```
     pub fn IndexOf2(self: ?*anyopaque, a: []const u8, from: i64) i64 {
-        return qtc.QByteArrayView_IndexOf2(@ptrCast(self), @ptrCast(@constCast(&a)), @intCast(from));
+        return qtc.QByteArrayView_IndexOf2(@ptrCast(self), a.ptr, @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
@@ -603,7 +589,7 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Compare2(self: ?*anyopaque, a: []const u8, cs: i64) i32 {
-        return qtc.QByteArrayView_Compare2(@ptrCast(self), @ptrCast(@constCast(&a)), @intCast(cs));
+        return qtc.QByteArrayView_Compare2(@ptrCast(self), a.ptr, @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#dtor.QByteArrayView)

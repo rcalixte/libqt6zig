@@ -18,7 +18,7 @@ pub const qsslkey = struct {
     pub fn New2(encoded: []u8, algorithm: i64) QtC.QSslKey {
         const encoded_str = qtc.struct_libqt_string{
             .len = encoded.len,
-            .data = @constCast(encoded.ptr),
+            .data = encoded.ptr,
         };
 
         return qtc.QSslKey_new2(encoded_str, @intCast(algorithm));
@@ -51,7 +51,7 @@ pub const qsslkey = struct {
     pub fn New6(encoded: []u8, algorithm: i64, format: i64) QtC.QSslKey {
         const encoded_str = qtc.struct_libqt_string{
             .len = encoded.len,
-            .data = @constCast(encoded.ptr),
+            .data = encoded.ptr,
         };
 
         return qtc.QSslKey_new6(encoded_str, @intCast(algorithm), @intCast(format));
@@ -63,7 +63,7 @@ pub const qsslkey = struct {
     pub fn New7(encoded: []u8, algorithm: i64, format: i64, typeVal: i64) QtC.QSslKey {
         const encoded_str = qtc.struct_libqt_string{
             .len = encoded.len,
-            .data = @constCast(encoded.ptr),
+            .data = encoded.ptr,
         };
 
         return qtc.QSslKey_new7(encoded_str, @intCast(algorithm), @intCast(format), @intCast(typeVal));
@@ -75,11 +75,11 @@ pub const qsslkey = struct {
     pub fn New8(encoded: []u8, algorithm: i64, format: i64, typeVal: i64, passPhrase: []u8) QtC.QSslKey {
         const encoded_str = qtc.struct_libqt_string{
             .len = encoded.len,
-            .data = @constCast(encoded.ptr),
+            .data = encoded.ptr,
         };
         const passPhrase_str = qtc.struct_libqt_string{
             .len = passPhrase.len,
-            .data = @constCast(passPhrase.ptr),
+            .data = passPhrase.ptr,
         };
 
         return qtc.QSslKey_new8(encoded_str, @intCast(algorithm), @intCast(format), @intCast(typeVal), passPhrase_str);
@@ -105,7 +105,7 @@ pub const qsslkey = struct {
     pub fn New11(device: ?*anyopaque, algorithm: i64, format: i64, typeVal: i64, passPhrase: []u8) QtC.QSslKey {
         const passPhrase_str = qtc.struct_libqt_string{
             .len = passPhrase.len,
-            .data = @constCast(passPhrase.ptr),
+            .data = passPhrase.ptr,
         };
 
         return qtc.QSslKey_new11(@ptrCast(device), @intCast(algorithm), @intCast(format), @intCast(typeVal), passPhrase_str);
@@ -172,11 +172,9 @@ pub const qsslkey = struct {
     /// ``` self: QtC.QSslKey, allocator: std.mem.Allocator ```
     pub fn ToPem(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToPem(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToPem: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -185,11 +183,9 @@ pub const qsslkey = struct {
     /// ``` self: QtC.QSslKey, allocator: std.mem.Allocator ```
     pub fn ToDer(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToDer(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToDer: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -220,14 +216,12 @@ pub const qsslkey = struct {
     pub fn ToPem1(self: ?*anyopaque, passPhrase: []u8, allocator: std.mem.Allocator) []u8 {
         const passPhrase_str = qtc.struct_libqt_string{
             .len = passPhrase.len,
-            .data = @constCast(passPhrase.ptr),
+            .data = passPhrase.ptr,
         };
         const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToPem1(@ptrCast(self), passPhrase_str);
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToPem1: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -237,14 +231,12 @@ pub const qsslkey = struct {
     pub fn ToDer1(self: ?*anyopaque, passPhrase: []u8, allocator: std.mem.Allocator) []u8 {
         const passPhrase_str = qtc.struct_libqt_string{
             .len = passPhrase.len,
-            .data = @constCast(passPhrase.ptr),
+            .data = passPhrase.ptr,
         };
         const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToDer1(@ptrCast(self), passPhrase_str);
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToDer1: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

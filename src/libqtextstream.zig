@@ -25,7 +25,7 @@ pub const qtextstream = struct {
     pub fn New3(array: []u8) QtC.QTextStream {
         const array_str = qtc.struct_libqt_string{
             .len = array.len,
-            .data = @constCast(array.ptr),
+            .data = array.ptr,
         };
 
         return qtc.QTextStream_new3(array_str);
@@ -37,7 +37,7 @@ pub const qtextstream = struct {
     pub fn New4(array: []u8, openMode: i64) QtC.QTextStream {
         const array_str = qtc.struct_libqt_string{
             .len = array.len,
-            .data = @constCast(array.ptr),
+            .data = array.ptr,
         };
 
         return qtc.QTextStream_new4(array_str, @intCast(openMode));
@@ -118,11 +118,9 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream, allocator: std.mem.Allocator ```
     pub fn String(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextStream_String(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.String: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -194,11 +192,9 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream, allocator: std.mem.Allocator ```
     pub fn ReadLine(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextStream_ReadLine(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadLine: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -207,11 +203,9 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextStream_ReadAll(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadAll: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -220,11 +214,9 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextStream_Read(@ptrCast(self), @intCast(maxlen));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.Read: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -416,7 +408,7 @@ pub const qtextstream = struct {
     pub fn OperatorShiftRightWithQString(self: ?*anyopaque, s: []const u8) QtC.QTextStream {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
-            .data = @constCast(s.ptr),
+            .data = s.ptr,
         };
         return qtc.QTextStream_OperatorShiftRightWithQString(@ptrCast(self), s_str);
     }
@@ -427,7 +419,7 @@ pub const qtextstream = struct {
     pub fn OperatorShiftRightWithArray(self: ?*anyopaque, array: []u8) QtC.QTextStream {
         const array_str = qtc.struct_libqt_string{
             .len = array.len,
-            .data = @constCast(array.ptr),
+            .data = array.ptr,
         };
         return qtc.QTextStream_OperatorShiftRightWithArray(@ptrCast(self), array_str);
     }
@@ -436,7 +428,7 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, c: []const u8 ```
     pub fn OperatorShiftRightWithChar(self: ?*anyopaque, c: []const u8) QtC.QTextStream {
-        const c_Cstring = @constCast(c.ptr);
+        const c_Cstring = c.ptr;
         return qtc.QTextStream_OperatorShiftRightWithChar(@ptrCast(self), c_Cstring);
     }
 
@@ -530,7 +522,7 @@ pub const qtextstream = struct {
     pub fn OperatorShiftLeftWithQString(self: ?*anyopaque, s: []const u8) QtC.QTextStream {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
-            .data = @constCast(s.ptr),
+            .data = s.ptr,
         };
         return qtc.QTextStream_OperatorShiftLeftWithQString(@ptrCast(self), s_str);
     }
@@ -541,7 +533,7 @@ pub const qtextstream = struct {
     pub fn OperatorShiftLeftWithArray(self: ?*anyopaque, array: []u8) QtC.QTextStream {
         const array_str = qtc.struct_libqt_string{
             .len = array.len,
-            .data = @constCast(array.ptr),
+            .data = array.ptr,
         };
         return qtc.QTextStream_OperatorShiftLeftWithArray(@ptrCast(self), array_str);
     }
@@ -550,7 +542,7 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, c: []const u8 ```
     pub fn OperatorShiftLeftWithChar(self: ?*anyopaque, c: []const u8) QtC.QTextStream {
-        const c_Cstring = @constCast(c.ptr);
+        const c_Cstring = c.ptr;
         return qtc.QTextStream_OperatorShiftLeftWithChar(@ptrCast(self), c_Cstring);
     }
 
@@ -566,11 +558,9 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextStream_ReadLine1(@ptrCast(self), @intCast(maxlen));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadLine1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

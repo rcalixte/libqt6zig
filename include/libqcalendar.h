@@ -42,7 +42,7 @@ QCalendar* QCalendar_new(const QCalendar* other);
 QCalendar* QCalendar_new2(QCalendar* other);
 QCalendar* QCalendar_new3();
 QCalendar* QCalendar_new4(int system);
-QCalendar* QCalendar_new5(char* name);
+QCalendar* QCalendar_new5(libqt_string name);
 QCalendar* QCalendar_new6(QCalendar__SystemId* id);
 void QCalendar_CopyAssign(QCalendar* self, QCalendar* other);
 void QCalendar_MoveAssign(QCalendar* self, QCalendar* other);

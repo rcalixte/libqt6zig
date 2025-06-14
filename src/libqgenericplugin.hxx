@@ -138,18 +138,18 @@ class VirtualQGenericPlugin final : public QGenericPlugin {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<char*>(malloc((name_str.len + 1) * sizeof(char)));
-            memcpy(name_str.data, name_b.data(), name_str.len);
-            name_str.data[name_str.len] = '\0';
+            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            memcpy((void*)name_str.data, name_b.data(), name_str.len);
+            ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
             const QString spec_ret = spec;
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray spec_b = spec_ret.toUtf8();
             libqt_string spec_str;
             spec_str.len = spec_b.length();
-            spec_str.data = static_cast<char*>(malloc((spec_str.len + 1) * sizeof(char)));
-            memcpy(spec_str.data, spec_b.data(), spec_str.len);
-            spec_str.data[spec_str.len] = '\0';
+            spec_str.data = static_cast<const char*>(malloc((spec_str.len + 1) * sizeof(char)));
+            memcpy((void*)spec_str.data, spec_b.data(), spec_str.len);
+            ((char*)spec_str.data)[spec_str.len] = '\0';
             libqt_string cbval2 = spec_str;
 
             QObject* callback_ret = qgenericplugin_create_callback(this, cbval1, cbval2);

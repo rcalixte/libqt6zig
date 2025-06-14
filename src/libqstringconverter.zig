@@ -22,7 +22,7 @@ pub const qstringencoder = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New3(name: []const u8) QtC.QStringEncoder {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
 
         return qtc.QStringEncoder_new3(name_Cstring);
     }
@@ -38,7 +38,7 @@ pub const qstringencoder = struct {
     ///
     /// ``` name: []const u8, flags: i32 ```
     pub fn New5(name: []const u8, flags: i64) QtC.QStringEncoder {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
 
         return qtc.QStringEncoder_new5(name_Cstring, @intCast(flags));
     }
@@ -127,7 +127,7 @@ pub const qstringdecoder = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New3(name: []const u8) QtC.QStringDecoder {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
 
         return qtc.QStringDecoder_new3(name_Cstring);
     }
@@ -143,7 +143,7 @@ pub const qstringdecoder = struct {
     ///
     /// ``` name: []const u8, f: i32 ```
     pub fn New5(name: []const u8, f: i64) QtC.QStringDecoder {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
 
         return qtc.QStringDecoder_new5(name_Cstring, @intCast(f));
     }
@@ -159,14 +159,14 @@ pub const qstringdecoder = struct {
     ///
     /// ``` self: QtC.QStringDecoder, out: QtC.QChar, ba: []const u8 ```
     pub fn AppendToBuffer(self: ?*anyopaque, out: ?*anyopaque, ba: []const u8) QtC.QChar {
-        return qtc.QStringDecoder_AppendToBuffer(@ptrCast(self), @ptrCast(out), @ptrCast(@constCast(&ba)));
+        return qtc.QStringDecoder_AppendToBuffer(@ptrCast(self), @ptrCast(out), ba.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#decoderForHtml)
     ///
     /// ``` data: []const u8 ```
     pub fn DecoderForHtml(data: []const u8) QtC.QStringDecoder {
-        return qtc.QStringDecoder_DecoderForHtml(@ptrCast(@constCast(&data)));
+        return qtc.QStringDecoder_DecoderForHtml(data.ptr);
     }
 
     /// Inherited from QStringConverter

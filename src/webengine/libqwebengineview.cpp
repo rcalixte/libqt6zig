@@ -118,9 +118,9 @@ libqt_string QWebEngineView_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -164,9 +164,9 @@ libqt_string QWebEngineView_Title(const QWebEngineView* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -196,9 +196,9 @@ libqt_string QWebEngineView_SelectedText(const QWebEngineView* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -303,9 +303,9 @@ void QWebEngineView_Connect_TitleChanged(QWebEngineView* self, intptr_t slot) {
         QByteArray title_b = title_ret.toUtf8();
         libqt_string title_str;
         title_str.len = title_b.length();
-        title_str.data = static_cast<char*>(malloc((title_str.len + 1) * sizeof(char)));
-        memcpy(title_str.data, title_b.data(), title_str.len);
-        title_str.data[title_str.len] = '\0';
+        title_str.data = static_cast<const char*>(malloc((title_str.len + 1) * sizeof(char)));
+        memcpy((void*)title_str.data, title_b.data(), title_str.len);
+        ((char*)title_str.data)[title_str.len] = '\0';
         libqt_string sigval1 = title_str;
         slotFunc(self, sigval1);
     });
@@ -390,9 +390,9 @@ void QWebEngineView_Connect_PdfPrintingFinished(QWebEngineView* self, intptr_t s
         QByteArray filePath_b = filePath_ret.toUtf8();
         libqt_string filePath_str;
         filePath_str.len = filePath_b.length();
-        filePath_str.data = static_cast<char*>(malloc((filePath_str.len + 1) * sizeof(char)));
-        memcpy(filePath_str.data, filePath_b.data(), filePath_str.len);
-        filePath_str.data[filePath_str.len] = '\0';
+        filePath_str.data = static_cast<const char*>(malloc((filePath_str.len + 1) * sizeof(char)));
+        memcpy((void*)filePath_str.data, filePath_b.data(), filePath_str.len);
+        ((char*)filePath_str.data)[filePath_str.len] = '\0';
         libqt_string sigval1 = filePath_str;
         bool sigval2 = success;
         slotFunc(self, sigval1, sigval2);
@@ -428,9 +428,9 @@ libqt_string QWebEngineView_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -440,9 +440,9 @@ libqt_string QWebEngineView_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 

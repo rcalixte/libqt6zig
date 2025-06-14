@@ -367,10 +367,10 @@ pub const qcborarray = struct {
     pub fn FromStringList(list: [][]const u8, allocator: std.mem.Allocator) QtC.QCborArray {
         var list_arr = allocator.alloc(qtc.struct_libqt_string, list.len) catch @panic("qcborarray.FromStringList: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, _i| {
-            list_arr[_i] = .{
+        for (list, 0..list.len) |item, i| {
+            list_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const list_list = qtc.struct_libqt_list{

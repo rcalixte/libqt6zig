@@ -75,9 +75,9 @@ libqt_string QStyledItemDelegate_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -95,9 +95,9 @@ libqt_string QStyledItemDelegate_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -107,9 +107,9 @@ libqt_string QStyledItemDelegate_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -296,9 +296,9 @@ libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, co
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QString _ret = self->QStyledItemDelegate::displayText(*value, *locale);
@@ -306,9 +306,9 @@ libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, co
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -323,9 +323,9 @@ libqt_string QStyledItemDelegate_QBaseDisplayText(const QStyledItemDelegate* sel
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QString _ret = self->QStyledItemDelegate::displayText(*value, *locale);
@@ -333,9 +333,9 @@ libqt_string QStyledItemDelegate_QBaseDisplayText(const QStyledItemDelegate* sel
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }

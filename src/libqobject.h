@@ -17,7 +17,9 @@ extern "C" {
 // Based on the macro from Qt (LGPLv3), see https://www.qt.io/qt-licensing/
 // Macro is trivial and used here under fair use
 // Usage does not imply derivation
+#ifndef QT_VERSION_CHECK
 #define QT_VERSION_CHECK(major, minor, patch) ((major << 16) | (minor << 8) | (patch))
+#endif
 
 #ifdef __cplusplus
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
@@ -62,7 +64,7 @@ bool QObject_EventFilter(QObject* self, QObject* watched, QEvent* event);
 void QObject_OnEventFilter(QObject* self, intptr_t slot);
 bool QObject_QBaseEventFilter(QObject* self, QObject* watched, QEvent* event);
 libqt_string QObject_ObjectName(const QObject* self);
-void QObject_SetObjectName(QObject* self, char* name);
+void QObject_SetObjectName(QObject* self, libqt_string name);
 bool QObject_IsWidgetType(const QObject* self);
 bool QObject_IsWindowType(const QObject* self);
 bool QObject_IsQuickItemType(const QObject* self);

@@ -53,7 +53,7 @@ pub const qtextdocument = struct {
     pub fn New2(text: []const u8) QtC.QTextDocument {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QTextDocument_new2(text_str);
@@ -72,7 +72,7 @@ pub const qtextdocument = struct {
     pub fn New4(text: []const u8, parent: ?*anyopaque) QtC.QTextDocument {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
 
         return qtc.QTextDocument_new4(text_str, @ptrCast(parent));
@@ -87,7 +87,7 @@ pub const qtextdocument = struct {
 
     /// ``` self: QtC.QTextDocument, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QTextDocument_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -114,13 +114,11 @@ pub const qtextdocument = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QTextDocument_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -232,7 +230,7 @@ pub const qtextdocument = struct {
     pub fn SetMetaInformation(self: ?*anyopaque, info: i64, param2: []const u8) void {
         const param2_str = qtc.struct_libqt_string{
             .len = param2.len,
-            .data = @constCast(param2.ptr),
+            .data = param2.ptr,
         };
         qtc.QTextDocument_SetMetaInformation(@ptrCast(self), @intCast(info), param2_str);
     }
@@ -242,11 +240,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, info: qtextdocument_enums.MetaInformation, allocator: std.mem.Allocator ```
     pub fn MetaInformation(self: ?*anyopaque, info: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_MetaInformation(@ptrCast(self), @intCast(info));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.MetaInformation: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -255,11 +251,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn ToHtml(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_ToHtml(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToHtml: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -269,7 +263,7 @@ pub const qtextdocument = struct {
     pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
         const html_str = qtc.struct_libqt_string{
             .len = html.len,
-            .data = @constCast(html.ptr),
+            .data = html.ptr,
         };
         qtc.QTextDocument_SetHtml(@ptrCast(self), html_str);
     }
@@ -279,11 +273,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn ToMarkdown(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_ToMarkdown(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToMarkdown: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -293,7 +285,7 @@ pub const qtextdocument = struct {
     pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
         const markdown_str = qtc.struct_libqt_string{
             .len = markdown.len,
-            .data = @constCast(markdown.ptr),
+            .data = markdown.ptr,
         };
         qtc.QTextDocument_SetMarkdown(@ptrCast(self), markdown_str);
     }
@@ -303,11 +295,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn ToRawText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_ToRawText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToRawText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -316,11 +306,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn ToPlainText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_ToPlainText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToPlainText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -330,7 +318,7 @@ pub const qtextdocument = struct {
     pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QTextDocument_SetPlainText(@ptrCast(self), text_str);
     }
@@ -348,7 +336,7 @@ pub const qtextdocument = struct {
     pub fn Find(self: ?*anyopaque, subString: []const u8) QtC.QTextCursor {
         const subString_str = qtc.struct_libqt_string{
             .len = subString.len,
-            .data = @constCast(subString.ptr),
+            .data = subString.ptr,
         };
         return qtc.QTextDocument_Find(@ptrCast(self), subString_str);
     }
@@ -359,7 +347,7 @@ pub const qtextdocument = struct {
     pub fn Find2(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque) QtC.QTextCursor {
         const subString_str = qtc.struct_libqt_string{
             .len = subString.len,
-            .data = @constCast(subString.ptr),
+            .data = subString.ptr,
         };
         return qtc.QTextDocument_Find2(@ptrCast(self), subString_str, @ptrCast(cursor));
     }
@@ -568,9 +556,7 @@ pub const qtextdocument = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextFormat, _arr.len) catch @panic("qtextdocument.AllFormats: Memory allocation failed");
         const _data: [*]QtC.QTextFormat = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -706,7 +692,7 @@ pub const qtextdocument = struct {
     pub fn SetDefaultStyleSheet(self: ?*anyopaque, sheet: []const u8) void {
         const sheet_str = qtc.struct_libqt_string{
             .len = sheet.len,
-            .data = @constCast(sheet.ptr),
+            .data = sheet.ptr,
         };
         qtc.QTextDocument_SetDefaultStyleSheet(@ptrCast(self), sheet_str);
     }
@@ -716,11 +702,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn DefaultStyleSheet(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_DefaultStyleSheet(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.DefaultStyleSheet: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1023,14 +1007,12 @@ pub const qtextdocument = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QTextDocument_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1038,14 +1020,12 @@ pub const qtextdocument = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QTextDocument_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1061,11 +1041,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, features: i32, allocator: std.mem.Allocator ```
     pub fn ToMarkdown1(self: ?*anyopaque, features: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_ToMarkdown1(@ptrCast(self), @intCast(features));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToMarkdown1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1075,7 +1053,7 @@ pub const qtextdocument = struct {
     pub fn SetMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i64) void {
         const markdown_str = qtc.struct_libqt_string{
             .len = markdown.len,
-            .data = @constCast(markdown.ptr),
+            .data = markdown.ptr,
         };
         qtc.QTextDocument_SetMarkdown2(@ptrCast(self), markdown_str, @intCast(features));
     }
@@ -1086,7 +1064,7 @@ pub const qtextdocument = struct {
     pub fn Find22(self: ?*anyopaque, subString: []const u8, from: i32) QtC.QTextCursor {
         const subString_str = qtc.struct_libqt_string{
             .len = subString.len,
-            .data = @constCast(subString.ptr),
+            .data = subString.ptr,
         };
         return qtc.QTextDocument_Find22(@ptrCast(self), subString_str, @intCast(from));
     }
@@ -1097,7 +1075,7 @@ pub const qtextdocument = struct {
     pub fn Find32(self: ?*anyopaque, subString: []const u8, from: i32, options: i64) QtC.QTextCursor {
         const subString_str = qtc.struct_libqt_string{
             .len = subString.len,
-            .data = @constCast(subString.ptr),
+            .data = subString.ptr,
         };
         return qtc.QTextDocument_Find32(@ptrCast(self), subString_str, @intCast(from), @intCast(options));
     }
@@ -1108,7 +1086,7 @@ pub const qtextdocument = struct {
     pub fn Find33(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque, options: i64) QtC.QTextCursor {
         const subString_str = qtc.struct_libqt_string{
             .len = subString.len,
-            .data = @constCast(subString.ptr),
+            .data = subString.ptr,
         };
         return qtc.QTextDocument_Find33(@ptrCast(self), subString_str, @ptrCast(cursor), @intCast(options));
     }
@@ -1162,11 +1140,9 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1176,7 +1152,11 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -1270,9 +1250,7 @@ pub const qtextdocument = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextdocument.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1318,8 +1296,8 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -1365,7 +1343,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -1375,7 +1353,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -1388,17 +1366,17 @@ pub const qtextdocument = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtextdocument.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qtextdocument.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1454,7 +1432,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -1491,8 +1469,8 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -1819,7 +1797,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QTextDocument_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1831,7 +1809,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QTextDocument_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

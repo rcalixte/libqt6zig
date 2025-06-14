@@ -37,7 +37,12 @@ pub const quuid = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn New5(stringVal: []const u8) QtC.QUuid {
-        return qtc.QUuid_new5(@constCast(stringVal.ptr));
+        const stringVal_str = qtc.struct_libqt_string{
+            .len = stringVal.len,
+            .data = stringVal.ptr,
+        };
+
+        return qtc.QUuid_new5(stringVal_str);
     }
 
     /// New6 constructs a new QUuid object.
@@ -65,7 +70,11 @@ pub const quuid = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) QtC.QUuid {
-        return qtc.QUuid_FromString(@constCast(stringVal.ptr));
+        const stringVal_str = qtc.struct_libqt_string{
+            .len = stringVal.len,
+            .data = stringVal.ptr,
+        };
+        return qtc.QUuid_FromString(stringVal_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toString)
@@ -73,11 +82,9 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUuid_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -86,11 +93,9 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QUuid_ToByteArray(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToByteArray: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -99,11 +104,9 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid, allocator: std.mem.Allocator ```
     pub fn ToRfc4122(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QUuid_ToRfc4122(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToRfc4122: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -111,7 +114,7 @@ pub const quuid = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn FromRfc4122(param1: []const u8) QtC.QUuid {
-        return qtc.QUuid_FromRfc4122(@ptrCast(@constCast(&param1)));
+        return qtc.QUuid_FromRfc4122(param1.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#isNull)
@@ -162,7 +165,7 @@ pub const quuid = struct {
     pub fn CreateUuidV3(ns: ?*anyopaque, baseData: []u8) QtC.QUuid {
         const baseData_str = qtc.struct_libqt_string{
             .len = baseData.len,
-            .data = @constCast(baseData.ptr),
+            .data = baseData.ptr,
         };
         return qtc.QUuid_CreateUuidV3(@ptrCast(ns), baseData_str);
     }
@@ -173,7 +176,7 @@ pub const quuid = struct {
     pub fn CreateUuidV5(ns: ?*anyopaque, baseData: []u8) QtC.QUuid {
         const baseData_str = qtc.struct_libqt_string{
             .len = baseData.len,
-            .data = @constCast(baseData.ptr),
+            .data = baseData.ptr,
         };
         return qtc.QUuid_CreateUuidV5(@ptrCast(ns), baseData_str);
     }
@@ -184,7 +187,7 @@ pub const quuid = struct {
     pub fn CreateUuidV32(ns: ?*anyopaque, baseData: []const u8) QtC.QUuid {
         const baseData_str = qtc.struct_libqt_string{
             .len = baseData.len,
-            .data = @constCast(baseData.ptr),
+            .data = baseData.ptr,
         };
         return qtc.QUuid_CreateUuidV32(@ptrCast(ns), baseData_str);
     }
@@ -195,7 +198,7 @@ pub const quuid = struct {
     pub fn CreateUuidV52(ns: ?*anyopaque, baseData: []const u8) QtC.QUuid {
         const baseData_str = qtc.struct_libqt_string{
             .len = baseData.len,
-            .data = @constCast(baseData.ptr),
+            .data = baseData.ptr,
         };
         return qtc.QUuid_CreateUuidV52(@ptrCast(ns), baseData_str);
     }
@@ -219,11 +222,9 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid, mode: quuid_enums.StringFormat, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUuid_ToString1(@ptrCast(self), @intCast(mode));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid.ToString1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -232,11 +233,9 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid, mode: quuid_enums.StringFormat, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self), @intCast(mode));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToByteArray1: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

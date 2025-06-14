@@ -51,7 +51,7 @@ pub const qpixmapcache = struct {
     pub fn Find(key: []const u8, pixmap: ?*anyopaque) bool {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QPixmapCache_Find(key_str, @ptrCast(pixmap));
     }
@@ -69,7 +69,7 @@ pub const qpixmapcache = struct {
     pub fn Insert(key: []const u8, pixmap: ?*anyopaque) bool {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         return qtc.QPixmapCache_Insert(key_str, @ptrCast(pixmap));
     }
@@ -94,7 +94,7 @@ pub const qpixmapcache = struct {
     pub fn Remove(key: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
-            .data = @constCast(key.ptr),
+            .data = key.ptr,
         };
         qtc.QPixmapCache_Remove(key_str);
     }

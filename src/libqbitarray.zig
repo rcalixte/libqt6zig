@@ -233,7 +233,7 @@ pub const qbitarray = struct {
     ///
     /// ``` data: []const u8, lenVal: i64 ```
     pub fn FromBits(data: []const u8, lenVal: i64) QtC.QBitArray {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         return qtc.QBitArray_FromBits(data_Cstring, @intCast(lenVal));
     }
 

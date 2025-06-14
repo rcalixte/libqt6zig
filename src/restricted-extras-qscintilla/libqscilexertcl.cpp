@@ -65,9 +65,9 @@ libqt_string QsciLexerTCL_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -97,9 +97,9 @@ libqt_string QsciLexerTCL_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -109,9 +109,9 @@ libqt_string QsciLexerTCL_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-    memcpy(_str.data, _b.data(), _str.len);
-    _str.data[_str.len] = '\0';
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
     return _str;
 }
 
@@ -244,9 +244,9 @@ libqt_list /* of libqt_string */ QsciLexerTCL_AutoCompletionWordSeparators(const
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -263,9 +263,9 @@ libqt_list /* of libqt_string */ QsciLexerTCL_AutoCompletionWordSeparators(const
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -289,9 +289,9 @@ libqt_list /* of libqt_string */ QsciLexerTCL_QBaseAutoCompletionWordSeparators(
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -308,9 +308,9 @@ libqt_list /* of libqt_string */ QsciLexerTCL_QBaseAutoCompletionWordSeparators(
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<char*>(malloc((_lv_str.len + 1) * sizeof(char)));
-            memcpy(_lv_str.data, _lv_b.data(), _lv_str.len);
-            _lv_str.data[_lv_str.len] = '\0';
+            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
+            ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
         }
         libqt_list _out;
@@ -685,9 +685,9 @@ libqt_string QsciLexerTCL_Description(const QsciLexerTCL* self, int style) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QString _ret = ((VirtualQsciLexerTCL*)self)->description(static_cast<int>(style));
@@ -695,9 +695,9 @@ libqt_string QsciLexerTCL_Description(const QsciLexerTCL* self, int style) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }
@@ -712,9 +712,9 @@ libqt_string QsciLexerTCL_QBaseDescription(const QsciLexerTCL* self, int style) 
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     } else {
         QString _ret = ((VirtualQsciLexerTCL*)self)->description(static_cast<int>(style));
@@ -722,9 +722,9 @@ libqt_string QsciLexerTCL_QBaseDescription(const QsciLexerTCL* self, int style) 
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<char*>(malloc((_str.len + 1) * sizeof(char)));
-        memcpy(_str.data, _b.data(), _str.len);
-        _str.data[_str.len] = '\0';
+        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        memcpy((void*)_str.data, _b.data(), _str.len);
+        ((char*)_str.data)[_str.len] = '\0';
         return _str;
     }
 }

@@ -29,7 +29,7 @@ pub const qscilexerruby = struct {
 
     /// ``` self: QtC.QsciLexerRuby, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QsciLexerRuby_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -56,13 +56,11 @@ pub const qscilexerruby = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QsciLexerRuby_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerruby.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -154,11 +152,9 @@ pub const qscilexerruby = struct {
     /// ``` self: QtC.QsciLexerRuby, style: i32, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, style: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QsciLexerRuby_Description(@ptrCast(self), @intCast(style));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerruby.Description: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -203,7 +199,7 @@ pub const qscilexerruby = struct {
     pub fn ReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         return qtc.QsciLexerRuby_ReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
@@ -225,7 +221,7 @@ pub const qscilexerruby = struct {
     pub fn QBaseReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         return qtc.QsciLexerRuby_QBaseReadProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
@@ -236,7 +232,7 @@ pub const qscilexerruby = struct {
     pub fn WriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         return qtc.QsciLexerRuby_WriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
@@ -258,7 +254,7 @@ pub const qscilexerruby = struct {
     pub fn QBaseWriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         return qtc.QsciLexerRuby_QBaseWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
@@ -267,14 +263,12 @@ pub const qscilexerruby = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QsciLexerRuby_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerruby.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -282,14 +276,12 @@ pub const qscilexerruby = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QsciLexerRuby_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerruby.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -476,8 +468,8 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, prop: []const u8, val: []const u8 ```
     pub fn PropertyChanged(self: ?*anyopaque, prop: []const u8, val: []const u8) void {
-        const prop_Cstring = @constCast(prop.ptr);
-        const val_Cstring = @constCast(val.ptr);
+        const prop_Cstring = prop.ptr;
+        const val_Cstring = val.ptr;
         qtc.QsciLexer_PropertyChanged(@ptrCast(self), prop_Cstring, val_Cstring);
     }
 
@@ -496,7 +488,7 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn ReadSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_Cstring = @constCast(prefix.ptr);
+        const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_ReadSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
 
@@ -506,7 +498,7 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn WriteSettings2(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_Cstring = @constCast(prefix.ptr);
+        const prefix_Cstring = prefix.ptr;
         return qtc.QsciLexer_WriteSettings2(@ptrCast(self), @ptrCast(qs), prefix_Cstring);
     }
 
@@ -517,11 +509,9 @@ pub const qscilexerruby = struct {
     /// ``` self: QtC.QsciLexerRuby, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexerruby.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -531,7 +521,11 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -625,9 +619,7 @@ pub const qscilexerruby = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qscilexerruby.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -673,8 +665,8 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -720,7 +712,7 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -730,7 +722,7 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -743,17 +735,17 @@ pub const qscilexerruby = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qscilexerruby.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qscilexerruby.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -809,7 +801,7 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -846,8 +838,8 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -948,17 +940,17 @@ pub const qscilexerruby = struct {
         const _arr: qtc.struct_libqt_list = qtc.QsciLexerRuby_AutoCompletionWordSeparators(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qscilexerruby.AutoCompletionWordSeparators: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qscilexerruby.AutoCompletionWordSeparators: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -974,17 +966,17 @@ pub const qscilexerruby = struct {
         const _arr: qtc.struct_libqt_list = qtc.QsciLexerRuby_QBaseAutoCompletionWordSeparators(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qscilexerruby.AutoCompletionWordSeparators: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qscilexerruby.AutoCompletionWordSeparators: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1934,7 +1926,7 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QsciLexerRuby_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1946,7 +1938,7 @@ pub const qscilexerruby = struct {
     ///
     /// ``` self: QtC.QsciLexerRuby, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QsciLexerRuby_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

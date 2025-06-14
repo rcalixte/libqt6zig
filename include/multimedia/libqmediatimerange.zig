@@ -82,9 +82,7 @@ pub const qmediatimerange = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMediaTimeRange__Interval, _arr.len) catch @panic("qmediatimerange.Intervals: Memory allocation failed");
         const _data: [*]QtC.QMediaTimeRange__Interval = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

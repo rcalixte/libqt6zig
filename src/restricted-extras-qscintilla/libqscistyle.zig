@@ -18,7 +18,7 @@ pub const qscistyle = struct {
     pub fn New2(style: i32, description: []const u8, color: ?*anyopaque, paper: ?*anyopaque, font: ?*anyopaque) QtC.QsciStyle {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
 
         return qtc.QsciStyle_new2(@intCast(style), description_str, @ptrCast(color), @ptrCast(paper), @ptrCast(font));
@@ -44,7 +44,7 @@ pub const qscistyle = struct {
     pub fn New5(style: i32, description: []const u8, color: ?*anyopaque, paper: ?*anyopaque, font: ?*anyopaque, eolFill: bool) QtC.QsciStyle {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
 
         return qtc.QsciStyle_new5(@intCast(style), description_str, @ptrCast(color), @ptrCast(paper), @ptrCast(font), eolFill);
@@ -77,7 +77,7 @@ pub const qscistyle = struct {
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QsciStyle_SetDescription(@ptrCast(self), description_str);
     }
@@ -87,11 +87,9 @@ pub const qscistyle = struct {
     /// ``` self: QtC.QsciStyle, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QsciStyle_Description(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qscistyle.Description: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

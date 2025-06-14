@@ -44,9 +44,9 @@ pub const qdesktopservices = struct {
     pub fn SetUrlHandler(scheme: []const u8, receiver: ?*anyopaque, method: []const u8) void {
         const scheme_str = qtc.struct_libqt_string{
             .len = scheme.len,
-            .data = @constCast(scheme.ptr),
+            .data = scheme.ptr,
         };
-        const method_Cstring = @constCast(method.ptr);
+        const method_Cstring = method.ptr;
         qtc.QDesktopServices_SetUrlHandler(scheme_str, @ptrCast(receiver), method_Cstring);
     }
 
@@ -56,7 +56,7 @@ pub const qdesktopservices = struct {
     pub fn UnsetUrlHandler(scheme: []const u8) void {
         const scheme_str = qtc.struct_libqt_string{
             .len = scheme.len,
-            .data = @constCast(scheme.ptr),
+            .data = scheme.ptr,
         };
         qtc.QDesktopServices_UnsetUrlHandler(scheme_str);
     }

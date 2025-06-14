@@ -18,11 +18,11 @@ pub const qxmlstreamattribute = struct {
     pub fn New2(qualifiedName: []const u8, value: []const u8) QtC.QXmlStreamAttribute {
         const qualifiedName_str = qtc.struct_libqt_string{
             .len = qualifiedName.len,
-            .data = @constCast(qualifiedName.ptr),
+            .data = qualifiedName.ptr,
         };
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
 
         return qtc.QXmlStreamAttribute_new2(qualifiedName_str, value_str);
@@ -34,15 +34,15 @@ pub const qxmlstreamattribute = struct {
     pub fn New3(namespaceUri: []const u8, name: []const u8, value: []const u8) QtC.QXmlStreamAttribute {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
 
         return qtc.QXmlStreamAttribute_new3(namespaceUri_str, name_str, value_str);
@@ -108,11 +108,11 @@ pub const qxmlstreamnamespacedeclaration = struct {
     pub fn New2(prefix: []const u8, namespaceUri: []const u8) QtC.QXmlStreamNamespaceDeclaration {
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
 
         return qtc.QXmlStreamNamespaceDeclaration_new2(prefix_str, namespaceUri_str);
@@ -216,18 +216,16 @@ pub const qxmlstreamentityresolver = struct {
     pub fn ResolveEntity(self: ?*anyopaque, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator) []const u8 {
         const publicId_str = qtc.struct_libqt_string{
             .len = publicId.len,
-            .data = @constCast(publicId.ptr),
+            .data = publicId.ptr,
         };
         const systemId_str = qtc.struct_libqt_string{
             .len = systemId.len,
-            .data = @constCast(systemId.ptr),
+            .data = systemId.ptr,
         };
         const _str = qtc.QXmlStreamEntityResolver_ResolveEntity(@ptrCast(self), publicId_str, systemId_str);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveEntity: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -237,14 +235,12 @@ pub const qxmlstreamentityresolver = struct {
     pub fn ResolveUndeclaredEntity(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         const _str = qtc.QXmlStreamEntityResolver_ResolveUndeclaredEntity(@ptrCast(self), name_str);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveUndeclaredEntity: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -280,7 +276,7 @@ pub const qxmlstreamreader = struct {
     pub fn New3(data: []u8) QtC.QXmlStreamReader {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
 
         return qtc.QXmlStreamReader_new3(data_str);
@@ -292,7 +288,7 @@ pub const qxmlstreamreader = struct {
     pub fn New4(data: []const u8) QtC.QXmlStreamReader {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
 
         return qtc.QXmlStreamReader_new4(data_str);
@@ -302,7 +298,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` data: []const u8 ```
     pub fn New5(data: []const u8) QtC.QXmlStreamReader {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
 
         return qtc.QXmlStreamReader_new5(data_Cstring);
     }
@@ -327,7 +323,7 @@ pub const qxmlstreamreader = struct {
     pub fn AddData(self: ?*anyopaque, data: []u8) void {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         qtc.QXmlStreamReader_AddData(@ptrCast(self), data_str);
     }
@@ -338,7 +334,7 @@ pub const qxmlstreamreader = struct {
     pub fn AddDataWithData(self: ?*anyopaque, data: []const u8) void {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         qtc.QXmlStreamReader_AddDataWithData(@ptrCast(self), data_str);
     }
@@ -347,7 +343,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` self: QtC.QXmlStreamReader, data: []const u8 ```
     pub fn AddData2(self: ?*anyopaque, data: []const u8) void {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         qtc.QXmlStreamReader_AddData2(@ptrCast(self), data_Cstring);
     }
 
@@ -398,11 +394,9 @@ pub const qxmlstreamreader = struct {
     /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
     pub fn TokenString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_TokenString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.TokenString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -530,11 +524,9 @@ pub const qxmlstreamreader = struct {
     /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
     pub fn ReadElementText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_ReadElementText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ReadElementText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -546,9 +538,7 @@ pub const qxmlstreamreader = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QXmlStreamNamespaceDeclaration, _arr.len) catch @panic("qxmlstreamreader.NamespaceDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamNamespaceDeclaration = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -578,9 +568,7 @@ pub const qxmlstreamreader = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QXmlStreamNotationDeclaration, _arr.len) catch @panic("qxmlstreamreader.NotationDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamNotationDeclaration = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -592,9 +580,7 @@ pub const qxmlstreamreader = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QXmlStreamEntityDeclaration, _arr.len) catch @panic("qxmlstreamreader.EntityDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamEntityDeclaration = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -624,11 +610,9 @@ pub const qxmlstreamreader = struct {
     /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
     pub fn ErrorString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_ErrorString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ErrorString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -665,11 +649,9 @@ pub const qxmlstreamreader = struct {
     /// ``` self: QtC.QXmlStreamReader, behaviour: qxmlstream_enums.ReadElementTextBehaviour, allocator: std.mem.Allocator ```
     pub fn ReadElementText1(self: ?*anyopaque, behaviour: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_ReadElementText1(@ptrCast(self), @intCast(behaviour));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ReadElementText1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -679,7 +661,7 @@ pub const qxmlstreamreader = struct {
     pub fn RaiseError1(self: ?*anyopaque, message: []const u8) void {
         const message_str = qtc.struct_libqt_string{
             .len = message.len,
-            .data = @constCast(message.ptr),
+            .data = message.ptr,
         };
         qtc.QXmlStreamReader_RaiseError1(@ptrCast(self), message_str);
     }
@@ -758,11 +740,11 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteAttribute(self: ?*anyopaque, qualifiedName: []const u8, value: []const u8) void {
         const qualifiedName_str = qtc.struct_libqt_string{
             .len = qualifiedName.len,
-            .data = @constCast(qualifiedName.ptr),
+            .data = qualifiedName.ptr,
         };
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
         qtc.QXmlStreamWriter_WriteAttribute(@ptrCast(self), qualifiedName_str, value_str);
     }
@@ -773,15 +755,15 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteAttribute2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, value: []const u8) void {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
         qtc.QXmlStreamWriter_WriteAttribute2(@ptrCast(self), namespaceUri_str, name_str, value_str);
     }
@@ -799,7 +781,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteCDATA(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QXmlStreamWriter_WriteCDATA(@ptrCast(self), text_str);
     }
@@ -810,7 +792,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteCharacters(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QXmlStreamWriter_WriteCharacters(@ptrCast(self), text_str);
     }
@@ -821,7 +803,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteComment(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QXmlStreamWriter_WriteComment(@ptrCast(self), text_str);
     }
@@ -832,7 +814,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteDTD(self: ?*anyopaque, dtd: []const u8) void {
         const dtd_str = qtc.struct_libqt_string{
             .len = dtd.len,
-            .data = @constCast(dtd.ptr),
+            .data = dtd.ptr,
         };
         qtc.QXmlStreamWriter_WriteDTD(@ptrCast(self), dtd_str);
     }
@@ -843,7 +825,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteEmptyElement(self: ?*anyopaque, qualifiedName: []const u8) void {
         const qualifiedName_str = qtc.struct_libqt_string{
             .len = qualifiedName.len,
-            .data = @constCast(qualifiedName.ptr),
+            .data = qualifiedName.ptr,
         };
         qtc.QXmlStreamWriter_WriteEmptyElement(@ptrCast(self), qualifiedName_str);
     }
@@ -854,11 +836,11 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteEmptyElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) void {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QXmlStreamWriter_WriteEmptyElement2(@ptrCast(self), namespaceUri_str, name_str);
     }
@@ -869,11 +851,11 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteTextElement(self: ?*anyopaque, qualifiedName: []const u8, text: []const u8) void {
         const qualifiedName_str = qtc.struct_libqt_string{
             .len = qualifiedName.len,
-            .data = @constCast(qualifiedName.ptr),
+            .data = qualifiedName.ptr,
         };
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QXmlStreamWriter_WriteTextElement(@ptrCast(self), qualifiedName_str, text_str);
     }
@@ -884,15 +866,15 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteTextElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, text: []const u8) void {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QXmlStreamWriter_WriteTextElement2(@ptrCast(self), namespaceUri_str, name_str, text_str);
     }
@@ -917,7 +899,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteEntityReference(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QXmlStreamWriter_WriteEntityReference(@ptrCast(self), name_str);
     }
@@ -928,7 +910,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteNamespace(self: ?*anyopaque, namespaceUri: []const u8) void {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         qtc.QXmlStreamWriter_WriteNamespace(@ptrCast(self), namespaceUri_str);
     }
@@ -939,7 +921,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteDefaultNamespace(self: ?*anyopaque, namespaceUri: []const u8) void {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         qtc.QXmlStreamWriter_WriteDefaultNamespace(@ptrCast(self), namespaceUri_str);
     }
@@ -950,7 +932,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteProcessingInstruction(self: ?*anyopaque, target: []const u8) void {
         const target_str = qtc.struct_libqt_string{
             .len = target.len,
-            .data = @constCast(target.ptr),
+            .data = target.ptr,
         };
         qtc.QXmlStreamWriter_WriteProcessingInstruction(@ptrCast(self), target_str);
     }
@@ -968,7 +950,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteStartDocumentWithVersion(self: ?*anyopaque, version: []const u8) void {
         const version_str = qtc.struct_libqt_string{
             .len = version.len,
-            .data = @constCast(version.ptr),
+            .data = version.ptr,
         };
         qtc.QXmlStreamWriter_WriteStartDocumentWithVersion(@ptrCast(self), version_str);
     }
@@ -979,7 +961,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteStartDocument2(self: ?*anyopaque, version: []const u8, standalone: bool) void {
         const version_str = qtc.struct_libqt_string{
             .len = version.len,
-            .data = @constCast(version.ptr),
+            .data = version.ptr,
         };
         qtc.QXmlStreamWriter_WriteStartDocument2(@ptrCast(self), version_str, standalone);
     }
@@ -990,7 +972,7 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteStartElement(self: ?*anyopaque, qualifiedName: []const u8) void {
         const qualifiedName_str = qtc.struct_libqt_string{
             .len = qualifiedName.len,
-            .data = @constCast(qualifiedName.ptr),
+            .data = qualifiedName.ptr,
         };
         qtc.QXmlStreamWriter_WriteStartElement(@ptrCast(self), qualifiedName_str);
     }
@@ -1001,11 +983,11 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteStartElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) void {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QXmlStreamWriter_WriteStartElement2(@ptrCast(self), namespaceUri_str, name_str);
     }
@@ -1030,11 +1012,11 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteNamespace2(self: ?*anyopaque, namespaceUri: []const u8, prefix: []const u8) void {
         const namespaceUri_str = qtc.struct_libqt_string{
             .len = namespaceUri.len,
-            .data = @constCast(namespaceUri.ptr),
+            .data = namespaceUri.ptr,
         };
         const prefix_str = qtc.struct_libqt_string{
             .len = prefix.len,
-            .data = @constCast(prefix.ptr),
+            .data = prefix.ptr,
         };
         qtc.QXmlStreamWriter_WriteNamespace2(@ptrCast(self), namespaceUri_str, prefix_str);
     }
@@ -1045,11 +1027,11 @@ pub const qxmlstreamwriter = struct {
     pub fn WriteProcessingInstruction2(self: ?*anyopaque, target: []const u8, data: []const u8) void {
         const target_str = qtc.struct_libqt_string{
             .len = target.len,
-            .data = @constCast(target.ptr),
+            .data = target.ptr,
         };
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
         qtc.QXmlStreamWriter_WriteProcessingInstruction2(@ptrCast(self), target_str, data_str);
     }

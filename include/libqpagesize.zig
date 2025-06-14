@@ -46,7 +46,7 @@ pub const qpagesize = struct {
     pub fn New6(pointSize: ?*anyopaque, name: []const u8) QtC.QPageSize {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QPageSize_new6(@ptrCast(pointSize), name_str);
@@ -58,7 +58,7 @@ pub const qpagesize = struct {
     pub fn New7(pointSize: ?*anyopaque, name: []const u8, matchPolicy: i64) QtC.QPageSize {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QPageSize_new7(@ptrCast(pointSize), name_str, @intCast(matchPolicy));
@@ -70,7 +70,7 @@ pub const qpagesize = struct {
     pub fn New8(size: ?*anyopaque, units: i64, name: []const u8) QtC.QPageSize {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QPageSize_new8(@ptrCast(size), @intCast(units), name_str);
@@ -82,7 +82,7 @@ pub const qpagesize = struct {
     pub fn New9(size: ?*anyopaque, units: i64, name: []const u8, matchPolicy: i64) QtC.QPageSize {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QPageSize_new9(@ptrCast(size), @intCast(units), name_str, @intCast(matchPolicy));
@@ -121,11 +121,9 @@ pub const qpagesize = struct {
     /// ``` self: QtC.QPageSize, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageSize_Key(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpagesize.Key: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -134,11 +132,9 @@ pub const qpagesize = struct {
     /// ``` self: QtC.QPageSize, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageSize_Name(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpagesize.Name: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -217,11 +213,9 @@ pub const qpagesize = struct {
     /// ``` pageSizeId: qpagesize_enums.PageSizeId, allocator: std.mem.Allocator ```
     pub fn KeyWithPageSizeId(pageSizeId: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageSize_KeyWithPageSizeId(@intCast(pageSizeId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpagesize.KeyWithPageSizeId: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -230,11 +224,9 @@ pub const qpagesize = struct {
     /// ``` pageSizeId: qpagesize_enums.PageSizeId, allocator: std.mem.Allocator ```
     pub fn NameWithPageSizeId(pageSizeId: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageSize_NameWithPageSizeId(@intCast(pageSizeId));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpagesize.NameWithPageSizeId: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

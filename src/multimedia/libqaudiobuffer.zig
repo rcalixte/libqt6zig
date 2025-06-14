@@ -23,7 +23,7 @@ pub const qaudiobuffer = struct {
     pub fn New3(data: []u8, format: ?*anyopaque) QtC.QAudioBuffer {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
 
         return qtc.QAudioBuffer_new3(data_str, @ptrCast(format));
@@ -42,7 +42,7 @@ pub const qaudiobuffer = struct {
     pub fn New5(data: []u8, format: ?*anyopaque, startTime: i64) QtC.QAudioBuffer {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
-            .data = @constCast(data.ptr),
+            .data = data.ptr,
         };
 
         return qtc.QAudioBuffer_new5(data_str, @ptrCast(format), @intCast(startTime));

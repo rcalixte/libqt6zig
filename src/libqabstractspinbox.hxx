@@ -509,9 +509,9 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
-            memcpy(input_str.data, input_b.data(), input_str.len);
-            input_str.data[input_str.len] = '\0';
+            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy((void*)input_str.data, input_b.data(), input_str.len);
+            ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
             int* cbval2 = &pos;
 
@@ -533,9 +533,9 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<char*>(malloc((input_str.len + 1) * sizeof(char)));
-            memcpy(input_str.data, input_b.data(), input_str.len);
-            input_str.data[input_str.len] = '\0';
+            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            memcpy((void*)input_str.data, input_b.data(), input_str.len);
+            ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
 
             qabstractspinbox_fixup_callback(this, cbval1);
@@ -1038,9 +1038,9 @@ class VirtualQAbstractSpinBox final : public QAbstractSpinBox {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
-            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
-            eventType_str.data[eventType_str.len] = '\0';
+            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
+            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;

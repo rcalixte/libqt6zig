@@ -145,11 +145,9 @@ pub const qcolorspace = struct {
     /// ``` self: QtC.QColorSpace, allocator: std.mem.Allocator ```
     pub fn Description(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QColorSpace_Description(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolorspace.Description: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -159,7 +157,7 @@ pub const qcolorspace = struct {
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
         const description_str = qtc.struct_libqt_string{
             .len = description.len,
-            .data = @constCast(description.ptr),
+            .data = description.ptr,
         };
         qtc.QColorSpace_SetDescription(@ptrCast(self), description_str);
     }
@@ -272,7 +270,7 @@ pub const qcolorspace = struct {
     pub fn FromIccProfile(iccProfile: []u8) QtC.QColorSpace {
         const iccProfile_str = qtc.struct_libqt_string{
             .len = iccProfile.len,
-            .data = @constCast(iccProfile.ptr),
+            .data = iccProfile.ptr,
         };
         return qtc.QColorSpace_FromIccProfile(iccProfile_str);
     }
@@ -282,11 +280,9 @@ pub const qcolorspace = struct {
     /// ``` self: QtC.QColorSpace, allocator: std.mem.Allocator ```
     pub fn IccProfile(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QColorSpace_IccProfile(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcolorspace.IccProfile: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

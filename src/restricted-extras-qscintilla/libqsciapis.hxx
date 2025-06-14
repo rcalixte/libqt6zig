@@ -156,9 +156,9 @@ class VirtualQsciAPIs final : public QsciAPIs {
                 QByteArray context_lv_b = context_lv_ret.toUtf8();
                 libqt_string context_lv_str;
                 context_lv_str.len = context_lv_b.length();
-                context_lv_str.data = static_cast<char*>(malloc((context_lv_str.len + 1) * sizeof(char)));
-                memcpy(context_lv_str.data, context_lv_b.data(), context_lv_str.len);
-                context_lv_str.data[context_lv_str.len] = '\0';
+                context_lv_str.data = static_cast<const char*>(malloc((context_lv_str.len + 1) * sizeof(char)));
+                memcpy((void*)context_lv_str.data, context_lv_b.data(), context_lv_str.len);
+                ((char*)context_lv_str.data)[context_lv_str.len] = '\0';
                 context_arr[i] = context_lv_str;
             }
             libqt_list context_out;
@@ -174,9 +174,9 @@ class VirtualQsciAPIs final : public QsciAPIs {
                 QByteArray list_lv_b = list_lv_ret.toUtf8();
                 libqt_string list_lv_str;
                 list_lv_str.len = list_lv_b.length();
-                list_lv_str.data = static_cast<char*>(malloc((list_lv_str.len + 1) * sizeof(char)));
-                memcpy(list_lv_str.data, list_lv_b.data(), list_lv_str.len);
-                list_lv_str.data[list_lv_str.len] = '\0';
+                list_lv_str.data = static_cast<const char*>(malloc((list_lv_str.len + 1) * sizeof(char)));
+                memcpy((void*)list_lv_str.data, list_lv_b.data(), list_lv_str.len);
+                ((char*)list_lv_str.data)[list_lv_str.len] = '\0';
                 list_arr[i] = list_lv_str;
             }
             libqt_list list_out;
@@ -201,9 +201,9 @@ class VirtualQsciAPIs final : public QsciAPIs {
             QByteArray sel_b = sel_ret.toUtf8();
             libqt_string sel_str;
             sel_str.len = sel_b.length();
-            sel_str.data = static_cast<char*>(malloc((sel_str.len + 1) * sizeof(char)));
-            memcpy(sel_str.data, sel_b.data(), sel_str.len);
-            sel_str.data[sel_str.len] = '\0';
+            sel_str.data = static_cast<const char*>(malloc((sel_str.len + 1) * sizeof(char)));
+            memcpy((void*)sel_str.data, sel_b.data(), sel_str.len);
+            ((char*)sel_str.data)[sel_str.len] = '\0';
             libqt_string cbval1 = sel_str;
 
             qsciapis_autocompletionselected_callback(this, cbval1);
@@ -227,9 +227,9 @@ class VirtualQsciAPIs final : public QsciAPIs {
                 QByteArray context_lv_b = context_lv_ret.toUtf8();
                 libqt_string context_lv_str;
                 context_lv_str.len = context_lv_b.length();
-                context_lv_str.data = static_cast<char*>(malloc((context_lv_str.len + 1) * sizeof(char)));
-                memcpy(context_lv_str.data, context_lv_b.data(), context_lv_str.len);
-                context_lv_str.data[context_lv_str.len] = '\0';
+                context_lv_str.data = static_cast<const char*>(malloc((context_lv_str.len + 1) * sizeof(char)));
+                memcpy((void*)context_lv_str.data, context_lv_b.data(), context_lv_str.len);
+                ((char*)context_lv_str.data)[context_lv_str.len] = '\0';
                 context_arr[i] = context_lv_str;
             }
             libqt_list context_out;

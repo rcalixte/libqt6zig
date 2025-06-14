@@ -681,9 +681,9 @@ class VirtualQChart final : public QChart {
             QByteArray propertyName_b = propertyName_ret.toUtf8();
             libqt_string propertyName_str;
             propertyName_str.len = propertyName_b.length();
-            propertyName_str.data = static_cast<char*>(malloc((propertyName_str.len + 1) * sizeof(char)));
-            memcpy(propertyName_str.data, propertyName_b.data(), propertyName_str.len);
-            propertyName_str.data[propertyName_str.len] = '\0';
+            propertyName_str.data = static_cast<const char*>(malloc((propertyName_str.len + 1) * sizeof(char)));
+            memcpy((void*)propertyName_str.data, propertyName_b.data(), propertyName_str.len);
+            ((char*)propertyName_str.data)[propertyName_str.len] = '\0';
             libqt_string cbval1 = propertyName_str;
             const QVariant& value_ret = value;
             // Cast returned reference into pointer

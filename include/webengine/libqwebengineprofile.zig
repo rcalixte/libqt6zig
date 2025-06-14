@@ -20,7 +20,7 @@ pub const qwebengineprofile = struct {
     pub fn New2(name: []const u8) QtC.QWebEngineProfile {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QWebEngineProfile_new2(name_str);
@@ -39,7 +39,7 @@ pub const qwebengineprofile = struct {
     pub fn New4(name: []const u8, parent: ?*anyopaque) QtC.QWebEngineProfile {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QWebEngineProfile_new4(name_str, @ptrCast(parent));
@@ -54,7 +54,7 @@ pub const qwebengineprofile = struct {
 
     /// ``` self: QtC.QWebEngineProfile, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QWebEngineProfile_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -81,13 +81,11 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QWebEngineProfile_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -96,11 +94,9 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn StorageName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineProfile_StorageName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.StorageName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -116,11 +112,9 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn PersistentStoragePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineProfile_PersistentStoragePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.PersistentStoragePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -130,7 +124,7 @@ pub const qwebengineprofile = struct {
     pub fn SetPersistentStoragePath(self: ?*anyopaque, path: []const u8) void {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         qtc.QWebEngineProfile_SetPersistentStoragePath(@ptrCast(self), path_str);
     }
@@ -140,11 +134,9 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn CachePath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineProfile_CachePath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.CachePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -154,7 +146,7 @@ pub const qwebengineprofile = struct {
     pub fn SetCachePath(self: ?*anyopaque, path: []const u8) void {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         qtc.QWebEngineProfile_SetCachePath(@ptrCast(self), path_str);
     }
@@ -164,11 +156,9 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn HttpUserAgent(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineProfile_HttpUserAgent(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.HttpUserAgent: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -178,7 +168,7 @@ pub const qwebengineprofile = struct {
     pub fn SetHttpUserAgent(self: ?*anyopaque, userAgent: []const u8) void {
         const userAgent_str = qtc.struct_libqt_string{
             .len = userAgent.len,
-            .data = @constCast(userAgent.ptr),
+            .data = userAgent.ptr,
         };
         qtc.QWebEngineProfile_SetHttpUserAgent(@ptrCast(self), userAgent_str);
     }
@@ -203,7 +193,7 @@ pub const qwebengineprofile = struct {
     pub fn SetHttpAcceptLanguage(self: ?*anyopaque, httpAcceptLanguage: []const u8) void {
         const httpAcceptLanguage_str = qtc.struct_libqt_string{
             .len = httpAcceptLanguage.len,
-            .data = @constCast(httpAcceptLanguage.ptr),
+            .data = httpAcceptLanguage.ptr,
         };
         qtc.QWebEngineProfile_SetHttpAcceptLanguage(@ptrCast(self), httpAcceptLanguage_str);
     }
@@ -213,11 +203,9 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn HttpAcceptLanguage(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineProfile_HttpAcceptLanguage(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.HttpAcceptLanguage: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -308,7 +296,7 @@ pub const qwebengineprofile = struct {
     pub fn UrlSchemeHandler(self: ?*anyopaque, param1: []u8) QtC.QWebEngineUrlSchemeHandler {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         return qtc.QWebEngineProfile_UrlSchemeHandler(@ptrCast(self), param1_str);
     }
@@ -319,7 +307,7 @@ pub const qwebengineprofile = struct {
     pub fn InstallUrlSchemeHandler(self: ?*anyopaque, scheme: []u8, param2: ?*anyopaque) void {
         const scheme_str = qtc.struct_libqt_string{
             .len = scheme.len,
-            .data = @constCast(scheme.ptr),
+            .data = scheme.ptr,
         };
         qtc.QWebEngineProfile_InstallUrlSchemeHandler(@ptrCast(self), scheme_str, @ptrCast(param2));
     }
@@ -330,7 +318,7 @@ pub const qwebengineprofile = struct {
     pub fn RemoveUrlScheme(self: ?*anyopaque, scheme: []u8) void {
         const scheme_str = qtc.struct_libqt_string{
             .len = scheme.len,
-            .data = @constCast(scheme.ptr),
+            .data = scheme.ptr,
         };
         qtc.QWebEngineProfile_RemoveUrlScheme(@ptrCast(self), scheme_str);
     }
@@ -362,10 +350,10 @@ pub const qwebengineprofile = struct {
     pub fn SetSpellCheckLanguages(self: ?*anyopaque, languages: [][]const u8, allocator: std.mem.Allocator) void {
         var languages_arr = allocator.alloc(qtc.struct_libqt_string, languages.len) catch @panic("qwebengineprofile.SetSpellCheckLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
-        for (languages, 0..languages.len) |item, _i| {
-            languages_arr[_i] = .{
+        for (languages, 0..languages.len) |item, i| {
+            languages_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const languages_list = qtc.struct_libqt_list{
@@ -382,17 +370,17 @@ pub const qwebengineprofile = struct {
         const _arr: qtc.struct_libqt_list = qtc.QWebEngineProfile_SpellCheckLanguages(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qwebengineprofile.SpellCheckLanguages: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebengineprofile.SpellCheckLanguages: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -416,11 +404,9 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn DownloadPath(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineProfile_DownloadPath(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.DownloadPath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -430,7 +416,7 @@ pub const qwebengineprofile = struct {
     pub fn SetDownloadPath(self: ?*anyopaque, path: []const u8) void {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         qtc.QWebEngineProfile_SetDownloadPath(@ptrCast(self), path_str);
     }
@@ -467,14 +453,12 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QWebEngineProfile_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -482,14 +466,12 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QWebEngineProfile_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -500,11 +482,9 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -514,7 +494,11 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -608,9 +592,7 @@ pub const qwebengineprofile = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebengineprofile.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -656,8 +638,8 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -703,7 +685,7 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -713,7 +695,7 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -726,17 +708,17 @@ pub const qwebengineprofile = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebengineprofile.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebengineprofile.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -792,7 +774,7 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -829,8 +811,8 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -1157,7 +1139,7 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QWebEngineProfile_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1169,7 +1151,7 @@ pub const qwebengineprofile = struct {
     ///
     /// ``` self: QtC.QWebEngineProfile, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QWebEngineProfile_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

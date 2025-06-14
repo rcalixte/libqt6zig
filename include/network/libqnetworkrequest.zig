@@ -88,7 +88,7 @@ pub const qnetworkrequest = struct {
     pub fn HasRawHeader(self: ?*anyopaque, headerName: []u8) bool {
         const headerName_str = qtc.struct_libqt_string{
             .len = headerName.len,
-            .data = @constCast(headerName.ptr),
+            .data = headerName.ptr,
         };
         return qtc.QNetworkRequest_HasRawHeader(@ptrCast(self), headerName_str);
     }
@@ -100,17 +100,17 @@ pub const qnetworkrequest = struct {
         const _arr: qtc.struct_libqt_list = qtc.QNetworkRequest_RawHeaderList(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qnetworkrequest.RawHeaderList: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qnetworkrequest.RawHeaderList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -121,14 +121,12 @@ pub const qnetworkrequest = struct {
     pub fn RawHeader(self: ?*anyopaque, headerName: []u8, allocator: std.mem.Allocator) []u8 {
         const headerName_str = qtc.struct_libqt_string{
             .len = headerName.len,
-            .data = @constCast(headerName.ptr),
+            .data = headerName.ptr,
         };
         const _bytearray: qtc.struct_libqt_string = qtc.QNetworkRequest_RawHeader(@ptrCast(self), headerName_str);
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkrequest.RawHeader: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -138,11 +136,11 @@ pub const qnetworkrequest = struct {
     pub fn SetRawHeader(self: ?*anyopaque, headerName: []u8, value: []u8) void {
         const headerName_str = qtc.struct_libqt_string{
             .len = headerName.len,
-            .data = @constCast(headerName.ptr),
+            .data = headerName.ptr,
         };
         const value_str = qtc.struct_libqt_string{
             .len = value.len,
-            .data = @constCast(value.ptr),
+            .data = value.ptr,
         };
         qtc.QNetworkRequest_SetRawHeader(@ptrCast(self), headerName_str, value_str);
     }
@@ -222,11 +220,9 @@ pub const qnetworkrequest = struct {
     /// ``` self: QtC.QNetworkRequest, allocator: std.mem.Allocator ```
     pub fn PeerVerifyName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QNetworkRequest_PeerVerifyName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkrequest.PeerVerifyName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -236,7 +232,7 @@ pub const qnetworkrequest = struct {
     pub fn SetPeerVerifyName(self: ?*anyopaque, peerName: []const u8) void {
         const peerName_str = qtc.struct_libqt_string{
             .len = peerName.len,
-            .data = @constCast(peerName.ptr),
+            .data = peerName.ptr,
         };
         qtc.QNetworkRequest_SetPeerVerifyName(@ptrCast(self), peerName_str);
     }

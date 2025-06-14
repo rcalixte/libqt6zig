@@ -23,7 +23,7 @@ pub const qcryptographichash = struct {
     ///
     /// ``` self: QtC.QCryptographicHash, data: []const u8, length: i64 ```
     pub fn AddData(self: ?*anyopaque, data: []const u8, length: i64) void {
-        const data_Cstring = @constCast(data.ptr);
+        const data_Cstring = data.ptr;
         qtc.QCryptographicHash_AddData(@ptrCast(self), data_Cstring, @intCast(length));
     }
 
@@ -31,7 +31,7 @@ pub const qcryptographichash = struct {
     ///
     /// ``` self: QtC.QCryptographicHash, data: []const u8 ```
     pub fn AddDataWithData(self: ?*anyopaque, data: []const u8) void {
-        qtc.QCryptographicHash_AddDataWithData(@ptrCast(self), @ptrCast(@constCast(&data)));
+        qtc.QCryptographicHash_AddDataWithData(@ptrCast(self), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
@@ -46,11 +46,9 @@ pub const qcryptographichash = struct {
     /// ``` self: QtC.QCryptographicHash, allocator: std.mem.Allocator ```
     pub fn Result(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QCryptographicHash_Result(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Result: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -59,11 +57,9 @@ pub const qcryptographichash = struct {
     /// ``` self: QtC.QCryptographicHash, allocator: std.mem.Allocator ```
     pub fn ResultView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCryptographicHash_ResultView(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcryptographichash.ResultView: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -71,12 +67,10 @@ pub const qcryptographichash = struct {
     ///
     /// ``` data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn Hash(data: []const u8, method: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCryptographicHash_Hash(@ptrCast(@constCast(&data)), @intCast(method));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        const _bytearray: qtc.struct_libqt_string = qtc.QCryptographicHash_Hash(data.ptr, @intCast(method));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Hash: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 

@@ -83,9 +83,7 @@ pub const qcolormap = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QColor, _arr.len) catch @panic("qcolormap.Colormap: Memory allocation failed");
         const _data: [*]QtC.QColor = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 

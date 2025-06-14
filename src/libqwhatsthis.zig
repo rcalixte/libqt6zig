@@ -58,7 +58,7 @@ pub const qwhatsthis = struct {
     pub fn ShowText(pos: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QWhatsThis_ShowText(@ptrCast(pos), text_str);
     }
@@ -83,7 +83,7 @@ pub const qwhatsthis = struct {
     pub fn ShowText3(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QWhatsThis_ShowText3(@ptrCast(pos), text_str, @ptrCast(w));
     }

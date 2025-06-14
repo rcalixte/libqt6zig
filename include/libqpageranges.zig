@@ -54,9 +54,7 @@ pub const qpageranges = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPageRanges__Range, _arr.len) catch @panic("qpageranges.ToRangeList: Memory allocation failed");
         const _data: [*]QtC.QPageRanges__Range = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -72,11 +70,9 @@ pub const qpageranges = struct {
     /// ``` self: QtC.QPageRanges, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageRanges_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpageranges.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -86,7 +82,7 @@ pub const qpageranges = struct {
     pub fn FromString(ranges: []const u8) QtC.QPageRanges {
         const ranges_str = qtc.struct_libqt_string{
             .len = ranges.len,
-            .data = @constCast(ranges.ptr),
+            .data = ranges.ptr,
         };
         return qtc.QPageRanges_FromString(ranges_str);
     }

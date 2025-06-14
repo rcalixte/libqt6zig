@@ -18,7 +18,7 @@ pub const qhstspolicy = struct {
     pub fn New2(expiry: ?*anyopaque, flags: i64, host: []const u8) QtC.QHstsPolicy {
         const host_str = qtc.struct_libqt_string{
             .len = host.len,
-            .data = @constCast(host.ptr),
+            .data = host.ptr,
         };
 
         return qtc.QHstsPolicy_new2(@ptrCast(expiry), @intCast(flags), host_str);
@@ -37,7 +37,7 @@ pub const qhstspolicy = struct {
     pub fn New4(expiry: ?*anyopaque, flags: i64, host: []const u8, mode: i64) QtC.QHstsPolicy {
         const host_str = qtc.struct_libqt_string{
             .len = host.len,
-            .data = @constCast(host.ptr),
+            .data = host.ptr,
         };
 
         return qtc.QHstsPolicy_new4(@ptrCast(expiry), @intCast(flags), host_str, @intCast(mode));
@@ -63,7 +63,7 @@ pub const qhstspolicy = struct {
     pub fn SetHost(self: ?*anyopaque, host: []const u8) void {
         const host_str = qtc.struct_libqt_string{
             .len = host.len,
-            .data = @constCast(host.ptr),
+            .data = host.ptr,
         };
         qtc.QHstsPolicy_SetHost(@ptrCast(self), host_str);
     }
@@ -73,11 +73,9 @@ pub const qhstspolicy = struct {
     /// ``` self: QtC.QHstsPolicy, allocator: std.mem.Allocator ```
     pub fn Host(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHstsPolicy_Host(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhstspolicy.Host: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -122,7 +120,7 @@ pub const qhstspolicy = struct {
     pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i64) void {
         const host_str = qtc.struct_libqt_string{
             .len = host.len,
-            .data = @constCast(host.ptr),
+            .data = host.ptr,
         };
         qtc.QHstsPolicy_SetHost2(@ptrCast(self), host_str, @intCast(mode));
     }
@@ -132,11 +130,9 @@ pub const qhstspolicy = struct {
     /// ``` self: QtC.QHstsPolicy, options: u32, allocator: std.mem.Allocator ```
     pub fn Host1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHstsPolicy_Host1(@ptrCast(self), @intCast(options));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhstspolicy.Host1: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 

@@ -35,7 +35,7 @@ pub const qguiapplication = struct {
 
     /// ``` self: QtC.QGuiApplication, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QGuiApplication_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -62,13 +62,11 @@ pub const qguiapplication = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QGuiApplication_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -78,7 +76,7 @@ pub const qguiapplication = struct {
     pub fn SetApplicationDisplayName(name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QGuiApplication_SetApplicationDisplayName(name_str);
     }
@@ -88,11 +86,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationDisplayName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QGuiApplication_ApplicationDisplayName();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.ApplicationDisplayName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -102,7 +98,7 @@ pub const qguiapplication = struct {
     pub fn SetDesktopFileName(name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         qtc.QGuiApplication_SetDesktopFileName(name_str);
     }
@@ -112,11 +108,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn DesktopFileName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QGuiApplication_DesktopFileName();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.DesktopFileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -128,9 +122,7 @@ pub const qguiapplication = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWindow, _arr.len) catch @panic("qguiapplication.AllWindows: Memory allocation failed");
         const _data: [*]QtC.QWindow = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -142,9 +134,7 @@ pub const qguiapplication = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWindow, _arr.len) catch @panic("qguiapplication.TopLevelWindows: Memory allocation failed");
         const _data: [*]QtC.QWindow = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -174,11 +164,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn PlatformName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QGuiApplication_PlatformName();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.PlatformName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -218,9 +206,7 @@ pub const qguiapplication = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QScreen, _arr.len) catch @panic("qguiapplication.Screens: Memory allocation failed");
         const _data: [*]QtC.QScreen = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -457,11 +443,9 @@ pub const qguiapplication = struct {
     /// ``` self: QtC.QGuiApplication, allocator: std.mem.Allocator ```
     pub fn SessionId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QGuiApplication_SessionId(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.SessionId: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -470,11 +454,9 @@ pub const qguiapplication = struct {
     /// ``` self: QtC.QGuiApplication, allocator: std.mem.Allocator ```
     pub fn SessionKey(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QGuiApplication_SessionKey(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.SessionKey: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -489,7 +471,7 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, name: []const u8, revision: i32 ```
     pub fn ResolveInterface(self: ?*anyopaque, name: []const u8, revision: i32) ?*anyopaque {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QGuiApplication_ResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
@@ -508,7 +490,7 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, name: []const u8, revision: i32 ```
     pub fn QBaseResolveInterface(self: ?*anyopaque, name: []const u8, revision: i32) ?*anyopaque {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QGuiApplication_QBaseResolveInterface(@ptrCast(self), name_Cstring, @intCast(revision));
     }
 
@@ -744,14 +726,12 @@ pub const qguiapplication = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGuiApplication_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -759,14 +739,12 @@ pub const qguiapplication = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QGuiApplication_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -779,17 +757,17 @@ pub const qguiapplication = struct {
         const _arr: qtc.struct_libqt_list = qtc.QCoreApplication_Arguments();
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qguiapplication.Arguments: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qguiapplication.Arguments: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -820,7 +798,7 @@ pub const qguiapplication = struct {
     pub fn SetOrganizationDomain(orgDomain: []const u8) void {
         const orgDomain_str = qtc.struct_libqt_string{
             .len = orgDomain.len,
-            .data = @constCast(orgDomain.ptr),
+            .data = orgDomain.ptr,
         };
         qtc.QCoreApplication_SetOrganizationDomain(orgDomain_str);
     }
@@ -832,11 +810,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn OrganizationDomain(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCoreApplication_OrganizationDomain();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.OrganizationDomain: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -848,7 +824,7 @@ pub const qguiapplication = struct {
     pub fn SetOrganizationName(orgName: []const u8) void {
         const orgName_str = qtc.struct_libqt_string{
             .len = orgName.len,
-            .data = @constCast(orgName.ptr),
+            .data = orgName.ptr,
         };
         qtc.QCoreApplication_SetOrganizationName(orgName_str);
     }
@@ -860,11 +836,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn OrganizationName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCoreApplication_OrganizationName();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.OrganizationName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -876,7 +850,7 @@ pub const qguiapplication = struct {
     pub fn SetApplicationName(application: []const u8) void {
         const application_str = qtc.struct_libqt_string{
             .len = application.len,
-            .data = @constCast(application.ptr),
+            .data = application.ptr,
         };
         qtc.QCoreApplication_SetApplicationName(application_str);
     }
@@ -888,11 +862,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationName(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCoreApplication_ApplicationName();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.ApplicationName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -904,7 +876,7 @@ pub const qguiapplication = struct {
     pub fn SetApplicationVersion(version: []const u8) void {
         const version_str = qtc.struct_libqt_string{
             .len = version.len,
-            .data = @constCast(version.ptr),
+            .data = version.ptr,
         };
         qtc.QCoreApplication_SetApplicationVersion(version_str);
     }
@@ -916,11 +888,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationVersion(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCoreApplication_ApplicationVersion();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.ApplicationVersion: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1048,11 +1018,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationDirPath(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCoreApplication_ApplicationDirPath();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.ApplicationDirPath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1063,11 +1031,9 @@ pub const qguiapplication = struct {
     /// ``` allocator: std.mem.Allocator ```
     pub fn ApplicationFilePath(allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCoreApplication_ApplicationFilePath();
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.ApplicationFilePath: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1088,10 +1054,10 @@ pub const qguiapplication = struct {
     pub fn SetLibraryPaths(libraryPaths: [][]const u8, allocator: std.mem.Allocator) void {
         var libraryPaths_arr = allocator.alloc(qtc.struct_libqt_string, libraryPaths.len) catch @panic("qguiapplication.SetLibraryPaths: Memory allocation failed");
         defer allocator.free(libraryPaths_arr);
-        for (libraryPaths, 0..libraryPaths.len) |item, _i| {
-            libraryPaths_arr[_i] = .{
+        for (libraryPaths, 0..libraryPaths.len) |item, i| {
+            libraryPaths_arr[i] = .{
                 .len = item.len,
-                .data = @ptrCast(@constCast(item.ptr)),
+                .data = item.ptr,
             };
         }
         const libraryPaths_list = qtc.struct_libqt_list{
@@ -1110,17 +1076,17 @@ pub const qguiapplication = struct {
         const _arr: qtc.struct_libqt_list = qtc.QCoreApplication_LibraryPaths();
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qguiapplication.LibraryPaths: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qguiapplication.LibraryPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1133,7 +1099,7 @@ pub const qguiapplication = struct {
     pub fn AddLibraryPath(param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QCoreApplication_AddLibraryPath(param1_str);
     }
@@ -1146,7 +1112,7 @@ pub const qguiapplication = struct {
     pub fn RemoveLibraryPath(param1: []const u8) void {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
         qtc.QCoreApplication_RemoveLibraryPath(param1_str);
     }
@@ -1175,14 +1141,12 @@ pub const qguiapplication = struct {
     ///
     /// ``` context: []const u8, key: []const u8, allocator: std.mem.Allocator ```
     pub fn Translate(context: []const u8, key: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const context_Cstring = @constCast(context.ptr);
-        const key_Cstring = @constCast(key.ptr);
+        const context_Cstring = context.ptr;
+        const key_Cstring = key.ptr;
         const _str = qtc.QCoreApplication_Translate(context_Cstring, key_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.Translate: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1390,15 +1354,13 @@ pub const qguiapplication = struct {
     ///
     /// ``` context: []const u8, key: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator ```
     pub fn Translate3(context: []const u8, key: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const context_Cstring = @constCast(context.ptr);
-        const key_Cstring = @constCast(key.ptr);
-        const disambiguation_Cstring = @constCast(disambiguation.ptr);
+        const context_Cstring = context.ptr;
+        const key_Cstring = key.ptr;
+        const disambiguation_Cstring = disambiguation.ptr;
         const _str = qtc.QCoreApplication_Translate3(context_Cstring, key_Cstring, disambiguation_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.Translate3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1408,15 +1370,13 @@ pub const qguiapplication = struct {
     ///
     /// ``` context: []const u8, key: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Translate4(context: []const u8, key: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const context_Cstring = @constCast(context.ptr);
-        const key_Cstring = @constCast(key.ptr);
-        const disambiguation_Cstring = @constCast(disambiguation.ptr);
+        const context_Cstring = context.ptr;
+        const key_Cstring = key.ptr;
+        const disambiguation_Cstring = disambiguation.ptr;
         const _str = qtc.QCoreApplication_Translate4(context_Cstring, key_Cstring, disambiguation_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.Translate4: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1436,11 +1396,9 @@ pub const qguiapplication = struct {
     /// ``` self: QtC.QGuiApplication, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qguiapplication.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -1450,7 +1408,11 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -1544,9 +1506,7 @@ pub const qguiapplication = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qguiapplication.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1592,8 +1552,8 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -1639,7 +1599,7 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -1649,7 +1609,7 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -1662,17 +1622,17 @@ pub const qguiapplication = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qguiapplication.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qguiapplication.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1728,7 +1688,7 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -1765,8 +1725,8 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -2060,7 +2020,7 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGuiApplication_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -2072,7 +2032,7 @@ pub const qguiapplication = struct {
     ///
     /// ``` self: QtC.QGuiApplication, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QGuiApplication_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

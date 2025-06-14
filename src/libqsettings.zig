@@ -13,7 +13,7 @@ pub const qsettings = struct {
     pub fn New(organization: []const u8) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
 
         return qtc.QSettings_new(organization_str);
@@ -25,7 +25,7 @@ pub const qsettings = struct {
     pub fn New2(scope: i64, organization: []const u8) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
 
         return qtc.QSettings_new2(@intCast(scope), organization_str);
@@ -37,7 +37,7 @@ pub const qsettings = struct {
     pub fn New3(format: i64, scope: i64, organization: []const u8) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
 
         return qtc.QSettings_new3(@intCast(format), @intCast(scope), organization_str);
@@ -49,7 +49,7 @@ pub const qsettings = struct {
     pub fn New4(fileName: []const u8, format: i64) QtC.QSettings {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
 
         return qtc.QSettings_new4(fileName_str, @intCast(format));
@@ -75,11 +75,11 @@ pub const qsettings = struct {
     pub fn New7(organization: []const u8, application: []const u8) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
         const application_str = qtc.struct_libqt_string{
             .len = application.len,
-            .data = @constCast(application.ptr),
+            .data = application.ptr,
         };
 
         return qtc.QSettings_new7(organization_str, application_str);
@@ -91,11 +91,11 @@ pub const qsettings = struct {
     pub fn New8(organization: []const u8, application: []const u8, parent: ?*anyopaque) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
         const application_str = qtc.struct_libqt_string{
             .len = application.len,
-            .data = @constCast(application.ptr),
+            .data = application.ptr,
         };
 
         return qtc.QSettings_new8(organization_str, application_str, @ptrCast(parent));
@@ -107,11 +107,11 @@ pub const qsettings = struct {
     pub fn New9(scope: i64, organization: []const u8, application: []const u8) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
         const application_str = qtc.struct_libqt_string{
             .len = application.len,
-            .data = @constCast(application.ptr),
+            .data = application.ptr,
         };
 
         return qtc.QSettings_new9(@intCast(scope), organization_str, application_str);
@@ -123,11 +123,11 @@ pub const qsettings = struct {
     pub fn New10(scope: i64, organization: []const u8, application: []const u8, parent: ?*anyopaque) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
         const application_str = qtc.struct_libqt_string{
             .len = application.len,
-            .data = @constCast(application.ptr),
+            .data = application.ptr,
         };
 
         return qtc.QSettings_new10(@intCast(scope), organization_str, application_str, @ptrCast(parent));
@@ -139,11 +139,11 @@ pub const qsettings = struct {
     pub fn New11(format: i64, scope: i64, organization: []const u8, application: []const u8) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
         const application_str = qtc.struct_libqt_string{
             .len = application.len,
-            .data = @constCast(application.ptr),
+            .data = application.ptr,
         };
 
         return qtc.QSettings_new11(@intCast(format), @intCast(scope), organization_str, application_str);
@@ -155,11 +155,11 @@ pub const qsettings = struct {
     pub fn New12(format: i64, scope: i64, organization: []const u8, application: []const u8, parent: ?*anyopaque) QtC.QSettings {
         const organization_str = qtc.struct_libqt_string{
             .len = organization.len,
-            .data = @constCast(organization.ptr),
+            .data = organization.ptr,
         };
         const application_str = qtc.struct_libqt_string{
             .len = application.len,
-            .data = @constCast(application.ptr),
+            .data = application.ptr,
         };
 
         return qtc.QSettings_new12(@intCast(format), @intCast(scope), organization_str, application_str, @ptrCast(parent));
@@ -171,7 +171,7 @@ pub const qsettings = struct {
     pub fn New13(fileName: []const u8, format: i64, parent: ?*anyopaque) QtC.QSettings {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
-            .data = @constCast(fileName.ptr),
+            .data = fileName.ptr,
         };
 
         return qtc.QSettings_new13(fileName_str, @intCast(format), @ptrCast(parent));
@@ -200,7 +200,7 @@ pub const qsettings = struct {
 
     /// ``` self: QtC.QSettings, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QSettings_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -227,13 +227,11 @@ pub const qsettings = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QSettings_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -276,7 +274,11 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, prefix: []const u8 ```
     pub fn BeginGroup(self: ?*anyopaque, prefix: []const u8) void {
-        qtc.QSettings_BeginGroup(@ptrCast(self), @constCast(prefix.ptr));
+        const prefix_str = qtc.struct_libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        qtc.QSettings_BeginGroup(@ptrCast(self), prefix_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#endGroup)
@@ -291,11 +293,9 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings, allocator: std.mem.Allocator ```
     pub fn Group(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSettings_Group(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.Group: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -303,14 +303,22 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, prefix: []const u8 ```
     pub fn BeginReadArray(self: ?*anyopaque, prefix: []const u8) i32 {
-        return qtc.QSettings_BeginReadArray(@ptrCast(self), @constCast(prefix.ptr));
+        const prefix_str = qtc.struct_libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        return qtc.QSettings_BeginReadArray(@ptrCast(self), prefix_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#beginWriteArray)
     ///
     /// ``` self: QtC.QSettings, prefix: []const u8 ```
     pub fn BeginWriteArray(self: ?*anyopaque, prefix: []const u8) void {
-        qtc.QSettings_BeginWriteArray(@ptrCast(self), @constCast(prefix.ptr));
+        const prefix_str = qtc.struct_libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        qtc.QSettings_BeginWriteArray(@ptrCast(self), prefix_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#endArray)
@@ -334,17 +342,17 @@ pub const qsettings = struct {
         const _arr: qtc.struct_libqt_list = qtc.QSettings_AllKeys(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsettings.AllKeys: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qsettings.AllKeys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -356,17 +364,17 @@ pub const qsettings = struct {
         const _arr: qtc.struct_libqt_list = qtc.QSettings_ChildKeys(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsettings.ChildKeys: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qsettings.ChildKeys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -378,17 +386,17 @@ pub const qsettings = struct {
         const _arr: qtc.struct_libqt_list = qtc.QSettings_ChildGroups(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsettings.ChildGroups: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qsettings.ChildGroups: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -404,35 +412,55 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, key: []const u8, value: QtC.QVariant ```
     pub fn SetValue(self: ?*anyopaque, key: []const u8, value: ?*anyopaque) void {
-        qtc.QSettings_SetValue(@ptrCast(self), @constCast(key.ptr), @ptrCast(value));
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        qtc.QSettings_SetValue(@ptrCast(self), key_str, @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#value)
     ///
     /// ``` self: QtC.QSettings, key: []const u8, defaultValue: QtC.QVariant ```
     pub fn Value(self: ?*anyopaque, key: []const u8, defaultValue: ?*anyopaque) QtC.QVariant {
-        return qtc.QSettings_Value(@ptrCast(self), @constCast(key.ptr), @ptrCast(defaultValue));
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSettings_Value(@ptrCast(self), key_str, @ptrCast(defaultValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#value)
     ///
     /// ``` self: QtC.QSettings, key: []const u8 ```
     pub fn ValueWithKey(self: ?*anyopaque, key: []const u8) QtC.QVariant {
-        return qtc.QSettings_ValueWithKey(@ptrCast(self), @constCast(key.ptr));
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSettings_ValueWithKey(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#remove)
     ///
     /// ``` self: QtC.QSettings, key: []const u8 ```
     pub fn Remove(self: ?*anyopaque, key: []const u8) void {
-        qtc.QSettings_Remove(@ptrCast(self), @constCast(key.ptr));
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        qtc.QSettings_Remove(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#contains)
     ///
     /// ``` self: QtC.QSettings, key: []const u8 ```
     pub fn Contains(self: ?*anyopaque, key: []const u8) bool {
-        return qtc.QSettings_Contains(@ptrCast(self), @constCast(key.ptr));
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSettings_Contains(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#setFallbacksEnabled)
@@ -454,11 +482,9 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings, allocator: std.mem.Allocator ```
     pub fn FileName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSettings_FileName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.FileName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -481,11 +507,9 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings, allocator: std.mem.Allocator ```
     pub fn OrganizationName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSettings_OrganizationName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.OrganizationName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -494,11 +518,9 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings, allocator: std.mem.Allocator ```
     pub fn ApplicationName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QSettings_ApplicationName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.ApplicationName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -522,7 +544,7 @@ pub const qsettings = struct {
     pub fn SetPath(format: i64, scope: i64, path: []const u8) void {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
-            .data = @constCast(path.ptr),
+            .data = path.ptr,
         };
         qtc.QSettings_SetPath(@intCast(format), @intCast(scope), path_str);
     }
@@ -556,14 +578,12 @@ pub const qsettings = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QSettings_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -571,14 +591,12 @@ pub const qsettings = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QSettings_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -586,7 +604,11 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, prefix: []const u8, size: i32 ```
     pub fn BeginWriteArray2(self: ?*anyopaque, prefix: []const u8, size: i32) void {
-        qtc.QSettings_BeginWriteArray2(@ptrCast(self), @constCast(prefix.ptr), @intCast(size));
+        const prefix_str = qtc.struct_libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        qtc.QSettings_BeginWriteArray2(@ptrCast(self), prefix_str, @intCast(size));
     }
 
     /// Inherited from QObject
@@ -596,11 +618,9 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsettings.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -610,7 +630,11 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -704,9 +728,7 @@ pub const qsettings = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsettings.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -752,8 +774,8 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -799,7 +821,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -809,7 +831,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -822,17 +844,17 @@ pub const qsettings = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsettings.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qsettings.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -888,7 +910,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -925,8 +947,8 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -1220,7 +1242,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QSettings_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -1232,7 +1254,7 @@ pub const qsettings = struct {
     ///
     /// ``` self: QtC.QSettings, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QSettings_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

@@ -101,9 +101,7 @@ pub const qversionnumber = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qversionnumber.Segments: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -147,11 +145,9 @@ pub const qversionnumber = struct {
     /// ``` self: QtC.QVersionNumber, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QVersionNumber_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qversionnumber.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -159,14 +155,22 @@ pub const qversionnumber = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) QtC.QVersionNumber {
-        return qtc.QVersionNumber_FromString(@constCast(stringVal.ptr));
+        const stringVal_str = qtc.struct_libqt_string{
+            .len = stringVal.len,
+            .data = stringVal.ptr,
+        };
+        return qtc.QVersionNumber_FromString(stringVal_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
     /// ``` stringVal: []const u8, suffixIndex: ?*i64 ```
     pub fn FromString2(stringVal: []const u8, suffixIndex: ?*anyopaque) QtC.QVersionNumber {
-        return qtc.QVersionNumber_FromString2(@constCast(stringVal.ptr), @intCast(suffixIndex));
+        const stringVal_str = qtc.struct_libqt_string{
+            .len = stringVal.len,
+            .data = stringVal.ptr,
+        };
+        return qtc.QVersionNumber_FromString2(stringVal_str, @intCast(suffixIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)

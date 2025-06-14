@@ -18,7 +18,7 @@ pub const qwebengineurlscheme = struct {
     pub fn New2(name: []u8) QtC.QWebEngineUrlScheme {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
 
         return qtc.QWebEngineUrlScheme_new2(name_str);
@@ -57,11 +57,9 @@ pub const qwebengineurlscheme = struct {
     /// ``` self: QtC.QWebEngineUrlScheme, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QWebEngineUrlScheme_Name(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_bytearray));
+        defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebengineurlscheme.Name: Memory allocation failed");
-        for (0.._bytearray.len) |_i| {
-            _ret[_i] = _bytearray.data[_i];
-        }
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
@@ -71,7 +69,7 @@ pub const qwebengineurlscheme = struct {
     pub fn SetName(self: ?*anyopaque, newValue: []u8) void {
         const newValue_str = qtc.struct_libqt_string{
             .len = newValue.len,
-            .data = @constCast(newValue.ptr),
+            .data = newValue.ptr,
         };
         qtc.QWebEngineUrlScheme_SetName(@ptrCast(self), newValue_str);
     }
@@ -131,7 +129,7 @@ pub const qwebengineurlscheme = struct {
     pub fn SchemeByName(name: []u8) QtC.QWebEngineUrlScheme {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
-            .data = @constCast(name.ptr),
+            .data = name.ptr,
         };
         return qtc.QWebEngineUrlScheme_SchemeByName(name_str);
     }

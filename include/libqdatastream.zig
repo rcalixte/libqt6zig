@@ -24,7 +24,7 @@ pub const qdatastream = struct {
     pub fn New3(param1: []u8) QtC.QDataStream {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
-            .data = @constCast(param1.ptr),
+            .data = param1.ptr,
         };
 
         return qtc.QDataStream_new3(param1_str);
@@ -202,7 +202,7 @@ pub const qdatastream = struct {
     ///
     /// ``` self: QtC.QDataStream, str: []const u8 ```
     pub fn OperatorShiftRightWithStr(self: ?*anyopaque, str: []const u8) void {
-        const str_Cstring = @constCast(str.ptr);
+        const str_Cstring = str.ptr;
         qtc.QDataStream_OperatorShiftRightWithStr(@ptrCast(self), str_Cstring);
     }
 
@@ -294,7 +294,7 @@ pub const qdatastream = struct {
     ///
     /// ``` self: QtC.QDataStream, str: []const u8 ```
     pub fn OperatorShiftLeftWithStr(self: ?*anyopaque, str: []const u8) void {
-        const str_Cstring = @constCast(str.ptr);
+        const str_Cstring = str.ptr;
         qtc.QDataStream_OperatorShiftLeftWithStr(@ptrCast(self), str_Cstring);
     }
 
@@ -302,7 +302,7 @@ pub const qdatastream = struct {
     ///
     /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: ?*u32 ```
     pub fn ReadBytes(self: ?*anyopaque, param1: []const u8, lenVal: ?*anyopaque) QtC.QDataStream {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadBytes(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
@@ -310,7 +310,7 @@ pub const qdatastream = struct {
     ///
     /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i32 ```
     pub fn ReadRawData(self: ?*anyopaque, param1: []const u8, lenVal: i32) i32 {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
@@ -318,7 +318,7 @@ pub const qdatastream = struct {
     ///
     /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: u32 ```
     pub fn WriteBytes(self: ?*anyopaque, param1: []const u8, lenVal: u32) void {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         qtc.QDataStream_WriteBytes(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
@@ -326,7 +326,7 @@ pub const qdatastream = struct {
     ///
     /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i32 ```
     pub fn WriteRawData(self: ?*anyopaque, param1: []const u8, lenVal: i32) i32 {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QDataStream_WriteRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 

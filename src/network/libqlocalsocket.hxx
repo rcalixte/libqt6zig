@@ -607,9 +607,9 @@ class VirtualQLocalSocket final : public QLocalSocket {
             QByteArray errorString_b = errorString_ret.toUtf8();
             libqt_string errorString_str;
             errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<char*>(malloc((errorString_str.len + 1) * sizeof(char)));
-            memcpy(errorString_str.data, errorString_b.data(), errorString_str.len);
-            errorString_str.data[errorString_str.len] = '\0';
+            errorString_str.data = static_cast<const char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+            memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
+            ((char*)errorString_str.data)[errorString_str.len] = '\0';
             libqt_string cbval1 = errorString_str;
 
             qlocalsocket_seterrorstring_callback(this, cbval1);

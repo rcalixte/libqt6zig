@@ -249,11 +249,9 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame, allocator: std.mem.Allocator ```
     pub fn SubtitleText(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QVideoFrame_SubtitleText(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframe.SubtitleText: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -263,7 +261,7 @@ pub const qvideoframe = struct {
     pub fn SetSubtitleText(self: ?*anyopaque, text: []const u8) void {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
-            .data = @constCast(text.ptr),
+            .data = text.ptr,
         };
         qtc.QVideoFrame_SetSubtitleText(@ptrCast(self), text_str);
     }

@@ -60,7 +60,7 @@ pub const qhostaddress = struct {
     pub fn New5(address: []const u8) QtC.QHostAddress {
         const address_str = qtc.struct_libqt_string{
             .len = address.len,
-            .data = @constCast(address.ptr),
+            .data = address.ptr,
         };
 
         return qtc.QHostAddress_new5(address_str);
@@ -128,7 +128,7 @@ pub const qhostaddress = struct {
     pub fn SetAddress3(self: ?*anyopaque, address: []const u8) bool {
         const address_str = qtc.struct_libqt_string{
             .len = address.len,
-            .data = @constCast(address.ptr),
+            .data = address.ptr,
         };
         return qtc.QHostAddress_SetAddress3(@ptrCast(self), address_str);
     }
@@ -166,11 +166,9 @@ pub const qhostaddress = struct {
     /// ``` self: QtC.QHostAddress, allocator: std.mem.Allocator ```
     pub fn ToString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHostAddress_ToString(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostaddress.ToString: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -179,11 +177,9 @@ pub const qhostaddress = struct {
     /// ``` self: QtC.QHostAddress, allocator: std.mem.Allocator ```
     pub fn ScopeId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHostAddress_ScopeId(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostaddress.ScopeId: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -193,7 +189,7 @@ pub const qhostaddress = struct {
     pub fn SetScopeId(self: ?*anyopaque, id: []const u8) void {
         const id_str = qtc.struct_libqt_string{
             .len = id.len,
-            .data = @constCast(id.ptr),
+            .data = id.ptr,
         };
         qtc.QHostAddress_SetScopeId(@ptrCast(self), id_str);
     }
@@ -309,7 +305,7 @@ pub const qhostaddress = struct {
     pub fn ParseSubnet(subnet: []const u8) struct_qtcqhostaddress_i32 {
         const subnet_str = qtc.struct_libqt_string{
             .len = subnet.len,
-            .data = @constCast(subnet.ptr),
+            .data = subnet.ptr,
         };
         const _pair: qtc.struct_libqt_pair = qtc.QHostAddress_ParseSubnet(subnet_str);
         return struct_qtcqhostaddress_i32{ .first = @ptrCast(_pair.first), .second = @intCast(@intFromPtr(_pair.second)) };

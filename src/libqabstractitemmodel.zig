@@ -577,7 +577,7 @@ pub const qabstractitemmodel = struct {
 
     /// ``` self: QtC.QAbstractItemModel, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QAbstractItemModel_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -604,13 +604,11 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QAbstractItemModel_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemmodel.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -883,10 +881,10 @@ pub const qabstractitemmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractitemmodel.ItemData: Memory allocation failed");
         }
         return _ret;
@@ -915,10 +913,10 @@ pub const qabstractitemmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractitemmodel.ItemData: Memory allocation failed");
         }
         return _ret;
@@ -932,13 +930,13 @@ pub const qabstractitemmodel = struct {
         defer allocator.free(roles_keys);
         const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qabstractitemmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var roles_it = roles.iterator();
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            roles_keys[_i] = @intCast(key);
-            roles_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const roles_map = qtc.struct_libqt_map{
             .len = roles.count(),
@@ -967,13 +965,13 @@ pub const qabstractitemmodel = struct {
         defer allocator.free(roles_keys);
         const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qabstractitemmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var roles_it = roles.iterator();
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            roles_keys[_i] = @intCast(key);
-            roles_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const roles_map = qtc.struct_libqt_map{
             .len = roles.count(),
@@ -1015,17 +1013,17 @@ pub const qabstractitemmodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qabstractitemmodel.MimeTypes: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstractitemmodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1048,17 +1046,17 @@ pub const qabstractitemmodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_QBaseMimeTypes(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qabstractitemmodel.MimeTypes: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstractitemmodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -1521,9 +1519,7 @@ pub const qabstractitemmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1546,9 +1542,7 @@ pub const qabstractitemmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -1589,10 +1583,10 @@ pub const qabstractitemmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractitemmodel.RoleNames: Memory allocation failed");
         }
         return _ret;
@@ -1621,10 +1615,10 @@ pub const qabstractitemmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractitemmodel.RoleNames: Memory allocation failed");
         }
         return _ret;
@@ -2325,9 +2319,7 @@ pub const qabstractitemmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2350,9 +2342,7 @@ pub const qabstractitemmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2360,14 +2350,12 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QAbstractItemModel_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemmodel.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2375,14 +2363,12 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QAbstractItemModel_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemmodel.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2550,11 +2536,9 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractitemmodel.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -2564,7 +2548,11 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -2658,9 +2646,7 @@ pub const qabstractitemmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractitemmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -2706,8 +2692,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -2753,7 +2739,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -2763,7 +2749,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -2776,17 +2762,17 @@ pub const qabstractitemmodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstractitemmodel.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstractitemmodel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -2833,7 +2819,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -2870,8 +2856,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -3198,7 +3184,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QAbstractItemModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -3210,7 +3196,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QAbstractItemModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -3430,7 +3416,7 @@ pub const qabstracttablemodel = struct {
 
     /// ``` self: QtC.QAbstractTableModel, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QAbstractTableModel_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -3457,13 +3443,11 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QAbstractTableModel_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttablemodel.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3571,14 +3555,12 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QAbstractTableModel_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttablemodel.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3586,14 +3568,12 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QAbstractTableModel_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttablemodel.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3974,11 +3954,9 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttablemodel.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -3988,7 +3966,11 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -4082,9 +4064,7 @@ pub const qabstracttablemodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstracttablemodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -4130,8 +4110,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -4177,7 +4157,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -4187,7 +4167,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -4200,17 +4180,17 @@ pub const qabstracttablemodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstracttablemodel.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstracttablemodel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -4257,7 +4237,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -4294,8 +4274,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -4531,10 +4511,10 @@ pub const qabstracttablemodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstracttablemodel.ItemData: Memory allocation failed");
         }
         return _ret;
@@ -4556,10 +4536,10 @@ pub const qabstracttablemodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstracttablemodel.ItemData: Memory allocation failed");
         }
         return _ret;
@@ -4588,13 +4568,13 @@ pub const qabstracttablemodel = struct {
         defer allocator.free(roles_keys);
         const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qabstracttablemodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var roles_it = roles.iterator();
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            roles_keys[_i] = @intCast(key);
-            roles_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const roles_map = qtc.struct_libqt_map{
             .len = roles.count(),
@@ -4616,13 +4596,13 @@ pub const qabstracttablemodel = struct {
         defer allocator.free(roles_keys);
         const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qabstracttablemodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var roles_it = roles.iterator();
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            roles_keys[_i] = @intCast(key);
-            roles_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const roles_map = qtc.struct_libqt_map{
             .len = roles.count(),
@@ -4687,17 +4667,17 @@ pub const qabstracttablemodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_MimeTypes(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qabstracttablemodel.MimeTypes: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstracttablemodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -4713,17 +4693,17 @@ pub const qabstracttablemodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_QBaseMimeTypes(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qabstracttablemodel.MimeTypes: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstracttablemodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -5221,9 +5201,7 @@ pub const qabstracttablemodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -5239,9 +5217,7 @@ pub const qabstracttablemodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -5305,10 +5281,10 @@ pub const qabstracttablemodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstracttablemodel.RoleNames: Memory allocation failed");
         }
         return _ret;
@@ -5330,10 +5306,10 @@ pub const qabstracttablemodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstracttablemodel.RoleNames: Memory allocation failed");
         }
         return _ret;
@@ -6376,9 +6352,7 @@ pub const qabstracttablemodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -6394,9 +6368,7 @@ pub const qabstracttablemodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -6485,7 +6457,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QAbstractTableModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -6497,7 +6469,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QAbstractTableModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -6745,7 +6717,7 @@ pub const qabstractlistmodel = struct {
 
     /// ``` self: QtC.QAbstractListModel, param1: []const u8 ```
     pub fn Metacast(self: ?*anyopaque, param1: []const u8) ?*anyopaque {
-        const param1_Cstring = @constCast(param1.ptr);
+        const param1_Cstring = param1.ptr;
         return qtc.QAbstractListModel_Metacast(@ptrCast(self), param1_Cstring);
     }
 
@@ -6772,13 +6744,11 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
+        const s_Cstring = s.ptr;
         const _str = qtc.QAbstractListModel_Tr(s_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractlistmodel.Tr: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6886,14 +6856,12 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QAbstractListModel_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractlistmodel.Tr2: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -6901,14 +6869,12 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = @constCast(s.ptr);
-        const c_Cstring = @constCast(c.ptr);
+        const s_Cstring = s.ptr;
+        const c_Cstring = c.ptr;
         const _str = qtc.QAbstractListModel_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractlistmodel.Tr3: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7320,11 +7286,9 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn ObjectName(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QObject_ObjectName(@ptrCast(self));
-        defer qtc.libqt_string_free(@constCast(&_str));
+        defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractlistmodel.ObjectName: Memory allocation failed");
-        for (0.._str.len) |_i| {
-            _ret[_i] = _str.data[_i];
-        }
+        @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
@@ -7334,7 +7298,11 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self), @constCast(name.ptr));
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self), name_str);
     }
 
     /// Inherited from QObject
@@ -7428,9 +7396,7 @@ pub const qabstractlistmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractlistmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -7476,8 +7442,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, sender: QtC.QObject, signal: []const u8, member: []const u8 ```
     pub fn Connect2(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect2(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring);
     }
 
@@ -7523,7 +7489,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, name: []const u8, value: QtC.QVariant ```
     pub fn SetProperty(self: ?*anyopaque, name: []const u8, value: ?*anyopaque) bool {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_SetProperty(@ptrCast(self), name_Cstring, @ptrCast(value));
     }
 
@@ -7533,7 +7499,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, name: []const u8 ```
     pub fn Property(self: ?*anyopaque, name: []const u8) QtC.QVariant {
-        const name_Cstring = @constCast(name.ptr);
+        const name_Cstring = name.ptr;
         return qtc.QObject_Property(@ptrCast(self), name_Cstring);
     }
 
@@ -7546,17 +7512,17 @@ pub const qabstractlistmodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstractlistmodel.DynamicPropertyNames: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstractlistmodel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -7603,7 +7569,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, classname: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, classname: []const u8) bool {
-        const classname_Cstring = @constCast(classname.ptr);
+        const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self), classname_Cstring);
     }
 
@@ -7640,8 +7606,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
     pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
-        const signal_Cstring = @constCast(signal.ptr);
-        const member_Cstring = @constCast(member.ptr);
+        const signal_Cstring = signal.ptr;
+        const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
     }
 
@@ -7844,10 +7810,10 @@ pub const qabstractlistmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractlistmodel.ItemData: Memory allocation failed");
         }
         return _ret;
@@ -7869,10 +7835,10 @@ pub const qabstractlistmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractlistmodel.ItemData: Memory allocation failed");
         }
         return _ret;
@@ -7901,13 +7867,13 @@ pub const qabstractlistmodel = struct {
         defer allocator.free(roles_keys);
         const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qabstractlistmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var roles_it = roles.iterator();
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            roles_keys[_i] = @intCast(key);
-            roles_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const roles_map = qtc.struct_libqt_map{
             .len = roles.count(),
@@ -7929,13 +7895,13 @@ pub const qabstractlistmodel = struct {
         defer allocator.free(roles_keys);
         const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qabstractlistmodel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
-        var _i: usize = 0;
+        var i: usize = 0;
         var roles_it = roles.iterator();
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            roles_keys[_i] = @intCast(key);
-            roles_values[_i] = entry.value_ptr.*;
-            _i += 1;
+            roles_keys[i] = @intCast(key);
+            roles_values[i] = entry.value_ptr.*;
+            i += 1;
         }
         const roles_map = qtc.struct_libqt_map{
             .len = roles.count(),
@@ -8000,17 +7966,17 @@ pub const qabstractlistmodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_MimeTypes(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qabstractlistmodel.MimeTypes: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstractlistmodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -8026,17 +7992,17 @@ pub const qabstractlistmodel = struct {
         const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_QBaseMimeTypes(@ptrCast(self));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
-            for (0.._arr.len) |_i| {
-                qtc.libqt_string_free(@ptrCast(&_str[_i]));
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
             }
             qtc.libqt_free(_arr.data);
         }
         const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qabstractlistmodel.MimeTypes: Memory allocation failed");
-        for (0.._arr.len) |_i| {
-            const _data = _str[_i];
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
             const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstractlistmodel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
-            _ret[_i] = _buf;
+            _ret[i] = _buf;
         }
         return _ret;
     }
@@ -8534,9 +8500,7 @@ pub const qabstractlistmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -8552,9 +8516,7 @@ pub const qabstractlistmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -8618,10 +8580,10 @@ pub const qabstractlistmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractlistmodel.RoleNames: Memory allocation failed");
         }
         return _ret;
@@ -8643,10 +8605,10 @@ pub const qabstractlistmodel = struct {
         }
         const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
         const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var _i: usize = 0;
-        while (_i < _map.len) : (_i += 1) {
-            const _key = _keys[_i];
-            const _value = _values[_i];
+        var i: usize = 0;
+        while (i < _map.len) : (i += 1) {
+            const _key = _keys[i];
+            const _value = _values[i];
             _ret.put(allocator, _key, _value) catch @panic("qabstractlistmodel.RoleNames: Memory allocation failed");
         }
         return _ret;
@@ -9689,9 +9651,7 @@ pub const qabstractlistmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -9707,9 +9667,7 @@ pub const qabstractlistmodel = struct {
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |_i| {
-            _ret[_i] = _data[_i];
-        }
+        @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
@@ -9798,7 +9756,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, signal: []const u8 ```
     pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QAbstractListModel_Receivers(@ptrCast(self), signal_Cstring);
     }
 
@@ -9810,7 +9768,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, signal: []const u8 ```
     pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = @constCast(signal.ptr);
+        const signal_Cstring = signal.ptr;
         return qtc.QAbstractListModel_QBaseReceivers(@ptrCast(self), signal_Cstring);
     }
 

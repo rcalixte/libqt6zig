@@ -169,9 +169,9 @@ class VirtualQCompleter final : public QCompleter {
             QByteArray path_b = path_ret.toUtf8();
             libqt_string path_str;
             path_str.len = path_b.length();
-            path_str.data = static_cast<char*>(malloc((path_str.len + 1) * sizeof(char)));
-            memcpy(path_str.data, path_b.data(), path_str.len);
-            path_str.data[path_str.len] = '\0';
+            path_str.data = static_cast<const char*>(malloc((path_str.len + 1) * sizeof(char)));
+            memcpy((void*)path_str.data, path_b.data(), path_str.len);
+            ((char*)path_str.data)[path_str.len] = '\0';
             libqt_string cbval1 = path_str;
 
             libqt_list /* of libqt_string */ callback_ret = qcompleter_splitpath_callback(this, cbval1);

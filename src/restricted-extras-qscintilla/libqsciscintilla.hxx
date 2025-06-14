@@ -1005,9 +1005,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray expr_b = expr_ret.toUtf8();
             libqt_string expr_str;
             expr_str.len = expr_b.length();
-            expr_str.data = static_cast<char*>(malloc((expr_str.len + 1) * sizeof(char)));
-            memcpy(expr_str.data, expr_b.data(), expr_str.len);
-            expr_str.data[expr_str.len] = '\0';
+            expr_str.data = static_cast<const char*>(malloc((expr_str.len + 1) * sizeof(char)));
+            memcpy((void*)expr_str.data, expr_b.data(), expr_str.len);
+            ((char*)expr_str.data)[expr_str.len] = '\0';
             libqt_string cbval1 = expr_str;
             bool cbval2 = re;
             bool cbval3 = cs;
@@ -1038,9 +1038,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray expr_b = expr_ret.toUtf8();
             libqt_string expr_str;
             expr_str.len = expr_b.length();
-            expr_str.data = static_cast<char*>(malloc((expr_str.len + 1) * sizeof(char)));
-            memcpy(expr_str.data, expr_b.data(), expr_str.len);
-            expr_str.data[expr_str.len] = '\0';
+            expr_str.data = static_cast<const char*>(malloc((expr_str.len + 1) * sizeof(char)));
+            memcpy((void*)expr_str.data, expr_b.data(), expr_str.len);
+            ((char*)expr_str.data)[expr_str.len] = '\0';
             libqt_string cbval1 = expr_str;
             bool cbval2 = re;
             bool cbval3 = cs;
@@ -1096,9 +1096,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray replaceStr_b = replaceStr_ret.toUtf8();
             libqt_string replaceStr_str;
             replaceStr_str.len = replaceStr_b.length();
-            replaceStr_str.data = static_cast<char*>(malloc((replaceStr_str.len + 1) * sizeof(char)));
-            memcpy(replaceStr_str.data, replaceStr_b.data(), replaceStr_str.len);
-            replaceStr_str.data[replaceStr_str.len] = '\0';
+            replaceStr_str.data = static_cast<const char*>(malloc((replaceStr_str.len + 1) * sizeof(char)));
+            memcpy((void*)replaceStr_str.data, replaceStr_b.data(), replaceStr_str.len);
+            ((char*)replaceStr_str.data)[replaceStr_str.len] = '\0';
             libqt_string cbval1 = replaceStr_str;
 
             qsciscintilla_replace_callback(this, cbval1);
@@ -1118,9 +1118,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_b.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
             qsciscintilla_append_callback(this, cbval1);
@@ -1292,9 +1292,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_b.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
             qsciscintilla_insert_callback(this, cbval1);
@@ -1314,9 +1314,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_b.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
             int cbval2 = line;
             int cbval3 = index;
@@ -1386,9 +1386,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_b.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
             qsciscintilla_replaceselectedtext_callback(this, cbval1);
@@ -1944,9 +1944,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray s_b = s_ret.toUtf8();
             libqt_string s_str;
             s_str.len = s_b.length();
-            s_str.data = static_cast<char*>(malloc((s_str.len + 1) * sizeof(char)));
-            memcpy(s_str.data, s_b.data(), s_str.len);
-            s_str.data[s_str.len] = '\0';
+            s_str.data = static_cast<const char*>(malloc((s_str.len + 1) * sizeof(char)));
+            memcpy((void*)s_str.data, s_b.data(), s_str.len);
+            ((char*)s_str.data)[s_str.len] = '\0';
             libqt_string cbval2 = s_str;
 
             qsciscintilla_setmarginwidth2_callback(this, cbval1, cbval2);
@@ -2087,9 +2087,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_b.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
             qsciscintilla_settext_callback(this, cbval1);
@@ -2330,9 +2330,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QByteArray text_qb = text;
             libqt_string text_str;
             text_str.len = text_qb.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_qb.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_qb.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
             bool cbval2 = rectangular;
 
@@ -2870,9 +2870,9 @@ class VirtualQsciScintilla final : public QsciScintilla {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<char*>(malloc((eventType_str.len + 1) * sizeof(char)));
-            memcpy(eventType_str.data, eventType_qb.data(), eventType_str.len);
-            eventType_str.data[eventType_str.len] = '\0';
+            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
+            ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
             void* cbval2 = message;
             qintptr* result_ret = result;

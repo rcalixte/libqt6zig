@@ -352,9 +352,9 @@ class VirtualQStyle final : public QStyle {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_b.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval5 = text_str;
 
             QRect* callback_ret = qstyle_itemtextrect_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
@@ -405,9 +405,9 @@ class VirtualQStyle final : public QStyle {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<char*>(malloc((text_str.len + 1) * sizeof(char)));
-            memcpy(text_str.data, text_b.data(), text_str.len);
-            text_str.data[text_str.len] = '\0';
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval6 = text_str;
             int cbval7 = static_cast<int>(textRole);
 
