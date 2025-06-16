@@ -199,19 +199,6 @@ func AllowVirtual(mm CppMethod) bool {
 }
 
 func AllowVirtualForClass(className string) bool {
-	// Allowing the subclassing of QAccessibleWidget compiles fine,
-	// but, always gives a linker error:
-	//
-	//   /usr/lib/go-1.19/pkg/tool/linux_amd64/link: running g++ failed: exit status 1
-	//   /usr/bin/ld: /tmp/go-link-1745036494/000362.o: in function `MiqtVirtualQAccessibleWidget::MiqtVirtualQAccessibleWidget(QWidget*)':
-	//   undefined reference to `vtable for MiqtVirtualQAccessibleWidget'
-	//
-	// An undefined vtable usually indicates that the virtual class is missing
-	// definitions for some virtual methods, but AFAICT we have complete coverage.
-	if className == "QAccessibleWidget" {
-		return false
-	}
-
 	if className == "QAccessibleInterface" {
 		return false
 	}
@@ -228,10 +215,6 @@ func AllowVirtualForClass(className string) bool {
 	// Pure virtual dtor (should be possible to support)
 	if className == "QObjectData" {
 		return false
-	}
-
-	if className == "QAccessibleObject" {
-		return false // undefined reference to `vtable for MiqtVirtualQAccessibleObject'
 	}
 
 	// Pure virtual method registerEventNotifier takes a QWinEventNotifier* on Windows
