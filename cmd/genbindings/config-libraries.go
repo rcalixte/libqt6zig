@@ -255,9 +255,9 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	if err != nil {
 		panic(err)
 	}
-	cmd := exec.Command("zig", "fmt", zigCLibPath)
-	cmd.Stderr = os.Stderr
-	err = cmd.Start()
+	cmdQtC := exec.Command("zig", "fmt", zigCLibPath)
+	cmdQtC.Stderr = os.Stderr
+	err = cmdQtC.Start()
 	if err != nil {
 		panic(err)
 	}
@@ -307,9 +307,9 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	if err != nil {
 		panic(err)
 	}
-	cmd = exec.Command("zig", "fmt", zigQtPath)
-	cmd.Stderr = os.Stderr
-	err = cmd.Start()
+	cmdQt6 := exec.Command("zig", "fmt", zigQtPath)
+	cmdQt6.Stderr = os.Stderr
+	err = cmdQt6.Start()
 	if err != nil {
 		panic(err)
 	}
@@ -340,6 +340,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		panic(err)
 	}
 
+	cmdQtC.Wait()
+
 	zigCLibIncludePath := filepath.Join(outDir, "include", "libqtc.zig")
 	zigCLibQtInclude, err := os.ReadFile(zigCLibPath)
 	if err != nil {
@@ -349,6 +351,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	if err != nil {
 		panic(err)
 	}
+
+	cmdQt6.Wait()
 
 	zigQtIncludePath := filepath.Join(outDir, "include", "libqt6.zig")
 	zigQtInclude, err := os.ReadFile(zigQtPath)
