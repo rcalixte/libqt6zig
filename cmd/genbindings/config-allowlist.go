@@ -9,41 +9,12 @@ func InsertTypedefs(qt6 bool) {
 	// Seed well-known typedefs
 	pp := "qt6"
 
-	// QString is deleted from this binding
-	KnownTypedefs["QStringList"] = lookupResultTypedef{pp, CppTypedef{"QStringList", parseSingleTypeString("QList<QString>")}}
-
 	// FIXME this isn't picked up automatically because QFile inherits QFileDevice and the name refers to its parent class
 	KnownTypedefs["QFile::FileTime"] = lookupResultTypedef{pp, CppTypedef{"QFile::FileTime", parseSingleTypeString("QFileDevice::FileTime")}}
 
-	// Not sure the reason for this one
-	KnownTypedefs["QSocketDescriptor::DescriptorType"] = lookupResultTypedef{pp, CppTypedef{"QSocketDescriptor::DescriptorType", parseSingleTypeString("QSocketNotifier::Type")}}
-
 	// QFile doesn't see QFileDevice parent class enum
 	KnownTypedefs["QFile::Permissions"] = lookupResultTypedef{pp, CppTypedef{"QFile::Permissions", parseSingleTypeString("QFileDevice::Permissions")}}
-	KnownTypedefs["QFileDevice::Permissions"] = lookupResultTypedef{pp, CppTypedef{"QFile::Permissions", parseSingleTypeString("QFlags<QFileDevice::Permission>")}}
 	KnownTypedefs["QIODevice::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QIODevice::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode")}}
-
-	// Enums
-
-	// Qt 6 QVariant helper types - needs investigation
-	KnownTypedefs["QVariantHash"] = lookupResultTypedef{"qt6", CppTypedef{"QVariantHash", parseSingleTypeString("QHash<QString,QVariant>")}}
-	KnownTypedefs["QVariantList"] = lookupResultTypedef{"qt6", CppTypedef{"QVariantList", parseSingleTypeString("QList<QVariant>")}}
-	KnownTypedefs["QVariantMap"] = lookupResultTypedef{"qt6", CppTypedef{"QVariantMap", parseSingleTypeString("QMap<QString,QVariant>")}}
-
-	// Qt 6 renamed the enum to LibraryPath, but left some uses of LibraryLocation with a typedef
-	// We don't find the typedef - needs investigation
-	// ONLY add this on Qt 6 builds, breaks Qt 5
-	KnownTypedefs["QLibraryInfo::LibraryLocation"] = lookupResultTypedef{"qt6", CppTypedef{"QLibraryInfo::LibraryLocation", parseSingleTypeString("QLibraryInfo::LibraryPath")}}
-
-	// Enums
-
-	// QSysInfo.h is being truncated and not finding any content
-	KnownEnums["QSysInfo::Endian"] = lookupResultEnum{"qt6", CppEnum{
-		EnumName: "QSysInfo::Endian",
-		UnderlyingType: CppParameter{
-			ParameterType: "int",
-		},
-	}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -64,26 +35,12 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"qatomic_msvc.h",
 		"qgenericatomic.h",                // Clang error
 		"qt_windows.h",                    // Clang error
-		"qcomparehelpers.h",               // Clang error new 6.4
-		"bus_interface.h",                 // Clang error new 6.4
-		"cache_adaptor.h",                 // Clang error new 6.4
-		"deviceeventcontroller_adaptor.h", // Clang error new 6.4
-		"socket_interface.h",              // Clang error new 6.4
-		"qlatin1stringview.h",             // Clang error new Qt 6.7
-		"qpermissions.h",                  // Clang error new Qt 6.7
-		"qtipccommon.h",                   // Clang error new Qt 6.7
-		"qscreen_platform.h",              // Clang error new Qt 6.7
-		"qrhiwidget.h",                    // Clang error new Qt 6.7
-		"qscreencapture.h",                // Clang error new Qt 6.7 + ParameterType == Error
-		"properties_interface.h",          // Qt 6.8 error
-		"qdirlisting.h",                   // Qt 6.8 error
-		"qatomic.h",                       // broken inheritance
-		"qtestsupport_widgets.h",          // broken inheritance
 		"qmaccocoaviewcontainer_mac.h",    // Needs NSView* headers. TODO allow with darwin build tag
 		"qmacnativewidget_mac.h",          // Needs NSView* headers. TODO allow with darwin build tag
 		"qstring.h",                       // QString does not exist in this binding
 		"qbytearray.h",                    // QByteArray does not exist in this binding
 		"qlist.h",                         // QList does not exist in this binding
+		"qspan.h",                         // QSpan does not exist in this binding
 		"qvector.h",                       // QVector does not exist in this binding
 		"qhash.h",                         // QHash does not exist in this binding
 		"qmap.h",                          // QMap does not exist in this binding
@@ -93,6 +50,16 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"q20iterator.h",                   // Qt 6 unstable header
 		"q23functional.h",                 // Qt 6 unstable header
 		"qguiapplication_platform.h",      // Qt 6 - can be built for X11 but then platform-specific code fails to build on Windows
+		"qcomparehelpers.h",               // Qt 6 - not meant to be included directly
+		"bus_interface.h",                 // Qt 6 - includes QtGui/private
+		"cache_adaptor.h",                 // Qt 6 - includes QtGui/private
+		"deviceeventcontroller_adaptor.h", // Qt 6 - includes QtGui/private
+		"properties_interface.h",          // Qt 6 - includes QtGui/private
+		"socket_interface.h",              // Qt 6 - includes QtGui/private
+		"qatomic.h",                       // Qt 6 - broken inheritance QAtomicInt => QAtomicInteger
+		"qrhiwidget.h",                    // Qt 6 - broken QRhi* types, granular blocking might be fine
+		"qscreen_platform.h",              // Qt 6 - returns Wayland-specific wl_output type external to this library, a manual typedef does not work
+		"qtestsupport_widgets.h",          // Qt 6 - broken QTest types unneeded for this library
 		"____last____":
 		return false
 	}
@@ -126,6 +93,9 @@ func ImportHeaderForClass(className string) bool {
 		"QVLABaseBase",          // e.g. Qt 6 qvarlengtharray.h
 		"QAdoptSharedDataTag",   // Qt 6 qshareddata.h
 		"QFormDataPartBuilder",  // Qt 6.8 qformdatabuilder.h
+		"QGenericRunnable",      // Qt 6.8 qrunnable.h
+		"QCameraPermission",     // Qt 6.8 qpermissions.h
+		"QMicrophonePermission", // Qt 6.8 qpermissions.h
 		"____last____":
 		return false
 	}
@@ -143,28 +113,28 @@ func AllowClass(className string) bool {
 		return false
 	}
 
+	if strings.HasSuffix(className, "iterator") || strings.HasSuffix(className, "Iterator") {
+		return false
+	}
+
 	if strings.HasPrefix(className, `std::`) && !strings.HasPrefix(className, `std::pair`) {
 		return false // Scintilla bindings find some of these
 	}
 
 	switch className {
 	case
-		"QTextStreamManipulator", // Only seems to contain garbage methods
-		"QException",             // Extends std::exception, too hard
-		"QUnhandledException",    // As above (child class)
-		// "QItemSelection",             // Extends a QList<>, too hard
-		"QXmlStreamAttributes",       // Extends a QList<>, too hard
+		"QTextStreamManipulator",     // Only seems to contain garbage methods
+		"QException",                 // Extends std::exception, too hard
+		"QGenericRunnable",           // Qt 6, Unavailable class header in Qt 6.8
+		"QUnhandledException",        // As above (child class)
 		"QPolygon",                   // Extends a QVector<QPoint> template class, too hard
 		"QPolygonF",                  // Extends a QVector<QPoint> template class, too hard
-		"QAssociativeIterator",       // Qt 6. Extends a QIterator<>, too hard
-		"QAssociativeConstIterator",  // Qt 6. Extends a QIterator<>, too hard
 		"QAssociativeIterable",       // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialIterator",        // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialConstIterator",   // Qt 6. Extends a QIterator<>, too hard
 		"QSequentialIterable",        // Qt 6. Extends a QIterator<>, too hard
 		"QBrushDataPointerDeleter",   // Qt 6 qbrush.h. Appears in header but cannot be linked
 		"QPropertyBindingPrivatePtr", // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
 		"QDeferredDeleteEvent",       // Qt 6. Hidden/undocumented class in Qt 6.4, moved to private header in Qt 6.7. Intended for test use only
+		"QVariantConstPointer",       // Qt 6, possible to bind but yields little value
 
 		"QUntypedPropertyData::InheritsQUntypedPropertyData", // qpropertyprivate.h . Hidden/undocumented class in Qt 6.4, removed in 6.7
 		"____last____":
@@ -219,7 +189,7 @@ func AllowVirtualForClass(className string) bool {
 
 	// Pure virtual method registerEventNotifier takes a QWinEventNotifier* on Windows
 	// which is platform-specific
-	if className == "QAbstractEventDispatcher" {
+	if strings.HasPrefix(className, "QAbstractEventDispatcher") {
 		return false
 	}
 
@@ -232,6 +202,9 @@ func AllowVirtualForClass(className string) bool {
 	}
 
 	if className == "QFileDevice" {
+		return false
+	}
+	if className == "QImageIOPlugin" {
 		return false
 	}
 	if className == "QNetworkReply" {
@@ -275,6 +248,7 @@ func AllowVirtualForClass(className string) bool {
 	if className == "QXYModelMapper" {
 		return false
 	}
+
 	return true
 }
 
@@ -283,7 +257,20 @@ func AllowMethod(className string, mm CppMethod) error {
 		if strings.HasSuffix(p.ParameterType, "Private") {
 			return ErrTooComplex // Skip private type
 		}
+
+		if p.ParameterType == "Duration" {
+			return ErrTooComplex // Skip std::chrono alias
+		}
+
+		if p.ParameterType == "..." {
+			return ErrTooComplex // Skip variadic parameter
+		}
 	}
+
+	if mm.ReturnType.ParameterType == "Duration" {
+		return ErrTooComplex // Skip std::chrono alias
+	}
+
 	if strings.HasSuffix(mm.ReturnType.ParameterType, "Private") {
 		return ErrTooComplex // Skip private type
 	}
@@ -339,6 +326,17 @@ func AllowMethod(className string, mm CppMethod) error {
 
 	if className == "QChronoTimer" && mm.MethodName == "id" {
 		// Present in Qt 6.8 but the return type is not properly handled yet
+		return ErrTooComplex
+	}
+
+	if className == "QTransform" && mm.MethodName == "asAffineMatrix" {
+		// Qt 6.8: Skip this method, the return type is not properly handled yet
+		return ErrTooComplex
+	}
+
+	if className == "QWebEnginePage" && mm.MethodName == "setFeaturePermission" {
+		// Qt 6.8: Skip this method, a parameter type is not properly handled yet
+		// and the function does not appear in the Qt documentation
 		return ErrTooComplex
 	}
 
@@ -472,20 +470,13 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		// std::exception             Scintilla
 		return ErrTooComplex
 	}
-	if strings.Contains(p.ParameterType, `Iterator::value_type`) {
-		return ErrTooComplex // e.g. qcbormap
-	}
-	if strings.Contains(p.ParameterType, `>::iterator`) ||
-		strings.Contains(p.ParameterType, `>::const_iterator`) ||
-		strings.Contains(p.ParameterType, `>::reverse_iterator`) {
-		// qresultstore.h tries to create a
-		// NewQtPrivate__ResultIteratorBase2(_mapIterator QMap<int, ResultItem>__const_iterator)
-		return ErrTooComplex
+	if p.ParameterType == "QVersionNumber::It" {
+		return ErrTooComplex // e.g. Qt 6.8 qversionnumber.h
 	}
 	if strings.Contains(p.ParameterType, `::QPrivate`) {
 		return ErrTooComplex // e.g. QAbstractItemModel::QPrivateSignal
 	}
-	if strings.Contains(p.GetQtCppType().ParameterType, `::DataPtr`) {
+	if strings.Contains(p.GetQtCppType().ParameterType, `DataPtr`) {
 		return ErrTooComplex // e.g. QImage::data_ptr()
 	}
 	if strings.Contains(p.ParameterType, `::DataPointer`) {
@@ -497,7 +488,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 
 	// Some QFoo constructors take a QFooPrivate
 	// QIcon also returns a QIconPrivate
-	if p.ParameterType[0] == 'Q' && strings.HasSuffix(p.ParameterType, "Private") {
+	if len(p.ParameterType) > 0 && p.ParameterType[0] == 'Q' && strings.HasSuffix(p.ParameterType, "Private") {
 		return ErrTooComplex
 	}
 	if strings.HasPrefix(p.ParameterType, "QtPrivate::") {
@@ -559,7 +550,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QXmlStreamEntityDeclarations",    // e.g. qxmlstream.h. The class definition was blacklisted for ???? reason so don't allow it as a parameter either
 		"QXmlStreamNamespaceDeclarations", // e.g. qxmlstream.h. As above
 		"QXmlStreamNotationDeclarations",  // e.g. qxmlstream.h. As above
-		"QXmlStreamAttributes",            // e.g. qxmlstream.h
 		"LineLayout::ValidLevel",          // ..
 		"QtMsgType",                       // e.g. qdebug.h TODO Defined in qlogging.h, but omitted because it's predefined in qglobal.h, and our clangexec is too aggressive
 		"QTextStreamFunction",             // e.g. qdebug.h
@@ -612,20 +602,7 @@ func LinuxWindowsCompatCheck(p CppParameter) bool {
 }
 
 func ApplyQuirks(className string, mm *CppMethod) {
-	if className == "QArrayData" && mm.MethodName == "needsDetach" && mm.IsConst {
-		mm.BecomesNonConstInVersion = addr("6.7")
-	}
-
 	if className == "QObjectData" && mm.MethodName == "dynamicMetaObject" {
 		mm.ReturnType.BecomesConstInVersion = addr("6.9")
-	}
-
-	if className == "QFileDialog" && mm.MethodName == "saveFileContent" && mm.IsStatic {
-		// The prototype was changed from
-		// [Qt 5 - 6.6] void QFileDialog::saveFileContent(const QByteArray &fileContent, const QString &fileNameHint = QString())
-		// [Qt 6.7]     void QFileDialog::saveFileContent(const QByteArray &fileContent, const QString &fileNameHint, QWidget *parent = nullptr)
-		// The 2nd parameter is no longer optional
-		// As a compromise, make it non-optional everywhere
-		mm.Parameters[1].Optional = false
 	}
 }
