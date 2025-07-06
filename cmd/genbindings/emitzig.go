@@ -26,7 +26,7 @@ func getPageName(c string) string {
 	if pageName == "qnamespace" {
 		return "qt"
 	}
-	pageName = strings.Replace(pageName, "__", "-", -1)
+	pageName = strings.ReplaceAll(pageName, "__", "-")
 	return pageName
 }
 
@@ -72,7 +72,7 @@ func cabiEnumName(className string) string {
 	// where these names don't collide with anything, we strip the redundant prefix
 	name := strings.Split(className, `::`)
 	enumName := name[len(name)-1]
-	return strings.Replace(enumName, `::`, `__`, -1)
+	return strings.ReplaceAll(enumName, `::`, `__`)
 }
 
 func (p CppParameter) needsPointer(paramType string) bool {
@@ -139,6 +139,13 @@ func enumClassToZig(enumClass, enumName, fileName string) string {
 	if enumClass == "qcontextmenuevent" || enumClass == "qinputmethodevent" ||
 		enumClass == "qplatformsurfaceevent" || enumClass == "qscrollevent" {
 		return "qevent"
+	}
+
+	if enumClass == "qnativeipckey" {
+		return "qtipccommon"
+	}
+	if enumClass == "qcalendarpermission" || enumClass == "qcontactspermission" || enumClass == "qlocationpermission" {
+		return "qpermissions"
 	}
 
 	return enumClass
@@ -211,7 +218,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType bool, fullEn
 	switch p.ParameterType {
 	case "bool":
 		ret += "bool"
-	case "unsigned char", "uchar", "quint8":
+	case "unsigned char", "uchar", "quint8", "uint8_t":
 		// Zig byte is unsigned
 		ret += "u8"
 	case "char", "qint8", "signed char":
@@ -450,7 +457,7 @@ func (p CppParameter) parameterTypeZig() string {
 		return "?*anyopaque"
 	}
 
-	tmp := strings.Replace(p.RenderTypeCabi(), `*`, "", -1)
+	tmp := strings.ReplaceAll(p.RenderTypeCabi(), `*`, "")
 
 	switch tmp {
 	case "char":
@@ -821,7 +828,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		arrType := t.RenderTypeZig(zfs, true, true)
 
-		if IsKnownClass(t.ParameterType) || t.IntType() {
+		if IsKnownClass(t.ParameterType) || IsKnownTypeDef(t.ParameterType) || t.IntType() {
 			if t.needsPointer(arrType) {
 				arrType = "QtC." + arrType
 			}
@@ -1027,7 +1034,7 @@ func collectInheritedMethodsForZig(class string, seenMethods map[string]struct{}
 				// Create a copy of the method to avoid modifying the original
 				methodCopy := m
 				// Apply typedefs to ensure proper type resolution
-				applyTypedefs_Method(&methodCopy)
+				applyTypedefs_Method(&methodCopy, pkg.Class.ClassName)
 				if err := blocklist_MethodAllowed(&methodCopy); err != nil {
 					continue
 				}
@@ -1067,7 +1074,7 @@ func collectInheritedPrivateSignals(class string, seenSignals map[string]struct{
 				// Create a copy of the method to avoid modifying the original
 				methodCopy := m
 				// Apply typedefs to ensure proper type resolution
-				applyTypedefs_Method(&methodCopy)
+				applyTypedefs_Method(&methodCopy, pkg.Class.ClassName)
 				if err := blocklist_MethodAllowed(&methodCopy); err != nil {
 					continue
 				}
@@ -1162,9 +1169,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 	}
 
 	for _, c := range src.Classes {
-		if c.ClassName == "QWebEngineCookieStore::FilterRequest" {
-			continue
-		}
 		virtualMethods := c.VirtualMethods()
 		zigStructName := cabiClassName(c.ClassName)
 		zfs.currentClassName = c.ClassName
@@ -1210,7 +1214,7 @@ pub const ` + zigStruct + ` = struct {`)
 				zfs.imports["builtin"] = struct{}{}
 
 				backticks := ifv(len(ctor.Parameters) > 0 || allocatorParam != "", "```", "")
-				commaParams := ifv(len(ctor.Parameters) > 0, ", ", "")
+				commaParams := ifv(len(ctor.Parameters) > 1, ", ", "")
 				allocComma := ifv(allocatorParam != "", ", ", "")
 
 				ret.WriteString(`
@@ -1226,6 +1230,7 @@ pub const ` + zigStruct + ` = struct {`)
             else => @panic("Unsupported operating system"),
         }
     }
+
 `)
 			} else {
 				maybeMoveCtor := ifv(ctor.IsMoveCtor, " object and invalidates the source "+c.ClassName, "")
@@ -1755,6 +1760,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 		ret.WriteString(maybeUrl + "\npub const enums = struct {\n")
 		closeEnums = true
 	}
+	seenEnums := map[string]struct{}{}
 	for _, e := range src.Enums {
 		if e.EnumName == "" {
 			continue // Removed by transformRedundant AST pass
@@ -1770,6 +1776,11 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 		zigEnumName = strings.TrimSuffix(zigEnumName, `__`)
 
 		if len(e.Entries) > 0 {
+			if _, ok := seenEnums[zigEnumName]; !ok {
+				seenEnums[zigEnumName] = struct{}{}
+			} else {
+				continue
+			}
 			ret.WriteString(`    pub const ` + zigEnumName + ` = enum {
 `)
 
@@ -1800,6 +1811,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 	if len(zfs.imports) > 0 {
 		allImports := make([]string, 0, len(zfs.imports))
 		structDef := make([]string, 0, len(zfs.imports))
+		seenEnumClasses := map[string]struct{}{}
 		for k := range zfs.imports {
 			if k == "std" {
 				allImports = append(allImports, `const std = @import("std");`)
@@ -1847,12 +1859,16 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 					enumPrefix = "../printsupport/"
 				}
 				// hacks
-				if enumClass == "qsysinfo" || enumClass == "qstringconverter" {
+				if enumClass == "qstringconverter" || enumClass == "qdnstlsassociationrecord" {
 					continue
 				}
 				if enumClass == "qcborstreamwriter" {
 					enumClass = "qcborcommon"
 				}
+				if _, ok := seenEnumClasses[enumClass]; ok {
+					continue
+				}
+				seenEnumClasses[enumClass] = struct{}{}
 				if enumClass == zfs.currentHeaderName {
 					allImports = append(allImports, `const `+enumClass+`_enums = enums;`)
 				} else {
@@ -1869,10 +1885,10 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 		sort.Strings(allImports)
 		sort.Strings(structDef)
 		zigSrc = strings.Replace(zigSrc, `%%_IMPORTLIBS_%%`, "\n"+strings.Join(allImports, "\n"), 1)
-		zigSrc = strings.Replace(zigSrc, `%%_STRUCTDEFS_%%`, "\n"+strings.Join(structDef, "\n")+"\n", -1)
+		zigSrc = strings.ReplaceAll(zigSrc, `%%_STRUCTDEFS_%%`, "\n"+strings.Join(structDef, "\n")+"\n")
 	} else {
 		zigSrc = strings.Replace(zigSrc, `%%_IMPORTLIBS_%%`, "", 1)
-		zigSrc = strings.Replace(zigSrc, `%%_STRUCTDEFS_%%`, "", -1)
+		zigSrc = strings.ReplaceAll(zigSrc, `%%_STRUCTDEFS_%%`, "")
 	}
 
 	return string(zigSrc), zigIncs, nil
