@@ -136,6 +136,11 @@ func IsKnownClass(className string) bool {
 	return ok
 }
 
+func IsKnownTypeDef(className string) bool {
+	_, ok := KnownTypedefs[className]
+	return ok
+}
+
 func (p CppParameter) QListOf() (CppParameter, bool) {
 	if strings.HasPrefix(p.ParameterType, "QList<") && strings.HasSuffix(p.ParameterType, `>`) {
 		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
@@ -146,6 +151,12 @@ func (p CppParameter) QListOf() (CppParameter, bool) {
 	if strings.HasPrefix(p.ParameterType, "QVector<") && strings.HasSuffix(p.ParameterType, `>`) {
 		ret := parseSingleTypeString(p.ParameterType[8 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_vv"
+		return ret, true
+	}
+
+	if strings.HasPrefix(p.ParameterType, "QSpan<") && strings.HasSuffix(p.ParameterType, `>`) {
+		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
+		ret.ParameterName = p.ParameterName + "_sv"
 		return ret, true
 	}
 
@@ -453,6 +464,7 @@ type CppClass struct {
 	Abstract             bool
 	Ctors                []CppMethod // only use the parameters
 	DirectInherits       []string    // other class names. This only includes direct inheritance - use AllInheritsClassInfo() to find recursive inheritance
+	IncludedClasses      []string    // Classes included by this class
 	Methods              []CppMethod
 	Props                []CppProperty
 	CanDelete            bool
@@ -521,7 +533,7 @@ func (c *CppClass) VirtualMethods() []CppMethod {
 
 			// The class info we loaded has not had all typedefs applied to it
 			// m is copied by value. Mutate it
-			applyTypedefs_Method(&m)
+			applyTypedefs_Method(&m, cinfo.Class.ClassName)
 			// Same with astTransformBlocklist
 			if err := blocklist_MethodAllowed(&m); err != nil {
 				log.Printf("Blocking method %q(%v): %s", m.MethodName, m.Parameters, err)
@@ -602,7 +614,7 @@ func (c *CppClass) ProtectedMethods() []CppMethod {
 
 			// The class info we loaded has not had all typedefs applied to it
 			// m is copied by value. Mutate it
-			applyTypedefs_Method(&m)
+			applyTypedefs_Method(&m, cinfo.Class.ClassName)
 			// Same with astTransformBlocklist
 			if err := blocklist_MethodAllowed(&m); err != nil {
 				log.Printf("Blocking method %q(%v): %s", m.MethodName, m.Parameters, err)
@@ -637,9 +649,7 @@ func (c *CppClass) AllInheritsClassInfo() []lookupResultClass {
 		ret = append(ret, baseClassInfo)
 
 		recurseInfo := baseClassInfo.Class.AllInheritsClassInfo()
-		for _, childClass := range recurseInfo {
-			ret = append(ret, childClass)
-		}
+		ret = append(ret, recurseInfo...)
 	}
 
 	return ret
