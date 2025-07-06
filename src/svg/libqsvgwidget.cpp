@@ -110,6 +110,14 @@ QSvgRenderer* QSvgWidget_Renderer(const QSvgWidget* self) {
     return self->renderer();
 }
 
+int QSvgWidget_Options(const QSvgWidget* self) {
+    return static_cast<int>(self->options());
+}
+
+void QSvgWidget_SetOptions(QSvgWidget* self, int options) {
+    self->setOptions(static_cast<QtSvg::Options>(options));
+}
+
 void QSvgWidget_Load(QSvgWidget* self, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     self->load(file_QString);
@@ -1767,6 +1775,35 @@ void QSvgWidget_OnIsSignalConnected(const QSvgWidget* self, intptr_t slot) {
     auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
     if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
         vqsvgwidget->setQSvgWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QSvgWidget_GetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB) {
+    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        return vqsvgwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSvgWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QSvgWidget_QBaseGetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB) {
+    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_GetDecodedMetricF_IsBase(true);
+        return vqsvgwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSvgWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSvgWidget_OnGetDecodedMetricF(const QSvgWidget* self, intptr_t slot) {
+    auto* vqsvgwidget = const_cast<VirtualQSvgWidget*>(dynamic_cast<const VirtualQSvgWidget*>(self));
+    if (vqsvgwidget && vqsvgwidget->isVirtualQSvgWidget) {
+        vqsvgwidget->setQSvgWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSvgWidget::QSvgWidget_GetDecodedMetricF_Callback>(slot));
     }
 }
 

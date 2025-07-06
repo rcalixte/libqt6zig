@@ -45,20 +45,6 @@ pub const qurlquery = struct {
         qtc.QUrlQuery_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#operator==)
-    ///
-    /// ``` self: QtC.QUrlQuery, other: QtC.QUrlQuery ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QUrlQuery_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#operator!=)
-    ///
-    /// ``` self: QtC.QUrlQuery, other: QtC.QUrlQuery ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QUrlQuery_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#swap)
     ///
     /// ``` self: QtC.QUrlQuery, other: QtC.QUrlQuery ```

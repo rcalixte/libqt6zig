@@ -16,6 +16,9 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QAnyStringView QAnyStringView;
+typedef struct QByteArrayView QByteArrayView;
+typedef struct QHttpHeaders QHttpHeaders;
 typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
 typedef struct QMetaMethod QMetaMethod;
@@ -29,14 +32,6 @@ typedef struct QSslError QSslError;
 typedef struct QSslPreSharedKeyAuthenticator QSslPreSharedKeyAuthenticator;
 typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
-#endif
-
-#ifdef __cplusplus
-typedef QNetworkReply::NetworkError NetworkError;   // C++ enum
-typedef QNetworkReply::RawHeaderPair RawHeaderPair; // C++ QFlags
-#else
-typedef int NetworkError;                                                      // C ABI enum
-typedef libqt_pair /* tuple of libqt_string and libqt_string */ RawHeaderPair; // C ABI QFlags
 #endif
 
 QMetaObject* QNetworkReply_MetaObject(const QNetworkReply* self);
@@ -55,10 +50,11 @@ bool QNetworkReply_IsFinished(const QNetworkReply* self);
 bool QNetworkReply_IsRunning(const QNetworkReply* self);
 QUrl* QNetworkReply_Url(const QNetworkReply* self);
 QVariant* QNetworkReply_Header(const QNetworkReply* self, int header);
-bool QNetworkReply_HasRawHeader(const QNetworkReply* self, const libqt_string headerName);
+bool QNetworkReply_HasRawHeader(const QNetworkReply* self, libqt_string headerName);
 libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply* self);
-libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, const libqt_string headerName);
+libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, libqt_string headerName);
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkReply_RawHeaderPairs(const QNetworkReply* self);
+QHttpHeaders* QNetworkReply_Headers(const QNetworkReply* self);
 QVariant* QNetworkReply_Attribute(const QNetworkReply* self, int code);
 QSslConfiguration* QNetworkReply_SslConfiguration(const QNetworkReply* self);
 void QNetworkReply_SetSslConfiguration(QNetworkReply* self, const QSslConfiguration* configuration);

@@ -123,12 +123,12 @@ void QIcon_AddFile(QIcon* self, const libqt_string fileName) {
 libqt_list /* of QSize* */ QIcon_AvailableSizes(const QIcon* self) {
     QList<QSize> _ret = self->availableSizes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSize(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -156,11 +156,23 @@ bool QIcon_HasThemeIcon(const libqt_string name) {
     return QIcon::hasThemeIcon(name_QString);
 }
 
+QIcon* QIcon_FromThemeWithIcon(int icon) {
+    return new QIcon(QIcon::fromTheme(static_cast<QIcon::ThemeIcon>(icon)));
+}
+
+QIcon* QIcon_FromTheme3(int icon, const QIcon* fallback) {
+    return new QIcon(QIcon::fromTheme(static_cast<QIcon::ThemeIcon>(icon), *fallback));
+}
+
+bool QIcon_HasThemeIconWithIcon(int icon) {
+    return QIcon::hasThemeIcon(static_cast<QIcon::ThemeIcon>(icon));
+}
+
 libqt_list /* of libqt_string */ QIcon_ThemeSearchPaths() {
-    QStringList _ret = QIcon::themeSearchPaths();
+    QList<QString> _ret = QIcon::themeSearchPaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -172,13 +184,13 @@ libqt_list /* of libqt_string */ QIcon_ThemeSearchPaths() {
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 void QIcon_SetThemeSearchPaths(const libqt_list /* of libqt_string */ searchpath) {
-    QStringList searchpath_QList;
+    QList<QString> searchpath_QList;
     searchpath_QList.reserve(searchpath.len);
     libqt_string* searchpath_arr = static_cast<libqt_string*>(searchpath.data);
     for (size_t i = 0; i < searchpath.len; ++i) {
@@ -189,10 +201,10 @@ void QIcon_SetThemeSearchPaths(const libqt_list /* of libqt_string */ searchpath
 }
 
 libqt_list /* of libqt_string */ QIcon_FallbackSearchPaths() {
-    QStringList _ret = QIcon::fallbackSearchPaths();
+    QList<QString> _ret = QIcon::fallbackSearchPaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -204,13 +216,13 @@ libqt_list /* of libqt_string */ QIcon_FallbackSearchPaths() {
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 void QIcon_SetFallbackSearchPaths(const libqt_list /* of libqt_string */ paths) {
-    QStringList paths_QList;
+    QList<QString> paths_QList;
     paths_QList.reserve(paths.len);
     libqt_string* paths_arr = static_cast<libqt_string*>(paths.data);
     for (size_t i = 0; i < paths.len; ++i) {
@@ -360,12 +372,12 @@ void QIcon_AddFile4(QIcon* self, const libqt_string fileName, const QSize* size,
 libqt_list /* of QSize* */ QIcon_AvailableSizes1(const QIcon* self, int mode) {
     QList<QSize> _ret = self->availableSizes(static_cast<QIcon::Mode>(mode));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSize(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -373,12 +385,12 @@ libqt_list /* of QSize* */ QIcon_AvailableSizes1(const QIcon* self, int mode) {
 libqt_list /* of QSize* */ QIcon_AvailableSizes2(const QIcon* self, int mode, int state) {
     QList<QSize> _ret = self->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSize(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

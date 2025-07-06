@@ -2026,6 +2026,35 @@ void QLabel_OnIsSignalConnected(const QLabel* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QLabel_GetDecodedMetricF(const QLabel* self, int metricA, int metricB) {
+    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        return vqlabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QLabel_QBaseGetDecodedMetricF(const QLabel* self, int metricA, int metricB) {
+    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        vqlabel->setQLabel_GetDecodedMetricF_IsBase(true);
+        return vqlabel->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQLabel*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLabel_OnGetDecodedMetricF(const QLabel* self, intptr_t slot) {
+    auto* vqlabel = const_cast<VirtualQLabel*>(dynamic_cast<const VirtualQLabel*>(self));
+    if (vqlabel && vqlabel->isVirtualQLabel) {
+        vqlabel->setQLabel_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQLabel::QLabel_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QLabel_Delete(QLabel* self) {
     delete self;
 }

@@ -118,8 +118,8 @@ class VirtualQBuffer final : public QBuffer {
     mutable bool qbuffer_issignalconnected_isbase = false;
 
   public:
-    VirtualQBuffer() : QBuffer(){};
-    VirtualQBuffer(QObject* parent) : QBuffer(parent){};
+    VirtualQBuffer() : QBuffer() {};
+    VirtualQBuffer(QObject* parent) : QBuffer(parent) {};
 
     ~VirtualQBuffer() {
         qbuffer_metacall_callback = nullptr;
@@ -239,7 +239,7 @@ class VirtualQBuffer final : public QBuffer {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool open(QIODeviceBase::OpenMode openMode) override {
+    virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> openMode) override {
         if (qbuffer_open_isbase) {
             qbuffer_open_isbase = false;
             return QBuffer::open(openMode);

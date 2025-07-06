@@ -21,16 +21,6 @@ typedef struct QRect QRect;
 typedef struct QSize QSize;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfDocumentRenderOptions::RenderFlag RenderFlag;   // C++ enum
-typedef QPdfDocumentRenderOptions::RenderFlags RenderFlags; // C++ QFlags
-typedef QPdfDocumentRenderOptions::Rotation Rotation;       // C++ enum
-#else
-typedef int RenderFlag;  // C ABI enum
-typedef int RenderFlags; // C ABI QFlags
-typedef int Rotation;    // C ABI enum
-#endif
-
 QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new(const QPdfDocumentRenderOptions* other);
 QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new2(QPdfDocumentRenderOptions* other);
 QPdfDocumentRenderOptions* QPdfDocumentRenderOptions_new3();

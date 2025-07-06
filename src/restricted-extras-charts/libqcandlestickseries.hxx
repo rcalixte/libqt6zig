@@ -64,8 +64,8 @@ class VirtualQCandlestickSeries final : public QCandlestickSeries {
     mutable bool qcandlestickseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQCandlestickSeries() : QCandlestickSeries(){};
-    VirtualQCandlestickSeries(QObject* parent) : QCandlestickSeries(parent){};
+    VirtualQCandlestickSeries() : QCandlestickSeries() {};
+    VirtualQCandlestickSeries(QObject* parent) : QCandlestickSeries(parent) {};
 
     ~VirtualQCandlestickSeries() {
         qcandlestickseries_metacall_callback = nullptr;

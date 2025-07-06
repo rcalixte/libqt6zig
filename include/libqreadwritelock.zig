@@ -27,16 +27,16 @@ pub const qreadwritelock = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
     ///
-    /// ``` self: QtC.QReadWriteLock ```
-    pub fn TryLockForRead(self: ?*anyopaque) bool {
-        return qtc.QReadWriteLock_TryLockForRead(@ptrCast(self));
+    /// ``` self: QtC.QReadWriteLock, timeout: i32 ```
+    pub fn TryLockForRead(self: ?*anyopaque, timeout: i32) bool {
+        return qtc.QReadWriteLock_TryLockForRead(@ptrCast(self), @intCast(timeout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
     ///
-    /// ``` self: QtC.QReadWriteLock, timeout: i32 ```
-    pub fn TryLockForReadWithTimeout(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QReadWriteLock_TryLockForReadWithTimeout(@ptrCast(self), @intCast(timeout));
+    /// ``` self: QtC.QReadWriteLock ```
+    pub fn TryLockForRead2(self: ?*anyopaque) bool {
+        return qtc.QReadWriteLock_TryLockForRead2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#lockForWrite)
@@ -48,16 +48,16 @@ pub const qreadwritelock = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
     ///
-    /// ``` self: QtC.QReadWriteLock ```
-    pub fn TryLockForWrite(self: ?*anyopaque) bool {
-        return qtc.QReadWriteLock_TryLockForWrite(@ptrCast(self));
+    /// ``` self: QtC.QReadWriteLock, timeout: i32 ```
+    pub fn TryLockForWrite(self: ?*anyopaque, timeout: i32) bool {
+        return qtc.QReadWriteLock_TryLockForWrite(@ptrCast(self), @intCast(timeout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
     ///
-    /// ``` self: QtC.QReadWriteLock, timeout: i32 ```
-    pub fn TryLockForWriteWithTimeout(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QReadWriteLock_TryLockForWriteWithTimeout(@ptrCast(self), @intCast(timeout));
+    /// ``` self: QtC.QReadWriteLock ```
+    pub fn TryLockForWrite2(self: ?*anyopaque) bool {
+        return qtc.QReadWriteLock_TryLockForWrite2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#unlock)
@@ -65,6 +65,20 @@ pub const qreadwritelock = struct {
     /// ``` self: QtC.QReadWriteLock ```
     pub fn Unlock(self: ?*anyopaque) void {
         qtc.QReadWriteLock_Unlock(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForRead)
+    ///
+    /// ``` self: QtC.QReadWriteLock, timeout: QtC.QDeadlineTimer ```
+    pub fn TryLockForRead1(self: ?*anyopaque, timeout: QtC.QDeadlineTimer) bool {
+        return qtc.QReadWriteLock_TryLockForRead1(@ptrCast(self), @ptrCast(timeout));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#tryLockForWrite)
+    ///
+    /// ``` self: QtC.QReadWriteLock, timeout: QtC.QDeadlineTimer ```
+    pub fn TryLockForWrite1(self: ?*anyopaque, timeout: QtC.QDeadlineTimer) bool {
+        return qtc.QReadWriteLock_TryLockForWrite1(@ptrCast(self), @ptrCast(timeout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qreadwritelock.html#dtor.QReadWriteLock)

@@ -31,28 +31,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractSocket::BindFlag BindFlag;                         // C++ enum
-typedef QAbstractSocket::BindMode BindMode;                         // C++ QFlags
-typedef QAbstractSocket::NetworkLayerProtocol NetworkLayerProtocol; // C++ enum
-typedef QAbstractSocket::PauseMode PauseMode;                       // C++ enum
-typedef QAbstractSocket::PauseModes PauseModes;                     // C++ QFlags
-typedef QAbstractSocket::SocketError SocketError;                   // C++ enum
-typedef QAbstractSocket::SocketOption SocketOption;                 // C++ enum
-typedef QAbstractSocket::SocketState SocketState;                   // C++ enum
-typedef QAbstractSocket::SocketType SocketType;                     // C++ enum
-#else
-typedef int BindFlag;             // C ABI enum
-typedef int BindMode;             // C ABI QFlags
-typedef int NetworkLayerProtocol; // C ABI enum
-typedef int PauseMode;            // C ABI enum
-typedef int PauseModes;           // C ABI QFlags
-typedef int SocketError;          // C ABI enum
-typedef int SocketOption;         // C ABI enum
-typedef int SocketState;          // C ABI enum
-typedef int SocketType;           // C ABI enum
-#endif
-
 QAbstractSocket* QAbstractSocket_new(int socketType, QObject* parent);
 QMetaObject* QAbstractSocket_MetaObject(const QAbstractSocket* self);
 void* QAbstractSocket_Metacast(QAbstractSocket* self, const char* param1);

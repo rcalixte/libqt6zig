@@ -31,7 +31,7 @@ class VirtualQEvent final : public QEvent {
     mutable bool qevent_clone_isbase = false;
 
   public:
-    VirtualQEvent(QEvent::Type typeVal) : QEvent(typeVal){};
+    VirtualQEvent(QEvent::Type typeVal) : QEvent(typeVal) {};
 
     ~VirtualQEvent() {
         qevent_setaccepted_callback = nullptr;
@@ -95,7 +95,8 @@ class VirtualQTimerEvent final : public QTimerEvent {
     mutable bool qtimerevent_setaccepted_isbase = false;
 
   public:
-    VirtualQTimerEvent(int timerId) : QTimerEvent(timerId){};
+    VirtualQTimerEvent(int timerId) : QTimerEvent(timerId) {};
+    VirtualQTimerEvent(Qt::TimerId timerId) : QTimerEvent(timerId) {};
 
     ~VirtualQTimerEvent() {
         qtimerevent_clone_callback = nullptr;
@@ -159,7 +160,7 @@ class VirtualQChildEvent final : public QChildEvent {
     mutable bool qchildevent_setaccepted_isbase = false;
 
   public:
-    VirtualQChildEvent(QEvent::Type typeVal, QObject* child) : QChildEvent(typeVal, child){};
+    VirtualQChildEvent(QEvent::Type typeVal, QObject* child) : QChildEvent(typeVal, child) {};
 
     ~VirtualQChildEvent() {
         qchildevent_clone_callback = nullptr;
@@ -223,7 +224,7 @@ class VirtualQDynamicPropertyChangeEvent final : public QDynamicPropertyChangeEv
     mutable bool qdynamicpropertychangeevent_setaccepted_isbase = false;
 
   public:
-    VirtualQDynamicPropertyChangeEvent(const QByteArray& name) : QDynamicPropertyChangeEvent(name){};
+    VirtualQDynamicPropertyChangeEvent(const QByteArray& name) : QDynamicPropertyChangeEvent(name) {};
 
     ~VirtualQDynamicPropertyChangeEvent() {
         qdynamicpropertychangeevent_clone_callback = nullptr;

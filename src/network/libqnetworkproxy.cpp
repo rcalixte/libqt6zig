@@ -1,4 +1,5 @@
 #include <QByteArray>
+#include <QHttpHeaders>
 #include <QList>
 #include <QNetworkProxy>
 #include <QNetworkProxyFactory>
@@ -205,7 +206,7 @@ int QNetworkProxy_Type(const QNetworkProxy* self) {
 }
 
 void QNetworkProxy_SetCapabilities(QNetworkProxy* self, int capab) {
-    self->setCapabilities(static_cast<QNetworkProxy::Capabilities>(capab));
+    self->setCapabilities(static_cast<QFlags<QNetworkProxy::Capability>>(capab));
 }
 
 int QNetworkProxy_Capabilities(const QNetworkProxy* self) {
@@ -287,6 +288,14 @@ QNetworkProxy* QNetworkProxy_ApplicationProxy() {
     return new QNetworkProxy(QNetworkProxy::applicationProxy());
 }
 
+QHttpHeaders* QNetworkProxy_Headers(const QNetworkProxy* self) {
+    return new QHttpHeaders(self->headers());
+}
+
+void QNetworkProxy_SetHeaders(QNetworkProxy* self, const QHttpHeaders* newHeaders) {
+    self->setHeaders(*newHeaders);
+}
+
 QVariant* QNetworkProxy_Header(const QNetworkProxy* self, int header) {
     return new QVariant(self->header(static_cast<QNetworkRequest::KnownHeaders>(header)));
 }
@@ -303,8 +312,8 @@ bool QNetworkProxy_HasRawHeader(const QNetworkProxy* self, const libqt_string he
 libqt_list /* of libqt_string */ QNetworkProxy_RawHeaderList(const QNetworkProxy* self) {
     QList<QByteArray> _ret = self->rawHeaderList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -314,7 +323,7 @@ libqt_list /* of libqt_string */ QNetworkProxy_RawHeaderList(const QNetworkProxy
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -359,12 +368,12 @@ void QNetworkProxyFactory_SetApplicationProxyFactory(QNetworkProxyFactory* facto
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_ProxyForQuery(const QNetworkProxyQuery* query) {
     QList<QNetworkProxy> _ret = QNetworkProxyFactory::proxyForQuery(*query);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QNetworkProxy(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -372,12 +381,12 @@ libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_ProxyForQuery(const QNet
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery() {
     QList<QNetworkProxy> _ret = QNetworkProxyFactory::systemProxyForQuery();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QNetworkProxy(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -389,12 +398,12 @@ void QNetworkProxyFactory_OperatorAssign(QNetworkProxyFactory* self, const QNetw
 libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_SystemProxyForQuery1(const QNetworkProxyQuery* query) {
     QList<QNetworkProxy> _ret = QNetworkProxyFactory::systemProxyForQuery(*query);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QNetworkProxy(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -405,23 +414,23 @@ libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_QueryProxy(QNetworkProxy
     if (vqnetworkproxyfactory && vqnetworkproxyfactory->isVirtualQNetworkProxyFactory) {
         QList<QNetworkProxy> _ret = vqnetworkproxyfactory->queryProxy(*query);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkProxy(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
         QList<QNetworkProxy> _ret = ((VirtualQNetworkProxyFactory*)self)->queryProxy(*query);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkProxy(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -434,23 +443,23 @@ libqt_list /* of QNetworkProxy* */ QNetworkProxyFactory_QBaseQueryProxy(QNetwork
         vqnetworkproxyfactory->setQNetworkProxyFactory_QueryProxy_IsBase(true);
         QList<QNetworkProxy> _ret = vqnetworkproxyfactory->queryProxy(*query);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkProxy(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
         QList<QNetworkProxy> _ret = ((VirtualQNetworkProxyFactory*)self)->queryProxy(*query);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QNetworkProxy** _arr = static_cast<QNetworkProxy**>(malloc(sizeof(QNetworkProxy*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkProxy(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

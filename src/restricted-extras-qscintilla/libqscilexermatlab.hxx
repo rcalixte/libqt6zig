@@ -60,6 +60,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     using QsciLexerMatlab_CustomEvent_Callback = void (*)(QsciLexerMatlab*, QEvent*);
     using QsciLexerMatlab_ConnectNotify_Callback = void (*)(QsciLexerMatlab*, QMetaMethod*);
     using QsciLexerMatlab_DisconnectNotify_Callback = void (*)(QsciLexerMatlab*, QMetaMethod*);
+    using QsciLexerMatlab_TextAsBytes_Callback = libqt_string (*)(const QsciLexerMatlab*, libqt_string);
+    using QsciLexerMatlab_BytesAsText_Callback = libqt_string (*)(const QsciLexerMatlab*, const char*, int);
     using QsciLexerMatlab_Sender_Callback = QObject* (*)();
     using QsciLexerMatlab_SenderSignalIndex_Callback = int (*)();
     using QsciLexerMatlab_Receivers_Callback = int (*)(const QsciLexerMatlab*, const char*);
@@ -109,6 +111,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     QsciLexerMatlab_CustomEvent_Callback qscilexermatlab_customevent_callback = nullptr;
     QsciLexerMatlab_ConnectNotify_Callback qscilexermatlab_connectnotify_callback = nullptr;
     QsciLexerMatlab_DisconnectNotify_Callback qscilexermatlab_disconnectnotify_callback = nullptr;
+    QsciLexerMatlab_TextAsBytes_Callback qscilexermatlab_textasbytes_callback = nullptr;
+    QsciLexerMatlab_BytesAsText_Callback qscilexermatlab_bytesastext_callback = nullptr;
     QsciLexerMatlab_Sender_Callback qscilexermatlab_sender_callback = nullptr;
     QsciLexerMatlab_SenderSignalIndex_Callback qscilexermatlab_sendersignalindex_callback = nullptr;
     QsciLexerMatlab_Receivers_Callback qscilexermatlab_receivers_callback = nullptr;
@@ -157,14 +161,16 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     mutable bool qscilexermatlab_customevent_isbase = false;
     mutable bool qscilexermatlab_connectnotify_isbase = false;
     mutable bool qscilexermatlab_disconnectnotify_isbase = false;
+    mutable bool qscilexermatlab_textasbytes_isbase = false;
+    mutable bool qscilexermatlab_bytesastext_isbase = false;
     mutable bool qscilexermatlab_sender_isbase = false;
     mutable bool qscilexermatlab_sendersignalindex_isbase = false;
     mutable bool qscilexermatlab_receivers_isbase = false;
     mutable bool qscilexermatlab_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerMatlab() : QsciLexerMatlab(){};
-    VirtualQsciLexerMatlab(QObject* parent) : QsciLexerMatlab(parent){};
+    VirtualQsciLexerMatlab() : QsciLexerMatlab() {};
+    VirtualQsciLexerMatlab(QObject* parent) : QsciLexerMatlab(parent) {};
 
     ~VirtualQsciLexerMatlab() {
         qscilexermatlab_metacall_callback = nullptr;
@@ -209,6 +215,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         qscilexermatlab_customevent_callback = nullptr;
         qscilexermatlab_connectnotify_callback = nullptr;
         qscilexermatlab_disconnectnotify_callback = nullptr;
+        qscilexermatlab_textasbytes_callback = nullptr;
+        qscilexermatlab_bytesastext_callback = nullptr;
         qscilexermatlab_sender_callback = nullptr;
         qscilexermatlab_sendersignalindex_callback = nullptr;
         qscilexermatlab_receivers_callback = nullptr;
@@ -258,6 +266,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     inline void setQsciLexerMatlab_CustomEvent_Callback(QsciLexerMatlab_CustomEvent_Callback cb) { qscilexermatlab_customevent_callback = cb; }
     inline void setQsciLexerMatlab_ConnectNotify_Callback(QsciLexerMatlab_ConnectNotify_Callback cb) { qscilexermatlab_connectnotify_callback = cb; }
     inline void setQsciLexerMatlab_DisconnectNotify_Callback(QsciLexerMatlab_DisconnectNotify_Callback cb) { qscilexermatlab_disconnectnotify_callback = cb; }
+    inline void setQsciLexerMatlab_TextAsBytes_Callback(QsciLexerMatlab_TextAsBytes_Callback cb) { qscilexermatlab_textasbytes_callback = cb; }
+    inline void setQsciLexerMatlab_BytesAsText_Callback(QsciLexerMatlab_BytesAsText_Callback cb) { qscilexermatlab_bytesastext_callback = cb; }
     inline void setQsciLexerMatlab_Sender_Callback(QsciLexerMatlab_Sender_Callback cb) { qscilexermatlab_sender_callback = cb; }
     inline void setQsciLexerMatlab_SenderSignalIndex_Callback(QsciLexerMatlab_SenderSignalIndex_Callback cb) { qscilexermatlab_sendersignalindex_callback = cb; }
     inline void setQsciLexerMatlab_Receivers_Callback(QsciLexerMatlab_Receivers_Callback cb) { qscilexermatlab_receivers_callback = cb; }
@@ -306,6 +316,8 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     inline void setQsciLexerMatlab_CustomEvent_IsBase(bool value) const { qscilexermatlab_customevent_isbase = value; }
     inline void setQsciLexerMatlab_ConnectNotify_IsBase(bool value) const { qscilexermatlab_connectnotify_isbase = value; }
     inline void setQsciLexerMatlab_DisconnectNotify_IsBase(bool value) const { qscilexermatlab_disconnectnotify_isbase = value; }
+    inline void setQsciLexerMatlab_TextAsBytes_IsBase(bool value) const { qscilexermatlab_textasbytes_isbase = value; }
+    inline void setQsciLexerMatlab_BytesAsText_IsBase(bool value) const { qscilexermatlab_bytesastext_isbase = value; }
     inline void setQsciLexerMatlab_Sender_IsBase(bool value) const { qscilexermatlab_sender_isbase = value; }
     inline void setQsciLexerMatlab_SenderSignalIndex_IsBase(bool value) const { qscilexermatlab_sendersignalindex_isbase = value; }
     inline void setQsciLexerMatlab_Receivers_IsBase(bool value) const { qscilexermatlab_receivers_isbase = value; }
@@ -378,13 +390,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexermatlab_autocompletionwordseparators_isbase) {
             qscilexermatlab_autocompletionwordseparators_isbase = false;
             return QsciLexerMatlab::autoCompletionWordSeparators();
         } else if (qscilexermatlab_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexermatlab_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -945,6 +957,47 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexermatlab_textasbytes_isbase) {
+            qscilexermatlab_textasbytes_isbase = false;
+            return QsciLexerMatlab::textAsBytes(text);
+        } else if (qscilexermatlab_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexermatlab_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerMatlab::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexermatlab_bytesastext_isbase) {
+            qscilexermatlab_bytesastext_isbase = false;
+            return QsciLexerMatlab::bytesAsText(bytes, size);
+        } else if (qscilexermatlab_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexermatlab_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerMatlab::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexermatlab_sender_isbase) {
             qscilexermatlab_sender_isbase = false;
@@ -1017,6 +1070,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     friend void QsciLexerMatlab_QBaseConnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
     friend void QsciLexerMatlab_DisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
     friend void QsciLexerMatlab_QBaseDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerMatlab_TextAsBytes(const QsciLexerMatlab* self, const libqt_string text);
+    friend libqt_string QsciLexerMatlab_QBaseTextAsBytes(const QsciLexerMatlab* self, const libqt_string text);
+    friend libqt_string QsciLexerMatlab_BytesAsText(const QsciLexerMatlab* self, const char* bytes, int size);
+    friend libqt_string QsciLexerMatlab_QBaseBytesAsText(const QsciLexerMatlab* self, const char* bytes, int size);
     friend QObject* QsciLexerMatlab_Sender(const QsciLexerMatlab* self);
     friend QObject* QsciLexerMatlab_QBaseSender(const QsciLexerMatlab* self);
     friend int QsciLexerMatlab_SenderSignalIndex(const QsciLexerMatlab* self);

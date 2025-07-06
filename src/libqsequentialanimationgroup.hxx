@@ -73,8 +73,8 @@ class VirtualQSequentialAnimationGroup final : public QSequentialAnimationGroup 
     mutable bool qsequentialanimationgroup_issignalconnected_isbase = false;
 
   public:
-    VirtualQSequentialAnimationGroup() : QSequentialAnimationGroup(){};
-    VirtualQSequentialAnimationGroup(QObject* parent) : QSequentialAnimationGroup(parent){};
+    VirtualQSequentialAnimationGroup() : QSequentialAnimationGroup() {};
+    VirtualQSequentialAnimationGroup(QObject* parent) : QSequentialAnimationGroup(parent) {};
 
     ~VirtualQSequentialAnimationGroup() {
         qsequentialanimationgroup_metacall_callback = nullptr;

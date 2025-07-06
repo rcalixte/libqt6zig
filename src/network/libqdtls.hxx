@@ -61,8 +61,8 @@ class VirtualQDtlsClientVerifier final : public QDtlsClientVerifier {
     mutable bool qdtlsclientverifier_issignalconnected_isbase = false;
 
   public:
-    VirtualQDtlsClientVerifier() : QDtlsClientVerifier(){};
-    VirtualQDtlsClientVerifier(QObject* parent) : QDtlsClientVerifier(parent){};
+    VirtualQDtlsClientVerifier() : QDtlsClientVerifier() {};
+    VirtualQDtlsClientVerifier(QObject* parent) : QDtlsClientVerifier(parent) {};
 
     ~VirtualQDtlsClientVerifier() {
         qdtlsclientverifier_metacall_callback = nullptr;
@@ -359,8 +359,8 @@ class VirtualQDtls final : public QDtls {
     mutable bool qdtls_issignalconnected_isbase = false;
 
   public:
-    VirtualQDtls(QSslSocket::SslMode mode) : QDtls(mode){};
-    VirtualQDtls(QSslSocket::SslMode mode, QObject* parent) : QDtls(mode, parent){};
+    VirtualQDtls(QSslSocket::SslMode mode) : QDtls(mode) {};
+    VirtualQDtls(QSslSocket::SslMode mode, QObject* parent) : QDtls(mode, parent) {};
 
     ~VirtualQDtls() {
         qdtls_metacall_callback = nullptr;

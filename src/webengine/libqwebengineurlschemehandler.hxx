@@ -64,8 +64,8 @@ class VirtualQWebEngineUrlSchemeHandler final : public QWebEngineUrlSchemeHandle
     mutable bool qwebengineurlschemehandler_issignalconnected_isbase = false;
 
   public:
-    VirtualQWebEngineUrlSchemeHandler() : QWebEngineUrlSchemeHandler(){};
-    VirtualQWebEngineUrlSchemeHandler(QObject* parent) : QWebEngineUrlSchemeHandler(parent){};
+    VirtualQWebEngineUrlSchemeHandler() : QWebEngineUrlSchemeHandler() {};
+    VirtualQWebEngineUrlSchemeHandler(QObject* parent) : QWebEngineUrlSchemeHandler(parent) {};
 
     ~VirtualQWebEngineUrlSchemeHandler() {
         qwebengineurlschemehandler_metacall_callback = nullptr;

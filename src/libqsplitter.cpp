@@ -158,12 +158,12 @@ void QSplitter_Refresh(QSplitter* self) {
 libqt_list /* of int */ QSplitter_Sizes(const QSplitter* self) {
     QList<int> _ret = self->sizes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -2066,6 +2066,35 @@ void QSplitter_OnIsSignalConnected(const QSplitter* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QSplitter_GetDecodedMetricF(const QSplitter* self, int metricA, int metricB) {
+    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        return vqsplitter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSplitter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QSplitter_QBaseGetDecodedMetricF(const QSplitter* self, int metricA, int metricB) {
+    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        vqsplitter->setQSplitter_GetDecodedMetricF_IsBase(true);
+        return vqsplitter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSplitter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplitter_OnGetDecodedMetricF(const QSplitter* self, intptr_t slot) {
+    auto* vqsplitter = const_cast<VirtualQSplitter*>(dynamic_cast<const VirtualQSplitter*>(self));
+    if (vqsplitter && vqsplitter->isVirtualQSplitter) {
+        vqsplitter->setQSplitter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplitter::QSplitter_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QSplitter_Delete(QSplitter* self) {
     delete self;
 }
@@ -3843,6 +3872,35 @@ void QSplitterHandle_OnIsSignalConnected(const QSplitterHandle* self, intptr_t s
     auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
     if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
         vqsplitterhandle->setQSplitterHandle_IsSignalConnected_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QSplitterHandle_GetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB) {
+    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        return vqsplitterhandle->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSplitterHandle*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QSplitterHandle_QBaseGetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB) {
+    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        vqsplitterhandle->setQSplitterHandle_GetDecodedMetricF_IsBase(true);
+        return vqsplitterhandle->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSplitterHandle*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplitterHandle_OnGetDecodedMetricF(const QSplitterHandle* self, intptr_t slot) {
+    auto* vqsplitterhandle = const_cast<VirtualQSplitterHandle*>(dynamic_cast<const VirtualQSplitterHandle*>(self));
+    if (vqsplitterhandle && vqsplitterhandle->isVirtualQSplitterHandle) {
+        vqsplitterhandle->setQSplitterHandle_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplitterHandle::QSplitterHandle_GetDecodedMetricF_Callback>(slot));
     }
 }
 

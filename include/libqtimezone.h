@@ -19,32 +19,31 @@ extern "C" {
 typedef QTimeZone::OffsetData QTimeZone__OffsetData;
 #endif
 #else
+typedef struct QByteArrayView QByteArrayView;
 typedef struct QDateTime QDateTime;
 typedef struct QLocale QLocale;
 typedef struct QTimeZone QTimeZone;
 typedef struct QTimeZone__OffsetData QTimeZone__OffsetData;
 #endif
 
-#ifdef __cplusplus
-typedef QTimeZone::NameType NameType;             // C++ enum
-typedef QTimeZone::OffsetDataList OffsetDataList; // C++ QFlags
-typedef QTimeZone::TimeType TimeType;             // C++ enum
-#else
-typedef int NameType;                                              // C ABI enum
-typedef int TimeType;                                              // C ABI enum
-typedef libqt_list /* of QTimeZone__OffsetData* */ OffsetDataList; // C ABI QFlags
-#endif
-
 QTimeZone* QTimeZone_new();
-QTimeZone* QTimeZone_new2(const libqt_string ianaId);
+QTimeZone* QTimeZone_new2(int spec);
 QTimeZone* QTimeZone_new3(int offsetSeconds);
-QTimeZone* QTimeZone_new4(const libqt_string zoneId, int offsetSeconds, const libqt_string name, const libqt_string abbreviation);
-QTimeZone* QTimeZone_new5(const QTimeZone* other);
-QTimeZone* QTimeZone_new6(const libqt_string zoneId, int offsetSeconds, const libqt_string name, const libqt_string abbreviation, uint16_t territory);
-QTimeZone* QTimeZone_new7(const libqt_string zoneId, int offsetSeconds, const libqt_string name, const libqt_string abbreviation, uint16_t territory, const libqt_string comment);
+QTimeZone* QTimeZone_new4(const libqt_string ianaId);
+QTimeZone* QTimeZone_new5(const libqt_string zoneId, int offsetSeconds, const libqt_string name, const libqt_string abbreviation);
+QTimeZone* QTimeZone_new6(const QTimeZone* other);
+QTimeZone* QTimeZone_new7(const libqt_string zoneId, int offsetSeconds, const libqt_string name, const libqt_string abbreviation, uint16_t territory);
+QTimeZone* QTimeZone_new8(const libqt_string zoneId, int offsetSeconds, const libqt_string name, const libqt_string abbreviation, uint16_t territory, const libqt_string comment);
 void QTimeZone_OperatorAssign(QTimeZone* self, const QTimeZone* other);
 void QTimeZone_Swap(QTimeZone* self, QTimeZone* other);
 bool QTimeZone_IsValid(const QTimeZone* self);
+QTimeZone* QTimeZone_FromSecondsAheadOfUtc(int offset);
+int QTimeZone_TimeSpec(const QTimeZone* self);
+int QTimeZone_FixedSecondsAheadOfUtc(const QTimeZone* self);
+bool QTimeZone_IsUtcOrFixedOffset(int spec);
+bool QTimeZone_IsUtcOrFixedOffset2(const QTimeZone* self);
+QTimeZone* QTimeZone_AsBackendZone(const QTimeZone* self);
+bool QTimeZone_HasAlternativeName(const QTimeZone* self, QByteArrayView* alias);
 libqt_string QTimeZone_Id(const QTimeZone* self);
 uint16_t QTimeZone_Territory(const QTimeZone* self);
 uint16_t QTimeZone_Country(const QTimeZone* self);
@@ -81,6 +80,7 @@ libqt_string QTimeZone_DisplayName32(const QTimeZone* self, int timeType, int na
 void QTimeZone_Delete(QTimeZone* self);
 
 QTimeZone__OffsetData* QTimeZone__OffsetData_new(const QTimeZone__OffsetData* param1);
+QTimeZone__OffsetData* QTimeZone__OffsetData_new2();
 void QTimeZone__OffsetData_OperatorAssign(QTimeZone__OffsetData* self, const QTimeZone__OffsetData* param1);
 void QTimeZone__OffsetData_Delete(QTimeZone__OffsetData* self);
 

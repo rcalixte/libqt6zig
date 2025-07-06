@@ -70,7 +70,7 @@ class VirtualQMimeData final : public QMimeData {
     mutable bool qmimedata_issignalconnected_isbase = false;
 
   public:
-    VirtualQMimeData() : QMimeData(){};
+    VirtualQMimeData() : QMimeData() {};
 
     ~VirtualQMimeData() {
         qmimedata_metacall_callback = nullptr;
@@ -165,13 +165,13 @@ class VirtualQMimeData final : public QMimeData {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList formats() const override {
+    virtual QList<QString> formats() const override {
         if (qmimedata_formats_isbase) {
             qmimedata_formats_isbase = false;
             return QMimeData::formats();
         } else if (qmimedata_formats_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qmimedata_formats_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {

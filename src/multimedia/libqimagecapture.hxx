@@ -61,8 +61,8 @@ class VirtualQImageCapture final : public QImageCapture {
     mutable bool qimagecapture_issignalconnected_isbase = false;
 
   public:
-    VirtualQImageCapture() : QImageCapture(){};
-    VirtualQImageCapture(QObject* parent) : QImageCapture(parent){};
+    VirtualQImageCapture() : QImageCapture() {};
+    VirtualQImageCapture(QObject* parent) : QImageCapture(parent) {};
 
     ~VirtualQImageCapture() {
         qimagecapture_metacall_callback = nullptr;

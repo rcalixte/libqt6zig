@@ -245,6 +245,27 @@ pub const qicon = struct {
         return qtc.QIcon_HasThemeIcon(name_str);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#fromTheme)
+    ///
+    /// ``` icon: qicon_enums.ThemeIcon ```
+    pub fn FromThemeWithIcon(icon: i64) QtC.QIcon {
+        return qtc.QIcon_FromThemeWithIcon(@intCast(icon));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#fromTheme)
+    ///
+    /// ``` icon: qicon_enums.ThemeIcon, fallback: QtC.QIcon ```
+    pub fn FromTheme3(icon: i64, fallback: ?*anyopaque) QtC.QIcon {
+        return qtc.QIcon_FromTheme3(@intCast(icon), @ptrCast(fallback));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#hasThemeIcon)
+    ///
+    /// ``` icon: qicon_enums.ThemeIcon ```
+    pub fn HasThemeIconWithIcon(icon: i64) bool {
+        return qtc.QIcon_HasThemeIconWithIcon(@intCast(icon));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#themeSearchPaths)
     ///
     /// ``` allocator: std.mem.Allocator ```
@@ -604,5 +625,159 @@ pub const enums = struct {
     pub const State = enum {
         pub const On: i32 = 0;
         pub const Off: i32 = 1;
+    };
+
+    pub const ThemeIcon = enum {
+        pub const AddressBookNew: i32 = 0;
+        pub const ApplicationExit: i32 = 1;
+        pub const AppointmentNew: i32 = 2;
+        pub const CallStart: i32 = 3;
+        pub const CallStop: i32 = 4;
+        pub const ContactNew: i32 = 5;
+        pub const DocumentNew: i32 = 6;
+        pub const DocumentOpen: i32 = 7;
+        pub const DocumentOpenRecent: i32 = 8;
+        pub const DocumentPageSetup: i32 = 9;
+        pub const DocumentPrint: i32 = 10;
+        pub const DocumentPrintPreview: i32 = 11;
+        pub const DocumentProperties: i32 = 12;
+        pub const DocumentRevert: i32 = 13;
+        pub const DocumentSave: i32 = 14;
+        pub const DocumentSaveAs: i32 = 15;
+        pub const DocumentSend: i32 = 16;
+        pub const EditClear: i32 = 17;
+        pub const EditCopy: i32 = 18;
+        pub const EditCut: i32 = 19;
+        pub const EditDelete: i32 = 20;
+        pub const EditFind: i32 = 21;
+        pub const EditPaste: i32 = 22;
+        pub const EditRedo: i32 = 23;
+        pub const EditSelectAll: i32 = 24;
+        pub const EditUndo: i32 = 25;
+        pub const FolderNew: i32 = 26;
+        pub const FormatIndentLess: i32 = 27;
+        pub const FormatIndentMore: i32 = 28;
+        pub const FormatJustifyCenter: i32 = 29;
+        pub const FormatJustifyFill: i32 = 30;
+        pub const FormatJustifyLeft: i32 = 31;
+        pub const FormatJustifyRight: i32 = 32;
+        pub const FormatTextDirectionLtr: i32 = 33;
+        pub const FormatTextDirectionRtl: i32 = 34;
+        pub const FormatTextBold: i32 = 35;
+        pub const FormatTextItalic: i32 = 36;
+        pub const FormatTextUnderline: i32 = 37;
+        pub const FormatTextStrikethrough: i32 = 38;
+        pub const GoDown: i32 = 39;
+        pub const GoHome: i32 = 40;
+        pub const GoNext: i32 = 41;
+        pub const GoPrevious: i32 = 42;
+        pub const GoUp: i32 = 43;
+        pub const HelpAbout: i32 = 44;
+        pub const HelpFaq: i32 = 45;
+        pub const InsertImage: i32 = 46;
+        pub const InsertLink: i32 = 47;
+        pub const InsertText: i32 = 48;
+        pub const ListAdd: i32 = 49;
+        pub const ListRemove: i32 = 50;
+        pub const MailForward: i32 = 51;
+        pub const MailMarkImportant: i32 = 52;
+        pub const MailMarkRead: i32 = 53;
+        pub const MailMarkUnread: i32 = 54;
+        pub const MailMessageNew: i32 = 55;
+        pub const MailReplyAll: i32 = 56;
+        pub const MailReplySender: i32 = 57;
+        pub const MailSend: i32 = 58;
+        pub const MediaEject: i32 = 59;
+        pub const MediaPlaybackPause: i32 = 60;
+        pub const MediaPlaybackStart: i32 = 61;
+        pub const MediaPlaybackStop: i32 = 62;
+        pub const MediaRecord: i32 = 63;
+        pub const MediaSeekBackward: i32 = 64;
+        pub const MediaSeekForward: i32 = 65;
+        pub const MediaSkipBackward: i32 = 66;
+        pub const MediaSkipForward: i32 = 67;
+        pub const ObjectRotateLeft: i32 = 68;
+        pub const ObjectRotateRight: i32 = 69;
+        pub const ProcessStop: i32 = 70;
+        pub const SystemLockScreen: i32 = 71;
+        pub const SystemLogOut: i32 = 72;
+        pub const SystemSearch: i32 = 73;
+        pub const SystemReboot: i32 = 74;
+        pub const SystemShutdown: i32 = 75;
+        pub const ToolsCheckSpelling: i32 = 76;
+        pub const ViewFullscreen: i32 = 77;
+        pub const ViewRefresh: i32 = 78;
+        pub const ViewRestore: i32 = 79;
+        pub const WindowClose: i32 = 80;
+        pub const WindowNew: i32 = 81;
+        pub const ZoomFitBest: i32 = 82;
+        pub const ZoomIn: i32 = 83;
+        pub const ZoomOut: i32 = 84;
+        pub const AudioCard: i32 = 85;
+        pub const AudioInputMicrophone: i32 = 86;
+        pub const Battery: i32 = 87;
+        pub const CameraPhoto: i32 = 88;
+        pub const CameraVideo: i32 = 89;
+        pub const CameraWeb: i32 = 90;
+        pub const Computer: i32 = 91;
+        pub const DriveHarddisk: i32 = 92;
+        pub const DriveOptical: i32 = 93;
+        pub const InputGaming: i32 = 94;
+        pub const InputKeyboard: i32 = 95;
+        pub const InputMouse: i32 = 96;
+        pub const InputTablet: i32 = 97;
+        pub const MediaFlash: i32 = 98;
+        pub const MediaOptical: i32 = 99;
+        pub const MediaTape: i32 = 100;
+        pub const MultimediaPlayer: i32 = 101;
+        pub const NetworkWired: i32 = 102;
+        pub const NetworkWireless: i32 = 103;
+        pub const Phone: i32 = 104;
+        pub const Printer: i32 = 105;
+        pub const Scanner: i32 = 106;
+        pub const VideoDisplay: i32 = 107;
+        pub const AppointmentMissed: i32 = 108;
+        pub const AppointmentSoon: i32 = 109;
+        pub const AudioVolumeHigh: i32 = 110;
+        pub const AudioVolumeLow: i32 = 111;
+        pub const AudioVolumeMedium: i32 = 112;
+        pub const AudioVolumeMuted: i32 = 113;
+        pub const BatteryCaution: i32 = 114;
+        pub const BatteryLow: i32 = 115;
+        pub const DialogError: i32 = 116;
+        pub const DialogInformation: i32 = 117;
+        pub const DialogPassword: i32 = 118;
+        pub const DialogQuestion: i32 = 119;
+        pub const DialogWarning: i32 = 120;
+        pub const FolderDragAccept: i32 = 121;
+        pub const FolderOpen: i32 = 122;
+        pub const FolderVisiting: i32 = 123;
+        pub const ImageLoading: i32 = 124;
+        pub const ImageMissing: i32 = 125;
+        pub const MailAttachment: i32 = 126;
+        pub const MailUnread: i32 = 127;
+        pub const MailRead: i32 = 128;
+        pub const MailReplied: i32 = 129;
+        pub const MediaPlaylistRepeat: i32 = 130;
+        pub const MediaPlaylistShuffle: i32 = 131;
+        pub const NetworkOffline: i32 = 132;
+        pub const PrinterPrinting: i32 = 133;
+        pub const SecurityHigh: i32 = 134;
+        pub const SecurityLow: i32 = 135;
+        pub const SoftwareUpdateAvailable: i32 = 136;
+        pub const SoftwareUpdateUrgent: i32 = 137;
+        pub const SyncError: i32 = 138;
+        pub const SyncSynchronizing: i32 = 139;
+        pub const UserAvailable: i32 = 140;
+        pub const UserOffline: i32 = 141;
+        pub const WeatherClear: i32 = 142;
+        pub const WeatherClearNight: i32 = 143;
+        pub const WeatherFewClouds: i32 = 144;
+        pub const WeatherFewCloudsNight: i32 = 145;
+        pub const WeatherFog: i32 = 146;
+        pub const WeatherShowers: i32 = 147;
+        pub const WeatherSnow: i32 = 148;
+        pub const WeatherStorm: i32 = 149;
+        pub const NThemeIcons: i32 = 150;
     };
 };

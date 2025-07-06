@@ -24,16 +24,6 @@ typedef struct QSizeF QSizeF;
 typedef struct QVector2D QVector2D;
 #endif
 
-#ifdef __cplusplus
-typedef QEventPoint::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QEventPoint::State State;                   // C++ enum
-typedef QEventPoint::States States;                 // C++ QFlags
-#else
-typedef int State;           // C ABI enum
-typedef int States;          // C ABI QFlags
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QEventPoint* QEventPoint_new();
 QEventPoint* QEventPoint_new2(int pointId, uint8_t state, const QPointF* scenePosition, const QPointF* globalPosition);
 QEventPoint* QEventPoint_new3(const QEventPoint* other);

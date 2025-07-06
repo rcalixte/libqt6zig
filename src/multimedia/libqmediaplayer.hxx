@@ -61,8 +61,8 @@ class VirtualQMediaPlayer final : public QMediaPlayer {
     mutable bool qmediaplayer_issignalconnected_isbase = false;
 
   public:
-    VirtualQMediaPlayer() : QMediaPlayer(){};
-    VirtualQMediaPlayer(QObject* parent) : QMediaPlayer(parent){};
+    VirtualQMediaPlayer() : QMediaPlayer() {};
+    VirtualQMediaPlayer(QObject* parent) : QMediaPlayer(parent) {};
 
     ~VirtualQMediaPlayer() {
         qmediaplayer_metacall_callback = nullptr;

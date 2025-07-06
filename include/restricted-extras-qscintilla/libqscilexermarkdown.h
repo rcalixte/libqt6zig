@@ -160,6 +160,12 @@ void QsciLexerMarkdown_QBaseConnectNotify(QsciLexerMarkdown* self, const QMetaMe
 void QsciLexerMarkdown_DisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
 void QsciLexerMarkdown_OnDisconnectNotify(QsciLexerMarkdown* self, intptr_t slot);
 void QsciLexerMarkdown_QBaseDisconnectNotify(QsciLexerMarkdown* self, const QMetaMethod* signal);
+libqt_string QsciLexerMarkdown_TextAsBytes(const QsciLexerMarkdown* self, const libqt_string text);
+void QsciLexerMarkdown_OnTextAsBytes(const QsciLexerMarkdown* self, intptr_t slot);
+libqt_string QsciLexerMarkdown_QBaseTextAsBytes(const QsciLexerMarkdown* self, const libqt_string text);
+libqt_string QsciLexerMarkdown_BytesAsText(const QsciLexerMarkdown* self, const char* bytes, int size);
+void QsciLexerMarkdown_OnBytesAsText(const QsciLexerMarkdown* self, intptr_t slot);
+libqt_string QsciLexerMarkdown_QBaseBytesAsText(const QsciLexerMarkdown* self, const char* bytes, int size);
 QObject* QsciLexerMarkdown_Sender(const QsciLexerMarkdown* self);
 void QsciLexerMarkdown_OnSender(const QsciLexerMarkdown* self, intptr_t slot);
 QObject* QsciLexerMarkdown_QBaseSender(const QsciLexerMarkdown* self);

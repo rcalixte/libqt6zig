@@ -60,6 +60,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     using QsciLexerMakefile_CustomEvent_Callback = void (*)(QsciLexerMakefile*, QEvent*);
     using QsciLexerMakefile_ConnectNotify_Callback = void (*)(QsciLexerMakefile*, QMetaMethod*);
     using QsciLexerMakefile_DisconnectNotify_Callback = void (*)(QsciLexerMakefile*, QMetaMethod*);
+    using QsciLexerMakefile_TextAsBytes_Callback = libqt_string (*)(const QsciLexerMakefile*, libqt_string);
+    using QsciLexerMakefile_BytesAsText_Callback = libqt_string (*)(const QsciLexerMakefile*, const char*, int);
     using QsciLexerMakefile_Sender_Callback = QObject* (*)();
     using QsciLexerMakefile_SenderSignalIndex_Callback = int (*)();
     using QsciLexerMakefile_Receivers_Callback = int (*)(const QsciLexerMakefile*, const char*);
@@ -109,6 +111,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     QsciLexerMakefile_CustomEvent_Callback qscilexermakefile_customevent_callback = nullptr;
     QsciLexerMakefile_ConnectNotify_Callback qscilexermakefile_connectnotify_callback = nullptr;
     QsciLexerMakefile_DisconnectNotify_Callback qscilexermakefile_disconnectnotify_callback = nullptr;
+    QsciLexerMakefile_TextAsBytes_Callback qscilexermakefile_textasbytes_callback = nullptr;
+    QsciLexerMakefile_BytesAsText_Callback qscilexermakefile_bytesastext_callback = nullptr;
     QsciLexerMakefile_Sender_Callback qscilexermakefile_sender_callback = nullptr;
     QsciLexerMakefile_SenderSignalIndex_Callback qscilexermakefile_sendersignalindex_callback = nullptr;
     QsciLexerMakefile_Receivers_Callback qscilexermakefile_receivers_callback = nullptr;
@@ -157,14 +161,16 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     mutable bool qscilexermakefile_customevent_isbase = false;
     mutable bool qscilexermakefile_connectnotify_isbase = false;
     mutable bool qscilexermakefile_disconnectnotify_isbase = false;
+    mutable bool qscilexermakefile_textasbytes_isbase = false;
+    mutable bool qscilexermakefile_bytesastext_isbase = false;
     mutable bool qscilexermakefile_sender_isbase = false;
     mutable bool qscilexermakefile_sendersignalindex_isbase = false;
     mutable bool qscilexermakefile_receivers_isbase = false;
     mutable bool qscilexermakefile_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerMakefile() : QsciLexerMakefile(){};
-    VirtualQsciLexerMakefile(QObject* parent) : QsciLexerMakefile(parent){};
+    VirtualQsciLexerMakefile() : QsciLexerMakefile() {};
+    VirtualQsciLexerMakefile(QObject* parent) : QsciLexerMakefile(parent) {};
 
     ~VirtualQsciLexerMakefile() {
         qscilexermakefile_metacall_callback = nullptr;
@@ -209,6 +215,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
         qscilexermakefile_customevent_callback = nullptr;
         qscilexermakefile_connectnotify_callback = nullptr;
         qscilexermakefile_disconnectnotify_callback = nullptr;
+        qscilexermakefile_textasbytes_callback = nullptr;
+        qscilexermakefile_bytesastext_callback = nullptr;
         qscilexermakefile_sender_callback = nullptr;
         qscilexermakefile_sendersignalindex_callback = nullptr;
         qscilexermakefile_receivers_callback = nullptr;
@@ -258,6 +266,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     inline void setQsciLexerMakefile_CustomEvent_Callback(QsciLexerMakefile_CustomEvent_Callback cb) { qscilexermakefile_customevent_callback = cb; }
     inline void setQsciLexerMakefile_ConnectNotify_Callback(QsciLexerMakefile_ConnectNotify_Callback cb) { qscilexermakefile_connectnotify_callback = cb; }
     inline void setQsciLexerMakefile_DisconnectNotify_Callback(QsciLexerMakefile_DisconnectNotify_Callback cb) { qscilexermakefile_disconnectnotify_callback = cb; }
+    inline void setQsciLexerMakefile_TextAsBytes_Callback(QsciLexerMakefile_TextAsBytes_Callback cb) { qscilexermakefile_textasbytes_callback = cb; }
+    inline void setQsciLexerMakefile_BytesAsText_Callback(QsciLexerMakefile_BytesAsText_Callback cb) { qscilexermakefile_bytesastext_callback = cb; }
     inline void setQsciLexerMakefile_Sender_Callback(QsciLexerMakefile_Sender_Callback cb) { qscilexermakefile_sender_callback = cb; }
     inline void setQsciLexerMakefile_SenderSignalIndex_Callback(QsciLexerMakefile_SenderSignalIndex_Callback cb) { qscilexermakefile_sendersignalindex_callback = cb; }
     inline void setQsciLexerMakefile_Receivers_Callback(QsciLexerMakefile_Receivers_Callback cb) { qscilexermakefile_receivers_callback = cb; }
@@ -306,6 +316,8 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     inline void setQsciLexerMakefile_CustomEvent_IsBase(bool value) const { qscilexermakefile_customevent_isbase = value; }
     inline void setQsciLexerMakefile_ConnectNotify_IsBase(bool value) const { qscilexermakefile_connectnotify_isbase = value; }
     inline void setQsciLexerMakefile_DisconnectNotify_IsBase(bool value) const { qscilexermakefile_disconnectnotify_isbase = value; }
+    inline void setQsciLexerMakefile_TextAsBytes_IsBase(bool value) const { qscilexermakefile_textasbytes_isbase = value; }
+    inline void setQsciLexerMakefile_BytesAsText_IsBase(bool value) const { qscilexermakefile_bytesastext_isbase = value; }
     inline void setQsciLexerMakefile_Sender_IsBase(bool value) const { qscilexermakefile_sender_isbase = value; }
     inline void setQsciLexerMakefile_SenderSignalIndex_IsBase(bool value) const { qscilexermakefile_sendersignalindex_isbase = value; }
     inline void setQsciLexerMakefile_Receivers_IsBase(bool value) const { qscilexermakefile_receivers_isbase = value; }
@@ -378,13 +390,13 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexermakefile_autocompletionwordseparators_isbase) {
             qscilexermakefile_autocompletionwordseparators_isbase = false;
             return QsciLexerMakefile::autoCompletionWordSeparators();
         } else if (qscilexermakefile_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexermakefile_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -945,6 +957,47 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexermakefile_textasbytes_isbase) {
+            qscilexermakefile_textasbytes_isbase = false;
+            return QsciLexerMakefile::textAsBytes(text);
+        } else if (qscilexermakefile_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexermakefile_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerMakefile::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexermakefile_bytesastext_isbase) {
+            qscilexermakefile_bytesastext_isbase = false;
+            return QsciLexerMakefile::bytesAsText(bytes, size);
+        } else if (qscilexermakefile_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexermakefile_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerMakefile::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexermakefile_sender_isbase) {
             qscilexermakefile_sender_isbase = false;
@@ -1017,6 +1070,10 @@ class VirtualQsciLexerMakefile final : public QsciLexerMakefile {
     friend void QsciLexerMakefile_QBaseConnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
     friend void QsciLexerMakefile_DisconnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
     friend void QsciLexerMakefile_QBaseDisconnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerMakefile_TextAsBytes(const QsciLexerMakefile* self, const libqt_string text);
+    friend libqt_string QsciLexerMakefile_QBaseTextAsBytes(const QsciLexerMakefile* self, const libqt_string text);
+    friend libqt_string QsciLexerMakefile_BytesAsText(const QsciLexerMakefile* self, const char* bytes, int size);
+    friend libqt_string QsciLexerMakefile_QBaseBytesAsText(const QsciLexerMakefile* self, const char* bytes, int size);
     friend QObject* QsciLexerMakefile_Sender(const QsciLexerMakefile* self);
     friend QObject* QsciLexerMakefile_QBaseSender(const QsciLexerMakefile* self);
     friend int QsciLexerMakefile_SenderSignalIndex(const QsciLexerMakefile* self);

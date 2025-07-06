@@ -124,8 +124,8 @@ class VirtualQItemDelegate final : public QItemDelegate {
     mutable bool qitemdelegate_issignalconnected_isbase = false;
 
   public:
-    VirtualQItemDelegate() : QItemDelegate(){};
-    VirtualQItemDelegate(QObject* parent) : QItemDelegate(parent){};
+    VirtualQItemDelegate() : QItemDelegate() {};
+    VirtualQItemDelegate(QObject* parent) : QItemDelegate(parent) {};
 
     ~VirtualQItemDelegate() {
         qitemdelegate_metacall_callback = nullptr;

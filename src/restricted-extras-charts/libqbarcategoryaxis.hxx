@@ -64,8 +64,8 @@ class VirtualQBarCategoryAxis final : public QBarCategoryAxis {
     mutable bool qbarcategoryaxis_issignalconnected_isbase = false;
 
   public:
-    VirtualQBarCategoryAxis() : QBarCategoryAxis(){};
-    VirtualQBarCategoryAxis(QObject* parent) : QBarCategoryAxis(parent){};
+    VirtualQBarCategoryAxis() : QBarCategoryAxis() {};
+    VirtualQBarCategoryAxis(QObject* parent) : QBarCategoryAxis(parent) {};
 
     ~VirtualQBarCategoryAxis() {
         qbarcategoryaxis_metacall_callback = nullptr;

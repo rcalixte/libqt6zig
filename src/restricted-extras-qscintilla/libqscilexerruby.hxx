@@ -60,6 +60,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     using QsciLexerRuby_CustomEvent_Callback = void (*)(QsciLexerRuby*, QEvent*);
     using QsciLexerRuby_ConnectNotify_Callback = void (*)(QsciLexerRuby*, QMetaMethod*);
     using QsciLexerRuby_DisconnectNotify_Callback = void (*)(QsciLexerRuby*, QMetaMethod*);
+    using QsciLexerRuby_TextAsBytes_Callback = libqt_string (*)(const QsciLexerRuby*, libqt_string);
+    using QsciLexerRuby_BytesAsText_Callback = libqt_string (*)(const QsciLexerRuby*, const char*, int);
     using QsciLexerRuby_Sender_Callback = QObject* (*)();
     using QsciLexerRuby_SenderSignalIndex_Callback = int (*)();
     using QsciLexerRuby_Receivers_Callback = int (*)(const QsciLexerRuby*, const char*);
@@ -109,6 +111,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     QsciLexerRuby_CustomEvent_Callback qscilexerruby_customevent_callback = nullptr;
     QsciLexerRuby_ConnectNotify_Callback qscilexerruby_connectnotify_callback = nullptr;
     QsciLexerRuby_DisconnectNotify_Callback qscilexerruby_disconnectnotify_callback = nullptr;
+    QsciLexerRuby_TextAsBytes_Callback qscilexerruby_textasbytes_callback = nullptr;
+    QsciLexerRuby_BytesAsText_Callback qscilexerruby_bytesastext_callback = nullptr;
     QsciLexerRuby_Sender_Callback qscilexerruby_sender_callback = nullptr;
     QsciLexerRuby_SenderSignalIndex_Callback qscilexerruby_sendersignalindex_callback = nullptr;
     QsciLexerRuby_Receivers_Callback qscilexerruby_receivers_callback = nullptr;
@@ -157,14 +161,16 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     mutable bool qscilexerruby_customevent_isbase = false;
     mutable bool qscilexerruby_connectnotify_isbase = false;
     mutable bool qscilexerruby_disconnectnotify_isbase = false;
+    mutable bool qscilexerruby_textasbytes_isbase = false;
+    mutable bool qscilexerruby_bytesastext_isbase = false;
     mutable bool qscilexerruby_sender_isbase = false;
     mutable bool qscilexerruby_sendersignalindex_isbase = false;
     mutable bool qscilexerruby_receivers_isbase = false;
     mutable bool qscilexerruby_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerRuby() : QsciLexerRuby(){};
-    VirtualQsciLexerRuby(QObject* parent) : QsciLexerRuby(parent){};
+    VirtualQsciLexerRuby() : QsciLexerRuby() {};
+    VirtualQsciLexerRuby(QObject* parent) : QsciLexerRuby(parent) {};
 
     ~VirtualQsciLexerRuby() {
         qscilexerruby_metacall_callback = nullptr;
@@ -209,6 +215,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
         qscilexerruby_customevent_callback = nullptr;
         qscilexerruby_connectnotify_callback = nullptr;
         qscilexerruby_disconnectnotify_callback = nullptr;
+        qscilexerruby_textasbytes_callback = nullptr;
+        qscilexerruby_bytesastext_callback = nullptr;
         qscilexerruby_sender_callback = nullptr;
         qscilexerruby_sendersignalindex_callback = nullptr;
         qscilexerruby_receivers_callback = nullptr;
@@ -258,6 +266,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     inline void setQsciLexerRuby_CustomEvent_Callback(QsciLexerRuby_CustomEvent_Callback cb) { qscilexerruby_customevent_callback = cb; }
     inline void setQsciLexerRuby_ConnectNotify_Callback(QsciLexerRuby_ConnectNotify_Callback cb) { qscilexerruby_connectnotify_callback = cb; }
     inline void setQsciLexerRuby_DisconnectNotify_Callback(QsciLexerRuby_DisconnectNotify_Callback cb) { qscilexerruby_disconnectnotify_callback = cb; }
+    inline void setQsciLexerRuby_TextAsBytes_Callback(QsciLexerRuby_TextAsBytes_Callback cb) { qscilexerruby_textasbytes_callback = cb; }
+    inline void setQsciLexerRuby_BytesAsText_Callback(QsciLexerRuby_BytesAsText_Callback cb) { qscilexerruby_bytesastext_callback = cb; }
     inline void setQsciLexerRuby_Sender_Callback(QsciLexerRuby_Sender_Callback cb) { qscilexerruby_sender_callback = cb; }
     inline void setQsciLexerRuby_SenderSignalIndex_Callback(QsciLexerRuby_SenderSignalIndex_Callback cb) { qscilexerruby_sendersignalindex_callback = cb; }
     inline void setQsciLexerRuby_Receivers_Callback(QsciLexerRuby_Receivers_Callback cb) { qscilexerruby_receivers_callback = cb; }
@@ -306,6 +316,8 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     inline void setQsciLexerRuby_CustomEvent_IsBase(bool value) const { qscilexerruby_customevent_isbase = value; }
     inline void setQsciLexerRuby_ConnectNotify_IsBase(bool value) const { qscilexerruby_connectnotify_isbase = value; }
     inline void setQsciLexerRuby_DisconnectNotify_IsBase(bool value) const { qscilexerruby_disconnectnotify_isbase = value; }
+    inline void setQsciLexerRuby_TextAsBytes_IsBase(bool value) const { qscilexerruby_textasbytes_isbase = value; }
+    inline void setQsciLexerRuby_BytesAsText_IsBase(bool value) const { qscilexerruby_bytesastext_isbase = value; }
     inline void setQsciLexerRuby_Sender_IsBase(bool value) const { qscilexerruby_sender_isbase = value; }
     inline void setQsciLexerRuby_SenderSignalIndex_IsBase(bool value) const { qscilexerruby_sendersignalindex_isbase = value; }
     inline void setQsciLexerRuby_Receivers_IsBase(bool value) const { qscilexerruby_receivers_isbase = value; }
@@ -378,13 +390,13 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerruby_autocompletionwordseparators_isbase) {
             qscilexerruby_autocompletionwordseparators_isbase = false;
             return QsciLexerRuby::autoCompletionWordSeparators();
         } else if (qscilexerruby_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerruby_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -945,6 +957,47 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerruby_textasbytes_isbase) {
+            qscilexerruby_textasbytes_isbase = false;
+            return QsciLexerRuby::textAsBytes(text);
+        } else if (qscilexerruby_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerruby_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerRuby::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerruby_bytesastext_isbase) {
+            qscilexerruby_bytesastext_isbase = false;
+            return QsciLexerRuby::bytesAsText(bytes, size);
+        } else if (qscilexerruby_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerruby_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerRuby::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerruby_sender_isbase) {
             qscilexerruby_sender_isbase = false;
@@ -1017,6 +1070,10 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     friend void QsciLexerRuby_QBaseConnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
     friend void QsciLexerRuby_DisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
     friend void QsciLexerRuby_QBaseDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerRuby_TextAsBytes(const QsciLexerRuby* self, const libqt_string text);
+    friend libqt_string QsciLexerRuby_QBaseTextAsBytes(const QsciLexerRuby* self, const libqt_string text);
+    friend libqt_string QsciLexerRuby_BytesAsText(const QsciLexerRuby* self, const char* bytes, int size);
+    friend libqt_string QsciLexerRuby_QBaseBytesAsText(const QsciLexerRuby* self, const char* bytes, int size);
     friend QObject* QsciLexerRuby_Sender(const QsciLexerRuby* self);
     friend QObject* QsciLexerRuby_QBaseSender(const QsciLexerRuby* self);
     friend int QsciLexerRuby_SenderSignalIndex(const QsciLexerRuby* self);

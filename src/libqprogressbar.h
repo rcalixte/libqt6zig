@@ -52,12 +52,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QProgressBar::Direction Direction; // C++ enum
-#else
-typedef int Direction; // C ABI enum
-#endif
-
 QProgressBar* QProgressBar_new(QWidget* parent);
 QProgressBar* QProgressBar_new2();
 QMetaObject* QProgressBar_MetaObject(const QProgressBar* self);
@@ -265,6 +259,9 @@ int QProgressBar_QBaseReceivers(const QProgressBar* self, const char* signal);
 bool QProgressBar_IsSignalConnected(const QProgressBar* self, const QMetaMethod* signal);
 void QProgressBar_OnIsSignalConnected(const QProgressBar* self, intptr_t slot);
 bool QProgressBar_QBaseIsSignalConnected(const QProgressBar* self, const QMetaMethod* signal);
+double QProgressBar_GetDecodedMetricF(const QProgressBar* self, int metricA, int metricB);
+void QProgressBar_OnGetDecodedMetricF(const QProgressBar* self, intptr_t slot);
+double QProgressBar_QBaseGetDecodedMetricF(const QProgressBar* self, int metricA, int metricB);
 void QProgressBar_Delete(QProgressBar* self);
 
 #ifdef __cplusplus

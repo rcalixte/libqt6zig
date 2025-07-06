@@ -163,6 +163,31 @@ pub const qmediadevices = struct {
         qtc.QMediaDevices_Connect_VideoInputsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediadevices.html#connectNotify)
+    ///
+    /// ``` self: QtC.QMediaDevices, signal: QtC.QMetaMethod ```
+    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QMediaDevices_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediadevices.html#connectNotify)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QMediaDevices, slot: fn (self: QtC.QMediaDevices, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaDevices_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediadevices.html#connectNotify)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QMediaDevices, signal: QtC.QMetaMethod ```
+    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QMediaDevices_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -274,8 +299,8 @@ pub const qmediadevices = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMediaDevices, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -294,6 +319,15 @@ pub const qmediadevices = struct {
     /// ``` self: QtC.QMediaDevices, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QMediaDevices, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -499,6 +533,15 @@ pub const qmediadevices = struct {
     /// ``` self: QtC.QMediaDevices ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QMediaDevices, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -711,39 +754,6 @@ pub const qmediadevices = struct {
     /// ``` self: QtC.QMediaDevices, slot: fn (self: QtC.QMediaDevices, event: QtC.QEvent) callconv(.c) void ```
     pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QMediaDevices_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.QMediaDevices, signal: QtC.QMetaMethod ```
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMediaDevices_ConnectNotify(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.QMediaDevices, signal: QtC.QMetaMethod ```
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.QMediaDevices_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.QMediaDevices, slot: fn (self: QtC.QMediaDevices, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaDevices_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject

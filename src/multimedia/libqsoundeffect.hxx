@@ -61,10 +61,10 @@ class VirtualQSoundEffect final : public QSoundEffect {
     mutable bool qsoundeffect_issignalconnected_isbase = false;
 
   public:
-    VirtualQSoundEffect() : QSoundEffect(){};
-    VirtualQSoundEffect(const QAudioDevice& audioDevice) : QSoundEffect(audioDevice){};
-    VirtualQSoundEffect(QObject* parent) : QSoundEffect(parent){};
-    VirtualQSoundEffect(const QAudioDevice& audioDevice, QObject* parent) : QSoundEffect(audioDevice, parent){};
+    VirtualQSoundEffect() : QSoundEffect() {};
+    VirtualQSoundEffect(const QAudioDevice& audioDevice) : QSoundEffect(audioDevice) {};
+    VirtualQSoundEffect(QObject* parent) : QSoundEffect(parent) {};
+    VirtualQSoundEffect(const QAudioDevice& audioDevice, QObject* parent) : QSoundEffect(audioDevice, parent) {};
 
     ~VirtualQSoundEffect() {
         qsoundeffect_metacall_callback = nullptr;

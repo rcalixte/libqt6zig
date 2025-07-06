@@ -47,6 +47,7 @@ int QGuiApplication_QBaseMetacall(QGuiApplication* self, int param1, int param2,
 libqt_string QGuiApplication_Tr(const char* s);
 void QGuiApplication_SetApplicationDisplayName(const libqt_string name);
 libqt_string QGuiApplication_ApplicationDisplayName();
+void QGuiApplication_SetBadgeNumber(QGuiApplication* self, long long number);
 void QGuiApplication_SetDesktopFileName(const libqt_string name);
 libqt_string QGuiApplication_DesktopFileName();
 libqt_list /* of QWindow* */ QGuiApplication_AllWindows();

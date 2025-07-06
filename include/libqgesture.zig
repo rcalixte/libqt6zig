@@ -233,8 +233,8 @@ pub const qgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGesture, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -253,6 +253,15 @@ pub const qgesture = struct {
     /// ``` self: QtC.QGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QGesture, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -458,6 +467,15 @@ pub const qgesture = struct {
     /// ``` self: QtC.QGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -1185,8 +1203,8 @@ pub const qpangesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPanGesture, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1205,6 +1223,15 @@ pub const qpangesture = struct {
     /// ``` self: QtC.QPanGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QPanGesture, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1410,6 +1437,15 @@ pub const qpangesture = struct {
     /// ``` self: QtC.QPanGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QPanGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -2242,8 +2278,8 @@ pub const qpinchgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPinchGesture, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -2262,6 +2298,15 @@ pub const qpinchgesture = struct {
     /// ``` self: QtC.QPinchGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QPinchGesture, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -2467,6 +2512,15 @@ pub const qpinchgesture = struct {
     /// ``` self: QtC.QPinchGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QPinchGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -3173,8 +3227,8 @@ pub const qswipegesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSwipeGesture, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -3193,6 +3247,15 @@ pub const qswipegesture = struct {
     /// ``` self: QtC.QSwipeGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QSwipeGesture, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -3398,6 +3461,15 @@ pub const qswipegesture = struct {
     /// ``` self: QtC.QSwipeGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QSwipeGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -4090,8 +4162,8 @@ pub const qtapgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTapGesture, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -4110,6 +4182,15 @@ pub const qtapgesture = struct {
     /// ``` self: QtC.QTapGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QTapGesture, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -4315,6 +4396,15 @@ pub const qtapgesture = struct {
     /// ``` self: QtC.QTapGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QTapGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -5021,8 +5111,8 @@ pub const qtapandholdgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTapAndHoldGesture, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -5041,6 +5131,15 @@ pub const qtapandholdgesture = struct {
     /// ``` self: QtC.QTapAndHoldGesture, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QTapAndHoldGesture, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -5246,6 +5345,15 @@ pub const qtapandholdgesture = struct {
     /// ``` self: QtC.QTapAndHoldGesture ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QTapAndHoldGesture, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

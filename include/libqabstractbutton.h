@@ -277,6 +277,9 @@ int QAbstractButton_QBaseReceivers(const QAbstractButton* self, const char* sign
 bool QAbstractButton_IsSignalConnected(const QAbstractButton* self, const QMetaMethod* signal);
 void QAbstractButton_OnIsSignalConnected(const QAbstractButton* self, intptr_t slot);
 bool QAbstractButton_QBaseIsSignalConnected(const QAbstractButton* self, const QMetaMethod* signal);
+double QAbstractButton_GetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB);
+void QAbstractButton_OnGetDecodedMetricF(const QAbstractButton* self, intptr_t slot);
+double QAbstractButton_QBaseGetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB);
 void QAbstractButton_Delete(QAbstractButton* self);
 
 #ifdef __cplusplus

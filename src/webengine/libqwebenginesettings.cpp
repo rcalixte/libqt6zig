@@ -80,6 +80,18 @@ void QWebEngineSettings_ResetUnknownUrlSchemePolicy(QWebEngineSettings* self) {
     self->resetUnknownUrlSchemePolicy();
 }
 
+void QWebEngineSettings_SetImageAnimationPolicy(QWebEngineSettings* self, uint8_t policy) {
+    self->setImageAnimationPolicy(static_cast<QWebEngineSettings::ImageAnimationPolicy>(policy));
+}
+
+uint8_t QWebEngineSettings_ImageAnimationPolicy(const QWebEngineSettings* self) {
+    return static_cast<uint8_t>(self->imageAnimationPolicy());
+}
+
+void QWebEngineSettings_ResetImageAnimationPolicy(QWebEngineSettings* self) {
+    self->resetImageAnimationPolicy();
+}
+
 void QWebEngineSettings_Delete(QWebEngineSettings* self) {
     delete self;
 }

@@ -9834,9 +9834,30 @@ pub const qshortcutevent = struct {
 
     /// New2 constructs a new QShortcutEvent object.
     ///
+    /// ``` key: QtC.QKeySequence ```
+    pub fn New2(key: ?*anyopaque) QtC.QShortcutEvent {
+        return qtc.QShortcutEvent_new2(@ptrCast(key));
+    }
+
+    /// New3 constructs a new QShortcutEvent object.
+    ///
     /// ``` key: QtC.QKeySequence, id: i32, ambiguous: bool ```
-    pub fn New2(key: ?*anyopaque, id: i32, ambiguous: bool) QtC.QShortcutEvent {
-        return qtc.QShortcutEvent_new2(@ptrCast(key), @intCast(id), ambiguous);
+    pub fn New3(key: ?*anyopaque, id: i32, ambiguous: bool) QtC.QShortcutEvent {
+        return qtc.QShortcutEvent_new3(@ptrCast(key), @intCast(id), ambiguous);
+    }
+
+    /// New4 constructs a new QShortcutEvent object.
+    ///
+    /// ``` key: QtC.QKeySequence, shortcut: QtC.QShortcut ```
+    pub fn New4(key: ?*anyopaque, shortcut: ?*anyopaque) QtC.QShortcutEvent {
+        return qtc.QShortcutEvent_new4(@ptrCast(key), @ptrCast(shortcut));
+    }
+
+    /// New5 constructs a new QShortcutEvent object.
+    ///
+    /// ``` key: QtC.QKeySequence, shortcut: QtC.QShortcut, ambiguous: bool ```
+    pub fn New5(key: ?*anyopaque, shortcut: ?*anyopaque, ambiguous: bool) QtC.QShortcutEvent {
+        return qtc.QShortcutEvent_new5(@ptrCast(key), @ptrCast(shortcut), ambiguous);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qshortcutevent.html#clone)
@@ -11478,6 +11499,180 @@ pub const qapplicationstatechangeevent = struct {
     }
 };
 
+/// https://doc.qt.io/qt-6/qchildwindowevent.html
+pub const qchildwindowevent = struct {
+    /// New constructs a new QChildWindowEvent object.
+    ///
+    /// ``` typeVal: qevent_enums.Type, childWindow: QtC.QWindow ```
+    pub fn New(typeVal: i64, childWindow: ?*anyopaque) QtC.QChildWindowEvent {
+        return qtc.QChildWindowEvent_new(@intCast(typeVal), @ptrCast(childWindow));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildwindowevent.html#clone)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn Clone(self: ?*anyopaque) QtC.QChildWindowEvent {
+        return qtc.QChildWindowEvent_Clone(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildwindowevent.html#clone)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QChildWindowEvent, slot: fn () callconv(.c) QtC.QChildWindowEvent ```
+    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QChildWindowEvent) void {
+        qtc.QChildWindowEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildwindowevent.html#clone)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn QBaseClone(self: ?*anyopaque) QtC.QChildWindowEvent {
+        return qtc.QChildWindowEvent_QBaseClone(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildwindowevent.html#child)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn Child(self: ?*anyopaque) QtC.QWindow {
+        return qtc.QChildWindowEvent_Child(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn Type(self: ?*anyopaque) i64 {
+        return qtc.QEvent_Type(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#spontaneous)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn Spontaneous(self: ?*anyopaque) bool {
+        return qtc.QEvent_Spontaneous(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isAccepted)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn IsAccepted(self: ?*anyopaque) bool {
+        return qtc.QEvent_IsAccepted(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#accept)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn Accept(self: ?*anyopaque) void {
+        qtc.QEvent_Accept(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#ignore)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn Ignore(self: ?*anyopaque) void {
+        qtc.QEvent_Ignore(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn IsInputEvent(self: ?*anyopaque) bool {
+        return qtc.QEvent_IsInputEvent(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn IsPointerEvent(self: ?*anyopaque) bool {
+        return qtc.QEvent_IsPointerEvent(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn IsSinglePointEvent(self: ?*anyopaque) bool {
+        return qtc.QEvent_IsSinglePointEvent(@ptrCast(self));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    ///
+    ///
+    pub fn RegisterEventType() i32 {
+        return qtc.QEvent_RegisterEventType();
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#registerEventType)
+    ///
+    /// ``` hint: i32 ```
+    pub fn RegisterEventType1(hint: i32) i32 {
+        return qtc.QEvent_RegisterEventType1(@intCast(hint));
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QChildWindowEvent, accepted: bool ```
+    pub fn SetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QChildWindowEvent_SetAccepted(@ptrCast(self), accepted);
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QChildWindowEvent, accepted: bool ```
+    pub fn QBaseSetAccepted(self: ?*anyopaque, accepted: bool) void {
+        qtc.QChildWindowEvent_QBaseSetAccepted(@ptrCast(self), accepted);
+    }
+
+    /// Inherited from QEvent
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QChildWindowEvent, slot: fn (self: QtC.QChildWindowEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QChildWindowEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qchildwindowevent.html#dtor.QChildWindowEvent)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QChildWindowEvent ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QChildWindowEvent_Delete(@ptrCast(self));
+    }
+};
+
 /// https://doc.qt.io/qt-6/qinputmethodevent-attribute.html
 pub const qinputmethodevent__attribute = struct {
     /// New constructs a new QInputMethodEvent::Attribute object.
@@ -11492,13 +11687,6 @@ pub const qinputmethodevent__attribute = struct {
     /// ``` typ: qevent_enums.AttributeType, s: i32, l: i32 ```
     pub fn New2(typ: i64, s: i32, l: i32) QtC.QInputMethodEvent__Attribute {
         return qtc.QInputMethodEvent__Attribute_new2(@intCast(typ), @intCast(s), @intCast(l));
-    }
-
-    /// New3 constructs a new QInputMethodEvent::Attribute object.
-    ///
-    /// ``` param1: QtC.QInputMethodEvent__Attribute ```
-    pub fn New3(param1: ?*anyopaque) QtC.QInputMethodEvent__Attribute {
-        return qtc.QInputMethodEvent__Attribute_new3(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent__attribute.html#operator=)

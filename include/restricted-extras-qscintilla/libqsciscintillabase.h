@@ -62,10 +62,6 @@ typedef struct QWidget QWidget;
 typedef struct QsciScintillaBase QsciScintillaBase;
 #endif
 
-#ifndef __cplusplus
-typedef libqt_string ScintillaBytes; // C ABI QFlags
-#endif
-
 QsciScintillaBase* QsciScintillaBase_new(QWidget* parent);
 QsciScintillaBase* QsciScintillaBase_new2();
 QMetaObject* QsciScintillaBase_MetaObject(const QsciScintillaBase* self);
@@ -339,6 +335,9 @@ int QsciScintillaBase_QBaseReceivers(const QsciScintillaBase* self, const char* 
 bool QsciScintillaBase_IsSignalConnected(const QsciScintillaBase* self, const QMetaMethod* signal);
 void QsciScintillaBase_OnIsSignalConnected(const QsciScintillaBase* self, intptr_t slot);
 bool QsciScintillaBase_QBaseIsSignalConnected(const QsciScintillaBase* self, const QMetaMethod* signal);
+double QsciScintillaBase_GetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB);
+void QsciScintillaBase_OnGetDecodedMetricF(const QsciScintillaBase* self, intptr_t slot);
+double QsciScintillaBase_QBaseGetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB);
 void QsciScintillaBase_Delete(QsciScintillaBase* self);
 
 #ifdef __cplusplus

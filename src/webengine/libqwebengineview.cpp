@@ -40,6 +40,7 @@
 #include <QUrl>
 #include <QVariant>
 #include <QWebEngineContextMenuRequest>
+#include <QWebEngineFrame>
 #include <QWebEngineHistory>
 #include <QWebEngineHttpRequest>
 #include <QWebEnginePage>
@@ -407,6 +408,18 @@ void QWebEngineView_Connect_PrintRequested(QWebEngineView* self, intptr_t slot) 
     void (*slotFunc)(QWebEngineView*) = reinterpret_cast<void (*)(QWebEngineView*)>(slot);
     QWebEngineView::connect(self, &QWebEngineView::printRequested, [self, slotFunc]() {
         slotFunc(self);
+    });
+}
+
+void QWebEngineView_PrintRequestedByFrame(QWebEngineView* self, QWebEngineFrame* frame) {
+    self->printRequestedByFrame(*frame);
+}
+
+void QWebEngineView_Connect_PrintRequestedByFrame(QWebEngineView* self, intptr_t slot) {
+    void (*slotFunc)(QWebEngineView*, QWebEngineFrame*) = reinterpret_cast<void (*)(QWebEngineView*, QWebEngineFrame*)>(slot);
+    QWebEngineView::connect(self, &QWebEngineView::printRequestedByFrame, [self, slotFunc](QWebEngineFrame frame) {
+        QWebEngineFrame* sigval1 = new QWebEngineFrame(frame);
+        slotFunc(self, sigval1);
     });
 }
 
@@ -2129,6 +2142,35 @@ void QWebEngineView_OnIsSignalConnected(const QWebEngineView* self, intptr_t slo
     auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
     if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
         vqwebengineview->setQWebEngineView_IsSignalConnected_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QWebEngineView_GetDecodedMetricF(const QWebEngineView* self, int metricA, int metricB) {
+    auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+        return vqwebengineview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQWebEngineView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QWebEngineView_QBaseGetDecodedMetricF(const QWebEngineView* self, int metricA, int metricB) {
+    auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+        vqwebengineview->setQWebEngineView_GetDecodedMetricF_IsBase(true);
+        return vqwebengineview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQWebEngineView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QWebEngineView_OnGetDecodedMetricF(const QWebEngineView* self, intptr_t slot) {
+    auto* vqwebengineview = const_cast<VirtualQWebEngineView*>(dynamic_cast<const VirtualQWebEngineView*>(self));
+    if (vqwebengineview && vqwebengineview->isVirtualQWebEngineView) {
+        vqwebengineview->setQWebEngineView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQWebEngineView::QWebEngineView_GetDecodedMetricF_Callback>(slot));
     }
 }
 

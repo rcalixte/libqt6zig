@@ -494,8 +494,7 @@ int QSocketDescriptor_ToInt(const QSocketDescriptor* self) {
 #ifdef Q_OS_LINUX
     return static_cast<int>(self->operator int());
 #else
-    int _ret_invalidOS;
-    return _ret_invalidOS;
+    return {};
 #endif
 }
 

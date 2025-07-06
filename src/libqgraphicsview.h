@@ -63,24 +63,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QGraphicsView::CacheMode CacheMode;                   // C++ QFlags
-typedef QGraphicsView::CacheModeFlag CacheModeFlag;           // C++ enum
-typedef QGraphicsView::DragMode DragMode;                     // C++ enum
-typedef QGraphicsView::OptimizationFlag OptimizationFlag;     // C++ enum
-typedef QGraphicsView::OptimizationFlags OptimizationFlags;   // C++ QFlags
-typedef QGraphicsView::ViewportAnchor ViewportAnchor;         // C++ enum
-typedef QGraphicsView::ViewportUpdateMode ViewportUpdateMode; // C++ enum
-#else
-typedef int CacheMode;          // C ABI QFlags
-typedef int CacheModeFlag;      // C ABI enum
-typedef int DragMode;           // C ABI enum
-typedef int OptimizationFlag;   // C ABI enum
-typedef int OptimizationFlags;  // C ABI QFlags
-typedef int ViewportAnchor;     // C ABI enum
-typedef int ViewportUpdateMode; // C ABI enum
-#endif
-
 QGraphicsView* QGraphicsView_new(QWidget* parent);
 QGraphicsView* QGraphicsView_new2();
 QGraphicsView* QGraphicsView_new3(QGraphicsScene* scene);
@@ -382,6 +364,9 @@ int QGraphicsView_QBaseReceivers(const QGraphicsView* self, const char* signal);
 bool QGraphicsView_IsSignalConnected(const QGraphicsView* self, const QMetaMethod* signal);
 void QGraphicsView_OnIsSignalConnected(const QGraphicsView* self, intptr_t slot);
 bool QGraphicsView_QBaseIsSignalConnected(const QGraphicsView* self, const QMetaMethod* signal);
+double QGraphicsView_GetDecodedMetricF(const QGraphicsView* self, int metricA, int metricB);
+void QGraphicsView_OnGetDecodedMetricF(const QGraphicsView* self, intptr_t slot);
+double QGraphicsView_QBaseGetDecodedMetricF(const QGraphicsView* self, int metricA, int metricB);
 void QGraphicsView_Delete(QGraphicsView* self);
 
 #ifdef __cplusplus

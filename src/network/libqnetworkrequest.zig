@@ -68,6 +68,20 @@ pub const qnetworkrequest = struct {
         qtc.QNetworkRequest_SetUrl(@ptrCast(self), @ptrCast(url));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#headers)
+    ///
+    /// ``` self: QtC.QNetworkRequest ```
+    pub fn Headers(self: ?*anyopaque) QtC.QHttpHeaders {
+        return qtc.QNetworkRequest_Headers(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setHeaders)
+    ///
+    /// ``` self: QtC.QNetworkRequest, newHeaders: QtC.QHttpHeaders ```
+    pub fn SetHeaders(self: ?*anyopaque, newHeaders: ?*anyopaque) void {
+        qtc.QNetworkRequest_SetHeaders(@ptrCast(self), @ptrCast(newHeaders));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#header)
     ///
     /// ``` self: QtC.QNetworkRequest, header: qnetworkrequest_enums.KnownHeaders ```
@@ -84,8 +98,8 @@ pub const qnetworkrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#hasRawHeader)
     ///
-    /// ``` self: QtC.QNetworkRequest, headerName: []u8 ```
-    pub fn HasRawHeader(self: ?*anyopaque, headerName: []u8) bool {
+    /// ``` self: QtC.QNetworkRequest, headerName: []const u8 ```
+    pub fn HasRawHeader(self: ?*anyopaque, headerName: []const u8) bool {
         const headerName_str = qtc.struct_libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
@@ -117,8 +131,8 @@ pub const qnetworkrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#rawHeader)
     ///
-    /// ``` self: QtC.QNetworkRequest, headerName: []u8, allocator: std.mem.Allocator ```
-    pub fn RawHeader(self: ?*anyopaque, headerName: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ``` self: QtC.QNetworkRequest, headerName: []const u8, allocator: std.mem.Allocator ```
+    pub fn RawHeader(self: ?*anyopaque, headerName: []const u8, allocator: std.mem.Allocator) []u8 {
         const headerName_str = qtc.struct_libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
@@ -237,6 +251,20 @@ pub const qnetworkrequest = struct {
         qtc.QNetworkRequest_SetPeerVerifyName(@ptrCast(self), peerName_str);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#http1Configuration)
+    ///
+    /// ``` self: QtC.QNetworkRequest ```
+    pub fn Http1Configuration(self: ?*anyopaque) QtC.QHttp1Configuration {
+        return qtc.QNetworkRequest_Http1Configuration(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setHttp1Configuration)
+    ///
+    /// ``` self: QtC.QNetworkRequest, configuration: QtC.QHttp1Configuration ```
+    pub fn SetHttp1Configuration(self: ?*anyopaque, configuration: ?*anyopaque) void {
+        qtc.QNetworkRequest_SetHttp1Configuration(@ptrCast(self), @ptrCast(configuration));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#http2Configuration)
     ///
     /// ``` self: QtC.QNetworkRequest ```
@@ -274,9 +302,16 @@ pub const qnetworkrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
     ///
+    /// ``` self: QtC.QNetworkRequest, timeout: i32 ```
+    pub fn SetTransferTimeout(self: ?*anyopaque, timeout: i32) void {
+        qtc.QNetworkRequest_SetTransferTimeout(@ptrCast(self), @intCast(timeout));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
+    ///
     /// ``` self: QtC.QNetworkRequest ```
-    pub fn SetTransferTimeout(self: ?*anyopaque) void {
-        qtc.QNetworkRequest_SetTransferTimeout(@ptrCast(self));
+    pub fn SetTransferTimeout2(self: ?*anyopaque) void {
+        qtc.QNetworkRequest_SetTransferTimeout2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#attribute)
@@ -284,13 +319,6 @@ pub const qnetworkrequest = struct {
     /// ``` self: QtC.QNetworkRequest, code: qnetworkrequest_enums.Attribute, defaultValue: QtC.QVariant ```
     pub fn Attribute2(self: ?*anyopaque, code: i64, defaultValue: ?*anyopaque) QtC.QVariant {
         return qtc.QNetworkRequest_Attribute2(@ptrCast(self), @intCast(code), @ptrCast(defaultValue));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setTransferTimeout)
-    ///
-    /// ``` self: QtC.QNetworkRequest, timeout: i32 ```
-    pub fn SetTransferTimeout1(self: ?*anyopaque, timeout: i32) void {
-        qtc.QNetworkRequest_SetTransferTimeout1(@ptrCast(self), @intCast(timeout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#dtor.QNetworkRequest)
@@ -319,6 +347,7 @@ pub const enums = struct {
         pub const ETagHeader: i32 = 10;
         pub const IfMatchHeader: i32 = 11;
         pub const IfNoneMatchHeader: i32 = 12;
+        pub const NumKnownHeaders: i32 = 13;
     };
 
     pub const Attribute = enum {
@@ -350,6 +379,8 @@ pub const enums = struct {
         pub const AutoDeleteReplyOnFinishAttribute: i32 = 25;
         pub const ConnectionCacheExpiryTimeoutSecondsAttribute: i32 = 26;
         pub const Http2CleartextAllowedAttribute: i32 = 27;
+        pub const UseCredentialsAttribute: i32 = 28;
+        pub const FullLocalServerNameAttribute: i32 = 29;
         pub const User: i32 = 1000;
         pub const UserMax: i32 = 32767;
     };

@@ -155,6 +155,12 @@ void QsciLexerSpice_QBaseConnectNotify(QsciLexerSpice* self, const QMetaMethod* 
 void QsciLexerSpice_DisconnectNotify(QsciLexerSpice* self, const QMetaMethod* signal);
 void QsciLexerSpice_OnDisconnectNotify(QsciLexerSpice* self, intptr_t slot);
 void QsciLexerSpice_QBaseDisconnectNotify(QsciLexerSpice* self, const QMetaMethod* signal);
+libqt_string QsciLexerSpice_TextAsBytes(const QsciLexerSpice* self, const libqt_string text);
+void QsciLexerSpice_OnTextAsBytes(const QsciLexerSpice* self, intptr_t slot);
+libqt_string QsciLexerSpice_QBaseTextAsBytes(const QsciLexerSpice* self, const libqt_string text);
+libqt_string QsciLexerSpice_BytesAsText(const QsciLexerSpice* self, const char* bytes, int size);
+void QsciLexerSpice_OnBytesAsText(const QsciLexerSpice* self, intptr_t slot);
+libqt_string QsciLexerSpice_QBaseBytesAsText(const QsciLexerSpice* self, const char* bytes, int size);
 QObject* QsciLexerSpice_Sender(const QsciLexerSpice* self);
 void QsciLexerSpice_OnSender(const QsciLexerSpice* self, intptr_t slot);
 QObject* QsciLexerSpice_QBaseSender(const QsciLexerSpice* self);

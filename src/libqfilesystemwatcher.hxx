@@ -61,10 +61,10 @@ class VirtualQFileSystemWatcher final : public QFileSystemWatcher {
     mutable bool qfilesystemwatcher_issignalconnected_isbase = false;
 
   public:
-    VirtualQFileSystemWatcher() : QFileSystemWatcher(){};
-    VirtualQFileSystemWatcher(const QStringList& paths) : QFileSystemWatcher(paths){};
-    VirtualQFileSystemWatcher(QObject* parent) : QFileSystemWatcher(parent){};
-    VirtualQFileSystemWatcher(const QStringList& paths, QObject* parent) : QFileSystemWatcher(paths, parent){};
+    VirtualQFileSystemWatcher() : QFileSystemWatcher() {};
+    VirtualQFileSystemWatcher(const QList<QString>& paths) : QFileSystemWatcher(paths) {};
+    VirtualQFileSystemWatcher(QObject* parent) : QFileSystemWatcher(parent) {};
+    VirtualQFileSystemWatcher(const QList<QString>& paths, QObject* parent) : QFileSystemWatcher(paths, parent) {};
 
     ~VirtualQFileSystemWatcher() {
         qfilesystemwatcher_metacall_callback = nullptr;

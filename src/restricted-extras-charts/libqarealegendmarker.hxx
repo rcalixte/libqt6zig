@@ -67,8 +67,8 @@ class VirtualQAreaLegendMarker final : public QAreaLegendMarker {
     mutable bool qarealegendmarker_issignalconnected_isbase = false;
 
   public:
-    VirtualQAreaLegendMarker(QAreaSeries* series, QLegend* legend) : QAreaLegendMarker(series, legend){};
-    VirtualQAreaLegendMarker(QAreaSeries* series, QLegend* legend, QObject* parent) : QAreaLegendMarker(series, legend, parent){};
+    VirtualQAreaLegendMarker(QAreaSeries* series, QLegend* legend) : QAreaLegendMarker(series, legend) {};
+    VirtualQAreaLegendMarker(QAreaSeries* series, QLegend* legend, QObject* parent) : QAreaLegendMarker(series, legend, parent) {};
 
     ~VirtualQAreaLegendMarker() {
         qarealegendmarker_metacall_callback = nullptr;

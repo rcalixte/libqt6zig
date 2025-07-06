@@ -82,6 +82,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
     using QProgressDialog_SenderSignalIndex_Callback = int (*)();
     using QProgressDialog_Receivers_Callback = int (*)(const QProgressDialog*, const char*);
     using QProgressDialog_IsSignalConnected_Callback = bool (*)(const QProgressDialog*, QMetaMethod*);
+    using QProgressDialog_GetDecodedMetricF_Callback = double (*)(const QProgressDialog*, int, int);
 
   protected:
     // Instance callback storage
@@ -149,6 +150,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
     QProgressDialog_SenderSignalIndex_Callback qprogressdialog_sendersignalindex_callback = nullptr;
     QProgressDialog_Receivers_Callback qprogressdialog_receivers_callback = nullptr;
     QProgressDialog_IsSignalConnected_Callback qprogressdialog_issignalconnected_callback = nullptr;
+    QProgressDialog_GetDecodedMetricF_Callback qprogressdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qprogressdialog_metacall_isbase = false;
@@ -215,14 +217,15 @@ class VirtualQProgressDialog final : public QProgressDialog {
     mutable bool qprogressdialog_sendersignalindex_isbase = false;
     mutable bool qprogressdialog_receivers_isbase = false;
     mutable bool qprogressdialog_issignalconnected_isbase = false;
+    mutable bool qprogressdialog_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQProgressDialog(QWidget* parent) : QProgressDialog(parent){};
-    VirtualQProgressDialog() : QProgressDialog(){};
-    VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum) : QProgressDialog(labelText, cancelButtonText, minimum, maximum){};
-    VirtualQProgressDialog(QWidget* parent, Qt::WindowFlags flags) : QProgressDialog(parent, flags){};
-    VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent){};
-    VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent, Qt::WindowFlags flags) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent, flags){};
+    VirtualQProgressDialog(QWidget* parent) : QProgressDialog(parent) {};
+    VirtualQProgressDialog() : QProgressDialog() {};
+    VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum) : QProgressDialog(labelText, cancelButtonText, minimum, maximum) {};
+    VirtualQProgressDialog(QWidget* parent, Qt::WindowFlags flags) : QProgressDialog(parent, flags) {};
+    VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent) {};
+    VirtualQProgressDialog(const QString& labelText, const QString& cancelButtonText, int minimum, int maximum, QWidget* parent, Qt::WindowFlags flags) : QProgressDialog(labelText, cancelButtonText, minimum, maximum, parent, flags) {};
 
     ~VirtualQProgressDialog() {
         qprogressdialog_metacall_callback = nullptr;
@@ -289,6 +292,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
         qprogressdialog_sendersignalindex_callback = nullptr;
         qprogressdialog_receivers_callback = nullptr;
         qprogressdialog_issignalconnected_callback = nullptr;
+        qprogressdialog_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -356,6 +360,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
     inline void setQProgressDialog_SenderSignalIndex_Callback(QProgressDialog_SenderSignalIndex_Callback cb) { qprogressdialog_sendersignalindex_callback = cb; }
     inline void setQProgressDialog_Receivers_Callback(QProgressDialog_Receivers_Callback cb) { qprogressdialog_receivers_callback = cb; }
     inline void setQProgressDialog_IsSignalConnected_Callback(QProgressDialog_IsSignalConnected_Callback cb) { qprogressdialog_issignalconnected_callback = cb; }
+    inline void setQProgressDialog_GetDecodedMetricF_Callback(QProgressDialog_GetDecodedMetricF_Callback cb) { qprogressdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQProgressDialog_Metacall_IsBase(bool value) const { qprogressdialog_metacall_isbase = value; }
@@ -422,6 +427,7 @@ class VirtualQProgressDialog final : public QProgressDialog {
     inline void setQProgressDialog_SenderSignalIndex_IsBase(bool value) const { qprogressdialog_sendersignalindex_isbase = value; }
     inline void setQProgressDialog_Receivers_IsBase(bool value) const { qprogressdialog_receivers_isbase = value; }
     inline void setQProgressDialog_IsSignalConnected_IsBase(bool value) const { qprogressdialog_issignalconnected_isbase = value; }
+    inline void setQProgressDialog_GetDecodedMetricF_IsBase(bool value) const { qprogressdialog_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1323,6 +1329,22 @@ class VirtualQProgressDialog final : public QProgressDialog {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qprogressdialog_getdecodedmetricf_isbase) {
+            qprogressdialog_getdecodedmetricf_isbase = false;
+            return QProgressDialog::getDecodedMetricF(metricA, metricB);
+        } else if (qprogressdialog_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qprogressdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QProgressDialog::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QProgressDialog_ResizeEvent(QProgressDialog* self, QResizeEvent* event);
     friend void QProgressDialog_QBaseResizeEvent(QProgressDialog* self, QResizeEvent* event);
@@ -1424,6 +1446,8 @@ class VirtualQProgressDialog final : public QProgressDialog {
     friend int QProgressDialog_QBaseReceivers(const QProgressDialog* self, const char* signal);
     friend bool QProgressDialog_IsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal);
     friend bool QProgressDialog_QBaseIsSignalConnected(const QProgressDialog* self, const QMetaMethod* signal);
+    friend double QProgressDialog_GetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB);
+    friend double QProgressDialog_QBaseGetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB);
 };
 
 #endif

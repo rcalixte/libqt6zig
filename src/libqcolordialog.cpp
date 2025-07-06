@@ -2031,6 +2031,35 @@ void QColorDialog_OnIsSignalConnected(const QColorDialog* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QColorDialog_GetDecodedMetricF(const QColorDialog* self, int metricA, int metricB) {
+    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        return vqcolordialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQColorDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QColorDialog_QBaseGetDecodedMetricF(const QColorDialog* self, int metricA, int metricB) {
+    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_GetDecodedMetricF_IsBase(true);
+        return vqcolordialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQColorDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QColorDialog_OnGetDecodedMetricF(const QColorDialog* self, intptr_t slot) {
+    auto* vqcolordialog = const_cast<VirtualQColorDialog*>(dynamic_cast<const VirtualQColorDialog*>(self));
+    if (vqcolordialog && vqcolordialog->isVirtualQColorDialog) {
+        vqcolordialog->setQColorDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQColorDialog::QColorDialog_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QColorDialog_Delete(QColorDialog* self) {
     delete self;
 }

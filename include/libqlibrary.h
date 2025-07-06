@@ -25,14 +25,6 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QLibrary::LoadHint LoadHint;   // C++ enum
-typedef QLibrary::LoadHints LoadHints; // C++ QFlags
-#else
-typedef int LoadHint;  // C ABI enum
-typedef int LoadHints; // C ABI QFlags
-#endif
-
 QLibrary* QLibrary_new();
 QLibrary* QLibrary_new2(const libqt_string fileName);
 QLibrary* QLibrary_new3(const libqt_string fileName, int verNum);

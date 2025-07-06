@@ -96,12 +96,12 @@ bool QAbstractSeries_DetachAxis(QAbstractSeries* self, QAbstractAxis* axis) {
 libqt_list /* of QAbstractAxis* */ QAbstractSeries_AttachedAxes(QAbstractSeries* self) {
     QList<QAbstractAxis*> _ret = self->attachedAxes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

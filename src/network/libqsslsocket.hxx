@@ -172,8 +172,8 @@ class VirtualQSslSocket final : public QSslSocket {
     mutable bool qsslsocket_issignalconnected_isbase = false;
 
   public:
-    VirtualQSslSocket() : QSslSocket(){};
-    VirtualQSslSocket(QObject* parent) : QSslSocket(parent){};
+    VirtualQSslSocket() : QSslSocket() {};
+    VirtualQSslSocket(QObject* parent) : QSslSocket(parent) {};
 
     ~VirtualQSslSocket() {
         qsslsocket_metacall_callback = nullptr;
@@ -359,7 +359,7 @@ class VirtualQSslSocket final : public QSslSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QIODeviceBase::OpenMode openMode) override {
+    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODeviceBase::OpenModeFlag> openMode) override {
         if (qsslsocket_setsocketdescriptor_isbase) {
             qsslsocket_setsocketdescriptor_isbase = false;
             return QSslSocket::setSocketDescriptor(socketDescriptor, state, openMode);
@@ -377,7 +377,7 @@ class VirtualQSslSocket final : public QSslSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void connectToHost(const QString& hostName, quint16 port, QIODeviceBase::OpenMode openMode, QAbstractSocket::NetworkLayerProtocol protocol) override {
+    virtual void connectToHost(const QString& hostName, quint16 port, QFlags<QIODeviceBase::OpenModeFlag> openMode, QAbstractSocket::NetworkLayerProtocol protocol) override {
         if (qsslsocket_connecttohost_isbase) {
             qsslsocket_connecttohost_isbase = false;
             QSslSocket::connectToHost(hostName, port, openMode, protocol);
@@ -631,7 +631,7 @@ class VirtualQSslSocket final : public QSslSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool bind(const QHostAddress& address, quint16 port, QAbstractSocket::BindMode mode) override {
+    virtual bool bind(const QHostAddress& address, quint16 port, QFlags<QAbstractSocket::BindFlag> mode) override {
         if (qsslsocket_bind_isbase) {
             qsslsocket_bind_isbase = false;
             return QSslSocket::bind(address, port, mode);

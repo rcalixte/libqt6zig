@@ -64,10 +64,10 @@ class VirtualQAreaSeries final : public QAreaSeries {
     mutable bool qareaseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQAreaSeries() : QAreaSeries(){};
-    VirtualQAreaSeries(QLineSeries* upperSeries) : QAreaSeries(upperSeries){};
-    VirtualQAreaSeries(QObject* parent) : QAreaSeries(parent){};
-    VirtualQAreaSeries(QLineSeries* upperSeries, QLineSeries* lowerSeries) : QAreaSeries(upperSeries, lowerSeries){};
+    VirtualQAreaSeries() : QAreaSeries() {};
+    VirtualQAreaSeries(QLineSeries* upperSeries) : QAreaSeries(upperSeries) {};
+    VirtualQAreaSeries(QObject* parent) : QAreaSeries(parent) {};
+    VirtualQAreaSeries(QLineSeries* upperSeries, QLineSeries* lowerSeries) : QAreaSeries(upperSeries, lowerSeries) {};
 
     ~VirtualQAreaSeries() {
         qareaseries_metacall_callback = nullptr;

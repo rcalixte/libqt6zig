@@ -30,12 +30,6 @@ typedef struct QPieSlice QPieSlice;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QPieSlice::LabelPosition LabelPosition; // C++ enum
-#else
-typedef int LabelPosition; // C ABI enum
-#endif
-
 QPieSlice* QPieSlice_new();
 QPieSlice* QPieSlice_new2(libqt_string label, double value);
 QPieSlice* QPieSlice_new3(QObject* parent);

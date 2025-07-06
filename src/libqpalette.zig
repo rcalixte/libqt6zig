@@ -306,6 +306,13 @@ pub const qpalette = struct {
         return qtc.QPalette_PlaceholderText(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#accent)
+    ///
+    /// ``` self: QtC.QPalette ```
+    pub fn Accent(self: ?*anyopaque) QtC.QBrush {
+        return qtc.QPalette_Accent(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator==)
     ///
     /// ``` self: QtC.QPalette, p: QtC.QPalette ```
@@ -399,6 +406,7 @@ pub const enums = struct {
         pub const ToolTipBase: i32 = 18;
         pub const ToolTipText: i32 = 19;
         pub const PlaceholderText: i32 = 20;
-        pub const NColorRoles: i32 = 21;
+        pub const Accent: i32 = 21;
+        pub const NColorRoles: i32 = 22;
     };
 };

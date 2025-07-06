@@ -40,7 +40,7 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
     mutable bool qfileiconprovider_options_isbase = false;
 
   public:
-    VirtualQFileIconProvider() : QFileIconProvider(){};
+    VirtualQFileIconProvider() : QFileIconProvider() {};
 
     ~VirtualQFileIconProvider() {
         qfileiconprovider_icon_callback = nullptr;

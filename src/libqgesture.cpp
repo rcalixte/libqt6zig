@@ -2644,12 +2644,12 @@ QGestureEvent* QGestureEvent_new2(const QGestureEvent* param1) {
 libqt_list /* of QGesture* */ QGestureEvent_Gestures(const QGestureEvent* self) {
     QList<QGesture*> _ret = self->gestures();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGesture** _arr = static_cast<QGesture**>(malloc(sizeof(QGesture*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGesture** _arr = static_cast<QGesture**>(malloc(sizeof(QGesture*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -2661,12 +2661,12 @@ QGesture* QGestureEvent_Gesture(const QGestureEvent* self, int typeVal) {
 libqt_list /* of QGesture* */ QGestureEvent_ActiveGestures(const QGestureEvent* self) {
     QList<QGesture*> _ret = self->activeGestures();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGesture** _arr = static_cast<QGesture**>(malloc(sizeof(QGesture*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGesture** _arr = static_cast<QGesture**>(malloc(sizeof(QGesture*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -2674,12 +2674,12 @@ libqt_list /* of QGesture* */ QGestureEvent_ActiveGestures(const QGestureEvent* 
 libqt_list /* of QGesture* */ QGestureEvent_CanceledGestures(const QGestureEvent* self) {
     QList<QGesture*> _ret = self->canceledGestures();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGesture** _arr = static_cast<QGesture**>(malloc(sizeof(QGesture*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGesture** _arr = static_cast<QGesture**>(malloc(sizeof(QGesture*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

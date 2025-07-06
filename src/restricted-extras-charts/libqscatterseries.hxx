@@ -76,8 +76,8 @@ class VirtualQScatterSeries final : public QScatterSeries {
     mutable bool qscatterseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQScatterSeries() : QScatterSeries(){};
-    VirtualQScatterSeries(QObject* parent) : QScatterSeries(parent){};
+    VirtualQScatterSeries() : QScatterSeries() {};
+    VirtualQScatterSeries(QObject* parent) : QScatterSeries(parent) {};
 
     ~VirtualQScatterSeries() {
         qscatterseries_metacall_callback = nullptr;

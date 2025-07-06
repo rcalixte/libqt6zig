@@ -365,12 +365,12 @@ void QTextDocument_AddResource(QTextDocument* self, int typeVal, const QUrl* nam
 libqt_list /* of QTextFormat* */ QTextDocument_AllFormats(const QTextDocument* self) {
     QList<QTextFormat> _ret = self->allFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextFormat** _arr = static_cast<QTextFormat**>(malloc(sizeof(QTextFormat*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QTextFormat** _arr = static_cast<QTextFormat**>(malloc(sizeof(QTextFormat*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextFormat(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

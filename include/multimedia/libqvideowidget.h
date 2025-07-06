@@ -238,6 +238,9 @@ int QVideoWidget_QBaseReceivers(const QVideoWidget* self, const char* signal);
 bool QVideoWidget_IsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal);
 void QVideoWidget_OnIsSignalConnected(const QVideoWidget* self, intptr_t slot);
 bool QVideoWidget_QBaseIsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal);
+double QVideoWidget_GetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB);
+void QVideoWidget_OnGetDecodedMetricF(const QVideoWidget* self, intptr_t slot);
+double QVideoWidget_QBaseGetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB);
 void QVideoWidget_Delete(QVideoWidget* self);
 
 #ifdef __cplusplus

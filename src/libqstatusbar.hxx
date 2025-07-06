@@ -77,6 +77,7 @@ class VirtualQStatusBar final : public QStatusBar {
     using QStatusBar_SenderSignalIndex_Callback = int (*)();
     using QStatusBar_Receivers_Callback = int (*)(const QStatusBar*, const char*);
     using QStatusBar_IsSignalConnected_Callback = bool (*)(const QStatusBar*, QMetaMethod*);
+    using QStatusBar_GetDecodedMetricF_Callback = double (*)(const QStatusBar*, int, int);
 
   protected:
     // Instance callback storage
@@ -139,6 +140,7 @@ class VirtualQStatusBar final : public QStatusBar {
     QStatusBar_SenderSignalIndex_Callback qstatusbar_sendersignalindex_callback = nullptr;
     QStatusBar_Receivers_Callback qstatusbar_receivers_callback = nullptr;
     QStatusBar_IsSignalConnected_Callback qstatusbar_issignalconnected_callback = nullptr;
+    QStatusBar_GetDecodedMetricF_Callback qstatusbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qstatusbar_metacall_isbase = false;
@@ -200,10 +202,11 @@ class VirtualQStatusBar final : public QStatusBar {
     mutable bool qstatusbar_sendersignalindex_isbase = false;
     mutable bool qstatusbar_receivers_isbase = false;
     mutable bool qstatusbar_issignalconnected_isbase = false;
+    mutable bool qstatusbar_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQStatusBar(QWidget* parent) : QStatusBar(parent){};
-    VirtualQStatusBar() : QStatusBar(){};
+    VirtualQStatusBar(QWidget* parent) : QStatusBar(parent) {};
+    VirtualQStatusBar() : QStatusBar() {};
 
     ~VirtualQStatusBar() {
         qstatusbar_metacall_callback = nullptr;
@@ -265,6 +268,7 @@ class VirtualQStatusBar final : public QStatusBar {
         qstatusbar_sendersignalindex_callback = nullptr;
         qstatusbar_receivers_callback = nullptr;
         qstatusbar_issignalconnected_callback = nullptr;
+        qstatusbar_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -327,6 +331,7 @@ class VirtualQStatusBar final : public QStatusBar {
     inline void setQStatusBar_SenderSignalIndex_Callback(QStatusBar_SenderSignalIndex_Callback cb) { qstatusbar_sendersignalindex_callback = cb; }
     inline void setQStatusBar_Receivers_Callback(QStatusBar_Receivers_Callback cb) { qstatusbar_receivers_callback = cb; }
     inline void setQStatusBar_IsSignalConnected_Callback(QStatusBar_IsSignalConnected_Callback cb) { qstatusbar_issignalconnected_callback = cb; }
+    inline void setQStatusBar_GetDecodedMetricF_Callback(QStatusBar_GetDecodedMetricF_Callback cb) { qstatusbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQStatusBar_Metacall_IsBase(bool value) const { qstatusbar_metacall_isbase = value; }
@@ -388,6 +393,7 @@ class VirtualQStatusBar final : public QStatusBar {
     inline void setQStatusBar_SenderSignalIndex_IsBase(bool value) const { qstatusbar_sendersignalindex_isbase = value; }
     inline void setQStatusBar_Receivers_IsBase(bool value) const { qstatusbar_receivers_isbase = value; }
     inline void setQStatusBar_IsSignalConnected_IsBase(bool value) const { qstatusbar_issignalconnected_isbase = value; }
+    inline void setQStatusBar_GetDecodedMetricF_IsBase(bool value) const { qstatusbar_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1224,6 +1230,22 @@ class VirtualQStatusBar final : public QStatusBar {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qstatusbar_getdecodedmetricf_isbase) {
+            qstatusbar_getdecodedmetricf_isbase = false;
+            return QStatusBar::getDecodedMetricF(metricA, metricB);
+        } else if (qstatusbar_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qstatusbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QStatusBar::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QStatusBar_ShowEvent(QStatusBar* self, QShowEvent* param1);
     friend void QStatusBar_QBaseShowEvent(QStatusBar* self, QShowEvent* param1);
@@ -1323,6 +1345,8 @@ class VirtualQStatusBar final : public QStatusBar {
     friend int QStatusBar_QBaseReceivers(const QStatusBar* self, const char* signal);
     friend bool QStatusBar_IsSignalConnected(const QStatusBar* self, const QMetaMethod* signal);
     friend bool QStatusBar_QBaseIsSignalConnected(const QStatusBar* self, const QMetaMethod* signal);
+    friend double QStatusBar_GetDecodedMetricF(const QStatusBar* self, int metricA, int metricB);
+    friend double QStatusBar_QBaseGetDecodedMetricF(const QStatusBar* self, int metricA, int metricB);
 };
 
 #endif

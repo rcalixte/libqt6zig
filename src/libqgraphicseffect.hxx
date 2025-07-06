@@ -97,8 +97,8 @@ class VirtualQGraphicsEffect final : public QGraphicsEffect {
     mutable bool qgraphicseffect_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsEffect() : QGraphicsEffect(){};
-    VirtualQGraphicsEffect(QObject* parent) : QGraphicsEffect(parent){};
+    VirtualQGraphicsEffect() : QGraphicsEffect() {};
+    VirtualQGraphicsEffect(QObject* parent) : QGraphicsEffect(parent) {};
 
     ~VirtualQGraphicsEffect() {
         qgraphicseffect_metacall_callback = nullptr;
@@ -645,8 +645,8 @@ class VirtualQGraphicsColorizeEffect final : public QGraphicsColorizeEffect {
     mutable bool qgraphicscolorizeeffect_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsColorizeEffect() : QGraphicsColorizeEffect(){};
-    VirtualQGraphicsColorizeEffect(QObject* parent) : QGraphicsColorizeEffect(parent){};
+    VirtualQGraphicsColorizeEffect() : QGraphicsColorizeEffect() {};
+    VirtualQGraphicsColorizeEffect(QObject* parent) : QGraphicsColorizeEffect(parent) {};
 
     ~VirtualQGraphicsColorizeEffect() {
         qgraphicscolorizeeffect_metacall_callback = nullptr;
@@ -1115,8 +1115,8 @@ class VirtualQGraphicsBlurEffect final : public QGraphicsBlurEffect {
     mutable bool qgraphicsblureffect_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsBlurEffect() : QGraphicsBlurEffect(){};
-    VirtualQGraphicsBlurEffect(QObject* parent) : QGraphicsBlurEffect(parent){};
+    VirtualQGraphicsBlurEffect() : QGraphicsBlurEffect() {};
+    VirtualQGraphicsBlurEffect(QObject* parent) : QGraphicsBlurEffect(parent) {};
 
     ~VirtualQGraphicsBlurEffect() {
         qgraphicsblureffect_metacall_callback = nullptr;
@@ -1585,8 +1585,8 @@ class VirtualQGraphicsDropShadowEffect final : public QGraphicsDropShadowEffect 
     mutable bool qgraphicsdropshadoweffect_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsDropShadowEffect() : QGraphicsDropShadowEffect(){};
-    VirtualQGraphicsDropShadowEffect(QObject* parent) : QGraphicsDropShadowEffect(parent){};
+    VirtualQGraphicsDropShadowEffect() : QGraphicsDropShadowEffect() {};
+    VirtualQGraphicsDropShadowEffect(QObject* parent) : QGraphicsDropShadowEffect(parent) {};
 
     ~VirtualQGraphicsDropShadowEffect() {
         qgraphicsdropshadoweffect_metacall_callback = nullptr;
@@ -2055,8 +2055,8 @@ class VirtualQGraphicsOpacityEffect final : public QGraphicsOpacityEffect {
     mutable bool qgraphicsopacityeffect_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsOpacityEffect() : QGraphicsOpacityEffect(){};
-    VirtualQGraphicsOpacityEffect(QObject* parent) : QGraphicsOpacityEffect(parent){};
+    VirtualQGraphicsOpacityEffect() : QGraphicsOpacityEffect() {};
+    VirtualQGraphicsOpacityEffect(QObject* parent) : QGraphicsOpacityEffect(parent) {};
 
     ~VirtualQGraphicsOpacityEffect() {
         qgraphicsopacityeffect_metacall_callback = nullptr;

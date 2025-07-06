@@ -64,8 +64,8 @@ class VirtualQWebEngineUrlRequestInterceptor final : public QWebEngineUrlRequest
     mutable bool qwebengineurlrequestinterceptor_issignalconnected_isbase = false;
 
   public:
-    VirtualQWebEngineUrlRequestInterceptor() : QWebEngineUrlRequestInterceptor(){};
-    VirtualQWebEngineUrlRequestInterceptor(QObject* p) : QWebEngineUrlRequestInterceptor(p){};
+    VirtualQWebEngineUrlRequestInterceptor() : QWebEngineUrlRequestInterceptor() {};
+    VirtualQWebEngineUrlRequestInterceptor(QObject* p) : QWebEngineUrlRequestInterceptor(p) {};
 
     ~VirtualQWebEngineUrlRequestInterceptor() {
         qwebengineurlrequestinterceptor_metacall_callback = nullptr;

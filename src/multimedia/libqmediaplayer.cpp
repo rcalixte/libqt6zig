@@ -1,3 +1,4 @@
+#include <QAudioBufferOutput>
 #include <QAudioOutput>
 #include <QChildEvent>
 #include <QEvent>
@@ -78,12 +79,12 @@ libqt_string QMediaPlayer_Tr(const char* s) {
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_AudioTracks(const QMediaPlayer* self) {
     QList<QMediaMetaData> _ret = self->audioTracks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaMetaData(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -91,12 +92,12 @@ libqt_list /* of QMediaMetaData* */ QMediaPlayer_AudioTracks(const QMediaPlayer*
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_VideoTracks(const QMediaPlayer* self) {
     QList<QMediaMetaData> _ret = self->videoTracks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaMetaData(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -104,12 +105,12 @@ libqt_list /* of QMediaMetaData* */ QMediaPlayer_VideoTracks(const QMediaPlayer*
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_SubtitleTracks(const QMediaPlayer* self) {
     QList<QMediaMetaData> _ret = self->subtitleTracks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QMediaMetaData** _arr = static_cast<QMediaMetaData**>(malloc(sizeof(QMediaMetaData*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaMetaData(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -136,6 +137,14 @@ void QMediaPlayer_SetActiveVideoTrack(QMediaPlayer* self, int index) {
 
 void QMediaPlayer_SetActiveSubtitleTrack(QMediaPlayer* self, int index) {
     self->setActiveSubtitleTrack(static_cast<int>(index));
+}
+
+void QMediaPlayer_SetAudioBufferOutput(QMediaPlayer* self, QAudioBufferOutput* output) {
+    self->setAudioBufferOutput(output);
+}
+
+QAudioBufferOutput* QMediaPlayer_AudioBufferOutput(const QMediaPlayer* self) {
+    return self->audioBufferOutput();
 }
 
 void QMediaPlayer_SetAudioOutput(QMediaPlayer* self, QAudioOutput* output) {
@@ -208,6 +217,10 @@ bool QMediaPlayer_IsSeekable(const QMediaPlayer* self) {
 
 double QMediaPlayer_PlaybackRate(const QMediaPlayer* self) {
     return static_cast<double>(self->playbackRate());
+}
+
+bool QMediaPlayer_IsPlaying(const QMediaPlayer* self) {
+    return self->isPlaying();
 }
 
 int QMediaPlayer_Loops(const QMediaPlayer* self) {
@@ -380,6 +393,18 @@ void QMediaPlayer_Connect_SeekableChanged(QMediaPlayer* self, intptr_t slot) {
     });
 }
 
+void QMediaPlayer_PlayingChanged(QMediaPlayer* self, bool playing) {
+    self->playingChanged(playing);
+}
+
+void QMediaPlayer_Connect_PlayingChanged(QMediaPlayer* self, intptr_t slot) {
+    void (*slotFunc)(QMediaPlayer*, bool) = reinterpret_cast<void (*)(QMediaPlayer*, bool)>(slot);
+    QMediaPlayer::connect(self, &QMediaPlayer::playingChanged, [self, slotFunc](bool playing) {
+        bool sigval1 = playing;
+        slotFunc(self, sigval1);
+    });
+}
+
 void QMediaPlayer_PlaybackRateChanged(QMediaPlayer* self, double rate) {
     self->playbackRateChanged(static_cast<qreal>(rate));
 }
@@ -432,6 +457,17 @@ void QMediaPlayer_AudioOutputChanged(QMediaPlayer* self) {
 void QMediaPlayer_Connect_AudioOutputChanged(QMediaPlayer* self, intptr_t slot) {
     void (*slotFunc)(QMediaPlayer*) = reinterpret_cast<void (*)(QMediaPlayer*)>(slot);
     QMediaPlayer::connect(self, &QMediaPlayer::audioOutputChanged, [self, slotFunc]() {
+        slotFunc(self);
+    });
+}
+
+void QMediaPlayer_AudioBufferOutputChanged(QMediaPlayer* self) {
+    self->audioBufferOutputChanged();
+}
+
+void QMediaPlayer_Connect_AudioBufferOutputChanged(QMediaPlayer* self, intptr_t slot) {
+    void (*slotFunc)(QMediaPlayer*) = reinterpret_cast<void (*)(QMediaPlayer*)>(slot);
+    QMediaPlayer::connect(self, &QMediaPlayer::audioBufferOutputChanged, [self, slotFunc]() {
         slotFunc(self);
     });
 }

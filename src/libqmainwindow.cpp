@@ -273,12 +273,12 @@ void QMainWindow_TabifyDockWidget(QMainWindow* self, QDockWidget* first, QDockWi
 libqt_list /* of QDockWidget* */ QMainWindow_TabifiedDockWidgets(const QMainWindow* self, QDockWidget* dockwidget) {
     QList<QDockWidget*> _ret = self->tabifiedDockWidgets(dockwidget);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDockWidget** _arr = static_cast<QDockWidget**>(malloc(sizeof(QDockWidget*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDockWidget** _arr = static_cast<QDockWidget**>(malloc(sizeof(QDockWidget*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -2071,6 +2071,35 @@ void QMainWindow_OnIsSignalConnected(const QMainWindow* self, intptr_t slot) {
     auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
     if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
         vqmainwindow->setQMainWindow_IsSignalConnected_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QMainWindow_GetDecodedMetricF(const QMainWindow* self, int metricA, int metricB) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        return vqmainwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQMainWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QMainWindow_QBaseGetDecodedMetricF(const QMainWindow* self, int metricA, int metricB) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_GetDecodedMetricF_IsBase(true);
+        return vqmainwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQMainWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMainWindow_OnGetDecodedMetricF(const QMainWindow* self, intptr_t slot) {
+    auto* vqmainwindow = const_cast<VirtualQMainWindow*>(dynamic_cast<const VirtualQMainWindow*>(self));
+    if (vqmainwindow && vqmainwindow->isVirtualQMainWindow) {
+        vqmainwindow->setQMainWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMainWindow::QMainWindow_GetDecodedMetricF_Callback>(slot));
     }
 }
 

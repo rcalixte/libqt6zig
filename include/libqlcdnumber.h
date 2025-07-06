@@ -53,14 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QLCDNumber::Mode Mode;                 // C++ enum
-typedef QLCDNumber::SegmentStyle SegmentStyle; // C++ enum
-#else
-typedef int Mode;         // C ABI enum
-typedef int SegmentStyle; // C ABI enum
-#endif
-
 QLCDNumber* QLCDNumber_new(QWidget* parent);
 QLCDNumber* QLCDNumber_new2();
 QLCDNumber* QLCDNumber_new3(unsigned int numDigits);
@@ -268,6 +260,9 @@ int QLCDNumber_QBaseReceivers(const QLCDNumber* self, const char* signal);
 bool QLCDNumber_IsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal);
 void QLCDNumber_OnIsSignalConnected(const QLCDNumber* self, intptr_t slot);
 bool QLCDNumber_QBaseIsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal);
+double QLCDNumber_GetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB);
+void QLCDNumber_OnGetDecodedMetricF(const QLCDNumber* self, intptr_t slot);
+double QLCDNumber_QBaseGetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB);
 void QLCDNumber_Delete(QLCDNumber* self);
 
 #ifdef __cplusplus

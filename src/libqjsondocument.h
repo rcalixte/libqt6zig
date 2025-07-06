@@ -24,14 +24,6 @@ typedef struct QJsonValue QJsonValue;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QJsonDocument::JsonFormat JsonFormat;   // C++ enum
-typedef QJsonParseError::ParseError ParseError; // C++ enum
-#else
-typedef int JsonFormat; // C ABI enum
-typedef int ParseError; // C ABI enum
-#endif
-
 QJsonParseError* QJsonParseError_new(const QJsonParseError* other);
 QJsonParseError* QJsonParseError_new2(QJsonParseError* other);
 void QJsonParseError_CopyAssign(QJsonParseError* self, QJsonParseError* other);
@@ -58,8 +50,6 @@ void QJsonDocument_SetObject(QJsonDocument* self, const QJsonObject* object);
 void QJsonDocument_SetArray(QJsonDocument* self, const QJsonArray* array);
 QJsonValue* QJsonDocument_OperatorSubscript(const QJsonDocument* self, const libqt_string key);
 QJsonValue* QJsonDocument_OperatorSubscriptWithQsizetype(const QJsonDocument* self, ptrdiff_t i);
-bool QJsonDocument_OperatorEqual(const QJsonDocument* self, const QJsonDocument* other);
-bool QJsonDocument_OperatorNotEqual(const QJsonDocument* self, const QJsonDocument* other);
 bool QJsonDocument_IsNull(const QJsonDocument* self);
 QJsonDocument* QJsonDocument_FromJson2(const libqt_string json, QJsonParseError* errorVal);
 libqt_string QJsonDocument_ToJson1(const QJsonDocument* self, int format);

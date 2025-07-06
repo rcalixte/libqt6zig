@@ -143,12 +143,12 @@ QRect* QScreen_AvailableGeometry(const QScreen* self) {
 libqt_list /* of QScreen* */ QScreen_VirtualSiblings(const QScreen* self) {
     QList<QScreen*> _ret = self->virtualSiblings();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QScreen** _arr = static_cast<QScreen**>(malloc(sizeof(QScreen*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QScreen** _arr = static_cast<QScreen**>(malloc(sizeof(QScreen*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

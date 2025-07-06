@@ -33,12 +33,6 @@ typedef struct QVBoxLayout QVBoxLayout;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QBoxLayout::Direction Direction; // C++ enum
-#else
-typedef int Direction; // C ABI enum
-#endif
-
 QBoxLayout* QBoxLayout_new(int param1);
 QBoxLayout* QBoxLayout_new2(int param1, QWidget* parent);
 QMetaObject* QBoxLayout_MetaObject(const QBoxLayout* self);

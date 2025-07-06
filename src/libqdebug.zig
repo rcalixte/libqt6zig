@@ -94,6 +94,20 @@ pub const qdebug = struct {
         qtc.QDebug_SetAutoInsertSpaces(@ptrCast(self), b);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#quoteStrings)
+    ///
+    /// ``` self: QtC.QDebug ```
+    pub fn QuoteStrings(self: ?*anyopaque) bool {
+        return qtc.QDebug_QuoteStrings(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#setQuoteStrings)
+    ///
+    /// ``` self: QtC.QDebug, b: bool ```
+    pub fn SetQuoteStrings(self: ?*anyopaque, b: bool) void {
+        qtc.QDebug_SetQuoteStrings(@ptrCast(self), b);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#quote)
     ///
     /// ``` self: QtC.QDebug ```

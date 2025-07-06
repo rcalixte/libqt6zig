@@ -2,6 +2,7 @@
 #include <QPoint>
 #include <QRect>
 #include <QRegion>
+#include <QSpan>
 #include <QVariant>
 #include <qregion.h>
 #include "libqregion.h"
@@ -133,6 +134,29 @@ QRect* QRegion_BoundingRect(const QRegion* self) {
 
 void QRegion_SetRects(QRegion* self, const QRect* rect, int num) {
     self->setRects(rect, static_cast<int>(num));
+}
+
+void QRegion_SetRectsWithQSpanLesserconstQRectGreater(QRegion* self, libqt_list /* of QRect* */ r) {
+    QList<QRect> r_QSpan;
+    r_QSpan.reserve(r.len);
+    QRect** r_arr = static_cast<QRect**>(r.data);
+    for (size_t i = 0; i < r.len; ++i) {
+        r_QSpan.push_back(*(r_arr[i]));
+    }
+    self->setRects(r_QSpan);
+}
+
+libqt_list /* of QRect* */ QRegion_Rects(const QRegion* self) {
+    QSpan<const QRect> _ret = self->rects();
+    // Convert QSpan<> from C++ memory to manually-managed C memory
+    QRect** _arr = static_cast<QRect**>(malloc(sizeof(QRect*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QRect(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 int QRegion_RectCount(const QRegion* self) {

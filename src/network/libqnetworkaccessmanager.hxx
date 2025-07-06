@@ -70,8 +70,8 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     mutable bool qnetworkaccessmanager_issignalconnected_isbase = false;
 
   public:
-    VirtualQNetworkAccessManager() : QNetworkAccessManager(){};
-    VirtualQNetworkAccessManager(QObject* parent) : QNetworkAccessManager(parent){};
+    VirtualQNetworkAccessManager() : QNetworkAccessManager() {};
+    VirtualQNetworkAccessManager(QObject* parent) : QNetworkAccessManager(parent) {};
 
     ~VirtualQNetworkAccessManager() {
         qnetworkaccessmanager_metacall_callback = nullptr;
@@ -143,13 +143,13 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList supportedSchemes() const override {
+    virtual QList<QString> supportedSchemes() const override {
         if (qnetworkaccessmanager_supportedschemes_isbase) {
             qnetworkaccessmanager_supportedschemes_isbase = false;
             return QNetworkAccessManager::supportedSchemes();
         } else if (qnetworkaccessmanager_supportedschemes_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qnetworkaccessmanager_supportedschemes_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -287,13 +287,13 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     }
 
     // Virtual method for C ABI access and custom callback
-    QStringList supportedSchemesImplementation() const {
+    QList<QString> supportedSchemesImplementation() const {
         if (qnetworkaccessmanager_supportedschemesimplementation_isbase) {
             qnetworkaccessmanager_supportedschemesimplementation_isbase = false;
             return QNetworkAccessManager::supportedSchemesImplementation();
         } else if (qnetworkaccessmanager_supportedschemesimplementation_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qnetworkaccessmanager_supportedschemesimplementation_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {

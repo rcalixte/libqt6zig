@@ -15,34 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QFont__Tag)
+typedef QFont::Tag QFont__Tag;
+#endif
 #else
 typedef struct QFont QFont;
+typedef struct QFont__Tag QFont__Tag;
 typedef struct QPaintDevice QPaintDevice;
 typedef struct QVariant QVariant;
-#endif
-
-#ifdef __cplusplus
-typedef QFont::Capitalization Capitalization;       // C++ enum
-typedef QFont::HintingPreference HintingPreference; // C++ enum
-typedef QFont::QtGadgetHelper QtGadgetHelper;       // C++ QFlags
-typedef QFont::ResolveProperties ResolveProperties; // C++ enum
-typedef QFont::SpacingType SpacingType;             // C++ enum
-typedef QFont::Stretch Stretch;                     // C++ enum
-typedef QFont::Style Style;                         // C++ enum
-typedef QFont::StyleHint StyleHint;                 // C++ enum
-typedef QFont::StyleStrategy StyleStrategy;         // C++ enum
-typedef QFont::Weight Weight;                       // C++ enum
-#else
-typedef int Capitalization;    // C ABI enum
-typedef int HintingPreference; // C ABI enum
-typedef int ResolveProperties; // C ABI enum
-typedef int SpacingType;       // C ABI enum
-typedef int Stretch;           // C ABI enum
-typedef int Style;             // C ABI enum
-typedef int StyleHint;         // C ABI enum
-typedef int StyleStrategy;     // C ABI enum
-typedef int Weight;            // C ABI enum
-typedef void QtGadgetHelper;   // C ABI QFlags
 #endif
 
 QFont* QFont_new();
@@ -102,6 +82,18 @@ void QFont_SetCapitalization(QFont* self, int capitalization);
 int QFont_Capitalization(const QFont* self);
 void QFont_SetHintingPreference(QFont* self, int hintingPreference);
 int QFont_HintingPreference(const QFont* self);
+void QFont_SetFeature(QFont* self, QFont__Tag* tag, unsigned int value);
+void QFont_UnsetFeature(QFont* self, QFont__Tag* tag);
+unsigned int QFont_FeatureValue(const QFont* self, QFont__Tag* tag);
+bool QFont_IsFeatureSet(const QFont* self, QFont__Tag* tag);
+libqt_list /* of QFont__Tag* */ QFont_FeatureTags(const QFont* self);
+void QFont_ClearFeatures(QFont* self);
+void QFont_SetVariableAxis(QFont* self, QFont__Tag* tag, float value);
+void QFont_UnsetVariableAxis(QFont* self, QFont__Tag* tag);
+bool QFont_IsVariableAxisSet(const QFont* self, QFont__Tag* tag);
+float QFont_VariableAxisValue(const QFont* self, QFont__Tag* tag);
+void QFont_ClearVariableAxes(QFont* self);
+libqt_list /* of QFont__Tag* */ QFont_VariableAxisTags(const QFont* self);
 bool QFont_ExactMatch(const QFont* self);
 void QFont_OperatorAssign(QFont* self, const QFont* param1);
 bool QFont_OperatorEqual(const QFont* self, const QFont* param1);
@@ -129,6 +121,17 @@ void QFont_SetLegacyWeight(QFont* self, int legacyWeight);
 int QFont_LegacyWeight(const QFont* self);
 void QFont_SetStyleHint2(QFont* self, int param1, int param2);
 void QFont_Delete(QFont* self);
+
+QFont__Tag* QFont__Tag_new(const QFont__Tag* other);
+QFont__Tag* QFont__Tag_new2(QFont__Tag* other);
+QFont__Tag* QFont__Tag_new3();
+QFont__Tag* QFont__Tag_new4(const QFont__Tag* param1);
+void QFont__Tag_CopyAssign(QFont__Tag* self, QFont__Tag* other);
+void QFont__Tag_MoveAssign(QFont__Tag* self, QFont__Tag* other);
+bool QFont__Tag_IsValid(const QFont__Tag* self);
+unsigned int QFont__Tag_Value(const QFont__Tag* self);
+libqt_string QFont__Tag_ToString(const QFont__Tag* self);
+void QFont__Tag_Delete(QFont__Tag* self);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -64,8 +64,8 @@ class VirtualQValueAxis final : public QValueAxis {
     mutable bool qvalueaxis_issignalconnected_isbase = false;
 
   public:
-    VirtualQValueAxis() : QValueAxis(){};
-    VirtualQValueAxis(QObject* parent) : QValueAxis(parent){};
+    VirtualQValueAxis() : QValueAxis() {};
+    VirtualQValueAxis(QObject* parent) : QValueAxis(parent) {};
 
     ~VirtualQValueAxis() {
         qvalueaxis_metacall_callback = nullptr;

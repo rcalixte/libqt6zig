@@ -55,14 +55,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QFontComboBox::FontFilter FontFilter;   // C++ enum
-typedef QFontComboBox::FontFilters FontFilters; // C++ QFlags
-#else
-typedef int FontFilter;  // C ABI enum
-typedef int FontFilters; // C ABI QFlags
-#endif
-
 QFontComboBox* QFontComboBox_new(QWidget* parent);
 QFontComboBox* QFontComboBox_new2();
 QMetaObject* QFontComboBox_MetaObject(const QFontComboBox* self);
@@ -266,6 +258,9 @@ int QFontComboBox_QBaseReceivers(const QFontComboBox* self, const char* signal);
 bool QFontComboBox_IsSignalConnected(const QFontComboBox* self, const QMetaMethod* signal);
 void QFontComboBox_OnIsSignalConnected(const QFontComboBox* self, intptr_t slot);
 bool QFontComboBox_QBaseIsSignalConnected(const QFontComboBox* self, const QMetaMethod* signal);
+double QFontComboBox_GetDecodedMetricF(const QFontComboBox* self, int metricA, int metricB);
+void QFontComboBox_OnGetDecodedMetricF(const QFontComboBox* self, intptr_t slot);
+double QFontComboBox_QBaseGetDecodedMetricF(const QFontComboBox* self, int metricA, int metricB);
 void QFontComboBox_Delete(QFontComboBox* self);
 
 #ifdef __cplusplus

@@ -44,6 +44,7 @@ typedef struct QPaintEvent QPaintEvent;
 typedef struct QPainter QPainter;
 typedef struct QPdfDocument QPdfDocument;
 typedef struct QPdfPageNavigator QPdfPageNavigator;
+typedef struct QPdfSearchModel QPdfSearchModel;
 typedef struct QPdfView QPdfView;
 typedef struct QPoint QPoint;
 typedef struct QResizeEvent QResizeEvent;
@@ -57,14 +58,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfView::PageMode PageMode; // C++ enum
-typedef QPdfView::ZoomMode ZoomMode; // C++ enum
-#else
-typedef int PageMode; // C ABI enum
-typedef int ZoomMode; // C ABI enum
-#endif
-
 QPdfView* QPdfView_new(QWidget* parent);
 QPdfView* QPdfView_new2();
 QMetaObject* QPdfView_MetaObject(const QPdfView* self);
@@ -75,6 +68,9 @@ int QPdfView_QBaseMetacall(QPdfView* self, int param1, int param2, void** param3
 libqt_string QPdfView_Tr(const char* s);
 void QPdfView_SetDocument(QPdfView* self, QPdfDocument* document);
 QPdfDocument* QPdfView_Document(const QPdfView* self);
+QPdfSearchModel* QPdfView_SearchModel(const QPdfView* self);
+void QPdfView_SetSearchModel(QPdfView* self, QPdfSearchModel* searchModel);
+int QPdfView_CurrentSearchResultIndex(const QPdfView* self);
 QPdfPageNavigator* QPdfView_PageNavigator(const QPdfView* self);
 int QPdfView_PageMode(const QPdfView* self);
 int QPdfView_ZoomMode(const QPdfView* self);
@@ -86,6 +82,7 @@ void QPdfView_SetDocumentMargins(QPdfView* self, QMargins* margins);
 void QPdfView_SetPageMode(QPdfView* self, int mode);
 void QPdfView_SetZoomMode(QPdfView* self, int mode);
 void QPdfView_SetZoomFactor(QPdfView* self, double factor);
+void QPdfView_SetCurrentSearchResultIndex(QPdfView* self, int currentResult);
 void QPdfView_DocumentChanged(QPdfView* self, QPdfDocument* document);
 void QPdfView_Connect_DocumentChanged(QPdfView* self, intptr_t slot);
 void QPdfView_PageModeChanged(QPdfView* self, int pageMode);
@@ -98,6 +95,10 @@ void QPdfView_PageSpacingChanged(QPdfView* self, int pageSpacing);
 void QPdfView_Connect_PageSpacingChanged(QPdfView* self, intptr_t slot);
 void QPdfView_DocumentMarginsChanged(QPdfView* self, QMargins* documentMargins);
 void QPdfView_Connect_DocumentMarginsChanged(QPdfView* self, intptr_t slot);
+void QPdfView_SearchModelChanged(QPdfView* self, QPdfSearchModel* searchModel);
+void QPdfView_Connect_SearchModelChanged(QPdfView* self, intptr_t slot);
+void QPdfView_CurrentSearchResultIndexChanged(QPdfView* self, int currentResult);
+void QPdfView_Connect_CurrentSearchResultIndexChanged(QPdfView* self, intptr_t slot);
 void QPdfView_PaintEvent(QPdfView* self, QPaintEvent* event);
 void QPdfView_OnPaintEvent(QPdfView* self, intptr_t slot);
 void QPdfView_QBasePaintEvent(QPdfView* self, QPaintEvent* event);
@@ -107,6 +108,15 @@ void QPdfView_QBaseResizeEvent(QPdfView* self, QResizeEvent* event);
 void QPdfView_ScrollContentsBy(QPdfView* self, int dx, int dy);
 void QPdfView_OnScrollContentsBy(QPdfView* self, intptr_t slot);
 void QPdfView_QBaseScrollContentsBy(QPdfView* self, int dx, int dy);
+void QPdfView_MousePressEvent(QPdfView* self, QMouseEvent* event);
+void QPdfView_OnMousePressEvent(QPdfView* self, intptr_t slot);
+void QPdfView_QBaseMousePressEvent(QPdfView* self, QMouseEvent* event);
+void QPdfView_MouseMoveEvent(QPdfView* self, QMouseEvent* event);
+void QPdfView_OnMouseMoveEvent(QPdfView* self, intptr_t slot);
+void QPdfView_QBaseMouseMoveEvent(QPdfView* self, QMouseEvent* event);
+void QPdfView_MouseReleaseEvent(QPdfView* self, QMouseEvent* event);
+void QPdfView_OnMouseReleaseEvent(QPdfView* self, intptr_t slot);
+void QPdfView_QBaseMouseReleaseEvent(QPdfView* self, QMouseEvent* event);
 libqt_string QPdfView_Tr2(const char* s, const char* c);
 libqt_string QPdfView_Tr3(const char* s, const char* c, int n);
 QSize* QPdfView_MinimumSizeHint(const QPdfView* self);
@@ -127,18 +137,9 @@ bool QPdfView_QBaseEvent(QPdfView* self, QEvent* param1);
 bool QPdfView_ViewportEvent(QPdfView* self, QEvent* param1);
 void QPdfView_OnViewportEvent(QPdfView* self, intptr_t slot);
 bool QPdfView_QBaseViewportEvent(QPdfView* self, QEvent* param1);
-void QPdfView_MousePressEvent(QPdfView* self, QMouseEvent* param1);
-void QPdfView_OnMousePressEvent(QPdfView* self, intptr_t slot);
-void QPdfView_QBaseMousePressEvent(QPdfView* self, QMouseEvent* param1);
-void QPdfView_MouseReleaseEvent(QPdfView* self, QMouseEvent* param1);
-void QPdfView_OnMouseReleaseEvent(QPdfView* self, intptr_t slot);
-void QPdfView_QBaseMouseReleaseEvent(QPdfView* self, QMouseEvent* param1);
 void QPdfView_MouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1);
 void QPdfView_OnMouseDoubleClickEvent(QPdfView* self, intptr_t slot);
 void QPdfView_QBaseMouseDoubleClickEvent(QPdfView* self, QMouseEvent* param1);
-void QPdfView_MouseMoveEvent(QPdfView* self, QMouseEvent* param1);
-void QPdfView_OnMouseMoveEvent(QPdfView* self, intptr_t slot);
-void QPdfView_QBaseMouseMoveEvent(QPdfView* self, QMouseEvent* param1);
 void QPdfView_WheelEvent(QPdfView* self, QWheelEvent* param1);
 void QPdfView_OnWheelEvent(QPdfView* self, intptr_t slot);
 void QPdfView_QBaseWheelEvent(QPdfView* self, QWheelEvent* param1);
@@ -292,6 +293,9 @@ int QPdfView_QBaseReceivers(const QPdfView* self, const char* signal);
 bool QPdfView_IsSignalConnected(const QPdfView* self, const QMetaMethod* signal);
 void QPdfView_OnIsSignalConnected(const QPdfView* self, intptr_t slot);
 bool QPdfView_QBaseIsSignalConnected(const QPdfView* self, const QMetaMethod* signal);
+double QPdfView_GetDecodedMetricF(const QPdfView* self, int metricA, int metricB);
+void QPdfView_OnGetDecodedMetricF(const QPdfView* self, intptr_t slot);
+double QPdfView_QBaseGetDecodedMetricF(const QPdfView* self, int metricA, int metricB);
 void QPdfView_Delete(QPdfView* self);
 
 #ifdef __cplusplus

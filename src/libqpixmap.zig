@@ -774,6 +774,15 @@ pub const qpixmap = struct {
 
     /// Inherited from QPaintDevice
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -869,6 +878,39 @@ pub const qpixmap = struct {
     /// ``` self: QtC.QPixmap, slot: fn () callconv(.c) QtC.QPainter ```
     pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
         qtc.QPixmap_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QPixmap_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QPixmap_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QPixmap, slot: fn (self: QtC.QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QPixmap_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#dtor.QPixmap)

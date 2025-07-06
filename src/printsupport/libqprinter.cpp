@@ -211,12 +211,12 @@ int QPrinter_Duplex(const QPrinter* self) {
 libqt_list /* of int */ QPrinter_SupportedResolutions(const QPrinter* self) {
     QList<int> _ret = self->supportedResolutions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -660,6 +660,35 @@ void QPrinter_OnSetEngines(QPrinter* self, intptr_t slot) {
     auto* vqprinter = dynamic_cast<VirtualQPrinter*>(self);
     if (vqprinter && vqprinter->isVirtualQPrinter) {
         vqprinter->setQPrinter_SetEngines_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_SetEngines_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QPrinter_GetDecodedMetricF(const QPrinter* self, int metricA, int metricB) {
+    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        return vqprinter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPrinter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QPrinter_QBaseGetDecodedMetricF(const QPrinter* self, int metricA, int metricB) {
+    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_GetDecodedMetricF_IsBase(true);
+        return vqprinter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPrinter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrinter_OnGetDecodedMetricF(const QPrinter* self, intptr_t slot) {
+    auto* vqprinter = const_cast<VirtualQPrinter*>(dynamic_cast<const VirtualQPrinter*>(self));
+    if (vqprinter && vqprinter->isVirtualQPrinter) {
+        vqprinter->setQPrinter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPrinter::QPrinter_GetDecodedMetricF_Callback>(slot));
     }
 }
 

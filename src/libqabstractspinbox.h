@@ -53,20 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractSpinBox::ButtonSymbols ButtonSymbols;     // C++ enum
-typedef QAbstractSpinBox::CorrectionMode CorrectionMode;   // C++ enum
-typedef QAbstractSpinBox::StepEnabled StepEnabled;         // C++ QFlags
-typedef QAbstractSpinBox::StepEnabledFlag StepEnabledFlag; // C++ enum
-typedef QAbstractSpinBox::StepType StepType;               // C++ enum
-#else
-typedef int ButtonSymbols;   // C ABI enum
-typedef int CorrectionMode;  // C ABI enum
-typedef int StepEnabled;     // C ABI QFlags
-typedef int StepEnabledFlag; // C ABI enum
-typedef int StepType;        // C ABI enum
-#endif
-
 QAbstractSpinBox* QAbstractSpinBox_new(QWidget* parent);
 QAbstractSpinBox* QAbstractSpinBox_new2();
 QMetaObject* QAbstractSpinBox_MetaObject(const QAbstractSpinBox* self);
@@ -297,6 +283,9 @@ int QAbstractSpinBox_QBaseReceivers(const QAbstractSpinBox* self, const char* si
 bool QAbstractSpinBox_IsSignalConnected(const QAbstractSpinBox* self, const QMetaMethod* signal);
 void QAbstractSpinBox_OnIsSignalConnected(const QAbstractSpinBox* self, intptr_t slot);
 bool QAbstractSpinBox_QBaseIsSignalConnected(const QAbstractSpinBox* self, const QMetaMethod* signal);
+double QAbstractSpinBox_GetDecodedMetricF(const QAbstractSpinBox* self, int metricA, int metricB);
+void QAbstractSpinBox_OnGetDecodedMetricF(const QAbstractSpinBox* self, intptr_t slot);
+double QAbstractSpinBox_QBaseGetDecodedMetricF(const QAbstractSpinBox* self, int metricA, int metricB);
 void QAbstractSpinBox_Delete(QAbstractSpinBox* self);
 
 #ifdef __cplusplus

@@ -2115,6 +2115,35 @@ void QAbstractSpinBox_OnIsSignalConnected(const QAbstractSpinBox* self, intptr_t
     }
 }
 
+// Derived class handler implementation
+double QAbstractSpinBox_GetDecodedMetricF(const QAbstractSpinBox* self, int metricA, int metricB) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        return vqabstractspinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QAbstractSpinBox_QBaseGetDecodedMetricF(const QAbstractSpinBox* self, int metricA, int metricB) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_GetDecodedMetricF_IsBase(true);
+        return vqabstractspinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSpinBox_OnGetDecodedMetricF(const QAbstractSpinBox* self, intptr_t slot) {
+    auto* vqabstractspinbox = const_cast<VirtualQAbstractSpinBox*>(dynamic_cast<const VirtualQAbstractSpinBox*>(self));
+    if (vqabstractspinbox && vqabstractspinbox->isVirtualQAbstractSpinBox) {
+        vqabstractspinbox->setQAbstractSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractSpinBox::QAbstractSpinBox_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QAbstractSpinBox_Delete(QAbstractSpinBox* self) {
     delete self;
 }

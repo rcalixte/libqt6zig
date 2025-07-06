@@ -2928,6 +2928,15 @@ pub const qspinbox = struct {
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    ///
+    /// ``` self: QtC.QSpinBox, p: QtC.QPointF ```
+    pub fn ChildAtWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPointF(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// Inherited from QWidget
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QSpinBox, param1: qnamespace_enums.WidgetAttribute ```
@@ -3343,8 +3352,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSpinBox, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -3363,6 +3372,15 @@ pub const qspinbox = struct {
     /// ``` self: QtC.QSpinBox, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QSpinBox, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -3563,6 +3581,15 @@ pub const qspinbox = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QSpinBox, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSpinBox, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -3714,6 +3741,15 @@ pub const qspinbox = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -5737,6 +5773,39 @@ pub const qspinbox = struct {
     /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QSpinBox_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QSpinBox_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QSpinBox_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QSpinBox_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject
@@ -8654,6 +8723,15 @@ pub const qdoublespinbox = struct {
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    ///
+    /// ``` self: QtC.QDoubleSpinBox, p: QtC.QPointF ```
+    pub fn ChildAtWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPointF(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// Inherited from QWidget
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QDoubleSpinBox, param1: qnamespace_enums.WidgetAttribute ```
@@ -9069,8 +9147,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDoubleSpinBox, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -9089,6 +9167,15 @@ pub const qdoublespinbox = struct {
     /// ``` self: QtC.QDoubleSpinBox, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QDoubleSpinBox, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -9289,6 +9376,15 @@ pub const qdoublespinbox = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QDoubleSpinBox, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDoubleSpinBox, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -9440,6 +9536,15 @@ pub const qdoublespinbox = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -11496,6 +11601,39 @@ pub const qdoublespinbox = struct {
     /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QDoubleSpinBox_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QDoubleSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QDoubleSpinBox_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QDoubleSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QDoubleSpinBox_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QDoubleSpinBox_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject

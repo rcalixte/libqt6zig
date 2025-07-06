@@ -27,16 +27,6 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractAnimation::DeletionPolicy DeletionPolicy; // C++ enum
-typedef QAbstractAnimation::Direction Direction;           // C++ enum
-typedef QAbstractAnimation::State State;                   // C++ enum
-#else
-typedef int DeletionPolicy; // C ABI enum
-typedef int Direction;      // C ABI enum
-typedef int State;          // C ABI enum
-#endif
-
 QAbstractAnimation* QAbstractAnimation_new();
 QAbstractAnimation* QAbstractAnimation_new2(QObject* parent);
 QMetaObject* QAbstractAnimation_MetaObject(const QAbstractAnimation* self);

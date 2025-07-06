@@ -53,14 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QColorDialog::ColorDialogOption ColorDialogOption;   // C++ enum
-typedef QColorDialog::ColorDialogOptions ColorDialogOptions; // C++ QFlags
-#else
-typedef int ColorDialogOption;  // C ABI enum
-typedef int ColorDialogOptions; // C ABI QFlags
-#endif
-
 QColorDialog* QColorDialog_new(QWidget* parent);
 QColorDialog* QColorDialog_new2();
 QColorDialog* QColorDialog_new3(const QColor* initial);
@@ -281,6 +273,9 @@ int QColorDialog_QBaseReceivers(const QColorDialog* self, const char* signal);
 bool QColorDialog_IsSignalConnected(const QColorDialog* self, const QMetaMethod* signal);
 void QColorDialog_OnIsSignalConnected(const QColorDialog* self, intptr_t slot);
 bool QColorDialog_QBaseIsSignalConnected(const QColorDialog* self, const QMetaMethod* signal);
+double QColorDialog_GetDecodedMetricF(const QColorDialog* self, int metricA, int metricB);
+void QColorDialog_OnGetDecodedMetricF(const QColorDialog* self, intptr_t slot);
+double QColorDialog_QBaseGetDecodedMetricF(const QColorDialog* self, int metricA, int metricB);
 void QColorDialog_Delete(QColorDialog* self);
 
 #ifdef __cplusplus

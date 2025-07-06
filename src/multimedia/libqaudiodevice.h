@@ -20,14 +20,6 @@ typedef struct QAudioDevice QAudioDevice;
 typedef struct QAudioFormat QAudioFormat;
 #endif
 
-#ifdef __cplusplus
-typedef QAudioDevice::Mode Mode;                     // C++ enum
-typedef QAudioDevice::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef int Mode;            // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QAudioDevice* QAudioDevice_new();
 QAudioDevice* QAudioDevice_new2(const QAudioDevice* other);
 void QAudioDevice_Swap(QAudioDevice* self, QAudioDevice* other);

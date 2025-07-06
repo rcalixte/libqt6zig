@@ -145,8 +145,8 @@ class VirtualQGridLayout final : public QGridLayout {
     mutable bool qgridlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQGridLayout(QWidget* parent) : QGridLayout(parent){};
-    VirtualQGridLayout() : QGridLayout(){};
+    VirtualQGridLayout(QWidget* parent) : QGridLayout(parent) {};
+    VirtualQGridLayout() : QGridLayout() {};
 
     ~VirtualQGridLayout() {
         qgridlayout_metacall_callback = nullptr;

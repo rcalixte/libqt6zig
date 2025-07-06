@@ -20,20 +20,8 @@ typedef struct QHostAddress QHostAddress;
 typedef struct QIPv6Address QIPv6Address;
 #endif
 
-#ifdef __cplusplus
-typedef QHostAddress::ConversionMode ConversionMode;             // C++ QFlags
-typedef QHostAddress::ConversionModeFlag ConversionModeFlag;     // C++ enum
-typedef QHostAddress::NetworkLayerProtocol NetworkLayerProtocol; // C++ QFlags
-typedef QHostAddress::QtGadgetHelper QtGadgetHelper;             // C++ QFlags
-typedef QHostAddress::SpecialAddress SpecialAddress;             // C++ enum
-#else
-typedef int ConversionMode;       // C ABI QFlags
-typedef int ConversionModeFlag;   // C ABI enum
-typedef int NetworkLayerProtocol; // C ABI QFlags
-typedef int SpecialAddress;       // C ABI enum
-typedef void QtGadgetHelper;      // C ABI QFlags
-#endif
-
+QIPv6Address* QIPv6Address_new();
+QIPv6Address* QIPv6Address_new2(const QIPv6Address* param1);
 unsigned char QIPv6Address_OperatorSubscript(const QIPv6Address* self, int index);
 void QIPv6Address_Delete(QIPv6Address* self);
 
@@ -73,6 +61,7 @@ bool QHostAddress_IsSiteLocal(const QHostAddress* self);
 bool QHostAddress_IsUniqueLocalUnicast(const QHostAddress* self);
 bool QHostAddress_IsMulticast(const QHostAddress* self);
 bool QHostAddress_IsBroadcast(const QHostAddress* self);
+bool QHostAddress_IsPrivateUse(const QHostAddress* self);
 libqt_pair /* tuple of QHostAddress* and int */ QHostAddress_ParseSubnet(const libqt_string subnet);
 unsigned int QHostAddress_ToIPv4Address1(const QHostAddress* self, bool* ok);
 bool QHostAddress_IsEqual2(const QHostAddress* self, const QHostAddress* address, int mode);

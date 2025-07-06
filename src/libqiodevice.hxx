@@ -118,8 +118,8 @@ class VirtualQIODevice final : public QIODevice {
     mutable bool qiodevice_issignalconnected_isbase = false;
 
   public:
-    VirtualQIODevice() : QIODevice(){};
-    VirtualQIODevice(QObject* parent) : QIODevice(parent){};
+    VirtualQIODevice() : QIODevice() {};
+    VirtualQIODevice(QObject* parent) : QIODevice(parent) {};
 
     ~VirtualQIODevice() {
         qiodevice_metacall_callback = nullptr;

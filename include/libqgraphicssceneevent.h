@@ -33,12 +33,6 @@ typedef struct QSizeF QSizeF;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QGraphicsSceneContextMenuEvent::Reason Reason; // C++ enum
-#else
-typedef int Reason; // C ABI enum
-#endif
-
 QGraphicsSceneEvent* QGraphicsSceneEvent_new(int typeVal);
 QWidget* QGraphicsSceneEvent_Widget(const QGraphicsSceneEvent* self);
 void QGraphicsSceneEvent_SetWidget(QGraphicsSceneEvent* self, QWidget* widget);

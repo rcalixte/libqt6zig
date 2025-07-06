@@ -26,12 +26,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QValueAxis QValueAxis;
 #endif
 
-#ifdef __cplusplus
-typedef QValueAxis::TickType TickType; // C++ enum
-#else
-typedef int TickType; // C ABI enum
-#endif
-
 QValueAxis* QValueAxis_new();
 QValueAxis* QValueAxis_new2(QObject* parent);
 QMetaObject* QValueAxis_MetaObject(const QValueAxis* self);

@@ -74,14 +74,6 @@ typedef struct QWidgetData QWidgetData;
 typedef struct QWindow QWindow;
 #endif
 
-#ifdef __cplusplus
-typedef QWidget::RenderFlag RenderFlag;   // C++ enum
-typedef QWidget::RenderFlags RenderFlags; // C++ QFlags
-#else
-typedef int RenderFlag;  // C ABI enum
-typedef int RenderFlags; // C ABI QFlags
-#endif
-
 QWidgetData* QWidgetData_new(const QWidgetData* param1);
 void QWidgetData_OperatorAssign(QWidgetData* self, const QWidgetData* param1);
 void QWidgetData_Delete(QWidgetData* self);
@@ -348,6 +340,7 @@ int QWidget_WindowType(const QWidget* self);
 QWidget* QWidget_Find(unsigned long long param1);
 QWidget* QWidget_ChildAt(const QWidget* self, int x, int y);
 QWidget* QWidget_ChildAtWithQPoint(const QWidget* self, const QPoint* p);
+QWidget* QWidget_ChildAtWithQPointF(const QWidget* self, const QPointF* p);
 void QWidget_SetAttribute(QWidget* self, int param1);
 bool QWidget_TestAttribute(const QWidget* self, int param1);
 QPaintEngine* QWidget_PaintEngine(const QWidget* self);
@@ -554,6 +547,9 @@ int QWidget_QBaseReceivers(const QWidget* self, const char* signal);
 bool QWidget_IsSignalConnected(const QWidget* self, const QMetaMethod* signal);
 void QWidget_OnIsSignalConnected(const QWidget* self, intptr_t slot);
 bool QWidget_QBaseIsSignalConnected(const QWidget* self, const QMetaMethod* signal);
+double QWidget_GetDecodedMetricF(const QWidget* self, int metricA, int metricB);
+void QWidget_OnGetDecodedMetricF(const QWidget* self, intptr_t slot);
+double QWidget_QBaseGetDecodedMetricF(const QWidget* self, int metricA, int metricB);
 void QWidget_Delete(QWidget* self);
 
 #ifdef __cplusplus

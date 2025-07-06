@@ -48,12 +48,12 @@ long long QMediaTimeRange_LatestTime(const QMediaTimeRange* self) {
 libqt_list /* of QMediaTimeRange__Interval* */ QMediaTimeRange_Intervals(const QMediaTimeRange* self) {
     QList<QMediaTimeRange::Interval> _ret = self->intervals();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QMediaTimeRange__Interval** _arr = static_cast<QMediaTimeRange__Interval**>(malloc(sizeof(QMediaTimeRange__Interval*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QMediaTimeRange__Interval** _arr = static_cast<QMediaTimeRange__Interval**>(malloc(sizeof(QMediaTimeRange__Interval*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaTimeRange::Interval(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

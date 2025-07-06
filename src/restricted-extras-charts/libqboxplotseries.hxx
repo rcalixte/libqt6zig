@@ -64,8 +64,8 @@ class VirtualQBoxPlotSeries final : public QBoxPlotSeries {
     mutable bool qboxplotseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQBoxPlotSeries() : QBoxPlotSeries(){};
-    VirtualQBoxPlotSeries(QObject* parent) : QBoxPlotSeries(parent){};
+    VirtualQBoxPlotSeries() : QBoxPlotSeries() {};
+    VirtualQBoxPlotSeries(QObject* parent) : QBoxPlotSeries(parent) {};
 
     ~VirtualQBoxPlotSeries() {
         qboxplotseries_metacall_callback = nullptr;

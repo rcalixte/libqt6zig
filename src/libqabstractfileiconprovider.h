@@ -21,16 +21,6 @@ typedef struct QFileInfo QFileInfo;
 typedef struct QIcon QIcon;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractFileIconProvider::IconType IconType; // C++ enum
-typedef QAbstractFileIconProvider::Option Option;     // C++ enum
-typedef QAbstractFileIconProvider::Options Options;   // C++ QFlags
-#else
-typedef int IconType; // C ABI enum
-typedef int Option;   // C ABI enum
-typedef int Options;  // C ABI QFlags
-#endif
-
 QAbstractFileIconProvider* QAbstractFileIconProvider_new();
 QIcon* QAbstractFileIconProvider_Icon(const QAbstractFileIconProvider* self, int param1);
 void QAbstractFileIconProvider_OnIcon(const QAbstractFileIconProvider* self, intptr_t slot);

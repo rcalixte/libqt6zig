@@ -228,6 +228,9 @@ int QSizeGrip_QBaseReceivers(const QSizeGrip* self, const char* signal);
 bool QSizeGrip_IsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal);
 void QSizeGrip_OnIsSignalConnected(const QSizeGrip* self, intptr_t slot);
 bool QSizeGrip_QBaseIsSignalConnected(const QSizeGrip* self, const QMetaMethod* signal);
+double QSizeGrip_GetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB);
+void QSizeGrip_OnGetDecodedMetricF(const QSizeGrip* self, intptr_t slot);
+double QSizeGrip_QBaseGetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB);
 void QSizeGrip_Delete(QSizeGrip* self);
 
 #ifdef __cplusplus

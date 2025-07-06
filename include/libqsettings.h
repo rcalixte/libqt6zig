@@ -27,20 +27,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QSettings::Format Format;           // C++ enum
-typedef QSettings::ReadFunc ReadFunc;       // C++ QFlags
-typedef QSettings::Scope Scope;             // C++ enum
-typedef QSettings::SettingsMap SettingsMap; // C++ QFlags
-typedef QSettings::Status Status;           // C++ enum
-typedef QSettings::WriteFunc WriteFunc;     // C++ QFlags
-#else
-typedef int Format;                                               // C ABI enum
-typedef int Scope;                                                // C ABI enum
-typedef int Status;                                               // C ABI enum
-typedef libqt_map /* of libqt_string to QVariant* */ SettingsMap; // C ABI QFlags
-#endif
-
 QSettings* QSettings_new(const libqt_string organization);
 QSettings* QSettings_new2(int scope, const libqt_string organization);
 QSettings* QSettings_new3(int format, int scope, const libqt_string organization);

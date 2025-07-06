@@ -1,6 +1,7 @@
 #include <QAction>
 #include <QActionEvent>
 #include <QApplicationStateChangeEvent>
+#include <QChildWindowEvent>
 #include <QCloseEvent>
 #include <QContextMenuEvent>
 #include <QDragEnterEvent>
@@ -45,6 +46,7 @@
 #include <QScreenOrientationChangeEvent>
 #include <QScrollEvent>
 #include <QScrollPrepareEvent>
+#include <QShortcut>
 #include <QShortcutEvent>
 #include <QShowEvent>
 #include <QSinglePointEvent>
@@ -61,6 +63,7 @@
 #include <QVariant>
 #include <QWhatsThisClickedEvent>
 #include <QWheelEvent>
+#include <QWindow>
 #include <QWindowStateChangeEvent>
 #include <qevent.h>
 #include "libqevent.h"
@@ -223,13 +226,13 @@ QEventPoint* QPointerEvent_Point(QPointerEvent* self, ptrdiff_t i) {
 
 libqt_list /* of QEventPoint* */ QPointerEvent_Points(const QPointerEvent* self) {
     const QList<QEventPoint>& _ret = self->points();
-    // Convert QList<> from C++ memory to manually-managed C memory
-    QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    // Convert const QList<> from C++ memory to manually-managed C memory
+    QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QEventPoint(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -2945,13 +2948,13 @@ void QInputMethodEvent_SetCommitString(QInputMethodEvent* self, const libqt_stri
 
 libqt_list /* of QInputMethodEvent__Attribute* */ QInputMethodEvent_Attributes(const QInputMethodEvent* self) {
     const QList<QInputMethodEvent::Attribute>& _ret = self->attributes();
-    // Convert QList<> from C++ memory to manually-managed C memory
-    QInputMethodEvent__Attribute** _arr = static_cast<QInputMethodEvent__Attribute**>(malloc(sizeof(QInputMethodEvent__Attribute*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    // Convert const QList<> from C++ memory to manually-managed C memory
+    QInputMethodEvent__Attribute** _arr = static_cast<QInputMethodEvent__Attribute**>(malloc(sizeof(QInputMethodEvent__Attribute*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QInputMethodEvent::Attribute(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -3981,8 +3984,20 @@ QShortcutEvent* QShortcutEvent_new(const QKeySequence* key, int id) {
     return new VirtualQShortcutEvent(*key, static_cast<int>(id));
 }
 
-QShortcutEvent* QShortcutEvent_new2(const QKeySequence* key, int id, bool ambiguous) {
+QShortcutEvent* QShortcutEvent_new2(const QKeySequence* key) {
+    return new VirtualQShortcutEvent(*key);
+}
+
+QShortcutEvent* QShortcutEvent_new3(const QKeySequence* key, int id, bool ambiguous) {
     return new VirtualQShortcutEvent(*key, static_cast<int>(id), ambiguous);
+}
+
+QShortcutEvent* QShortcutEvent_new4(const QKeySequence* key, const QShortcut* shortcut) {
+    return new VirtualQShortcutEvent(*key, shortcut);
+}
+
+QShortcutEvent* QShortcutEvent_new5(const QKeySequence* key, const QShortcut* shortcut, bool ambiguous) {
+    return new VirtualQShortcutEvent(*key, shortcut, ambiguous);
 }
 
 QKeySequence* QShortcutEvent_Key(const QShortcutEvent* self) {
@@ -4185,13 +4200,13 @@ int QTouchEvent_TouchPointStates(const QTouchEvent* self) {
 
 libqt_list /* of QEventPoint* */ QTouchEvent_TouchPoints(const QTouchEvent* self) {
     const QList<QEventPoint>& _ret = self->touchPoints();
-    // Convert QList<> from C++ memory to manually-managed C memory
-    QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    // Convert const QList<> from C++ memory to manually-managed C memory
+    QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QEventPoint(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -4690,16 +4705,82 @@ void QApplicationStateChangeEvent_Delete(QApplicationStateChangeEvent* self) {
     delete self;
 }
 
+QChildWindowEvent* QChildWindowEvent_new(int typeVal, QWindow* childWindow) {
+    return new VirtualQChildWindowEvent(static_cast<QEvent::Type>(typeVal), childWindow);
+}
+
+QWindow* QChildWindowEvent_Child(const QChildWindowEvent* self) {
+    return self->child();
+}
+
+// Derived class handler implementation
+QChildWindowEvent* QChildWindowEvent_Clone(const QChildWindowEvent* self) {
+    auto* vqchildwindowevent = const_cast<VirtualQChildWindowEvent*>(dynamic_cast<const VirtualQChildWindowEvent*>(self));
+    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
+        return vqchildwindowevent->clone();
+    } else {
+        return self->QChildWindowEvent::clone();
+    }
+}
+
+// Base class handler implementation
+QChildWindowEvent* QChildWindowEvent_QBaseClone(const QChildWindowEvent* self) {
+    auto* vqchildwindowevent = const_cast<VirtualQChildWindowEvent*>(dynamic_cast<const VirtualQChildWindowEvent*>(self));
+    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
+        vqchildwindowevent->setQChildWindowEvent_Clone_IsBase(true);
+        return vqchildwindowevent->clone();
+    } else {
+        return self->QChildWindowEvent::clone();
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChildWindowEvent_OnClone(const QChildWindowEvent* self, intptr_t slot) {
+    auto* vqchildwindowevent = const_cast<VirtualQChildWindowEvent*>(dynamic_cast<const VirtualQChildWindowEvent*>(self));
+    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
+        vqchildwindowevent->setQChildWindowEvent_Clone_Callback(reinterpret_cast<VirtualQChildWindowEvent::QChildWindowEvent_Clone_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+void QChildWindowEvent_SetAccepted(QChildWindowEvent* self, bool accepted) {
+    auto* vqchildwindowevent = dynamic_cast<VirtualQChildWindowEvent*>(self);
+    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
+        vqchildwindowevent->setAccepted(accepted);
+    } else {
+        self->QChildWindowEvent::setAccepted(accepted);
+    }
+}
+
+// Base class handler implementation
+void QChildWindowEvent_QBaseSetAccepted(QChildWindowEvent* self, bool accepted) {
+    auto* vqchildwindowevent = dynamic_cast<VirtualQChildWindowEvent*>(self);
+    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
+        vqchildwindowevent->setQChildWindowEvent_SetAccepted_IsBase(true);
+        vqchildwindowevent->setAccepted(accepted);
+    } else {
+        self->QChildWindowEvent::setAccepted(accepted);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChildWindowEvent_OnSetAccepted(QChildWindowEvent* self, intptr_t slot) {
+    auto* vqchildwindowevent = dynamic_cast<VirtualQChildWindowEvent*>(self);
+    if (vqchildwindowevent && vqchildwindowevent->isVirtualQChildWindowEvent) {
+        vqchildwindowevent->setQChildWindowEvent_SetAccepted_Callback(reinterpret_cast<VirtualQChildWindowEvent::QChildWindowEvent_SetAccepted_Callback>(slot));
+    }
+}
+
+void QChildWindowEvent_Delete(QChildWindowEvent* self) {
+    delete self;
+}
+
 QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new(int typ, int s, int l, QVariant* val) {
     return new QInputMethodEvent::Attribute(static_cast<QInputMethodEvent::AttributeType>(typ), static_cast<int>(s), static_cast<int>(l), *val);
 }
 
 QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new2(int typ, int s, int l) {
     return new QInputMethodEvent::Attribute(static_cast<QInputMethodEvent::AttributeType>(typ), static_cast<int>(s), static_cast<int>(l));
-}
-
-QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new3(const QInputMethodEvent__Attribute* param1) {
-    return new QInputMethodEvent::Attribute(*param1);
 }
 
 void QInputMethodEvent__Attribute_OperatorAssign(QInputMethodEvent__Attribute* self, const QInputMethodEvent__Attribute* param1) {

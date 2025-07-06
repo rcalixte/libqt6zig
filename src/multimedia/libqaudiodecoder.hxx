@@ -61,8 +61,8 @@ class VirtualQAudioDecoder final : public QAudioDecoder {
     mutable bool qaudiodecoder_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioDecoder() : QAudioDecoder(){};
-    VirtualQAudioDecoder(QObject* parent) : QAudioDecoder(parent){};
+    VirtualQAudioDecoder() : QAudioDecoder() {};
+    VirtualQAudioDecoder(QObject* parent) : QAudioDecoder(parent) {};
 
     ~VirtualQAudioDecoder() {
         qaudiodecoder_metacall_callback = nullptr;

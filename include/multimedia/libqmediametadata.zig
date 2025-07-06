@@ -136,5 +136,6 @@ pub const enums = struct {
         pub const CoverArtImage: i32 = 25;
         pub const Orientation: i32 = 26;
         pub const Resolution: i32 = 27;
+        pub const HasHdrContent: i32 = 28;
     };
 };

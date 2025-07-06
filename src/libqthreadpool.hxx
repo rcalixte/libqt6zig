@@ -61,8 +61,8 @@ class VirtualQThreadPool final : public QThreadPool {
     mutable bool qthreadpool_issignalconnected_isbase = false;
 
   public:
-    VirtualQThreadPool() : QThreadPool(){};
-    VirtualQThreadPool(QObject* parent) : QThreadPool(parent){};
+    VirtualQThreadPool() : QThreadPool() {};
+    VirtualQThreadPool(QObject* parent) : QThreadPool(parent) {};
 
     ~VirtualQThreadPool() {
         qthreadpool_metacall_callback = nullptr;

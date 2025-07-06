@@ -29,12 +29,6 @@ typedef struct QSize QSize;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfPageRenderer::RenderMode RenderMode; // C++ enum
-#else
-typedef int RenderMode; // C ABI enum
-#endif
-
 QPdfPageRenderer* QPdfPageRenderer_new();
 QPdfPageRenderer* QPdfPageRenderer_new2(QObject* parent);
 QMetaObject* QPdfPageRenderer_MetaObject(const QPdfPageRenderer* self);

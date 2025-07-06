@@ -683,6 +683,20 @@ pub const qpainterpathstroker = struct {
 
 /// https://doc.qt.io/qt-6/qpainterpath-element.html
 pub const qpainterpath__element = struct {
+    /// New constructs a new QPainterPath::Element object.
+    ///
+    ///
+    pub fn New() QtC.QPainterPath__Element {
+        return qtc.QPainterPath__Element_new();
+    }
+
+    /// New2 constructs a new QPainterPath::Element object.
+    ///
+    /// ``` param1: QtC.QPainterPath__Element ```
+    pub fn New2(param1: ?*anyopaque) QtC.QPainterPath__Element {
+        return qtc.QPainterPath__Element_new2(@ptrCast(param1));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#isMoveTo)
     ///
     /// ``` self: QtC.QPainterPath__Element ```

@@ -61,7 +61,7 @@ class VirtualQSpatialSound final : public QSpatialSound {
     mutable bool qspatialsound_issignalconnected_isbase = false;
 
   public:
-    VirtualQSpatialSound(QAudioEngine* engine) : QSpatialSound(engine){};
+    VirtualQSpatialSound(QAudioEngine* engine) : QSpatialSound(engine) {};
 
     ~VirtualQSpatialSound() {
         qspatialsound_metacall_callback = nullptr;

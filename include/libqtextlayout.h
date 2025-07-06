@@ -35,16 +35,6 @@ typedef struct QTextLine QTextLine;
 typedef struct QTextOption QTextOption;
 #endif
 
-#ifdef __cplusplus
-typedef QTextLayout::CursorMode CursorMode;       // C++ enum
-typedef QTextLine::CursorPosition CursorPosition; // C++ enum
-typedef QTextLine::Edge Edge;                     // C++ enum
-#else
-typedef int CursorMode;     // C ABI enum
-typedef int CursorPosition; // C ABI enum
-typedef int Edge;           // C ABI enum
-#endif
-
 QTextInlineObject* QTextInlineObject_new(const QTextInlineObject* other);
 QTextInlineObject* QTextInlineObject_new2(QTextInlineObject* other);
 QTextInlineObject* QTextInlineObject_new3();
@@ -107,14 +97,15 @@ void QTextLayout_SetPosition(QTextLayout* self, const QPointF* p);
 QRectF* QTextLayout_BoundingRect(const QTextLayout* self);
 double QTextLayout_MinimumWidth(const QTextLayout* self);
 double QTextLayout_MaximumWidth(const QTextLayout* self);
-libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns(const QTextLayout* self);
+libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns(const QTextLayout* self, int from, int length, int flags);
+libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns2(const QTextLayout* self);
 void QTextLayout_SetFlags(QTextLayout* self, int flags);
 int QTextLayout_NextCursorPosition2(const QTextLayout* self, int oldPos, int mode);
 int QTextLayout_PreviousCursorPosition2(const QTextLayout* self, int oldPos, int mode);
 void QTextLayout_Draw3(const QTextLayout* self, QPainter* p, const QPointF* pos, const libqt_list /* of QTextLayout__FormatRange* */ selections);
 void QTextLayout_Draw4(const QTextLayout* self, QPainter* p, const QPointF* pos, const libqt_list /* of QTextLayout__FormatRange* */ selections, const QRectF* clip);
 libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns1(const QTextLayout* self, int from);
-libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns2(const QTextLayout* self, int from, int length);
+libqt_list /* of QGlyphRun* */ QTextLayout_GlyphRuns22(const QTextLayout* self, int from, int length);
 void QTextLayout_Delete(QTextLayout* self);
 
 QTextLine* QTextLine_new(const QTextLine* other);
@@ -148,16 +139,16 @@ int QTextLine_TextStart(const QTextLine* self);
 int QTextLine_TextLength(const QTextLine* self);
 int QTextLine_LineNumber(const QTextLine* self);
 void QTextLine_Draw(const QTextLine* self, QPainter* painter, const QPointF* position);
-libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns(const QTextLine* self);
+libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns(const QTextLine* self, int from, int length, int flags);
+libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns2(const QTextLine* self);
 double QTextLine_CursorToX2(const QTextLine* self, int* cursorPos, int edge);
 double QTextLine_CursorToX22(const QTextLine* self, int cursorPos, int edge);
 int QTextLine_XToCursor2(const QTextLine* self, double x, int param2);
 libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns1(const QTextLine* self, int from);
-libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns2(const QTextLine* self, int from, int length);
+libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns22(const QTextLine* self, int from, int length);
 void QTextLine_Delete(QTextLine* self);
 
-QTextLayout__FormatRange* QTextLayout__FormatRange_new(const QTextLayout__FormatRange* param1);
-void QTextLayout__FormatRange_OperatorAssign(QTextLayout__FormatRange* self, const QTextLayout__FormatRange* param1);
+QTextLayout__FormatRange* QTextLayout__FormatRange_new();
 void QTextLayout__FormatRange_Delete(QTextLayout__FormatRange* self);
 
 #ifdef __cplusplus

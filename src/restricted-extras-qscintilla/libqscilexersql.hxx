@@ -63,6 +63,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     using QsciLexerSQL_CustomEvent_Callback = void (*)(QsciLexerSQL*, QEvent*);
     using QsciLexerSQL_ConnectNotify_Callback = void (*)(QsciLexerSQL*, QMetaMethod*);
     using QsciLexerSQL_DisconnectNotify_Callback = void (*)(QsciLexerSQL*, QMetaMethod*);
+    using QsciLexerSQL_TextAsBytes_Callback = libqt_string (*)(const QsciLexerSQL*, libqt_string);
+    using QsciLexerSQL_BytesAsText_Callback = libqt_string (*)(const QsciLexerSQL*, const char*, int);
     using QsciLexerSQL_Sender_Callback = QObject* (*)();
     using QsciLexerSQL_SenderSignalIndex_Callback = int (*)();
     using QsciLexerSQL_Receivers_Callback = int (*)(const QsciLexerSQL*, const char*);
@@ -115,6 +117,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     QsciLexerSQL_CustomEvent_Callback qscilexersql_customevent_callback = nullptr;
     QsciLexerSQL_ConnectNotify_Callback qscilexersql_connectnotify_callback = nullptr;
     QsciLexerSQL_DisconnectNotify_Callback qscilexersql_disconnectnotify_callback = nullptr;
+    QsciLexerSQL_TextAsBytes_Callback qscilexersql_textasbytes_callback = nullptr;
+    QsciLexerSQL_BytesAsText_Callback qscilexersql_bytesastext_callback = nullptr;
     QsciLexerSQL_Sender_Callback qscilexersql_sender_callback = nullptr;
     QsciLexerSQL_SenderSignalIndex_Callback qscilexersql_sendersignalindex_callback = nullptr;
     QsciLexerSQL_Receivers_Callback qscilexersql_receivers_callback = nullptr;
@@ -166,14 +170,16 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     mutable bool qscilexersql_customevent_isbase = false;
     mutable bool qscilexersql_connectnotify_isbase = false;
     mutable bool qscilexersql_disconnectnotify_isbase = false;
+    mutable bool qscilexersql_textasbytes_isbase = false;
+    mutable bool qscilexersql_bytesastext_isbase = false;
     mutable bool qscilexersql_sender_isbase = false;
     mutable bool qscilexersql_sendersignalindex_isbase = false;
     mutable bool qscilexersql_receivers_isbase = false;
     mutable bool qscilexersql_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerSQL() : QsciLexerSQL(){};
-    VirtualQsciLexerSQL(QObject* parent) : QsciLexerSQL(parent){};
+    VirtualQsciLexerSQL() : QsciLexerSQL() {};
+    VirtualQsciLexerSQL(QObject* parent) : QsciLexerSQL(parent) {};
 
     ~VirtualQsciLexerSQL() {
         qscilexersql_metacall_callback = nullptr;
@@ -221,6 +227,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
         qscilexersql_customevent_callback = nullptr;
         qscilexersql_connectnotify_callback = nullptr;
         qscilexersql_disconnectnotify_callback = nullptr;
+        qscilexersql_textasbytes_callback = nullptr;
+        qscilexersql_bytesastext_callback = nullptr;
         qscilexersql_sender_callback = nullptr;
         qscilexersql_sendersignalindex_callback = nullptr;
         qscilexersql_receivers_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     inline void setQsciLexerSQL_CustomEvent_Callback(QsciLexerSQL_CustomEvent_Callback cb) { qscilexersql_customevent_callback = cb; }
     inline void setQsciLexerSQL_ConnectNotify_Callback(QsciLexerSQL_ConnectNotify_Callback cb) { qscilexersql_connectnotify_callback = cb; }
     inline void setQsciLexerSQL_DisconnectNotify_Callback(QsciLexerSQL_DisconnectNotify_Callback cb) { qscilexersql_disconnectnotify_callback = cb; }
+    inline void setQsciLexerSQL_TextAsBytes_Callback(QsciLexerSQL_TextAsBytes_Callback cb) { qscilexersql_textasbytes_callback = cb; }
+    inline void setQsciLexerSQL_BytesAsText_Callback(QsciLexerSQL_BytesAsText_Callback cb) { qscilexersql_bytesastext_callback = cb; }
     inline void setQsciLexerSQL_Sender_Callback(QsciLexerSQL_Sender_Callback cb) { qscilexersql_sender_callback = cb; }
     inline void setQsciLexerSQL_SenderSignalIndex_Callback(QsciLexerSQL_SenderSignalIndex_Callback cb) { qscilexersql_sendersignalindex_callback = cb; }
     inline void setQsciLexerSQL_Receivers_Callback(QsciLexerSQL_Receivers_Callback cb) { qscilexersql_receivers_callback = cb; }
@@ -324,6 +334,8 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     inline void setQsciLexerSQL_CustomEvent_IsBase(bool value) const { qscilexersql_customevent_isbase = value; }
     inline void setQsciLexerSQL_ConnectNotify_IsBase(bool value) const { qscilexersql_connectnotify_isbase = value; }
     inline void setQsciLexerSQL_DisconnectNotify_IsBase(bool value) const { qscilexersql_disconnectnotify_isbase = value; }
+    inline void setQsciLexerSQL_TextAsBytes_IsBase(bool value) const { qscilexersql_textasbytes_isbase = value; }
+    inline void setQsciLexerSQL_BytesAsText_IsBase(bool value) const { qscilexersql_bytesastext_isbase = value; }
     inline void setQsciLexerSQL_Sender_IsBase(bool value) const { qscilexersql_sender_isbase = value; }
     inline void setQsciLexerSQL_SenderSignalIndex_IsBase(bool value) const { qscilexersql_sendersignalindex_isbase = value; }
     inline void setQsciLexerSQL_Receivers_IsBase(bool value) const { qscilexersql_receivers_isbase = value; }
@@ -438,13 +450,13 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexersql_autocompletionwordseparators_isbase) {
             qscilexersql_autocompletionwordseparators_isbase = false;
             return QsciLexerSQL::autoCompletionWordSeparators();
         } else if (qscilexersql_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexersql_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -1005,6 +1017,47 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexersql_textasbytes_isbase) {
+            qscilexersql_textasbytes_isbase = false;
+            return QsciLexerSQL::textAsBytes(text);
+        } else if (qscilexersql_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexersql_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerSQL::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexersql_bytesastext_isbase) {
+            qscilexersql_bytesastext_isbase = false;
+            return QsciLexerSQL::bytesAsText(bytes, size);
+        } else if (qscilexersql_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexersql_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerSQL::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexersql_sender_isbase) {
             qscilexersql_sender_isbase = false;
@@ -1077,6 +1130,10 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     friend void QsciLexerSQL_QBaseConnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
     friend void QsciLexerSQL_DisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
     friend void QsciLexerSQL_QBaseDisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerSQL_TextAsBytes(const QsciLexerSQL* self, const libqt_string text);
+    friend libqt_string QsciLexerSQL_QBaseTextAsBytes(const QsciLexerSQL* self, const libqt_string text);
+    friend libqt_string QsciLexerSQL_BytesAsText(const QsciLexerSQL* self, const char* bytes, int size);
+    friend libqt_string QsciLexerSQL_QBaseBytesAsText(const QsciLexerSQL* self, const char* bytes, int size);
     friend QObject* QsciLexerSQL_Sender(const QsciLexerSQL* self);
     friend QObject* QsciLexerSQL_QBaseSender(const QsciLexerSQL* self);
     friend int QsciLexerSQL_SenderSignalIndex(const QsciLexerSQL* self);

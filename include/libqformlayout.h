@@ -35,16 +35,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QFormLayout::FieldGrowthPolicy FieldGrowthPolicy; // C++ enum
-typedef QFormLayout::ItemRole ItemRole;                   // C++ enum
-typedef QFormLayout::RowWrapPolicy RowWrapPolicy;         // C++ enum
-#else
-typedef int FieldGrowthPolicy; // C ABI enum
-typedef int ItemRole;          // C ABI enum
-typedef int RowWrapPolicy;     // C ABI enum
-#endif
-
 QFormLayout* QFormLayout_new(QWidget* parent);
 QFormLayout* QFormLayout_new2();
 QMetaObject* QFormLayout_MetaObject(const QFormLayout* self);
@@ -216,6 +206,10 @@ bool QFormLayout_IsSignalConnected(const QFormLayout* self, const QMetaMethod* s
 void QFormLayout_OnIsSignalConnected(const QFormLayout* self, intptr_t slot);
 bool QFormLayout_QBaseIsSignalConnected(const QFormLayout* self, const QMetaMethod* signal);
 void QFormLayout_Delete(QFormLayout* self);
+
+QFormLayout__TakeRowResult* QFormLayout__TakeRowResult_new();
+QFormLayout__TakeRowResult* QFormLayout__TakeRowResult_new2(const QFormLayout__TakeRowResult* param1);
+void QFormLayout__TakeRowResult_Delete(QFormLayout__TakeRowResult* self);
 
 #ifdef __cplusplus
 } /* extern C */

@@ -34,18 +34,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfDocument::Error Error;                 // C++ enum
-typedef QPdfDocument::MetaDataField MetaDataField; // C++ enum
-typedef QPdfDocument::PageModelRole PageModelRole; // C++ enum
-typedef QPdfDocument::Status Status;               // C++ enum
-#else
-typedef int Error;         // C ABI enum
-typedef int MetaDataField; // C ABI enum
-typedef int PageModelRole; // C ABI enum
-typedef int Status;        // C ABI enum
-#endif
-
 QPdfDocument* QPdfDocument_new();
 QPdfDocument* QPdfDocument_new2(QObject* parent);
 QMetaObject* QPdfDocument_MetaObject(const QPdfDocument* self);
@@ -65,6 +53,7 @@ void QPdfDocument_Close(QPdfDocument* self);
 int QPdfDocument_PageCount(const QPdfDocument* self);
 QSizeF* QPdfDocument_PagePointSize(const QPdfDocument* self, int page);
 libqt_string QPdfDocument_PageLabel(QPdfDocument* self, int page);
+int QPdfDocument_PageIndexForLabel(QPdfDocument* self, const libqt_string label);
 QAbstractListModel* QPdfDocument_PageModel(QPdfDocument* self);
 QImage* QPdfDocument_Render(QPdfDocument* self, int page, QSize* imageSize);
 QPdfSelection* QPdfDocument_GetSelection(QPdfDocument* self, int page, QPointF* start, QPointF* end);

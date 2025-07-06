@@ -21,19 +21,6 @@ typedef struct QKeySequence QKeySequence;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QKeySequence::DataPtr DataPtr;               // C++ QFlags
-typedef QKeySequence::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QKeySequence::SequenceFormat SequenceFormat; // C++ enum
-typedef QKeySequence::SequenceMatch SequenceMatch;   // C++ enum
-typedef QKeySequence::StandardKey StandardKey;       // C++ enum
-#else
-typedef int SequenceFormat;  // C ABI enum
-typedef int SequenceMatch;   // C ABI enum
-typedef int StandardKey;     // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QKeySequence* QKeySequence_new();
 QKeySequence* QKeySequence_new2(const libqt_string key);
 QKeySequence* QKeySequence_new3(int k1);

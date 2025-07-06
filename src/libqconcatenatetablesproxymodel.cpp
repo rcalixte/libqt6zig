@@ -4,6 +4,7 @@
 #include <QConcatenateTablesProxyModel>
 #include <QDataStream>
 #include <QEvent>
+#include <QHash>
 #include <QList>
 #include <QMap>
 #include <QMetaMethod>
@@ -81,12 +82,12 @@ libqt_string QConcatenateTablesProxyModel_Tr(const char* s) {
 libqt_list /* of QAbstractItemModel* */ QConcatenateTablesProxyModel_SourceModels(const QConcatenateTablesProxyModel* self) {
     QList<QAbstractItemModel*> _ret = self->sourceModels();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractItemModel** _arr = static_cast<QAbstractItemModel**>(malloc(sizeof(QAbstractItemModel*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QAbstractItemModel** _arr = static_cast<QAbstractItemModel**>(malloc(sizeof(QAbstractItemModel*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -493,10 +494,10 @@ void QConcatenateTablesProxyModel_OnColumnCount(const QConcatenateTablesProxyMod
 libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_MimeTypes(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
-        QStringList _ret = vqconcatenatetablesproxymodel->mimeTypes();
+        QList<QString> _ret = vqconcatenatetablesproxymodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -508,14 +509,14 @@ libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_MimeTypes(const QC
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QConcatenateTablesProxyModel::mimeTypes();
+        QList<QString> _ret = self->QConcatenateTablesProxyModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -527,7 +528,7 @@ libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_MimeTypes(const QC
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -538,10 +539,10 @@ libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_QBaseMimeTypes(con
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_MimeTypes_IsBase(true);
-        QStringList _ret = vqconcatenatetablesproxymodel->mimeTypes();
+        QList<QString> _ret = vqconcatenatetablesproxymodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -553,14 +554,14 @@ libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_QBaseMimeTypes(con
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QConcatenateTablesProxyModel::mimeTypes();
+        QList<QString> _ret = self->QConcatenateTablesProxyModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -572,7 +573,7 @@ libqt_list /* of libqt_string */ QConcatenateTablesProxyModel_QBaseMimeTypes(con
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -589,7 +590,7 @@ void QConcatenateTablesProxyModel_OnMimeTypes(const QConcatenateTablesProxyModel
 // Derived class handler implementation
 QMimeData* QConcatenateTablesProxyModel_MimeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -605,7 +606,7 @@ QMimeData* QConcatenateTablesProxyModel_MimeData(const QConcatenateTablesProxyMo
 // Base class handler implementation
 QMimeData* QConcatenateTablesProxyModel_QBaseMimeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -1182,25 +1183,25 @@ void QConcatenateTablesProxyModel_OnBuddy(const QConcatenateTablesProxyModel* se
 libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_Match(const QConcatenateTablesProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
-        QModelIndexList _ret = vqconcatenatetablesproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = vqconcatenatetablesproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = self->QConcatenateTablesProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = self->QConcatenateTablesProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1211,25 +1212,25 @@ libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_QBaseMatch(const Q
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_Match_IsBase(true);
-        QModelIndexList _ret = vqconcatenatetablesproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = vqconcatenatetablesproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = self->QConcatenateTablesProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = self->QConcatenateTablesProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1248,7 +1249,7 @@ libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_RoleNames(co
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         QHash<int, QByteArray> _ret = vqconcatenatetablesproxymodel->roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -1270,7 +1271,7 @@ libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_RoleNames(co
         return _out;
     } else {
         QHash<int, QByteArray> _ret = self->QConcatenateTablesProxyModel::roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -1299,7 +1300,7 @@ libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_QBaseRoleNam
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_RoleNames_IsBase(true);
         QHash<int, QByteArray> _ret = vqconcatenatetablesproxymodel->roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -1321,7 +1322,7 @@ libqt_map /* of int to libqt_string */ QConcatenateTablesProxyModel_QBaseRoleNam
         return _out;
     } else {
         QHash<int, QByteArray> _ret = self->QConcatenateTablesProxyModel::roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -1701,7 +1702,7 @@ void QConcatenateTablesProxyModel_OnCreateIndex(const QConcatenateTablesProxyMod
 // Derived class handler implementation
 void QConcatenateTablesProxyModel_EncodeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -1717,7 +1718,7 @@ void QConcatenateTablesProxyModel_EncodeData(const QConcatenateTablesProxyModel*
 // Base class handler implementation
 void QConcatenateTablesProxyModel_QBaseEncodeData(const QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -2206,13 +2207,13 @@ void QConcatenateTablesProxyModel_OnChangePersistentIndex(QConcatenateTablesProx
 // Derived class handler implementation
 void QConcatenateTablesProxyModel_ChangePersistentIndexList(QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    QModelIndexList from_QList;
+    QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
     QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
     for (size_t i = 0; i < from.len; ++i) {
         from_QList.push_back(*(from_arr[i]));
     }
-    QModelIndexList to_QList;
+    QList<QModelIndex> to_QList;
     to_QList.reserve(to.len);
     QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
     for (size_t i = 0; i < to.len; ++i) {
@@ -2228,13 +2229,13 @@ void QConcatenateTablesProxyModel_ChangePersistentIndexList(QConcatenateTablesPr
 // Base class handler implementation
 void QConcatenateTablesProxyModel_QBaseChangePersistentIndexList(QConcatenateTablesProxyModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqconcatenatetablesproxymodel = dynamic_cast<VirtualQConcatenateTablesProxyModel*>(self);
-    QModelIndexList from_QList;
+    QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
     QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
     for (size_t i = 0; i < from.len; ++i) {
         from_QList.push_back(*(from_arr[i]));
     }
-    QModelIndexList to_QList;
+    QList<QModelIndex> to_QList;
     to_QList.reserve(to.len);
     QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
     for (size_t i = 0; i < to.len; ++i) {
@@ -2260,25 +2261,25 @@ void QConcatenateTablesProxyModel_OnChangePersistentIndexList(QConcatenateTables
 libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_PersistentIndexList(const QConcatenateTablesProxyModel* self) {
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
-        QModelIndexList _ret = vqconcatenatetablesproxymodel->persistentIndexList();
+        QList<QModelIndex> _ret = vqconcatenatetablesproxymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQConcatenateTablesProxyModel*)self)->persistentIndexList();
+        QList<QModelIndex> _ret = ((VirtualQConcatenateTablesProxyModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -2289,25 +2290,25 @@ libqt_list /* of QModelIndex* */ QConcatenateTablesProxyModel_QBasePersistentInd
     auto* vqconcatenatetablesproxymodel = const_cast<VirtualQConcatenateTablesProxyModel*>(dynamic_cast<const VirtualQConcatenateTablesProxyModel*>(self));
     if (vqconcatenatetablesproxymodel && vqconcatenatetablesproxymodel->isVirtualQConcatenateTablesProxyModel) {
         vqconcatenatetablesproxymodel->setQConcatenateTablesProxyModel_PersistentIndexList_IsBase(true);
-        QModelIndexList _ret = vqconcatenatetablesproxymodel->persistentIndexList();
+        QList<QModelIndex> _ret = vqconcatenatetablesproxymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQConcatenateTablesProxyModel*)self)->persistentIndexList();
+        QList<QModelIndex> _ret = ((VirtualQConcatenateTablesProxyModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

@@ -97,7 +97,7 @@ class VirtualQAbstractTextDocumentLayout final : public QAbstractTextDocumentLay
     mutable bool qabstracttextdocumentlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQAbstractTextDocumentLayout(QTextDocument* doc) : QAbstractTextDocumentLayout(doc){};
+    VirtualQAbstractTextDocumentLayout(QTextDocument* doc) : QAbstractTextDocumentLayout(doc) {};
 
     ~VirtualQAbstractTextDocumentLayout() {
         qabstracttextdocumentlayout_metacall_callback = nullptr;

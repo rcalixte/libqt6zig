@@ -15,22 +15,14 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t)
+typedef Qt::Disambiguated_t Disambiguated_t;
+#endif
 #else
+typedef struct Disambiguated_t Disambiguated_t;
 typedef struct QChar QChar;
 typedef struct QDir QDir;
 typedef struct QFileInfo QFileInfo;
-#endif
-
-#ifdef __cplusplus
-typedef QDir::Filter Filter;       // C++ enum
-typedef QDir::Filters Filters;     // C++ QFlags
-typedef QDir::SortFlag SortFlag;   // C++ enum
-typedef QDir::SortFlags SortFlags; // C++ QFlags
-#else
-typedef int Filter;    // C ABI enum
-typedef int Filters;   // C ABI QFlags
-typedef int SortFlag;  // C ABI enum
-typedef int SortFlags; // C ABI QFlags
 #endif
 
 QDir* QDir_new(const QDir* param1);
@@ -62,9 +54,9 @@ int QDir_Filter(const QDir* self);
 void QDir_SetFilter(QDir* self, int filter);
 int QDir_Sorting(const QDir* self);
 void QDir_SetSorting(QDir* self, int sort);
-unsigned int QDir_Count(const QDir* self);
+ptrdiff_t QDir_Count(const QDir* self);
 bool QDir_IsEmpty(const QDir* self);
-libqt_string QDir_OperatorSubscript(const QDir* self, int param1);
+libqt_string QDir_OperatorSubscript(const QDir* self, long long param1);
 libqt_list /* of libqt_string */ QDir_NameFiltersFromString(const libqt_string nameFilter);
 libqt_list /* of libqt_string */ QDir_EntryList(const QDir* self);
 libqt_list /* of libqt_string */ QDir_EntryListWithNameFilters(const QDir* self, const libqt_list /* of libqt_string */ nameFilters);
@@ -84,8 +76,6 @@ bool QDir_IsAbsolutePath(const libqt_string path);
 bool QDir_IsRelative(const QDir* self);
 bool QDir_IsAbsolute(const QDir* self);
 bool QDir_MakeAbsolute(QDir* self);
-bool QDir_OperatorEqual(const QDir* self, const QDir* dir);
-bool QDir_OperatorNotEqual(const QDir* self, const QDir* dir);
 bool QDir_Remove(QDir* self, const libqt_string fileName);
 bool QDir_Rename(QDir* self, const libqt_string oldName, const libqt_string newName);
 bool QDir_ExistsWithName(const QDir* self, const libqt_string name);
@@ -105,6 +95,7 @@ bool QDir_Match(const libqt_list /* of libqt_string */ filters, const libqt_stri
 bool QDir_Match2(const libqt_string filter, const libqt_string fileName);
 libqt_string QDir_CleanPath(const libqt_string path);
 void QDir_Refresh(const QDir* self);
+ptrdiff_t QDir_Count1(const QDir* self, Disambiguated_t* param1);
 bool QDir_IsEmpty1(const QDir* self, int filters);
 libqt_list /* of libqt_string */ QDir_EntryList1(const QDir* self, int filters);
 libqt_list /* of libqt_string */ QDir_EntryList2(const QDir* self, int filters, int sort);

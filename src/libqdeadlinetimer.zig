@@ -28,30 +28,30 @@ pub const qdeadlinetimer = struct {
 
     /// New4 constructs a new QDeadlineTimer object.
     ///
-    /// ``` param1: qdeadlinetimer_enums.ForeverConstant ```
-    pub fn New4(param1: i64) QtC.QDeadlineTimer {
-        return qtc.QDeadlineTimer_new4(@intCast(param1));
+    /// ``` type_: qnamespace_enums.TimerType ```
+    pub fn New4(type_: i64) QtC.QDeadlineTimer {
+        return qtc.QDeadlineTimer_new4(@intCast(type_));
     }
 
     /// New5 constructs a new QDeadlineTimer object.
     ///
-    /// ``` msecs: i64 ```
-    pub fn New5(msecs: i64) QtC.QDeadlineTimer {
-        return qtc.QDeadlineTimer_new5(@intCast(msecs));
+    /// ``` param1: qdeadlinetimer_enums.ForeverConstant ```
+    pub fn New5(param1: i64) QtC.QDeadlineTimer {
+        return qtc.QDeadlineTimer_new5(@intCast(param1));
     }
 
     /// New6 constructs a new QDeadlineTimer object.
     ///
-    /// ``` param1: QtC.QDeadlineTimer ```
-    pub fn New6(param1: ?*anyopaque) QtC.QDeadlineTimer {
-        return qtc.QDeadlineTimer_new6(@ptrCast(param1));
+    /// ``` msecs: i64 ```
+    pub fn New6(msecs: i64) QtC.QDeadlineTimer {
+        return qtc.QDeadlineTimer_new6(@intCast(msecs));
     }
 
     /// New7 constructs a new QDeadlineTimer object.
     ///
-    /// ``` type_: qnamespace_enums.TimerType ```
-    pub fn New7(type_: i64) QtC.QDeadlineTimer {
-        return qtc.QDeadlineTimer_new7(@intCast(type_));
+    /// ``` param1: QtC.QDeadlineTimer ```
+    pub fn New7(param1: ?*anyopaque) QtC.QDeadlineTimer {
+        return qtc.QDeadlineTimer_new7(@ptrCast(param1));
     }
 
     /// New8 constructs a new QDeadlineTimer object.
@@ -199,13 +199,6 @@ pub const qdeadlinetimer = struct {
     /// ``` self: QtC.QDeadlineTimer, msecs: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, msecs: i64) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_OperatorMinusAssign(@ptrCast(self), @intCast(msecs));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator=)
-    ///
-    /// ``` self: QtC.QDeadlineTimer, param1: QtC.QDeadlineTimer ```
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QDeadlineTimer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setRemainingTime)

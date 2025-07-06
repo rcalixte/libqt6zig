@@ -28,14 +28,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVector3D QVector3D;
 #endif
 
-#ifdef __cplusplus
-typedef QAudioRoom::Material Material; // C++ enum
-typedef QAudioRoom::Wall Wall;         // C++ enum
-#else
-typedef int Material; // C ABI enum
-typedef int Wall;     // C ABI enum
-#endif
-
 QAudioRoom* QAudioRoom_new(QAudioEngine* engine);
 QMetaObject* QAudioRoom_MetaObject(const QAudioRoom* self);
 void* QAudioRoom_Metacast(QAudioRoom* self, const char* param1);

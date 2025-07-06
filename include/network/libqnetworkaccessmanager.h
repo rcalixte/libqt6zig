@@ -38,12 +38,6 @@ typedef struct QSslPreSharedKeyAuthenticator QSslPreSharedKeyAuthenticator;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QNetworkAccessManager::Operation Operation; // C++ enum
-#else
-typedef int Operation; // C ABI enum
-#endif
-
 QNetworkAccessManager* QNetworkAccessManager_new();
 QNetworkAccessManager* QNetworkAccessManager_new2(QObject* parent);
 QMetaObject* QNetworkAccessManager_MetaObject(const QNetworkAccessManager* self);
@@ -73,6 +67,8 @@ void QNetworkAccessManager_AddStrictTransportSecurityHosts(QNetworkAccessManager
 libqt_list /* of QHstsPolicy* */ QNetworkAccessManager_StrictTransportSecurityHosts(const QNetworkAccessManager* self);
 QNetworkReply* QNetworkAccessManager_Head(QNetworkAccessManager* self, const QNetworkRequest* request);
 QNetworkReply* QNetworkAccessManager_Get(QNetworkAccessManager* self, const QNetworkRequest* request);
+QNetworkReply* QNetworkAccessManager_Get2(QNetworkAccessManager* self, const QNetworkRequest* request, QIODevice* data);
+QNetworkReply* QNetworkAccessManager_Get3(QNetworkAccessManager* self, const QNetworkRequest* request, const libqt_string data);
 QNetworkReply* QNetworkAccessManager_Post(QNetworkAccessManager* self, const QNetworkRequest* request, QIODevice* data);
 QNetworkReply* QNetworkAccessManager_Post2(QNetworkAccessManager* self, const QNetworkRequest* request, const libqt_string data);
 QNetworkReply* QNetworkAccessManager_Put(QNetworkAccessManager* self, const QNetworkRequest* request, QIODevice* data);
@@ -80,8 +76,8 @@ QNetworkReply* QNetworkAccessManager_Put2(QNetworkAccessManager* self, const QNe
 QNetworkReply* QNetworkAccessManager_DeleteResource(QNetworkAccessManager* self, const QNetworkRequest* request);
 QNetworkReply* QNetworkAccessManager_SendCustomRequest(QNetworkAccessManager* self, const QNetworkRequest* request, const libqt_string verb);
 QNetworkReply* QNetworkAccessManager_SendCustomRequest2(QNetworkAccessManager* self, const QNetworkRequest* request, const libqt_string verb, const libqt_string data);
-QNetworkReply* QNetworkAccessManager_Post3(QNetworkAccessManager* self, const QNetworkRequest* request, QHttpMultiPart* multiPart);
-QNetworkReply* QNetworkAccessManager_Put3(QNetworkAccessManager* self, const QNetworkRequest* request, QHttpMultiPart* multiPart);
+QNetworkReply* QNetworkAccessManager_Post4(QNetworkAccessManager* self, const QNetworkRequest* request, QHttpMultiPart* multiPart);
+QNetworkReply* QNetworkAccessManager_Put4(QNetworkAccessManager* self, const QNetworkRequest* request, QHttpMultiPart* multiPart);
 QNetworkReply* QNetworkAccessManager_SendCustomRequest3(QNetworkAccessManager* self, const QNetworkRequest* request, const libqt_string verb, QHttpMultiPart* multiPart);
 void QNetworkAccessManager_ConnectToHostEncrypted(QNetworkAccessManager* self, const libqt_string hostName);
 void QNetworkAccessManager_ConnectToHostEncrypted2(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port, const QSslConfiguration* sslConfiguration, const libqt_string peerName);
@@ -91,7 +87,8 @@ int QNetworkAccessManager_RedirectPolicy(const QNetworkAccessManager* self);
 bool QNetworkAccessManager_AutoDeleteReplies(const QNetworkAccessManager* self);
 void QNetworkAccessManager_SetAutoDeleteReplies(QNetworkAccessManager* self, bool autoDelete);
 int QNetworkAccessManager_TransferTimeout(const QNetworkAccessManager* self);
-void QNetworkAccessManager_SetTransferTimeout(QNetworkAccessManager* self);
+void QNetworkAccessManager_SetTransferTimeout(QNetworkAccessManager* self, int timeout);
+void QNetworkAccessManager_SetTransferTimeout2(QNetworkAccessManager* self);
 void QNetworkAccessManager_ProxyAuthenticationRequired(QNetworkAccessManager* self, const QNetworkProxy* proxy, QAuthenticator* authenticator);
 void QNetworkAccessManager_Connect_ProxyAuthenticationRequired(QNetworkAccessManager* self, intptr_t slot);
 void QNetworkAccessManager_AuthenticationRequired(QNetworkAccessManager* self, QNetworkReply* reply, QAuthenticator* authenticator);
@@ -114,7 +111,6 @@ QNetworkReply* QNetworkAccessManager_SendCustomRequest32(QNetworkAccessManager* 
 void QNetworkAccessManager_ConnectToHostEncrypted22(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port);
 void QNetworkAccessManager_ConnectToHostEncrypted3(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port, const QSslConfiguration* sslConfiguration);
 void QNetworkAccessManager_ConnectToHost2(QNetworkAccessManager* self, const libqt_string hostName, uint16_t port);
-void QNetworkAccessManager_SetTransferTimeout1(QNetworkAccessManager* self, int timeout);
 bool QNetworkAccessManager_Event(QNetworkAccessManager* self, QEvent* event);
 void QNetworkAccessManager_OnEvent(QNetworkAccessManager* self, intptr_t slot);
 bool QNetworkAccessManager_QBaseEvent(QNetworkAccessManager* self, QEvent* event);

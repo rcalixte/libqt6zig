@@ -61,12 +61,12 @@ class VirtualQAction final : public QAction {
     mutable bool qaction_issignalconnected_isbase = false;
 
   public:
-    VirtualQAction() : QAction(){};
-    VirtualQAction(const QString& text) : QAction(text){};
-    VirtualQAction(const QIcon& icon, const QString& text) : QAction(icon, text){};
-    VirtualQAction(QObject* parent) : QAction(parent){};
-    VirtualQAction(const QString& text, QObject* parent) : QAction(text, parent){};
-    VirtualQAction(const QIcon& icon, const QString& text, QObject* parent) : QAction(icon, text, parent){};
+    VirtualQAction() : QAction() {};
+    VirtualQAction(const QString& text) : QAction(text) {};
+    VirtualQAction(const QIcon& icon, const QString& text) : QAction(icon, text) {};
+    VirtualQAction(QObject* parent) : QAction(parent) {};
+    VirtualQAction(const QString& text, QObject* parent) : QAction(text, parent) {};
+    VirtualQAction(const QIcon& icon, const QString& text, QObject* parent) : QAction(icon, text, parent) {};
 
     ~VirtualQAction() {
         qaction_metacall_callback = nullptr;

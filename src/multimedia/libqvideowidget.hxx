@@ -75,6 +75,7 @@ class VirtualQVideoWidget final : public QVideoWidget {
     using QVideoWidget_SenderSignalIndex_Callback = int (*)();
     using QVideoWidget_Receivers_Callback = int (*)(const QVideoWidget*, const char*);
     using QVideoWidget_IsSignalConnected_Callback = bool (*)(const QVideoWidget*, QMetaMethod*);
+    using QVideoWidget_GetDecodedMetricF_Callback = double (*)(const QVideoWidget*, int, int);
 
   protected:
     // Instance callback storage
@@ -135,6 +136,7 @@ class VirtualQVideoWidget final : public QVideoWidget {
     QVideoWidget_SenderSignalIndex_Callback qvideowidget_sendersignalindex_callback = nullptr;
     QVideoWidget_Receivers_Callback qvideowidget_receivers_callback = nullptr;
     QVideoWidget_IsSignalConnected_Callback qvideowidget_issignalconnected_callback = nullptr;
+    QVideoWidget_GetDecodedMetricF_Callback qvideowidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qvideowidget_metacall_isbase = false;
@@ -194,10 +196,11 @@ class VirtualQVideoWidget final : public QVideoWidget {
     mutable bool qvideowidget_sendersignalindex_isbase = false;
     mutable bool qvideowidget_receivers_isbase = false;
     mutable bool qvideowidget_issignalconnected_isbase = false;
+    mutable bool qvideowidget_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQVideoWidget(QWidget* parent) : QVideoWidget(parent){};
-    VirtualQVideoWidget() : QVideoWidget(){};
+    VirtualQVideoWidget(QWidget* parent) : QVideoWidget(parent) {};
+    VirtualQVideoWidget() : QVideoWidget() {};
 
     ~VirtualQVideoWidget() {
         qvideowidget_metacall_callback = nullptr;
@@ -257,6 +260,7 @@ class VirtualQVideoWidget final : public QVideoWidget {
         qvideowidget_sendersignalindex_callback = nullptr;
         qvideowidget_receivers_callback = nullptr;
         qvideowidget_issignalconnected_callback = nullptr;
+        qvideowidget_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -317,6 +321,7 @@ class VirtualQVideoWidget final : public QVideoWidget {
     inline void setQVideoWidget_SenderSignalIndex_Callback(QVideoWidget_SenderSignalIndex_Callback cb) { qvideowidget_sendersignalindex_callback = cb; }
     inline void setQVideoWidget_Receivers_Callback(QVideoWidget_Receivers_Callback cb) { qvideowidget_receivers_callback = cb; }
     inline void setQVideoWidget_IsSignalConnected_Callback(QVideoWidget_IsSignalConnected_Callback cb) { qvideowidget_issignalconnected_callback = cb; }
+    inline void setQVideoWidget_GetDecodedMetricF_Callback(QVideoWidget_GetDecodedMetricF_Callback cb) { qvideowidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQVideoWidget_Metacall_IsBase(bool value) const { qvideowidget_metacall_isbase = value; }
@@ -376,6 +381,7 @@ class VirtualQVideoWidget final : public QVideoWidget {
     inline void setQVideoWidget_SenderSignalIndex_IsBase(bool value) const { qvideowidget_sendersignalindex_isbase = value; }
     inline void setQVideoWidget_Receivers_IsBase(bool value) const { qvideowidget_receivers_isbase = value; }
     inline void setQVideoWidget_IsSignalConnected_IsBase(bool value) const { qvideowidget_issignalconnected_isbase = value; }
+    inline void setQVideoWidget_GetDecodedMetricF_IsBase(bool value) const { qvideowidget_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1188,6 +1194,22 @@ class VirtualQVideoWidget final : public QVideoWidget {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qvideowidget_getdecodedmetricf_isbase) {
+            qvideowidget_getdecodedmetricf_isbase = false;
+            return QVideoWidget::getDecodedMetricF(metricA, metricB);
+        } else if (qvideowidget_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qvideowidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QVideoWidget::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QVideoWidget_Event(QVideoWidget* self, QEvent* event);
     friend bool QVideoWidget_QBaseEvent(QVideoWidget* self, QEvent* event);
@@ -1283,6 +1305,8 @@ class VirtualQVideoWidget final : public QVideoWidget {
     friend int QVideoWidget_QBaseReceivers(const QVideoWidget* self, const char* signal);
     friend bool QVideoWidget_IsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal);
     friend bool QVideoWidget_QBaseIsSignalConnected(const QVideoWidget* self, const QMetaMethod* signal);
+    friend double QVideoWidget_GetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB);
+    friend double QVideoWidget_QBaseGetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB);
 };
 
 #endif

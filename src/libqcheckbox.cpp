@@ -135,6 +135,18 @@ void QCheckBox_Connect_StateChanged(QCheckBox* self, intptr_t slot) {
     });
 }
 
+void QCheckBox_CheckStateChanged(QCheckBox* self, int param1) {
+    self->checkStateChanged(static_cast<Qt::CheckState>(param1));
+}
+
+void QCheckBox_Connect_CheckStateChanged(QCheckBox* self, intptr_t slot) {
+    void (*slotFunc)(QCheckBox*, int) = reinterpret_cast<void (*)(QCheckBox*, int)>(slot);
+    QCheckBox::connect(self, &QCheckBox::checkStateChanged, [self, slotFunc](Qt::CheckState param1) {
+        int sigval1 = static_cast<int>(param1);
+        slotFunc(self, sigval1);
+    });
+}
+
 libqt_string QCheckBox_Tr2(const char* s, const char* c) {
     QString _ret = QCheckBox::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1902,6 +1914,35 @@ void QCheckBox_OnIsSignalConnected(const QCheckBox* self, intptr_t slot) {
     auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
     if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
         vqcheckbox->setQCheckBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QCheckBox_GetDecodedMetricF(const QCheckBox* self, int metricA, int metricB) {
+    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        return vqcheckbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQCheckBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QCheckBox_QBaseGetDecodedMetricF(const QCheckBox* self, int metricA, int metricB) {
+    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        vqcheckbox->setQCheckBox_GetDecodedMetricF_IsBase(true);
+        return vqcheckbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQCheckBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCheckBox_OnGetDecodedMetricF(const QCheckBox* self, intptr_t slot) {
+    auto* vqcheckbox = const_cast<VirtualQCheckBox*>(dynamic_cast<const VirtualQCheckBox*>(self));
+    if (vqcheckbox && vqcheckbox->isVirtualQCheckBox) {
+        vqcheckbox->setQCheckBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQCheckBox::QCheckBox_GetDecodedMetricF_Callback>(slot));
     }
 }
 

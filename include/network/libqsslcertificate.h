@@ -24,14 +24,6 @@ typedef struct QSslError QSslError;
 typedef struct QSslKey QSslKey;
 #endif
 
-#ifdef __cplusplus
-typedef QSslCertificate::PatternSyntax PatternSyntax; // C++ enum
-typedef QSslCertificate::SubjectInfo SubjectInfo;     // C++ enum
-#else
-typedef int PatternSyntax; // C ABI enum
-typedef int SubjectInfo;   // C ABI enum
-#endif
-
 QSslCertificate* QSslCertificate_new(QIODevice* device);
 QSslCertificate* QSslCertificate_new2();
 QSslCertificate* QSslCertificate_new3(const QSslCertificate* other);

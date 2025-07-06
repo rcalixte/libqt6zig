@@ -46,9 +46,9 @@ class VirtualQGraphicsLayoutItem final : public QGraphicsLayoutItem {
     mutable bool qgraphicslayoutitem_setownedbylayout_isbase = false;
 
   public:
-    VirtualQGraphicsLayoutItem() : QGraphicsLayoutItem(){};
-    VirtualQGraphicsLayoutItem(QGraphicsLayoutItem* parent) : QGraphicsLayoutItem(parent){};
-    VirtualQGraphicsLayoutItem(QGraphicsLayoutItem* parent, bool isLayout) : QGraphicsLayoutItem(parent, isLayout){};
+    VirtualQGraphicsLayoutItem() : QGraphicsLayoutItem() {};
+    VirtualQGraphicsLayoutItem(QGraphicsLayoutItem* parent) : QGraphicsLayoutItem(parent) {};
+    VirtualQGraphicsLayoutItem(QGraphicsLayoutItem* parent, bool isLayout) : QGraphicsLayoutItem(parent, isLayout) {};
 
     ~VirtualQGraphicsLayoutItem() {
         qgraphicslayoutitem_setgeometry_callback = nullptr;

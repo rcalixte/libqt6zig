@@ -29,6 +29,7 @@ class VirtualQLocalServer final : public QLocalServer {
     using QLocalServer_CustomEvent_Callback = void (*)(QLocalServer*, QEvent*);
     using QLocalServer_ConnectNotify_Callback = void (*)(QLocalServer*, QMetaMethod*);
     using QLocalServer_DisconnectNotify_Callback = void (*)(QLocalServer*, QMetaMethod*);
+    using QLocalServer_AddPendingConnection_Callback = void (*)(QLocalServer*, QLocalSocket*);
     using QLocalServer_Sender_Callback = QObject* (*)();
     using QLocalServer_SenderSignalIndex_Callback = int (*)();
     using QLocalServer_Receivers_Callback = int (*)(const QLocalServer*, const char*);
@@ -47,6 +48,7 @@ class VirtualQLocalServer final : public QLocalServer {
     QLocalServer_CustomEvent_Callback qlocalserver_customevent_callback = nullptr;
     QLocalServer_ConnectNotify_Callback qlocalserver_connectnotify_callback = nullptr;
     QLocalServer_DisconnectNotify_Callback qlocalserver_disconnectnotify_callback = nullptr;
+    QLocalServer_AddPendingConnection_Callback qlocalserver_addpendingconnection_callback = nullptr;
     QLocalServer_Sender_Callback qlocalserver_sender_callback = nullptr;
     QLocalServer_SenderSignalIndex_Callback qlocalserver_sendersignalindex_callback = nullptr;
     QLocalServer_Receivers_Callback qlocalserver_receivers_callback = nullptr;
@@ -64,14 +66,15 @@ class VirtualQLocalServer final : public QLocalServer {
     mutable bool qlocalserver_customevent_isbase = false;
     mutable bool qlocalserver_connectnotify_isbase = false;
     mutable bool qlocalserver_disconnectnotify_isbase = false;
+    mutable bool qlocalserver_addpendingconnection_isbase = false;
     mutable bool qlocalserver_sender_isbase = false;
     mutable bool qlocalserver_sendersignalindex_isbase = false;
     mutable bool qlocalserver_receivers_isbase = false;
     mutable bool qlocalserver_issignalconnected_isbase = false;
 
   public:
-    VirtualQLocalServer() : QLocalServer(){};
-    VirtualQLocalServer(QObject* parent) : QLocalServer(parent){};
+    VirtualQLocalServer() : QLocalServer() {};
+    VirtualQLocalServer(QObject* parent) : QLocalServer(parent) {};
 
     ~VirtualQLocalServer() {
         qlocalserver_metacall_callback = nullptr;
@@ -85,6 +88,7 @@ class VirtualQLocalServer final : public QLocalServer {
         qlocalserver_customevent_callback = nullptr;
         qlocalserver_connectnotify_callback = nullptr;
         qlocalserver_disconnectnotify_callback = nullptr;
+        qlocalserver_addpendingconnection_callback = nullptr;
         qlocalserver_sender_callback = nullptr;
         qlocalserver_sendersignalindex_callback = nullptr;
         qlocalserver_receivers_callback = nullptr;
@@ -103,6 +107,7 @@ class VirtualQLocalServer final : public QLocalServer {
     inline void setQLocalServer_CustomEvent_Callback(QLocalServer_CustomEvent_Callback cb) { qlocalserver_customevent_callback = cb; }
     inline void setQLocalServer_ConnectNotify_Callback(QLocalServer_ConnectNotify_Callback cb) { qlocalserver_connectnotify_callback = cb; }
     inline void setQLocalServer_DisconnectNotify_Callback(QLocalServer_DisconnectNotify_Callback cb) { qlocalserver_disconnectnotify_callback = cb; }
+    inline void setQLocalServer_AddPendingConnection_Callback(QLocalServer_AddPendingConnection_Callback cb) { qlocalserver_addpendingconnection_callback = cb; }
     inline void setQLocalServer_Sender_Callback(QLocalServer_Sender_Callback cb) { qlocalserver_sender_callback = cb; }
     inline void setQLocalServer_SenderSignalIndex_Callback(QLocalServer_SenderSignalIndex_Callback cb) { qlocalserver_sendersignalindex_callback = cb; }
     inline void setQLocalServer_Receivers_Callback(QLocalServer_Receivers_Callback cb) { qlocalserver_receivers_callback = cb; }
@@ -120,6 +125,7 @@ class VirtualQLocalServer final : public QLocalServer {
     inline void setQLocalServer_CustomEvent_IsBase(bool value) const { qlocalserver_customevent_isbase = value; }
     inline void setQLocalServer_ConnectNotify_IsBase(bool value) const { qlocalserver_connectnotify_isbase = value; }
     inline void setQLocalServer_DisconnectNotify_IsBase(bool value) const { qlocalserver_disconnectnotify_isbase = value; }
+    inline void setQLocalServer_AddPendingConnection_IsBase(bool value) const { qlocalserver_addpendingconnection_isbase = value; }
     inline void setQLocalServer_Sender_IsBase(bool value) const { qlocalserver_sender_isbase = value; }
     inline void setQLocalServer_SenderSignalIndex_IsBase(bool value) const { qlocalserver_sendersignalindex_isbase = value; }
     inline void setQLocalServer_Receivers_IsBase(bool value) const { qlocalserver_receivers_isbase = value; }
@@ -288,6 +294,20 @@ class VirtualQLocalServer final : public QLocalServer {
     }
 
     // Virtual method for C ABI access and custom callback
+    void addPendingConnection(QLocalSocket* socket) {
+        if (qlocalserver_addpendingconnection_isbase) {
+            qlocalserver_addpendingconnection_isbase = false;
+            QLocalServer::addPendingConnection(socket);
+        } else if (qlocalserver_addpendingconnection_callback != nullptr) {
+            QLocalSocket* cbval1 = socket;
+
+            qlocalserver_addpendingconnection_callback(this, cbval1);
+        } else {
+            QLocalServer::addPendingConnection(socket);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qlocalserver_sender_isbase) {
             qlocalserver_sender_isbase = false;
@@ -358,6 +378,8 @@ class VirtualQLocalServer final : public QLocalServer {
     friend void QLocalServer_QBaseConnectNotify(QLocalServer* self, const QMetaMethod* signal);
     friend void QLocalServer_DisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
     friend void QLocalServer_QBaseDisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
+    friend void QLocalServer_AddPendingConnection(QLocalServer* self, QLocalSocket* socket);
+    friend void QLocalServer_QBaseAddPendingConnection(QLocalServer* self, QLocalSocket* socket);
     friend QObject* QLocalServer_Sender(const QLocalServer* self);
     friend QObject* QLocalServer_QBaseSender(const QLocalServer* self);
     friend int QLocalServer_SenderSignalIndex(const QLocalServer* self);

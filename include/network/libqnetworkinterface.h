@@ -22,20 +22,6 @@ typedef struct QNetworkAddressEntry QNetworkAddressEntry;
 typedef struct QNetworkInterface QNetworkInterface;
 #endif
 
-#ifdef __cplusplus
-typedef QNetworkAddressEntry::DnsEligibilityStatus DnsEligibilityStatus; // C++ enum
-typedef QNetworkInterface::InterfaceFlag InterfaceFlag;                  // C++ enum
-typedef QNetworkInterface::InterfaceFlags InterfaceFlags;                // C++ QFlags
-typedef QNetworkInterface::InterfaceType InterfaceType;                  // C++ enum
-typedef QNetworkInterface::QtGadgetHelper QtGadgetHelper;                // C++ QFlags
-#else
-typedef int InterfaceFlag;                // C ABI enum
-typedef int InterfaceFlags;               // C ABI QFlags
-typedef int InterfaceType;                // C ABI enum
-typedef signed char DnsEligibilityStatus; // C ABI enum
-typedef void QtGadgetHelper;              // C ABI QFlags
-#endif
-
 QNetworkAddressEntry* QNetworkAddressEntry_new();
 QNetworkAddressEntry* QNetworkAddressEntry_new2(const QNetworkAddressEntry* other);
 void QNetworkAddressEntry_OperatorAssign(QNetworkAddressEntry* self, const QNetworkAddressEntry* other);

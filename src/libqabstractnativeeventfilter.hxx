@@ -28,7 +28,7 @@ class VirtualQAbstractNativeEventFilter final : public QAbstractNativeEventFilte
     mutable bool qabstractnativeeventfilter_nativeeventfilter_isbase = false;
 
   public:
-    VirtualQAbstractNativeEventFilter() : QAbstractNativeEventFilter(){};
+    VirtualQAbstractNativeEventFilter() : QAbstractNativeEventFilter() {};
 
     ~VirtualQAbstractNativeEventFilter() {
         qabstractnativeeventfilter_nativeeventfilter_callback = nullptr;

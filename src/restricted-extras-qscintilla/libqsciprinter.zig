@@ -773,6 +773,15 @@ pub const qsciprinter = struct {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+    }
+
     /// Inherited from QPrinter
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#devType)
@@ -1200,6 +1209,39 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, printEngine: QtC.QPrintEngine, paintEngine: QtC.QPaintEngine) callconv(.c) void ```
     pub fn OnSetEngines(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciPrinter_OnSetEngines(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QsciPrinter_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QsciPrinter_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)

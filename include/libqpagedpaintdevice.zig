@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qpagelayout_enums = @import("libqpagelayout.zig").enums;
+const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 
 /// https://doc.qt.io/qt-6/qpagedpaintdevice.html
 pub const qpagedpaintdevice = struct {
@@ -204,6 +205,15 @@ pub const qpagedpaintdevice = struct {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#dtor.QPagedPaintDevice)
     ///
     /// Delete this object from C++ memory.
@@ -220,5 +230,6 @@ pub const enums = struct {
         pub const PdfVersion_1_4: i32 = 0;
         pub const PdfVersion_A1b: i32 = 1;
         pub const PdfVersion_1_6: i32 = 2;
+        pub const PdfVersion_X4: i32 = 3;
     };
 };

@@ -2005,6 +2005,35 @@ void QAbstractButton_OnIsSignalConnected(const QAbstractButton* self, intptr_t s
     }
 }
 
+// Derived class handler implementation
+double QAbstractButton_GetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB) {
+    auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        return vqabstractbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QAbstractButton_QBaseGetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB) {
+    auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        vqabstractbutton->setQAbstractButton_GetDecodedMetricF_IsBase(true);
+        return vqabstractbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractButton_OnGetDecodedMetricF(const QAbstractButton* self, intptr_t slot) {
+    auto* vqabstractbutton = const_cast<VirtualQAbstractButton*>(dynamic_cast<const VirtualQAbstractButton*>(self));
+    if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
+        vqabstractbutton->setQAbstractButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractButton::QAbstractButton_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QAbstractButton_Delete(QAbstractButton* self) {
     delete self;
 }

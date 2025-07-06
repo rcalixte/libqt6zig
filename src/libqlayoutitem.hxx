@@ -73,9 +73,9 @@ class VirtualQLayoutItem final : public QLayoutItem {
     mutable bool qlayoutitem_operatorassign_isbase = false;
 
   public:
-    VirtualQLayoutItem() : QLayoutItem(){};
-    VirtualQLayoutItem(const QLayoutItem& param1) : QLayoutItem(param1){};
-    VirtualQLayoutItem(Qt::Alignment alignment) : QLayoutItem(alignment){};
+    VirtualQLayoutItem() : QLayoutItem() {};
+    VirtualQLayoutItem(const QLayoutItem& param1) : QLayoutItem(param1) {};
+    VirtualQLayoutItem(Qt::Alignment alignment) : QLayoutItem(alignment) {};
 
     ~VirtualQLayoutItem() {
         qlayoutitem_sizehint_callback = nullptr;
@@ -391,10 +391,10 @@ class VirtualQSpacerItem final : public QSpacerItem {
     mutable bool qspaceritem_controltypes_isbase = false;
 
   public:
-    VirtualQSpacerItem(int w, int h) : QSpacerItem(w, h){};
-    VirtualQSpacerItem(const QSpacerItem& param1) : QSpacerItem(param1){};
-    VirtualQSpacerItem(int w, int h, QSizePolicy::Policy hData) : QSpacerItem(w, h, hData){};
-    VirtualQSpacerItem(int w, int h, QSizePolicy::Policy hData, QSizePolicy::Policy vData) : QSpacerItem(w, h, hData, vData){};
+    VirtualQSpacerItem(int w, int h) : QSpacerItem(w, h) {};
+    VirtualQSpacerItem(const QSpacerItem& param1) : QSpacerItem(param1) {};
+    VirtualQSpacerItem(int w, int h, QSizePolicy::Policy hData) : QSpacerItem(w, h, hData) {};
+    VirtualQSpacerItem(int w, int h, QSizePolicy::Policy hData, QSizePolicy::Policy vData) : QSpacerItem(w, h, hData, vData) {};
 
     ~VirtualQSpacerItem() {
         qspaceritem_sizehint_callback = nullptr;
@@ -710,7 +710,7 @@ class VirtualQWidgetItem final : public QWidgetItem {
     mutable bool qwidgetitem_spaceritem_isbase = false;
 
   public:
-    VirtualQWidgetItem(QWidget* w) : QWidgetItem(w){};
+    VirtualQWidgetItem(QWidget* w) : QWidgetItem(w) {};
 
     ~VirtualQWidgetItem() {
         qwidgetitem_sizehint_callback = nullptr;
@@ -1026,7 +1026,7 @@ class VirtualQWidgetItemV2 final : public QWidgetItemV2 {
     mutable bool qwidgetitemv2_spaceritem_isbase = false;
 
   public:
-    VirtualQWidgetItemV2(QWidget* widget) : QWidgetItemV2(widget){};
+    VirtualQWidgetItemV2(QWidget* widget) : QWidgetItemV2(widget) {};
 
     ~VirtualQWidgetItemV2() {
         qwidgetitemv2_sizehint_callback = nullptr;

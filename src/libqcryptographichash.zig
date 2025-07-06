@@ -12,11 +12,25 @@ pub const qcryptographichash = struct {
         return qtc.QCryptographicHash_new(@intCast(method));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#swap)
+    ///
+    /// ``` self: QtC.QCryptographicHash, other: QtC.QCryptographicHash ```
+    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QCryptographicHash_Swap(@ptrCast(self), @ptrCast(other));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#reset)
     ///
     /// ``` self: QtC.QCryptographicHash ```
     pub fn Reset(self: ?*anyopaque) void {
         qtc.QCryptographicHash_Reset(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#algorithm)
+    ///
+    /// ``` self: QtC.QCryptographicHash ```
+    pub fn Algorithm(self: ?*anyopaque) i64 {
+        return qtc.QCryptographicHash_Algorithm(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
@@ -74,11 +88,86 @@ pub const qcryptographichash = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    ///
+    /// ``` buffer: []i8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    pub fn HashInto(buffer: []i8, data: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+        const buffer_list = qtc.struct_libqt_list{
+            .len = buffer.len,
+            .data = buffer.ptr,
+        };
+        const _str = qtc.QCryptographicHash_HashInto(buffer_list, data.ptr, @intCast(method));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcryptographichash.HashInto: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    ///
+    /// ``` buffer: []u8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    pub fn HashInto2(buffer: []u8, data: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+        const buffer_list = qtc.struct_libqt_list{
+            .len = buffer.len,
+            .data = buffer.ptr,
+        };
+        const _str = qtc.QCryptographicHash_HashInto2(buffer_list, data.ptr, @intCast(method));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcryptographichash.HashInto2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    ///
+    /// ``` buffer: []i8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    pub fn HashInto4(buffer: []i8, data: [][]const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+        const buffer_list = qtc.struct_libqt_list{
+            .len = buffer.len,
+            .data = buffer.ptr,
+        };
+        const data_list = qtc.struct_libqt_list{
+            .len = data.len,
+            .data = @ptrCast(data.ptr),
+        };
+        const _str = qtc.QCryptographicHash_HashInto4(buffer_list, data_list, @intCast(method));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcryptographichash.HashInto4: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
+    ///
+    /// ``` buffer: []u8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    pub fn HashInto5(buffer: []u8, data: [][]const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+        const buffer_list = qtc.struct_libqt_list{
+            .len = buffer.len,
+            .data = buffer.ptr,
+        };
+        const data_list = qtc.struct_libqt_list{
+            .len = data.len,
+            .data = @ptrCast(data.ptr),
+        };
+        const _str = qtc.QCryptographicHash_HashInto5(buffer_list, data_list, @intCast(method));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcryptographichash.HashInto5: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashLength)
     ///
     /// ``` method: qcryptographichash_enums.Algorithm ```
     pub fn HashLength(method: i64) i32 {
         return qtc.QCryptographicHash_HashLength(@intCast(method));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#supportsAlgorithm)
+    ///
+    /// ``` method: qcryptographichash_enums.Algorithm ```
+    pub fn SupportsAlgorithm(method: i64) bool {
+        return qtc.QCryptographicHash_SupportsAlgorithm(@intCast(method));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#dtor.QCryptographicHash)
@@ -121,5 +210,6 @@ pub const enums = struct {
         pub const Blake2s_160: i32 = 20;
         pub const Blake2s_224: i32 = 21;
         pub const Blake2s_256: i32 = 22;
+        pub const NumAlgorithms: i32 = 23;
     };
 };

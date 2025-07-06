@@ -1935,6 +1935,35 @@ void QErrorMessage_OnIsSignalConnected(const QErrorMessage* self, intptr_t slot)
     }
 }
 
+// Derived class handler implementation
+double QErrorMessage_GetDecodedMetricF(const QErrorMessage* self, int metricA, int metricB) {
+    auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        return vqerrormessage->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQErrorMessage*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QErrorMessage_QBaseGetDecodedMetricF(const QErrorMessage* self, int metricA, int metricB) {
+    auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_GetDecodedMetricF_IsBase(true);
+        return vqerrormessage->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQErrorMessage*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QErrorMessage_OnGetDecodedMetricF(const QErrorMessage* self, intptr_t slot) {
+    auto* vqerrormessage = const_cast<VirtualQErrorMessage*>(dynamic_cast<const VirtualQErrorMessage*>(self));
+    if (vqerrormessage && vqerrormessage->isVirtualQErrorMessage) {
+        vqerrormessage->setQErrorMessage_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQErrorMessage::QErrorMessage_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QErrorMessage_Delete(QErrorMessage* self) {
     delete self;
 }

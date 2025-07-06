@@ -77,6 +77,7 @@ class VirtualQLineEdit final : public QLineEdit {
     using QLineEdit_SenderSignalIndex_Callback = int (*)();
     using QLineEdit_Receivers_Callback = int (*)(const QLineEdit*, const char*);
     using QLineEdit_IsSignalConnected_Callback = bool (*)(const QLineEdit*, QMetaMethod*);
+    using QLineEdit_GetDecodedMetricF_Callback = double (*)(const QLineEdit*, int, int);
 
   protected:
     // Instance callback storage
@@ -139,6 +140,7 @@ class VirtualQLineEdit final : public QLineEdit {
     QLineEdit_SenderSignalIndex_Callback qlineedit_sendersignalindex_callback = nullptr;
     QLineEdit_Receivers_Callback qlineedit_receivers_callback = nullptr;
     QLineEdit_IsSignalConnected_Callback qlineedit_issignalconnected_callback = nullptr;
+    QLineEdit_GetDecodedMetricF_Callback qlineedit_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qlineedit_metacall_isbase = false;
@@ -200,12 +202,13 @@ class VirtualQLineEdit final : public QLineEdit {
     mutable bool qlineedit_sendersignalindex_isbase = false;
     mutable bool qlineedit_receivers_isbase = false;
     mutable bool qlineedit_issignalconnected_isbase = false;
+    mutable bool qlineedit_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQLineEdit(QWidget* parent) : QLineEdit(parent){};
-    VirtualQLineEdit() : QLineEdit(){};
-    VirtualQLineEdit(const QString& param1) : QLineEdit(param1){};
-    VirtualQLineEdit(const QString& param1, QWidget* parent) : QLineEdit(param1, parent){};
+    VirtualQLineEdit(QWidget* parent) : QLineEdit(parent) {};
+    VirtualQLineEdit() : QLineEdit() {};
+    VirtualQLineEdit(const QString& param1) : QLineEdit(param1) {};
+    VirtualQLineEdit(const QString& param1, QWidget* parent) : QLineEdit(param1, parent) {};
 
     ~VirtualQLineEdit() {
         qlineedit_metacall_callback = nullptr;
@@ -267,6 +270,7 @@ class VirtualQLineEdit final : public QLineEdit {
         qlineedit_sendersignalindex_callback = nullptr;
         qlineedit_receivers_callback = nullptr;
         qlineedit_issignalconnected_callback = nullptr;
+        qlineedit_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -329,6 +333,7 @@ class VirtualQLineEdit final : public QLineEdit {
     inline void setQLineEdit_SenderSignalIndex_Callback(QLineEdit_SenderSignalIndex_Callback cb) { qlineedit_sendersignalindex_callback = cb; }
     inline void setQLineEdit_Receivers_Callback(QLineEdit_Receivers_Callback cb) { qlineedit_receivers_callback = cb; }
     inline void setQLineEdit_IsSignalConnected_Callback(QLineEdit_IsSignalConnected_Callback cb) { qlineedit_issignalconnected_callback = cb; }
+    inline void setQLineEdit_GetDecodedMetricF_Callback(QLineEdit_GetDecodedMetricF_Callback cb) { qlineedit_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQLineEdit_Metacall_IsBase(bool value) const { qlineedit_metacall_isbase = value; }
@@ -390,6 +395,7 @@ class VirtualQLineEdit final : public QLineEdit {
     inline void setQLineEdit_SenderSignalIndex_IsBase(bool value) const { qlineedit_sendersignalindex_isbase = value; }
     inline void setQLineEdit_Receivers_IsBase(bool value) const { qlineedit_receivers_isbase = value; }
     inline void setQLineEdit_IsSignalConnected_IsBase(bool value) const { qlineedit_issignalconnected_isbase = value; }
+    inline void setQLineEdit_GetDecodedMetricF_IsBase(bool value) const { qlineedit_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1229,6 +1235,22 @@ class VirtualQLineEdit final : public QLineEdit {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qlineedit_getdecodedmetricf_isbase) {
+            qlineedit_getdecodedmetricf_isbase = false;
+            return QLineEdit::getDecodedMetricF(metricA, metricB);
+        } else if (qlineedit_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qlineedit_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QLineEdit::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QLineEdit_MousePressEvent(QLineEdit* self, QMouseEvent* param1);
     friend void QLineEdit_QBaseMousePressEvent(QLineEdit* self, QMouseEvent* param1);
@@ -1324,6 +1346,8 @@ class VirtualQLineEdit final : public QLineEdit {
     friend int QLineEdit_QBaseReceivers(const QLineEdit* self, const char* signal);
     friend bool QLineEdit_IsSignalConnected(const QLineEdit* self, const QMetaMethod* signal);
     friend bool QLineEdit_QBaseIsSignalConnected(const QLineEdit* self, const QMetaMethod* signal);
+    friend double QLineEdit_GetDecodedMetricF(const QLineEdit* self, int metricA, int metricB);
+    friend double QLineEdit_QBaseGetDecodedMetricF(const QLineEdit* self, int metricA, int metricB);
 };
 
 #endif

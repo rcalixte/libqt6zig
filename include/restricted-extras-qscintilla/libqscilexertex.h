@@ -160,6 +160,12 @@ void QsciLexerTeX_QBaseConnectNotify(QsciLexerTeX* self, const QMetaMethod* sign
 void QsciLexerTeX_DisconnectNotify(QsciLexerTeX* self, const QMetaMethod* signal);
 void QsciLexerTeX_OnDisconnectNotify(QsciLexerTeX* self, intptr_t slot);
 void QsciLexerTeX_QBaseDisconnectNotify(QsciLexerTeX* self, const QMetaMethod* signal);
+libqt_string QsciLexerTeX_TextAsBytes(const QsciLexerTeX* self, const libqt_string text);
+void QsciLexerTeX_OnTextAsBytes(const QsciLexerTeX* self, intptr_t slot);
+libqt_string QsciLexerTeX_QBaseTextAsBytes(const QsciLexerTeX* self, const libqt_string text);
+libqt_string QsciLexerTeX_BytesAsText(const QsciLexerTeX* self, const char* bytes, int size);
+void QsciLexerTeX_OnBytesAsText(const QsciLexerTeX* self, intptr_t slot);
+libqt_string QsciLexerTeX_QBaseBytesAsText(const QsciLexerTeX* self, const char* bytes, int size);
 QObject* QsciLexerTeX_Sender(const QsciLexerTeX* self);
 void QsciLexerTeX_OnSender(const QsciLexerTeX* self, intptr_t slot);
 QObject* QsciLexerTeX_QBaseSender(const QsciLexerTeX* self);

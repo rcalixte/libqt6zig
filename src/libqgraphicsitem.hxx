@@ -143,8 +143,8 @@ class VirtualQGraphicsItem final : public QGraphicsItem {
     mutable bool qgraphicsitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsItem() : QGraphicsItem(){};
-    VirtualQGraphicsItem(QGraphicsItem* parent) : QGraphicsItem(parent){};
+    VirtualQGraphicsItem() : QGraphicsItem() {};
+    VirtualQGraphicsItem(QGraphicsItem* parent) : QGraphicsItem(parent) {};
 
     ~VirtualQGraphicsItem() {
         qgraphicsitem_advance_callback = nullptr;
@@ -1053,8 +1053,8 @@ class VirtualQGraphicsObject final : public QGraphicsObject {
     mutable bool qgraphicsobject_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsObject() : QGraphicsObject(){};
-    VirtualQGraphicsObject(QGraphicsItem* parent) : QGraphicsObject(parent){};
+    VirtualQGraphicsObject() : QGraphicsObject() {};
+    VirtualQGraphicsObject(QGraphicsItem* parent) : QGraphicsObject(parent) {};
 
     ~VirtualQGraphicsObject() {
         qgraphicsobject_metacall_callback = nullptr;
@@ -2163,8 +2163,8 @@ class VirtualQAbstractGraphicsShapeItem final : public QAbstractGraphicsShapeIte
     mutable bool qabstractgraphicsshapeitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQAbstractGraphicsShapeItem() : QAbstractGraphicsShapeItem(){};
-    VirtualQAbstractGraphicsShapeItem(QGraphicsItem* parent) : QAbstractGraphicsShapeItem(parent){};
+    VirtualQAbstractGraphicsShapeItem() : QAbstractGraphicsShapeItem() {};
+    VirtualQAbstractGraphicsShapeItem(QGraphicsItem* parent) : QAbstractGraphicsShapeItem(parent) {};
 
     ~VirtualQAbstractGraphicsShapeItem() {
         qabstractgraphicsshapeitem_isobscuredby_callback = nullptr;
@@ -3037,10 +3037,10 @@ class VirtualQGraphicsPathItem final : public QGraphicsPathItem {
     mutable bool qgraphicspathitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsPathItem() : QGraphicsPathItem(){};
-    VirtualQGraphicsPathItem(const QPainterPath& path) : QGraphicsPathItem(path){};
-    VirtualQGraphicsPathItem(QGraphicsItem* parent) : QGraphicsPathItem(parent){};
-    VirtualQGraphicsPathItem(const QPainterPath& path, QGraphicsItem* parent) : QGraphicsPathItem(path, parent){};
+    VirtualQGraphicsPathItem() : QGraphicsPathItem() {};
+    VirtualQGraphicsPathItem(const QPainterPath& path) : QGraphicsPathItem(path) {};
+    VirtualQGraphicsPathItem(QGraphicsItem* parent) : QGraphicsPathItem(parent) {};
+    VirtualQGraphicsPathItem(const QPainterPath& path, QGraphicsItem* parent) : QGraphicsPathItem(path, parent) {};
 
     ~VirtualQGraphicsPathItem() {
         qgraphicspathitem_boundingrect_callback = nullptr;
@@ -3921,12 +3921,12 @@ class VirtualQGraphicsRectItem final : public QGraphicsRectItem {
     mutable bool qgraphicsrectitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsRectItem() : QGraphicsRectItem(){};
-    VirtualQGraphicsRectItem(const QRectF& rect) : QGraphicsRectItem(rect){};
-    VirtualQGraphicsRectItem(qreal x, qreal y, qreal w, qreal h) : QGraphicsRectItem(x, y, w, h){};
-    VirtualQGraphicsRectItem(QGraphicsItem* parent) : QGraphicsRectItem(parent){};
-    VirtualQGraphicsRectItem(const QRectF& rect, QGraphicsItem* parent) : QGraphicsRectItem(rect, parent){};
-    VirtualQGraphicsRectItem(qreal x, qreal y, qreal w, qreal h, QGraphicsItem* parent) : QGraphicsRectItem(x, y, w, h, parent){};
+    VirtualQGraphicsRectItem() : QGraphicsRectItem() {};
+    VirtualQGraphicsRectItem(const QRectF& rect) : QGraphicsRectItem(rect) {};
+    VirtualQGraphicsRectItem(qreal x, qreal y, qreal w, qreal h) : QGraphicsRectItem(x, y, w, h) {};
+    VirtualQGraphicsRectItem(QGraphicsItem* parent) : QGraphicsRectItem(parent) {};
+    VirtualQGraphicsRectItem(const QRectF& rect, QGraphicsItem* parent) : QGraphicsRectItem(rect, parent) {};
+    VirtualQGraphicsRectItem(qreal x, qreal y, qreal w, qreal h, QGraphicsItem* parent) : QGraphicsRectItem(x, y, w, h, parent) {};
 
     ~VirtualQGraphicsRectItem() {
         qgraphicsrectitem_boundingrect_callback = nullptr;
@@ -4807,12 +4807,12 @@ class VirtualQGraphicsEllipseItem final : public QGraphicsEllipseItem {
     mutable bool qgraphicsellipseitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsEllipseItem() : QGraphicsEllipseItem(){};
-    VirtualQGraphicsEllipseItem(const QRectF& rect) : QGraphicsEllipseItem(rect){};
-    VirtualQGraphicsEllipseItem(qreal x, qreal y, qreal w, qreal h) : QGraphicsEllipseItem(x, y, w, h){};
-    VirtualQGraphicsEllipseItem(QGraphicsItem* parent) : QGraphicsEllipseItem(parent){};
-    VirtualQGraphicsEllipseItem(const QRectF& rect, QGraphicsItem* parent) : QGraphicsEllipseItem(rect, parent){};
-    VirtualQGraphicsEllipseItem(qreal x, qreal y, qreal w, qreal h, QGraphicsItem* parent) : QGraphicsEllipseItem(x, y, w, h, parent){};
+    VirtualQGraphicsEllipseItem() : QGraphicsEllipseItem() {};
+    VirtualQGraphicsEllipseItem(const QRectF& rect) : QGraphicsEllipseItem(rect) {};
+    VirtualQGraphicsEllipseItem(qreal x, qreal y, qreal w, qreal h) : QGraphicsEllipseItem(x, y, w, h) {};
+    VirtualQGraphicsEllipseItem(QGraphicsItem* parent) : QGraphicsEllipseItem(parent) {};
+    VirtualQGraphicsEllipseItem(const QRectF& rect, QGraphicsItem* parent) : QGraphicsEllipseItem(rect, parent) {};
+    VirtualQGraphicsEllipseItem(qreal x, qreal y, qreal w, qreal h, QGraphicsItem* parent) : QGraphicsEllipseItem(x, y, w, h, parent) {};
 
     ~VirtualQGraphicsEllipseItem() {
         qgraphicsellipseitem_boundingrect_callback = nullptr;
@@ -5693,8 +5693,8 @@ class VirtualQGraphicsPolygonItem final : public QGraphicsPolygonItem {
     mutable bool qgraphicspolygonitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsPolygonItem() : QGraphicsPolygonItem(){};
-    VirtualQGraphicsPolygonItem(QGraphicsItem* parent) : QGraphicsPolygonItem(parent){};
+    VirtualQGraphicsPolygonItem() : QGraphicsPolygonItem() {};
+    VirtualQGraphicsPolygonItem(QGraphicsItem* parent) : QGraphicsPolygonItem(parent) {};
 
     ~VirtualQGraphicsPolygonItem() {
         qgraphicspolygonitem_boundingrect_callback = nullptr;
@@ -6575,12 +6575,12 @@ class VirtualQGraphicsLineItem final : public QGraphicsLineItem {
     mutable bool qgraphicslineitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsLineItem() : QGraphicsLineItem(){};
-    VirtualQGraphicsLineItem(const QLineF& line) : QGraphicsLineItem(line){};
-    VirtualQGraphicsLineItem(qreal x1, qreal y1, qreal x2, qreal y2) : QGraphicsLineItem(x1, y1, x2, y2){};
-    VirtualQGraphicsLineItem(QGraphicsItem* parent) : QGraphicsLineItem(parent){};
-    VirtualQGraphicsLineItem(const QLineF& line, QGraphicsItem* parent) : QGraphicsLineItem(line, parent){};
-    VirtualQGraphicsLineItem(qreal x1, qreal y1, qreal x2, qreal y2, QGraphicsItem* parent) : QGraphicsLineItem(x1, y1, x2, y2, parent){};
+    VirtualQGraphicsLineItem() : QGraphicsLineItem() {};
+    VirtualQGraphicsLineItem(const QLineF& line) : QGraphicsLineItem(line) {};
+    VirtualQGraphicsLineItem(qreal x1, qreal y1, qreal x2, qreal y2) : QGraphicsLineItem(x1, y1, x2, y2) {};
+    VirtualQGraphicsLineItem(QGraphicsItem* parent) : QGraphicsLineItem(parent) {};
+    VirtualQGraphicsLineItem(const QLineF& line, QGraphicsItem* parent) : QGraphicsLineItem(line, parent) {};
+    VirtualQGraphicsLineItem(qreal x1, qreal y1, qreal x2, qreal y2, QGraphicsItem* parent) : QGraphicsLineItem(x1, y1, x2, y2, parent) {};
 
     ~VirtualQGraphicsLineItem() {
         qgraphicslineitem_boundingrect_callback = nullptr;
@@ -7461,10 +7461,10 @@ class VirtualQGraphicsPixmapItem final : public QGraphicsPixmapItem {
     mutable bool qgraphicspixmapitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsPixmapItem() : QGraphicsPixmapItem(){};
-    VirtualQGraphicsPixmapItem(const QPixmap& pixmap) : QGraphicsPixmapItem(pixmap){};
-    VirtualQGraphicsPixmapItem(QGraphicsItem* parent) : QGraphicsPixmapItem(parent){};
-    VirtualQGraphicsPixmapItem(const QPixmap& pixmap, QGraphicsItem* parent) : QGraphicsPixmapItem(pixmap, parent){};
+    VirtualQGraphicsPixmapItem() : QGraphicsPixmapItem() {};
+    VirtualQGraphicsPixmapItem(const QPixmap& pixmap) : QGraphicsPixmapItem(pixmap) {};
+    VirtualQGraphicsPixmapItem(QGraphicsItem* parent) : QGraphicsPixmapItem(parent) {};
+    VirtualQGraphicsPixmapItem(const QPixmap& pixmap, QGraphicsItem* parent) : QGraphicsPixmapItem(pixmap, parent) {};
 
     ~VirtualQGraphicsPixmapItem() {
         qgraphicspixmapitem_boundingrect_callback = nullptr;
@@ -8381,10 +8381,10 @@ class VirtualQGraphicsTextItem final : public QGraphicsTextItem {
     mutable bool qgraphicstextitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsTextItem() : QGraphicsTextItem(){};
-    VirtualQGraphicsTextItem(const QString& text) : QGraphicsTextItem(text){};
-    VirtualQGraphicsTextItem(QGraphicsItem* parent) : QGraphicsTextItem(parent){};
-    VirtualQGraphicsTextItem(const QString& text, QGraphicsItem* parent) : QGraphicsTextItem(text, parent){};
+    VirtualQGraphicsTextItem() : QGraphicsTextItem() {};
+    VirtualQGraphicsTextItem(const QString& text) : QGraphicsTextItem(text) {};
+    VirtualQGraphicsTextItem(QGraphicsItem* parent) : QGraphicsTextItem(parent) {};
+    VirtualQGraphicsTextItem(const QString& text, QGraphicsItem* parent) : QGraphicsTextItem(text, parent) {};
 
     ~VirtualQGraphicsTextItem() {
         qgraphicstextitem_metacall_callback = nullptr;
@@ -9501,10 +9501,10 @@ class VirtualQGraphicsSimpleTextItem final : public QGraphicsSimpleTextItem {
     mutable bool qgraphicssimpletextitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsSimpleTextItem() : QGraphicsSimpleTextItem(){};
-    VirtualQGraphicsSimpleTextItem(const QString& text) : QGraphicsSimpleTextItem(text){};
-    VirtualQGraphicsSimpleTextItem(QGraphicsItem* parent) : QGraphicsSimpleTextItem(parent){};
-    VirtualQGraphicsSimpleTextItem(const QString& text, QGraphicsItem* parent) : QGraphicsSimpleTextItem(text, parent){};
+    VirtualQGraphicsSimpleTextItem() : QGraphicsSimpleTextItem() {};
+    VirtualQGraphicsSimpleTextItem(const QString& text) : QGraphicsSimpleTextItem(text) {};
+    VirtualQGraphicsSimpleTextItem(QGraphicsItem* parent) : QGraphicsSimpleTextItem(parent) {};
+    VirtualQGraphicsSimpleTextItem(const QString& text, QGraphicsItem* parent) : QGraphicsSimpleTextItem(text, parent) {};
 
     ~VirtualQGraphicsSimpleTextItem() {
         qgraphicssimpletextitem_boundingrect_callback = nullptr;
@@ -10385,8 +10385,8 @@ class VirtualQGraphicsItemGroup final : public QGraphicsItemGroup {
     mutable bool qgraphicsitemgroup_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsItemGroup() : QGraphicsItemGroup(){};
-    VirtualQGraphicsItemGroup(QGraphicsItem* parent) : QGraphicsItemGroup(parent){};
+    VirtualQGraphicsItemGroup() : QGraphicsItemGroup() {};
+    VirtualQGraphicsItemGroup(QGraphicsItem* parent) : QGraphicsItemGroup(parent) {};
 
     ~VirtualQGraphicsItemGroup() {
         qgraphicsitemgroup_boundingrect_callback = nullptr;

@@ -245,6 +245,9 @@ int QRadioButton_QBaseReceivers(const QRadioButton* self, const char* signal);
 bool QRadioButton_IsSignalConnected(const QRadioButton* self, const QMetaMethod* signal);
 void QRadioButton_OnIsSignalConnected(const QRadioButton* self, intptr_t slot);
 bool QRadioButton_QBaseIsSignalConnected(const QRadioButton* self, const QMetaMethod* signal);
+double QRadioButton_GetDecodedMetricF(const QRadioButton* self, int metricA, int metricB);
+void QRadioButton_OnGetDecodedMetricF(const QRadioButton* self, intptr_t slot);
+double QRadioButton_QBaseGetDecodedMetricF(const QRadioButton* self, int metricA, int metricB);
 void QRadioButton_Delete(QRadioButton* self);
 
 #ifdef __cplusplus

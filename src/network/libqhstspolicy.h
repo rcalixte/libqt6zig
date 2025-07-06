@@ -20,14 +20,6 @@ typedef struct QDateTime QDateTime;
 typedef struct QHstsPolicy QHstsPolicy;
 #endif
 
-#ifdef __cplusplus
-typedef QHstsPolicy::PolicyFlag PolicyFlag;   // C++ enum
-typedef QHstsPolicy::PolicyFlags PolicyFlags; // C++ QFlags
-#else
-typedef int PolicyFlag;  // C ABI enum
-typedef int PolicyFlags; // C ABI QFlags
-#endif
-
 QHstsPolicy* QHstsPolicy_new();
 QHstsPolicy* QHstsPolicy_new2(const QDateTime* expiry, int flags, const libqt_string host);
 QHstsPolicy* QHstsPolicy_new3(const QHstsPolicy* rhs);

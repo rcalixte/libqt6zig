@@ -172,9 +172,16 @@ pub const qthreadpool = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qthreadpool.html#waitForDone)
     ///
+    /// ``` self: QtC.QThreadPool, msecs: i32 ```
+    pub fn WaitForDone(self: ?*anyopaque, msecs: i32) bool {
+        return qtc.QThreadPool_WaitForDone(@ptrCast(self), @intCast(msecs));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qthreadpool.html#waitForDone)
+    ///
     /// ``` self: QtC.QThreadPool ```
-    pub fn WaitForDone(self: ?*anyopaque) bool {
-        return qtc.QThreadPool_WaitForDone(@ptrCast(self));
+    pub fn WaitForDone2(self: ?*anyopaque) bool {
+        return qtc.QThreadPool_WaitForDone2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qthreadpool.html#clear)
@@ -233,9 +240,9 @@ pub const qthreadpool = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qthreadpool.html#waitForDone)
     ///
-    /// ``` self: QtC.QThreadPool, msecs: i32 ```
-    pub fn WaitForDone1(self: ?*anyopaque, msecs: i32) bool {
-        return qtc.QThreadPool_WaitForDone1(@ptrCast(self), @intCast(msecs));
+    /// ``` self: QtC.QThreadPool, deadline: QtC.QDeadlineTimer ```
+    pub fn WaitForDone1(self: ?*anyopaque, deadline: QtC.QDeadlineTimer) bool {
+        return qtc.QThreadPool_WaitForDone1(@ptrCast(self), @ptrCast(deadline));
     }
 
     /// Inherited from QObject
@@ -323,8 +330,8 @@ pub const qthreadpool = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QThreadPool, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -343,6 +350,15 @@ pub const qthreadpool = struct {
     /// ``` self: QtC.QThreadPool, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QThreadPool, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -548,6 +564,15 @@ pub const qthreadpool = struct {
     /// ``` self: QtC.QThreadPool ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QThreadPool, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

@@ -73,9 +73,9 @@ class VirtualQOffscreenSurface final : public QOffscreenSurface {
     mutable bool qoffscreensurface_issignalconnected_isbase = false;
 
   public:
-    VirtualQOffscreenSurface() : QOffscreenSurface(){};
-    VirtualQOffscreenSurface(QScreen* screen) : QOffscreenSurface(screen){};
-    VirtualQOffscreenSurface(QScreen* screen, QObject* parent) : QOffscreenSurface(screen, parent){};
+    VirtualQOffscreenSurface() : QOffscreenSurface() {};
+    VirtualQOffscreenSurface(QScreen* screen) : QOffscreenSurface(screen) {};
+    VirtualQOffscreenSurface(QScreen* screen, QObject* parent) : QOffscreenSurface(screen, parent) {};
 
     ~VirtualQOffscreenSurface() {
         qoffscreensurface_metacall_callback = nullptr;

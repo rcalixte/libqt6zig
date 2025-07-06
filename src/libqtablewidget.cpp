@@ -593,12 +593,12 @@ QTableWidgetItem* QTableWidget_TakeItem(QTableWidget* self, int row, int column)
 libqt_list /* of QTableWidgetItem* */ QTableWidget_Items(const QTableWidget* self, const QMimeData* data) {
     QList<QTableWidgetItem*> _ret = self->items(data);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -636,7 +636,7 @@ QTableWidgetItem* QTableWidget_TakeHorizontalHeaderItem(QTableWidget* self, int 
 }
 
 void QTableWidget_SetVerticalHeaderLabels(QTableWidget* self, const libqt_list /* of libqt_string */ labels) {
-    QStringList labels_QList;
+    QList<QString> labels_QList;
     labels_QList.reserve(labels.len);
     libqt_string* labels_arr = static_cast<libqt_string*>(labels.data);
     for (size_t i = 0; i < labels.len; ++i) {
@@ -647,7 +647,7 @@ void QTableWidget_SetVerticalHeaderLabels(QTableWidget* self, const libqt_list /
 }
 
 void QTableWidget_SetHorizontalHeaderLabels(QTableWidget* self, const libqt_list /* of libqt_string */ labels) {
-    QStringList labels_QList;
+    QList<QString> labels_QList;
     labels_QList.reserve(labels.len);
     libqt_string* labels_arr = static_cast<libqt_string*>(labels.data);
     for (size_t i = 0; i < labels.len; ++i) {
@@ -732,12 +732,12 @@ void QTableWidget_SetRangeSelected(QTableWidget* self, const QTableWidgetSelecti
 libqt_list /* of QTableWidgetSelectionRange* */ QTableWidget_SelectedRanges(const QTableWidget* self) {
     QList<QTableWidgetSelectionRange> _ret = self->selectedRanges();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetSelectionRange** _arr = static_cast<QTableWidgetSelectionRange**>(malloc(sizeof(QTableWidgetSelectionRange*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QTableWidgetSelectionRange** _arr = static_cast<QTableWidgetSelectionRange**>(malloc(sizeof(QTableWidgetSelectionRange*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTableWidgetSelectionRange(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -745,12 +745,12 @@ libqt_list /* of QTableWidgetSelectionRange* */ QTableWidget_SelectedRanges(cons
 libqt_list /* of QTableWidgetItem* */ QTableWidget_SelectedItems(const QTableWidget* self) {
     QList<QTableWidgetItem*> _ret = self->selectedItems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -759,12 +759,12 @@ libqt_list /* of QTableWidgetItem* */ QTableWidget_FindItems(const QTableWidget*
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QList<QTableWidgetItem*> _ret = self->findItems(text_QString, static_cast<Qt::MatchFlags>(flags));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -1079,10 +1079,10 @@ void QTableWidget_OnEvent(QTableWidget* self, intptr_t slot) {
 libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        QStringList _ret = vqtablewidget->mimeTypes();
+        QList<QString> _ret = vqtablewidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1094,14 +1094,14 @@ libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = ((VirtualQTableWidget*)self)->mimeTypes();
+        QList<QString> _ret = ((VirtualQTableWidget*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1113,7 +1113,7 @@ libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1124,10 +1124,10 @@ libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget*
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_MimeTypes_IsBase(true);
-        QStringList _ret = vqtablewidget->mimeTypes();
+        QList<QString> _ret = vqtablewidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1139,14 +1139,14 @@ libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget*
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = ((VirtualQTableWidget*)self)->mimeTypes();
+        QList<QString> _ret = ((VirtualQTableWidget*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1158,7 +1158,7 @@ libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget*
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1735,25 +1735,25 @@ void QTableWidget_OnVisualRegionForSelection(const QTableWidget* self, intptr_t 
 libqt_list /* of QModelIndex* */ QTableWidget_SelectedIndexes(const QTableWidget* self) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
-        QModelIndexList _ret = vqtablewidget->selectedIndexes();
+        QList<QModelIndex> _ret = vqtablewidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1764,25 +1764,25 @@ libqt_list /* of QModelIndex* */ QTableWidget_QBaseSelectedIndexes(const QTableW
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_SelectedIndexes_IsBase(true);
-        QModelIndexList _ret = vqtablewidget->selectedIndexes();
+        QList<QModelIndex> _ret = vqtablewidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -4732,6 +4732,35 @@ void QTableWidget_OnIsSignalConnected(const QTableWidget* self, intptr_t slot) {
     auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->setQTableWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QTableWidget_GetDecodedMetricF(const QTableWidget* self, int metricA, int metricB) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        return vqtablewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTableWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QTableWidget_QBaseGetDecodedMetricF(const QTableWidget* self, int metricA, int metricB) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_GetDecodedMetricF_IsBase(true);
+        return vqtablewidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTableWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableWidget_OnGetDecodedMetricF(const QTableWidget* self, intptr_t slot) {
+    auto* vqtablewidget = const_cast<VirtualQTableWidget*>(dynamic_cast<const VirtualQTableWidget*>(self));
+    if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
+        vqtablewidget->setQTableWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTableWidget::QTableWidget_GetDecodedMetricF_Callback>(slot));
     }
 }
 

@@ -175,6 +175,12 @@ void QsciLexerJava_QBaseConnectNotify(QsciLexerJava* self, const QMetaMethod* si
 void QsciLexerJava_DisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
 void QsciLexerJava_OnDisconnectNotify(QsciLexerJava* self, intptr_t slot);
 void QsciLexerJava_QBaseDisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+libqt_string QsciLexerJava_TextAsBytes(const QsciLexerJava* self, const libqt_string text);
+void QsciLexerJava_OnTextAsBytes(const QsciLexerJava* self, intptr_t slot);
+libqt_string QsciLexerJava_QBaseTextAsBytes(const QsciLexerJava* self, const libqt_string text);
+libqt_string QsciLexerJava_BytesAsText(const QsciLexerJava* self, const char* bytes, int size);
+void QsciLexerJava_OnBytesAsText(const QsciLexerJava* self, intptr_t slot);
+libqt_string QsciLexerJava_QBaseBytesAsText(const QsciLexerJava* self, const char* bytes, int size);
 QObject* QsciLexerJava_Sender(const QsciLexerJava* self);
 void QsciLexerJava_OnSender(const QsciLexerJava* self, intptr_t slot);
 QObject* QsciLexerJava_QBaseSender(const QsciLexerJava* self);

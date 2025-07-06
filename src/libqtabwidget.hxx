@@ -79,6 +79,7 @@ class VirtualQTabWidget final : public QTabWidget {
     using QTabWidget_SenderSignalIndex_Callback = int (*)();
     using QTabWidget_Receivers_Callback = int (*)(const QTabWidget*, const char*);
     using QTabWidget_IsSignalConnected_Callback = bool (*)(const QTabWidget*, QMetaMethod*);
+    using QTabWidget_GetDecodedMetricF_Callback = double (*)(const QTabWidget*, int, int);
 
   protected:
     // Instance callback storage
@@ -143,6 +144,7 @@ class VirtualQTabWidget final : public QTabWidget {
     QTabWidget_SenderSignalIndex_Callback qtabwidget_sendersignalindex_callback = nullptr;
     QTabWidget_Receivers_Callback qtabwidget_receivers_callback = nullptr;
     QTabWidget_IsSignalConnected_Callback qtabwidget_issignalconnected_callback = nullptr;
+    QTabWidget_GetDecodedMetricF_Callback qtabwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qtabwidget_metacall_isbase = false;
@@ -206,10 +208,11 @@ class VirtualQTabWidget final : public QTabWidget {
     mutable bool qtabwidget_sendersignalindex_isbase = false;
     mutable bool qtabwidget_receivers_isbase = false;
     mutable bool qtabwidget_issignalconnected_isbase = false;
+    mutable bool qtabwidget_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQTabWidget(QWidget* parent) : QTabWidget(parent){};
-    VirtualQTabWidget() : QTabWidget(){};
+    VirtualQTabWidget(QWidget* parent) : QTabWidget(parent) {};
+    VirtualQTabWidget() : QTabWidget() {};
 
     ~VirtualQTabWidget() {
         qtabwidget_metacall_callback = nullptr;
@@ -273,6 +276,7 @@ class VirtualQTabWidget final : public QTabWidget {
         qtabwidget_sendersignalindex_callback = nullptr;
         qtabwidget_receivers_callback = nullptr;
         qtabwidget_issignalconnected_callback = nullptr;
+        qtabwidget_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -337,6 +341,7 @@ class VirtualQTabWidget final : public QTabWidget {
     inline void setQTabWidget_SenderSignalIndex_Callback(QTabWidget_SenderSignalIndex_Callback cb) { qtabwidget_sendersignalindex_callback = cb; }
     inline void setQTabWidget_Receivers_Callback(QTabWidget_Receivers_Callback cb) { qtabwidget_receivers_callback = cb; }
     inline void setQTabWidget_IsSignalConnected_Callback(QTabWidget_IsSignalConnected_Callback cb) { qtabwidget_issignalconnected_callback = cb; }
+    inline void setQTabWidget_GetDecodedMetricF_Callback(QTabWidget_GetDecodedMetricF_Callback cb) { qtabwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQTabWidget_Metacall_IsBase(bool value) const { qtabwidget_metacall_isbase = value; }
@@ -400,6 +405,7 @@ class VirtualQTabWidget final : public QTabWidget {
     inline void setQTabWidget_SenderSignalIndex_IsBase(bool value) const { qtabwidget_sendersignalindex_isbase = value; }
     inline void setQTabWidget_Receivers_IsBase(bool value) const { qtabwidget_receivers_isbase = value; }
     inline void setQTabWidget_IsSignalConnected_IsBase(bool value) const { qtabwidget_issignalconnected_isbase = value; }
+    inline void setQTabWidget_GetDecodedMetricF_IsBase(bool value) const { qtabwidget_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1268,6 +1274,22 @@ class VirtualQTabWidget final : public QTabWidget {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qtabwidget_getdecodedmetricf_isbase) {
+            qtabwidget_getdecodedmetricf_isbase = false;
+            return QTabWidget::getDecodedMetricF(metricA, metricB);
+        } else if (qtabwidget_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qtabwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QTabWidget::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QTabWidget_TabInserted(QTabWidget* self, int index);
     friend void QTabWidget_QBaseTabInserted(QTabWidget* self, int index);
@@ -1371,6 +1393,8 @@ class VirtualQTabWidget final : public QTabWidget {
     friend int QTabWidget_QBaseReceivers(const QTabWidget* self, const char* signal);
     friend bool QTabWidget_IsSignalConnected(const QTabWidget* self, const QMetaMethod* signal);
     friend bool QTabWidget_QBaseIsSignalConnected(const QTabWidget* self, const QMetaMethod* signal);
+    friend double QTabWidget_GetDecodedMetricF(const QTabWidget* self, int metricA, int metricB);
+    friend double QTabWidget_QBaseGetDecodedMetricF(const QTabWidget* self, int metricA, int metricB);
 };
 
 #endif

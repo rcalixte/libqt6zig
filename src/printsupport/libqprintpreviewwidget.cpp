@@ -1881,6 +1881,35 @@ void QPrintPreviewWidget_OnIsSignalConnected(const QPrintPreviewWidget* self, in
     }
 }
 
+// Derived class handler implementation
+double QPrintPreviewWidget_GetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB) {
+    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        return vqprintpreviewwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPrintPreviewWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QPrintPreviewWidget_QBaseGetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB) {
+    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_GetDecodedMetricF_IsBase(true);
+        return vqprintpreviewwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPrintPreviewWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPrintPreviewWidget_OnGetDecodedMetricF(const QPrintPreviewWidget* self, intptr_t slot) {
+    auto* vqprintpreviewwidget = const_cast<VirtualQPrintPreviewWidget*>(dynamic_cast<const VirtualQPrintPreviewWidget*>(self));
+    if (vqprintpreviewwidget && vqprintpreviewwidget->isVirtualQPrintPreviewWidget) {
+        vqprintpreviewwidget->setQPrintPreviewWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPrintPreviewWidget::QPrintPreviewWidget_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QPrintPreviewWidget_Delete(QPrintPreviewWidget* self) {
     delete self;
 }

@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
+const qsvggenerator_enums = enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qsvggenerator.html
@@ -10,6 +11,13 @@ pub const qsvggenerator = struct {
     ///
     pub fn New() QtC.QSvgGenerator {
         return qtc.QSvgGenerator_new();
+    }
+
+    /// New2 constructs a new QSvgGenerator object.
+    ///
+    /// ``` version: qsvggenerator_enums.SvgVersion ```
+    pub fn New2(version: i64) QtC.QSvgGenerator {
+        return qtc.QSvgGenerator_new2(@intCast(version));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#title)
@@ -146,6 +154,13 @@ pub const qsvggenerator = struct {
     /// ``` self: QtC.QSvgGenerator ```
     pub fn Resolution(self: ?*anyopaque) i32 {
         return qtc.QSvgGenerator_Resolution(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#svgVersion)
+    ///
+    /// ``` self: QtC.QSvgGenerator ```
+    pub fn SvgVersion(self: ?*anyopaque) i64 {
+        return qtc.QSvgGenerator_SvgVersion(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#paintEngine)
@@ -326,6 +341,15 @@ pub const qsvggenerator = struct {
 
     /// Inherited from QPaintDevice
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#devType)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -456,6 +480,39 @@ pub const qsvggenerator = struct {
         qtc.QSvgGenerator_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QSvgGenerator_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QSvgGenerator_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QSvgGenerator, slot: fn (self: QtC.QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QSvgGenerator_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#dtor.QSvgGenerator)
     ///
     /// Delete this object from C++ memory.
@@ -464,4 +521,12 @@ pub const qsvggenerator = struct {
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QSvgGenerator_Delete(@ptrCast(self));
     }
+};
+
+/// https://doc.qt.io/qt-6/qsvggenerator.html#types
+pub const enums = struct {
+    pub const SvgVersion = enum {
+        pub const SvgTiny12: i32 = 0;
+        pub const Svg11: i32 = 1;
+    };
 };

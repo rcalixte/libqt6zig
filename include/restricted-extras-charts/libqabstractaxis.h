@@ -27,14 +27,6 @@ typedef struct QPen QPen;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractAxis::AxisType AxisType;   // C++ enum
-typedef QAbstractAxis::AxisTypes AxisTypes; // C++ QFlags
-#else
-typedef int AxisType;  // C ABI enum
-typedef int AxisTypes; // C ABI QFlags
-#endif
-
 QMetaObject* QAbstractAxis_MetaObject(const QAbstractAxis* self);
 void* QAbstractAxis_Metacast(QAbstractAxis* self, const char* param1);
 int QAbstractAxis_Metacall(QAbstractAxis* self, int param1, int param2, void** param3);

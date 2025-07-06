@@ -5,6 +5,7 @@ const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpagedpaintdevice_enums = @import("libqpagedpaintdevice.zig").enums;
 const qpagelayout_enums = @import("libqpagelayout.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
+const qpdfwriter_enums = enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qpdfwriter.html
@@ -130,6 +131,20 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_SetCreator(@ptrCast(self), creator_str);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#documentId)
+    ///
+    /// ``` self: QtC.QPdfWriter ```
+    pub fn DocumentId(self: ?*anyopaque) QtC.QUuid {
+        return qtc.QPdfWriter_DocumentId(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#setDocumentId)
+    ///
+    /// ``` self: QtC.QPdfWriter, documentId: QtC.QUuid ```
+    pub fn SetDocumentId(self: ?*anyopaque, documentId: QtC.QUuid) void {
+        qtc.QPdfWriter_SetDocumentId(@ptrCast(self), @ptrCast(documentId));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#newPage)
     ///
     /// ``` self: QtC.QPdfWriter ```
@@ -204,6 +219,34 @@ pub const qpdfwriter = struct {
             .data = data.ptr,
         };
         qtc.QPdfWriter_AddFileAttachment(@ptrCast(self), fileName_str, data_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#colorModel)
+    ///
+    /// ``` self: QtC.QPdfWriter ```
+    pub fn ColorModel(self: ?*anyopaque) i64 {
+        return qtc.QPdfWriter_ColorModel(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#setColorModel)
+    ///
+    /// ``` self: QtC.QPdfWriter, model: qpdfwriter_enums.ColorModel ```
+    pub fn SetColorModel(self: ?*anyopaque, model: i64) void {
+        qtc.QPdfWriter_SetColorModel(@ptrCast(self), @intCast(model));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#outputIntent)
+    ///
+    /// ``` self: QtC.QPdfWriter ```
+    pub fn OutputIntent(self: ?*anyopaque) QtC.QPdfOutputIntent {
+        return qtc.QPdfWriter_OutputIntent(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#setOutputIntent)
+    ///
+    /// ``` self: QtC.QPdfWriter, intent: QtC.QPdfOutputIntent ```
+    pub fn SetOutputIntent(self: ?*anyopaque, intent: ?*anyopaque) void {
+        qtc.QPdfWriter_SetOutputIntent(@ptrCast(self), @ptrCast(intent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#paintEngine)
@@ -386,8 +429,8 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPdfWriter, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -406,6 +449,15 @@ pub const qpdfwriter = struct {
     /// ``` self: QtC.QPdfWriter, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QPdfWriter, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -615,6 +667,15 @@ pub const qpdfwriter = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QPdfWriter, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPdfWriter, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -802,6 +863,15 @@ pub const qpdfwriter = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QObject
@@ -1466,6 +1536,39 @@ pub const qpdfwriter = struct {
         qtc.QPdfWriter_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QPdfWriter_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QPdfWriter_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QPdfWriter, slot: fn (self: QtC.QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QPdfWriter_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
@@ -1485,4 +1588,14 @@ pub const qpdfwriter = struct {
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QPdfWriter_Delete(@ptrCast(self));
     }
+};
+
+/// https://doc.qt.io/qt-6/qpdfwriter.html#types
+pub const enums = struct {
+    pub const ColorModel = enum {
+        pub const RGB: i32 = 0;
+        pub const Grayscale: i32 = 1;
+        pub const CMYK: i32 = 2;
+        pub const Auto: i32 = 3;
+    };
 };

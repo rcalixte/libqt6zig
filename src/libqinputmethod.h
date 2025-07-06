@@ -26,12 +26,6 @@ typedef struct QTransform QTransform;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QInputMethod::Action Action; // C++ enum
-#else
-typedef int Action; // C ABI enum
-#endif
-
 QMetaObject* QInputMethod_MetaObject(const QInputMethod* self);
 void* QInputMethod_Metacast(QInputMethod* self, const char* param1);
 int QInputMethod_Metacall(QInputMethod* self, int param1, int param2, void** param3);

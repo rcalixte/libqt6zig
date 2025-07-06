@@ -35,12 +35,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfSearchModel::Role Role; // C++ enum
-#else
-typedef int Role; // C ABI enum
-#endif
-
 QPdfSearchModel* QPdfSearchModel_new();
 QPdfSearchModel* QPdfSearchModel_new2(QObject* parent);
 QMetaObject* QPdfSearchModel_MetaObject(const QPdfSearchModel* self);
@@ -62,12 +56,15 @@ int QPdfSearchModel_QBaseRowCount(const QPdfSearchModel* self, const QModelIndex
 QVariant* QPdfSearchModel_Data(const QPdfSearchModel* self, const QModelIndex* index, int role);
 void QPdfSearchModel_OnData(const QPdfSearchModel* self, intptr_t slot);
 QVariant* QPdfSearchModel_QBaseData(const QPdfSearchModel* self, const QModelIndex* index, int role);
+int QPdfSearchModel_Count(const QPdfSearchModel* self);
 void QPdfSearchModel_SetSearchString(QPdfSearchModel* self, const libqt_string searchString);
 void QPdfSearchModel_SetDocument(QPdfSearchModel* self, QPdfDocument* document);
 void QPdfSearchModel_DocumentChanged(QPdfSearchModel* self);
 void QPdfSearchModel_Connect_DocumentChanged(QPdfSearchModel* self, intptr_t slot);
 void QPdfSearchModel_SearchStringChanged(QPdfSearchModel* self);
 void QPdfSearchModel_Connect_SearchStringChanged(QPdfSearchModel* self, intptr_t slot);
+void QPdfSearchModel_CountChanged(QPdfSearchModel* self);
+void QPdfSearchModel_Connect_CountChanged(QPdfSearchModel* self, intptr_t slot);
 void QPdfSearchModel_TimerEvent(QPdfSearchModel* self, QTimerEvent* event);
 void QPdfSearchModel_OnTimerEvent(QPdfSearchModel* self, intptr_t slot);
 void QPdfSearchModel_QBaseTimerEvent(QPdfSearchModel* self, QTimerEvent* event);

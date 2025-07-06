@@ -19,14 +19,6 @@ extern "C" {
 typedef struct QTileRules QTileRules;
 #endif
 
-#ifdef __cplusplus
-typedef QDrawBorderPixmap::DrawingHint DrawingHint;   // C++ enum
-typedef QDrawBorderPixmap::DrawingHints DrawingHints; // C++ QFlags
-#else
-typedef int DrawingHint;  // C ABI enum
-typedef int DrawingHints; // C ABI QFlags
-#endif
-
 QTileRules* QTileRules_new(const QTileRules* other);
 QTileRules* QTileRules_new2(QTileRules* other);
 QTileRules* QTileRules_new3(int horizontalRule, int verticalRule);

@@ -245,6 +245,9 @@ int QScrollBar_QBaseReceivers(const QScrollBar* self, const char* signal);
 bool QScrollBar_IsSignalConnected(const QScrollBar* self, const QMetaMethod* signal);
 void QScrollBar_OnIsSignalConnected(const QScrollBar* self, intptr_t slot);
 bool QScrollBar_QBaseIsSignalConnected(const QScrollBar* self, const QMetaMethod* signal);
+double QScrollBar_GetDecodedMetricF(const QScrollBar* self, int metricA, int metricB);
+void QScrollBar_OnGetDecodedMetricF(const QScrollBar* self, intptr_t slot);
+double QScrollBar_QBaseGetDecodedMetricF(const QScrollBar* self, int metricA, int metricB);
 void QScrollBar_Delete(QScrollBar* self);
 
 #ifdef __cplusplus

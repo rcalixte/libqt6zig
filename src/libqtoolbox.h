@@ -267,6 +267,9 @@ int QToolBox_QBaseReceivers(const QToolBox* self, const char* signal);
 bool QToolBox_IsSignalConnected(const QToolBox* self, const QMetaMethod* signal);
 void QToolBox_OnIsSignalConnected(const QToolBox* self, intptr_t slot);
 bool QToolBox_QBaseIsSignalConnected(const QToolBox* self, const QMetaMethod* signal);
+double QToolBox_GetDecodedMetricF(const QToolBox* self, int metricA, int metricB);
+void QToolBox_OnGetDecodedMetricF(const QToolBox* self, intptr_t slot);
+double QToolBox_QBaseGetDecodedMetricF(const QToolBox* self, int metricA, int metricB);
 void QToolBox_Delete(QToolBox* self);
 
 #ifdef __cplusplus

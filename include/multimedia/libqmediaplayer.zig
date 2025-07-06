@@ -143,6 +143,20 @@ pub const qmediaplayer = struct {
         qtc.QMediaPlayer_SetActiveSubtitleTrack(@ptrCast(self), @intCast(index));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#setAudioBufferOutput)
+    ///
+    /// ``` self: QtC.QMediaPlayer, output: QtC.QAudioBufferOutput ```
+    pub fn SetAudioBufferOutput(self: ?*anyopaque, output: ?*anyopaque) void {
+        qtc.QMediaPlayer_SetAudioBufferOutput(@ptrCast(self), @ptrCast(output));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#audioBufferOutput)
+    ///
+    /// ``` self: QtC.QMediaPlayer ```
+    pub fn AudioBufferOutput(self: ?*anyopaque) QtC.QAudioBufferOutput {
+        return qtc.QMediaPlayer_AudioBufferOutput(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#setAudioOutput)
     ///
     /// ``` self: QtC.QMediaPlayer, output: QtC.QAudioOutput ```
@@ -267,6 +281,13 @@ pub const qmediaplayer = struct {
     /// ``` self: QtC.QMediaPlayer ```
     pub fn PlaybackRate(self: ?*anyopaque) f64 {
         return qtc.QMediaPlayer_PlaybackRate(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#isPlaying)
+    ///
+    /// ``` self: QtC.QMediaPlayer ```
+    pub fn IsPlaying(self: ?*anyopaque) bool {
+        return qtc.QMediaPlayer_IsPlaying(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#loops)
@@ -490,6 +511,20 @@ pub const qmediaplayer = struct {
         qtc.QMediaPlayer_Connect_SeekableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#playingChanged)
+    ///
+    /// ``` self: QtC.QMediaPlayer, playing: bool ```
+    pub fn PlayingChanged(self: ?*anyopaque, playing: bool) void {
+        qtc.QMediaPlayer_PlayingChanged(@ptrCast(self), playing);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#playingChanged)
+    ///
+    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer, playing: bool) callconv(.c) void ```
+    pub fn OnPlayingChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QMediaPlayer_Connect_PlayingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#playbackRateChanged)
     ///
     /// ``` self: QtC.QMediaPlayer, rate: f64 ```
@@ -558,6 +593,20 @@ pub const qmediaplayer = struct {
     /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer) callconv(.c) void ```
     pub fn OnAudioOutputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_AudioOutputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#audioBufferOutputChanged)
+    ///
+    /// ``` self: QtC.QMediaPlayer ```
+    pub fn AudioBufferOutputChanged(self: ?*anyopaque) void {
+        qtc.QMediaPlayer_AudioBufferOutputChanged(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#audioBufferOutputChanged)
+    ///
+    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer) callconv(.c) void ```
+    pub fn OnAudioBufferOutputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaPlayer_Connect_AudioBufferOutputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#tracksChanged)
@@ -738,8 +787,8 @@ pub const qmediaplayer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMediaPlayer, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -758,6 +807,15 @@ pub const qmediaplayer = struct {
     /// ``` self: QtC.QMediaPlayer, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QMediaPlayer, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -963,6 +1021,15 @@ pub const qmediaplayer = struct {
     /// ``` self: QtC.QMediaPlayer ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QMediaPlayer, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

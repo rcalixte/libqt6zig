@@ -21,12 +21,6 @@ typedef struct QImage QImage;
 typedef struct QImageWriter QImageWriter;
 #endif
 
-#ifdef __cplusplus
-typedef QImageWriter::ImageWriterError ImageWriterError; // C++ enum
-#else
-typedef int ImageWriterError; // C ABI enum
-#endif
-
 QImageWriter* QImageWriter_new();
 QImageWriter* QImageWriter_new2(QIODevice* device, const libqt_string format);
 QImageWriter* QImageWriter_new3(const libqt_string fileName);

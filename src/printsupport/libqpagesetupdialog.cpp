@@ -1933,6 +1933,35 @@ void QPageSetupDialog_OnIsSignalConnected(const QPageSetupDialog* self, intptr_t
     }
 }
 
+// Derived class handler implementation
+double QPageSetupDialog_GetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB) {
+    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        return vqpagesetupdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPageSetupDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QPageSetupDialog_QBaseGetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB) {
+    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_GetDecodedMetricF_IsBase(true);
+        return vqpagesetupdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPageSetupDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPageSetupDialog_OnGetDecodedMetricF(const QPageSetupDialog* self, intptr_t slot) {
+    auto* vqpagesetupdialog = const_cast<VirtualQPageSetupDialog*>(dynamic_cast<const VirtualQPageSetupDialog*>(self));
+    if (vqpagesetupdialog && vqpagesetupdialog->isVirtualQPageSetupDialog) {
+        vqpagesetupdialog->setQPageSetupDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPageSetupDialog::QPageSetupDialog_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QPageSetupDialog_Delete(QPageSetupDialog* self) {
     delete self;
 }

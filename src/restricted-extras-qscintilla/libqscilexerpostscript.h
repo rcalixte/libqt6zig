@@ -170,6 +170,12 @@ void QsciLexerPostScript_QBaseConnectNotify(QsciLexerPostScript* self, const QMe
 void QsciLexerPostScript_DisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
 void QsciLexerPostScript_OnDisconnectNotify(QsciLexerPostScript* self, intptr_t slot);
 void QsciLexerPostScript_QBaseDisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
+libqt_string QsciLexerPostScript_TextAsBytes(const QsciLexerPostScript* self, const libqt_string text);
+void QsciLexerPostScript_OnTextAsBytes(const QsciLexerPostScript* self, intptr_t slot);
+libqt_string QsciLexerPostScript_QBaseTextAsBytes(const QsciLexerPostScript* self, const libqt_string text);
+libqt_string QsciLexerPostScript_BytesAsText(const QsciLexerPostScript* self, const char* bytes, int size);
+void QsciLexerPostScript_OnBytesAsText(const QsciLexerPostScript* self, intptr_t slot);
+libqt_string QsciLexerPostScript_QBaseBytesAsText(const QsciLexerPostScript* self, const char* bytes, int size);
 QObject* QsciLexerPostScript_Sender(const QsciLexerPostScript* self);
 void QsciLexerPostScript_OnSender(const QsciLexerPostScript* self, intptr_t slot);
 QObject* QsciLexerPostScript_QBaseSender(const QsciLexerPostScript* self);

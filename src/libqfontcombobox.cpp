@@ -1944,6 +1944,35 @@ void QFontComboBox_OnIsSignalConnected(const QFontComboBox* self, intptr_t slot)
     }
 }
 
+// Derived class handler implementation
+double QFontComboBox_GetDecodedMetricF(const QFontComboBox* self, int metricA, int metricB) {
+    auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        return vqfontcombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQFontComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QFontComboBox_QBaseGetDecodedMetricF(const QFontComboBox* self, int metricA, int metricB) {
+    auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        vqfontcombobox->setQFontComboBox_GetDecodedMetricF_IsBase(true);
+        return vqfontcombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQFontComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFontComboBox_OnGetDecodedMetricF(const QFontComboBox* self, intptr_t slot) {
+    auto* vqfontcombobox = const_cast<VirtualQFontComboBox*>(dynamic_cast<const VirtualQFontComboBox*>(self));
+    if (vqfontcombobox && vqfontcombobox->isVirtualQFontComboBox) {
+        vqfontcombobox->setQFontComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFontComboBox::QFontComboBox_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QFontComboBox_Delete(QFontComboBox* self) {
     delete self;
 }

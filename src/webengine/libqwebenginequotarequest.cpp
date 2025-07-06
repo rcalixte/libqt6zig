@@ -4,12 +4,24 @@
 #include "libqwebenginequotarequest.h"
 #include "libqwebenginequotarequest.hxx"
 
-QWebEngineQuotaRequest* QWebEngineQuotaRequest_new() {
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new(const QWebEngineQuotaRequest* other) {
+    return new QWebEngineQuotaRequest(*other);
+}
+
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(QWebEngineQuotaRequest* other) {
+    return new QWebEngineQuotaRequest(std::move(*other));
+}
+
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new3() {
     return new QWebEngineQuotaRequest();
 }
 
-QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(const QWebEngineQuotaRequest* param1) {
-    return new QWebEngineQuotaRequest(*param1);
+void QWebEngineQuotaRequest_CopyAssign(QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* other) {
+    *self = *other;
+}
+
+void QWebEngineQuotaRequest_MoveAssign(QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* other) {
+    *self = std::move(*other);
 }
 
 void QWebEngineQuotaRequest_Accept(QWebEngineQuotaRequest* self) {
@@ -28,12 +40,12 @@ long long QWebEngineQuotaRequest_RequestedSize(const QWebEngineQuotaRequest* sel
     return static_cast<long long>(self->requestedSize());
 }
 
-bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that) {
-    return (*self == *that);
+bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* param1) {
+    return (*self == *param1);
 }
 
-bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that) {
-    return (*self != *that);
+bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* param1) {
+    return (*self != *param1);
 }
 
 void QWebEngineQuotaRequest_Delete(QWebEngineQuotaRequest* self) {

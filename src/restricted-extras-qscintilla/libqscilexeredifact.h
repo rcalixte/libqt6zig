@@ -158,6 +158,12 @@ void QsciLexerEDIFACT_QBaseConnectNotify(QsciLexerEDIFACT* self, const QMetaMeth
 void QsciLexerEDIFACT_DisconnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
 void QsciLexerEDIFACT_OnDisconnectNotify(QsciLexerEDIFACT* self, intptr_t slot);
 void QsciLexerEDIFACT_QBaseDisconnectNotify(QsciLexerEDIFACT* self, const QMetaMethod* signal);
+libqt_string QsciLexerEDIFACT_TextAsBytes(const QsciLexerEDIFACT* self, const libqt_string text);
+void QsciLexerEDIFACT_OnTextAsBytes(const QsciLexerEDIFACT* self, intptr_t slot);
+libqt_string QsciLexerEDIFACT_QBaseTextAsBytes(const QsciLexerEDIFACT* self, const libqt_string text);
+libqt_string QsciLexerEDIFACT_BytesAsText(const QsciLexerEDIFACT* self, const char* bytes, int size);
+void QsciLexerEDIFACT_OnBytesAsText(const QsciLexerEDIFACT* self, intptr_t slot);
+libqt_string QsciLexerEDIFACT_QBaseBytesAsText(const QsciLexerEDIFACT* self, const char* bytes, int size);
 QObject* QsciLexerEDIFACT_Sender(const QsciLexerEDIFACT* self);
 void QsciLexerEDIFACT_OnSender(const QsciLexerEDIFACT* self, intptr_t slot);
 QObject* QsciLexerEDIFACT_QBaseSender(const QsciLexerEDIFACT* self);

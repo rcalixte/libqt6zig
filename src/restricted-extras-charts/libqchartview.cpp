@@ -2062,6 +2062,35 @@ void QChartView_OnIsSignalConnected(const QChartView* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QChartView_GetDecodedMetricF(const QChartView* self, int metricA, int metricB) {
+    auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        return vqchartview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQChartView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QChartView_QBaseGetDecodedMetricF(const QChartView* self, int metricA, int metricB) {
+    auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_GetDecodedMetricF_IsBase(true);
+        return vqchartview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQChartView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QChartView_OnGetDecodedMetricF(const QChartView* self, intptr_t slot) {
+    auto* vqchartview = const_cast<VirtualQChartView*>(dynamic_cast<const VirtualQChartView*>(self));
+    if (vqchartview && vqchartview->isVirtualQChartView) {
+        vqchartview->setQChartView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQChartView::QChartView_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QChartView_Delete(QChartView* self) {
     delete self;
 }

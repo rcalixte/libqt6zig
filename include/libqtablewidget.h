@@ -71,12 +71,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QTableWidgetItem::ItemType ItemType; // C++ enum
-#else
-typedef int ItemType; // C ABI enum
-#endif
-
 QTableWidgetSelectionRange* QTableWidgetSelectionRange_new(const QTableWidgetSelectionRange* other);
 QTableWidgetSelectionRange* QTableWidgetSelectionRange_new2(QTableWidgetSelectionRange* other);
 QTableWidgetSelectionRange* QTableWidgetSelectionRange_new3();
@@ -619,6 +613,9 @@ int QTableWidget_QBaseReceivers(const QTableWidget* self, const char* signal);
 bool QTableWidget_IsSignalConnected(const QTableWidget* self, const QMetaMethod* signal);
 void QTableWidget_OnIsSignalConnected(const QTableWidget* self, intptr_t slot);
 bool QTableWidget_QBaseIsSignalConnected(const QTableWidget* self, const QMetaMethod* signal);
+double QTableWidget_GetDecodedMetricF(const QTableWidget* self, int metricA, int metricB);
+void QTableWidget_OnGetDecodedMetricF(const QTableWidget* self, intptr_t slot);
+double QTableWidget_QBaseGetDecodedMetricF(const QTableWidget* self, int metricA, int metricB);
 void QTableWidget_Delete(QTableWidget* self);
 
 #ifdef __cplusplus

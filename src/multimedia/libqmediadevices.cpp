@@ -74,12 +74,12 @@ libqt_string QMediaDevices_Tr(const char* s) {
 libqt_list /* of QAudioDevice* */ QMediaDevices_AudioInputs() {
     QList<QAudioDevice> _ret = QMediaDevices::audioInputs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAudioDevice(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -87,12 +87,12 @@ libqt_list /* of QAudioDevice* */ QMediaDevices_AudioInputs() {
 libqt_list /* of QAudioDevice* */ QMediaDevices_AudioOutputs() {
     QList<QAudioDevice> _ret = QMediaDevices::audioOutputs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAudioDevice(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -100,12 +100,12 @@ libqt_list /* of QAudioDevice* */ QMediaDevices_AudioOutputs() {
 libqt_list /* of QCameraDevice* */ QMediaDevices_VideoInputs() {
     QList<QCameraDevice> _ret = QMediaDevices::videoInputs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCameraDevice** _arr = static_cast<QCameraDevice**>(malloc(sizeof(QCameraDevice*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QCameraDevice** _arr = static_cast<QCameraDevice**>(malloc(sizeof(QCameraDevice*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCameraDevice(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -177,6 +177,35 @@ libqt_string QMediaDevices_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+// Derived class handler implementation
+void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->connectNotify(*signal);
+    } else {
+        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
+    }
+}
+
+// Base class handler implementation
+void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_ConnectNotify_IsBase(true);
+        vqmediadevices->connectNotify(*signal);
+    } else {
+        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot) {
+    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
+    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
+        vqmediadevices->setQMediaDevices_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ConnectNotify_Callback>(slot));
+    }
 }
 
 // Derived class handler implementation
@@ -321,35 +350,6 @@ void QMediaDevices_OnCustomEvent(QMediaDevices* self, intptr_t slot) {
     auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
     if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
         vqmediadevices->setQMediaDevices_CustomEvent_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_CustomEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        vqmediadevices->connectNotify(*signal);
-    } else {
-        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
-    }
-}
-
-// Base class handler implementation
-void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        vqmediadevices->setQMediaDevices_ConnectNotify_IsBase(true);
-        vqmediadevices->connectNotify(*signal);
-    } else {
-        ((VirtualQMediaDevices*)self)->connectNotify(*signal);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot) {
-    auto* vqmediadevices = dynamic_cast<VirtualQMediaDevices*>(self);
-    if (vqmediadevices && vqmediadevices->isVirtualQMediaDevices) {
-        vqmediadevices->setQMediaDevices_ConnectNotify_Callback(reinterpret_cast<VirtualQMediaDevices::QMediaDevices_ConnectNotify_Callback>(slot));
     }
 }
 

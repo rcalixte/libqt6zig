@@ -64,20 +64,6 @@ pub const qfileinfo = struct {
         qtc.QFileInfo_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#operator==)
-    ///
-    /// ``` self: QtC.QFileInfo, fileinfo: QtC.QFileInfo ```
-    pub fn OperatorEqual(self: ?*anyopaque, fileinfo: ?*anyopaque) bool {
-        return qtc.QFileInfo_OperatorEqual(@ptrCast(self), @ptrCast(fileinfo));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#operator!=)
-    ///
-    /// ``` self: QtC.QFileInfo, fileinfo: QtC.QFileInfo ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, fileinfo: ?*anyopaque) bool {
-        return qtc.QFileInfo_OperatorNotEqual(@ptrCast(self), @ptrCast(fileinfo));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#setFile)
     ///
     /// ``` self: QtC.QFileInfo, file: []const u8 ```
@@ -408,6 +394,17 @@ pub const qfileinfo = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#readSymLink)
+    ///
+    /// ``` self: QtC.QFileInfo, allocator: std.mem.Allocator ```
+    pub fn ReadSymLink(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QFileInfo_ReadSymLink(@ptrCast(self));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileinfo.ReadSymLink: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#junctionTarget)
     ///
     /// ``` self: QtC.QFileInfo, allocator: std.mem.Allocator ```
@@ -509,6 +506,41 @@ pub const qfileinfo = struct {
     /// ``` self: QtC.QFileInfo, time: qfiledevice_enums.FileTime ```
     pub fn FileTime(self: ?*anyopaque, time: i64) QtC.QDateTime {
         return qtc.QFileInfo_FileTime(@ptrCast(self), @intCast(time));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#birthTime)
+    ///
+    /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
+    pub fn BirthTimeWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_BirthTimeWithTz(@ptrCast(self), @ptrCast(tz));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#metadataChangeTime)
+    ///
+    /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
+    pub fn MetadataChangeTimeWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_MetadataChangeTimeWithTz(@ptrCast(self), @ptrCast(tz));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#lastModified)
+    ///
+    /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
+    pub fn LastModifiedWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_LastModifiedWithTz(@ptrCast(self), @ptrCast(tz));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#lastRead)
+    ///
+    /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
+    pub fn LastReadWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_LastReadWithTz(@ptrCast(self), @ptrCast(tz));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#fileTime)
+    ///
+    /// ``` self: QtC.QFileInfo, time: qfiledevice_enums.FileTime, tz: QtC.QTimeZone ```
+    pub fn FileTime2(self: ?*anyopaque, time: i64, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_FileTime2(@ptrCast(self), @intCast(time), @ptrCast(tz));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#caching)

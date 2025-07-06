@@ -24,12 +24,6 @@ typedef struct QMetaObject QMetaObject;
 typedef struct QObject QObject;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractBarSeries::LabelsPosition LabelsPosition; // C++ enum
-#else
-typedef int LabelsPosition; // C ABI enum
-#endif
-
 QMetaObject* QAbstractBarSeries_MetaObject(const QAbstractBarSeries* self);
 void* QAbstractBarSeries_Metacast(QAbstractBarSeries* self, const char* param1);
 int QAbstractBarSeries_Metacall(QAbstractBarSeries* self, int param1, int param2, void** param3);

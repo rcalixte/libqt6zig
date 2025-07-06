@@ -22,12 +22,6 @@ typedef struct QsciScintillaBase QsciScintillaBase;
 typedef struct QsciStyle QsciStyle;
 #endif
 
-#ifdef __cplusplus
-typedef QsciStyle::TextCase TextCase; // C++ enum
-#else
-typedef int TextCase; // C ABI enum
-#endif
-
 QsciStyle* QsciStyle_new();
 QsciStyle* QsciStyle_new2(int style, const libqt_string description, const QColor* color, const QColor* paper, const QFont* font);
 QsciStyle* QsciStyle_new3(const QsciStyle* param1);

@@ -36,20 +36,6 @@ typedef struct QRectF QRectF;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QGraphicsBlurEffect::BlurHint BlurHint;       // C++ enum
-typedef QGraphicsBlurEffect::BlurHints BlurHints;     // C++ QFlags
-typedef QGraphicsEffect::ChangeFlag ChangeFlag;       // C++ enum
-typedef QGraphicsEffect::ChangeFlags ChangeFlags;     // C++ QFlags
-typedef QGraphicsEffect::PixmapPadMode PixmapPadMode; // C++ enum
-#else
-typedef int BlurHint;      // C ABI enum
-typedef int BlurHints;     // C ABI QFlags
-typedef int ChangeFlag;    // C ABI enum
-typedef int ChangeFlags;   // C ABI QFlags
-typedef int PixmapPadMode; // C ABI enum
-#endif
-
 QGraphicsEffect* QGraphicsEffect_new();
 QGraphicsEffect* QGraphicsEffect_new2(QObject* parent);
 QMetaObject* QGraphicsEffect_MetaObject(const QGraphicsEffect* self);

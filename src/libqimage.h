@@ -34,17 +34,6 @@ typedef struct QTransform QTransform;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QImage::DataPtr DataPtr;               // C++ QFlags
-typedef QImage::Format Format;                 // C++ enum
-typedef QImage::InvertMode InvertMode;         // C++ enum
-typedef QImage::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef int Format;          // C ABI enum
-typedef int InvertMode;      // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QImage* QImage_new();
 QImage* QImage_new2(const QSize* size, int format);
 QImage* QImage_new3(int width, int height, int format);
@@ -131,11 +120,15 @@ void QImage_Mirror(QImage* self);
 void QImage_RgbSwap(QImage* self);
 void QImage_InvertPixels(QImage* self);
 QColorSpace* QImage_ColorSpace(const QImage* self);
-QImage* QImage_ConvertedToColorSpace(const QImage* self, const QColorSpace* param1);
-void QImage_ConvertToColorSpace(QImage* self, const QColorSpace* param1);
+QImage* QImage_ConvertedToColorSpace(const QImage* self, const QColorSpace* colorSpace);
+QImage* QImage_ConvertedToColorSpace2(const QImage* self, const QColorSpace* colorSpace, int format);
+void QImage_ConvertToColorSpace(QImage* self, const QColorSpace* colorSpace);
+void QImage_ConvertToColorSpace2(QImage* self, const QColorSpace* colorSpace, int format);
 void QImage_SetColorSpace(QImage* self, const QColorSpace* colorSpace);
 QImage* QImage_ColorTransformed(const QImage* self, const QColorTransform* transform);
+QImage* QImage_ColorTransformed2(const QImage* self, const QColorTransform* transform, int format);
 void QImage_ApplyColorTransform(QImage* self, const QColorTransform* transform);
+void QImage_ApplyColorTransform2(QImage* self, const QColorTransform* transform, int format);
 bool QImage_Load(QImage* self, QIODevice* device, const char* format);
 bool QImage_LoadWithFileName(QImage* self, const libqt_string fileName);
 bool QImage_LoadFromData(QImage* self, QByteArrayView* data);
@@ -185,6 +178,10 @@ QImage* QImage_Mirrored2(const QImage* self, bool horizontally, bool vertically)
 void QImage_Mirror1(QImage* self, bool horizontally);
 void QImage_Mirror2(QImage* self, bool horizontally, bool vertically);
 void QImage_InvertPixels1(QImage* self, int param1);
+QImage* QImage_ConvertedToColorSpace3(const QImage* self, const QColorSpace* colorSpace, int format, int flags);
+void QImage_ConvertToColorSpace3(QImage* self, const QColorSpace* colorSpace, int format, int flags);
+QImage* QImage_ColorTransformed3(const QImage* self, const QColorTransform* transform, int format, int flags);
+void QImage_ApplyColorTransform3(QImage* self, const QColorTransform* transform, int format, int flags);
 bool QImage_Load2(QImage* self, const libqt_string fileName, const char* format);
 bool QImage_LoadFromData22(QImage* self, QByteArrayView* data, const char* format);
 bool QImage_LoadFromData3(QImage* self, const unsigned char* buf, int lenVal, const char* format);
@@ -233,6 +230,9 @@ void QImage_QBaseDetachMetadata(QImage* self);
 void QImage_DetachMetadata1(QImage* self, bool invalidateCache);
 void QImage_OnDetachMetadata1(QImage* self, intptr_t slot);
 void QImage_QBaseDetachMetadata1(QImage* self, bool invalidateCache);
+double QImage_GetDecodedMetricF(const QImage* self, int metricA, int metricB);
+void QImage_OnGetDecodedMetricF(const QImage* self, intptr_t slot);
+double QImage_QBaseGetDecodedMetricF(const QImage* self, int metricA, int metricB);
 void QImage_Delete(QImage* self);
 
 #ifdef __cplusplus

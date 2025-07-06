@@ -81,6 +81,7 @@ class VirtualQTabBar final : public QTabBar {
     using QTabBar_SenderSignalIndex_Callback = int (*)();
     using QTabBar_Receivers_Callback = int (*)(const QTabBar*, const char*);
     using QTabBar_IsSignalConnected_Callback = bool (*)(const QTabBar*, QMetaMethod*);
+    using QTabBar_GetDecodedMetricF_Callback = double (*)(const QTabBar*, int, int);
 
   protected:
     // Instance callback storage
@@ -147,6 +148,7 @@ class VirtualQTabBar final : public QTabBar {
     QTabBar_SenderSignalIndex_Callback qtabbar_sendersignalindex_callback = nullptr;
     QTabBar_Receivers_Callback qtabbar_receivers_callback = nullptr;
     QTabBar_IsSignalConnected_Callback qtabbar_issignalconnected_callback = nullptr;
+    QTabBar_GetDecodedMetricF_Callback qtabbar_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qtabbar_metacall_isbase = false;
@@ -212,10 +214,11 @@ class VirtualQTabBar final : public QTabBar {
     mutable bool qtabbar_sendersignalindex_isbase = false;
     mutable bool qtabbar_receivers_isbase = false;
     mutable bool qtabbar_issignalconnected_isbase = false;
+    mutable bool qtabbar_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQTabBar(QWidget* parent) : QTabBar(parent){};
-    VirtualQTabBar() : QTabBar(){};
+    VirtualQTabBar(QWidget* parent) : QTabBar(parent) {};
+    VirtualQTabBar() : QTabBar() {};
 
     ~VirtualQTabBar() {
         qtabbar_metacall_callback = nullptr;
@@ -281,6 +284,7 @@ class VirtualQTabBar final : public QTabBar {
         qtabbar_sendersignalindex_callback = nullptr;
         qtabbar_receivers_callback = nullptr;
         qtabbar_issignalconnected_callback = nullptr;
+        qtabbar_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -347,6 +351,7 @@ class VirtualQTabBar final : public QTabBar {
     inline void setQTabBar_SenderSignalIndex_Callback(QTabBar_SenderSignalIndex_Callback cb) { qtabbar_sendersignalindex_callback = cb; }
     inline void setQTabBar_Receivers_Callback(QTabBar_Receivers_Callback cb) { qtabbar_receivers_callback = cb; }
     inline void setQTabBar_IsSignalConnected_Callback(QTabBar_IsSignalConnected_Callback cb) { qtabbar_issignalconnected_callback = cb; }
+    inline void setQTabBar_GetDecodedMetricF_Callback(QTabBar_GetDecodedMetricF_Callback cb) { qtabbar_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQTabBar_Metacall_IsBase(bool value) const { qtabbar_metacall_isbase = value; }
@@ -412,6 +417,7 @@ class VirtualQTabBar final : public QTabBar {
     inline void setQTabBar_SenderSignalIndex_IsBase(bool value) const { qtabbar_sendersignalindex_isbase = value; }
     inline void setQTabBar_Receivers_IsBase(bool value) const { qtabbar_receivers_isbase = value; }
     inline void setQTabBar_IsSignalConnected_IsBase(bool value) const { qtabbar_issignalconnected_isbase = value; }
+    inline void setQTabBar_GetDecodedMetricF_IsBase(bool value) const { qtabbar_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1309,6 +1315,22 @@ class VirtualQTabBar final : public QTabBar {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qtabbar_getdecodedmetricf_isbase) {
+            qtabbar_getdecodedmetricf_isbase = false;
+            return QTabBar::getDecodedMetricF(metricA, metricB);
+        } else if (qtabbar_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qtabbar_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QTabBar::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend QSize* QTabBar_TabSizeHint(const QTabBar* self, int index);
     friend QSize* QTabBar_QBaseTabSizeHint(const QTabBar* self, int index);
@@ -1416,6 +1438,8 @@ class VirtualQTabBar final : public QTabBar {
     friend int QTabBar_QBaseReceivers(const QTabBar* self, const char* signal);
     friend bool QTabBar_IsSignalConnected(const QTabBar* self, const QMetaMethod* signal);
     friend bool QTabBar_QBaseIsSignalConnected(const QTabBar* self, const QMetaMethod* signal);
+    friend double QTabBar_GetDecodedMetricF(const QTabBar* self, int metricA, int metricB);
+    friend double QTabBar_QBaseGetDecodedMetricF(const QTabBar* self, int metricA, int metricB);
 };
 
 #endif

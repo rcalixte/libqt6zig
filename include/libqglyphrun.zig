@@ -212,6 +212,51 @@ pub const qglyphrun = struct {
         return qtc.QGlyphRun_BoundingRect(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#stringIndexes)
+    ///
+    /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
+    pub fn StringIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
+        const _arr: qtc.struct_libqt_list = qtc.QGlyphRun_StringIndexes(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(i64, _arr.len) catch @panic("qglyphrun.StringIndexes: Memory allocation failed");
+        const _data: [*]i64 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#setStringIndexes)
+    ///
+    /// ``` self: QtC.QGlyphRun, stringIndexes: []i64 ```
+    pub fn SetStringIndexes(self: ?*anyopaque, stringIndexes: []i64) void {
+        const stringIndexes_list = qtc.struct_libqt_list{
+            .len = stringIndexes.len,
+            .data = stringIndexes.ptr,
+        };
+        qtc.QGlyphRun_SetStringIndexes(@ptrCast(self), stringIndexes_list);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#setSourceString)
+    ///
+    /// ``` self: QtC.QGlyphRun, sourceString: []const u8 ```
+    pub fn SetSourceString(self: ?*anyopaque, sourceString: []const u8) void {
+        const sourceString_str = qtc.struct_libqt_string{
+            .len = sourceString.len,
+            .data = sourceString.ptr,
+        };
+        qtc.QGlyphRun_SetSourceString(@ptrCast(self), sourceString_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#sourceString)
+    ///
+    /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
+    pub fn SourceString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QGlyphRun_SourceString(@ptrCast(self));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qglyphrun.SourceString: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#isEmpty)
     ///
     /// ``` self: QtC.QGlyphRun ```

@@ -61,14 +61,14 @@ class VirtualQSvgRenderer final : public QSvgRenderer {
     mutable bool qsvgrenderer_issignalconnected_isbase = false;
 
   public:
-    VirtualQSvgRenderer() : QSvgRenderer(){};
-    VirtualQSvgRenderer(const QString& filename) : QSvgRenderer(filename){};
-    VirtualQSvgRenderer(const QByteArray& contents) : QSvgRenderer(contents){};
-    VirtualQSvgRenderer(QXmlStreamReader* contents) : QSvgRenderer(contents){};
-    VirtualQSvgRenderer(QObject* parent) : QSvgRenderer(parent){};
-    VirtualQSvgRenderer(const QString& filename, QObject* parent) : QSvgRenderer(filename, parent){};
-    VirtualQSvgRenderer(const QByteArray& contents, QObject* parent) : QSvgRenderer(contents, parent){};
-    VirtualQSvgRenderer(QXmlStreamReader* contents, QObject* parent) : QSvgRenderer(contents, parent){};
+    VirtualQSvgRenderer() : QSvgRenderer() {};
+    VirtualQSvgRenderer(const QString& filename) : QSvgRenderer(filename) {};
+    VirtualQSvgRenderer(const QByteArray& contents) : QSvgRenderer(contents) {};
+    VirtualQSvgRenderer(QXmlStreamReader* contents) : QSvgRenderer(contents) {};
+    VirtualQSvgRenderer(QObject* parent) : QSvgRenderer(parent) {};
+    VirtualQSvgRenderer(const QString& filename, QObject* parent) : QSvgRenderer(filename, parent) {};
+    VirtualQSvgRenderer(const QByteArray& contents, QObject* parent) : QSvgRenderer(contents, parent) {};
+    VirtualQSvgRenderer(QXmlStreamReader* contents, QObject* parent) : QSvgRenderer(contents, parent) {};
 
     ~VirtualQSvgRenderer() {
         qsvgrenderer_metacall_callback = nullptr;

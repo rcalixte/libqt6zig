@@ -145,9 +145,9 @@ class VirtualQStackedLayout final : public QStackedLayout {
     mutable bool qstackedlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQStackedLayout(QWidget* parent) : QStackedLayout(parent){};
-    VirtualQStackedLayout() : QStackedLayout(){};
-    VirtualQStackedLayout(QLayout* parentLayout) : QStackedLayout(parentLayout){};
+    VirtualQStackedLayout(QWidget* parent) : QStackedLayout(parent) {};
+    VirtualQStackedLayout() : QStackedLayout() {};
+    VirtualQStackedLayout(QLayout* parentLayout) : QStackedLayout(parentLayout) {};
 
     ~VirtualQStackedLayout() {
         qstackedlayout_metacall_callback = nullptr;

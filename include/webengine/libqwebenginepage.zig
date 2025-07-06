@@ -180,13 +180,6 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_QBaseEvent(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#setFeaturePermission)
-    ///
-    /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature, policy: qwebenginepage_enums.PermissionPolicy ```
-    pub fn SetFeaturePermission(self: ?*anyopaque, securityOrigin: ?*anyopaque, feature: i64, policy: i64) void {
-        qtc.QWebEnginePage_SetFeaturePermission(@ptrCast(self), @ptrCast(securityOrigin), @intCast(feature), @intCast(policy));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#isLoading)
     ///
     /// ``` self: QtC.QWebEnginePage ```
@@ -431,6 +424,17 @@ pub const qwebenginepage = struct {
         return qtc.QWebEnginePage_DevToolsPage(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#devToolsId)
+    ///
+    /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
+    pub fn DevToolsId(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QWebEnginePage_DevToolsId(@ptrCast(self));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginepage.DevToolsId: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#setUrlRequestInterceptor)
     ///
     /// ``` self: QtC.QWebEnginePage, interceptor: QtC.QWebEngineUrlRequestInterceptor ```
@@ -471,6 +475,13 @@ pub const qwebenginepage = struct {
     /// ``` self: QtC.QWebEnginePage, visible: bool ```
     pub fn SetVisible(self: ?*anyopaque, visible: bool) void {
         qtc.QWebEnginePage_SetVisible(@ptrCast(self), visible);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#mainFrame)
+    ///
+    /// ``` self: QtC.QWebEnginePage ```
+    pub fn MainFrame(self: ?*anyopaque) QtC.QWebEngineFrame {
+        return qtc.QWebEnginePage_MainFrame(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#acceptAsNewWindow)
@@ -638,6 +649,20 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_Connect_FullScreenRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#permissionRequested)
+    ///
+    /// ``` self: QtC.QWebEnginePage, permissionRequest: QtC.QWebEnginePermission ```
+    pub fn PermissionRequested(self: ?*anyopaque, permissionRequest: QtC.QWebEnginePermission) void {
+        qtc.QWebEnginePage_PermissionRequested(@ptrCast(self), @ptrCast(permissionRequest));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#permissionRequested)
+    ///
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, permissionRequest: QtC.QWebEnginePermission) callconv(.c) void ```
+    pub fn OnPermissionRequested(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QWebEnginePermission) callconv(.c) void) void {
+        qtc.QWebEnginePage_Connect_PermissionRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#quotaRequested)
     ///
     /// ``` self: QtC.QWebEnginePage, quotaRequest: QtC.QWebEngineQuotaRequest ```
@@ -738,6 +763,20 @@ pub const qwebenginepage = struct {
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void ```
     pub fn OnRenderProcessTerminated(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RenderProcessTerminated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#desktopMediaRequested)
+    ///
+    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineDesktopMediaRequest ```
+    pub fn DesktopMediaRequested(self: ?*anyopaque, request: ?*anyopaque) void {
+        qtc.QWebEnginePage_DesktopMediaRequested(@ptrCast(self), @ptrCast(request));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#desktopMediaRequested)
+    ///
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineDesktopMediaRequest) callconv(.c) void ```
+    pub fn OnDesktopMediaRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEnginePage_Connect_DesktopMediaRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#certificateError)
@@ -842,6 +881,20 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_Connect_IconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactorChanged)
+    ///
+    /// ``` self: QtC.QWebEnginePage, factor: f64 ```
+    pub fn ZoomFactorChanged(self: ?*anyopaque, factor: f64) void {
+        qtc.QWebEnginePage_ZoomFactorChanged(@ptrCast(self), @floatCast(factor));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#zoomFactorChanged)
+    ///
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, factor: f64) callconv(.c) void ```
+    pub fn OnZoomFactorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QWebEnginePage_Connect_ZoomFactorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#scrollPositionChanged)
     ///
     /// ``` self: QtC.QWebEnginePage, position: QtC.QPointF ```
@@ -944,6 +997,20 @@ pub const qwebenginepage = struct {
         qtc.QWebEnginePage_Connect_PrintRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#printRequestedByFrame)
+    ///
+    /// ``` self: QtC.QWebEnginePage, frame: QtC.QWebEngineFrame ```
+    pub fn PrintRequestedByFrame(self: ?*anyopaque, frame: QtC.QWebEngineFrame) void {
+        qtc.QWebEnginePage_PrintRequestedByFrame(@ptrCast(self), @ptrCast(frame));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#printRequestedByFrame)
+    ///
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, frame: QtC.QWebEngineFrame) callconv(.c) void ```
+    pub fn OnPrintRequestedByFrame(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QWebEngineFrame) callconv(.c) void) void {
+        qtc.QWebEnginePage_Connect_PrintRequestedByFrame(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#visibleChanged)
     ///
     /// ``` self: QtC.QWebEnginePage, visible: bool ```
@@ -1012,6 +1079,20 @@ pub const qwebenginepage = struct {
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage) callconv(.c) void ```
     pub fn OnQAboutToDelete(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_QAboutToDelete(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#webAuthUxRequested)
+    ///
+    /// ``` self: QtC.QWebEnginePage, request: QtC.QWebEngineWebAuthUxRequest ```
+    pub fn WebAuthUxRequested(self: ?*anyopaque, request: ?*anyopaque) void {
+        qtc.QWebEnginePage_WebAuthUxRequested(@ptrCast(self), @ptrCast(request));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#webAuthUxRequested)
+    ///
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, request: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void ```
+    pub fn OnWebAuthUxRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEnginePage_Connect_WebAuthUxRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
@@ -1477,8 +1558,8 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEnginePage, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1497,6 +1578,15 @@ pub const qwebenginepage = struct {
     /// ``` self: QtC.QWebEnginePage, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QWebEnginePage, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1702,6 +1792,15 @@ pub const qwebenginepage = struct {
     /// ``` self: QtC.QWebEnginePage ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QWebEnginePage, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -2153,7 +2252,9 @@ pub const enums = struct {
         pub const Outdent: i32 = 42;
         pub const InsertOrderedList: i32 = 43;
         pub const InsertUnorderedList: i32 = 44;
-        pub const WebActionCount: i32 = 45;
+        pub const ChangeTextDirectionLTR: i32 = 45;
+        pub const ChangeTextDirectionRTL: i32 = 46;
+        pub const WebActionCount: i32 = 47;
     };
 
     pub const FindFlag = enum {
@@ -2166,12 +2267,6 @@ pub const enums = struct {
         pub const WebBrowserTab: i32 = 1;
         pub const WebDialog: i32 = 2;
         pub const WebBrowserBackgroundTab: i32 = 3;
-    };
-
-    pub const PermissionPolicy = enum {
-        pub const PermissionUnknown: i32 = 0;
-        pub const PermissionGrantedByUser: i32 = 1;
-        pub const PermissionDeniedByUser: i32 = 2;
     };
 
     pub const NavigationType = enum {
@@ -2188,11 +2283,6 @@ pub const enums = struct {
         pub const Notifications: i32 = 0;
         pub const Geolocation: i32 = 1;
         pub const MediaAudioCapture: i32 = 2;
-        pub const MediaVideoCapture: i32 = 3;
-        pub const MediaAudioVideoCapture: i32 = 4;
-        pub const MouseLock: i32 = 5;
-        pub const DesktopVideoCapture: i32 = 6;
-        pub const DesktopAudioVideoCapture: i32 = 7;
     };
 
     pub const FileSelectionMode = enum {

@@ -75,6 +75,7 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     using QPrintPreviewWidget_SenderSignalIndex_Callback = int (*)();
     using QPrintPreviewWidget_Receivers_Callback = int (*)(const QPrintPreviewWidget*, const char*);
     using QPrintPreviewWidget_IsSignalConnected_Callback = bool (*)(const QPrintPreviewWidget*, QMetaMethod*);
+    using QPrintPreviewWidget_GetDecodedMetricF_Callback = double (*)(const QPrintPreviewWidget*, int, int);
 
   protected:
     // Instance callback storage
@@ -135,6 +136,7 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     QPrintPreviewWidget_SenderSignalIndex_Callback qprintpreviewwidget_sendersignalindex_callback = nullptr;
     QPrintPreviewWidget_Receivers_Callback qprintpreviewwidget_receivers_callback = nullptr;
     QPrintPreviewWidget_IsSignalConnected_Callback qprintpreviewwidget_issignalconnected_callback = nullptr;
+    QPrintPreviewWidget_GetDecodedMetricF_Callback qprintpreviewwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qprintpreviewwidget_metacall_isbase = false;
@@ -194,14 +196,15 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     mutable bool qprintpreviewwidget_sendersignalindex_isbase = false;
     mutable bool qprintpreviewwidget_receivers_isbase = false;
     mutable bool qprintpreviewwidget_issignalconnected_isbase = false;
+    mutable bool qprintpreviewwidget_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQPrintPreviewWidget(QWidget* parent) : QPrintPreviewWidget(parent){};
-    VirtualQPrintPreviewWidget(QPrinter* printer) : QPrintPreviewWidget(printer){};
-    VirtualQPrintPreviewWidget() : QPrintPreviewWidget(){};
-    VirtualQPrintPreviewWidget(QPrinter* printer, QWidget* parent) : QPrintPreviewWidget(printer, parent){};
-    VirtualQPrintPreviewWidget(QPrinter* printer, QWidget* parent, Qt::WindowFlags flags) : QPrintPreviewWidget(printer, parent, flags){};
-    VirtualQPrintPreviewWidget(QWidget* parent, Qt::WindowFlags flags) : QPrintPreviewWidget(parent, flags){};
+    VirtualQPrintPreviewWidget(QWidget* parent) : QPrintPreviewWidget(parent) {};
+    VirtualQPrintPreviewWidget(QPrinter* printer) : QPrintPreviewWidget(printer) {};
+    VirtualQPrintPreviewWidget() : QPrintPreviewWidget() {};
+    VirtualQPrintPreviewWidget(QPrinter* printer, QWidget* parent) : QPrintPreviewWidget(printer, parent) {};
+    VirtualQPrintPreviewWidget(QPrinter* printer, QWidget* parent, Qt::WindowFlags flags) : QPrintPreviewWidget(printer, parent, flags) {};
+    VirtualQPrintPreviewWidget(QWidget* parent, Qt::WindowFlags flags) : QPrintPreviewWidget(parent, flags) {};
 
     ~VirtualQPrintPreviewWidget() {
         qprintpreviewwidget_metacall_callback = nullptr;
@@ -261,6 +264,7 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         qprintpreviewwidget_sendersignalindex_callback = nullptr;
         qprintpreviewwidget_receivers_callback = nullptr;
         qprintpreviewwidget_issignalconnected_callback = nullptr;
+        qprintpreviewwidget_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -321,6 +325,7 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     inline void setQPrintPreviewWidget_SenderSignalIndex_Callback(QPrintPreviewWidget_SenderSignalIndex_Callback cb) { qprintpreviewwidget_sendersignalindex_callback = cb; }
     inline void setQPrintPreviewWidget_Receivers_Callback(QPrintPreviewWidget_Receivers_Callback cb) { qprintpreviewwidget_receivers_callback = cb; }
     inline void setQPrintPreviewWidget_IsSignalConnected_Callback(QPrintPreviewWidget_IsSignalConnected_Callback cb) { qprintpreviewwidget_issignalconnected_callback = cb; }
+    inline void setQPrintPreviewWidget_GetDecodedMetricF_Callback(QPrintPreviewWidget_GetDecodedMetricF_Callback cb) { qprintpreviewwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQPrintPreviewWidget_Metacall_IsBase(bool value) const { qprintpreviewwidget_metacall_isbase = value; }
@@ -380,6 +385,7 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     inline void setQPrintPreviewWidget_SenderSignalIndex_IsBase(bool value) const { qprintpreviewwidget_sendersignalindex_isbase = value; }
     inline void setQPrintPreviewWidget_Receivers_IsBase(bool value) const { qprintpreviewwidget_receivers_isbase = value; }
     inline void setQPrintPreviewWidget_IsSignalConnected_IsBase(bool value) const { qprintpreviewwidget_issignalconnected_isbase = value; }
+    inline void setQPrintPreviewWidget_GetDecodedMetricF_IsBase(bool value) const { qprintpreviewwidget_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1192,6 +1198,22 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qprintpreviewwidget_getdecodedmetricf_isbase) {
+            qprintpreviewwidget_getdecodedmetricf_isbase = false;
+            return QPrintPreviewWidget::getDecodedMetricF(metricA, metricB);
+        } else if (qprintpreviewwidget_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qprintpreviewwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QPrintPreviewWidget::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QPrintPreviewWidget_Event(QPrintPreviewWidget* self, QEvent* event);
     friend bool QPrintPreviewWidget_QBaseEvent(QPrintPreviewWidget* self, QEvent* event);
@@ -1287,6 +1309,8 @@ class VirtualQPrintPreviewWidget final : public QPrintPreviewWidget {
     friend int QPrintPreviewWidget_QBaseReceivers(const QPrintPreviewWidget* self, const char* signal);
     friend bool QPrintPreviewWidget_IsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal);
     friend bool QPrintPreviewWidget_QBaseIsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal);
+    friend double QPrintPreviewWidget_GetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB);
+    friend double QPrintPreviewWidget_QBaseGetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB);
 };
 
 #endif

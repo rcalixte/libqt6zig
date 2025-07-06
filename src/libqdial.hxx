@@ -80,6 +80,7 @@ class VirtualQDial final : public QDial {
     using QDial_SenderSignalIndex_Callback = int (*)();
     using QDial_Receivers_Callback = int (*)(const QDial*, const char*);
     using QDial_IsSignalConnected_Callback = bool (*)(const QDial*, QMetaMethod*);
+    using QDial_GetDecodedMetricF_Callback = double (*)(const QDial*, int, int);
 
   protected:
     // Instance callback storage
@@ -144,6 +145,7 @@ class VirtualQDial final : public QDial {
     QDial_SenderSignalIndex_Callback qdial_sendersignalindex_callback = nullptr;
     QDial_Receivers_Callback qdial_receivers_callback = nullptr;
     QDial_IsSignalConnected_Callback qdial_issignalconnected_callback = nullptr;
+    QDial_GetDecodedMetricF_Callback qdial_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qdial_metacall_isbase = false;
@@ -207,10 +209,11 @@ class VirtualQDial final : public QDial {
     mutable bool qdial_sendersignalindex_isbase = false;
     mutable bool qdial_receivers_isbase = false;
     mutable bool qdial_issignalconnected_isbase = false;
+    mutable bool qdial_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQDial(QWidget* parent) : QDial(parent){};
-    VirtualQDial() : QDial(){};
+    VirtualQDial(QWidget* parent) : QDial(parent) {};
+    VirtualQDial() : QDial() {};
 
     ~VirtualQDial() {
         qdial_metacall_callback = nullptr;
@@ -274,6 +277,7 @@ class VirtualQDial final : public QDial {
         qdial_sendersignalindex_callback = nullptr;
         qdial_receivers_callback = nullptr;
         qdial_issignalconnected_callback = nullptr;
+        qdial_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -338,6 +342,7 @@ class VirtualQDial final : public QDial {
     inline void setQDial_SenderSignalIndex_Callback(QDial_SenderSignalIndex_Callback cb) { qdial_sendersignalindex_callback = cb; }
     inline void setQDial_Receivers_Callback(QDial_Receivers_Callback cb) { qdial_receivers_callback = cb; }
     inline void setQDial_IsSignalConnected_Callback(QDial_IsSignalConnected_Callback cb) { qdial_issignalconnected_callback = cb; }
+    inline void setQDial_GetDecodedMetricF_Callback(QDial_GetDecodedMetricF_Callback cb) { qdial_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQDial_Metacall_IsBase(bool value) const { qdial_metacall_isbase = value; }
@@ -401,6 +406,7 @@ class VirtualQDial final : public QDial {
     inline void setQDial_SenderSignalIndex_IsBase(bool value) const { qdial_sendersignalindex_isbase = value; }
     inline void setQDial_Receivers_IsBase(bool value) const { qdial_receivers_isbase = value; }
     inline void setQDial_IsSignalConnected_IsBase(bool value) const { qdial_issignalconnected_isbase = value; }
+    inline void setQDial_GetDecodedMetricF_IsBase(bool value) const { qdial_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1268,6 +1274,22 @@ class VirtualQDial final : public QDial {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qdial_getdecodedmetricf_isbase) {
+            qdial_getdecodedmetricf_isbase = false;
+            return QDial::getDecodedMetricF(metricA, metricB);
+        } else if (qdial_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qdial_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QDial::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QDial_Event(QDial* self, QEvent* e);
     friend bool QDial_QBaseEvent(QDial* self, QEvent* e);
@@ -1371,6 +1393,8 @@ class VirtualQDial final : public QDial {
     friend int QDial_QBaseReceivers(const QDial* self, const char* signal);
     friend bool QDial_IsSignalConnected(const QDial* self, const QMetaMethod* signal);
     friend bool QDial_QBaseIsSignalConnected(const QDial* self, const QMetaMethod* signal);
+    friend double QDial_GetDecodedMetricF(const QDial* self, int metricA, int metricB);
+    friend double QDial_QBaseGetDecodedMetricF(const QDial* self, int metricA, int metricB);
 };
 
 #endif

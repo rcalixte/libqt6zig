@@ -64,8 +64,8 @@ class VirtualQPdfPageNavigator final : public QPdfPageNavigator {
     mutable bool qpdfpagenavigator_issignalconnected_isbase = false;
 
   public:
-    VirtualQPdfPageNavigator() : QPdfPageNavigator(){};
-    VirtualQPdfPageNavigator(QObject* parent) : QPdfPageNavigator(parent){};
+    VirtualQPdfPageNavigator() : QPdfPageNavigator() {};
+    VirtualQPdfPageNavigator(QObject* parent) : QPdfPageNavigator(parent) {};
 
     ~VirtualQPdfPageNavigator() {
         qpdfpagenavigator_metacall_callback = nullptr;

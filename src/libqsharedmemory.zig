@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qsharedmemory_enums = enums;
+const qtipccommon_enums = @import("libqtipccommon.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qsharedmemory.html
@@ -16,33 +17,47 @@ pub const qsharedmemory = struct {
 
     /// New2 constructs a new QSharedMemory object.
     ///
-    /// ``` key: []const u8 ```
-    pub fn New2(key: []const u8) QtC.QSharedMemory {
-        const key_str = qtc.struct_libqt_string{
-            .len = key.len,
-            .data = key.ptr,
-        };
-
-        return qtc.QSharedMemory_new2(key_str);
+    /// ``` key: QtC.QNativeIpcKey ```
+    pub fn New2(key: ?*anyopaque) QtC.QSharedMemory {
+        return qtc.QSharedMemory_new2(@ptrCast(key));
     }
 
     /// New3 constructs a new QSharedMemory object.
     ///
-    /// ``` parent: QtC.QObject ```
-    pub fn New3(parent: ?*anyopaque) QtC.QSharedMemory {
-        return qtc.QSharedMemory_new3(@ptrCast(parent));
-    }
-
-    /// New4 constructs a new QSharedMemory object.
-    ///
-    /// ``` key: []const u8, parent: QtC.QObject ```
-    pub fn New4(key: []const u8, parent: ?*anyopaque) QtC.QSharedMemory {
+    /// ``` key: []const u8 ```
+    pub fn New3(key: []const u8) QtC.QSharedMemory {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
 
-        return qtc.QSharedMemory_new4(key_str, @ptrCast(parent));
+        return qtc.QSharedMemory_new3(key_str);
+    }
+
+    /// New4 constructs a new QSharedMemory object.
+    ///
+    /// ``` parent: QtC.QObject ```
+    pub fn New4(parent: ?*anyopaque) QtC.QSharedMemory {
+        return qtc.QSharedMemory_new4(@ptrCast(parent));
+    }
+
+    /// New5 constructs a new QSharedMemory object.
+    ///
+    /// ``` key: QtC.QNativeIpcKey, parent: QtC.QObject ```
+    pub fn New5(key: ?*anyopaque, parent: ?*anyopaque) QtC.QSharedMemory {
+        return qtc.QSharedMemory_new5(@ptrCast(key), @ptrCast(parent));
+    }
+
+    /// New6 constructs a new QSharedMemory object.
+    ///
+    /// ``` key: []const u8, parent: QtC.QObject ```
+    pub fn New6(key: []const u8, parent: ?*anyopaque) QtC.QSharedMemory {
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+
+        return qtc.QSharedMemory_new6(key_str, @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -113,13 +128,20 @@ pub const qsharedmemory = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#setNativeKey)
     ///
+    /// ``` self: QtC.QSharedMemory, key: QtC.QNativeIpcKey ```
+    pub fn SetNativeKey(self: ?*anyopaque, key: ?*anyopaque) void {
+        qtc.QSharedMemory_SetNativeKey(@ptrCast(self), @ptrCast(key));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#setNativeKey)
+    ///
     /// ``` self: QtC.QSharedMemory, key: []const u8 ```
-    pub fn SetNativeKey(self: ?*anyopaque, key: []const u8) void {
+    pub fn SetNativeKeyWithKey(self: ?*anyopaque, key: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.QSharedMemory_SetNativeKey(@ptrCast(self), key_str);
+        qtc.QSharedMemory_SetNativeKeyWithKey(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#nativeKey)
@@ -131,6 +153,13 @@ pub const qsharedmemory = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsharedmemory.NativeKey: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#nativeIpcKey)
+    ///
+    /// ``` self: QtC.QSharedMemory ```
+    pub fn NativeIpcKey(self: ?*anyopaque) QtC.QNativeIpcKey {
+        return qtc.QSharedMemory_NativeIpcKey(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#create)
@@ -221,6 +250,35 @@ pub const qsharedmemory = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#isKeyTypeSupported)
+    ///
+    /// ``` typeVal: qtipccommon_enums.Type ```
+    pub fn IsKeyTypeSupported(typeVal: i64) bool {
+        return qtc.QSharedMemory_IsKeyTypeSupported(@intCast(typeVal));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#platformSafeKey)
+    ///
+    /// ``` key: []const u8 ```
+    pub fn PlatformSafeKey(key: []const u8) QtC.QNativeIpcKey {
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSharedMemory_PlatformSafeKey(key_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#legacyNativeKey)
+    ///
+    /// ``` key: []const u8 ```
+    pub fn LegacyNativeKey(key: []const u8) QtC.QNativeIpcKey {
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSharedMemory_LegacyNativeKey(key_str);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -247,6 +305,17 @@ pub const qsharedmemory = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#setNativeKey)
+    ///
+    /// ``` self: QtC.QSharedMemory, key: []const u8, typeVal: qtipccommon_enums.Type ```
+    pub fn SetNativeKey2(self: ?*anyopaque, key: []const u8, typeVal: i64) void {
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        qtc.QSharedMemory_SetNativeKey2(@ptrCast(self), key_str, @intCast(typeVal));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#create)
     ///
     /// ``` self: QtC.QSharedMemory, size: i64, mode: qsharedmemory_enums.AccessMode ```
@@ -259,6 +328,28 @@ pub const qsharedmemory = struct {
     /// ``` self: QtC.QSharedMemory, mode: qsharedmemory_enums.AccessMode ```
     pub fn Attach1(self: ?*anyopaque, mode: i64) bool {
         return qtc.QSharedMemory_Attach1(@ptrCast(self), @intCast(mode));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#platformSafeKey)
+    ///
+    /// ``` key: []const u8, typeVal: qtipccommon_enums.Type ```
+    pub fn PlatformSafeKey2(key: []const u8, typeVal: i64) QtC.QNativeIpcKey {
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSharedMemory_PlatformSafeKey2(key_str, @intCast(typeVal));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#legacyNativeKey)
+    ///
+    /// ``` key: []const u8, typeVal: qtipccommon_enums.Type ```
+    pub fn LegacyNativeKey2(key: []const u8, typeVal: i64) QtC.QNativeIpcKey {
+        const key_str = qtc.struct_libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSharedMemory_LegacyNativeKey2(key_str, @intCast(typeVal));
     }
 
     /// Inherited from QObject
@@ -346,8 +437,8 @@ pub const qsharedmemory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSharedMemory, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -366,6 +457,15 @@ pub const qsharedmemory = struct {
     /// ``` self: QtC.QSharedMemory, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QSharedMemory, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -571,6 +671,15 @@ pub const qsharedmemory = struct {
     /// ``` self: QtC.QSharedMemory ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QSharedMemory, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

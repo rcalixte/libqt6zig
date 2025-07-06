@@ -270,6 +270,41 @@ pub const qpagelayout = struct {
         qtc.QPageLayout_SetPageSize2(@ptrCast(self), @ptrCast(pageSize), @ptrCast(minMargins));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setMargins)
+    ///
+    /// ``` self: QtC.QPageLayout, margins: QtC.QMarginsF, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    pub fn SetMargins2(self: ?*anyopaque, margins: ?*anyopaque, outOfBoundsPolicy: i64) bool {
+        return qtc.QPageLayout_SetMargins2(@ptrCast(self), @ptrCast(margins), @intCast(outOfBoundsPolicy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setLeftMargin)
+    ///
+    /// ``` self: QtC.QPageLayout, leftMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    pub fn SetLeftMargin2(self: ?*anyopaque, leftMargin: f64, outOfBoundsPolicy: i64) bool {
+        return qtc.QPageLayout_SetLeftMargin2(@ptrCast(self), @floatCast(leftMargin), @intCast(outOfBoundsPolicy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
+    ///
+    /// ``` self: QtC.QPageLayout, rightMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    pub fn SetRightMargin2(self: ?*anyopaque, rightMargin: f64, outOfBoundsPolicy: i64) bool {
+        return qtc.QPageLayout_SetRightMargin2(@ptrCast(self), @floatCast(rightMargin), @intCast(outOfBoundsPolicy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
+    ///
+    /// ``` self: QtC.QPageLayout, topMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    pub fn SetTopMargin2(self: ?*anyopaque, topMargin: f64, outOfBoundsPolicy: i64) bool {
+        return qtc.QPageLayout_SetTopMargin2(@ptrCast(self), @floatCast(topMargin), @intCast(outOfBoundsPolicy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
+    ///
+    /// ``` self: QtC.QPageLayout, bottomMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
+    pub fn SetBottomMargin2(self: ?*anyopaque, bottomMargin: f64, outOfBoundsPolicy: i64) bool {
+        return qtc.QPageLayout_SetBottomMargin2(@ptrCast(self), @floatCast(bottomMargin), @intCast(outOfBoundsPolicy));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#dtor.QPageLayout)
     ///
     /// Delete this object from C++ memory.
@@ -299,5 +334,10 @@ pub const enums = struct {
     pub const Mode = enum {
         pub const StandardMode: i32 = 0;
         pub const FullPageMode: i32 = 1;
+    };
+
+    pub const OutOfBoundsPolicy = enum {
+        pub const Reject: i32 = 0;
+        pub const Clamp: i32 = 1;
     };
 };

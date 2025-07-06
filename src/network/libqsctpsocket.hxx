@@ -172,8 +172,8 @@ class VirtualQSctpSocket final : public QSctpSocket {
     mutable bool qsctpsocket_issignalconnected_isbase = false;
 
   public:
-    VirtualQSctpSocket() : QSctpSocket(){};
-    VirtualQSctpSocket(QObject* parent) : QSctpSocket(parent){};
+    VirtualQSctpSocket() : QSctpSocket() {};
+    VirtualQSctpSocket(QObject* parent) : QSctpSocket(parent) {};
 
     ~VirtualQSctpSocket() {
         qsctpsocket_metacall_callback = nullptr;
@@ -415,7 +415,7 @@ class VirtualQSctpSocket final : public QSctpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool bind(const QHostAddress& address, quint16 port, QAbstractSocket::BindMode mode) override {
+    virtual bool bind(const QHostAddress& address, quint16 port, QFlags<QAbstractSocket::BindFlag> mode) override {
         if (qsctpsocket_bind_isbase) {
             qsctpsocket_bind_isbase = false;
             return QSctpSocket::bind(address, port, mode);
@@ -434,7 +434,7 @@ class VirtualQSctpSocket final : public QSctpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void connectToHost(const QString& hostName, quint16 port, QIODeviceBase::OpenMode mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
+    virtual void connectToHost(const QString& hostName, quint16 port, QFlags<QIODeviceBase::OpenModeFlag> mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
         if (qsctpsocket_connecttohost_isbase) {
             qsctpsocket_connecttohost_isbase = false;
             QSctpSocket::connectToHost(hostName, port, mode, protocol);
@@ -512,7 +512,7 @@ class VirtualQSctpSocket final : public QSctpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QIODeviceBase::OpenMode openMode) override {
+    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODeviceBase::OpenModeFlag> openMode) override {
         if (qsctpsocket_setsocketdescriptor_isbase) {
             qsctpsocket_setsocketdescriptor_isbase = false;
             return QSctpSocket::setSocketDescriptor(socketDescriptor, state, openMode);

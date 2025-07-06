@@ -1140,6 +1140,82 @@ pub const qscilexer = struct {
         return qtc.QsciLexer_QBaseWriteProperties(@ptrCast(self), @ptrCast(qs), prefix_str);
     }
 
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ``` self: QtC.QsciLexer, text: []const u8, allocator: std.mem.Allocator ```
+    pub fn TextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
+        const text_str = qtc.struct_libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        const _bytearray: qtc.struct_libqt_string = qtc.QsciLexer_TextAsBytes(@ptrCast(self), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexer.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, text: []const u8) callconv(.c) []u8 ```
+    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) []u8) void {
+        qtc.QsciLexer_OnTextAsBytes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QsciLexer, text: []const u8, allocator: std.mem.Allocator ```
+    pub fn QBaseTextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
+        const text_str = qtc.struct_libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        const _bytearray: qtc.struct_libqt_string = qtc.QsciLexer_QBaseTextAsBytes(@ptrCast(self), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexer.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// ``` self: QtC.QsciLexer, bytes: []const u8, size: i32, allocator: std.mem.Allocator ```
+    pub fn BytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        const _str = qtc.QsciLexer_BytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexer.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, bytes: []const u8, size: i32) callconv(.c) []const u8 ```
+    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) []const u8) void {
+        qtc.QsciLexer_OnBytesAsText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QsciLexer, bytes: []const u8, size: i32, allocator: std.mem.Allocator ```
+    pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        const _str = qtc.QsciLexer_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexer.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -1267,8 +1343,8 @@ pub const qscilexer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QsciLexer, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1287,6 +1363,15 @@ pub const qscilexer = struct {
     /// ``` self: QtC.QsciLexer, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QsciLexer, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1492,6 +1577,15 @@ pub const qscilexer = struct {
     /// ``` self: QtC.QsciLexer ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QsciLexer, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

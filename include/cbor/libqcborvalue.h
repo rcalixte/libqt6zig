@@ -32,22 +32,6 @@ typedef struct QUuid QUuid;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QCborValue::DiagnosticNotationOption DiagnosticNotationOption;   // C++ enum
-typedef QCborValue::DiagnosticNotationOptions DiagnosticNotationOptions; // C++ QFlags
-typedef QCborValue::EncodingOption EncodingOption;                       // C++ enum
-typedef QCborValue::EncodingOptions EncodingOptions;                     // C++ QFlags
-typedef QCborValue::QtGadgetHelper QtGadgetHelper;                       // C++ QFlags
-typedef QCborValue::Type Type;                                           // C++ enum
-#else
-typedef int DiagnosticNotationOption;  // C ABI enum
-typedef int DiagnosticNotationOptions; // C ABI QFlags
-typedef int EncodingOption;            // C ABI enum
-typedef int EncodingOptions;           // C ABI QFlags
-typedef unsigned char Type;            // C ABI enum
-typedef void QtGadgetHelper;           // C ABI QFlags
-#endif
-
 QCborParserError* QCborParserError_new(const QCborParserError* other);
 QCborParserError* QCborParserError_new2(QCborParserError* other);
 void QCborParserError_CopyAssign(QCborParserError* self, QCborParserError* other);
@@ -121,9 +105,6 @@ QCborValue* QCborValue_OperatorSubscript2(const QCborValue* self, long long key)
 QCborValueRef* QCborValue_OperatorSubscript3(QCborValue* self, long long key);
 QCborValueRef* QCborValue_OperatorSubscript5(QCborValue* self, const libqt_string key);
 int QCborValue_Compare(const QCborValue* self, const QCborValue* other);
-bool QCborValue_OperatorEqual(const QCborValue* self, const QCborValue* other);
-bool QCborValue_OperatorNotEqual(const QCborValue* self, const QCborValue* other);
-bool QCborValue_OperatorLesser(const QCborValue* self, const QCborValue* other);
 QCborValue* QCborValue_FromVariant(const QVariant* variant);
 QVariant* QCborValue_ToVariant(const QCborValue* self);
 QCborValue* QCborValue_FromJsonValue(const QJsonValue* v);
@@ -198,9 +179,6 @@ QCborMap* QCborValueConstRef_ToMapWithQCborMap(const QCborValueConstRef* self, c
 QCborValue* QCborValueConstRef_OperatorSubscript(const QCborValueConstRef* self, const libqt_string key);
 QCborValue* QCborValueConstRef_OperatorSubscript2(const QCborValueConstRef* self, long long key);
 int QCborValueConstRef_Compare(const QCborValueConstRef* self, const QCborValue* other);
-bool QCborValueConstRef_OperatorEqual(const QCborValueConstRef* self, const QCborValue* other);
-bool QCborValueConstRef_OperatorNotEqual(const QCborValueConstRef* self, const QCborValue* other);
-bool QCborValueConstRef_OperatorLesser(const QCborValueConstRef* self, const QCborValue* other);
 QVariant* QCborValueConstRef_ToVariant(const QCborValueConstRef* self);
 QJsonValue* QCborValueConstRef_ToJsonValue(const QCborValueConstRef* self);
 libqt_string QCborValueConstRef_ToCbor(const QCborValueConstRef* self);
@@ -271,9 +249,6 @@ QCborMap* QCborValueRef_ToMapWithQCborMap(const QCborValueRef* self, const QCbor
 QCborValue* QCborValueRef_OperatorSubscript3(const QCborValueRef* self, const libqt_string key);
 QCborValue* QCborValueRef_OperatorSubscript5(const QCborValueRef* self, long long key);
 int QCborValueRef_Compare(const QCborValueRef* self, const QCborValue* other);
-bool QCborValueRef_OperatorEqual(const QCborValueRef* self, const QCborValue* other);
-bool QCborValueRef_OperatorNotEqual(const QCborValueRef* self, const QCborValue* other);
-bool QCborValueRef_OperatorLesser(const QCborValueRef* self, const QCborValue* other);
 QVariant* QCborValueRef_ToVariant(const QCborValueRef* self);
 QJsonValue* QCborValueRef_ToJsonValue(const QCborValueRef* self);
 libqt_string QCborValueRef_ToCbor(QCborValueRef* self);

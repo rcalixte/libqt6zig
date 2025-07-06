@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
+const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
 const qsurface_enums = @import("libqsurface.zig").enums;
 const qwindow_enums = @import("libqwindow.zig").enums;
 const std = @import("std");
@@ -1549,8 +1550,8 @@ pub const qpaintdevicewindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPaintDeviceWindow, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1569,6 +1570,15 @@ pub const qpaintdevicewindow = struct {
     /// ``` self: QtC.QPaintDeviceWindow, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QPaintDeviceWindow, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1760,6 +1770,15 @@ pub const qpaintdevicewindow = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QPaintDeviceWindow, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPaintDeviceWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -1938,6 +1957,15 @@ pub const qpaintdevicewindow = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QObject

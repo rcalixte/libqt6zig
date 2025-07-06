@@ -32,20 +32,6 @@ pub const qmimetype = struct {
         qtc.QMimeType_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#operator==)
-    ///
-    /// ``` self: QtC.QMimeType, other: QtC.QMimeType ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QMimeType_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#operator!=)
-    ///
-    /// ``` self: QtC.QMimeType, other: QtC.QMimeType ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QMimeType_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#isValid)
     ///
     /// ``` self: QtC.QMimeType ```

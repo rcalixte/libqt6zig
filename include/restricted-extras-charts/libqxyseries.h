@@ -31,12 +31,6 @@ typedef struct QVariant QVariant;
 typedef struct QXYSeries QXYSeries;
 #endif
 
-#ifdef __cplusplus
-typedef QXYSeries::PointConfiguration PointConfiguration; // C++ enum
-#else
-typedef int PointConfiguration; // C ABI enum
-#endif
-
 QMetaObject* QXYSeries_MetaObject(const QXYSeries* self);
 void* QXYSeries_Metacast(QXYSeries* self, const char* param1);
 int QXYSeries_Metacall(QXYSeries* self, int param1, int param2, void** param3);

@@ -1921,6 +1921,35 @@ void QPushButton_OnIsSignalConnected(const QPushButton* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QPushButton_GetDecodedMetricF(const QPushButton* self, int metricA, int metricB) {
+    auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        return vqpushbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPushButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QPushButton_QBaseGetDecodedMetricF(const QPushButton* self, int metricA, int metricB) {
+    auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        vqpushbutton->setQPushButton_GetDecodedMetricF_IsBase(true);
+        return vqpushbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPushButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPushButton_OnGetDecodedMetricF(const QPushButton* self, intptr_t slot) {
+    auto* vqpushbutton = const_cast<VirtualQPushButton*>(dynamic_cast<const VirtualQPushButton*>(self));
+    if (vqpushbutton && vqpushbutton->isVirtualQPushButton) {
+        vqpushbutton->setQPushButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPushButton::QPushButton_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QPushButton_Delete(QPushButton* self) {
     delete self;
 }

@@ -381,6 +381,17 @@ pub const qrawfont = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#fontTable)
+    ///
+    /// ``` self: QtC.QRawFont, tag: QtC.QFont__Tag, allocator: std.mem.Allocator ```
+    pub fn FontTableWithTag(self: ?*anyopaque, tag: QtC.QFont__Tag, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QRawFont_FontTableWithTag(@ptrCast(self), @ptrCast(tag));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTableWithTag: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#fromFont)
     ///
     /// ``` font: QtC.QFont ```

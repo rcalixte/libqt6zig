@@ -64,8 +64,8 @@ class VirtualQDateTimeAxis final : public QDateTimeAxis {
     mutable bool qdatetimeaxis_issignalconnected_isbase = false;
 
   public:
-    VirtualQDateTimeAxis() : QDateTimeAxis(){};
-    VirtualQDateTimeAxis(QObject* parent) : QDateTimeAxis(parent){};
+    VirtualQDateTimeAxis() : QDateTimeAxis() {};
+    VirtualQDateTimeAxis(QObject* parent) : QDateTimeAxis(parent) {};
 
     ~VirtualQDateTimeAxis() {
         qdatetimeaxis_metacall_callback = nullptr;

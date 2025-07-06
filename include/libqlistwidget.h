@@ -70,12 +70,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QListWidgetItem::ItemType ItemType; // C++ enum
-#else
-typedef int ItemType; // C ABI enum
-#endif
-
 QListWidgetItem* QListWidgetItem_new();
 QListWidgetItem* QListWidgetItem_new2(const libqt_string text);
 QListWidgetItem* QListWidgetItem_new3(const QIcon* icon, const libqt_string text);
@@ -570,6 +564,9 @@ int QListWidget_QBaseReceivers(const QListWidget* self, const char* signal);
 bool QListWidget_IsSignalConnected(const QListWidget* self, const QMetaMethod* signal);
 void QListWidget_OnIsSignalConnected(const QListWidget* self, intptr_t slot);
 bool QListWidget_QBaseIsSignalConnected(const QListWidget* self, const QMetaMethod* signal);
+double QListWidget_GetDecodedMetricF(const QListWidget* self, int metricA, int metricB);
+void QListWidget_OnGetDecodedMetricF(const QListWidget* self, intptr_t slot);
+double QListWidget_QBaseGetDecodedMetricF(const QListWidget* self, int metricA, int metricB);
 void QListWidget_Delete(QListWidget* self);
 
 #ifdef __cplusplus

@@ -79,6 +79,7 @@ class VirtualQCheckBox final : public QCheckBox {
     using QCheckBox_SenderSignalIndex_Callback = int (*)();
     using QCheckBox_Receivers_Callback = int (*)(const QCheckBox*, const char*);
     using QCheckBox_IsSignalConnected_Callback = bool (*)(const QCheckBox*, QMetaMethod*);
+    using QCheckBox_GetDecodedMetricF_Callback = double (*)(const QCheckBox*, int, int);
 
   protected:
     // Instance callback storage
@@ -143,6 +144,7 @@ class VirtualQCheckBox final : public QCheckBox {
     QCheckBox_SenderSignalIndex_Callback qcheckbox_sendersignalindex_callback = nullptr;
     QCheckBox_Receivers_Callback qcheckbox_receivers_callback = nullptr;
     QCheckBox_IsSignalConnected_Callback qcheckbox_issignalconnected_callback = nullptr;
+    QCheckBox_GetDecodedMetricF_Callback qcheckbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qcheckbox_metacall_isbase = false;
@@ -206,12 +208,13 @@ class VirtualQCheckBox final : public QCheckBox {
     mutable bool qcheckbox_sendersignalindex_isbase = false;
     mutable bool qcheckbox_receivers_isbase = false;
     mutable bool qcheckbox_issignalconnected_isbase = false;
+    mutable bool qcheckbox_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQCheckBox(QWidget* parent) : QCheckBox(parent){};
-    VirtualQCheckBox() : QCheckBox(){};
-    VirtualQCheckBox(const QString& text) : QCheckBox(text){};
-    VirtualQCheckBox(const QString& text, QWidget* parent) : QCheckBox(text, parent){};
+    VirtualQCheckBox(QWidget* parent) : QCheckBox(parent) {};
+    VirtualQCheckBox() : QCheckBox() {};
+    VirtualQCheckBox(const QString& text) : QCheckBox(text) {};
+    VirtualQCheckBox(const QString& text, QWidget* parent) : QCheckBox(text, parent) {};
 
     ~VirtualQCheckBox() {
         qcheckbox_metacall_callback = nullptr;
@@ -275,6 +278,7 @@ class VirtualQCheckBox final : public QCheckBox {
         qcheckbox_sendersignalindex_callback = nullptr;
         qcheckbox_receivers_callback = nullptr;
         qcheckbox_issignalconnected_callback = nullptr;
+        qcheckbox_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -339,6 +343,7 @@ class VirtualQCheckBox final : public QCheckBox {
     inline void setQCheckBox_SenderSignalIndex_Callback(QCheckBox_SenderSignalIndex_Callback cb) { qcheckbox_sendersignalindex_callback = cb; }
     inline void setQCheckBox_Receivers_Callback(QCheckBox_Receivers_Callback cb) { qcheckbox_receivers_callback = cb; }
     inline void setQCheckBox_IsSignalConnected_Callback(QCheckBox_IsSignalConnected_Callback cb) { qcheckbox_issignalconnected_callback = cb; }
+    inline void setQCheckBox_GetDecodedMetricF_Callback(QCheckBox_GetDecodedMetricF_Callback cb) { qcheckbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQCheckBox_Metacall_IsBase(bool value) const { qcheckbox_metacall_isbase = value; }
@@ -402,6 +407,7 @@ class VirtualQCheckBox final : public QCheckBox {
     inline void setQCheckBox_SenderSignalIndex_IsBase(bool value) const { qcheckbox_sendersignalindex_isbase = value; }
     inline void setQCheckBox_Receivers_IsBase(bool value) const { qcheckbox_receivers_isbase = value; }
     inline void setQCheckBox_IsSignalConnected_IsBase(bool value) const { qcheckbox_issignalconnected_isbase = value; }
+    inline void setQCheckBox_GetDecodedMetricF_IsBase(bool value) const { qcheckbox_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1269,6 +1275,22 @@ class VirtualQCheckBox final : public QCheckBox {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qcheckbox_getdecodedmetricf_isbase) {
+            qcheckbox_getdecodedmetricf_isbase = false;
+            return QCheckBox::getDecodedMetricF(metricA, metricB);
+        } else if (qcheckbox_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qcheckbox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QCheckBox::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QCheckBox_Event(QCheckBox* self, QEvent* e);
     friend bool QCheckBox_QBaseEvent(QCheckBox* self, QEvent* e);
@@ -1372,6 +1394,8 @@ class VirtualQCheckBox final : public QCheckBox {
     friend int QCheckBox_QBaseReceivers(const QCheckBox* self, const char* signal);
     friend bool QCheckBox_IsSignalConnected(const QCheckBox* self, const QMetaMethod* signal);
     friend bool QCheckBox_QBaseIsSignalConnected(const QCheckBox* self, const QMetaMethod* signal);
+    friend double QCheckBox_GetDecodedMetricF(const QCheckBox* self, int metricA, int metricB);
+    friend double QCheckBox_QBaseGetDecodedMetricF(const QCheckBox* self, int metricA, int metricB);
 };
 
 #endif

@@ -40,6 +40,28 @@ pub const qstringconverter = struct {
         const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
         return std.mem.span(_ret);
     }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
+    ///
+    /// ``` allocator: std.mem.Allocator ```
+    pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QStringConverter_AvailableCodecs();
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            }
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstringconverter.AvailableCodecs: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstringconverter.AvailableCodecs: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
+    }
 };
 
 /// https://doc.qt.io/qt-6/qstringconverterbase-state.html

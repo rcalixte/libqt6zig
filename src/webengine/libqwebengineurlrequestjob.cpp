@@ -54,6 +54,10 @@ QUrl* QWebEngineUrlRequestJob_Initiator(const QWebEngineUrlRequestJob* self) {
     return new QUrl(self->initiator());
 }
 
+QIODevice* QWebEngineUrlRequestJob_RequestBody(const QWebEngineUrlRequestJob* self) {
+    return self->requestBody();
+}
+
 void QWebEngineUrlRequestJob_Reply(QWebEngineUrlRequestJob* self, const libqt_string contentType, QIODevice* device) {
     QByteArray contentType_QByteArray(contentType.data, contentType.len);
     self->reply(contentType_QByteArray, device);

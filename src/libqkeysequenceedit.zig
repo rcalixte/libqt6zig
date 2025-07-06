@@ -88,6 +88,13 @@ pub const qkeysequenceedit = struct {
         return qtc.QKeySequenceEdit_KeySequence(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequenceedit.html#maximumSequenceLength)
+    ///
+    /// ``` self: QtC.QKeySequenceEdit ```
+    pub fn MaximumSequenceLength(self: ?*anyopaque) i64 {
+        return qtc.QKeySequenceEdit_MaximumSequenceLength(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequenceedit.html#setClearButtonEnabled)
     ///
     /// ``` self: QtC.QKeySequenceEdit, enable: bool ```
@@ -102,6 +109,29 @@ pub const qkeysequenceedit = struct {
         return qtc.QKeySequenceEdit_IsClearButtonEnabled(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequenceedit.html#setFinishingKeyCombinations)
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, finishingKeyCombinations: []QtC.QKeyCombination ```
+    pub fn SetFinishingKeyCombinations(self: ?*anyopaque, finishingKeyCombinations: []QtC.QKeyCombination) void {
+        const finishingKeyCombinations_list = qtc.struct_libqt_list{
+            .len = finishingKeyCombinations.len,
+            .data = @ptrCast(finishingKeyCombinations.ptr),
+        };
+        qtc.QKeySequenceEdit_SetFinishingKeyCombinations(@ptrCast(self), finishingKeyCombinations_list);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequenceedit.html#finishingKeyCombinations)
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, allocator: std.mem.Allocator ```
+    pub fn FinishingKeyCombinations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeyCombination {
+        const _arr: qtc.struct_libqt_list = qtc.QKeySequenceEdit_FinishingKeyCombinations(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QKeyCombination, _arr.len) catch @panic("qkeysequenceedit.FinishingKeyCombinations: Memory allocation failed");
+        const _data: [*]QtC.QKeyCombination = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequenceedit.html#setKeySequence)
     ///
     /// ``` self: QtC.QKeySequenceEdit, keySequence: QtC.QKeySequence ```
@@ -114,6 +144,13 @@ pub const qkeysequenceedit = struct {
     /// ``` self: QtC.QKeySequenceEdit ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QKeySequenceEdit_Clear(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequenceedit.html#setMaximumSequenceLength)
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, count: i64 ```
+    pub fn SetMaximumSequenceLength(self: ?*anyopaque, count: i64) void {
+        qtc.QKeySequenceEdit_SetMaximumSequenceLength(@ptrCast(self), @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequenceedit.html#editingFinished)
@@ -2529,6 +2566,15 @@ pub const qkeysequenceedit = struct {
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, p: QtC.QPointF ```
+    pub fn ChildAtWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPointF(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// Inherited from QWidget
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QKeySequenceEdit, param1: qnamespace_enums.WidgetAttribute ```
@@ -2944,8 +2990,8 @@ pub const qkeysequenceedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QKeySequenceEdit, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -2964,6 +3010,15 @@ pub const qkeysequenceedit = struct {
     /// ``` self: QtC.QKeySequenceEdit, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -3164,6 +3219,15 @@ pub const qkeysequenceedit = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QKeySequenceEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -3315,6 +3379,15 @@ pub const qkeysequenceedit = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QWidget
@@ -5008,6 +5081,39 @@ pub const qkeysequenceedit = struct {
     /// ``` self: QtC.QKeySequenceEdit, slot: fn (self: QtC.QKeySequenceEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QKeySequenceEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QKeySequenceEdit_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QKeySequenceEdit_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QKeySequenceEdit, slot: fn (self: QtC.QKeySequenceEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QKeySequenceEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject

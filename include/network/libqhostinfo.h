@@ -20,12 +20,6 @@ typedef struct QHostAddress QHostAddress;
 typedef struct QHostInfo QHostInfo;
 #endif
 
-#ifdef __cplusplus
-typedef QHostInfo::HostInfoError HostInfoError; // C++ enum
-#else
-typedef int HostInfoError; // C ABI enum
-#endif
-
 QHostInfo* QHostInfo_new();
 QHostInfo* QHostInfo_new2(const QHostInfo* d);
 QHostInfo* QHostInfo_new3(int lookupId);

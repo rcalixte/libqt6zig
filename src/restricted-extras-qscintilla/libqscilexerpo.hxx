@@ -62,6 +62,8 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     using QsciLexerPO_CustomEvent_Callback = void (*)(QsciLexerPO*, QEvent*);
     using QsciLexerPO_ConnectNotify_Callback = void (*)(QsciLexerPO*, QMetaMethod*);
     using QsciLexerPO_DisconnectNotify_Callback = void (*)(QsciLexerPO*, QMetaMethod*);
+    using QsciLexerPO_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPO*, libqt_string);
+    using QsciLexerPO_BytesAsText_Callback = libqt_string (*)(const QsciLexerPO*, const char*, int);
     using QsciLexerPO_Sender_Callback = QObject* (*)();
     using QsciLexerPO_SenderSignalIndex_Callback = int (*)();
     using QsciLexerPO_Receivers_Callback = int (*)(const QsciLexerPO*, const char*);
@@ -113,6 +115,8 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     QsciLexerPO_CustomEvent_Callback qscilexerpo_customevent_callback = nullptr;
     QsciLexerPO_ConnectNotify_Callback qscilexerpo_connectnotify_callback = nullptr;
     QsciLexerPO_DisconnectNotify_Callback qscilexerpo_disconnectnotify_callback = nullptr;
+    QsciLexerPO_TextAsBytes_Callback qscilexerpo_textasbytes_callback = nullptr;
+    QsciLexerPO_BytesAsText_Callback qscilexerpo_bytesastext_callback = nullptr;
     QsciLexerPO_Sender_Callback qscilexerpo_sender_callback = nullptr;
     QsciLexerPO_SenderSignalIndex_Callback qscilexerpo_sendersignalindex_callback = nullptr;
     QsciLexerPO_Receivers_Callback qscilexerpo_receivers_callback = nullptr;
@@ -163,14 +167,16 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     mutable bool qscilexerpo_customevent_isbase = false;
     mutable bool qscilexerpo_connectnotify_isbase = false;
     mutable bool qscilexerpo_disconnectnotify_isbase = false;
+    mutable bool qscilexerpo_textasbytes_isbase = false;
+    mutable bool qscilexerpo_bytesastext_isbase = false;
     mutable bool qscilexerpo_sender_isbase = false;
     mutable bool qscilexerpo_sendersignalindex_isbase = false;
     mutable bool qscilexerpo_receivers_isbase = false;
     mutable bool qscilexerpo_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerPO() : QsciLexerPO(){};
-    VirtualQsciLexerPO(QObject* parent) : QsciLexerPO(parent){};
+    VirtualQsciLexerPO() : QsciLexerPO() {};
+    VirtualQsciLexerPO(QObject* parent) : QsciLexerPO(parent) {};
 
     ~VirtualQsciLexerPO() {
         qscilexerpo_metacall_callback = nullptr;
@@ -217,6 +223,8 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
         qscilexerpo_customevent_callback = nullptr;
         qscilexerpo_connectnotify_callback = nullptr;
         qscilexerpo_disconnectnotify_callback = nullptr;
+        qscilexerpo_textasbytes_callback = nullptr;
+        qscilexerpo_bytesastext_callback = nullptr;
         qscilexerpo_sender_callback = nullptr;
         qscilexerpo_sendersignalindex_callback = nullptr;
         qscilexerpo_receivers_callback = nullptr;
@@ -268,6 +276,8 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     inline void setQsciLexerPO_CustomEvent_Callback(QsciLexerPO_CustomEvent_Callback cb) { qscilexerpo_customevent_callback = cb; }
     inline void setQsciLexerPO_ConnectNotify_Callback(QsciLexerPO_ConnectNotify_Callback cb) { qscilexerpo_connectnotify_callback = cb; }
     inline void setQsciLexerPO_DisconnectNotify_Callback(QsciLexerPO_DisconnectNotify_Callback cb) { qscilexerpo_disconnectnotify_callback = cb; }
+    inline void setQsciLexerPO_TextAsBytes_Callback(QsciLexerPO_TextAsBytes_Callback cb) { qscilexerpo_textasbytes_callback = cb; }
+    inline void setQsciLexerPO_BytesAsText_Callback(QsciLexerPO_BytesAsText_Callback cb) { qscilexerpo_bytesastext_callback = cb; }
     inline void setQsciLexerPO_Sender_Callback(QsciLexerPO_Sender_Callback cb) { qscilexerpo_sender_callback = cb; }
     inline void setQsciLexerPO_SenderSignalIndex_Callback(QsciLexerPO_SenderSignalIndex_Callback cb) { qscilexerpo_sendersignalindex_callback = cb; }
     inline void setQsciLexerPO_Receivers_Callback(QsciLexerPO_Receivers_Callback cb) { qscilexerpo_receivers_callback = cb; }
@@ -318,6 +328,8 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     inline void setQsciLexerPO_CustomEvent_IsBase(bool value) const { qscilexerpo_customevent_isbase = value; }
     inline void setQsciLexerPO_ConnectNotify_IsBase(bool value) const { qscilexerpo_connectnotify_isbase = value; }
     inline void setQsciLexerPO_DisconnectNotify_IsBase(bool value) const { qscilexerpo_disconnectnotify_isbase = value; }
+    inline void setQsciLexerPO_TextAsBytes_IsBase(bool value) const { qscilexerpo_textasbytes_isbase = value; }
+    inline void setQsciLexerPO_BytesAsText_IsBase(bool value) const { qscilexerpo_bytesastext_isbase = value; }
     inline void setQsciLexerPO_Sender_IsBase(bool value) const { qscilexerpo_sender_isbase = value; }
     inline void setQsciLexerPO_SenderSignalIndex_IsBase(bool value) const { qscilexerpo_sendersignalindex_isbase = value; }
     inline void setQsciLexerPO_Receivers_IsBase(bool value) const { qscilexerpo_receivers_isbase = value; }
@@ -418,13 +430,13 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerpo_autocompletionwordseparators_isbase) {
             qscilexerpo_autocompletionwordseparators_isbase = false;
             return QsciLexerPO::autoCompletionWordSeparators();
         } else if (qscilexerpo_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerpo_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -985,6 +997,47 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerpo_textasbytes_isbase) {
+            qscilexerpo_textasbytes_isbase = false;
+            return QsciLexerPO::textAsBytes(text);
+        } else if (qscilexerpo_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerpo_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerPO::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerpo_bytesastext_isbase) {
+            qscilexerpo_bytesastext_isbase = false;
+            return QsciLexerPO::bytesAsText(bytes, size);
+        } else if (qscilexerpo_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerpo_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerPO::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerpo_sender_isbase) {
             qscilexerpo_sender_isbase = false;
@@ -1057,6 +1110,10 @@ class VirtualQsciLexerPO final : public QsciLexerPO {
     friend void QsciLexerPO_QBaseConnectNotify(QsciLexerPO* self, const QMetaMethod* signal);
     friend void QsciLexerPO_DisconnectNotify(QsciLexerPO* self, const QMetaMethod* signal);
     friend void QsciLexerPO_QBaseDisconnectNotify(QsciLexerPO* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerPO_TextAsBytes(const QsciLexerPO* self, const libqt_string text);
+    friend libqt_string QsciLexerPO_QBaseTextAsBytes(const QsciLexerPO* self, const libqt_string text);
+    friend libqt_string QsciLexerPO_BytesAsText(const QsciLexerPO* self, const char* bytes, int size);
+    friend libqt_string QsciLexerPO_QBaseBytesAsText(const QsciLexerPO* self, const char* bytes, int size);
     friend QObject* QsciLexerPO_Sender(const QsciLexerPO* self);
     friend QObject* QsciLexerPO_QBaseSender(const QsciLexerPO* self);
     friend int QsciLexerPO_SenderSignalIndex(const QsciLexerPO* self);

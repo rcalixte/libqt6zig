@@ -91,8 +91,8 @@ class VirtualQPaintEngine final : public QPaintEngine {
     mutable bool qpaintengine_createpixmapfromimage_isbase = false;
 
   public:
-    VirtualQPaintEngine() : QPaintEngine(){};
-    VirtualQPaintEngine(QPaintEngine::PaintEngineFeatures features) : QPaintEngine(features){};
+    VirtualQPaintEngine() : QPaintEngine() {};
+    VirtualQPaintEngine(QPaintEngine::PaintEngineFeatures features) : QPaintEngine(features) {};
 
     ~VirtualQPaintEngine() {
         qpaintengine_begin_callback = nullptr;

@@ -70,16 +70,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QTextEdit::AutoFormatting AutoFormatting;         // C++ QFlags
-typedef QTextEdit::AutoFormattingFlag AutoFormattingFlag; // C++ enum
-typedef QTextEdit::LineWrapMode LineWrapMode;             // C++ enum
-#else
-typedef int AutoFormatting;     // C ABI QFlags
-typedef int AutoFormattingFlag; // C ABI enum
-typedef int LineWrapMode;       // C ABI enum
-#endif
-
 QTextEdit* QTextEdit_new(QWidget* parent);
 QTextEdit* QTextEdit_new2();
 QTextEdit* QTextEdit_new3(const libqt_string text);
@@ -410,6 +400,9 @@ int QTextEdit_QBaseReceivers(const QTextEdit* self, const char* signal);
 bool QTextEdit_IsSignalConnected(const QTextEdit* self, const QMetaMethod* signal);
 void QTextEdit_OnIsSignalConnected(const QTextEdit* self, intptr_t slot);
 bool QTextEdit_QBaseIsSignalConnected(const QTextEdit* self, const QMetaMethod* signal);
+double QTextEdit_GetDecodedMetricF(const QTextEdit* self, int metricA, int metricB);
+void QTextEdit_OnGetDecodedMetricF(const QTextEdit* self, intptr_t slot);
+double QTextEdit_QBaseGetDecodedMetricF(const QTextEdit* self, int metricA, int metricB);
 void QTextEdit_Delete(QTextEdit* self);
 
 QTextEdit__ExtraSelection* QTextEdit__ExtraSelection_new(const QTextEdit__ExtraSelection* param1);

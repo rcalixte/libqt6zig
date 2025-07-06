@@ -50,14 +50,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWindow QWindow;
 #endif
 
-#ifdef __cplusplus
-typedef QWindow::AncestorMode AncestorMode; // C++ enum
-typedef QWindow::Visibility Visibility;     // C++ enum
-#else
-typedef int AncestorMode; // C ABI enum
-typedef int Visibility;   // C ABI enum
-#endif
-
 QWindow* QWindow_new();
 QWindow* QWindow_new2(QWindow* parent);
 QWindow* QWindow_new3(QScreen* screen);

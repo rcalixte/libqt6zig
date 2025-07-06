@@ -19,18 +19,6 @@ extern "C" {
 typedef struct QWebEngineSettings QWebEngineSettings;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineSettings::FontFamily FontFamily;                         // C++ enum
-typedef QWebEngineSettings::FontSize FontSize;                             // C++ enum
-typedef QWebEngineSettings::UnknownUrlSchemePolicy UnknownUrlSchemePolicy; // C++ enum
-typedef QWebEngineSettings::WebAttribute WebAttribute;                     // C++ enum
-#else
-typedef int FontFamily;             // C ABI enum
-typedef int FontSize;               // C ABI enum
-typedef int UnknownUrlSchemePolicy; // C ABI enum
-typedef int WebAttribute;           // C ABI enum
-#endif
-
 void QWebEngineSettings_SetFontFamily(QWebEngineSettings* self, int which, const libqt_string family);
 libqt_string QWebEngineSettings_FontFamily(const QWebEngineSettings* self, int which);
 void QWebEngineSettings_ResetFontFamily(QWebEngineSettings* self, int which);
@@ -45,6 +33,9 @@ libqt_string QWebEngineSettings_DefaultTextEncoding(const QWebEngineSettings* se
 int QWebEngineSettings_UnknownUrlSchemePolicy(const QWebEngineSettings* self);
 void QWebEngineSettings_SetUnknownUrlSchemePolicy(QWebEngineSettings* self, int policy);
 void QWebEngineSettings_ResetUnknownUrlSchemePolicy(QWebEngineSettings* self);
+void QWebEngineSettings_SetImageAnimationPolicy(QWebEngineSettings* self, uint8_t policy);
+uint8_t QWebEngineSettings_ImageAnimationPolicy(const QWebEngineSettings* self);
+void QWebEngineSettings_ResetImageAnimationPolicy(QWebEngineSettings* self);
 void QWebEngineSettings_Delete(QWebEngineSettings* self);
 
 #ifdef __cplusplus

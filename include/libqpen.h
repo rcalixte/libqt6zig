@@ -22,12 +22,6 @@ typedef struct QPen QPen;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QPen::DataPtr DataPtr; // C++ QFlags
-#else
-
-#endif
-
 QPen* QPen_new();
 QPen* QPen_new2(int param1);
 QPen* QPen_new3(const QColor* color);

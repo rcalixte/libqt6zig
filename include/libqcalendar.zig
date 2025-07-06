@@ -197,6 +197,13 @@ pub const qcalendar = struct {
         return qtc.QCalendar_DateFromPartsWithParts(@ptrCast(self), @ptrCast(parts));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#matchCenturyToWeekday)
+    ///
+    /// ``` self: QtC.QCalendar, parts: QtC.QCalendar__YearMonthDay, dow: i32 ```
+    pub fn MatchCenturyToWeekday(self: ?*anyopaque, parts: ?*anyopaque, dow: i32) QtC.QDate {
+        return qtc.QCalendar_MatchCenturyToWeekday(@ptrCast(self), @ptrCast(parts), @intCast(dow));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#partsFromDate)
     ///
     /// ``` self: QtC.QCalendar, date: QtC.QDate ```

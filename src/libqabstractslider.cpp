@@ -2057,6 +2057,35 @@ void QAbstractSlider_OnIsSignalConnected(const QAbstractSlider* self, intptr_t s
     }
 }
 
+// Derived class handler implementation
+double QAbstractSlider_GetDecodedMetricF(const QAbstractSlider* self, int metricA, int metricB) {
+    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        return vqabstractslider->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractSlider*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QAbstractSlider_QBaseGetDecodedMetricF(const QAbstractSlider* self, int metricA, int metricB) {
+    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        vqabstractslider->setQAbstractSlider_GetDecodedMetricF_IsBase(true);
+        return vqabstractslider->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractSlider*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractSlider_OnGetDecodedMetricF(const QAbstractSlider* self, intptr_t slot) {
+    auto* vqabstractslider = const_cast<VirtualQAbstractSlider*>(dynamic_cast<const VirtualQAbstractSlider*>(self));
+    if (vqabstractslider && vqabstractslider->isVirtualQAbstractSlider) {
+        vqabstractslider->setQAbstractSlider_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractSlider::QAbstractSlider_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QAbstractSlider_Delete(QAbstractSlider* self) {
     delete self;
 }

@@ -480,11 +480,23 @@ pub const qtextlayout = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout.html#glyphRuns)
     ///
-    /// ``` self: QtC.QTextLayout, allocator: std.mem.Allocator ```
-    pub fn GlyphRuns(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.struct_libqt_list = qtc.QTextLayout_GlyphRuns(@ptrCast(self));
+    /// ``` self: QtC.QTextLayout, from: i32, length: i32, flags: quint16, allocator: std.mem.Allocator ```
+    pub fn GlyphRuns(self: ?*anyopaque, from: i32, length: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QGlyphRun {
+        const _arr: qtc.struct_libqt_list = qtc.QTextLayout_GlyphRuns(@ptrCast(self), @intCast(from), @intCast(length), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns: Memory allocation failed");
+        const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout.html#glyphRuns)
+    ///
+    /// ``` self: QtC.QTextLayout, allocator: std.mem.Allocator ```
+    pub fn GlyphRuns2(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGlyphRun {
+        const _arr: qtc.struct_libqt_list = qtc.QTextLayout_GlyphRuns2(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns2: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -548,10 +560,10 @@ pub const qtextlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout.html#glyphRuns)
     ///
     /// ``` self: QtC.QTextLayout, from: i32, length: i32, allocator: std.mem.Allocator ```
-    pub fn GlyphRuns2(self: ?*anyopaque, from: i32, length: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.struct_libqt_list = qtc.QTextLayout_GlyphRuns2(@ptrCast(self), @intCast(from), @intCast(length));
+    pub fn GlyphRuns22(self: ?*anyopaque, from: i32, length: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
+        const _arr: qtc.struct_libqt_list = qtc.QTextLayout_GlyphRuns22(@ptrCast(self), @intCast(from), @intCast(length));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns2: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns22: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -788,11 +800,23 @@ pub const qtextline = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#glyphRuns)
     ///
-    /// ``` self: QtC.QTextLine, allocator: std.mem.Allocator ```
-    pub fn GlyphRuns(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.struct_libqt_list = qtc.QTextLine_GlyphRuns(@ptrCast(self));
+    /// ``` self: QtC.QTextLine, from: i32, length: i32, flags: quint16, allocator: std.mem.Allocator ```
+    pub fn GlyphRuns(self: ?*anyopaque, from: i32, length: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QGlyphRun {
+        const _arr: qtc.struct_libqt_list = qtc.QTextLine_GlyphRuns(@ptrCast(self), @intCast(from), @intCast(length), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns: Memory allocation failed");
+        const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#glyphRuns)
+    ///
+    /// ``` self: QtC.QTextLine, allocator: std.mem.Allocator ```
+    pub fn GlyphRuns2(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGlyphRun {
+        const _arr: qtc.struct_libqt_list = qtc.QTextLine_GlyphRuns2(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns2: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -834,10 +858,10 @@ pub const qtextline = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#glyphRuns)
     ///
     /// ``` self: QtC.QTextLine, from: i32, length: i32, allocator: std.mem.Allocator ```
-    pub fn GlyphRuns2(self: ?*anyopaque, from: i32, length: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.struct_libqt_list = qtc.QTextLine_GlyphRuns2(@ptrCast(self), @intCast(from), @intCast(length));
+    pub fn GlyphRuns22(self: ?*anyopaque, from: i32, length: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
+        const _arr: qtc.struct_libqt_list = qtc.QTextLine_GlyphRuns22(@ptrCast(self), @intCast(from), @intCast(length));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns2: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns22: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -857,16 +881,9 @@ pub const qtextline = struct {
 pub const qtextlayout__formatrange = struct {
     /// New constructs a new QTextLayout::FormatRange object.
     ///
-    /// ``` param1: QtC.QTextLayout__FormatRange ```
-    pub fn New(param1: ?*anyopaque) QtC.QTextLayout__FormatRange {
-        return qtc.QTextLayout__FormatRange_new(@ptrCast(param1));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout__formatrange.html#operator=)
     ///
-    /// ``` self: QtC.QTextLayout__FormatRange, param1: QtC.QTextLayout__FormatRange ```
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QTextLayout__FormatRange_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    pub fn New() QtC.QTextLayout__FormatRange {
+        return qtc.QTextLayout__FormatRange_new();
     }
 
     /// Delete this object from C++ memory.
@@ -879,6 +896,15 @@ pub const qtextlayout__formatrange = struct {
 
 /// https://doc.qt.io/qt-6/qtextlayout.html#types
 pub const enums = struct {
+    pub const GlyphRunRetrievalFlag = enum {
+        pub const RetrieveGlyphIndexes: u16 = 1;
+        pub const RetrieveGlyphPositions: u16 = 2;
+        pub const RetrieveStringIndexes: u16 = 4;
+        pub const RetrieveString: u16 = 8;
+        pub const DefaultRetrievalFlags: u16 = 3;
+        pub const RetrieveAll: u16 = 65535;
+    };
+
     pub const CursorMode = enum {
         pub const SkipCharacters: i32 = 0;
         pub const SkipWords: i32 = 1;

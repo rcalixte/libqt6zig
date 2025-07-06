@@ -274,7 +274,11 @@ QVariant* QMatrix4x4_ToQVariant(const QMatrix4x4* self) {
     return new QVariant(self->operator QVariant());
 }
 
-void QMatrix4x4_ProjectedRotate(QMatrix4x4* self, float angle, float x, float y, float z) {
+void QMatrix4x4_ProjectedRotate(QMatrix4x4* self, float angle, float x, float y, float z, float distanceToPlane) {
+    self->projectedRotate(static_cast<float>(angle), static_cast<float>(x), static_cast<float>(y), static_cast<float>(z), static_cast<float>(distanceToPlane));
+}
+
+void QMatrix4x4_ProjectedRotate2(QMatrix4x4* self, float angle, float x, float y, float z) {
     self->projectedRotate(static_cast<float>(angle), static_cast<float>(x), static_cast<float>(y), static_cast<float>(z));
 }
 

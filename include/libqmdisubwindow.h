@@ -53,14 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QMdiSubWindow::SubWindowOption SubWindowOption;   // C++ enum
-typedef QMdiSubWindow::SubWindowOptions SubWindowOptions; // C++ QFlags
-#else
-typedef int SubWindowOption;  // C ABI enum
-typedef int SubWindowOptions; // C ABI QFlags
-#endif
-
 QMdiSubWindow* QMdiSubWindow_new(QWidget* parent);
 QMdiSubWindow* QMdiSubWindow_new2();
 QMdiSubWindow* QMdiSubWindow_new3(QWidget* parent, int flags);
@@ -261,6 +253,9 @@ int QMdiSubWindow_QBaseReceivers(const QMdiSubWindow* self, const char* signal);
 bool QMdiSubWindow_IsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal);
 void QMdiSubWindow_OnIsSignalConnected(const QMdiSubWindow* self, intptr_t slot);
 bool QMdiSubWindow_QBaseIsSignalConnected(const QMdiSubWindow* self, const QMetaMethod* signal);
+double QMdiSubWindow_GetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB);
+void QMdiSubWindow_OnGetDecodedMetricF(const QMdiSubWindow* self, intptr_t slot);
+double QMdiSubWindow_QBaseGetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB);
 void QMdiSubWindow_Delete(QMdiSubWindow* self);
 
 #ifdef __cplusplus

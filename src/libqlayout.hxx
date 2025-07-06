@@ -148,8 +148,8 @@ class VirtualQLayout final : public QLayout {
     mutable bool qlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQLayout(QWidget* parent) : QLayout(parent){};
-    VirtualQLayout() : QLayout(){};
+    VirtualQLayout(QWidget* parent) : QLayout(parent) {};
+    VirtualQLayout() : QLayout() {};
 
     ~VirtualQLayout() {
         qlayout_metacall_callback = nullptr;

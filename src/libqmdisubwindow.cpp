@@ -1843,6 +1843,35 @@ void QMdiSubWindow_OnIsSignalConnected(const QMdiSubWindow* self, intptr_t slot)
     }
 }
 
+// Derived class handler implementation
+double QMdiSubWindow_GetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB) {
+    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        return vqmdisubwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQMdiSubWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QMdiSubWindow_QBaseGetDecodedMetricF(const QMdiSubWindow* self, int metricA, int metricB) {
+    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        vqmdisubwindow->setQMdiSubWindow_GetDecodedMetricF_IsBase(true);
+        return vqmdisubwindow->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQMdiSubWindow*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QMdiSubWindow_OnGetDecodedMetricF(const QMdiSubWindow* self, intptr_t slot) {
+    auto* vqmdisubwindow = const_cast<VirtualQMdiSubWindow*>(dynamic_cast<const VirtualQMdiSubWindow*>(self));
+    if (vqmdisubwindow && vqmdisubwindow->isVirtualQMdiSubWindow) {
+        vqmdisubwindow->setQMdiSubWindow_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQMdiSubWindow::QMdiSubWindow_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QMdiSubWindow_Delete(QMdiSubWindow* self) {
     delete self;
 }

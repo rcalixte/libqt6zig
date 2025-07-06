@@ -858,8 +858,8 @@ pub const qstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QStyle, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -878,6 +878,15 @@ pub const qstyle = struct {
     /// ``` self: QtC.QStyle, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QStyle, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1083,6 +1092,15 @@ pub const qstyle = struct {
     /// ``` self: QtC.QStyle ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QStyle, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -1820,9 +1838,6 @@ pub const enums = struct {
         pub const PM_IndicatorHeight: i32 = 38;
         pub const PM_ExclusiveIndicatorWidth: i32 = 39;
         pub const PM_ExclusiveIndicatorHeight: i32 = 40;
-        pub const PM_DialogButtonsSeparator: i32 = 41;
-        pub const PM_DialogButtonsButtonWidth: i32 = 42;
-        pub const PM_DialogButtonsButtonHeight: i32 = 43;
         pub const PM_MdiSubWindowFrameWidth: i32 = 44;
         pub const PM_MdiSubWindowMinimizedWidth: i32 = 45;
         pub const PM_HeaderMargin: i32 = 46;

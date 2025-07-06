@@ -113,12 +113,12 @@ void QImageCapture_SetFileFormat(QImageCapture* self, int format) {
 libqt_list /* of int */ QImageCapture_SupportedFormats() {
     QList<QImageCapture::FileFormat> _ret = QImageCapture::supportedFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

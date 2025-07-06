@@ -1804,6 +1804,35 @@ void QRubberBand_OnIsSignalConnected(const QRubberBand* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QRubberBand_GetDecodedMetricF(const QRubberBand* self, int metricA, int metricB) {
+    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        return vqrubberband->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQRubberBand*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QRubberBand_QBaseGetDecodedMetricF(const QRubberBand* self, int metricA, int metricB) {
+    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        vqrubberband->setQRubberBand_GetDecodedMetricF_IsBase(true);
+        return vqrubberband->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQRubberBand*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRubberBand_OnGetDecodedMetricF(const QRubberBand* self, intptr_t slot) {
+    auto* vqrubberband = const_cast<VirtualQRubberBand*>(dynamic_cast<const VirtualQRubberBand*>(self));
+    if (vqrubberband && vqrubberband->isVirtualQRubberBand) {
+        vqrubberband->setQRubberBand_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQRubberBand::QRubberBand_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QRubberBand_Delete(QRubberBand* self) {
     delete self;
 }

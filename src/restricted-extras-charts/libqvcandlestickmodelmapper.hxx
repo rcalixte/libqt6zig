@@ -106,8 +106,8 @@ class VirtualQVCandlestickModelMapper final : public QVCandlestickModelMapper {
     mutable bool qvcandlestickmodelmapper_issignalconnected_isbase = false;
 
   public:
-    VirtualQVCandlestickModelMapper() : QVCandlestickModelMapper(){};
-    VirtualQVCandlestickModelMapper(QObject* parent) : QVCandlestickModelMapper(parent){};
+    VirtualQVCandlestickModelMapper() : QVCandlestickModelMapper() {};
+    VirtualQVCandlestickModelMapper(QObject* parent) : QVCandlestickModelMapper(parent) {};
 
     ~VirtualQVCandlestickModelMapper() {
         qvcandlestickmodelmapper_metacall_callback = nullptr;

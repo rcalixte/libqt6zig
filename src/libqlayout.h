@@ -31,12 +31,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QLayout::SizeConstraint SizeConstraint; // C++ enum
-#else
-typedef int SizeConstraint; // C ABI enum
-#endif
-
 QLayout* QLayout_new(QWidget* parent);
 QLayout* QLayout_new2();
 QMetaObject* QLayout_MetaObject(const QLayout* self);

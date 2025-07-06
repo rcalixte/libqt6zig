@@ -26,7 +26,7 @@ QTextStream* QTextStream_new3(const libqt_string array) {
 
 QTextStream* QTextStream_new4(const libqt_string array, int openMode) {
     QByteArray array_QByteArray(array.data, array.len);
-    return new QTextStream(array_QByteArray, static_cast<QIODeviceBase::OpenMode>(openMode));
+    return new QTextStream(array_QByteArray, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 void QTextStream_SetEncoding(QTextStream* self, int encoding) {

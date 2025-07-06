@@ -1,7 +1,7 @@
+#include <QAnyStringView>
 #include <QList>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QRegularExpressionMatchIterator>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -85,10 +85,10 @@ int QRegularExpression_CaptureCount(const QRegularExpression* self) {
 }
 
 libqt_list /* of libqt_string */ QRegularExpression_NamedCaptureGroups(const QRegularExpression* self) {
-    QStringList _ret = self->namedCaptureGroups();
+    QList<QString> _ret = self->namedCaptureGroups();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -100,7 +100,7 @@ libqt_list /* of libqt_string */ QRegularExpression_NamedCaptureGroups(const QRe
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -108,11 +108,6 @@ libqt_list /* of libqt_string */ QRegularExpression_NamedCaptureGroups(const QRe
 QRegularExpressionMatch* QRegularExpression_Match(const QRegularExpression* self, const libqt_string subject) {
     QString subject_QString = QString::fromUtf8(subject.data, subject.len);
     return new QRegularExpressionMatch(self->match(subject_QString));
-}
-
-QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch(const QRegularExpression* self, const libqt_string subject) {
-    QString subject_QString = QString::fromUtf8(subject.data, subject.len);
-    return new QRegularExpressionMatchIterator(self->globalMatch(subject_QString));
 }
 
 void QRegularExpression_Optimize(const QRegularExpression* self) {
@@ -158,14 +153,6 @@ libqt_string QRegularExpression_AnchoredPattern(const libqt_string expression) {
     return _str;
 }
 
-bool QRegularExpression_OperatorEqual(const QRegularExpression* self, const QRegularExpression* re) {
-    return (*self == *re);
-}
-
-bool QRegularExpression_OperatorNotEqual(const QRegularExpression* self, const QRegularExpression* re) {
-    return (*self != *re);
-}
-
 QRegularExpressionMatch* QRegularExpression_Match2(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset) {
     QString subject_QString = QString::fromUtf8(subject.data, subject.len);
     return new QRegularExpressionMatch(self->match(subject_QString, (qsizetype)(offset)));
@@ -179,21 +166,6 @@ QRegularExpressionMatch* QRegularExpression_Match3(const QRegularExpression* sel
 QRegularExpressionMatch* QRegularExpression_Match4(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset, int matchType, int matchOptions) {
     QString subject_QString = QString::fromUtf8(subject.data, subject.len);
     return new QRegularExpressionMatch(self->match(subject_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
-}
-
-QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch2(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset) {
-    QString subject_QString = QString::fromUtf8(subject.data, subject.len);
-    return new QRegularExpressionMatchIterator(self->globalMatch(subject_QString, (qsizetype)(offset)));
-}
-
-QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch3(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset, int matchType) {
-    QString subject_QString = QString::fromUtf8(subject.data, subject.len);
-    return new QRegularExpressionMatchIterator(self->globalMatch(subject_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType)));
-}
-
-QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch4(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset, int matchType, int matchOptions) {
-    QString subject_QString = QString::fromUtf8(subject.data, subject.len);
-    return new QRegularExpressionMatchIterator(self->globalMatch(subject_QString, (qsizetype)(offset), static_cast<QRegularExpression::MatchType>(matchType), static_cast<QRegularExpression::MatchOptions>(matchOptions)));
 }
 
 libqt_string QRegularExpression_WildcardToRegularExpression2(const libqt_string str, int options) {
@@ -257,9 +229,9 @@ int QRegularExpressionMatch_LastCapturedIndex(const QRegularExpressionMatch* sel
     return self->lastCapturedIndex();
 }
 
-bool QRegularExpressionMatch_HasCaptured(const QRegularExpressionMatch* self, const libqt_string name) {
+bool QRegularExpressionMatch_HasCaptured(const QRegularExpressionMatch* self, libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    return self->hasCaptured(name_QString);
+    return self->hasCaptured(QAnyStringView(name_QString));
 }
 
 bool QRegularExpressionMatch_HasCapturedWithNth(const QRegularExpressionMatch* self, int nth) {
@@ -278,9 +250,9 @@ libqt_string QRegularExpressionMatch_Captured(const QRegularExpressionMatch* sel
     return _str;
 }
 
-libqt_string QRegularExpressionMatch_CapturedWithName(const QRegularExpressionMatch* self, const libqt_string name) {
+libqt_string QRegularExpressionMatch_CapturedWithName(const QRegularExpressionMatch* self, libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    QString _ret = self->captured(name_QString);
+    QString _ret = self->captured(QAnyStringView(name_QString));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -292,10 +264,10 @@ libqt_string QRegularExpressionMatch_CapturedWithName(const QRegularExpressionMa
 }
 
 libqt_list /* of libqt_string */ QRegularExpressionMatch_CapturedTexts(const QRegularExpressionMatch* self) {
-    QStringList _ret = self->capturedTexts();
+    QList<QString> _ret = self->capturedTexts();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -307,7 +279,7 @@ libqt_list /* of libqt_string */ QRegularExpressionMatch_CapturedTexts(const QRe
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -324,19 +296,19 @@ ptrdiff_t QRegularExpressionMatch_CapturedEnd(const QRegularExpressionMatch* sel
     return static_cast<ptrdiff_t>(self->capturedEnd());
 }
 
-ptrdiff_t QRegularExpressionMatch_CapturedStartWithName(const QRegularExpressionMatch* self, const libqt_string name) {
+ptrdiff_t QRegularExpressionMatch_CapturedStartWithName(const QRegularExpressionMatch* self, libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    return static_cast<ptrdiff_t>(self->capturedStart(name_QString));
+    return static_cast<ptrdiff_t>(self->capturedStart(QAnyStringView(name_QString)));
 }
 
-ptrdiff_t QRegularExpressionMatch_CapturedLengthWithName(const QRegularExpressionMatch* self, const libqt_string name) {
+ptrdiff_t QRegularExpressionMatch_CapturedLengthWithName(const QRegularExpressionMatch* self, libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    return static_cast<ptrdiff_t>(self->capturedLength(name_QString));
+    return static_cast<ptrdiff_t>(self->capturedLength(QAnyStringView(name_QString)));
 }
 
-ptrdiff_t QRegularExpressionMatch_CapturedEndWithName(const QRegularExpressionMatch* self, const libqt_string name) {
+ptrdiff_t QRegularExpressionMatch_CapturedEndWithName(const QRegularExpressionMatch* self, libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    return static_cast<ptrdiff_t>(self->capturedEnd(name_QString));
+    return static_cast<ptrdiff_t>(self->capturedEnd(QAnyStringView(name_QString)));
 }
 
 libqt_string QRegularExpressionMatch_Captured1(const QRegularExpressionMatch* self, int nth) {
@@ -364,53 +336,5 @@ ptrdiff_t QRegularExpressionMatch_CapturedEnd1(const QRegularExpressionMatch* se
 }
 
 void QRegularExpressionMatch_Delete(QRegularExpressionMatch* self) {
-    delete self;
-}
-
-QRegularExpressionMatchIterator* QRegularExpressionMatchIterator_new() {
-    return new QRegularExpressionMatchIterator();
-}
-
-QRegularExpressionMatchIterator* QRegularExpressionMatchIterator_new2(const QRegularExpressionMatchIterator* iterator) {
-    return new QRegularExpressionMatchIterator(*iterator);
-}
-
-void QRegularExpressionMatchIterator_OperatorAssign(QRegularExpressionMatchIterator* self, const QRegularExpressionMatchIterator* iterator) {
-    self->operator=(*iterator);
-}
-
-void QRegularExpressionMatchIterator_Swap(QRegularExpressionMatchIterator* self, QRegularExpressionMatchIterator* other) {
-    self->swap(*other);
-}
-
-bool QRegularExpressionMatchIterator_IsValid(const QRegularExpressionMatchIterator* self) {
-    return self->isValid();
-}
-
-bool QRegularExpressionMatchIterator_HasNext(const QRegularExpressionMatchIterator* self) {
-    return self->hasNext();
-}
-
-QRegularExpressionMatch* QRegularExpressionMatchIterator_Next(QRegularExpressionMatchIterator* self) {
-    return new QRegularExpressionMatch(self->next());
-}
-
-QRegularExpressionMatch* QRegularExpressionMatchIterator_PeekNext(const QRegularExpressionMatchIterator* self) {
-    return new QRegularExpressionMatch(self->peekNext());
-}
-
-QRegularExpression* QRegularExpressionMatchIterator_RegularExpression(const QRegularExpressionMatchIterator* self) {
-    return new QRegularExpression(self->regularExpression());
-}
-
-int QRegularExpressionMatchIterator_MatchType(const QRegularExpressionMatchIterator* self) {
-    return static_cast<int>(self->matchType());
-}
-
-int QRegularExpressionMatchIterator_MatchOptions(const QRegularExpressionMatchIterator* self) {
-    return static_cast<int>(self->matchOptions());
-}
-
-void QRegularExpressionMatchIterator_Delete(QRegularExpressionMatchIterator* self) {
     delete self;
 }

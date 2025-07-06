@@ -121,12 +121,12 @@ class VirtualQGraphicsScene final : public QGraphicsScene {
     mutable bool qgraphicsscene_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsScene() : QGraphicsScene(){};
-    VirtualQGraphicsScene(const QRectF& sceneRect) : QGraphicsScene(sceneRect){};
-    VirtualQGraphicsScene(qreal x, qreal y, qreal width, qreal height) : QGraphicsScene(x, y, width, height){};
-    VirtualQGraphicsScene(QObject* parent) : QGraphicsScene(parent){};
-    VirtualQGraphicsScene(const QRectF& sceneRect, QObject* parent) : QGraphicsScene(sceneRect, parent){};
-    VirtualQGraphicsScene(qreal x, qreal y, qreal width, qreal height, QObject* parent) : QGraphicsScene(x, y, width, height, parent){};
+    VirtualQGraphicsScene() : QGraphicsScene() {};
+    VirtualQGraphicsScene(const QRectF& sceneRect) : QGraphicsScene(sceneRect) {};
+    VirtualQGraphicsScene(qreal x, qreal y, qreal width, qreal height) : QGraphicsScene(x, y, width, height) {};
+    VirtualQGraphicsScene(QObject* parent) : QGraphicsScene(parent) {};
+    VirtualQGraphicsScene(const QRectF& sceneRect, QObject* parent) : QGraphicsScene(sceneRect, parent) {};
+    VirtualQGraphicsScene(qreal x, qreal y, qreal width, qreal height, QObject* parent) : QGraphicsScene(x, y, width, height, parent) {};
 
     ~VirtualQGraphicsScene() {
         qgraphicsscene_metacall_callback = nullptr;

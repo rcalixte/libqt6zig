@@ -51,6 +51,13 @@ pub const qwebenginecertificateerror = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#isMainFrame)
+    ///
+    /// ``` self: QtC.QWebEngineCertificateError ```
+    pub fn IsMainFrame(self: ?*anyopaque) bool {
+        return qtc.QWebEngineCertificateError_IsMainFrame(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#defer)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```

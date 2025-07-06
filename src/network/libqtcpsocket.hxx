@@ -172,8 +172,8 @@ class VirtualQTcpSocket final : public QTcpSocket {
     mutable bool qtcpsocket_issignalconnected_isbase = false;
 
   public:
-    VirtualQTcpSocket() : QTcpSocket(){};
-    VirtualQTcpSocket(QObject* parent) : QTcpSocket(parent){};
+    VirtualQTcpSocket() : QTcpSocket() {};
+    VirtualQTcpSocket(QObject* parent) : QTcpSocket(parent) {};
 
     ~VirtualQTcpSocket() {
         qtcpsocket_metacall_callback = nullptr;
@@ -359,7 +359,7 @@ class VirtualQTcpSocket final : public QTcpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool bind(const QHostAddress& address, quint16 port, QAbstractSocket::BindMode mode) override {
+    virtual bool bind(const QHostAddress& address, quint16 port, QFlags<QAbstractSocket::BindFlag> mode) override {
         if (qtcpsocket_bind_isbase) {
             qtcpsocket_bind_isbase = false;
             return QTcpSocket::bind(address, port, mode);
@@ -378,7 +378,7 @@ class VirtualQTcpSocket final : public QTcpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void connectToHost(const QString& hostName, quint16 port, QIODeviceBase::OpenMode mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
+    virtual void connectToHost(const QString& hostName, quint16 port, QFlags<QIODeviceBase::OpenModeFlag> mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
         if (qtcpsocket_connecttohost_isbase) {
             qtcpsocket_connecttohost_isbase = false;
             QTcpSocket::connectToHost(hostName, port, mode, protocol);
@@ -468,7 +468,7 @@ class VirtualQTcpSocket final : public QTcpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QIODeviceBase::OpenMode openMode) override {
+    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODeviceBase::OpenModeFlag> openMode) override {
         if (qtcpsocket_setsocketdescriptor_isbase) {
             qtcpsocket_setsocketdescriptor_isbase = false;
             return QTcpSocket::setSocketDescriptor(socketDescriptor, state, openMode);

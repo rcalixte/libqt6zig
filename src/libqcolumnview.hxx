@@ -138,6 +138,7 @@ class VirtualQColumnView final : public QColumnView {
     using QColumnView_SenderSignalIndex_Callback = int (*)();
     using QColumnView_Receivers_Callback = int (*)(const QColumnView*, const char*);
     using QColumnView_IsSignalConnected_Callback = bool (*)(const QColumnView*, QMetaMethod*);
+    using QColumnView_GetDecodedMetricF_Callback = double (*)(const QColumnView*, int, int);
 
   protected:
     // Instance callback storage
@@ -258,6 +259,7 @@ class VirtualQColumnView final : public QColumnView {
     QColumnView_SenderSignalIndex_Callback qcolumnview_sendersignalindex_callback = nullptr;
     QColumnView_Receivers_Callback qcolumnview_receivers_callback = nullptr;
     QColumnView_IsSignalConnected_Callback qcolumnview_issignalconnected_callback = nullptr;
+    QColumnView_GetDecodedMetricF_Callback qcolumnview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qcolumnview_metacall_isbase = false;
@@ -377,10 +379,11 @@ class VirtualQColumnView final : public QColumnView {
     mutable bool qcolumnview_sendersignalindex_isbase = false;
     mutable bool qcolumnview_receivers_isbase = false;
     mutable bool qcolumnview_issignalconnected_isbase = false;
+    mutable bool qcolumnview_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQColumnView(QWidget* parent) : QColumnView(parent){};
-    VirtualQColumnView() : QColumnView(){};
+    VirtualQColumnView(QWidget* parent) : QColumnView(parent) {};
+    VirtualQColumnView() : QColumnView() {};
 
     ~VirtualQColumnView() {
         qcolumnview_metacall_callback = nullptr;
@@ -500,6 +503,7 @@ class VirtualQColumnView final : public QColumnView {
         qcolumnview_sendersignalindex_callback = nullptr;
         qcolumnview_receivers_callback = nullptr;
         qcolumnview_issignalconnected_callback = nullptr;
+        qcolumnview_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -620,6 +624,7 @@ class VirtualQColumnView final : public QColumnView {
     inline void setQColumnView_SenderSignalIndex_Callback(QColumnView_SenderSignalIndex_Callback cb) { qcolumnview_sendersignalindex_callback = cb; }
     inline void setQColumnView_Receivers_Callback(QColumnView_Receivers_Callback cb) { qcolumnview_receivers_callback = cb; }
     inline void setQColumnView_IsSignalConnected_Callback(QColumnView_IsSignalConnected_Callback cb) { qcolumnview_issignalconnected_callback = cb; }
+    inline void setQColumnView_GetDecodedMetricF_Callback(QColumnView_GetDecodedMetricF_Callback cb) { qcolumnview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQColumnView_Metacall_IsBase(bool value) const { qcolumnview_metacall_isbase = value; }
@@ -739,6 +744,7 @@ class VirtualQColumnView final : public QColumnView {
     inline void setQColumnView_SenderSignalIndex_IsBase(bool value) const { qcolumnview_sendersignalindex_isbase = value; }
     inline void setQColumnView_Receivers_IsBase(bool value) const { qcolumnview_receivers_isbase = value; }
     inline void setQColumnView_IsSignalConnected_IsBase(bool value) const { qcolumnview_issignalconnected_isbase = value; }
+    inline void setQColumnView_GetDecodedMetricF_IsBase(bool value) const { qcolumnview_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1174,13 +1180,13 @@ class VirtualQColumnView final : public QColumnView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
-            for (size_t i = 0; i < roles_ret.length(); ++i) {
+            // Convert const QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            for (size_t i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
             libqt_list roles_out;
-            roles_out.len = roles_ret.length();
+            roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
@@ -1363,13 +1369,13 @@ class VirtualQColumnView final : public QColumnView {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QModelIndexList selectedIndexes() const override {
+    virtual QList<QModelIndex> selectedIndexes() const override {
         if (qcolumnview_selectedindexes_isbase) {
             qcolumnview_selectedindexes_isbase = false;
             return QColumnView::selectedIndexes();
         } else if (qcolumnview_selectedindexes_callback != nullptr) {
             libqt_list /* of QModelIndex* */ callback_ret = qcolumnview_selectedindexes_callback();
-            QModelIndexList callback_ret_QList;
+            QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -2456,6 +2462,22 @@ class VirtualQColumnView final : public QColumnView {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qcolumnview_getdecodedmetricf_isbase) {
+            qcolumnview_getdecodedmetricf_isbase = false;
+            return QColumnView::getDecodedMetricF(metricA, metricB);
+        } else if (qcolumnview_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qcolumnview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QColumnView::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QColumnView_IsIndexHidden(const QColumnView* self, const QModelIndex* index);
     friend bool QColumnView_QBaseIsIndexHidden(const QColumnView* self, const QModelIndex* index);
@@ -2645,6 +2667,8 @@ class VirtualQColumnView final : public QColumnView {
     friend int QColumnView_QBaseReceivers(const QColumnView* self, const char* signal);
     friend bool QColumnView_IsSignalConnected(const QColumnView* self, const QMetaMethod* signal);
     friend bool QColumnView_QBaseIsSignalConnected(const QColumnView* self, const QMetaMethod* signal);
+    friend double QColumnView_GetDecodedMetricF(const QColumnView* self, int metricA, int metricB);
+    friend double QColumnView_QBaseGetDecodedMetricF(const QColumnView* self, int metricA, int metricB);
 };
 
 #endif

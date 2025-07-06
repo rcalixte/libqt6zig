@@ -130,10 +130,10 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     mutable bool qtemporaryfile_issignalconnected_isbase = false;
 
   public:
-    VirtualQTemporaryFile() : QTemporaryFile(){};
-    VirtualQTemporaryFile(const QString& templateName) : QTemporaryFile(templateName){};
-    VirtualQTemporaryFile(QObject* parent) : QTemporaryFile(parent){};
-    VirtualQTemporaryFile(const QString& templateName, QObject* parent) : QTemporaryFile(templateName, parent){};
+    VirtualQTemporaryFile() : QTemporaryFile() {};
+    VirtualQTemporaryFile(const QString& templateName) : QTemporaryFile(templateName) {};
+    VirtualQTemporaryFile(QObject* parent) : QTemporaryFile(parent) {};
+    VirtualQTemporaryFile(const QString& templateName, QObject* parent) : QTemporaryFile(templateName, parent) {};
 
     ~VirtualQTemporaryFile() {
         qtemporaryfile_metacall_callback = nullptr;
@@ -279,7 +279,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool open(QIODeviceBase::OpenMode flags) override {
+    virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> flags) override {
         if (qtemporaryfile_openwithflags_isbase) {
             qtemporaryfile_openwithflags_isbase = false;
             return QTemporaryFile::open(flags);

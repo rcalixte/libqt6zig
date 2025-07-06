@@ -67,8 +67,8 @@ class VirtualQGraphicsTransform final : public QGraphicsTransform {
     mutable bool qgraphicstransform_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsTransform() : QGraphicsTransform(){};
-    VirtualQGraphicsTransform(QObject* parent) : QGraphicsTransform(parent){};
+    VirtualQGraphicsTransform() : QGraphicsTransform() {};
+    VirtualQGraphicsTransform(QObject* parent) : QGraphicsTransform(parent) {};
 
     ~VirtualQGraphicsTransform() {
         qgraphicstransform_metacall_callback = nullptr;
@@ -400,8 +400,8 @@ class VirtualQGraphicsScale final : public QGraphicsScale {
     mutable bool qgraphicsscale_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsScale() : QGraphicsScale(){};
-    VirtualQGraphicsScale(QObject* parent) : QGraphicsScale(parent){};
+    VirtualQGraphicsScale() : QGraphicsScale() {};
+    VirtualQGraphicsScale(QObject* parent) : QGraphicsScale(parent) {};
 
     ~VirtualQGraphicsScale() {
         qgraphicsscale_metacall_callback = nullptr;
@@ -738,8 +738,8 @@ class VirtualQGraphicsRotation final : public QGraphicsRotation {
     mutable bool qgraphicsrotation_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsRotation() : QGraphicsRotation(){};
-    VirtualQGraphicsRotation(QObject* parent) : QGraphicsRotation(parent){};
+    VirtualQGraphicsRotation() : QGraphicsRotation() {};
+    VirtualQGraphicsRotation(QObject* parent) : QGraphicsRotation(parent) {};
 
     ~VirtualQGraphicsRotation() {
         qgraphicsrotation_metacall_callback = nullptr;

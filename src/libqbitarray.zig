@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qsysinfo_enums = @import("libqsysinfo.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qbitarray.html
@@ -186,25 +187,11 @@ pub const qbitarray = struct {
         qtc.QBitArray_OperatorBitwiseNotAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator==)
-    ///
-    /// ``` self: QtC.QBitArray, other: QtC.QBitArray ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QBitArray_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator!=)
-    ///
-    /// ``` self: QtC.QBitArray, other: QtC.QBitArray ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QBitArray_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#fill)
     ///
-    /// ``` self: QtC.QBitArray, val: bool ```
-    pub fn Fill(self: ?*anyopaque, val: bool) bool {
-        return qtc.QBitArray_Fill(@ptrCast(self), val);
+    /// ``` self: QtC.QBitArray, aval: bool ```
+    pub fn Fill(self: ?*anyopaque, aval: bool) bool {
+        return qtc.QBitArray_Fill(@ptrCast(self), aval);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#fill)
@@ -246,9 +233,9 @@ pub const qbitarray = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#fill)
     ///
-    /// ``` self: QtC.QBitArray, val: bool, size: i64 ```
-    pub fn Fill22(self: ?*anyopaque, val: bool, size: i64) bool {
-        return qtc.QBitArray_Fill22(@ptrCast(self), val, @intCast(size));
+    /// ``` self: QtC.QBitArray, aval: bool, asize: i64 ```
+    pub fn Fill22(self: ?*anyopaque, aval: bool, asize: i64) bool {
+        return qtc.QBitArray_Fill22(@ptrCast(self), aval, @intCast(asize));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)

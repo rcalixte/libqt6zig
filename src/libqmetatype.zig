@@ -161,6 +161,13 @@ pub const qmetatype = struct {
         return qtc.QMetaType_IsRegistered2(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#registerType)
+    ///
+    /// ``` self: QtC.QMetaType ```
+    pub fn RegisterType(self: ?*anyopaque) void {
+        qtc.QMetaType_RegisterType(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#id)
     ///
     /// ``` self: QtC.QMetaType ```
@@ -246,6 +253,34 @@ pub const qmetatype = struct {
         return qtc.QMetaType_Equals(@ptrCast(self), lhs, rhs);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isDefaultConstructible)
+    ///
+    /// ``` self: QtC.QMetaType ```
+    pub fn IsDefaultConstructible(self: ?*anyopaque) bool {
+        return qtc.QMetaType_IsDefaultConstructible(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isCopyConstructible)
+    ///
+    /// ``` self: QtC.QMetaType ```
+    pub fn IsCopyConstructible(self: ?*anyopaque) bool {
+        return qtc.QMetaType_IsCopyConstructible(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isMoveConstructible)
+    ///
+    /// ``` self: QtC.QMetaType ```
+    pub fn IsMoveConstructible(self: ?*anyopaque) bool {
+        return qtc.QMetaType_IsMoveConstructible(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isDestructible)
+    ///
+    /// ``` self: QtC.QMetaType ```
+    pub fn IsDestructible(self: ?*anyopaque) bool {
+        return qtc.QMetaType_IsDestructible(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#isEqualityComparable)
     ///
     /// ``` self: QtC.QMetaType ```
@@ -293,6 +328,13 @@ pub const qmetatype = struct {
     /// ``` stream: QtC.QDataStream, typeVal: i32, data: ?*anyopaque ```
     pub fn Load2(stream: ?*anyopaque, typeVal: i32, data: ?*anyopaque) bool {
         return qtc.QMetaType_Load2(@ptrCast(stream), @intCast(typeVal), data);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#underlyingType)
+    ///
+    /// ``` self: QtC.QMetaType ```
+    pub fn UnderlyingType(self: ?*anyopaque) QtC.QMetaType {
+        return qtc.QMetaType_UnderlyingType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#fromName)
@@ -505,6 +547,7 @@ pub const enums = struct {
         pub const QCborValue: i32 = 53;
         pub const QCborArray: i32 = 54;
         pub const QCborMap: i32 = 55;
+        pub const Float16: i32 = 63;
         pub const QModelIndex: i32 = 42;
         pub const QPersistentModelIndex: i32 = 50;
         pub const QObjectStar: i32 = 39;
@@ -539,7 +582,7 @@ pub const enums = struct {
         pub const QColorSpace: i32 = 4119;
         pub const QSizePolicy: i32 = 8192;
         pub const FirstCoreType: i32 = 1;
-        pub const LastCoreType: i32 = 58;
+        pub const LastCoreType: i32 = 63;
         pub const FirstGuiType: i32 = 4096;
         pub const LastGuiType: i32 = 4119;
         pub const FirstWidgetsType: i32 = 8192;
@@ -566,5 +609,7 @@ pub const enums = struct {
         pub const IsPointer: i32 = 2048;
         pub const IsQmlList: i32 = 4096;
         pub const IsConst: i32 = 8192;
+        pub const NeedsCopyConstruction: i32 = 16384;
+        pub const NeedsMoveConstruction: i32 = 32768;
     };
 };

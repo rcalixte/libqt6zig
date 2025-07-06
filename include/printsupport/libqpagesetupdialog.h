@@ -252,6 +252,9 @@ int QPageSetupDialog_QBaseReceivers(const QPageSetupDialog* self, const char* si
 bool QPageSetupDialog_IsSignalConnected(const QPageSetupDialog* self, const QMetaMethod* signal);
 void QPageSetupDialog_OnIsSignalConnected(const QPageSetupDialog* self, intptr_t slot);
 bool QPageSetupDialog_QBaseIsSignalConnected(const QPageSetupDialog* self, const QMetaMethod* signal);
+double QPageSetupDialog_GetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB);
+void QPageSetupDialog_OnGetDecodedMetricF(const QPageSetupDialog* self, intptr_t slot);
+double QPageSetupDialog_QBaseGetDecodedMetricF(const QPageSetupDialog* self, int metricA, int metricB);
 void QPageSetupDialog_Delete(QPageSetupDialog* self);
 
 #ifdef __cplusplus

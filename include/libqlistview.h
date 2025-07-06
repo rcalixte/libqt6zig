@@ -64,20 +64,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QListView::Flow Flow;             // C++ enum
-typedef QListView::LayoutMode LayoutMode; // C++ enum
-typedef QListView::Movement Movement;     // C++ enum
-typedef QListView::ResizeMode ResizeMode; // C++ enum
-typedef QListView::ViewMode ViewMode;     // C++ enum
-#else
-typedef int Flow;       // C ABI enum
-typedef int LayoutMode; // C ABI enum
-typedef int Movement;   // C ABI enum
-typedef int ResizeMode; // C ABI enum
-typedef int ViewMode;   // C ABI enum
-#endif
-
 QListView* QListView_new(QWidget* parent);
 QListView* QListView_new2();
 QMetaObject* QListView_MetaObject(const QListView* self);
@@ -475,6 +461,9 @@ int QListView_QBaseReceivers(const QListView* self, const char* signal);
 bool QListView_IsSignalConnected(const QListView* self, const QMetaMethod* signal);
 void QListView_OnIsSignalConnected(const QListView* self, intptr_t slot);
 bool QListView_QBaseIsSignalConnected(const QListView* self, const QMetaMethod* signal);
+double QListView_GetDecodedMetricF(const QListView* self, int metricA, int metricB);
+void QListView_OnGetDecodedMetricF(const QListView* self, intptr_t slot);
+double QListView_QBaseGetDecodedMetricF(const QListView* self, int metricA, int metricB);
 void QListView_Delete(QListView* self);
 
 #ifdef __cplusplus

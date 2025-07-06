@@ -42,20 +42,6 @@ pub const qprocessenvironment = struct {
         qtc.QProcessEnvironment_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#operator==)
-    ///
-    /// ``` self: QtC.QProcessEnvironment, other: QtC.QProcessEnvironment ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QProcessEnvironment_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#operator!=)
-    ///
-    /// ``` self: QtC.QProcessEnvironment, other: QtC.QProcessEnvironment ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QProcessEnvironment_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#isEmpty)
     ///
     /// ``` self: QtC.QProcessEnvironment ```
@@ -494,6 +480,35 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess, destination: QtC.QProcess ```
     pub fn SetStandardOutputProcess(self: ?*anyopaque, destination: ?*anyopaque) void {
         qtc.QProcess_SetStandardOutputProcess(@ptrCast(self), @ptrCast(destination));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
+    ///
+    /// ``` self: QtC.QProcess, description: []const u8 ```
+    pub fn FailChildProcessModifier(self: ?*anyopaque, description: []const u8) void {
+        const description_Cstring = description.ptr;
+        qtc.QProcess_FailChildProcessModifier(@ptrCast(self), description_Cstring);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#unixProcessParameters)
+    ///
+    /// ``` self: QtC.QProcess ```
+    pub fn UnixProcessParameters(self: ?*anyopaque) QtC.QProcess__UnixProcessParameters {
+        return qtc.QProcess_UnixProcessParameters(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
+    ///
+    /// ``` self: QtC.QProcess, params: QtC.QProcess__UnixProcessParameters ```
+    pub fn SetUnixProcessParameters(self: ?*anyopaque, params: ?*anyopaque) void {
+        qtc.QProcess_SetUnixProcessParameters(@ptrCast(self), @ptrCast(params));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
+    ///
+    /// ``` self: QtC.QProcess, flagsOnly: u32 ```
+    pub fn SetUnixProcessParametersWithFlagsOnly(self: ?*anyopaque, flagsOnly: i64) void {
+        qtc.QProcess_SetUnixProcessParametersWithFlagsOnly(@ptrCast(self), @intCast(flagsOnly));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#workingDirectory)
@@ -1062,6 +1077,14 @@ pub const qprocess = struct {
             .data = fileName.ptr,
         };
         qtc.QProcess_SetStandardErrorFile2(@ptrCast(self), fileName_str, @intCast(mode));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#failChildProcessModifier)
+    ///
+    /// ``` self: QtC.QProcess, description: []const u8, errorVal: i32 ```
+    pub fn FailChildProcessModifier2(self: ?*anyopaque, description: []const u8, errorVal: i32) void {
+        const description_Cstring = description.ptr;
+        qtc.QProcess_FailChildProcessModifier2(@ptrCast(self), description_Cstring, @intCast(errorVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#waitForStarted)
@@ -1707,8 +1730,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QProcess, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1727,6 +1750,15 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QProcess, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1932,6 +1964,15 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QProcess, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -2776,6 +2817,44 @@ pub const qprocess = struct {
     }
 };
 
+/// https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html
+pub const qprocess__unixprocessparameters = struct {
+    /// New constructs a new QProcess::UnixProcessParameters object.
+    ///
+    /// ``` other: QtC.QProcess__UnixProcessParameters ```
+    pub fn New(other: ?*anyopaque) QtC.QProcess__UnixProcessParameters {
+        return qtc.QProcess__UnixProcessParameters_new(@ptrCast(other));
+    }
+
+    /// New2 constructs a new QProcess::UnixProcessParameters object and invalidates the source QProcess::UnixProcessParameters object.
+    ///
+    /// ``` other: QtC.QProcess__UnixProcessParameters ```
+    pub fn New2(other: ?*anyopaque) QtC.QProcess__UnixProcessParameters {
+        return qtc.QProcess__UnixProcessParameters_new2(@ptrCast(other));
+    }
+
+    /// CopyAssign shallow copies `other` into `self`.
+    ///
+    /// ``` self: QtC.QProcess__UnixProcessParameters, other: QtC.QProcess__UnixProcessParameters ```
+    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QProcess__UnixProcessParameters_CopyAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    ///
+    /// ``` self: QtC.QProcess__UnixProcessParameters, other: QtC.QProcess__UnixProcessParameters ```
+    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QProcess__UnixProcessParameters_MoveAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QProcess__UnixProcessParameters ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QProcess__UnixProcessParameters_Delete(@ptrCast(self));
+    }
+};
+
 /// https://doc.qt.io/qt-6/qprocess.html#types
 pub const enums = struct {
     pub const Initialization = enum {
@@ -2818,5 +2897,15 @@ pub const enums = struct {
     pub const ExitStatus = enum {
         pub const NormalExit: i32 = 0;
         pub const CrashExit: i32 = 1;
+    };
+
+    pub const UnixProcessFlag = enum {
+        pub const ResetSignalHandlers: u32 = 1;
+        pub const IgnoreSigPipe: u32 = 2;
+        pub const CloseFileDescriptors: u32 = 16;
+        pub const UseVFork: u32 = 32;
+        pub const CreateNewSession: u32 = 64;
+        pub const DisconnectControllingTerminal: u32 = 128;
+        pub const ResetIds: u32 = 256;
     };
 };

@@ -53,18 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QDialogButtonBox::ButtonLayout ButtonLayout;       // C++ enum
-typedef QDialogButtonBox::ButtonRole ButtonRole;           // C++ enum
-typedef QDialogButtonBox::StandardButton StandardButton;   // C++ enum
-typedef QDialogButtonBox::StandardButtons StandardButtons; // C++ QFlags
-#else
-typedef int ButtonLayout;    // C ABI enum
-typedef int ButtonRole;      // C ABI enum
-typedef int StandardButton;  // C ABI enum
-typedef int StandardButtons; // C ABI QFlags
-#endif
-
 QDialogButtonBox* QDialogButtonBox_new(QWidget* parent);
 QDialogButtonBox* QDialogButtonBox_new2();
 QDialogButtonBox* QDialogButtonBox_new3(int orientation);
@@ -272,6 +260,9 @@ int QDialogButtonBox_QBaseReceivers(const QDialogButtonBox* self, const char* si
 bool QDialogButtonBox_IsSignalConnected(const QDialogButtonBox* self, const QMetaMethod* signal);
 void QDialogButtonBox_OnIsSignalConnected(const QDialogButtonBox* self, intptr_t slot);
 bool QDialogButtonBox_QBaseIsSignalConnected(const QDialogButtonBox* self, const QMetaMethod* signal);
+double QDialogButtonBox_GetDecodedMetricF(const QDialogButtonBox* self, int metricA, int metricB);
+void QDialogButtonBox_OnGetDecodedMetricF(const QDialogButtonBox* self, intptr_t slot);
+double QDialogButtonBox_QBaseGetDecodedMetricF(const QDialogButtonBox* self, int metricA, int metricB);
 void QDialogButtonBox_Delete(QDialogButtonBox* self);
 
 #ifdef __cplusplus

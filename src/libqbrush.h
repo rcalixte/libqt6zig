@@ -34,23 +34,6 @@ typedef struct QTransform QTransform;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QBrush::DataPtr DataPtr;                        // C++ QFlags
-typedef QGradient::CoordinateMode CoordinateMode;       // C++ enum
-typedef QGradient::InterpolationMode InterpolationMode; // C++ enum
-typedef QGradient::Preset Preset;                       // C++ enum
-typedef QGradient::QtGadgetHelper QtGadgetHelper;       // C++ QFlags
-typedef QGradient::Spread Spread;                       // C++ enum
-typedef QGradient::Type Type;                           // C++ enum
-#else
-typedef int CoordinateMode;    // C ABI enum
-typedef int InterpolationMode; // C ABI enum
-typedef int Preset;            // C ABI enum
-typedef int Spread;            // C ABI enum
-typedef unsigned char Type;    // C ABI enum
-typedef void QtGadgetHelper;   // C ABI QFlags
-#endif
-
 QBrush* QBrush_new();
 QBrush* QBrush_new2(int bs);
 QBrush* QBrush_new3(const QColor* color);

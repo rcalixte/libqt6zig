@@ -79,6 +79,7 @@ class VirtualQPushButton final : public QPushButton {
     using QPushButton_SenderSignalIndex_Callback = int (*)();
     using QPushButton_Receivers_Callback = int (*)(const QPushButton*, const char*);
     using QPushButton_IsSignalConnected_Callback = bool (*)(const QPushButton*, QMetaMethod*);
+    using QPushButton_GetDecodedMetricF_Callback = double (*)(const QPushButton*, int, int);
 
   protected:
     // Instance callback storage
@@ -143,6 +144,7 @@ class VirtualQPushButton final : public QPushButton {
     QPushButton_SenderSignalIndex_Callback qpushbutton_sendersignalindex_callback = nullptr;
     QPushButton_Receivers_Callback qpushbutton_receivers_callback = nullptr;
     QPushButton_IsSignalConnected_Callback qpushbutton_issignalconnected_callback = nullptr;
+    QPushButton_GetDecodedMetricF_Callback qpushbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qpushbutton_metacall_isbase = false;
@@ -206,14 +208,15 @@ class VirtualQPushButton final : public QPushButton {
     mutable bool qpushbutton_sendersignalindex_isbase = false;
     mutable bool qpushbutton_receivers_isbase = false;
     mutable bool qpushbutton_issignalconnected_isbase = false;
+    mutable bool qpushbutton_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQPushButton(QWidget* parent) : QPushButton(parent){};
-    VirtualQPushButton() : QPushButton(){};
-    VirtualQPushButton(const QString& text) : QPushButton(text){};
-    VirtualQPushButton(const QIcon& icon, const QString& text) : QPushButton(icon, text){};
-    VirtualQPushButton(const QString& text, QWidget* parent) : QPushButton(text, parent){};
-    VirtualQPushButton(const QIcon& icon, const QString& text, QWidget* parent) : QPushButton(icon, text, parent){};
+    VirtualQPushButton(QWidget* parent) : QPushButton(parent) {};
+    VirtualQPushButton() : QPushButton() {};
+    VirtualQPushButton(const QString& text) : QPushButton(text) {};
+    VirtualQPushButton(const QIcon& icon, const QString& text) : QPushButton(icon, text) {};
+    VirtualQPushButton(const QString& text, QWidget* parent) : QPushButton(text, parent) {};
+    VirtualQPushButton(const QIcon& icon, const QString& text, QWidget* parent) : QPushButton(icon, text, parent) {};
 
     ~VirtualQPushButton() {
         qpushbutton_metacall_callback = nullptr;
@@ -277,6 +280,7 @@ class VirtualQPushButton final : public QPushButton {
         qpushbutton_sendersignalindex_callback = nullptr;
         qpushbutton_receivers_callback = nullptr;
         qpushbutton_issignalconnected_callback = nullptr;
+        qpushbutton_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -341,6 +345,7 @@ class VirtualQPushButton final : public QPushButton {
     inline void setQPushButton_SenderSignalIndex_Callback(QPushButton_SenderSignalIndex_Callback cb) { qpushbutton_sendersignalindex_callback = cb; }
     inline void setQPushButton_Receivers_Callback(QPushButton_Receivers_Callback cb) { qpushbutton_receivers_callback = cb; }
     inline void setQPushButton_IsSignalConnected_Callback(QPushButton_IsSignalConnected_Callback cb) { qpushbutton_issignalconnected_callback = cb; }
+    inline void setQPushButton_GetDecodedMetricF_Callback(QPushButton_GetDecodedMetricF_Callback cb) { qpushbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQPushButton_Metacall_IsBase(bool value) const { qpushbutton_metacall_isbase = value; }
@@ -404,6 +409,7 @@ class VirtualQPushButton final : public QPushButton {
     inline void setQPushButton_SenderSignalIndex_IsBase(bool value) const { qpushbutton_sendersignalindex_isbase = value; }
     inline void setQPushButton_Receivers_IsBase(bool value) const { qpushbutton_receivers_isbase = value; }
     inline void setQPushButton_IsSignalConnected_IsBase(bool value) const { qpushbutton_issignalconnected_isbase = value; }
+    inline void setQPushButton_GetDecodedMetricF_IsBase(bool value) const { qpushbutton_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1271,6 +1277,22 @@ class VirtualQPushButton final : public QPushButton {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qpushbutton_getdecodedmetricf_isbase) {
+            qpushbutton_getdecodedmetricf_isbase = false;
+            return QPushButton::getDecodedMetricF(metricA, metricB);
+        } else if (qpushbutton_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qpushbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QPushButton::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QPushButton_Event(QPushButton* self, QEvent* e);
     friend bool QPushButton_QBaseEvent(QPushButton* self, QEvent* e);
@@ -1374,6 +1396,8 @@ class VirtualQPushButton final : public QPushButton {
     friend int QPushButton_QBaseReceivers(const QPushButton* self, const char* signal);
     friend bool QPushButton_IsSignalConnected(const QPushButton* self, const QMetaMethod* signal);
     friend bool QPushButton_QBaseIsSignalConnected(const QPushButton* self, const QMetaMethod* signal);
+    friend double QPushButton_GetDecodedMetricF(const QPushButton* self, int metricA, int metricB);
+    friend double QPushButton_QBaseGetDecodedMetricF(const QPushButton* self, int metricA, int metricB);
 };
 
 #endif

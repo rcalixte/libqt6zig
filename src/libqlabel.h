@@ -283,6 +283,9 @@ int QLabel_QBaseReceivers(const QLabel* self, const char* signal);
 bool QLabel_IsSignalConnected(const QLabel* self, const QMetaMethod* signal);
 void QLabel_OnIsSignalConnected(const QLabel* self, intptr_t slot);
 bool QLabel_QBaseIsSignalConnected(const QLabel* self, const QMetaMethod* signal);
+double QLabel_GetDecodedMetricF(const QLabel* self, int metricA, int metricB);
+void QLabel_OnGetDecodedMetricF(const QLabel* self, intptr_t slot);
+double QLabel_QBaseGetDecodedMetricF(const QLabel* self, int metricA, int metricB);
 void QLabel_Delete(QLabel* self);
 
 #ifdef __cplusplus

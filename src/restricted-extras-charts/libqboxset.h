@@ -27,12 +27,6 @@ typedef struct QPen QPen;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QBoxSet::ValuePositions ValuePositions; // C++ enum
-#else
-typedef int ValuePositions; // C ABI enum
-#endif
-
 QBoxSet* QBoxSet_new();
 QBoxSet* QBoxSet_new2(const double le, const double lq, const double m, const double uq, const double ue);
 QBoxSet* QBoxSet_new3(const libqt_string label);

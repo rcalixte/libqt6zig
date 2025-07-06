@@ -16,19 +16,10 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QByteArrayView QByteArrayView;
 typedef struct QDateTime QDateTime;
 typedef struct QNetworkCookie QNetworkCookie;
 typedef struct QUrl QUrl;
-#endif
-
-#ifdef __cplusplus
-typedef QNetworkCookie::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QNetworkCookie::RawForm RawForm;               // C++ enum
-typedef QNetworkCookie::SameSite SameSite;             // C++ enum
-#else
-typedef int RawForm;         // C ABI enum
-typedef int SameSite;        // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QNetworkCookie* QNetworkCookie_new();
@@ -59,7 +50,7 @@ void QNetworkCookie_SetValue(QNetworkCookie* self, const libqt_string value);
 libqt_string QNetworkCookie_ToRawForm(const QNetworkCookie* self);
 bool QNetworkCookie_HasSameIdentifier(const QNetworkCookie* self, const QNetworkCookie* other);
 void QNetworkCookie_Normalize(QNetworkCookie* self, const QUrl* url);
-libqt_list /* of QNetworkCookie* */ QNetworkCookie_ParseCookies(const libqt_string cookieString);
+libqt_list /* of QNetworkCookie* */ QNetworkCookie_ParseCookies(QByteArrayView* cookieString);
 libqt_string QNetworkCookie_ToRawForm1(const QNetworkCookie* self, int form);
 void QNetworkCookie_Delete(QNetworkCookie* self);
 

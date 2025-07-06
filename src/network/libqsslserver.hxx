@@ -73,8 +73,8 @@ class VirtualQSslServer final : public QSslServer {
     mutable bool qsslserver_issignalconnected_isbase = false;
 
   public:
-    VirtualQSslServer() : QSslServer(){};
-    VirtualQSslServer(QObject* parent) : QSslServer(parent){};
+    VirtualQSslServer() : QSslServer() {};
+    VirtualQSslServer(QObject* parent) : QSslServer(parent) {};
 
     ~VirtualQSslServer() {
         qsslserver_metacall_callback = nullptr;

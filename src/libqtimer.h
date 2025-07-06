@@ -35,6 +35,7 @@ int QTimer_QBaseMetacall(QTimer* self, int param1, int param2, void** param3);
 libqt_string QTimer_Tr(const char* s);
 bool QTimer_IsActive(const QTimer* self);
 int QTimer_TimerId(const QTimer* self);
+int QTimer_Id(const QTimer* self);
 void QTimer_SetInterval(QTimer* self, int msec);
 int QTimer_Interval(const QTimer* self);
 int QTimer_RemainingTime(const QTimer* self);

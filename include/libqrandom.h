@@ -20,12 +20,6 @@ typedef struct QRandomGenerator QRandomGenerator;
 typedef struct QRandomGenerator64 QRandomGenerator64;
 #endif
 
-#ifdef __cplusplus
-typedef QRandomGenerator64::result_type result_type; // C++ QFlags
-#else
-typedef uint64_t result_type; // C ABI QFlags
-#endif
-
 QRandomGenerator* QRandomGenerator_new();
 QRandomGenerator* QRandomGenerator_new2(const unsigned int* seedBuffer, ptrdiff_t lenVal);
 QRandomGenerator* QRandomGenerator_new3(const unsigned int* begin, const unsigned int* end);

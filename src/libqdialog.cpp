@@ -1977,6 +1977,35 @@ void QDialog_OnIsSignalConnected(const QDialog* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QDialog_GetDecodedMetricF(const QDialog* self, int metricA, int metricB) {
+    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        return vqdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QDialog_QBaseGetDecodedMetricF(const QDialog* self, int metricA, int metricB) {
+    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_GetDecodedMetricF_IsBase(true);
+        return vqdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDialog_OnGetDecodedMetricF(const QDialog* self, intptr_t slot) {
+    auto* vqdialog = const_cast<VirtualQDialog*>(dynamic_cast<const VirtualQDialog*>(self));
+    if (vqdialog && vqdialog->isVirtualQDialog) {
+        vqdialog->setQDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDialog::QDialog_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QDialog_Delete(QDialog* self) {
     delete self;
 }

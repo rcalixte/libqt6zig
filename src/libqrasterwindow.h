@@ -61,6 +61,9 @@ int QRasterWindow_QBaseMetric(const QRasterWindow* self, int metric);
 QPaintDevice* QRasterWindow_Redirected(const QRasterWindow* self, QPoint* param1);
 void QRasterWindow_OnRedirected(const QRasterWindow* self, intptr_t slot);
 QPaintDevice* QRasterWindow_QBaseRedirected(const QRasterWindow* self, QPoint* param1);
+void QRasterWindow_ResizeEvent(QRasterWindow* self, QResizeEvent* event);
+void QRasterWindow_OnResizeEvent(QRasterWindow* self, intptr_t slot);
+void QRasterWindow_QBaseResizeEvent(QRasterWindow* self, QResizeEvent* event);
 libqt_string QRasterWindow_Tr2(const char* s, const char* c);
 libqt_string QRasterWindow_Tr3(const char* s, const char* c, int n);
 void QRasterWindow_ExposeEvent(QRasterWindow* self, QExposeEvent* param1);
@@ -87,9 +90,6 @@ QAccessibleInterface* QRasterWindow_QBaseAccessibleRoot(const QRasterWindow* sel
 QObject* QRasterWindow_FocusObject(const QRasterWindow* self);
 void QRasterWindow_OnFocusObject(const QRasterWindow* self, intptr_t slot);
 QObject* QRasterWindow_QBaseFocusObject(const QRasterWindow* self);
-void QRasterWindow_ResizeEvent(QRasterWindow* self, QResizeEvent* param1);
-void QRasterWindow_OnResizeEvent(QRasterWindow* self, intptr_t slot);
-void QRasterWindow_QBaseResizeEvent(QRasterWindow* self, QResizeEvent* param1);
 void QRasterWindow_MoveEvent(QRasterWindow* self, QMoveEvent* param1);
 void QRasterWindow_OnMoveEvent(QRasterWindow* self, intptr_t slot);
 void QRasterWindow_QBaseMoveEvent(QRasterWindow* self, QMoveEvent* param1);
@@ -180,6 +180,9 @@ int QRasterWindow_QBaseReceivers(const QRasterWindow* self, const char* signal);
 bool QRasterWindow_IsSignalConnected(const QRasterWindow* self, const QMetaMethod* signal);
 void QRasterWindow_OnIsSignalConnected(const QRasterWindow* self, intptr_t slot);
 bool QRasterWindow_QBaseIsSignalConnected(const QRasterWindow* self, const QMetaMethod* signal);
+double QRasterWindow_GetDecodedMetricF(const QRasterWindow* self, int metricA, int metricB);
+void QRasterWindow_OnGetDecodedMetricF(const QRasterWindow* self, intptr_t slot);
+double QRasterWindow_QBaseGetDecodedMetricF(const QRasterWindow* self, int metricA, int metricB);
 void QRasterWindow_Delete(QRasterWindow* self);
 
 #ifdef __cplusplus

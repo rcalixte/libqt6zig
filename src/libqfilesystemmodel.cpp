@@ -8,6 +8,7 @@
 #include <QEvent>
 #include <QFileInfo>
 #include <QFileSystemModel>
+#include <QHash>
 #include <QIcon>
 #include <QList>
 #include <QMap>
@@ -21,6 +22,7 @@
 #include <QString>
 #include <QByteArray>
 #include <cstring>
+#include <QTimeZone>
 #include <QTimerEvent>
 #include <QVariant>
 #include <qfilesystemmodel.h>
@@ -237,7 +239,7 @@ bool QFileSystemModel_NameFilterDisables(const QFileSystemModel* self) {
 }
 
 void QFileSystemModel_SetNameFilters(QFileSystemModel* self, const libqt_list /* of libqt_string */ filters) {
-    QStringList filters_QList;
+    QList<QString> filters_QList;
     filters_QList.reserve(filters.len);
     libqt_string* filters_arr = static_cast<libqt_string*>(filters.data);
     for (size_t i = 0; i < filters.len; ++i) {
@@ -248,10 +250,10 @@ void QFileSystemModel_SetNameFilters(QFileSystemModel* self, const libqt_list /*
 }
 
 libqt_list /* of libqt_string */ QFileSystemModel_NameFilters(const QFileSystemModel* self) {
-    QStringList _ret = self->nameFilters();
+    QList<QString> _ret = self->nameFilters();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -263,7 +265,7 @@ libqt_list /* of libqt_string */ QFileSystemModel_NameFilters(const QFileSystemM
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -318,6 +320,10 @@ libqt_string QFileSystemModel_Type(const QFileSystemModel* self, const QModelInd
 
 QDateTime* QFileSystemModel_LastModified(const QFileSystemModel* self, const QModelIndex* index) {
     return new QDateTime(self->lastModified(*index));
+}
+
+QDateTime* QFileSystemModel_LastModified2(const QFileSystemModel* self, const QModelIndex* index, const QTimeZone* tz) {
+    return new QDateTime(self->lastModified(*index, *tz));
 }
 
 QModelIndex* QFileSystemModel_Mkdir(QFileSystemModel* self, const QModelIndex* parent, const libqt_string name) {
@@ -775,10 +781,10 @@ void QFileSystemModel_OnSort(QFileSystemModel* self, intptr_t slot) {
 libqt_list /* of libqt_string */ QFileSystemModel_MimeTypes(const QFileSystemModel* self) {
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        QStringList _ret = vqfilesystemmodel->mimeTypes();
+        QList<QString> _ret = vqfilesystemmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -790,14 +796,14 @@ libqt_list /* of libqt_string */ QFileSystemModel_MimeTypes(const QFileSystemMod
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QFileSystemModel::mimeTypes();
+        QList<QString> _ret = self->QFileSystemModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -809,7 +815,7 @@ libqt_list /* of libqt_string */ QFileSystemModel_MimeTypes(const QFileSystemMod
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -820,10 +826,10 @@ libqt_list /* of libqt_string */ QFileSystemModel_QBaseMimeTypes(const QFileSyst
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
         vqfilesystemmodel->setQFileSystemModel_MimeTypes_IsBase(true);
-        QStringList _ret = vqfilesystemmodel->mimeTypes();
+        QList<QString> _ret = vqfilesystemmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -835,14 +841,14 @@ libqt_list /* of libqt_string */ QFileSystemModel_QBaseMimeTypes(const QFileSyst
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QFileSystemModel::mimeTypes();
+        QList<QString> _ret = self->QFileSystemModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -854,7 +860,7 @@ libqt_list /* of libqt_string */ QFileSystemModel_QBaseMimeTypes(const QFileSyst
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -871,7 +877,7 @@ void QFileSystemModel_OnMimeTypes(const QFileSystemModel* self, intptr_t slot) {
 // Derived class handler implementation
 QMimeData* QFileSystemModel_MimeData(const QFileSystemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -887,7 +893,7 @@ QMimeData* QFileSystemModel_MimeData(const QFileSystemModel* self, const libqt_l
 // Base class handler implementation
 QMimeData* QFileSystemModel_QBaseMimeData(const QFileSystemModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -972,7 +978,7 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_RoleNames(const QFileSys
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
         QHash<int, QByteArray> _ret = vqfilesystemmodel->roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -994,7 +1000,7 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_RoleNames(const QFileSys
         return _out;
     } else {
         QHash<int, QByteArray> _ret = self->QFileSystemModel::roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -1023,7 +1029,7 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_QBaseRoleNames(const QFi
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
         vqfilesystemmodel->setQFileSystemModel_RoleNames_IsBase(true);
         QHash<int, QByteArray> _ret = vqfilesystemmodel->roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -1045,7 +1051,7 @@ libqt_map /* of int to libqt_string */ QFileSystemModel_QBaseRoleNames(const QFi
         return _out;
     } else {
         QHash<int, QByteArray> _ret = self->QFileSystemModel::roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -1583,25 +1589,25 @@ void QFileSystemModel_OnBuddy(const QFileSystemModel* self, intptr_t slot) {
 libqt_list /* of QModelIndex* */ QFileSystemModel_Match(const QFileSystemModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        QModelIndexList _ret = vqfilesystemmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = vqfilesystemmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = self->QFileSystemModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = self->QFileSystemModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1612,25 +1618,25 @@ libqt_list /* of QModelIndex* */ QFileSystemModel_QBaseMatch(const QFileSystemMo
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
         vqfilesystemmodel->setQFileSystemModel_Match_IsBase(true);
-        QModelIndexList _ret = vqfilesystemmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = vqfilesystemmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = self->QFileSystemModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = self->QFileSystemModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1964,7 +1970,7 @@ void QFileSystemModel_OnCreateIndex(const QFileSystemModel* self, intptr_t slot)
 // Derived class handler implementation
 void QFileSystemModel_EncodeData(const QFileSystemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -1980,7 +1986,7 @@ void QFileSystemModel_EncodeData(const QFileSystemModel* self, const libqt_list 
 // Base class handler implementation
 void QFileSystemModel_QBaseEncodeData(const QFileSystemModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -2469,13 +2475,13 @@ void QFileSystemModel_OnChangePersistentIndex(QFileSystemModel* self, intptr_t s
 // Derived class handler implementation
 void QFileSystemModel_ChangePersistentIndexList(QFileSystemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    QModelIndexList from_QList;
+    QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
     QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
     for (size_t i = 0; i < from.len; ++i) {
         from_QList.push_back(*(from_arr[i]));
     }
-    QModelIndexList to_QList;
+    QList<QModelIndex> to_QList;
     to_QList.reserve(to.len);
     QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
     for (size_t i = 0; i < to.len; ++i) {
@@ -2491,13 +2497,13 @@ void QFileSystemModel_ChangePersistentIndexList(QFileSystemModel* self, const li
 // Base class handler implementation
 void QFileSystemModel_QBaseChangePersistentIndexList(QFileSystemModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqfilesystemmodel = dynamic_cast<VirtualQFileSystemModel*>(self);
-    QModelIndexList from_QList;
+    QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
     QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
     for (size_t i = 0; i < from.len; ++i) {
         from_QList.push_back(*(from_arr[i]));
     }
-    QModelIndexList to_QList;
+    QList<QModelIndex> to_QList;
     to_QList.reserve(to.len);
     QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
     for (size_t i = 0; i < to.len; ++i) {
@@ -2523,25 +2529,25 @@ void QFileSystemModel_OnChangePersistentIndexList(QFileSystemModel* self, intptr
 libqt_list /* of QModelIndex* */ QFileSystemModel_PersistentIndexList(const QFileSystemModel* self) {
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
-        QModelIndexList _ret = vqfilesystemmodel->persistentIndexList();
+        QList<QModelIndex> _ret = vqfilesystemmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQFileSystemModel*)self)->persistentIndexList();
+        QList<QModelIndex> _ret = ((VirtualQFileSystemModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -2552,25 +2558,25 @@ libqt_list /* of QModelIndex* */ QFileSystemModel_QBasePersistentIndexList(const
     auto* vqfilesystemmodel = const_cast<VirtualQFileSystemModel*>(dynamic_cast<const VirtualQFileSystemModel*>(self));
     if (vqfilesystemmodel && vqfilesystemmodel->isVirtualQFileSystemModel) {
         vqfilesystemmodel->setQFileSystemModel_PersistentIndexList_IsBase(true);
-        QModelIndexList _ret = vqfilesystemmodel->persistentIndexList();
+        QList<QModelIndex> _ret = vqfilesystemmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQFileSystemModel*)self)->persistentIndexList();
+        QList<QModelIndex> _ret = ((VirtualQFileSystemModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

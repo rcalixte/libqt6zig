@@ -78,6 +78,10 @@ QThread* QThread_CurrentThread() {
     return QThread::currentThread();
 }
 
+bool QThread_IsMainThread() {
+    return QThread::isMainThread();
+}
+
 int QThread_IdealThreadCount() {
     return QThread::idealThreadCount();
 }
@@ -128,6 +132,10 @@ void QThread_SetEventDispatcher(QThread* self, QAbstractEventDispatcher* eventDi
 
 int QThread_LoopLevel(const QThread* self) {
     return self->loopLevel();
+}
+
+bool QThread_IsCurrentThread(const QThread* self) {
+    return self->isCurrentThread();
 }
 
 void QThread_Start(QThread* self) {

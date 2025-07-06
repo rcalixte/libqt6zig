@@ -26,15 +26,6 @@ typedef struct QVariant QVariant;
 typedef struct QWindow QWindow;
 #endif
 
-#ifdef __cplusplus
-typedef QIcon::DataPtr DataPtr; // C++ QFlags
-typedef QIcon::Mode Mode;       // C++ enum
-typedef QIcon::State State;     // C++ enum
-#else
-typedef int Mode;  // C ABI enum
-typedef int State; // C ABI enum
-#endif
-
 QIcon* QIcon_new();
 QIcon* QIcon_new2(const QPixmap* pixmap);
 QIcon* QIcon_new3(const QIcon* other);
@@ -65,6 +56,9 @@ bool QIcon_IsMask(const QIcon* self);
 QIcon* QIcon_FromTheme(const libqt_string name);
 QIcon* QIcon_FromTheme2(const libqt_string name, const QIcon* fallback);
 bool QIcon_HasThemeIcon(const libqt_string name);
+QIcon* QIcon_FromThemeWithIcon(int icon);
+QIcon* QIcon_FromTheme3(int icon, const QIcon* fallback);
+bool QIcon_HasThemeIconWithIcon(int icon);
 libqt_list /* of libqt_string */ QIcon_ThemeSearchPaths();
 void QIcon_SetThemeSearchPaths(const libqt_list /* of libqt_string */ searchpath);
 libqt_list /* of libqt_string */ QIcon_FallbackSearchPaths();

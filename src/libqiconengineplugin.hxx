@@ -64,8 +64,8 @@ class VirtualQIconEnginePlugin final : public QIconEnginePlugin {
     mutable bool qiconengineplugin_issignalconnected_isbase = false;
 
   public:
-    VirtualQIconEnginePlugin() : QIconEnginePlugin(){};
-    VirtualQIconEnginePlugin(QObject* parent) : QIconEnginePlugin(parent){};
+    VirtualQIconEnginePlugin() : QIconEnginePlugin() {};
+    VirtualQIconEnginePlugin(QObject* parent) : QIconEnginePlugin(parent) {};
 
     ~VirtualQIconEnginePlugin() {
         qiconengineplugin_metacall_callback = nullptr;

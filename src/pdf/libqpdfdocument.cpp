@@ -139,6 +139,11 @@ libqt_string QPdfDocument_PageLabel(QPdfDocument* self, int page) {
     return _str;
 }
 
+int QPdfDocument_PageIndexForLabel(QPdfDocument* self, const libqt_string label) {
+    QString label_QString = QString::fromUtf8(label.data, label.len);
+    return self->pageIndexForLabel(label_QString);
+}
+
 QAbstractListModel* QPdfDocument_PageModel(QPdfDocument* self) {
     return self->pageModel();
 }

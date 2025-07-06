@@ -252,6 +252,12 @@ pub const enums = struct {
         pub const Transparent: i32 = 19;
     };
 
+    pub const ColorScheme = enum {
+        pub const Unknown: i32 = 0;
+        pub const Light: i32 = 1;
+        pub const Dark: i32 = 2;
+    };
+
     pub const MouseButton = enum {
         pub const NoButton: i32 = 0;
         pub const LeftButton: i32 = 1;
@@ -550,6 +556,7 @@ pub const enums = struct {
     };
 
     pub const ApplicationAttribute = enum {
+        pub const AA_QtQuickUseDefaultSizePolicy: i32 = 1;
         pub const AA_DontShowIconsInMenus: i32 = 2;
         pub const AA_NativeWindows: i32 = 3;
         pub const AA_DontCreateNativeWidgetSiblings: i32 = 4;
@@ -558,6 +565,7 @@ pub const enums = struct {
         pub const AA_MacDontSwapCtrlAndMeta: i32 = 7;
         pub const AA_Use96Dpi: i32 = 8;
         pub const AA_DisableNativeVirtualKeyboard: i32 = 9;
+        pub const AA_DontUseNativeMenuWindows: i32 = 10;
         pub const AA_SynthesizeTouchForUnhandledMouseEvents: i32 = 11;
         pub const AA_SynthesizeMouseForUnhandledTouchEvents: i32 = 12;
         pub const AA_UseHighDpiPixmaps: i32 = 13;
@@ -700,6 +708,7 @@ pub const enums = struct {
         pub const Key_twosuperior: i32 = 178;
         pub const Key_threesuperior: i32 = 179;
         pub const Key_acute: i32 = 180;
+        pub const Key_micro: i32 = 181;
         pub const Key_mu: i32 = 181;
         pub const Key_paragraph: i32 = 182;
         pub const Key_periodcentered: i32 = 183;
@@ -1363,6 +1372,11 @@ pub const enums = struct {
         pub const PreventContextMenu: i32 = 4;
     };
 
+    pub const ContextMenuTrigger = enum {
+        pub const Press: i32 = 0;
+        pub const Release: i32 = 1;
+    };
+
     pub const InputMethodQuery = enum {
         pub const ImEnabled: i32 = 1;
         pub const ImCursorRectangle: i32 = 2;
@@ -1631,6 +1645,10 @@ pub const enums = struct {
         pub const VeryCoarseTimer: i32 = 2;
     };
 
+    pub const TimerId = enum {
+        pub const Invalid: i32 = 0;
+    };
+
     pub const ScrollPhase = enum {
         pub const NoScrollPhase: i32 = 0;
         pub const ScrollBegin: i32 = 1;
@@ -1664,6 +1682,12 @@ pub const enums = struct {
         pub const Floor: i32 = 3;
         pub const RoundPreferFloor: i32 = 4;
         pub const PassThrough: i32 = 5;
+    };
+
+    pub const PermissionStatus = enum {
+        pub const Undetermined: i32 = 0;
+        pub const Granted: i32 = 1;
+        pub const Denied: i32 = 2;
     };
 
     pub const ReturnByValueConstant = enum {

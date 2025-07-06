@@ -62,7 +62,7 @@ QPointingDevice* QPointingDevice_new() {
 
 QPointingDevice* QPointingDevice_new2(const libqt_string name, long long systemId, int devType, int pType, int caps, int maxPoints, int buttonCount) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QInputDevice::Capabilities>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount));
+    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QFlags<QInputDevice::Capability>>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount));
 }
 
 QPointingDevice* QPointingDevice_new3(QObject* parent) {
@@ -72,19 +72,19 @@ QPointingDevice* QPointingDevice_new3(QObject* parent) {
 QPointingDevice* QPointingDevice_new4(const libqt_string name, long long systemId, int devType, int pType, int caps, int maxPoints, int buttonCount, const libqt_string seatName) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
-    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QInputDevice::Capabilities>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount), seatName_QString);
+    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QFlags<QInputDevice::Capability>>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount), seatName_QString);
 }
 
 QPointingDevice* QPointingDevice_new5(const libqt_string name, long long systemId, int devType, int pType, int caps, int maxPoints, int buttonCount, const libqt_string seatName, QPointingDeviceUniqueId* uniqueId) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
-    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QInputDevice::Capabilities>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount), seatName_QString, *uniqueId);
+    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QFlags<QInputDevice::Capability>>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount), seatName_QString, *uniqueId);
 }
 
 QPointingDevice* QPointingDevice_new6(const libqt_string name, long long systemId, int devType, int pType, int caps, int maxPoints, int buttonCount, const libqt_string seatName, QPointingDeviceUniqueId* uniqueId, QObject* parent) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
-    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QInputDevice::Capabilities>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount), seatName_QString, *uniqueId, parent);
+    return new VirtualQPointingDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(devType), static_cast<QPointingDevice::PointerType>(pType), static_cast<QFlags<QInputDevice::Capability>>(caps), static_cast<int>(maxPoints), static_cast<int>(buttonCount), seatName_QString, *uniqueId, parent);
 }
 
 QMetaObject* QPointingDevice_MetaObject(const QPointingDevice* self) {

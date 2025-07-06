@@ -6,12 +6,14 @@
 #include <QDnsMailExchangeRecord>
 #include <QDnsServiceRecord>
 #include <QDnsTextRecord>
+#include <QDnsTlsAssociationRecord>
 #include <QEvent>
 #include <QHostAddress>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
+#include <QSslConfiguration>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -255,8 +257,8 @@ unsigned int QDnsTextRecord_TimeToLive(const QDnsTextRecord* self) {
 libqt_list /* of libqt_string */ QDnsTextRecord_Values(const QDnsTextRecord* self) {
     QList<QByteArray> _ret = self->values();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -266,12 +268,70 @@ libqt_list /* of libqt_string */ QDnsTextRecord_Values(const QDnsTextRecord* sel
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 void QDnsTextRecord_Delete(QDnsTextRecord* self) {
+    delete self;
+}
+
+QDnsTlsAssociationRecord* QDnsTlsAssociationRecord_new() {
+    return new QDnsTlsAssociationRecord();
+}
+
+QDnsTlsAssociationRecord* QDnsTlsAssociationRecord_new2(const QDnsTlsAssociationRecord* other) {
+    return new QDnsTlsAssociationRecord(*other);
+}
+
+void QDnsTlsAssociationRecord_OperatorAssign(QDnsTlsAssociationRecord* self, const QDnsTlsAssociationRecord* other) {
+    self->operator=(*other);
+}
+
+void QDnsTlsAssociationRecord_Swap(QDnsTlsAssociationRecord* self, QDnsTlsAssociationRecord* other) {
+    self->swap(*other);
+}
+
+libqt_string QDnsTlsAssociationRecord_Name(const QDnsTlsAssociationRecord* self) {
+    QString _ret = self->name();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+unsigned int QDnsTlsAssociationRecord_TimeToLive(const QDnsTlsAssociationRecord* self) {
+    return static_cast<unsigned int>(self->timeToLive());
+}
+
+uint8_t QDnsTlsAssociationRecord_Usage(const QDnsTlsAssociationRecord* self) {
+    return static_cast<uint8_t>(self->usage());
+}
+
+uint8_t QDnsTlsAssociationRecord_Selector(const QDnsTlsAssociationRecord* self) {
+    return static_cast<uint8_t>(self->selector());
+}
+
+uint8_t QDnsTlsAssociationRecord_MatchType(const QDnsTlsAssociationRecord* self) {
+    return static_cast<uint8_t>(self->matchType());
+}
+
+libqt_string QDnsTlsAssociationRecord_Value(const QDnsTlsAssociationRecord* self) {
+    QByteArray _qb = self->value();
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QDnsTlsAssociationRecord_Delete(QDnsTlsAssociationRecord* self) {
     delete self;
 }
 
@@ -289,18 +349,43 @@ QDnsLookup* QDnsLookup_new3(int typeVal, const libqt_string name, const QHostAdd
     return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, *nameserver);
 }
 
-QDnsLookup* QDnsLookup_new4(QObject* parent) {
+QDnsLookup* QDnsLookup_new4(int typeVal, const libqt_string name, const QHostAddress* nameserver, uint16_t port) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, *nameserver, static_cast<quint16>(port));
+}
+
+QDnsLookup* QDnsLookup_new5(int typeVal, const libqt_string name, uint8_t protocol, const QHostAddress* nameserver) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, static_cast<QDnsLookup::Protocol>(protocol), *nameserver);
+}
+
+QDnsLookup* QDnsLookup_new6(QObject* parent) {
     return new VirtualQDnsLookup(parent);
 }
 
-QDnsLookup* QDnsLookup_new5(int typeVal, const libqt_string name, QObject* parent) {
+QDnsLookup* QDnsLookup_new7(int typeVal, const libqt_string name, QObject* parent) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, parent);
 }
 
-QDnsLookup* QDnsLookup_new6(int typeVal, const libqt_string name, const QHostAddress* nameserver, QObject* parent) {
+QDnsLookup* QDnsLookup_new8(int typeVal, const libqt_string name, const QHostAddress* nameserver, QObject* parent) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, *nameserver, parent);
+}
+
+QDnsLookup* QDnsLookup_new9(int typeVal, const libqt_string name, const QHostAddress* nameserver, uint16_t port, QObject* parent) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, *nameserver, static_cast<quint16>(port), parent);
+}
+
+QDnsLookup* QDnsLookup_new10(int typeVal, const libqt_string name, uint8_t protocol, const QHostAddress* nameserver, uint16_t port) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, static_cast<QDnsLookup::Protocol>(protocol), *nameserver, static_cast<quint16>(port));
+}
+
+QDnsLookup* QDnsLookup_new11(int typeVal, const libqt_string name, uint8_t protocol, const QHostAddress* nameserver, uint16_t port, QObject* parent) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return new VirtualQDnsLookup(static_cast<QDnsLookup::Type>(typeVal), name_QString, static_cast<QDnsLookup::Protocol>(protocol), *nameserver, static_cast<quint16>(port), parent);
 }
 
 QMetaObject* QDnsLookup_MetaObject(const QDnsLookup* self) {
@@ -349,6 +434,10 @@ libqt_string QDnsLookup_Tr(const char* s) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+bool QDnsLookup_IsAuthenticData(const QDnsLookup* self) {
+    return self->isAuthenticData();
 }
 
 int QDnsLookup_Error(const QDnsLookup* self) {
@@ -404,15 +493,39 @@ void QDnsLookup_SetNameserver(QDnsLookup* self, const QHostAddress* nameserver) 
     self->setNameserver(*nameserver);
 }
 
+uint16_t QDnsLookup_NameserverPort(const QDnsLookup* self) {
+    return static_cast<uint16_t>(self->nameserverPort());
+}
+
+void QDnsLookup_SetNameserverPort(QDnsLookup* self, uint16_t port) {
+    self->setNameserverPort(static_cast<quint16>(port));
+}
+
+uint8_t QDnsLookup_NameserverProtocol(const QDnsLookup* self) {
+    return static_cast<uint8_t>(self->nameserverProtocol());
+}
+
+void QDnsLookup_SetNameserverProtocol(QDnsLookup* self, uint8_t protocol) {
+    self->setNameserverProtocol(static_cast<QDnsLookup::Protocol>(protocol));
+}
+
+void QDnsLookup_SetNameserver2(QDnsLookup* self, uint8_t protocol, const QHostAddress* nameserver) {
+    self->setNameserver(static_cast<QDnsLookup::Protocol>(protocol), *nameserver);
+}
+
+void QDnsLookup_SetNameserver3(QDnsLookup* self, const QHostAddress* nameserver, uint16_t port) {
+    self->setNameserver(*nameserver, static_cast<quint16>(port));
+}
+
 libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_CanonicalNameRecords(const QDnsLookup* self) {
     QList<QDnsDomainNameRecord> _ret = self->canonicalNameRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsDomainNameRecord(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -420,12 +533,12 @@ libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_CanonicalNameRecords(const 
 libqt_list /* of QDnsHostAddressRecord* */ QDnsLookup_HostAddressRecords(const QDnsLookup* self) {
     QList<QDnsHostAddressRecord> _ret = self->hostAddressRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDnsHostAddressRecord** _arr = static_cast<QDnsHostAddressRecord**>(malloc(sizeof(QDnsHostAddressRecord*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDnsHostAddressRecord** _arr = static_cast<QDnsHostAddressRecord**>(malloc(sizeof(QDnsHostAddressRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsHostAddressRecord(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -433,12 +546,12 @@ libqt_list /* of QDnsHostAddressRecord* */ QDnsLookup_HostAddressRecords(const Q
 libqt_list /* of QDnsMailExchangeRecord* */ QDnsLookup_MailExchangeRecords(const QDnsLookup* self) {
     QList<QDnsMailExchangeRecord> _ret = self->mailExchangeRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDnsMailExchangeRecord** _arr = static_cast<QDnsMailExchangeRecord**>(malloc(sizeof(QDnsMailExchangeRecord*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDnsMailExchangeRecord** _arr = static_cast<QDnsMailExchangeRecord**>(malloc(sizeof(QDnsMailExchangeRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsMailExchangeRecord(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -446,12 +559,12 @@ libqt_list /* of QDnsMailExchangeRecord* */ QDnsLookup_MailExchangeRecords(const
 libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_NameServerRecords(const QDnsLookup* self) {
     QList<QDnsDomainNameRecord> _ret = self->nameServerRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsDomainNameRecord(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -459,12 +572,12 @@ libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_NameServerRecords(const QDn
 libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_PointerRecords(const QDnsLookup* self) {
     QList<QDnsDomainNameRecord> _ret = self->pointerRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsDomainNameRecord(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -472,12 +585,12 @@ libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_PointerRecords(const QDnsLo
 libqt_list /* of QDnsServiceRecord* */ QDnsLookup_ServiceRecords(const QDnsLookup* self) {
     QList<QDnsServiceRecord> _ret = self->serviceRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDnsServiceRecord** _arr = static_cast<QDnsServiceRecord**>(malloc(sizeof(QDnsServiceRecord*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDnsServiceRecord** _arr = static_cast<QDnsServiceRecord**>(malloc(sizeof(QDnsServiceRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsServiceRecord(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -485,14 +598,43 @@ libqt_list /* of QDnsServiceRecord* */ QDnsLookup_ServiceRecords(const QDnsLooku
 libqt_list /* of QDnsTextRecord* */ QDnsLookup_TextRecords(const QDnsLookup* self) {
     QList<QDnsTextRecord> _ret = self->textRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDnsTextRecord** _arr = static_cast<QDnsTextRecord**>(malloc(sizeof(QDnsTextRecord*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QDnsTextRecord** _arr = static_cast<QDnsTextRecord**>(malloc(sizeof(QDnsTextRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsTextRecord(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+libqt_list /* of QDnsTlsAssociationRecord* */ QDnsLookup_TlsAssociationRecords(const QDnsLookup* self) {
+    QList<QDnsTlsAssociationRecord> _ret = self->tlsAssociationRecords();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QDnsTlsAssociationRecord** _arr = static_cast<QDnsTlsAssociationRecord**>(malloc(sizeof(QDnsTlsAssociationRecord*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QDnsTlsAssociationRecord(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+void QDnsLookup_SetSslConfiguration(QDnsLookup* self, const QSslConfiguration* sslConfiguration) {
+    self->setSslConfiguration(*sslConfiguration);
+}
+
+QSslConfiguration* QDnsLookup_SslConfiguration(const QDnsLookup* self) {
+    return new QSslConfiguration(self->sslConfiguration());
+}
+
+bool QDnsLookup_IsProtocolSupported(uint8_t protocol) {
+    return QDnsLookup::isProtocolSupported(static_cast<QDnsLookup::Protocol>(protocol));
+}
+
+uint16_t QDnsLookup_DefaultPortForProtocol(uint8_t protocol) {
+    return static_cast<uint16_t>(QDnsLookup::defaultPortForProtocol(static_cast<QDnsLookup::Protocol>(protocol)));
 }
 
 void QDnsLookup_Abort(QDnsLookup* self) {
@@ -561,6 +703,30 @@ void QDnsLookup_Connect_NameserverChanged(QDnsLookup* self, intptr_t slot) {
     });
 }
 
+void QDnsLookup_NameserverPortChanged(QDnsLookup* self, uint16_t port) {
+    self->nameserverPortChanged(static_cast<quint16>(port));
+}
+
+void QDnsLookup_Connect_NameserverPortChanged(QDnsLookup* self, intptr_t slot) {
+    void (*slotFunc)(QDnsLookup*, uint16_t) = reinterpret_cast<void (*)(QDnsLookup*, uint16_t)>(slot);
+    QDnsLookup::connect(self, &QDnsLookup::nameserverPortChanged, [self, slotFunc](quint16 port) {
+        uint16_t sigval1 = static_cast<uint16_t>(port);
+        slotFunc(self, sigval1);
+    });
+}
+
+void QDnsLookup_NameserverProtocolChanged(QDnsLookup* self, uint8_t protocol) {
+    self->nameserverProtocolChanged(static_cast<QDnsLookup::Protocol>(protocol));
+}
+
+void QDnsLookup_Connect_NameserverProtocolChanged(QDnsLookup* self, intptr_t slot) {
+    void (*slotFunc)(QDnsLookup*, uint8_t) = reinterpret_cast<void (*)(QDnsLookup*, uint8_t)>(slot);
+    QDnsLookup::connect(self, &QDnsLookup::nameserverProtocolChanged, [self, slotFunc](QDnsLookup::Protocol protocol) {
+        uint8_t sigval1 = static_cast<uint8_t>(protocol);
+        slotFunc(self, sigval1);
+    });
+}
+
 libqt_string QDnsLookup_Tr2(const char* s, const char* c) {
     QString _ret = QDnsLookup::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -583,6 +749,10 @@ libqt_string QDnsLookup_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+void QDnsLookup_SetNameserver32(QDnsLookup* self, uint8_t protocol, const QHostAddress* nameserver, uint16_t port) {
+    self->setNameserver(static_cast<QDnsLookup::Protocol>(protocol), *nameserver, static_cast<quint16>(port));
 }
 
 // Derived class handler implementation

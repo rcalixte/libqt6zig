@@ -172,7 +172,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     mutable bool qabstractsocket_issignalconnected_isbase = false;
 
   public:
-    VirtualQAbstractSocket(QAbstractSocket::SocketType socketType, QObject* parent) : QAbstractSocket(socketType, parent){};
+    VirtualQAbstractSocket(QAbstractSocket::SocketType socketType, QObject* parent) : QAbstractSocket(socketType, parent) {};
 
     ~VirtualQAbstractSocket() {
         qabstractsocket_metacall_callback = nullptr;
@@ -358,7 +358,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool bind(const QHostAddress& address, quint16 port, QAbstractSocket::BindMode mode) override {
+    virtual bool bind(const QHostAddress& address, quint16 port, QFlags<QAbstractSocket::BindFlag> mode) override {
         if (qabstractsocket_bind_isbase) {
             qabstractsocket_bind_isbase = false;
             return QAbstractSocket::bind(address, port, mode);
@@ -377,7 +377,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void connectToHost(const QString& hostName, quint16 port, QIODeviceBase::OpenMode mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
+    virtual void connectToHost(const QString& hostName, quint16 port, QFlags<QIODeviceBase::OpenModeFlag> mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
         if (qabstractsocket_connecttohost_isbase) {
             qabstractsocket_connecttohost_isbase = false;
             QAbstractSocket::connectToHost(hostName, port, mode, protocol);
@@ -467,7 +467,7 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QIODeviceBase::OpenMode openMode) override {
+    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODeviceBase::OpenModeFlag> openMode) override {
         if (qabstractsocket_setsocketdescriptor_isbase) {
             qabstractsocket_setsocketdescriptor_isbase = false;
             return QAbstractSocket::setSocketDescriptor(socketDescriptor, state, openMode);

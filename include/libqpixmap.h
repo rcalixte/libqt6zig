@@ -34,12 +34,6 @@ typedef struct QTransform QTransform;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QPixmap::DataPtr DataPtr; // C++ QFlags
-#else
-
-#endif
-
 QPixmap* QPixmap_new();
 QPixmap* QPixmap_new2(int w, int h);
 QPixmap* QPixmap_new3(const QSize* param1);
@@ -135,6 +129,9 @@ QPaintDevice* QPixmap_QBaseRedirected(const QPixmap* self, QPoint* offset);
 QPainter* QPixmap_SharedPainter(const QPixmap* self);
 void QPixmap_OnSharedPainter(const QPixmap* self, intptr_t slot);
 QPainter* QPixmap_QBaseSharedPainter(const QPixmap* self);
+double QPixmap_GetDecodedMetricF(const QPixmap* self, int metricA, int metricB);
+void QPixmap_OnGetDecodedMetricF(const QPixmap* self, intptr_t slot);
+double QPixmap_QBaseGetDecodedMetricF(const QPixmap* self, int metricA, int metricB);
 void QPixmap_Delete(QPixmap* self);
 
 #ifdef __cplusplus

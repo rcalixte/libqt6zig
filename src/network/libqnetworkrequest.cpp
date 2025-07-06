@@ -1,5 +1,8 @@
+#include <QAnyStringView>
 #include <QByteArray>
+#include <QHttp1Configuration>
 #include <QHttp2Configuration>
+#include <QHttpHeaders>
 #include <QList>
 #include <QNetworkRequest>
 #include <QObject>
@@ -49,6 +52,14 @@ void QNetworkRequest_SetUrl(QNetworkRequest* self, const QUrl* url) {
     self->setUrl(*url);
 }
 
+QHttpHeaders* QNetworkRequest_Headers(const QNetworkRequest* self) {
+    return new QHttpHeaders(self->headers());
+}
+
+void QNetworkRequest_SetHeaders(QNetworkRequest* self, const QHttpHeaders* newHeaders) {
+    self->setHeaders(*newHeaders);
+}
+
 QVariant* QNetworkRequest_Header(const QNetworkRequest* self, int header) {
     return new QVariant(self->header(static_cast<QNetworkRequest::KnownHeaders>(header)));
 }
@@ -57,16 +68,16 @@ void QNetworkRequest_SetHeader(QNetworkRequest* self, int header, const QVariant
     self->setHeader(static_cast<QNetworkRequest::KnownHeaders>(header), *value);
 }
 
-bool QNetworkRequest_HasRawHeader(const QNetworkRequest* self, const libqt_string headerName) {
-    QByteArray headerName_QByteArray(headerName.data, headerName.len);
-    return self->hasRawHeader(headerName_QByteArray);
+bool QNetworkRequest_HasRawHeader(const QNetworkRequest* self, libqt_string headerName) {
+    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
+    return self->hasRawHeader(QAnyStringView(headerName_QString));
 }
 
 libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkRequest* self) {
     QList<QByteArray> _ret = self->rawHeaderList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -76,14 +87,14 @@ libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkReq
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
-libqt_string QNetworkRequest_RawHeader(const QNetworkRequest* self, const libqt_string headerName) {
-    QByteArray headerName_QByteArray(headerName.data, headerName.len);
-    QByteArray _qb = self->rawHeader(headerName_QByteArray);
+libqt_string QNetworkRequest_RawHeader(const QNetworkRequest* self, libqt_string headerName) {
+    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
+    QByteArray _qb = self->rawHeader(QAnyStringView(headerName_QString));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
@@ -155,6 +166,14 @@ void QNetworkRequest_SetPeerVerifyName(QNetworkRequest* self, const libqt_string
     self->setPeerVerifyName(peerName_QString);
 }
 
+QHttp1Configuration* QNetworkRequest_Http1Configuration(const QNetworkRequest* self) {
+    return new QHttp1Configuration(self->http1Configuration());
+}
+
+void QNetworkRequest_SetHttp1Configuration(QNetworkRequest* self, const QHttp1Configuration* configuration) {
+    self->setHttp1Configuration(*configuration);
+}
+
 QHttp2Configuration* QNetworkRequest_Http2Configuration(const QNetworkRequest* self) {
     return new QHttp2Configuration(self->http2Configuration());
 }
@@ -175,16 +194,16 @@ int QNetworkRequest_TransferTimeout(const QNetworkRequest* self) {
     return self->transferTimeout();
 }
 
-void QNetworkRequest_SetTransferTimeout(QNetworkRequest* self) {
+void QNetworkRequest_SetTransferTimeout(QNetworkRequest* self, int timeout) {
+    self->setTransferTimeout(static_cast<int>(timeout));
+}
+
+void QNetworkRequest_SetTransferTimeout2(QNetworkRequest* self) {
     self->setTransferTimeout();
 }
 
 QVariant* QNetworkRequest_Attribute2(const QNetworkRequest* self, int code, const QVariant* defaultValue) {
     return new QVariant(self->attribute(static_cast<QNetworkRequest::Attribute>(code), *defaultValue));
-}
-
-void QNetworkRequest_SetTransferTimeout1(QNetworkRequest* self, int timeout) {
-    self->setTransferTimeout(static_cast<int>(timeout));
 }
 
 void QNetworkRequest_Delete(QNetworkRequest* self) {

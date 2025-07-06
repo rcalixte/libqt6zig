@@ -76,8 +76,32 @@ QByteArrayView* QByteArrayView_Sliced2(const QByteArrayView* self, ptrdiff_t pos
     return new QByteArrayView(self->sliced((qsizetype)(pos), (qsizetype)(n)));
 }
 
+QByteArrayView* QByteArrayView_Slice(QByteArrayView* self, ptrdiff_t pos) {
+    QByteArrayView& _ret = self->slice((qsizetype)(pos));
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
+QByteArrayView* QByteArrayView_Slice2(QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
+    QByteArrayView& _ret = self->slice((qsizetype)(pos), (qsizetype)(n));
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
 QByteArrayView* QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t lenVal) {
     return new QByteArrayView(self->chopped((qsizetype)(lenVal)));
+}
+
+QByteArrayView* QByteArrayView_Left(const QByteArrayView* self, ptrdiff_t n) {
+    return new QByteArrayView(self->left((qsizetype)(n)));
+}
+
+QByteArrayView* QByteArrayView_Right(const QByteArrayView* self, ptrdiff_t n) {
+    return new QByteArrayView(self->right((qsizetype)(n)));
+}
+
+QByteArrayView* QByteArrayView_Mid(const QByteArrayView* self, ptrdiff_t pos) {
+    return new QByteArrayView(self->mid((qsizetype)(pos)));
 }
 
 void QByteArrayView_Truncate(QByteArrayView* self, ptrdiff_t n) {
@@ -224,6 +248,10 @@ char QByteArrayView_Back(const QByteArrayView* self) {
     return self->back();
 }
 
+ptrdiff_t QByteArrayView_MaxSize(const QByteArrayView* self) {
+    return static_cast<ptrdiff_t>(self->max_size());
+}
+
 bool QByteArrayView_IsNull(const QByteArrayView* self) {
     return self->isNull();
 }
@@ -242,6 +270,14 @@ char QByteArrayView_First2(const QByteArrayView* self) {
 
 char QByteArrayView_Last2(const QByteArrayView* self) {
     return self->last();
+}
+
+ptrdiff_t QByteArrayView_MaxSize2() {
+    return static_cast<ptrdiff_t>(QByteArrayView::maxSize());
+}
+
+QByteArrayView* QByteArrayView_Mid2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
+    return new QByteArrayView(self->mid((qsizetype)(pos), (qsizetype)(n)));
 }
 
 int16_t QByteArrayView_ToShort1(const QByteArrayView* self, bool* ok) {

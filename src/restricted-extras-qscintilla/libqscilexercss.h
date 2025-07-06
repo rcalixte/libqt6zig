@@ -165,6 +165,12 @@ void QsciLexerCSS_QBaseConnectNotify(QsciLexerCSS* self, const QMetaMethod* sign
 void QsciLexerCSS_DisconnectNotify(QsciLexerCSS* self, const QMetaMethod* signal);
 void QsciLexerCSS_OnDisconnectNotify(QsciLexerCSS* self, intptr_t slot);
 void QsciLexerCSS_QBaseDisconnectNotify(QsciLexerCSS* self, const QMetaMethod* signal);
+libqt_string QsciLexerCSS_TextAsBytes(const QsciLexerCSS* self, const libqt_string text);
+void QsciLexerCSS_OnTextAsBytes(const QsciLexerCSS* self, intptr_t slot);
+libqt_string QsciLexerCSS_QBaseTextAsBytes(const QsciLexerCSS* self, const libqt_string text);
+libqt_string QsciLexerCSS_BytesAsText(const QsciLexerCSS* self, const char* bytes, int size);
+void QsciLexerCSS_OnBytesAsText(const QsciLexerCSS* self, intptr_t slot);
+libqt_string QsciLexerCSS_QBaseBytesAsText(const QsciLexerCSS* self, const char* bytes, int size);
 QObject* QsciLexerCSS_Sender(const QsciLexerCSS* self);
 void QsciLexerCSS_OnSender(const QsciLexerCSS* self, intptr_t slot);
 QObject* QsciLexerCSS_QBaseSender(const QsciLexerCSS* self);

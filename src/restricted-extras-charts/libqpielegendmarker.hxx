@@ -67,8 +67,8 @@ class VirtualQPieLegendMarker final : public QPieLegendMarker {
     mutable bool qpielegendmarker_issignalconnected_isbase = false;
 
   public:
-    VirtualQPieLegendMarker(QPieSeries* series, QPieSlice* slice, QLegend* legend) : QPieLegendMarker(series, slice, legend){};
-    VirtualQPieLegendMarker(QPieSeries* series, QPieSlice* slice, QLegend* legend, QObject* parent) : QPieLegendMarker(series, slice, legend, parent){};
+    VirtualQPieLegendMarker(QPieSeries* series, QPieSlice* slice, QLegend* legend) : QPieLegendMarker(series, slice, legend) {};
+    VirtualQPieLegendMarker(QPieSeries* series, QPieSlice* slice, QLegend* legend, QObject* parent) : QPieLegendMarker(series, slice, legend, parent) {};
 
     ~VirtualQPieLegendMarker() {
         qpielegendmarker_metacall_callback = nullptr;

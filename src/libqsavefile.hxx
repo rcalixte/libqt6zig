@@ -127,10 +127,10 @@ class VirtualQSaveFile final : public QSaveFile {
     mutable bool qsavefile_issignalconnected_isbase = false;
 
   public:
-    VirtualQSaveFile(const QString& name) : QSaveFile(name){};
-    VirtualQSaveFile() : QSaveFile(){};
-    VirtualQSaveFile(const QString& name, QObject* parent) : QSaveFile(name, parent){};
-    VirtualQSaveFile(QObject* parent) : QSaveFile(parent){};
+    VirtualQSaveFile(const QString& name) : QSaveFile(name) {};
+    VirtualQSaveFile() : QSaveFile() {};
+    VirtualQSaveFile(const QString& name, QObject* parent) : QSaveFile(name, parent) {};
+    VirtualQSaveFile(QObject* parent) : QSaveFile(parent) {};
 
     ~VirtualQSaveFile() {
         qsavefile_metacall_callback = nullptr;
@@ -273,7 +273,7 @@ class VirtualQSaveFile final : public QSaveFile {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool open(QIODeviceBase::OpenMode flags) override {
+    virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> flags) override {
         if (qsavefile_open_isbase) {
             qsavefile_open_isbase = false;
             return QSaveFile::open(flags);

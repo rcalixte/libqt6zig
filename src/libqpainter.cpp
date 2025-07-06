@@ -987,6 +987,14 @@ void QPainter_Delete(QPainter* self) {
     delete self;
 }
 
+QPainter__PixmapFragment* QPainter__PixmapFragment_new() {
+    return new QPainter::PixmapFragment();
+}
+
+QPainter__PixmapFragment* QPainter__PixmapFragment_new2(const QPainter__PixmapFragment* param1) {
+    return new QPainter::PixmapFragment(*param1);
+}
+
 QPainter__PixmapFragment* QPainter__PixmapFragment_Create(const QPointF* pos, const QRectF* sourceRect) {
     return new QPainter::PixmapFragment(QPainter::PixmapFragment::create(*pos, *sourceRect));
 }

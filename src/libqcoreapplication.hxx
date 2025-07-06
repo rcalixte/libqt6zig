@@ -67,8 +67,8 @@ class VirtualQCoreApplication final : public QCoreApplication {
     mutable bool qcoreapplication_issignalconnected_isbase = false;
 
   public:
-    VirtualQCoreApplication(int& argc, char** argv) : QCoreApplication(argc, argv){};
-    VirtualQCoreApplication(int& argc, char** argv, int param3) : QCoreApplication(argc, argv, param3){};
+    VirtualQCoreApplication(int& argc, char** argv) : QCoreApplication(argc, argv) {};
+    VirtualQCoreApplication(int& argc, char** argv, int param3) : QCoreApplication(argc, argv, param3) {};
 
     ~VirtualQCoreApplication() {
         qcoreapplication_metacall_callback = nullptr;

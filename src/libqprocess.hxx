@@ -121,8 +121,8 @@ class VirtualQProcess final : public QProcess {
     mutable bool qprocess_issignalconnected_isbase = false;
 
   public:
-    VirtualQProcess() : QProcess(){};
-    VirtualQProcess(QObject* parent) : QProcess(parent){};
+    VirtualQProcess() : QProcess() {};
+    VirtualQProcess(QObject* parent) : QProcess(parent) {};
 
     ~VirtualQProcess() {
         qprocess_metacall_callback = nullptr;
@@ -245,7 +245,7 @@ class VirtualQProcess final : public QProcess {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool open(QIODeviceBase::OpenMode mode) override {
+    virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> mode) override {
         if (qprocess_open_isbase) {
             qprocess_open_isbase = false;
             return QProcess::open(mode);

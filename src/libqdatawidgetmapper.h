@@ -29,12 +29,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QDataWidgetMapper::SubmitPolicy SubmitPolicy; // C++ enum
-#else
-typedef int SubmitPolicy; // C ABI enum
-#endif
-
 QDataWidgetMapper* QDataWidgetMapper_new();
 QDataWidgetMapper* QDataWidgetMapper_new2(QObject* parent);
 QMetaObject* QDataWidgetMapper_MetaObject(const QDataWidgetMapper* self);

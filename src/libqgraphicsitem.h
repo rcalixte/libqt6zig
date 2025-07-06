@@ -67,23 +67,6 @@ typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QGraphicsItem::CacheMode CacheMode;                   // C++ enum
-typedef QGraphicsItem::GraphicsItemChange GraphicsItemChange; // C++ enum
-typedef QGraphicsItem::GraphicsItemFlag GraphicsItemFlag;     // C++ enum
-typedef QGraphicsItem::GraphicsItemFlags GraphicsItemFlags;   // C++ QFlags
-typedef QGraphicsItem::PanelModality PanelModality;           // C++ enum
-typedef QGraphicsPixmapItem::ShapeMode ShapeMode;             // C++ enum
-#else
-typedef int CacheMode;          // C ABI enum
-typedef int Extension;          // C ABI enum
-typedef int GraphicsItemChange; // C ABI enum
-typedef int GraphicsItemFlag;   // C ABI enum
-typedef int GraphicsItemFlags;  // C ABI QFlags
-typedef int PanelModality;      // C ABI enum
-typedef int ShapeMode;          // C ABI enum
-#endif
-
 QGraphicsItem* QGraphicsItem_new();
 QGraphicsItem* QGraphicsItem_new2(QGraphicsItem* parent);
 QGraphicsScene* QGraphicsItem_Scene(const QGraphicsItem* self);

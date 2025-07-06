@@ -67,8 +67,8 @@ class VirtualQGraphicsItemAnimation final : public QGraphicsItemAnimation {
     mutable bool qgraphicsitemanimation_issignalconnected_isbase = false;
 
   public:
-    VirtualQGraphicsItemAnimation() : QGraphicsItemAnimation(){};
-    VirtualQGraphicsItemAnimation(QObject* parent) : QGraphicsItemAnimation(parent){};
+    VirtualQGraphicsItemAnimation() : QGraphicsItemAnimation() {};
+    VirtualQGraphicsItemAnimation(QObject* parent) : QGraphicsItemAnimation(parent) {};
 
     ~VirtualQGraphicsItemAnimation() {
         qgraphicsitemanimation_metacall_callback = nullptr;

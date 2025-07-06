@@ -1,5 +1,6 @@
 #include <QChildEvent>
 #include <QEvent>
+#include <QIODevice>
 #include <QMediaCaptureSession>
 #include <QMediaFormat>
 #include <QMediaMetaData>
@@ -83,6 +84,14 @@ QUrl* QMediaRecorder_OutputLocation(const QMediaRecorder* self) {
 
 void QMediaRecorder_SetOutputLocation(QMediaRecorder* self, const QUrl* location) {
     self->setOutputLocation(*location);
+}
+
+void QMediaRecorder_SetOutputDevice(QMediaRecorder* self, QIODevice* device) {
+    self->setOutputDevice(device);
+}
+
+QIODevice* QMediaRecorder_OutputDevice(const QMediaRecorder* self) {
+    return self->outputDevice();
 }
 
 QUrl* QMediaRecorder_ActualLocation(const QMediaRecorder* self) {
@@ -199,6 +208,14 @@ void QMediaRecorder_SetMetaData(QMediaRecorder* self, const QMediaMetaData* meta
 
 void QMediaRecorder_AddMetaData(QMediaRecorder* self, const QMediaMetaData* metaData) {
     self->addMetaData(*metaData);
+}
+
+bool QMediaRecorder_AutoStop(const QMediaRecorder* self) {
+    return self->autoStop();
+}
+
+void QMediaRecorder_SetAutoStop(QMediaRecorder* self, bool autoStop) {
+    self->setAutoStop(autoStop);
 }
 
 QMediaCaptureSession* QMediaRecorder_CaptureSession(const QMediaRecorder* self) {
@@ -405,6 +422,17 @@ void QMediaRecorder_AudioSampleRateChanged(QMediaRecorder* self) {
 void QMediaRecorder_Connect_AudioSampleRateChanged(QMediaRecorder* self, intptr_t slot) {
     void (*slotFunc)(QMediaRecorder*) = reinterpret_cast<void (*)(QMediaRecorder*)>(slot);
     QMediaRecorder::connect(self, &QMediaRecorder::audioSampleRateChanged, [self, slotFunc]() {
+        slotFunc(self);
+    });
+}
+
+void QMediaRecorder_AutoStopChanged(QMediaRecorder* self) {
+    self->autoStopChanged();
+}
+
+void QMediaRecorder_Connect_AutoStopChanged(QMediaRecorder* self, intptr_t slot) {
+    void (*slotFunc)(QMediaRecorder*) = reinterpret_cast<void (*)(QMediaRecorder*)>(slot);
+    QMediaRecorder::connect(self, &QMediaRecorder::autoStopChanged, [self, slotFunc]() {
         slotFunc(self);
     });
 }

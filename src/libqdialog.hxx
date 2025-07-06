@@ -81,6 +81,7 @@ class VirtualQDialog final : public QDialog {
     using QDialog_SenderSignalIndex_Callback = int (*)();
     using QDialog_Receivers_Callback = int (*)(const QDialog*, const char*);
     using QDialog_IsSignalConnected_Callback = bool (*)(const QDialog*, QMetaMethod*);
+    using QDialog_GetDecodedMetricF_Callback = double (*)(const QDialog*, int, int);
 
   protected:
     // Instance callback storage
@@ -147,6 +148,7 @@ class VirtualQDialog final : public QDialog {
     QDialog_SenderSignalIndex_Callback qdialog_sendersignalindex_callback = nullptr;
     QDialog_Receivers_Callback qdialog_receivers_callback = nullptr;
     QDialog_IsSignalConnected_Callback qdialog_issignalconnected_callback = nullptr;
+    QDialog_GetDecodedMetricF_Callback qdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qdialog_metacall_isbase = false;
@@ -212,11 +214,12 @@ class VirtualQDialog final : public QDialog {
     mutable bool qdialog_sendersignalindex_isbase = false;
     mutable bool qdialog_receivers_isbase = false;
     mutable bool qdialog_issignalconnected_isbase = false;
+    mutable bool qdialog_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQDialog(QWidget* parent) : QDialog(parent){};
-    VirtualQDialog() : QDialog(){};
-    VirtualQDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f){};
+    VirtualQDialog(QWidget* parent) : QDialog(parent) {};
+    VirtualQDialog() : QDialog() {};
+    VirtualQDialog(QWidget* parent, Qt::WindowFlags f) : QDialog(parent, f) {};
 
     ~VirtualQDialog() {
         qdialog_metacall_callback = nullptr;
@@ -282,6 +285,7 @@ class VirtualQDialog final : public QDialog {
         qdialog_sendersignalindex_callback = nullptr;
         qdialog_receivers_callback = nullptr;
         qdialog_issignalconnected_callback = nullptr;
+        qdialog_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -348,6 +352,7 @@ class VirtualQDialog final : public QDialog {
     inline void setQDialog_SenderSignalIndex_Callback(QDialog_SenderSignalIndex_Callback cb) { qdialog_sendersignalindex_callback = cb; }
     inline void setQDialog_Receivers_Callback(QDialog_Receivers_Callback cb) { qdialog_receivers_callback = cb; }
     inline void setQDialog_IsSignalConnected_Callback(QDialog_IsSignalConnected_Callback cb) { qdialog_issignalconnected_callback = cb; }
+    inline void setQDialog_GetDecodedMetricF_Callback(QDialog_GetDecodedMetricF_Callback cb) { qdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQDialog_Metacall_IsBase(bool value) const { qdialog_metacall_isbase = value; }
@@ -413,6 +418,7 @@ class VirtualQDialog final : public QDialog {
     inline void setQDialog_SenderSignalIndex_IsBase(bool value) const { qdialog_sendersignalindex_isbase = value; }
     inline void setQDialog_Receivers_IsBase(bool value) const { qdialog_receivers_isbase = value; }
     inline void setQDialog_IsSignalConnected_IsBase(bool value) const { qdialog_issignalconnected_isbase = value; }
+    inline void setQDialog_GetDecodedMetricF_IsBase(bool value) const { qdialog_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1302,6 +1308,22 @@ class VirtualQDialog final : public QDialog {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qdialog_getdecodedmetricf_isbase) {
+            qdialog_getdecodedmetricf_isbase = false;
+            return QDialog::getDecodedMetricF(metricA, metricB);
+        } else if (qdialog_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QDialog::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QDialog_KeyPressEvent(QDialog* self, QKeyEvent* param1);
     friend void QDialog_QBaseKeyPressEvent(QDialog* self, QKeyEvent* param1);
@@ -1401,6 +1423,8 @@ class VirtualQDialog final : public QDialog {
     friend int QDialog_QBaseReceivers(const QDialog* self, const char* signal);
     friend bool QDialog_IsSignalConnected(const QDialog* self, const QMetaMethod* signal);
     friend bool QDialog_QBaseIsSignalConnected(const QDialog* self, const QMetaMethod* signal);
+    friend double QDialog_GetDecodedMetricF(const QDialog* self, int metricA, int metricB);
+    friend double QDialog_QBaseGetDecodedMetricF(const QDialog* self, int metricA, int metricB);
 };
 
 #endif

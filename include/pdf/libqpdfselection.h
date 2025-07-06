@@ -20,12 +20,6 @@ typedef struct QPdfSelection QPdfSelection;
 typedef struct QRectF QRectF;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfSelection::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QPdfSelection* QPdfSelection_new(const QPdfSelection* other);
 void QPdfSelection_OperatorAssign(QPdfSelection* self, const QPdfSelection* other);
 void QPdfSelection_Swap(QPdfSelection* self, QPdfSelection* other);

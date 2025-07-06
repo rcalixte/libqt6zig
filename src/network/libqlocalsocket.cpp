@@ -236,12 +236,12 @@ libqt_string QLocalSocket_Tr3(const char* s, const char* c, int n) {
 }
 
 void QLocalSocket_ConnectToServer1(QLocalSocket* self, int openMode) {
-    self->connectToServer(static_cast<QIODeviceBase::OpenMode>(openMode));
+    self->connectToServer(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 void QLocalSocket_ConnectToServer2(QLocalSocket* self, const libqt_string name, int openMode) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
-    self->connectToServer(name_QString, static_cast<QIODeviceBase::OpenMode>(openMode));
+    self->connectToServer(name_QString, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 bool QLocalSocket_SetSocketDescriptor2(QLocalSocket* self, intptr_t socketDescriptor, int socketState) {
@@ -249,7 +249,7 @@ bool QLocalSocket_SetSocketDescriptor2(QLocalSocket* self, intptr_t socketDescri
 }
 
 bool QLocalSocket_SetSocketDescriptor3(QLocalSocket* self, intptr_t socketDescriptor, int socketState, int openMode) {
-    return self->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QLocalSocket::LocalSocketState>(socketState), static_cast<QIODeviceBase::OpenMode>(openMode));
+    return self->setSocketDescriptor((qintptr)(socketDescriptor), static_cast<QLocalSocket::LocalSocketState>(socketState), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
 bool QLocalSocket_WaitForConnected1(QLocalSocket* self, int msecs) {
@@ -380,9 +380,9 @@ void QLocalSocket_OnCanReadLine(const QLocalSocket* self, intptr_t slot) {
 bool QLocalSocket_Open(QLocalSocket* self, int openMode) {
     auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
-        return vqlocalsocket->open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return vqlocalsocket->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     } else {
-        return self->QLocalSocket::open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return self->QLocalSocket::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     }
 }
 
@@ -391,9 +391,9 @@ bool QLocalSocket_QBaseOpen(QLocalSocket* self, int openMode) {
     auto* vqlocalsocket = dynamic_cast<VirtualQLocalSocket*>(self);
     if (vqlocalsocket && vqlocalsocket->isVirtualQLocalSocket) {
         vqlocalsocket->setQLocalSocket_Open_IsBase(true);
-        return vqlocalsocket->open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return vqlocalsocket->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     } else {
-        return self->QLocalSocket::open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return self->QLocalSocket::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     }
 }
 

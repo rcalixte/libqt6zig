@@ -1966,25 +1966,25 @@ void QHeaderView_OnEditorDestroyed(QHeaderView* self, intptr_t slot) {
 libqt_list /* of QModelIndex* */ QHeaderView_SelectedIndexes(const QHeaderView* self) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
-        QModelIndexList _ret = vqheaderview->selectedIndexes();
+        QList<QModelIndex> _ret = vqheaderview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQHeaderView*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQHeaderView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1995,25 +1995,25 @@ libqt_list /* of QModelIndex* */ QHeaderView_QBaseSelectedIndexes(const QHeaderV
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_SelectedIndexes_IsBase(true);
-        QModelIndexList _ret = vqheaderview->selectedIndexes();
+        QList<QModelIndex> _ret = vqheaderview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQHeaderView*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQHeaderView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -4166,6 +4166,35 @@ void QHeaderView_OnIsSignalConnected(const QHeaderView* self, intptr_t slot) {
     auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
     if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
         vqheaderview->setQHeaderView_IsSignalConnected_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QHeaderView_GetDecodedMetricF(const QHeaderView* self, int metricA, int metricB) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        return vqheaderview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQHeaderView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QHeaderView_QBaseGetDecodedMetricF(const QHeaderView* self, int metricA, int metricB) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_GetDecodedMetricF_IsBase(true);
+        return vqheaderview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQHeaderView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QHeaderView_OnGetDecodedMetricF(const QHeaderView* self, intptr_t slot) {
+    auto* vqheaderview = const_cast<VirtualQHeaderView*>(dynamic_cast<const VirtualQHeaderView*>(self));
+    if (vqheaderview && vqheaderview->isVirtualQHeaderView) {
+        vqheaderview->setQHeaderView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQHeaderView::QHeaderView_GetDecodedMetricF_Callback>(slot));
     }
 }
 

@@ -81,6 +81,7 @@ class VirtualQWidget final : public QWidget {
     using QWidget_SenderSignalIndex_Callback = int (*)();
     using QWidget_Receivers_Callback = int (*)(const QWidget*, const char*);
     using QWidget_IsSignalConnected_Callback = bool (*)(const QWidget*, QMetaMethod*);
+    using QWidget_GetDecodedMetricF_Callback = double (*)(const QWidget*, int, int);
 
   protected:
     // Instance callback storage
@@ -147,6 +148,7 @@ class VirtualQWidget final : public QWidget {
     QWidget_SenderSignalIndex_Callback qwidget_sendersignalindex_callback = nullptr;
     QWidget_Receivers_Callback qwidget_receivers_callback = nullptr;
     QWidget_IsSignalConnected_Callback qwidget_issignalconnected_callback = nullptr;
+    QWidget_GetDecodedMetricF_Callback qwidget_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qwidget_metacall_isbase = false;
@@ -212,11 +214,12 @@ class VirtualQWidget final : public QWidget {
     mutable bool qwidget_sendersignalindex_isbase = false;
     mutable bool qwidget_receivers_isbase = false;
     mutable bool qwidget_issignalconnected_isbase = false;
+    mutable bool qwidget_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQWidget(QWidget* parent) : QWidget(parent){};
-    VirtualQWidget() : QWidget(){};
-    VirtualQWidget(QWidget* parent, Qt::WindowFlags f) : QWidget(parent, f){};
+    VirtualQWidget(QWidget* parent) : QWidget(parent) {};
+    VirtualQWidget() : QWidget() {};
+    VirtualQWidget(QWidget* parent, Qt::WindowFlags f) : QWidget(parent, f) {};
 
     ~VirtualQWidget() {
         qwidget_metacall_callback = nullptr;
@@ -282,6 +285,7 @@ class VirtualQWidget final : public QWidget {
         qwidget_sendersignalindex_callback = nullptr;
         qwidget_receivers_callback = nullptr;
         qwidget_issignalconnected_callback = nullptr;
+        qwidget_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -348,6 +352,7 @@ class VirtualQWidget final : public QWidget {
     inline void setQWidget_SenderSignalIndex_Callback(QWidget_SenderSignalIndex_Callback cb) { qwidget_sendersignalindex_callback = cb; }
     inline void setQWidget_Receivers_Callback(QWidget_Receivers_Callback cb) { qwidget_receivers_callback = cb; }
     inline void setQWidget_IsSignalConnected_Callback(QWidget_IsSignalConnected_Callback cb) { qwidget_issignalconnected_callback = cb; }
+    inline void setQWidget_GetDecodedMetricF_Callback(QWidget_GetDecodedMetricF_Callback cb) { qwidget_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQWidget_Metacall_IsBase(bool value) const { qwidget_metacall_isbase = value; }
@@ -413,6 +418,7 @@ class VirtualQWidget final : public QWidget {
     inline void setQWidget_SenderSignalIndex_IsBase(bool value) const { qwidget_sendersignalindex_isbase = value; }
     inline void setQWidget_Receivers_IsBase(bool value) const { qwidget_receivers_isbase = value; }
     inline void setQWidget_IsSignalConnected_IsBase(bool value) const { qwidget_issignalconnected_isbase = value; }
+    inline void setQWidget_GetDecodedMetricF_IsBase(bool value) const { qwidget_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1313,6 +1319,22 @@ class VirtualQWidget final : public QWidget {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qwidget_getdecodedmetricf_isbase) {
+            qwidget_getdecodedmetricf_isbase = false;
+            return QWidget::getDecodedMetricF(metricA, metricB);
+        } else if (qwidget_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qwidget_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QWidget::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QWidget_Event(QWidget* self, QEvent* event);
     friend bool QWidget_QBaseEvent(QWidget* self, QEvent* event);
@@ -1420,6 +1442,8 @@ class VirtualQWidget final : public QWidget {
     friend int QWidget_QBaseReceivers(const QWidget* self, const char* signal);
     friend bool QWidget_IsSignalConnected(const QWidget* self, const QMetaMethod* signal);
     friend bool QWidget_QBaseIsSignalConnected(const QWidget* self, const QMetaMethod* signal);
+    friend double QWidget_GetDecodedMetricF(const QWidget* self, int metricA, int metricB);
+    friend double QWidget_QBaseGetDecodedMetricF(const QWidget* self, int metricA, int metricB);
 };
 
 #endif

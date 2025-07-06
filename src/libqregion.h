@@ -23,12 +23,6 @@ typedef struct QRegion QRegion;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QRegion::RegionType RegionType; // C++ enum
-#else
-typedef int RegionType; // C ABI enum
-#endif
-
 QRegion* QRegion_new();
 QRegion* QRegion_new2(int x, int y, int w, int h);
 QRegion* QRegion_new3(const QRect* r);
@@ -60,6 +54,8 @@ bool QRegion_Intersects(const QRegion* self, const QRegion* r);
 bool QRegion_IntersectsWithQRect(const QRegion* self, const QRect* r);
 QRect* QRegion_BoundingRect(const QRegion* self);
 void QRegion_SetRects(QRegion* self, const QRect* rect, int num);
+void QRegion_SetRectsWithQSpanLesserconstQRectGreater(QRegion* self, libqt_list /* of QRect* */ r);
+libqt_list /* of QRect* */ QRegion_Rects(const QRegion* self);
 int QRegion_RectCount(const QRegion* self);
 QRegion* QRegion_OperatorBitwiseOr(const QRegion* self, const QRegion* r);
 QRegion* QRegion_OperatorPlus(const QRegion* self, const QRegion* r);

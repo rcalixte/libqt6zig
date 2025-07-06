@@ -61,8 +61,8 @@ class VirtualQButtonGroup final : public QButtonGroup {
     mutable bool qbuttongroup_issignalconnected_isbase = false;
 
   public:
-    VirtualQButtonGroup() : QButtonGroup(){};
-    VirtualQButtonGroup(QObject* parent) : QButtonGroup(parent){};
+    VirtualQButtonGroup() : QButtonGroup() {};
+    VirtualQButtonGroup(QObject* parent) : QButtonGroup(parent) {};
 
     ~VirtualQButtonGroup() {
         qbuttongroup_metacall_callback = nullptr;

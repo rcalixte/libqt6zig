@@ -25,16 +25,6 @@ typedef struct QScroller QScroller;
 typedef struct QScrollerProperties QScrollerProperties;
 #endif
 
-#ifdef __cplusplus
-typedef QScroller::Input Input;                             // C++ enum
-typedef QScroller::ScrollerGestureType ScrollerGestureType; // C++ enum
-typedef QScroller::State State;                             // C++ enum
-#else
-typedef int Input;               // C ABI enum
-typedef int ScrollerGestureType; // C ABI enum
-typedef int State;               // C ABI enum
-#endif
-
 QMetaObject* QScroller_MetaObject(const QScroller* self);
 void* QScroller_Metacast(QScroller* self, const char* param1);
 int QScroller_Metacall(QScroller* self, int param1, int param2, void** param3);

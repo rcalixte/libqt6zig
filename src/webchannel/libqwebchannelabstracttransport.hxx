@@ -64,8 +64,8 @@ class VirtualQWebChannelAbstractTransport final : public QWebChannelAbstractTran
     mutable bool qwebchannelabstracttransport_issignalconnected_isbase = false;
 
   public:
-    VirtualQWebChannelAbstractTransport() : QWebChannelAbstractTransport(){};
-    VirtualQWebChannelAbstractTransport(QObject* parent) : QWebChannelAbstractTransport(parent){};
+    VirtualQWebChannelAbstractTransport() : QWebChannelAbstractTransport() {};
+    VirtualQWebChannelAbstractTransport(QObject* parent) : QWebChannelAbstractTransport(parent) {};
 
     ~VirtualQWebChannelAbstractTransport() {
         qwebchannelabstracttransport_metacall_callback = nullptr;

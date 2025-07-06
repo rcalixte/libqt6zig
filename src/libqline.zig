@@ -186,20 +186,6 @@ pub const qline = struct {
         qtc.QLine_SetLine(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#operator==)
-    ///
-    /// ``` self: QtC.QLine, d: QtC.QLine ```
-    pub fn OperatorEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return qtc.QLine_OperatorEqual(@ptrCast(self), @ptrCast(d));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#operator!=)
-    ///
-    /// ``` self: QtC.QLine, d: QtC.QLine ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return qtc.QLine_OperatorNotEqual(@ptrCast(self), @ptrCast(d));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qline.html#toLineF)
     ///
     /// ``` self: QtC.QLine ```
@@ -476,20 +462,6 @@ pub const qlinef = struct {
     /// ``` self: QtC.QLineF, x1: f64, y1: f64, x2: f64, y2: f64 ```
     pub fn SetLine(self: ?*anyopaque, x1: f64, y1: f64, x2: f64, y2: f64) void {
         qtc.QLineF_SetLine(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#operator==)
-    ///
-    /// ``` self: QtC.QLineF, d: QtC.QLineF ```
-    pub fn OperatorEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return qtc.QLineF_OperatorEqual(@ptrCast(self), @ptrCast(d));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#operator!=)
-    ///
-    /// ``` self: QtC.QLineF, d: QtC.QLineF ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, d: ?*anyopaque) bool {
-        return qtc.QLineF_OperatorNotEqual(@ptrCast(self), @ptrCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#toLine)

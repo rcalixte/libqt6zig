@@ -376,7 +376,7 @@ pub const qdir = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#count)
     ///
     /// ``` self: QtC.QDir ```
-    pub fn Count(self: ?*anyopaque) u32 {
+    pub fn Count(self: ?*anyopaque) i64 {
         return qtc.QDir_Count(@ptrCast(self));
     }
 
@@ -389,8 +389,8 @@ pub const qdir = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator[])
     ///
-    /// ``` self: QtC.QDir, param1: i32, allocator: std.mem.Allocator ```
-    pub fn OperatorSubscript(self: ?*anyopaque, param1: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ``` self: QtC.QDir, param1: i64, allocator: std.mem.Allocator ```
+    pub fn OperatorSubscript(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDir_OperatorSubscript(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdir.OperatorSubscript: Memory allocation failed");
@@ -642,20 +642,6 @@ pub const qdir = struct {
         return qtc.QDir_MakeAbsolute(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator==)
-    ///
-    /// ``` self: QtC.QDir, dir: QtC.QDir ```
-    pub fn OperatorEqual(self: ?*anyopaque, dir: ?*anyopaque) bool {
-        return qtc.QDir_OperatorEqual(@ptrCast(self), @ptrCast(dir));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator!=)
-    ///
-    /// ``` self: QtC.QDir, dir: QtC.QDir ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, dir: ?*anyopaque) bool {
-        return qtc.QDir_OperatorNotEqual(@ptrCast(self), @ptrCast(dir));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#remove)
     ///
     /// ``` self: QtC.QDir, fileName: []const u8 ```
@@ -860,6 +846,13 @@ pub const qdir = struct {
     /// ``` self: QtC.QDir ```
     pub fn Refresh(self: ?*anyopaque) void {
         qtc.QDir_Refresh(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#count)
+    ///
+    /// ``` self: QtC.QDir, param1: QtC.Disambiguated_t ```
+    pub fn Count1(self: ?*anyopaque, param1: QtC.Disambiguated_t) i64 {
+        return qtc.QDir_Count1(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#isEmpty)

@@ -1869,6 +1869,35 @@ void QGroupBox_OnIsSignalConnected(const QGroupBox* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QGroupBox_GetDecodedMetricF(const QGroupBox* self, int metricA, int metricB) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        return vqgroupbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQGroupBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QGroupBox_QBaseGetDecodedMetricF(const QGroupBox* self, int metricA, int metricB) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_GetDecodedMetricF_IsBase(true);
+        return vqgroupbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQGroupBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QGroupBox_OnGetDecodedMetricF(const QGroupBox* self, intptr_t slot) {
+    auto* vqgroupbox = const_cast<VirtualQGroupBox*>(dynamic_cast<const VirtualQGroupBox*>(self));
+    if (vqgroupbox && vqgroupbox->isVirtualQGroupBox) {
+        vqgroupbox->setQGroupBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQGroupBox::QGroupBox_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QGroupBox_Delete(QGroupBox* self) {
     delete self;
 }

@@ -90,6 +90,9 @@ QPainter* QsciPrinter_QBaseSharedPainter(const QsciPrinter* self);
 void QsciPrinter_SetEngines(QsciPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
 void QsciPrinter_OnSetEngines(QsciPrinter* self, intptr_t slot);
 void QsciPrinter_QBaseSetEngines(QsciPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
+double QsciPrinter_GetDecodedMetricF(const QsciPrinter* self, int metricA, int metricB);
+void QsciPrinter_OnGetDecodedMetricF(const QsciPrinter* self, intptr_t slot);
+double QsciPrinter_QBaseGetDecodedMetricF(const QsciPrinter* self, int metricA, int metricB);
 void QsciPrinter_Delete(QsciPrinter* self);
 
 #ifdef __cplusplus

@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qchar_enums = @import("libqchar.zig").enums;
 const qfontdatabase_enums = enums;
 const std = @import("std");
 
@@ -390,6 +391,69 @@ pub const qfontdatabase = struct {
     ///
     pub fn RemoveAllApplicationFonts() bool {
         return qtc.QFontDatabase_RemoveAllApplicationFonts();
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFallbackFontFamily)
+    ///
+    /// ``` script: qchar_enums.Script, familyName: []const u8 ```
+    pub fn AddApplicationFallbackFontFamily(script: i64, familyName: []const u8) void {
+        const familyName_str = qtc.struct_libqt_string{
+            .len = familyName.len,
+            .data = familyName.ptr,
+        };
+        qtc.QFontDatabase_AddApplicationFallbackFontFamily(@intCast(script), familyName_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFallbackFontFamily)
+    ///
+    /// ``` script: qchar_enums.Script, familyName: []const u8 ```
+    pub fn RemoveApplicationFallbackFontFamily(script: i64, familyName: []const u8) bool {
+        const familyName_str = qtc.struct_libqt_string{
+            .len = familyName.len,
+            .data = familyName.ptr,
+        };
+        return qtc.QFontDatabase_RemoveApplicationFallbackFontFamily(@intCast(script), familyName_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#setApplicationFallbackFontFamilies)
+    ///
+    /// ``` param1: qchar_enums.Script, familyNames: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn SetApplicationFallbackFontFamilies(param1: i64, familyNames: [][]const u8, allocator: std.mem.Allocator) void {
+        var familyNames_arr = allocator.alloc(qtc.struct_libqt_string, familyNames.len) catch @panic("qfontdatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
+        defer allocator.free(familyNames_arr);
+        for (familyNames, 0..familyNames.len) |item, i| {
+            familyNames_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const familyNames_list = qtc.struct_libqt_list{
+            .len = familyNames.len,
+            .data = familyNames_arr.ptr,
+        };
+        qtc.QFontDatabase_SetApplicationFallbackFontFamilies(@intCast(param1), familyNames_list);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFallbackFontFamilies)
+    ///
+    /// ``` script: qchar_enums.Script, allocator: std.mem.Allocator ```
+    pub fn ApplicationFallbackFontFamilies(script: i64, allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QFontDatabase_ApplicationFallbackFontFamilies(@intCast(script));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            }
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfontdatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfontdatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#systemFont)

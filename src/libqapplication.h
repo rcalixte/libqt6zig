@@ -86,9 +86,9 @@ bool QApplication_QBaseNotify(QApplication* self, QObject* param1, QEvent* param
 void QApplication_FocusChanged(QApplication* self, QWidget* old, QWidget* now);
 void QApplication_Connect_FocusChanged(QApplication* self, intptr_t slot);
 libqt_string QApplication_StyleSheet(const QApplication* self);
+bool QApplication_AutoSipEnabled(const QApplication* self);
 void QApplication_SetStyleSheet(QApplication* self, const libqt_string sheet);
 void QApplication_SetAutoSipEnabled(QApplication* self, const bool enabled);
-bool QApplication_AutoSipEnabled(const QApplication* self);
 void QApplication_CloseAllWindows();
 void QApplication_AboutQt();
 bool QApplication_Event(QApplication* self, QEvent* param1);

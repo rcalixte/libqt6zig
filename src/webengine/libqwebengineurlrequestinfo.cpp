@@ -1,4 +1,5 @@
 #include <QByteArray>
+#include <QIODevice>
 #include <QUrl>
 #include <QWebEngineUrlRequestInfo>
 #include <qwebengineurlrequestinfo.h>
@@ -33,6 +34,10 @@ libqt_string QWebEngineUrlRequestInfo_RequestMethod(const QWebEngineUrlRequestIn
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+QIODevice* QWebEngineUrlRequestInfo_RequestBody(const QWebEngineUrlRequestInfo* self) {
+    return self->requestBody();
 }
 
 bool QWebEngineUrlRequestInfo_Changed(const QWebEngineUrlRequestInfo* self) {

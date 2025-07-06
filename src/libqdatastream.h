@@ -21,18 +21,6 @@ typedef struct QIODevice QIODevice;
 typedef struct QIODeviceBase QIODeviceBase;
 #endif
 
-#ifdef __cplusplus
-typedef QDataStream::ByteOrder ByteOrder;                           // C++ enum
-typedef QDataStream::FloatingPointPrecision FloatingPointPrecision; // C++ enum
-typedef QDataStream::Status Status;                                 // C++ enum
-typedef QDataStream::Version Version;                               // C++ enum
-#else
-typedef int ByteOrder;              // C ABI enum
-typedef int FloatingPointPrecision; // C ABI enum
-typedef int Status;                 // C ABI enum
-typedef int Version;                // C ABI enum
-#endif
-
 QDataStream* QDataStream_new();
 QDataStream* QDataStream_new2(QIODevice* param1);
 QDataStream* QDataStream_new3(const libqt_string param1);
@@ -70,15 +58,15 @@ void QDataStream_OperatorShiftLeftWithQint32(QDataStream* self, int i);
 void QDataStream_OperatorShiftLeftWithQuint32(QDataStream* self, unsigned int i);
 void QDataStream_OperatorShiftLeftWithQint64(QDataStream* self, long long i);
 void QDataStream_OperatorShiftLeftWithQuint64(QDataStream* self, unsigned long long i);
-void QDataStream_OperatorShiftLeftWithBool(QDataStream* self, bool i);
 void QDataStream_OperatorShiftLeftWithFloat(QDataStream* self, float f);
 void QDataStream_OperatorShiftLeftWithDouble(QDataStream* self, double f);
 void QDataStream_OperatorShiftLeftWithStr(QDataStream* self, const char* str);
 QDataStream* QDataStream_ReadBytes(QDataStream* self, char* param1, unsigned int* lenVal);
-int QDataStream_ReadRawData(QDataStream* self, char* param1, int lenVal);
-void QDataStream_WriteBytes(QDataStream* self, const char* param1, unsigned int lenVal);
-int QDataStream_WriteRawData(QDataStream* self, const char* param1, int lenVal);
-int QDataStream_SkipRawData(QDataStream* self, int lenVal);
+QDataStream* QDataStream_ReadBytes2(QDataStream* self, char* param1, long long* lenVal);
+long long QDataStream_ReadRawData(QDataStream* self, char* param1, long long lenVal);
+void QDataStream_WriteBytes(QDataStream* self, const char* param1, long long lenVal);
+long long QDataStream_WriteRawData(QDataStream* self, const char* param1, long long lenVal);
+long long QDataStream_SkipRawData(QDataStream* self, long long lenVal);
 void QDataStream_StartTransaction(QDataStream* self);
 bool QDataStream_CommitTransaction(QDataStream* self);
 void QDataStream_RollbackTransaction(QDataStream* self);

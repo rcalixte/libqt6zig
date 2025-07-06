@@ -32,16 +32,6 @@ typedef struct QTextTable QTextTable;
 typedef struct QTextTableFormat QTextTableFormat;
 #endif
 
-#ifdef __cplusplus
-typedef QTextCursor::MoveMode MoveMode;           // C++ enum
-typedef QTextCursor::MoveOperation MoveOperation; // C++ enum
-typedef QTextCursor::SelectionType SelectionType; // C++ enum
-#else
-typedef int MoveMode;      // C ABI enum
-typedef int MoveOperation; // C ABI enum
-typedef int SelectionType; // C ABI enum
-#endif
-
 QTextCursor* QTextCursor_new();
 QTextCursor* QTextCursor_new2(QTextDocument* document);
 QTextCursor* QTextCursor_new3(QTextFrame* frame);

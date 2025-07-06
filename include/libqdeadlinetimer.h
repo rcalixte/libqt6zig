@@ -19,19 +19,13 @@ extern "C" {
 typedef struct QDeadlineTimer QDeadlineTimer;
 #endif
 
-#ifdef __cplusplus
-typedef QDeadlineTimer::ForeverConstant ForeverConstant; // C++ enum
-#else
-typedef int ForeverConstant; // C ABI enum
-#endif
-
 QDeadlineTimer* QDeadlineTimer_new(const QDeadlineTimer* other);
 QDeadlineTimer* QDeadlineTimer_new2(QDeadlineTimer* other);
 QDeadlineTimer* QDeadlineTimer_new3();
-QDeadlineTimer* QDeadlineTimer_new4(int param1);
-QDeadlineTimer* QDeadlineTimer_new5(long long msecs);
-QDeadlineTimer* QDeadlineTimer_new6(const QDeadlineTimer* param1);
-QDeadlineTimer* QDeadlineTimer_new7(int type_);
+QDeadlineTimer* QDeadlineTimer_new4(int type_);
+QDeadlineTimer* QDeadlineTimer_new5(int param1);
+QDeadlineTimer* QDeadlineTimer_new6(long long msecs);
+QDeadlineTimer* QDeadlineTimer_new7(const QDeadlineTimer* param1);
 QDeadlineTimer* QDeadlineTimer_new8(int param1, int type_);
 QDeadlineTimer* QDeadlineTimer_new9(long long msecs, int typeVal);
 void QDeadlineTimer_CopyAssign(QDeadlineTimer* self, QDeadlineTimer* other);
@@ -53,7 +47,6 @@ QDeadlineTimer* QDeadlineTimer_AddNSecs(QDeadlineTimer* dt, long long nsecs);
 QDeadlineTimer* QDeadlineTimer_Current();
 QDeadlineTimer* QDeadlineTimer_OperatorPlusAssign(QDeadlineTimer* self, long long msecs);
 QDeadlineTimer* QDeadlineTimer_OperatorMinusAssign(QDeadlineTimer* self, long long msecs);
-void QDeadlineTimer_OperatorAssign(QDeadlineTimer* self, const QDeadlineTimer* param1);
 void QDeadlineTimer_SetRemainingTime2(QDeadlineTimer* self, long long msecs, int typeVal);
 void QDeadlineTimer_SetPreciseRemainingTime2(QDeadlineTimer* self, long long secs, long long nsecs);
 void QDeadlineTimer_SetPreciseRemainingTime3(QDeadlineTimer* self, long long secs, long long nsecs, int typeVal);

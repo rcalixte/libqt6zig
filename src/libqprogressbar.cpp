@@ -1941,6 +1941,35 @@ void QProgressBar_OnIsSignalConnected(const QProgressBar* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QProgressBar_GetDecodedMetricF(const QProgressBar* self, int metricA, int metricB) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        return vqprogressbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQProgressBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QProgressBar_QBaseGetDecodedMetricF(const QProgressBar* self, int metricA, int metricB) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_GetDecodedMetricF_IsBase(true);
+        return vqprogressbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQProgressBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressBar_OnGetDecodedMetricF(const QProgressBar* self, intptr_t slot) {
+    auto* vqprogressbar = const_cast<VirtualQProgressBar*>(dynamic_cast<const VirtualQProgressBar*>(self));
+    if (vqprogressbar && vqprogressbar->isVirtualQProgressBar) {
+        vqprogressbar->setQProgressBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQProgressBar::QProgressBar_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QProgressBar_Delete(QProgressBar* self) {
     delete self;
 }

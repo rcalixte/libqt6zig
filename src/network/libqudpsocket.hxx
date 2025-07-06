@@ -172,8 +172,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
     mutable bool qudpsocket_issignalconnected_isbase = false;
 
   public:
-    VirtualQUdpSocket() : QUdpSocket(){};
-    VirtualQUdpSocket(QObject* parent) : QUdpSocket(parent){};
+    VirtualQUdpSocket() : QUdpSocket() {};
+    VirtualQUdpSocket(QObject* parent) : QUdpSocket(parent) {};
 
     ~VirtualQUdpSocket() {
         qudpsocket_metacall_callback = nullptr;
@@ -359,7 +359,7 @@ class VirtualQUdpSocket final : public QUdpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool bind(const QHostAddress& address, quint16 port, QAbstractSocket::BindMode mode) override {
+    virtual bool bind(const QHostAddress& address, quint16 port, QFlags<QAbstractSocket::BindFlag> mode) override {
         if (qudpsocket_bind_isbase) {
             qudpsocket_bind_isbase = false;
             return QUdpSocket::bind(address, port, mode);
@@ -378,7 +378,7 @@ class VirtualQUdpSocket final : public QUdpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void connectToHost(const QString& hostName, quint16 port, QIODeviceBase::OpenMode mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
+    virtual void connectToHost(const QString& hostName, quint16 port, QFlags<QIODeviceBase::OpenModeFlag> mode, QAbstractSocket::NetworkLayerProtocol protocol) override {
         if (qudpsocket_connecttohost_isbase) {
             qudpsocket_connecttohost_isbase = false;
             QUdpSocket::connectToHost(hostName, port, mode, protocol);
@@ -468,7 +468,7 @@ class VirtualQUdpSocket final : public QUdpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QIODeviceBase::OpenMode openMode) override {
+    virtual bool setSocketDescriptor(qintptr socketDescriptor, QAbstractSocket::SocketState state, QFlags<QIODeviceBase::OpenModeFlag> openMode) override {
         if (qudpsocket_setsocketdescriptor_isbase) {
             qudpsocket_setsocketdescriptor_isbase = false;
             return QUdpSocket::setSocketDescriptor(socketDescriptor, state, openMode);

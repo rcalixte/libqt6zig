@@ -61,10 +61,10 @@ class VirtualQSystemTrayIcon final : public QSystemTrayIcon {
     mutable bool qsystemtrayicon_issignalconnected_isbase = false;
 
   public:
-    VirtualQSystemTrayIcon() : QSystemTrayIcon(){};
-    VirtualQSystemTrayIcon(const QIcon& icon) : QSystemTrayIcon(icon){};
-    VirtualQSystemTrayIcon(QObject* parent) : QSystemTrayIcon(parent){};
-    VirtualQSystemTrayIcon(const QIcon& icon, QObject* parent) : QSystemTrayIcon(icon, parent){};
+    VirtualQSystemTrayIcon() : QSystemTrayIcon() {};
+    VirtualQSystemTrayIcon(const QIcon& icon) : QSystemTrayIcon(icon) {};
+    VirtualQSystemTrayIcon(QObject* parent) : QSystemTrayIcon(parent) {};
+    VirtualQSystemTrayIcon(const QIcon& icon, QObject* parent) : QSystemTrayIcon(icon, parent) {};
 
     ~VirtualQSystemTrayIcon() {
         qsystemtrayicon_metacall_callback = nullptr;

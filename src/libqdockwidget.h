@@ -53,14 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QDockWidget::DockWidgetFeature DockWidgetFeature;   // C++ enum
-typedef QDockWidget::DockWidgetFeatures DockWidgetFeatures; // C++ QFlags
-#else
-typedef int DockWidgetFeature;  // C ABI enum
-typedef int DockWidgetFeatures; // C ABI QFlags
-#endif
-
 QDockWidget* QDockWidget_new(QWidget* parent);
 QDockWidget* QDockWidget_new2(const libqt_string title);
 QDockWidget* QDockWidget_new3();
@@ -268,6 +260,9 @@ int QDockWidget_QBaseReceivers(const QDockWidget* self, const char* signal);
 bool QDockWidget_IsSignalConnected(const QDockWidget* self, const QMetaMethod* signal);
 void QDockWidget_OnIsSignalConnected(const QDockWidget* self, intptr_t slot);
 bool QDockWidget_QBaseIsSignalConnected(const QDockWidget* self, const QMetaMethod* signal);
+double QDockWidget_GetDecodedMetricF(const QDockWidget* self, int metricA, int metricB);
+void QDockWidget_OnGetDecodedMetricF(const QDockWidget* self, intptr_t slot);
+double QDockWidget_QBaseGetDecodedMetricF(const QDockWidget* self, int metricA, int metricB);
 void QDockWidget_Delete(QDockWidget* self);
 
 #ifdef __cplusplus

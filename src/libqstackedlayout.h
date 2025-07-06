@@ -31,12 +31,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QStackedLayout::StackingMode StackingMode; // C++ enum
-#else
-typedef int StackingMode; // C ABI enum
-#endif
-
 QStackedLayout* QStackedLayout_new(QWidget* parent);
 QStackedLayout* QStackedLayout_new2();
 QStackedLayout* QStackedLayout_new3(QLayout* parentLayout);

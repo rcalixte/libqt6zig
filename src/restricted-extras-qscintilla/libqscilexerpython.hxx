@@ -63,6 +63,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_CustomEvent_Callback = void (*)(QsciLexerPython*, QEvent*);
     using QsciLexerPython_ConnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
     using QsciLexerPython_DisconnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
+    using QsciLexerPython_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPython*, libqt_string);
+    using QsciLexerPython_BytesAsText_Callback = libqt_string (*)(const QsciLexerPython*, const char*, int);
     using QsciLexerPython_Sender_Callback = QObject* (*)();
     using QsciLexerPython_SenderSignalIndex_Callback = int (*)();
     using QsciLexerPython_Receivers_Callback = int (*)(const QsciLexerPython*, const char*);
@@ -115,6 +117,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     QsciLexerPython_CustomEvent_Callback qscilexerpython_customevent_callback = nullptr;
     QsciLexerPython_ConnectNotify_Callback qscilexerpython_connectnotify_callback = nullptr;
     QsciLexerPython_DisconnectNotify_Callback qscilexerpython_disconnectnotify_callback = nullptr;
+    QsciLexerPython_TextAsBytes_Callback qscilexerpython_textasbytes_callback = nullptr;
+    QsciLexerPython_BytesAsText_Callback qscilexerpython_bytesastext_callback = nullptr;
     QsciLexerPython_Sender_Callback qscilexerpython_sender_callback = nullptr;
     QsciLexerPython_SenderSignalIndex_Callback qscilexerpython_sendersignalindex_callback = nullptr;
     QsciLexerPython_Receivers_Callback qscilexerpython_receivers_callback = nullptr;
@@ -166,14 +170,16 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     mutable bool qscilexerpython_customevent_isbase = false;
     mutable bool qscilexerpython_connectnotify_isbase = false;
     mutable bool qscilexerpython_disconnectnotify_isbase = false;
+    mutable bool qscilexerpython_textasbytes_isbase = false;
+    mutable bool qscilexerpython_bytesastext_isbase = false;
     mutable bool qscilexerpython_sender_isbase = false;
     mutable bool qscilexerpython_sendersignalindex_isbase = false;
     mutable bool qscilexerpython_receivers_isbase = false;
     mutable bool qscilexerpython_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerPython() : QsciLexerPython(){};
-    VirtualQsciLexerPython(QObject* parent) : QsciLexerPython(parent){};
+    VirtualQsciLexerPython() : QsciLexerPython() {};
+    VirtualQsciLexerPython(QObject* parent) : QsciLexerPython(parent) {};
 
     ~VirtualQsciLexerPython() {
         qscilexerpython_metacall_callback = nullptr;
@@ -221,6 +227,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
         qscilexerpython_customevent_callback = nullptr;
         qscilexerpython_connectnotify_callback = nullptr;
         qscilexerpython_disconnectnotify_callback = nullptr;
+        qscilexerpython_textasbytes_callback = nullptr;
+        qscilexerpython_bytesastext_callback = nullptr;
         qscilexerpython_sender_callback = nullptr;
         qscilexerpython_sendersignalindex_callback = nullptr;
         qscilexerpython_receivers_callback = nullptr;
@@ -273,6 +281,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     inline void setQsciLexerPython_CustomEvent_Callback(QsciLexerPython_CustomEvent_Callback cb) { qscilexerpython_customevent_callback = cb; }
     inline void setQsciLexerPython_ConnectNotify_Callback(QsciLexerPython_ConnectNotify_Callback cb) { qscilexerpython_connectnotify_callback = cb; }
     inline void setQsciLexerPython_DisconnectNotify_Callback(QsciLexerPython_DisconnectNotify_Callback cb) { qscilexerpython_disconnectnotify_callback = cb; }
+    inline void setQsciLexerPython_TextAsBytes_Callback(QsciLexerPython_TextAsBytes_Callback cb) { qscilexerpython_textasbytes_callback = cb; }
+    inline void setQsciLexerPython_BytesAsText_Callback(QsciLexerPython_BytesAsText_Callback cb) { qscilexerpython_bytesastext_callback = cb; }
     inline void setQsciLexerPython_Sender_Callback(QsciLexerPython_Sender_Callback cb) { qscilexerpython_sender_callback = cb; }
     inline void setQsciLexerPython_SenderSignalIndex_Callback(QsciLexerPython_SenderSignalIndex_Callback cb) { qscilexerpython_sendersignalindex_callback = cb; }
     inline void setQsciLexerPython_Receivers_Callback(QsciLexerPython_Receivers_Callback cb) { qscilexerpython_receivers_callback = cb; }
@@ -324,6 +334,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     inline void setQsciLexerPython_CustomEvent_IsBase(bool value) const { qscilexerpython_customevent_isbase = value; }
     inline void setQsciLexerPython_ConnectNotify_IsBase(bool value) const { qscilexerpython_connectnotify_isbase = value; }
     inline void setQsciLexerPython_DisconnectNotify_IsBase(bool value) const { qscilexerpython_disconnectnotify_isbase = value; }
+    inline void setQsciLexerPython_TextAsBytes_IsBase(bool value) const { qscilexerpython_textasbytes_isbase = value; }
+    inline void setQsciLexerPython_BytesAsText_IsBase(bool value) const { qscilexerpython_bytesastext_isbase = value; }
     inline void setQsciLexerPython_Sender_IsBase(bool value) const { qscilexerpython_sender_isbase = value; }
     inline void setQsciLexerPython_SenderSignalIndex_IsBase(bool value) const { qscilexerpython_sendersignalindex_isbase = value; }
     inline void setQsciLexerPython_Receivers_IsBase(bool value) const { qscilexerpython_receivers_isbase = value; }
@@ -451,13 +463,13 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerpython_autocompletionwordseparators_isbase) {
             qscilexerpython_autocompletionwordseparators_isbase = false;
             return QsciLexerPython::autoCompletionWordSeparators();
         } else if (qscilexerpython_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerpython_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -1005,6 +1017,47 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerpython_textasbytes_isbase) {
+            qscilexerpython_textasbytes_isbase = false;
+            return QsciLexerPython::textAsBytes(text);
+        } else if (qscilexerpython_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerpython_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerPython::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerpython_bytesastext_isbase) {
+            qscilexerpython_bytesastext_isbase = false;
+            return QsciLexerPython::bytesAsText(bytes, size);
+        } else if (qscilexerpython_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerpython_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerPython::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerpython_sender_isbase) {
             qscilexerpython_sender_isbase = false;
@@ -1077,6 +1130,10 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     friend void QsciLexerPython_QBaseConnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
     friend void QsciLexerPython_DisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
     friend void QsciLexerPython_QBaseDisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerPython_TextAsBytes(const QsciLexerPython* self, const libqt_string text);
+    friend libqt_string QsciLexerPython_QBaseTextAsBytes(const QsciLexerPython* self, const libqt_string text);
+    friend libqt_string QsciLexerPython_BytesAsText(const QsciLexerPython* self, const char* bytes, int size);
+    friend libqt_string QsciLexerPython_QBaseBytesAsText(const QsciLexerPython* self, const char* bytes, int size);
     friend QObject* QsciLexerPython_Sender(const QsciLexerPython* self);
     friend QObject* QsciLexerPython_QBaseSender(const QsciLexerPython* self);
     friend int QsciLexerPython_SenderSignalIndex(const QsciLexerPython* self);

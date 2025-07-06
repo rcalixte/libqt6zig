@@ -67,8 +67,8 @@ class VirtualQBoxPlotLegendMarker final : public QBoxPlotLegendMarker {
     mutable bool qboxplotlegendmarker_issignalconnected_isbase = false;
 
   public:
-    VirtualQBoxPlotLegendMarker(QBoxPlotSeries* series, QLegend* legend) : QBoxPlotLegendMarker(series, legend){};
-    VirtualQBoxPlotLegendMarker(QBoxPlotSeries* series, QLegend* legend, QObject* parent) : QBoxPlotLegendMarker(series, legend, parent){};
+    VirtualQBoxPlotLegendMarker(QBoxPlotSeries* series, QLegend* legend) : QBoxPlotLegendMarker(series, legend) {};
+    VirtualQBoxPlotLegendMarker(QBoxPlotSeries* series, QLegend* legend, QObject* parent) : QBoxPlotLegendMarker(series, legend, parent) {};
 
     ~VirtualQBoxPlotLegendMarker() {
         qboxplotlegendmarker_metacall_callback = nullptr;

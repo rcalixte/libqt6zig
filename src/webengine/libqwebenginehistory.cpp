@@ -3,8 +3,8 @@
 #include <QByteArray>
 #include <QDataStream>
 #include <QDateTime>
+#include <QHash>
 #include <QList>
-#include <QMap>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QModelIndex>
@@ -103,7 +103,7 @@ QVariant* QWebEngineHistoryModel_Data(const QWebEngineHistoryModel* self, const 
 
 libqt_map /* of int to libqt_string */ QWebEngineHistoryModel_RoleNames(const QWebEngineHistoryModel* self) {
     QHash<int, QByteArray> _ret = self->roleNames();
-    // Convert QMap<> from C++ memory to manually-managed C memory
+    // Convert QHash<> from C++ memory to manually-managed C memory
     int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
     libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     int _ctr = 0;
@@ -184,12 +184,12 @@ void QWebEngineHistory_Clear(QWebEngineHistory* self) {
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_Items(const QWebEngineHistory* self) {
     QList<QWebEngineHistoryItem> _ret = self->items();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -197,12 +197,12 @@ libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_Items(const QWebEng
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_BackItems(const QWebEngineHistory* self, int maxItems) {
     QList<QWebEngineHistoryItem> _ret = self->backItems(static_cast<int>(maxItems));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -210,12 +210,12 @@ libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_BackItems(const QWe
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_ForwardItems(const QWebEngineHistory* self, int maxItems) {
     QList<QWebEngineHistoryItem> _ret = self->forwardItems(static_cast<int>(maxItems));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

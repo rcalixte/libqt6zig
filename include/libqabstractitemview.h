@@ -63,27 +63,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractItemView::DragDropMode DragDropMode;           // C++ enum
-typedef QAbstractItemView::EditTrigger EditTrigger;             // C++ enum
-typedef QAbstractItemView::EditTriggers EditTriggers;           // C++ QFlags
-typedef QAbstractItemView::ScrollHint ScrollHint;               // C++ enum
-typedef QAbstractItemView::ScrollMode ScrollMode;               // C++ enum
-typedef QAbstractItemView::SelectionBehavior SelectionBehavior; // C++ enum
-typedef QAbstractItemView::SelectionMode SelectionMode;         // C++ enum
-#else
-typedef int CursorAction;          // C ABI enum
-typedef int DragDropMode;          // C ABI enum
-typedef int DropIndicatorPosition; // C ABI enum
-typedef int EditTrigger;           // C ABI enum
-typedef int EditTriggers;          // C ABI QFlags
-typedef int ScrollHint;            // C ABI enum
-typedef int ScrollMode;            // C ABI enum
-typedef int SelectionBehavior;     // C ABI enum
-typedef int SelectionMode;         // C ABI enum
-typedef int State;                 // C ABI enum
-#endif
-
 QAbstractItemView* QAbstractItemView_new(QWidget* parent);
 QAbstractItemView* QAbstractItemView_new2();
 QMetaObject* QAbstractItemView_MetaObject(const QAbstractItemView* self);
@@ -507,6 +486,9 @@ int QAbstractItemView_QBaseReceivers(const QAbstractItemView* self, const char* 
 bool QAbstractItemView_IsSignalConnected(const QAbstractItemView* self, const QMetaMethod* signal);
 void QAbstractItemView_OnIsSignalConnected(const QAbstractItemView* self, intptr_t slot);
 bool QAbstractItemView_QBaseIsSignalConnected(const QAbstractItemView* self, const QMetaMethod* signal);
+double QAbstractItemView_GetDecodedMetricF(const QAbstractItemView* self, int metricA, int metricB);
+void QAbstractItemView_OnGetDecodedMetricF(const QAbstractItemView* self, intptr_t slot);
+double QAbstractItemView_QBaseGetDecodedMetricF(const QAbstractItemView* self, int metricA, int metricB);
 void QAbstractItemView_Delete(QAbstractItemView* self);
 
 #ifdef __cplusplus

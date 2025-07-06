@@ -20,16 +20,6 @@ typedef struct QUrl QUrl;
 typedef struct QWebEngineScript QWebEngineScript;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineScript::InjectionPoint InjectionPoint; // C++ enum
-typedef QWebEngineScript::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QWebEngineScript::ScriptWorldId ScriptWorldId;   // C++ enum
-#else
-typedef int InjectionPoint;  // C ABI enum
-typedef int ScriptWorldId;   // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QWebEngineScript* QWebEngineScript_new();
 QWebEngineScript* QWebEngineScript_new2(const QWebEngineScript* other);
 void QWebEngineScript_OperatorAssign(QWebEngineScript* self, const QWebEngineScript* other);

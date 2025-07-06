@@ -2,11 +2,13 @@
 #include <QAbstractNativeEventFilter>
 #include <QChildEvent>
 #include <QCoreApplication>
+#include <QDeadlineTimer>
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
+#include <QPermission>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -73,10 +75,10 @@ libqt_string QCoreApplication_Tr(const char* s) {
 }
 
 libqt_list /* of libqt_string */ QCoreApplication_Arguments() {
-    QStringList _ret = QCoreApplication::arguments();
+    QList<QString> _ret = QCoreApplication::arguments();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -88,7 +90,7 @@ libqt_list /* of libqt_string */ QCoreApplication_Arguments() {
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -193,6 +195,10 @@ void QCoreApplication_ProcessEvents2(int flags, int maxtime) {
     QCoreApplication::processEvents(static_cast<QEventLoop::ProcessEventsFlags>(flags), static_cast<int>(maxtime));
 }
 
+void QCoreApplication_ProcessEvents3(int flags, QDeadlineTimer* deadline) {
+    QCoreApplication::processEvents(static_cast<QEventLoop::ProcessEventsFlags>(flags), *deadline);
+}
+
 bool QCoreApplication_SendEvent(QObject* receiver, QEvent* event) {
     return QCoreApplication::sendEvent(receiver, event);
 }
@@ -253,8 +259,12 @@ long long QCoreApplication_ApplicationPid() {
     return static_cast<long long>(QCoreApplication::applicationPid());
 }
 
+int QCoreApplication_CheckPermission(QCoreApplication* self, const QPermission* permission) {
+    return static_cast<int>(self->checkPermission(*permission));
+}
+
 void QCoreApplication_SetLibraryPaths(const libqt_list /* of libqt_string */ libraryPaths) {
-    QStringList libraryPaths_QList;
+    QList<QString> libraryPaths_QList;
     libraryPaths_QList.reserve(libraryPaths.len);
     libqt_string* libraryPaths_arr = static_cast<libqt_string*>(libraryPaths.data);
     for (size_t i = 0; i < libraryPaths.len; ++i) {
@@ -265,10 +275,10 @@ void QCoreApplication_SetLibraryPaths(const libqt_list /* of libqt_string */ lib
 }
 
 libqt_list /* of libqt_string */ QCoreApplication_LibraryPaths() {
-    QStringList _ret = QCoreApplication::libraryPaths();
+    QList<QString> _ret = QCoreApplication::libraryPaths();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -280,7 +290,7 @@ libqt_list /* of libqt_string */ QCoreApplication_LibraryPaths() {
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

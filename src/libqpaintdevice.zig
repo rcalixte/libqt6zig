@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qpaintdevice_enums = enums;
 
 /// https://doc.qt.io/qt-6/qpaintdevice.html
 pub const qpaintdevice = struct {
@@ -115,6 +116,13 @@ pub const qpaintdevice = struct {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#dtor.QPaintDevice)
     ///
     /// Delete this object from C++ memory.
@@ -140,5 +148,7 @@ pub const enums = struct {
         pub const PdmPhysicalDpiY: i32 = 10;
         pub const PdmDevicePixelRatio: i32 = 11;
         pub const PdmDevicePixelRatioScaled: i32 = 12;
+        pub const PdmDevicePixelRatioF_EncodedA: i32 = 13;
+        pub const PdmDevicePixelRatioF_EncodedB: i32 = 14;
     };
 };

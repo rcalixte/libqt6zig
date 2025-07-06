@@ -160,6 +160,26 @@ void QPageLayout_SetPageSize2(QPageLayout* self, const QPageSize* pageSize, cons
     self->setPageSize(*pageSize, *minMargins);
 }
 
+bool QPageLayout_SetMargins2(QPageLayout* self, const QMarginsF* margins, int outOfBoundsPolicy) {
+    return self->setMargins(*margins, static_cast<QPageLayout::OutOfBoundsPolicy>(outOfBoundsPolicy));
+}
+
+bool QPageLayout_SetLeftMargin2(QPageLayout* self, double leftMargin, int outOfBoundsPolicy) {
+    return self->setLeftMargin(static_cast<qreal>(leftMargin), static_cast<QPageLayout::OutOfBoundsPolicy>(outOfBoundsPolicy));
+}
+
+bool QPageLayout_SetRightMargin2(QPageLayout* self, double rightMargin, int outOfBoundsPolicy) {
+    return self->setRightMargin(static_cast<qreal>(rightMargin), static_cast<QPageLayout::OutOfBoundsPolicy>(outOfBoundsPolicy));
+}
+
+bool QPageLayout_SetTopMargin2(QPageLayout* self, double topMargin, int outOfBoundsPolicy) {
+    return self->setTopMargin(static_cast<qreal>(topMargin), static_cast<QPageLayout::OutOfBoundsPolicy>(outOfBoundsPolicy));
+}
+
+bool QPageLayout_SetBottomMargin2(QPageLayout* self, double bottomMargin, int outOfBoundsPolicy) {
+    return self->setBottomMargin(static_cast<qreal>(bottomMargin), static_cast<QPageLayout::OutOfBoundsPolicy>(outOfBoundsPolicy));
+}
+
 void QPageLayout_Delete(QPageLayout* self) {
     delete self;
 }

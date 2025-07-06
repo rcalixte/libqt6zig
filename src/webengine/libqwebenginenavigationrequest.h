@@ -23,20 +23,13 @@ typedef struct QUrl QUrl;
 typedef struct QWebEngineNavigationRequest QWebEngineNavigationRequest;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineNavigationRequest::NavigationRequestAction NavigationRequestAction; // C++ enum
-typedef QWebEngineNavigationRequest::NavigationType NavigationType;                   // C++ enum
-#else
-typedef int NavigationRequestAction; // C ABI enum
-typedef int NavigationType;          // C ABI enum
-#endif
-
 QMetaObject* QWebEngineNavigationRequest_MetaObject(const QWebEngineNavigationRequest* self);
 void* QWebEngineNavigationRequest_Metacast(QWebEngineNavigationRequest* self, const char* param1);
 int QWebEngineNavigationRequest_Metacall(QWebEngineNavigationRequest* self, int param1, int param2, void** param3);
 libqt_string QWebEngineNavigationRequest_Tr(const char* s);
 QUrl* QWebEngineNavigationRequest_Url(const QWebEngineNavigationRequest* self);
 bool QWebEngineNavigationRequest_IsMainFrame(const QWebEngineNavigationRequest* self);
+bool QWebEngineNavigationRequest_HasFormData(const QWebEngineNavigationRequest* self);
 int QWebEngineNavigationRequest_NavigationType(const QWebEngineNavigationRequest* self);
 void QWebEngineNavigationRequest_Accept(QWebEngineNavigationRequest* self);
 void QWebEngineNavigationRequest_Reject(QWebEngineNavigationRequest* self);

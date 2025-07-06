@@ -160,6 +160,12 @@ void QsciLexerPerl_QBaseConnectNotify(QsciLexerPerl* self, const QMetaMethod* si
 void QsciLexerPerl_DisconnectNotify(QsciLexerPerl* self, const QMetaMethod* signal);
 void QsciLexerPerl_OnDisconnectNotify(QsciLexerPerl* self, intptr_t slot);
 void QsciLexerPerl_QBaseDisconnectNotify(QsciLexerPerl* self, const QMetaMethod* signal);
+libqt_string QsciLexerPerl_TextAsBytes(const QsciLexerPerl* self, const libqt_string text);
+void QsciLexerPerl_OnTextAsBytes(const QsciLexerPerl* self, intptr_t slot);
+libqt_string QsciLexerPerl_QBaseTextAsBytes(const QsciLexerPerl* self, const libqt_string text);
+libqt_string QsciLexerPerl_BytesAsText(const QsciLexerPerl* self, const char* bytes, int size);
+void QsciLexerPerl_OnBytesAsText(const QsciLexerPerl* self, intptr_t slot);
+libqt_string QsciLexerPerl_QBaseBytesAsText(const QsciLexerPerl* self, const char* bytes, int size);
 QObject* QsciLexerPerl_Sender(const QsciLexerPerl* self);
 void QsciLexerPerl_OnSender(const QsciLexerPerl* self, intptr_t slot);
 QObject* QsciLexerPerl_QBaseSender(const QsciLexerPerl* self);

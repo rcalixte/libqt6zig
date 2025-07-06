@@ -201,20 +201,6 @@ pub const qjsondocument = struct {
         return qtc.QJsonDocument_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator==)
-    ///
-    /// ``` self: QtC.QJsonDocument, other: QtC.QJsonDocument ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonDocument_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator!=)
-    ///
-    /// ``` self: QtC.QJsonDocument, other: QtC.QJsonDocument ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonDocument_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#isNull)
     ///
     /// ``` self: QtC.QJsonDocument ```

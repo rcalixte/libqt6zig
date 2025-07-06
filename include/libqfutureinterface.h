@@ -22,13 +22,6 @@ typedef struct QRunnable QRunnable;
 typedef struct QThreadPool QThreadPool;
 #endif
 
-#ifdef __cplusplus
-typedef QFutureInterfaceBase::State State; // C++ enum
-#else
-typedef int CancelMode; // C ABI enum
-typedef int State;      // C ABI enum
-#endif
-
 QFutureInterfaceBase* QFutureInterfaceBase_new();
 QFutureInterfaceBase* QFutureInterfaceBase_new2(const QFutureInterfaceBase* other);
 QFutureInterfaceBase* QFutureInterfaceBase_new3(int initialState);

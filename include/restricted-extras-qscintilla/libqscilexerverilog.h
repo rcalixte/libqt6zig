@@ -160,6 +160,12 @@ void QsciLexerVerilog_QBaseConnectNotify(QsciLexerVerilog* self, const QMetaMeth
 void QsciLexerVerilog_DisconnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
 void QsciLexerVerilog_OnDisconnectNotify(QsciLexerVerilog* self, intptr_t slot);
 void QsciLexerVerilog_QBaseDisconnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
+libqt_string QsciLexerVerilog_TextAsBytes(const QsciLexerVerilog* self, const libqt_string text);
+void QsciLexerVerilog_OnTextAsBytes(const QsciLexerVerilog* self, intptr_t slot);
+libqt_string QsciLexerVerilog_QBaseTextAsBytes(const QsciLexerVerilog* self, const libqt_string text);
+libqt_string QsciLexerVerilog_BytesAsText(const QsciLexerVerilog* self, const char* bytes, int size);
+void QsciLexerVerilog_OnBytesAsText(const QsciLexerVerilog* self, intptr_t slot);
+libqt_string QsciLexerVerilog_QBaseBytesAsText(const QsciLexerVerilog* self, const char* bytes, int size);
 QObject* QsciLexerVerilog_Sender(const QsciLexerVerilog* self);
 void QsciLexerVerilog_OnSender(const QsciLexerVerilog* self, intptr_t slot);
 QObject* QsciLexerVerilog_QBaseSender(const QsciLexerVerilog* self);

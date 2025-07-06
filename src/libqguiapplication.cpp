@@ -98,6 +98,10 @@ libqt_string QGuiApplication_ApplicationDisplayName() {
     return _str;
 }
 
+void QGuiApplication_SetBadgeNumber(QGuiApplication* self, long long number) {
+    self->setBadgeNumber(static_cast<qint64>(number));
+}
+
 void QGuiApplication_SetDesktopFileName(const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QGuiApplication::setDesktopFileName(name_QString);
@@ -116,27 +120,27 @@ libqt_string QGuiApplication_DesktopFileName() {
 }
 
 libqt_list /* of QWindow* */ QGuiApplication_AllWindows() {
-    QWindowList _ret = QGuiApplication::allWindows();
+    QList<QWindow*> _ret = QGuiApplication::allWindows();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWindow** _arr = static_cast<QWindow**>(malloc(sizeof(QWindow*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QWindow** _arr = static_cast<QWindow**>(malloc(sizeof(QWindow*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 libqt_list /* of QWindow* */ QGuiApplication_TopLevelWindows() {
-    QWindowList _ret = QGuiApplication::topLevelWindows();
+    QList<QWindow*> _ret = QGuiApplication::topLevelWindows();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWindow** _arr = static_cast<QWindow**>(malloc(sizeof(QWindow*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QWindow** _arr = static_cast<QWindow**>(malloc(sizeof(QWindow*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -184,12 +188,12 @@ QScreen* QGuiApplication_PrimaryScreen() {
 libqt_list /* of QScreen* */ QGuiApplication_Screens() {
     QList<QScreen*> _ret = QGuiApplication::screens();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QScreen** _arr = static_cast<QScreen**>(malloc(sizeof(QScreen*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QScreen** _arr = static_cast<QScreen**>(malloc(sizeof(QScreen*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

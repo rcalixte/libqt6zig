@@ -30,6 +30,8 @@ typedef struct QGenericReturnArgument QGenericReturnArgument;
 typedef struct QMetaClassInfo QMetaClassInfo;
 typedef struct QMetaEnum QMetaEnum;
 typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaMethodArgument QMetaMethodArgument;
+typedef struct QMetaMethodReturnArgument QMetaMethodReturnArgument;
 typedef struct QMetaObject QMetaObject;
 typedef struct QMetaObject__Connection QMetaObject__Connection;
 typedef struct QMetaObject__Data QMetaObject__Data;
@@ -38,15 +40,6 @@ typedef struct QMetaProperty QMetaProperty;
 typedef struct QMetaType QMetaType;
 typedef struct QMethodRawArguments QMethodRawArguments;
 typedef struct QObject QObject;
-#endif
-
-#ifdef __cplusplus
-typedef QMetaObject::Call Call;                                               // C++ enum
-typedef QMetaObject::Connection::RestrictedBool ConnectionRestrictedBool;     // C++ QFlags
-typedef QMetaObject::Data::StaticMetacallFunction DataStaticMetacallFunction; // C++ QFlags
-typedef QMetaObject::SuperData::Getter SuperDataGetter;                       // C++ QFlags
-#else
-typedef int Call; // C ABI enum
 #endif
 
 QGenericArgument* QGenericArgument_new(const QGenericArgument* other);
@@ -115,9 +108,9 @@ void QMetaObject_Activate2(QObject* sender, const QMetaObject* param2, int local
 void QMetaObject_Activate3(QObject* sender, int signal_offset, int local_signal_index, void** argv);
 bool QMetaObject_InvokeMethod(QObject* obj, const char* member, int param3, QGenericReturnArgument* retVal);
 bool QMetaObject_InvokeMethod2(QObject* obj, const char* member, QGenericReturnArgument* retVal);
-bool QMetaObject_InvokeMethod3(QObject* obj, const char* member, int typeVal);
-bool QMetaObject_InvokeMethod4(QObject* obj, const char* member);
-QObject* QMetaObject_NewInstance(const QMetaObject* self);
+bool QMetaObject_InvokeMethod3(QObject* obj, const char* member, int typeVal, QGenericArgument* val0);
+bool QMetaObject_InvokeMethod4(QObject* obj, const char* member, QGenericArgument* val0);
+QObject* QMetaObject_NewInstance(const QMetaObject* self, QGenericArgument* val0);
 int QMetaObject_StaticMetacall(const QMetaObject* self, int param1, int param2, void** param3);
 int QMetaObject_Metacall(QObject* param1, int param2, int param3, void** param4);
 libqt_string QMetaObject_Tr3(const QMetaObject* self, const char* s, const char* c, int n);
@@ -143,7 +136,6 @@ bool QMetaObject_InvokeMethod102(QObject* obj, const char* member, QGenericRetur
 bool QMetaObject_InvokeMethod112(QObject* obj, const char* member, QGenericReturnArgument* retVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7);
 bool QMetaObject_InvokeMethod122(QObject* obj, const char* member, QGenericReturnArgument* retVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7, QGenericArgument* val8);
 bool QMetaObject_InvokeMethod132(QObject* obj, const char* member, QGenericReturnArgument* retVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7, QGenericArgument* val8, QGenericArgument* val9);
-bool QMetaObject_InvokeMethod43(QObject* obj, const char* member, int typeVal, QGenericArgument* val0);
 bool QMetaObject_InvokeMethod53(QObject* obj, const char* member, int typeVal, QGenericArgument* val0, QGenericArgument* val1);
 bool QMetaObject_InvokeMethod63(QObject* obj, const char* member, int typeVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2);
 bool QMetaObject_InvokeMethod73(QObject* obj, const char* member, int typeVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3);
@@ -153,8 +145,7 @@ bool QMetaObject_InvokeMethod103(QObject* obj, const char* member, int typeVal, 
 bool QMetaObject_InvokeMethod113(QObject* obj, const char* member, int typeVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7);
 bool QMetaObject_InvokeMethod123(QObject* obj, const char* member, int typeVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7, QGenericArgument* val8);
 bool QMetaObject_InvokeMethod133(QObject* obj, const char* member, int typeVal, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7, QGenericArgument* val8, QGenericArgument* val9);
-bool QMetaObject_InvokeMethod32(QObject* obj, const char* member, QGenericArgument* val0);
-bool QMetaObject_InvokeMethod44(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1);
+bool QMetaObject_InvokeMethod43(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1);
 bool QMetaObject_InvokeMethod54(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2);
 bool QMetaObject_InvokeMethod64(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3);
 bool QMetaObject_InvokeMethod74(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4);
@@ -163,7 +154,6 @@ bool QMetaObject_InvokeMethod94(QObject* obj, const char* member, QGenericArgume
 bool QMetaObject_InvokeMethod104(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7);
 bool QMetaObject_InvokeMethod114(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7, QGenericArgument* val8);
 bool QMetaObject_InvokeMethod124(QObject* obj, const char* member, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3, QGenericArgument* val4, QGenericArgument* val5, QGenericArgument* val6, QGenericArgument* val7, QGenericArgument* val8, QGenericArgument* val9);
-QObject* QMetaObject_NewInstance1(const QMetaObject* self, QGenericArgument* val0);
 QObject* QMetaObject_NewInstance2(const QMetaObject* self, QGenericArgument* val0, QGenericArgument* val1);
 QObject* QMetaObject_NewInstance3(const QMetaObject* self, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2);
 QObject* QMetaObject_NewInstance4(const QMetaObject* self, QGenericArgument* val0, QGenericArgument* val1, QGenericArgument* val2, QGenericArgument* val3);

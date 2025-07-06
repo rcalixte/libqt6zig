@@ -51,6 +51,13 @@ pub const qwebengineurlrequestinfo = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestBody)
+    ///
+    /// ``` self: QtC.QWebEngineUrlRequestInfo ```
+    pub fn RequestBody(self: ?*anyopaque) QtC.QIODevice {
+        return qtc.QWebEngineUrlRequestInfo_RequestBody(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#changed)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
@@ -111,7 +118,8 @@ pub const enums = struct {
         pub const ResourceTypePluginResource: i32 = 17;
         pub const ResourceTypeNavigationPreloadMainFrame: i32 = 19;
         pub const ResourceTypeNavigationPreloadSubFrame: i32 = 20;
-        pub const ResourceTypeLast: i32 = 20;
+        pub const ResourceTypeJson: i32 = 21;
+        pub const ResourceTypeLast: i32 = 21;
         pub const ResourceTypeWebSocket: i32 = 254;
         pub const ResourceTypeUnknown: i32 = 255;
     };

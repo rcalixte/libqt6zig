@@ -258,6 +258,9 @@ int QPushButton_QBaseReceivers(const QPushButton* self, const char* signal);
 bool QPushButton_IsSignalConnected(const QPushButton* self, const QMetaMethod* signal);
 void QPushButton_OnIsSignalConnected(const QPushButton* self, intptr_t slot);
 bool QPushButton_QBaseIsSignalConnected(const QPushButton* self, const QMetaMethod* signal);
+double QPushButton_GetDecodedMetricF(const QPushButton* self, int metricA, int metricB);
+void QPushButton_OnGetDecodedMetricF(const QPushButton* self, intptr_t slot);
+double QPushButton_QBaseGetDecodedMetricF(const QPushButton* self, int metricA, int metricB);
 void QPushButton_Delete(QPushButton* self);
 
 #ifdef __cplusplus

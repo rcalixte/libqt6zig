@@ -56,14 +56,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QMainWindow::DockOption DockOption;   // C++ enum
-typedef QMainWindow::DockOptions DockOptions; // C++ QFlags
-#else
-typedef int DockOption;  // C ABI enum
-typedef int DockOptions; // C ABI QFlags
-#endif
-
 QMainWindow* QMainWindow_new(QWidget* parent);
 QMainWindow* QMainWindow_new2();
 QMainWindow* QMainWindow_new3(QWidget* parent, int flags);
@@ -306,6 +298,9 @@ int QMainWindow_QBaseReceivers(const QMainWindow* self, const char* signal);
 bool QMainWindow_IsSignalConnected(const QMainWindow* self, const QMetaMethod* signal);
 void QMainWindow_OnIsSignalConnected(const QMainWindow* self, intptr_t slot);
 bool QMainWindow_QBaseIsSignalConnected(const QMainWindow* self, const QMetaMethod* signal);
+double QMainWindow_GetDecodedMetricF(const QMainWindow* self, int metricA, int metricB);
+void QMainWindow_OnGetDecodedMetricF(const QMainWindow* self, intptr_t slot);
+double QMainWindow_QBaseGetDecodedMetricF(const QMainWindow* self, int metricA, int metricB);
 void QMainWindow_Delete(QMainWindow* self);
 
 #ifdef __cplusplus

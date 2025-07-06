@@ -19,12 +19,12 @@ class VirtualQMediaDevices final : public QMediaDevices {
 
     // Virtual class public types (including callbacks)
     using QMediaDevices_Metacall_Callback = int (*)(QMediaDevices*, int, int, void**);
+    using QMediaDevices_ConnectNotify_Callback = void (*)(QMediaDevices*, QMetaMethod*);
     using QMediaDevices_Event_Callback = bool (*)(QMediaDevices*, QEvent*);
     using QMediaDevices_EventFilter_Callback = bool (*)(QMediaDevices*, QObject*, QEvent*);
     using QMediaDevices_TimerEvent_Callback = void (*)(QMediaDevices*, QTimerEvent*);
     using QMediaDevices_ChildEvent_Callback = void (*)(QMediaDevices*, QChildEvent*);
     using QMediaDevices_CustomEvent_Callback = void (*)(QMediaDevices*, QEvent*);
-    using QMediaDevices_ConnectNotify_Callback = void (*)(QMediaDevices*, QMetaMethod*);
     using QMediaDevices_DisconnectNotify_Callback = void (*)(QMediaDevices*, QMetaMethod*);
     using QMediaDevices_Sender_Callback = QObject* (*)();
     using QMediaDevices_SenderSignalIndex_Callback = int (*)();
@@ -34,12 +34,12 @@ class VirtualQMediaDevices final : public QMediaDevices {
   protected:
     // Instance callback storage
     QMediaDevices_Metacall_Callback qmediadevices_metacall_callback = nullptr;
+    QMediaDevices_ConnectNotify_Callback qmediadevices_connectnotify_callback = nullptr;
     QMediaDevices_Event_Callback qmediadevices_event_callback = nullptr;
     QMediaDevices_EventFilter_Callback qmediadevices_eventfilter_callback = nullptr;
     QMediaDevices_TimerEvent_Callback qmediadevices_timerevent_callback = nullptr;
     QMediaDevices_ChildEvent_Callback qmediadevices_childevent_callback = nullptr;
     QMediaDevices_CustomEvent_Callback qmediadevices_customevent_callback = nullptr;
-    QMediaDevices_ConnectNotify_Callback qmediadevices_connectnotify_callback = nullptr;
     QMediaDevices_DisconnectNotify_Callback qmediadevices_disconnectnotify_callback = nullptr;
     QMediaDevices_Sender_Callback qmediadevices_sender_callback = nullptr;
     QMediaDevices_SenderSignalIndex_Callback qmediadevices_sendersignalindex_callback = nullptr;
@@ -48,12 +48,12 @@ class VirtualQMediaDevices final : public QMediaDevices {
 
     // Instance base flags
     mutable bool qmediadevices_metacall_isbase = false;
+    mutable bool qmediadevices_connectnotify_isbase = false;
     mutable bool qmediadevices_event_isbase = false;
     mutable bool qmediadevices_eventfilter_isbase = false;
     mutable bool qmediadevices_timerevent_isbase = false;
     mutable bool qmediadevices_childevent_isbase = false;
     mutable bool qmediadevices_customevent_isbase = false;
-    mutable bool qmediadevices_connectnotify_isbase = false;
     mutable bool qmediadevices_disconnectnotify_isbase = false;
     mutable bool qmediadevices_sender_isbase = false;
     mutable bool qmediadevices_sendersignalindex_isbase = false;
@@ -61,17 +61,17 @@ class VirtualQMediaDevices final : public QMediaDevices {
     mutable bool qmediadevices_issignalconnected_isbase = false;
 
   public:
-    VirtualQMediaDevices() : QMediaDevices(){};
-    VirtualQMediaDevices(QObject* parent) : QMediaDevices(parent){};
+    VirtualQMediaDevices() : QMediaDevices() {};
+    VirtualQMediaDevices(QObject* parent) : QMediaDevices(parent) {};
 
     ~VirtualQMediaDevices() {
         qmediadevices_metacall_callback = nullptr;
+        qmediadevices_connectnotify_callback = nullptr;
         qmediadevices_event_callback = nullptr;
         qmediadevices_eventfilter_callback = nullptr;
         qmediadevices_timerevent_callback = nullptr;
         qmediadevices_childevent_callback = nullptr;
         qmediadevices_customevent_callback = nullptr;
-        qmediadevices_connectnotify_callback = nullptr;
         qmediadevices_disconnectnotify_callback = nullptr;
         qmediadevices_sender_callback = nullptr;
         qmediadevices_sendersignalindex_callback = nullptr;
@@ -81,12 +81,12 @@ class VirtualQMediaDevices final : public QMediaDevices {
 
     // Callback setters
     inline void setQMediaDevices_Metacall_Callback(QMediaDevices_Metacall_Callback cb) { qmediadevices_metacall_callback = cb; }
+    inline void setQMediaDevices_ConnectNotify_Callback(QMediaDevices_ConnectNotify_Callback cb) { qmediadevices_connectnotify_callback = cb; }
     inline void setQMediaDevices_Event_Callback(QMediaDevices_Event_Callback cb) { qmediadevices_event_callback = cb; }
     inline void setQMediaDevices_EventFilter_Callback(QMediaDevices_EventFilter_Callback cb) { qmediadevices_eventfilter_callback = cb; }
     inline void setQMediaDevices_TimerEvent_Callback(QMediaDevices_TimerEvent_Callback cb) { qmediadevices_timerevent_callback = cb; }
     inline void setQMediaDevices_ChildEvent_Callback(QMediaDevices_ChildEvent_Callback cb) { qmediadevices_childevent_callback = cb; }
     inline void setQMediaDevices_CustomEvent_Callback(QMediaDevices_CustomEvent_Callback cb) { qmediadevices_customevent_callback = cb; }
-    inline void setQMediaDevices_ConnectNotify_Callback(QMediaDevices_ConnectNotify_Callback cb) { qmediadevices_connectnotify_callback = cb; }
     inline void setQMediaDevices_DisconnectNotify_Callback(QMediaDevices_DisconnectNotify_Callback cb) { qmediadevices_disconnectnotify_callback = cb; }
     inline void setQMediaDevices_Sender_Callback(QMediaDevices_Sender_Callback cb) { qmediadevices_sender_callback = cb; }
     inline void setQMediaDevices_SenderSignalIndex_Callback(QMediaDevices_SenderSignalIndex_Callback cb) { qmediadevices_sendersignalindex_callback = cb; }
@@ -95,12 +95,12 @@ class VirtualQMediaDevices final : public QMediaDevices {
 
     // Base flag setters
     inline void setQMediaDevices_Metacall_IsBase(bool value) const { qmediadevices_metacall_isbase = value; }
+    inline void setQMediaDevices_ConnectNotify_IsBase(bool value) const { qmediadevices_connectnotify_isbase = value; }
     inline void setQMediaDevices_Event_IsBase(bool value) const { qmediadevices_event_isbase = value; }
     inline void setQMediaDevices_EventFilter_IsBase(bool value) const { qmediadevices_eventfilter_isbase = value; }
     inline void setQMediaDevices_TimerEvent_IsBase(bool value) const { qmediadevices_timerevent_isbase = value; }
     inline void setQMediaDevices_ChildEvent_IsBase(bool value) const { qmediadevices_childevent_isbase = value; }
     inline void setQMediaDevices_CustomEvent_IsBase(bool value) const { qmediadevices_customevent_isbase = value; }
-    inline void setQMediaDevices_ConnectNotify_IsBase(bool value) const { qmediadevices_connectnotify_isbase = value; }
     inline void setQMediaDevices_DisconnectNotify_IsBase(bool value) const { qmediadevices_disconnectnotify_isbase = value; }
     inline void setQMediaDevices_Sender_IsBase(bool value) const { qmediadevices_sender_isbase = value; }
     inline void setQMediaDevices_SenderSignalIndex_IsBase(bool value) const { qmediadevices_sendersignalindex_isbase = value; }
@@ -121,6 +121,22 @@ class VirtualQMediaDevices final : public QMediaDevices {
             return static_cast<int>(callback_ret);
         } else {
             return QMediaDevices::qt_metacall(param1, param2, param3);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void connectNotify(const QMetaMethod& signal) override {
+        if (qmediadevices_connectnotify_isbase) {
+            qmediadevices_connectnotify_isbase = false;
+            QMediaDevices::connectNotify(signal);
+        } else if (qmediadevices_connectnotify_callback != nullptr) {
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qmediadevices_connectnotify_callback(this, cbval1);
+        } else {
+            QMediaDevices::connectNotify(signal);
         }
     }
 
@@ -194,22 +210,6 @@ class VirtualQMediaDevices final : public QMediaDevices {
             qmediadevices_customevent_callback(this, cbval1);
         } else {
             QMediaDevices::customEvent(event);
-        }
-    }
-
-    // Virtual method for C ABI access and custom callback
-    virtual void connectNotify(const QMetaMethod& signal) override {
-        if (qmediadevices_connectnotify_isbase) {
-            qmediadevices_connectnotify_isbase = false;
-            QMediaDevices::connectNotify(signal);
-        } else if (qmediadevices_connectnotify_callback != nullptr) {
-            const QMetaMethod& signal_ret = signal;
-            // Cast returned reference into pointer
-            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
-
-            qmediadevices_connectnotify_callback(this, cbval1);
-        } else {
-            QMediaDevices::connectNotify(signal);
         }
     }
 
@@ -288,14 +288,14 @@ class VirtualQMediaDevices final : public QMediaDevices {
     }
 
     // Friend functions
+    friend void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
+    friend void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
     friend void QMediaDevices_TimerEvent(QMediaDevices* self, QTimerEvent* event);
     friend void QMediaDevices_QBaseTimerEvent(QMediaDevices* self, QTimerEvent* event);
     friend void QMediaDevices_ChildEvent(QMediaDevices* self, QChildEvent* event);
     friend void QMediaDevices_QBaseChildEvent(QMediaDevices* self, QChildEvent* event);
     friend void QMediaDevices_CustomEvent(QMediaDevices* self, QEvent* event);
     friend void QMediaDevices_QBaseCustomEvent(QMediaDevices* self, QEvent* event);
-    friend void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
-    friend void QMediaDevices_QBaseConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
     friend void QMediaDevices_DisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
     friend void QMediaDevices_QBaseDisconnectNotify(QMediaDevices* self, const QMetaMethod* signal);
     friend QObject* QMediaDevices_Sender(const QMediaDevices* self);

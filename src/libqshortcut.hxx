@@ -61,15 +61,15 @@ class VirtualQShortcut final : public QShortcut {
     mutable bool qshortcut_issignalconnected_isbase = false;
 
   public:
-    VirtualQShortcut(QObject* parent) : QShortcut(parent){};
-    VirtualQShortcut(const QKeySequence& key, QObject* parent) : QShortcut(key, parent){};
-    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent) : QShortcut(key, parent){};
-    VirtualQShortcut(const QKeySequence& key, QObject* parent, const char* member) : QShortcut(key, parent, member){};
-    VirtualQShortcut(const QKeySequence& key, QObject* parent, const char* member, const char* ambiguousMember) : QShortcut(key, parent, member, ambiguousMember){};
-    VirtualQShortcut(const QKeySequence& key, QObject* parent, const char* member, const char* ambiguousMember, Qt::ShortcutContext context) : QShortcut(key, parent, member, ambiguousMember, context){};
-    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent, const char* member) : QShortcut(key, parent, member){};
-    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent, const char* member, const char* ambiguousMember) : QShortcut(key, parent, member, ambiguousMember){};
-    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent, const char* member, const char* ambiguousMember, Qt::ShortcutContext context) : QShortcut(key, parent, member, ambiguousMember, context){};
+    VirtualQShortcut(QObject* parent) : QShortcut(parent) {};
+    VirtualQShortcut(const QKeySequence& key, QObject* parent) : QShortcut(key, parent) {};
+    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent) : QShortcut(key, parent) {};
+    VirtualQShortcut(const QKeySequence& key, QObject* parent, const char* member) : QShortcut(key, parent, member) {};
+    VirtualQShortcut(const QKeySequence& key, QObject* parent, const char* member, const char* ambiguousMember) : QShortcut(key, parent, member, ambiguousMember) {};
+    VirtualQShortcut(const QKeySequence& key, QObject* parent, const char* member, const char* ambiguousMember, Qt::ShortcutContext context) : QShortcut(key, parent, member, ambiguousMember, context) {};
+    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent, const char* member) : QShortcut(key, parent, member) {};
+    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent, const char* member, const char* ambiguousMember) : QShortcut(key, parent, member, ambiguousMember) {};
+    VirtualQShortcut(QKeySequence::StandardKey key, QObject* parent, const char* member, const char* ambiguousMember, Qt::ShortcutContext context) : QShortcut(key, parent, member, ambiguousMember, context) {};
 
     ~VirtualQShortcut() {
         qshortcut_metacall_callback = nullptr;

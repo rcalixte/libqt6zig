@@ -81,6 +81,7 @@ class VirtualQFileDialog final : public QFileDialog {
     using QFileDialog_SenderSignalIndex_Callback = int (*)();
     using QFileDialog_Receivers_Callback = int (*)(const QFileDialog*, const char*);
     using QFileDialog_IsSignalConnected_Callback = bool (*)(const QFileDialog*, QMetaMethod*);
+    using QFileDialog_GetDecodedMetricF_Callback = double (*)(const QFileDialog*, int, int);
 
   protected:
     // Instance callback storage
@@ -147,6 +148,7 @@ class VirtualQFileDialog final : public QFileDialog {
     QFileDialog_SenderSignalIndex_Callback qfiledialog_sendersignalindex_callback = nullptr;
     QFileDialog_Receivers_Callback qfiledialog_receivers_callback = nullptr;
     QFileDialog_IsSignalConnected_Callback qfiledialog_issignalconnected_callback = nullptr;
+    QFileDialog_GetDecodedMetricF_Callback qfiledialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qfiledialog_metacall_isbase = false;
@@ -212,14 +214,15 @@ class VirtualQFileDialog final : public QFileDialog {
     mutable bool qfiledialog_sendersignalindex_isbase = false;
     mutable bool qfiledialog_receivers_isbase = false;
     mutable bool qfiledialog_issignalconnected_isbase = false;
+    mutable bool qfiledialog_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQFileDialog(QWidget* parent) : QFileDialog(parent){};
-    VirtualQFileDialog(QWidget* parent, Qt::WindowFlags f) : QFileDialog(parent, f){};
-    VirtualQFileDialog() : QFileDialog(){};
-    VirtualQFileDialog(QWidget* parent, const QString& caption) : QFileDialog(parent, caption){};
-    VirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory) : QFileDialog(parent, caption, directory){};
-    VirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory, const QString& filter) : QFileDialog(parent, caption, directory, filter){};
+    VirtualQFileDialog(QWidget* parent) : QFileDialog(parent) {};
+    VirtualQFileDialog(QWidget* parent, Qt::WindowFlags f) : QFileDialog(parent, f) {};
+    VirtualQFileDialog() : QFileDialog() {};
+    VirtualQFileDialog(QWidget* parent, const QString& caption) : QFileDialog(parent, caption) {};
+    VirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory) : QFileDialog(parent, caption, directory) {};
+    VirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory, const QString& filter) : QFileDialog(parent, caption, directory, filter) {};
 
     ~VirtualQFileDialog() {
         qfiledialog_metacall_callback = nullptr;
@@ -285,6 +288,7 @@ class VirtualQFileDialog final : public QFileDialog {
         qfiledialog_sendersignalindex_callback = nullptr;
         qfiledialog_receivers_callback = nullptr;
         qfiledialog_issignalconnected_callback = nullptr;
+        qfiledialog_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -351,6 +355,7 @@ class VirtualQFileDialog final : public QFileDialog {
     inline void setQFileDialog_SenderSignalIndex_Callback(QFileDialog_SenderSignalIndex_Callback cb) { qfiledialog_sendersignalindex_callback = cb; }
     inline void setQFileDialog_Receivers_Callback(QFileDialog_Receivers_Callback cb) { qfiledialog_receivers_callback = cb; }
     inline void setQFileDialog_IsSignalConnected_Callback(QFileDialog_IsSignalConnected_Callback cb) { qfiledialog_issignalconnected_callback = cb; }
+    inline void setQFileDialog_GetDecodedMetricF_Callback(QFileDialog_GetDecodedMetricF_Callback cb) { qfiledialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQFileDialog_Metacall_IsBase(bool value) const { qfiledialog_metacall_isbase = value; }
@@ -416,6 +421,7 @@ class VirtualQFileDialog final : public QFileDialog {
     inline void setQFileDialog_SenderSignalIndex_IsBase(bool value) const { qfiledialog_sendersignalindex_isbase = value; }
     inline void setQFileDialog_Receivers_IsBase(bool value) const { qfiledialog_receivers_isbase = value; }
     inline void setQFileDialog_IsSignalConnected_IsBase(bool value) const { qfiledialog_issignalconnected_isbase = value; }
+    inline void setQFileDialog_GetDecodedMetricF_IsBase(bool value) const { qfiledialog_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1305,6 +1311,22 @@ class VirtualQFileDialog final : public QFileDialog {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qfiledialog_getdecodedmetricf_isbase) {
+            qfiledialog_getdecodedmetricf_isbase = false;
+            return QFileDialog::getDecodedMetricF(metricA, metricB);
+        } else if (qfiledialog_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qfiledialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QFileDialog::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QFileDialog_Done(QFileDialog* self, int result);
     friend void QFileDialog_QBaseDone(QFileDialog* self, int result);
@@ -1408,6 +1430,8 @@ class VirtualQFileDialog final : public QFileDialog {
     friend int QFileDialog_QBaseReceivers(const QFileDialog* self, const char* signal);
     friend bool QFileDialog_IsSignalConnected(const QFileDialog* self, const QMetaMethod* signal);
     friend bool QFileDialog_QBaseIsSignalConnected(const QFileDialog* self, const QMetaMethod* signal);
+    friend double QFileDialog_GetDecodedMetricF(const QFileDialog* self, int metricA, int metricB);
+    friend double QFileDialog_QBaseGetDecodedMetricF(const QFileDialog* self, int metricA, int metricB);
 };
 
 #endif

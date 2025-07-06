@@ -30,12 +30,6 @@ typedef struct QsciLexerPython QsciLexerPython;
 typedef struct QsciScintilla QsciScintilla;
 #endif
 
-#ifdef __cplusplus
-typedef QsciLexerPython::IndentationWarning IndentationWarning; // C++ enum
-#else
-typedef int IndentationWarning; // C ABI enum
-#endif
-
 QsciLexerPython* QsciLexerPython_new();
 QsciLexerPython* QsciLexerPython_new2(QObject* parent);
 QMetaObject* QsciLexerPython_MetaObject(const QsciLexerPython* self);
@@ -177,6 +171,12 @@ void QsciLexerPython_QBaseConnectNotify(QsciLexerPython* self, const QMetaMethod
 void QsciLexerPython_DisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
 void QsciLexerPython_OnDisconnectNotify(QsciLexerPython* self, intptr_t slot);
 void QsciLexerPython_QBaseDisconnectNotify(QsciLexerPython* self, const QMetaMethod* signal);
+libqt_string QsciLexerPython_TextAsBytes(const QsciLexerPython* self, const libqt_string text);
+void QsciLexerPython_OnTextAsBytes(const QsciLexerPython* self, intptr_t slot);
+libqt_string QsciLexerPython_QBaseTextAsBytes(const QsciLexerPython* self, const libqt_string text);
+libqt_string QsciLexerPython_BytesAsText(const QsciLexerPython* self, const char* bytes, int size);
+void QsciLexerPython_OnBytesAsText(const QsciLexerPython* self, intptr_t slot);
+libqt_string QsciLexerPython_QBaseBytesAsText(const QsciLexerPython* self, const char* bytes, int size);
 QObject* QsciLexerPython_Sender(const QsciLexerPython* self);
 void QsciLexerPython_OnSender(const QsciLexerPython* self, intptr_t slot);
 QObject* QsciLexerPython_QBaseSender(const QsciLexerPython* self);

@@ -31,6 +31,7 @@ class VirtualQPrinter final : public QPrinter {
     using QPrinter_Redirected_Callback = QPaintDevice* (*)(const QPrinter*, QPoint*);
     using QPrinter_SharedPainter_Callback = QPainter* (*)();
     using QPrinter_SetEngines_Callback = void (*)(QPrinter*, QPrintEngine*, QPaintEngine*);
+    using QPrinter_GetDecodedMetricF_Callback = double (*)(const QPrinter*, int, int);
 
   protected:
     // Instance callback storage
@@ -47,6 +48,7 @@ class VirtualQPrinter final : public QPrinter {
     QPrinter_Redirected_Callback qprinter_redirected_callback = nullptr;
     QPrinter_SharedPainter_Callback qprinter_sharedpainter_callback = nullptr;
     QPrinter_SetEngines_Callback qprinter_setengines_callback = nullptr;
+    QPrinter_GetDecodedMetricF_Callback qprinter_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qprinter_devtype_isbase = false;
@@ -62,12 +64,13 @@ class VirtualQPrinter final : public QPrinter {
     mutable bool qprinter_redirected_isbase = false;
     mutable bool qprinter_sharedpainter_isbase = false;
     mutable bool qprinter_setengines_isbase = false;
+    mutable bool qprinter_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQPrinter() : QPrinter(){};
-    VirtualQPrinter(const QPrinterInfo& printer) : QPrinter(printer){};
-    VirtualQPrinter(QPrinter::PrinterMode mode) : QPrinter(mode){};
-    VirtualQPrinter(const QPrinterInfo& printer, QPrinter::PrinterMode mode) : QPrinter(printer, mode){};
+    VirtualQPrinter() : QPrinter() {};
+    VirtualQPrinter(const QPrinterInfo& printer) : QPrinter(printer) {};
+    VirtualQPrinter(QPrinter::PrinterMode mode) : QPrinter(mode) {};
+    VirtualQPrinter(const QPrinterInfo& printer, QPrinter::PrinterMode mode) : QPrinter(printer, mode) {};
 
     ~VirtualQPrinter() {
         qprinter_devtype_callback = nullptr;
@@ -83,6 +86,7 @@ class VirtualQPrinter final : public QPrinter {
         qprinter_redirected_callback = nullptr;
         qprinter_sharedpainter_callback = nullptr;
         qprinter_setengines_callback = nullptr;
+        qprinter_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -99,6 +103,7 @@ class VirtualQPrinter final : public QPrinter {
     inline void setQPrinter_Redirected_Callback(QPrinter_Redirected_Callback cb) { qprinter_redirected_callback = cb; }
     inline void setQPrinter_SharedPainter_Callback(QPrinter_SharedPainter_Callback cb) { qprinter_sharedpainter_callback = cb; }
     inline void setQPrinter_SetEngines_Callback(QPrinter_SetEngines_Callback cb) { qprinter_setengines_callback = cb; }
+    inline void setQPrinter_GetDecodedMetricF_Callback(QPrinter_GetDecodedMetricF_Callback cb) { qprinter_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQPrinter_DevType_IsBase(bool value) const { qprinter_devtype_isbase = value; }
@@ -114,6 +119,7 @@ class VirtualQPrinter final : public QPrinter {
     inline void setQPrinter_Redirected_IsBase(bool value) const { qprinter_redirected_isbase = value; }
     inline void setQPrinter_SharedPainter_IsBase(bool value) const { qprinter_sharedpainter_isbase = value; }
     inline void setQPrinter_SetEngines_IsBase(bool value) const { qprinter_setengines_isbase = value; }
+    inline void setQPrinter_GetDecodedMetricF_IsBase(bool value) const { qprinter_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
@@ -309,6 +315,22 @@ class VirtualQPrinter final : public QPrinter {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qprinter_getdecodedmetricf_isbase) {
+            qprinter_getdecodedmetricf_isbase = false;
+            return QPrinter::getDecodedMetricF(metricA, metricB);
+        } else if (qprinter_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qprinter_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QPrinter::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend int QPrinter_Metric(const QPrinter* self, int param1);
     friend int QPrinter_QBaseMetric(const QPrinter* self, int param1);
@@ -320,6 +342,8 @@ class VirtualQPrinter final : public QPrinter {
     friend QPainter* QPrinter_QBaseSharedPainter(const QPrinter* self);
     friend void QPrinter_SetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
     friend void QPrinter_QBaseSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
+    friend double QPrinter_GetDecodedMetricF(const QPrinter* self, int metricA, int metricB);
+    friend double QPrinter_QBaseGetDecodedMetricF(const QPrinter* self, int metricA, int metricB);
 };
 
 #endif

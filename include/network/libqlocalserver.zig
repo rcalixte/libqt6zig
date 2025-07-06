@@ -293,6 +293,31 @@ pub const qlocalserver = struct {
         qtc.QLocalServer_QBaseIncomingConnection(@ptrCast(self), @intCast(socketDescriptor));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
+    ///
+    /// ``` self: QtC.QLocalServer, socket: QtC.QLocalSocket ```
+    pub fn AddPendingConnection(self: ?*anyopaque, socket: ?*anyopaque) void {
+        qtc.QLocalServer_AddPendingConnection(@ptrCast(self), @ptrCast(socket));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QLocalServer, slot: fn (self: QtC.QLocalServer, socket: QtC.QLocalSocket) callconv(.c) void ```
+    pub fn OnAddPendingConnection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QLocalServer_OnAddPendingConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#addPendingConnection)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QLocalServer, socket: QtC.QLocalSocket ```
+    pub fn QBaseAddPendingConnection(self: ?*anyopaque, socket: ?*anyopaque) void {
+        qtc.QLocalServer_QBaseAddPendingConnection(@ptrCast(self), @ptrCast(socket));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -418,8 +443,8 @@ pub const qlocalserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QLocalServer, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -438,6 +463,15 @@ pub const qlocalserver = struct {
     /// ``` self: QtC.QLocalServer, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QLocalServer, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -643,6 +677,15 @@ pub const qlocalserver = struct {
     /// ``` self: QtC.QLocalServer ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QLocalServer, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

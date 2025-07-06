@@ -19,14 +19,6 @@ extern "C" {
 typedef struct QIODeviceBase QIODeviceBase;
 #endif
 
-#ifdef __cplusplus
-typedef QIODeviceBase::OpenMode OpenMode;         // C++ QFlags
-typedef QIODeviceBase::OpenModeFlag OpenModeFlag; // C++ enum
-#else
-typedef int OpenMode;     // C ABI QFlags
-typedef int OpenModeFlag; // C ABI enum
-#endif
-
 QIODeviceBase* QIODeviceBase_new(const QIODeviceBase* other);
 void QIODeviceBase_CopyAssign(QIODeviceBase* self, QIODeviceBase* other);
 

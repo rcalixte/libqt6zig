@@ -84,14 +84,14 @@ libqt_string QStringView_ToLocal8Bit(const QStringView* self) {
 }
 
 libqt_list /* of unsigned int */ QStringView_ToUcs4(const QStringView* self) {
-    QList<uint> _ret = self->toUcs4();
+    QList<unsigned int> _ret = self->toUcs4();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -112,7 +112,7 @@ int QStringView_CompareWithQChar(const QStringView* self, QChar* c) {
     return self->compare(*c);
 }
 
-int QStringView_Compare2(const QStringView* self, QChar* c, int cs) {
+int QStringView_Compare3(const QStringView* self, QChar* c, int cs) {
     return self->compare(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
@@ -174,6 +174,14 @@ bool QStringView_IsRightToLeft(const QStringView* self) {
 
 bool QStringView_IsValidUtf16(const QStringView* self) {
     return self->isValidUtf16();
+}
+
+bool QStringView_IsUpper(const QStringView* self) {
+    return self->isUpper();
+}
+
+bool QStringView_IsLower(const QStringView* self) {
+    return self->isLower();
 }
 
 int16_t QStringView_ToShort(const QStringView* self) {
@@ -248,6 +256,10 @@ QChar* QStringView_Back(const QStringView* self) {
     return new QChar(self->back());
 }
 
+ptrdiff_t QStringView_MaxSize(const QStringView* self) {
+    return static_cast<ptrdiff_t>(self->max_size());
+}
+
 QChar* QStringView_ConstBegin(const QStringView* self) {
     QStringView::const_iterator _ret = self->constBegin();
     return const_cast<QChar*>(static_cast<const QChar*>(_ret));
@@ -276,6 +288,10 @@ QChar* QStringView_First2(const QStringView* self) {
 
 QChar* QStringView_Last2(const QStringView* self) {
     return new QChar(self->last());
+}
+
+ptrdiff_t QStringView_MaxSize2() {
+    return static_cast<ptrdiff_t>(QStringView::maxSize());
 }
 
 ptrdiff_t QStringView_IndexOf2(const QStringView* self, QChar* c, ptrdiff_t from) {

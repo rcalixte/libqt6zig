@@ -64,8 +64,8 @@ class VirtualQHorizontalBarSeries final : public QHorizontalBarSeries {
     mutable bool qhorizontalbarseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQHorizontalBarSeries() : QHorizontalBarSeries(){};
-    VirtualQHorizontalBarSeries(QObject* parent) : QHorizontalBarSeries(parent){};
+    VirtualQHorizontalBarSeries() : QHorizontalBarSeries() {};
+    VirtualQHorizontalBarSeries(QObject* parent) : QHorizontalBarSeries(parent) {};
 
     ~VirtualQHorizontalBarSeries() {
         qhorizontalbarseries_metacall_callback = nullptr;

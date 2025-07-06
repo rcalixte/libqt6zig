@@ -60,6 +60,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     using QsciLexerCoffeeScript_CustomEvent_Callback = void (*)(QsciLexerCoffeeScript*, QEvent*);
     using QsciLexerCoffeeScript_ConnectNotify_Callback = void (*)(QsciLexerCoffeeScript*, QMetaMethod*);
     using QsciLexerCoffeeScript_DisconnectNotify_Callback = void (*)(QsciLexerCoffeeScript*, QMetaMethod*);
+    using QsciLexerCoffeeScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerCoffeeScript*, libqt_string);
+    using QsciLexerCoffeeScript_BytesAsText_Callback = libqt_string (*)(const QsciLexerCoffeeScript*, const char*, int);
     using QsciLexerCoffeeScript_Sender_Callback = QObject* (*)();
     using QsciLexerCoffeeScript_SenderSignalIndex_Callback = int (*)();
     using QsciLexerCoffeeScript_Receivers_Callback = int (*)(const QsciLexerCoffeeScript*, const char*);
@@ -109,6 +111,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     QsciLexerCoffeeScript_CustomEvent_Callback qscilexercoffeescript_customevent_callback = nullptr;
     QsciLexerCoffeeScript_ConnectNotify_Callback qscilexercoffeescript_connectnotify_callback = nullptr;
     QsciLexerCoffeeScript_DisconnectNotify_Callback qscilexercoffeescript_disconnectnotify_callback = nullptr;
+    QsciLexerCoffeeScript_TextAsBytes_Callback qscilexercoffeescript_textasbytes_callback = nullptr;
+    QsciLexerCoffeeScript_BytesAsText_Callback qscilexercoffeescript_bytesastext_callback = nullptr;
     QsciLexerCoffeeScript_Sender_Callback qscilexercoffeescript_sender_callback = nullptr;
     QsciLexerCoffeeScript_SenderSignalIndex_Callback qscilexercoffeescript_sendersignalindex_callback = nullptr;
     QsciLexerCoffeeScript_Receivers_Callback qscilexercoffeescript_receivers_callback = nullptr;
@@ -157,14 +161,16 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     mutable bool qscilexercoffeescript_customevent_isbase = false;
     mutable bool qscilexercoffeescript_connectnotify_isbase = false;
     mutable bool qscilexercoffeescript_disconnectnotify_isbase = false;
+    mutable bool qscilexercoffeescript_textasbytes_isbase = false;
+    mutable bool qscilexercoffeescript_bytesastext_isbase = false;
     mutable bool qscilexercoffeescript_sender_isbase = false;
     mutable bool qscilexercoffeescript_sendersignalindex_isbase = false;
     mutable bool qscilexercoffeescript_receivers_isbase = false;
     mutable bool qscilexercoffeescript_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerCoffeeScript() : QsciLexerCoffeeScript(){};
-    VirtualQsciLexerCoffeeScript(QObject* parent) : QsciLexerCoffeeScript(parent){};
+    VirtualQsciLexerCoffeeScript() : QsciLexerCoffeeScript() {};
+    VirtualQsciLexerCoffeeScript(QObject* parent) : QsciLexerCoffeeScript(parent) {};
 
     ~VirtualQsciLexerCoffeeScript() {
         qscilexercoffeescript_metacall_callback = nullptr;
@@ -209,6 +215,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
         qscilexercoffeescript_customevent_callback = nullptr;
         qscilexercoffeescript_connectnotify_callback = nullptr;
         qscilexercoffeescript_disconnectnotify_callback = nullptr;
+        qscilexercoffeescript_textasbytes_callback = nullptr;
+        qscilexercoffeescript_bytesastext_callback = nullptr;
         qscilexercoffeescript_sender_callback = nullptr;
         qscilexercoffeescript_sendersignalindex_callback = nullptr;
         qscilexercoffeescript_receivers_callback = nullptr;
@@ -258,6 +266,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     inline void setQsciLexerCoffeeScript_CustomEvent_Callback(QsciLexerCoffeeScript_CustomEvent_Callback cb) { qscilexercoffeescript_customevent_callback = cb; }
     inline void setQsciLexerCoffeeScript_ConnectNotify_Callback(QsciLexerCoffeeScript_ConnectNotify_Callback cb) { qscilexercoffeescript_connectnotify_callback = cb; }
     inline void setQsciLexerCoffeeScript_DisconnectNotify_Callback(QsciLexerCoffeeScript_DisconnectNotify_Callback cb) { qscilexercoffeescript_disconnectnotify_callback = cb; }
+    inline void setQsciLexerCoffeeScript_TextAsBytes_Callback(QsciLexerCoffeeScript_TextAsBytes_Callback cb) { qscilexercoffeescript_textasbytes_callback = cb; }
+    inline void setQsciLexerCoffeeScript_BytesAsText_Callback(QsciLexerCoffeeScript_BytesAsText_Callback cb) { qscilexercoffeescript_bytesastext_callback = cb; }
     inline void setQsciLexerCoffeeScript_Sender_Callback(QsciLexerCoffeeScript_Sender_Callback cb) { qscilexercoffeescript_sender_callback = cb; }
     inline void setQsciLexerCoffeeScript_SenderSignalIndex_Callback(QsciLexerCoffeeScript_SenderSignalIndex_Callback cb) { qscilexercoffeescript_sendersignalindex_callback = cb; }
     inline void setQsciLexerCoffeeScript_Receivers_Callback(QsciLexerCoffeeScript_Receivers_Callback cb) { qscilexercoffeescript_receivers_callback = cb; }
@@ -306,6 +316,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     inline void setQsciLexerCoffeeScript_CustomEvent_IsBase(bool value) const { qscilexercoffeescript_customevent_isbase = value; }
     inline void setQsciLexerCoffeeScript_ConnectNotify_IsBase(bool value) const { qscilexercoffeescript_connectnotify_isbase = value; }
     inline void setQsciLexerCoffeeScript_DisconnectNotify_IsBase(bool value) const { qscilexercoffeescript_disconnectnotify_isbase = value; }
+    inline void setQsciLexerCoffeeScript_TextAsBytes_IsBase(bool value) const { qscilexercoffeescript_textasbytes_isbase = value; }
+    inline void setQsciLexerCoffeeScript_BytesAsText_IsBase(bool value) const { qscilexercoffeescript_bytesastext_isbase = value; }
     inline void setQsciLexerCoffeeScript_Sender_IsBase(bool value) const { qscilexercoffeescript_sender_isbase = value; }
     inline void setQsciLexerCoffeeScript_SenderSignalIndex_IsBase(bool value) const { qscilexercoffeescript_sendersignalindex_isbase = value; }
     inline void setQsciLexerCoffeeScript_Receivers_IsBase(bool value) const { qscilexercoffeescript_receivers_isbase = value; }
@@ -378,13 +390,13 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexercoffeescript_autocompletionwordseparators_isbase) {
             qscilexercoffeescript_autocompletionwordseparators_isbase = false;
             return QsciLexerCoffeeScript::autoCompletionWordSeparators();
         } else if (qscilexercoffeescript_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexercoffeescript_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -945,6 +957,47 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexercoffeescript_textasbytes_isbase) {
+            qscilexercoffeescript_textasbytes_isbase = false;
+            return QsciLexerCoffeeScript::textAsBytes(text);
+        } else if (qscilexercoffeescript_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexercoffeescript_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerCoffeeScript::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexercoffeescript_bytesastext_isbase) {
+            qscilexercoffeescript_bytesastext_isbase = false;
+            return QsciLexerCoffeeScript::bytesAsText(bytes, size);
+        } else if (qscilexercoffeescript_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexercoffeescript_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerCoffeeScript::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexercoffeescript_sender_isbase) {
             qscilexercoffeescript_sender_isbase = false;
@@ -1017,6 +1070,10 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     friend void QsciLexerCoffeeScript_QBaseConnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
     friend void QsciLexerCoffeeScript_DisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
     friend void QsciLexerCoffeeScript_QBaseDisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerCoffeeScript_TextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text);
+    friend libqt_string QsciLexerCoffeeScript_QBaseTextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text);
+    friend libqt_string QsciLexerCoffeeScript_BytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size);
+    friend libqt_string QsciLexerCoffeeScript_QBaseBytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size);
     friend QObject* QsciLexerCoffeeScript_Sender(const QsciLexerCoffeeScript* self);
     friend QObject* QsciLexerCoffeeScript_QBaseSender(const QsciLexerCoffeeScript* self);
     friend int QsciLexerCoffeeScript_SenderSignalIndex(const QsciLexerCoffeeScript* self);

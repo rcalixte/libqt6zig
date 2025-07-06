@@ -27,10 +27,6 @@ typedef struct QsciAbstractAPIs QsciAbstractAPIs;
 typedef struct QsciLexer QsciLexer;
 #endif
 
-#ifndef __cplusplus
-typedef libqt_pair /* tuple of uint32_t and uint32_t */ WordIndex; // C ABI QFlags
-#endif
-
 QsciAPIs* QsciAPIs_new(QsciLexer* lexer);
 QMetaObject* QsciAPIs_MetaObject(const QsciAPIs* self);
 void* QsciAPIs_Metacast(QsciAPIs* self, const char* param1);

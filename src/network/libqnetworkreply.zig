@@ -126,8 +126,8 @@ pub const qnetworkreply = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#hasRawHeader)
     ///
-    /// ``` self: QtC.QNetworkReply, headerName: []u8 ```
-    pub fn HasRawHeader(self: ?*anyopaque, headerName: []u8) bool {
+    /// ``` self: QtC.QNetworkReply, headerName: []const u8 ```
+    pub fn HasRawHeader(self: ?*anyopaque, headerName: []const u8) bool {
         const headerName_str = qtc.struct_libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
@@ -159,8 +159,8 @@ pub const qnetworkreply = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#rawHeader)
     ///
-    /// ``` self: QtC.QNetworkReply, headerName: []u8, allocator: std.mem.Allocator ```
-    pub fn RawHeader(self: ?*anyopaque, headerName: []u8, allocator: std.mem.Allocator) []u8 {
+    /// ``` self: QtC.QNetworkReply, headerName: []const u8, allocator: std.mem.Allocator ```
+    pub fn RawHeader(self: ?*anyopaque, headerName: []const u8, allocator: std.mem.Allocator) []u8 {
         const headerName_str = qtc.struct_libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
@@ -192,6 +192,13 @@ pub const qnetworkreply = struct {
         const _data: [*]struct_u8_u8 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#headers)
+    ///
+    /// ``` self: QtC.QNetworkReply ```
+    pub fn Headers(self: ?*anyopaque) QtC.QHttpHeaders {
+        return qtc.QNetworkReply_Headers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#attribute)
@@ -1070,8 +1077,8 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QNetworkReply, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1090,6 +1097,15 @@ pub const qnetworkreply = struct {
     /// ``` self: QtC.QNetworkReply, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QNetworkReply, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1295,6 +1311,15 @@ pub const qnetworkreply = struct {
     /// ``` self: QtC.QNetworkReply ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QNetworkReply, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

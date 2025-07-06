@@ -1484,25 +1484,25 @@ void QAbstractItemView_OnVisualRegionForSelection(const QAbstractItemView* self,
 libqt_list /* of QModelIndex* */ QAbstractItemView_SelectedIndexes(const QAbstractItemView* self) {
     auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
     if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
-        QModelIndexList _ret = vqabstractitemview->selectedIndexes();
+        QList<QModelIndex> _ret = vqabstractitemview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQAbstractItemView*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQAbstractItemView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1513,25 +1513,25 @@ libqt_list /* of QModelIndex* */ QAbstractItemView_QBaseSelectedIndexes(const QA
     auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
     if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
         vqabstractitemview->setQAbstractItemView_SelectedIndexes_IsBase(true);
-        QModelIndexList _ret = vqabstractitemview->selectedIndexes();
+        QList<QModelIndex> _ret = vqabstractitemview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQAbstractItemView*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQAbstractItemView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -3800,6 +3800,35 @@ void QAbstractItemView_OnIsSignalConnected(const QAbstractItemView* self, intptr
     auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
     if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
         vqabstractitemview->setQAbstractItemView_IsSignalConnected_Callback(reinterpret_cast<VirtualQAbstractItemView::QAbstractItemView_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QAbstractItemView_GetDecodedMetricF(const QAbstractItemView* self, int metricA, int metricB) {
+    auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        return vqabstractitemview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractItemView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QAbstractItemView_QBaseGetDecodedMetricF(const QAbstractItemView* self, int metricA, int metricB) {
+    auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        vqabstractitemview->setQAbstractItemView_GetDecodedMetricF_IsBase(true);
+        return vqabstractitemview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractItemView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractItemView_OnGetDecodedMetricF(const QAbstractItemView* self, intptr_t slot) {
+    auto* vqabstractitemview = const_cast<VirtualQAbstractItemView*>(dynamic_cast<const VirtualQAbstractItemView*>(self));
+    if (vqabstractitemview && vqabstractitemview->isVirtualQAbstractItemView) {
+        vqabstractitemview->setQAbstractItemView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractItemView::QAbstractItemView_GetDecodedMetricF_Callback>(slot));
     }
 }
 

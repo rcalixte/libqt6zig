@@ -20,20 +20,17 @@ typedef struct QUrl QUrl;
 typedef struct QWebEngineQuotaRequest QWebEngineQuotaRequest;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineQuotaRequest::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
-QWebEngineQuotaRequest* QWebEngineQuotaRequest_new();
-QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(const QWebEngineQuotaRequest* param1);
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new(const QWebEngineQuotaRequest* other);
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new2(QWebEngineQuotaRequest* other);
+QWebEngineQuotaRequest* QWebEngineQuotaRequest_new3();
+void QWebEngineQuotaRequest_CopyAssign(QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* other);
+void QWebEngineQuotaRequest_MoveAssign(QWebEngineQuotaRequest* self, QWebEngineQuotaRequest* other);
 void QWebEngineQuotaRequest_Accept(QWebEngineQuotaRequest* self);
 void QWebEngineQuotaRequest_Reject(QWebEngineQuotaRequest* self);
 QUrl* QWebEngineQuotaRequest_Origin(const QWebEngineQuotaRequest* self);
 long long QWebEngineQuotaRequest_RequestedSize(const QWebEngineQuotaRequest* self);
-bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that);
-bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* that);
+bool QWebEngineQuotaRequest_OperatorEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* param1);
+bool QWebEngineQuotaRequest_OperatorNotEqual(const QWebEngineQuotaRequest* self, const QWebEngineQuotaRequest* param1);
 void QWebEngineQuotaRequest_Delete(QWebEngineQuotaRequest* self);
 
 #ifdef __cplusplus

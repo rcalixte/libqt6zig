@@ -94,6 +94,7 @@ class VirtualQTextBrowser final : public QTextBrowser {
     using QTextBrowser_SenderSignalIndex_Callback = int (*)();
     using QTextBrowser_Receivers_Callback = int (*)(const QTextBrowser*, const char*);
     using QTextBrowser_IsSignalConnected_Callback = bool (*)(const QTextBrowser*, QMetaMethod*);
+    using QTextBrowser_GetDecodedMetricF_Callback = double (*)(const QTextBrowser*, int, int);
 
   protected:
     // Instance callback storage
@@ -173,6 +174,7 @@ class VirtualQTextBrowser final : public QTextBrowser {
     QTextBrowser_SenderSignalIndex_Callback qtextbrowser_sendersignalindex_callback = nullptr;
     QTextBrowser_Receivers_Callback qtextbrowser_receivers_callback = nullptr;
     QTextBrowser_IsSignalConnected_Callback qtextbrowser_issignalconnected_callback = nullptr;
+    QTextBrowser_GetDecodedMetricF_Callback qtextbrowser_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qtextbrowser_metacall_isbase = false;
@@ -251,10 +253,11 @@ class VirtualQTextBrowser final : public QTextBrowser {
     mutable bool qtextbrowser_sendersignalindex_isbase = false;
     mutable bool qtextbrowser_receivers_isbase = false;
     mutable bool qtextbrowser_issignalconnected_isbase = false;
+    mutable bool qtextbrowser_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQTextBrowser(QWidget* parent) : QTextBrowser(parent){};
-    VirtualQTextBrowser() : QTextBrowser(){};
+    VirtualQTextBrowser(QWidget* parent) : QTextBrowser(parent) {};
+    VirtualQTextBrowser() : QTextBrowser() {};
 
     ~VirtualQTextBrowser() {
         qtextbrowser_metacall_callback = nullptr;
@@ -333,6 +336,7 @@ class VirtualQTextBrowser final : public QTextBrowser {
         qtextbrowser_sendersignalindex_callback = nullptr;
         qtextbrowser_receivers_callback = nullptr;
         qtextbrowser_issignalconnected_callback = nullptr;
+        qtextbrowser_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -412,6 +416,7 @@ class VirtualQTextBrowser final : public QTextBrowser {
     inline void setQTextBrowser_SenderSignalIndex_Callback(QTextBrowser_SenderSignalIndex_Callback cb) { qtextbrowser_sendersignalindex_callback = cb; }
     inline void setQTextBrowser_Receivers_Callback(QTextBrowser_Receivers_Callback cb) { qtextbrowser_receivers_callback = cb; }
     inline void setQTextBrowser_IsSignalConnected_Callback(QTextBrowser_IsSignalConnected_Callback cb) { qtextbrowser_issignalconnected_callback = cb; }
+    inline void setQTextBrowser_GetDecodedMetricF_Callback(QTextBrowser_GetDecodedMetricF_Callback cb) { qtextbrowser_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQTextBrowser_Metacall_IsBase(bool value) const { qtextbrowser_metacall_isbase = value; }
@@ -490,6 +495,7 @@ class VirtualQTextBrowser final : public QTextBrowser {
     inline void setQTextBrowser_SenderSignalIndex_IsBase(bool value) const { qtextbrowser_sendersignalindex_isbase = value; }
     inline void setQTextBrowser_Receivers_IsBase(bool value) const { qtextbrowser_receivers_isbase = value; }
     inline void setQTextBrowser_IsSignalConnected_IsBase(bool value) const { qtextbrowser_issignalconnected_isbase = value; }
+    inline void setQTextBrowser_GetDecodedMetricF_IsBase(bool value) const { qtextbrowser_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1572,6 +1578,22 @@ class VirtualQTextBrowser final : public QTextBrowser {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qtextbrowser_getdecodedmetricf_isbase) {
+            qtextbrowser_getdecodedmetricf_isbase = false;
+            return QTextBrowser::getDecodedMetricF(metricA, metricB);
+        } else if (qtextbrowser_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qtextbrowser_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QTextBrowser::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QTextBrowser_Event(QTextBrowser* self, QEvent* e);
     friend bool QTextBrowser_QBaseEvent(QTextBrowser* self, QEvent* e);
@@ -1695,6 +1717,8 @@ class VirtualQTextBrowser final : public QTextBrowser {
     friend int QTextBrowser_QBaseReceivers(const QTextBrowser* self, const char* signal);
     friend bool QTextBrowser_IsSignalConnected(const QTextBrowser* self, const QMetaMethod* signal);
     friend bool QTextBrowser_QBaseIsSignalConnected(const QTextBrowser* self, const QMetaMethod* signal);
+    friend double QTextBrowser_GetDecodedMetricF(const QTextBrowser* self, int metricA, int metricB);
+    friend double QTextBrowser_QBaseGetDecodedMetricF(const QTextBrowser* self, int metricA, int metricB);
 };
 
 #endif

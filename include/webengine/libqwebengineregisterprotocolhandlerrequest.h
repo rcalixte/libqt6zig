@@ -20,12 +20,6 @@ typedef struct QUrl QUrl;
 typedef struct QWebEngineRegisterProtocolHandlerRequest QWebEngineRegisterProtocolHandlerRequest;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineRegisterProtocolHandlerRequest::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QWebEngineRegisterProtocolHandlerRequest* QWebEngineRegisterProtocolHandlerRequest_new();
 QWebEngineRegisterProtocolHandlerRequest* QWebEngineRegisterProtocolHandlerRequest_new2(const QWebEngineRegisterProtocolHandlerRequest* param1);
 void QWebEngineRegisterProtocolHandlerRequest_Accept(QWebEngineRegisterProtocolHandlerRequest* self);

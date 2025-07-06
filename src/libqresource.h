@@ -21,12 +21,6 @@ typedef struct QLocale QLocale;
 typedef struct QResource QResource;
 #endif
 
-#ifdef __cplusplus
-typedef QResource::Compression Compression; // C++ enum
-#else
-typedef int Compression; // C ABI enum
-#endif
-
 QResource* QResource_new();
 QResource* QResource_new2(const libqt_string file);
 QResource* QResource_new3(const libqt_string file, const QLocale* locale);

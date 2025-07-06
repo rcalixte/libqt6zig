@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qevent_enums = @import("libqevent.zig").enums;
+const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qevent.html
@@ -151,6 +152,13 @@ pub const qtimerevent = struct {
         return qtc.QTimerEvent_new(@intCast(timerId));
     }
 
+    /// New2 constructs a new QTimerEvent object.
+    ///
+    /// ``` timerId: qnamespace_enums.TimerId ```
+    pub fn New2(timerId: i64) QtC.QTimerEvent {
+        return qtc.QTimerEvent_new2(@intCast(timerId));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#clone)
     ///
     /// ``` self: QtC.QTimerEvent ```
@@ -181,6 +189,13 @@ pub const qtimerevent = struct {
     /// ``` self: QtC.QTimerEvent ```
     pub fn TimerId(self: ?*anyopaque) i32 {
         return qtc.QTimerEvent_TimerId(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#id)
+    ///
+    /// ``` self: QtC.QTimerEvent ```
+    pub fn Id(self: ?*anyopaque) i64 {
+        return qtc.QTimerEvent_Id(@ptrCast(self));
     }
 
     /// Inherited from QEvent
@@ -868,6 +883,11 @@ pub const enums = struct {
         pub const Pointer: i32 = 218;
         pub const TabletTrackingChange: i32 = 219;
         pub const WindowAboutToChangeInternal: i32 = 221;
+        pub const DevicePixelRatioChange: i32 = 222;
+        pub const ChildWindowAdded: i32 = 223;
+        pub const ChildWindowRemoved: i32 = 224;
+        pub const ParentWindowAboutToChange: i32 = 225;
+        pub const ParentWindowChange: i32 = 226;
         pub const User: i32 = 1000;
         pub const MaxUser: i32 = 65535;
     };

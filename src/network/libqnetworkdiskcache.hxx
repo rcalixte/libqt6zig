@@ -88,8 +88,8 @@ class VirtualQNetworkDiskCache final : public QNetworkDiskCache {
     mutable bool qnetworkdiskcache_issignalconnected_isbase = false;
 
   public:
-    VirtualQNetworkDiskCache() : QNetworkDiskCache(){};
-    VirtualQNetworkDiskCache(QObject* parent) : QNetworkDiskCache(parent){};
+    VirtualQNetworkDiskCache() : QNetworkDiskCache() {};
+    VirtualQNetworkDiskCache(QObject* parent) : QNetworkDiskCache(parent) {};
 
     ~VirtualQNetworkDiskCache() {
         qnetworkdiskcache_metacall_callback = nullptr;

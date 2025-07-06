@@ -27,7 +27,7 @@ QCompleter* QCompleter_new2(QAbstractItemModel* model) {
 }
 
 QCompleter* QCompleter_new3(const libqt_list /* of libqt_string */ completions) {
-    QStringList completions_QList;
+    QList<QString> completions_QList;
     completions_QList.reserve(completions.len);
     libqt_string* completions_arr = static_cast<libqt_string*>(completions.data);
     for (size_t i = 0; i < completions.len; ++i) {
@@ -46,7 +46,7 @@ QCompleter* QCompleter_new5(QAbstractItemModel* model, QObject* parent) {
 }
 
 QCompleter* QCompleter_new6(const libqt_list /* of libqt_string */ completions, QObject* parent) {
-    QStringList completions_QList;
+    QList<QString> completions_QList;
     completions_QList.reserve(completions.len);
     libqt_string* completions_arr = static_cast<libqt_string*>(completions.data);
     for (size_t i = 0; i < completions.len; ++i) {
@@ -357,10 +357,10 @@ libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, co
     auto* vqcompleter = const_cast<VirtualQCompleter*>(dynamic_cast<const VirtualQCompleter*>(self));
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
-        QStringList _ret = vqcompleter->splitPath(path_QString);
+        QList<QString> _ret = vqcompleter->splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -372,14 +372,14 @@ libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, co
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QCompleter::splitPath(path_QString);
+        QList<QString> _ret = self->QCompleter::splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -391,7 +391,7 @@ libqt_list /* of libqt_string */ QCompleter_SplitPath(const QCompleter* self, co
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -403,10 +403,10 @@ libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* sel
     QString path_QString = QString::fromUtf8(path.data, path.len);
     if (vqcompleter && vqcompleter->isVirtualQCompleter) {
         vqcompleter->setQCompleter_SplitPath_IsBase(true);
-        QStringList _ret = vqcompleter->splitPath(path_QString);
+        QList<QString> _ret = vqcompleter->splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -418,14 +418,14 @@ libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* sel
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QCompleter::splitPath(path_QString);
+        QList<QString> _ret = self->QCompleter::splitPath(path_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -437,7 +437,7 @@ libqt_list /* of libqt_string */ QCompleter_QBaseSplitPath(const QCompleter* sel
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

@@ -86,6 +86,20 @@ pub const qmediarecorder = struct {
         qtc.QMediaRecorder_SetOutputLocation(@ptrCast(self), @ptrCast(location));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setOutputDevice)
+    ///
+    /// ``` self: QtC.QMediaRecorder, device: QtC.QIODevice ```
+    pub fn SetOutputDevice(self: ?*anyopaque, device: ?*anyopaque) void {
+        qtc.QMediaRecorder_SetOutputDevice(@ptrCast(self), @ptrCast(device));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#outputDevice)
+    ///
+    /// ``` self: QtC.QMediaRecorder ```
+    pub fn OutputDevice(self: ?*anyopaque) QtC.QIODevice {
+        return qtc.QMediaRecorder_OutputDevice(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#actualLocation)
     ///
     /// ``` self: QtC.QMediaRecorder ```
@@ -277,6 +291,20 @@ pub const qmediarecorder = struct {
     /// ``` self: QtC.QMediaRecorder, metaData: QtC.QMediaMetaData ```
     pub fn AddMetaData(self: ?*anyopaque, metaData: ?*anyopaque) void {
         qtc.QMediaRecorder_AddMetaData(@ptrCast(self), @ptrCast(metaData));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#autoStop)
+    ///
+    /// ``` self: QtC.QMediaRecorder ```
+    pub fn AutoStop(self: ?*anyopaque) bool {
+        return qtc.QMediaRecorder_AutoStop(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setAutoStop)
+    ///
+    /// ``` self: QtC.QMediaRecorder, autoStop: bool ```
+    pub fn SetAutoStop(self: ?*anyopaque, autoStop: bool) void {
+        qtc.QMediaRecorder_SetAutoStop(@ptrCast(self), autoStop);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#captureSession)
@@ -535,6 +563,20 @@ pub const qmediarecorder = struct {
         qtc.QMediaRecorder_Connect_AudioSampleRateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
+    ///
+    /// ``` self: QtC.QMediaRecorder ```
+    pub fn AutoStopChanged(self: ?*anyopaque) void {
+        qtc.QMediaRecorder_AutoStopChanged(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#autoStopChanged)
+    ///
+    /// ``` self: QtC.QMediaRecorder, slot: fn (self: QtC.QMediaRecorder) callconv(.c) void ```
+    pub fn OnAutoStopChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaRecorder_Connect_AutoStopChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -646,8 +688,8 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMediaRecorder, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -666,6 +708,15 @@ pub const qmediarecorder = struct {
     /// ``` self: QtC.QMediaRecorder, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QMediaRecorder, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -871,6 +922,15 @@ pub const qmediarecorder = struct {
     /// ``` self: QtC.QMediaRecorder ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QMediaRecorder, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

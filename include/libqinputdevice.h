@@ -26,18 +26,6 @@ typedef struct QRect QRect;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QInputDevice::Capabilities Capabilities; // C++ QFlags
-typedef QInputDevice::Capability Capability;     // C++ enum
-typedef QInputDevice::DeviceType DeviceType;     // C++ enum
-typedef QInputDevice::DeviceTypes DeviceTypes;   // C++ QFlags
-#else
-typedef int Capabilities; // C ABI QFlags
-typedef int Capability;   // C ABI enum
-typedef int DeviceType;   // C ABI enum
-typedef int DeviceTypes;  // C ABI QFlags
-#endif
-
 QInputDevice* QInputDevice_new();
 QInputDevice* QInputDevice_new2(const libqt_string name, long long systemId, int typeVal);
 QInputDevice* QInputDevice_new3(QObject* parent);

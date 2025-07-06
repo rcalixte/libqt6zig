@@ -97,7 +97,7 @@ void QBarSet_Append(QBarSet* self, const double value) {
 }
 
 void QBarSet_AppendWithValues(QBarSet* self, const libqt_list /* of double */ values) {
-    QList<qreal> values_QList;
+    QList<double> values_QList;
     values_QList.reserve(values.len);
     double* values_arr = static_cast<double*>(values.data);
     for (size_t i = 0; i < values.len; ++i) {
@@ -261,12 +261,12 @@ void QBarSet_ToggleSelection(QBarSet* self, const libqt_list /* of int */ indexe
 libqt_list /* of int */ QBarSet_SelectedBars(const QBarSet* self) {
     QList<int> _ret = self->selectedBars();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -489,13 +489,13 @@ void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, libqt_list /* of int */) = reinterpret_cast<void (*)(QBarSet*, libqt_list /* of int */)>(slot);
     QBarSet::connect(self, &QBarSet::selectedBarsChanged, [self, slotFunc](const QList<int>& indexes) {
         const QList<int>& indexes_ret = indexes;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * indexes_ret.length()));
-        for (size_t i = 0; i < indexes_ret.length(); ++i) {
+        // Convert const QList<> from C++ memory to manually-managed C memory
+        int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * indexes_ret.size()));
+        for (size_t i = 0; i < indexes_ret.size(); ++i) {
             indexes_arr[i] = indexes_ret[i];
         }
         libqt_list indexes_out;
-        indexes_out.len = indexes_ret.length();
+        indexes_out.len = indexes_ret.size();
         indexes_out.data = static_cast<void*>(indexes_arr);
         libqt_list /* of int */ sigval1 = indexes_out;
         slotFunc(self, sigval1);

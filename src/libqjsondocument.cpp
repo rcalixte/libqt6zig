@@ -128,14 +128,6 @@ QJsonValue* QJsonDocument_OperatorSubscriptWithQsizetype(const QJsonDocument* se
     return new QJsonValue(self->operator[]((qsizetype)(i)));
 }
 
-bool QJsonDocument_OperatorEqual(const QJsonDocument* self, const QJsonDocument* other) {
-    return (*self == *other);
-}
-
-bool QJsonDocument_OperatorNotEqual(const QJsonDocument* self, const QJsonDocument* other) {
-    return (*self != *other);
-}
-
 bool QJsonDocument_IsNull(const QJsonDocument* self) {
     return self->isNull();
 }

@@ -61,8 +61,8 @@ class VirtualQEventLoop final : public QEventLoop {
     mutable bool qeventloop_issignalconnected_isbase = false;
 
   public:
-    VirtualQEventLoop() : QEventLoop(){};
-    VirtualQEventLoop(QObject* parent) : QEventLoop(parent){};
+    VirtualQEventLoop() : QEventLoop() {};
+    VirtualQEventLoop(QObject* parent) : QEventLoop(parent) {};
 
     ~VirtualQEventLoop() {
         qeventloop_metacall_callback = nullptr;

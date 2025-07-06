@@ -61,14 +61,14 @@ class VirtualQMovie final : public QMovie {
     mutable bool qmovie_issignalconnected_isbase = false;
 
   public:
-    VirtualQMovie() : QMovie(){};
-    VirtualQMovie(QIODevice* device) : QMovie(device){};
-    VirtualQMovie(const QString& fileName) : QMovie(fileName){};
-    VirtualQMovie(QObject* parent) : QMovie(parent){};
-    VirtualQMovie(QIODevice* device, const QByteArray& format) : QMovie(device, format){};
-    VirtualQMovie(QIODevice* device, const QByteArray& format, QObject* parent) : QMovie(device, format, parent){};
-    VirtualQMovie(const QString& fileName, const QByteArray& format) : QMovie(fileName, format){};
-    VirtualQMovie(const QString& fileName, const QByteArray& format, QObject* parent) : QMovie(fileName, format, parent){};
+    VirtualQMovie() : QMovie() {};
+    VirtualQMovie(QIODevice* device) : QMovie(device) {};
+    VirtualQMovie(const QString& fileName) : QMovie(fileName) {};
+    VirtualQMovie(QObject* parent) : QMovie(parent) {};
+    VirtualQMovie(QIODevice* device, const QByteArray& format) : QMovie(device, format) {};
+    VirtualQMovie(QIODevice* device, const QByteArray& format, QObject* parent) : QMovie(device, format, parent) {};
+    VirtualQMovie(const QString& fileName, const QByteArray& format) : QMovie(fileName, format) {};
+    VirtualQMovie(const QString& fileName, const QByteArray& format, QObject* parent) : QMovie(fileName, format, parent) {};
 
     ~VirtualQMovie() {
         qmovie_metacall_callback = nullptr;

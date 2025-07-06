@@ -38,6 +38,13 @@ pub const qsemaphore = struct {
         return qtc.QSemaphore_TryAcquire2(@ptrCast(self), @intCast(n), @intCast(timeout));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#tryAcquire)
+    ///
+    /// ``` self: QtC.QSemaphore, n: i32, timeout: QtC.QDeadlineTimer ```
+    pub fn TryAcquire3(self: ?*anyopaque, n: i32, timeout: QtC.QDeadlineTimer) bool {
+        return qtc.QSemaphore_TryAcquire3(@ptrCast(self), @intCast(n), @ptrCast(timeout));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#release)
     ///
     /// ``` self: QtC.QSemaphore ```
@@ -55,8 +62,8 @@ pub const qsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#try_acquire)
     ///
     /// ``` self: QtC.QSemaphore ```
-    pub fn TryAcquire3(self: ?*anyopaque) bool {
-        return qtc.QSemaphore_TryAcquire3(@ptrCast(self));
+    pub fn TryAcquire4(self: ?*anyopaque) bool {
+        return qtc.QSemaphore_TryAcquire4(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsemaphore.html#acquire)

@@ -25,12 +25,6 @@ typedef struct QWebEngineNewWindowRequest QWebEngineNewWindowRequest;
 typedef struct QWebEnginePage QWebEnginePage;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineNewWindowRequest::DestinationType DestinationType; // C++ enum
-#else
-typedef int DestinationType; // C ABI enum
-#endif
-
 QMetaObject* QWebEngineNewWindowRequest_MetaObject(const QWebEngineNewWindowRequest* self);
 void* QWebEngineNewWindowRequest_Metacast(QWebEngineNewWindowRequest* self, const char* param1);
 int QWebEngineNewWindowRequest_Metacall(QWebEngineNewWindowRequest* self, int param1, int param2, void** param3);

@@ -242,8 +242,8 @@ pub const qwebenginecookiestore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineCookieStore, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -262,6 +262,15 @@ pub const qwebenginecookiestore = struct {
     /// ``` self: QtC.QWebEngineCookieStore, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -471,6 +480,15 @@ pub const qwebenginecookiestore = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineCookieStore, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -534,5 +552,29 @@ pub const qwebenginecookiestore = struct {
     /// ``` self: QtC.QWebEngineCookieStore ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QWebEngineCookieStore_Delete(@ptrCast(self));
+    }
+};
+
+/// https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html
+pub const qwebenginecookiestore__filterrequest = struct {
+    /// New constructs a new QWebEngineCookieStore::FilterRequest object.
+    ///
+    /// ``` param1: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn New(param1: ?*anyopaque) QtC.QWebEngineCookieStore__FilterRequest {
+        return qtc.QWebEngineCookieStore__FilterRequest_new(@ptrCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore__filterrequest.html#operator=)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, param1: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWebEngineCookieStore__FilterRequest_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QWebEngineCookieStore__FilterRequest_Delete(@ptrCast(self));
     }
 };

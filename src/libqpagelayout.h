@@ -24,16 +24,6 @@ typedef struct QRect QRect;
 typedef struct QRectF QRectF;
 #endif
 
-#ifdef __cplusplus
-typedef QPageLayout::Mode Mode;               // C++ enum
-typedef QPageLayout::Orientation Orientation; // C++ enum
-typedef QPageLayout::Unit Unit;               // C++ enum
-#else
-typedef int Mode;        // C ABI enum
-typedef int Orientation; // C ABI enum
-typedef int Unit;        // C ABI enum
-#endif
-
 QPageLayout* QPageLayout_new();
 QPageLayout* QPageLayout_new2(const QPageSize* pageSize, int orientation, const QMarginsF* margins);
 QPageLayout* QPageLayout_new3(const QPageLayout* other);
@@ -72,6 +62,11 @@ QRectF* QPageLayout_PaintRectWithUnits(const QPageLayout* self, int units);
 QRect* QPageLayout_PaintRectPoints(const QPageLayout* self);
 QRect* QPageLayout_PaintRectPixels(const QPageLayout* self, int resolution);
 void QPageLayout_SetPageSize2(QPageLayout* self, const QPageSize* pageSize, const QMarginsF* minMargins);
+bool QPageLayout_SetMargins2(QPageLayout* self, const QMarginsF* margins, int outOfBoundsPolicy);
+bool QPageLayout_SetLeftMargin2(QPageLayout* self, double leftMargin, int outOfBoundsPolicy);
+bool QPageLayout_SetRightMargin2(QPageLayout* self, double rightMargin, int outOfBoundsPolicy);
+bool QPageLayout_SetTopMargin2(QPageLayout* self, double topMargin, int outOfBoundsPolicy);
+bool QPageLayout_SetBottomMargin2(QPageLayout* self, double bottomMargin, int outOfBoundsPolicy);
 void QPageLayout_Delete(QPageLayout* self);
 
 #ifdef __cplusplus

@@ -38,14 +38,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QSslSocket::PeerVerifyMode PeerVerifyMode; // C++ enum
-typedef QSslSocket::SslMode SslMode;               // C++ enum
-#else
-typedef int PeerVerifyMode; // C ABI enum
-typedef int SslMode;        // C ABI enum
-#endif
-
 QSslSocket* QSslSocket_new();
 QSslSocket* QSslSocket_new2(QObject* parent);
 QMetaObject* QSslSocket_MetaObject(const QSslSocket* self);

@@ -19,14 +19,6 @@ extern "C" {
 typedef struct QCommandLineOption QCommandLineOption;
 #endif
 
-#ifdef __cplusplus
-typedef QCommandLineOption::Flag Flag;   // C++ enum
-typedef QCommandLineOption::Flags Flags; // C++ QFlags
-#else
-typedef int Flag;  // C ABI enum
-typedef int Flags; // C ABI QFlags
-#endif
-
 QCommandLineOption* QCommandLineOption_new(const libqt_string name);
 QCommandLineOption* QCommandLineOption_new2(const libqt_list /* of libqt_string */ names);
 QCommandLineOption* QCommandLineOption_new3(const libqt_string name, const libqt_string description);

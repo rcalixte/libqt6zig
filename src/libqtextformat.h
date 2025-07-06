@@ -36,40 +36,6 @@ typedef struct QTextTableFormat QTextTableFormat;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QTextBlockFormat::LineHeightTypes LineHeightTypes;                                    // C++ enum
-typedef QTextBlockFormat::MarkerType MarkerType;                                              // C++ enum
-typedef QTextCharFormat::FontPropertiesInheritanceBehavior FontPropertiesInheritanceBehavior; // C++ enum
-typedef QTextCharFormat::UnderlineStyle UnderlineStyle;                                       // C++ enum
-typedef QTextCharFormat::VerticalAlignment VerticalAlignment;                                 // C++ enum
-typedef QTextFormat::FormatType FormatType;                                                   // C++ enum
-typedef QTextFormat::ObjectTypes ObjectTypes;                                                 // C++ enum
-typedef QTextFormat::PageBreakFlag PageBreakFlag;                                             // C++ enum
-typedef QTextFormat::PageBreakFlags PageBreakFlags;                                           // C++ QFlags
-typedef QTextFormat::Property Property;                                                       // C++ enum
-typedef QTextFormat::QtGadgetHelper QtGadgetHelper;                                           // C++ QFlags
-typedef QTextFrameFormat::BorderStyle BorderStyle;                                            // C++ enum
-typedef QTextFrameFormat::Position Position;                                                  // C++ enum
-typedef QTextLength::Type Type;                                                               // C++ enum
-typedef QTextListFormat::Style Style;                                                         // C++ enum
-#else
-typedef int BorderStyle;                       // C ABI enum
-typedef int FontPropertiesInheritanceBehavior; // C ABI enum
-typedef int FormatType;                        // C ABI enum
-typedef int LineHeightTypes;                   // C ABI enum
-typedef int MarkerType;                        // C ABI enum
-typedef int ObjectTypes;                       // C ABI enum
-typedef int PageBreakFlag;                     // C ABI enum
-typedef int PageBreakFlags;                    // C ABI QFlags
-typedef int Position;                          // C ABI enum
-typedef int Property;                          // C ABI enum
-typedef int Style;                             // C ABI enum
-typedef int UnderlineStyle;                    // C ABI enum
-typedef int VerticalAlignment;                 // C ABI enum
-typedef unsigned char Type;                    // C ABI enum
-typedef void QtGadgetHelper;                   // C ABI QFlags
-#endif
-
 QTextLength* QTextLength_new(const QTextLength* other);
 QTextLength* QTextLength_new2(QTextLength* other);
 QTextLength* QTextLength_new3();
@@ -142,7 +108,6 @@ void QTextFormat_ClearForeground(QTextFormat* self);
 void QTextFormat_Delete(QTextFormat* self);
 
 QTextCharFormat* QTextCharFormat_new();
-QTextCharFormat* QTextCharFormat_new2(const QTextCharFormat* param1);
 bool QTextCharFormat_IsValid(const QTextCharFormat* self);
 void QTextCharFormat_SetFont(QTextCharFormat* self, const QFont* font);
 QFont* QTextCharFormat_Font(const QTextCharFormat* self);
@@ -215,7 +180,6 @@ void QTextCharFormat_SetFontStyleHint2(QTextCharFormat* self, int hint, int stra
 void QTextCharFormat_Delete(QTextCharFormat* self);
 
 QTextBlockFormat* QTextBlockFormat_new();
-QTextBlockFormat* QTextBlockFormat_new2(const QTextBlockFormat* param1);
 bool QTextBlockFormat_IsValid(const QTextBlockFormat* self);
 void QTextBlockFormat_SetAlignment(QTextBlockFormat* self, int alignment);
 int QTextBlockFormat_Alignment(const QTextBlockFormat* self);
@@ -248,7 +212,6 @@ int QTextBlockFormat_Marker(const QTextBlockFormat* self);
 void QTextBlockFormat_Delete(QTextBlockFormat* self);
 
 QTextListFormat* QTextListFormat_new();
-QTextListFormat* QTextListFormat_new2(const QTextListFormat* param1);
 bool QTextListFormat_IsValid(const QTextListFormat* self);
 void QTextListFormat_SetStyle(QTextListFormat* self, int style);
 int QTextListFormat_Style(const QTextListFormat* self);
@@ -258,6 +221,8 @@ void QTextListFormat_SetNumberPrefix(QTextListFormat* self, const libqt_string n
 libqt_string QTextListFormat_NumberPrefix(const QTextListFormat* self);
 void QTextListFormat_SetNumberSuffix(QTextListFormat* self, const libqt_string numberSuffix);
 libqt_string QTextListFormat_NumberSuffix(const QTextListFormat* self);
+void QTextListFormat_SetStart(QTextListFormat* self, int indent);
+int QTextListFormat_Start(const QTextListFormat* self);
 void QTextListFormat_Delete(QTextListFormat* self);
 
 QTextImageFormat* QTextImageFormat_new();
@@ -266,6 +231,8 @@ void QTextImageFormat_SetName(QTextImageFormat* self, const libqt_string name);
 libqt_string QTextImageFormat_Name(const QTextImageFormat* self);
 void QTextImageFormat_SetWidth(QTextImageFormat* self, double width);
 double QTextImageFormat_Width(const QTextImageFormat* self);
+void QTextImageFormat_SetMaximumWidth(QTextImageFormat* self, QTextLength* maxWidth);
+QTextLength* QTextImageFormat_MaximumWidth(const QTextImageFormat* self);
 void QTextImageFormat_SetHeight(QTextImageFormat* self, double height);
 double QTextImageFormat_Height(const QTextImageFormat* self);
 void QTextImageFormat_SetQuality(QTextImageFormat* self, int quality);
@@ -274,7 +241,6 @@ int QTextImageFormat_Quality(const QTextImageFormat* self);
 void QTextImageFormat_Delete(QTextImageFormat* self);
 
 QTextFrameFormat* QTextFrameFormat_new();
-QTextFrameFormat* QTextFrameFormat_new2(const QTextFrameFormat* param1);
 bool QTextFrameFormat_IsValid(const QTextFrameFormat* self);
 void QTextFrameFormat_SetPosition(QTextFrameFormat* self, int f);
 int QTextFrameFormat_Position(const QTextFrameFormat* self);

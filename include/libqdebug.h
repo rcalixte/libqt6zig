@@ -25,12 +25,6 @@ typedef struct QIODeviceBase QIODeviceBase;
 typedef struct QNoDebug QNoDebug;
 #endif
 
-#ifdef __cplusplus
-typedef QDebug::VerbosityLevel VerbosityLevel; // C++ enum
-#else
-typedef int VerbosityLevel; // C ABI enum
-#endif
-
 QDebug* QDebug_new(QIODevice* device);
 QDebug* QDebug_new2(const QDebug* o);
 void QDebug_OperatorAssign(QDebug* self, const QDebug* other);
@@ -44,6 +38,8 @@ int QDebug_Verbosity2(const QDebug* self);
 void QDebug_SetVerbosity(QDebug* self, int verbosityLevel);
 bool QDebug_AutoInsertSpaces(const QDebug* self);
 void QDebug_SetAutoInsertSpaces(QDebug* self, bool b);
+bool QDebug_QuoteStrings(const QDebug* self);
+void QDebug_SetQuoteStrings(QDebug* self, bool b);
 QDebug* QDebug_Quote(QDebug* self);
 QDebug* QDebug_Noquote(QDebug* self);
 QDebug* QDebug_MaybeQuote(QDebug* self);

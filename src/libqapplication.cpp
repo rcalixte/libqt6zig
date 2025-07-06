@@ -123,27 +123,27 @@ QFontMetrics* QApplication_FontMetrics() {
 }
 
 libqt_list /* of QWidget* */ QApplication_AllWidgets() {
-    QWidgetList _ret = QApplication::allWidgets();
+    QList<QWidget*> _ret = QApplication::allWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 libqt_list /* of QWidget* */ QApplication_TopLevelWidgets() {
-    QWidgetList _ret = QApplication::topLevelWidgets();
+    QList<QWidget*> _ret = QApplication::topLevelWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -277,6 +277,10 @@ libqt_string QApplication_StyleSheet(const QApplication* self) {
     return _str;
 }
 
+bool QApplication_AutoSipEnabled(const QApplication* self) {
+    return self->autoSipEnabled();
+}
+
 void QApplication_SetStyleSheet(QApplication* self, const libqt_string sheet) {
     QString sheet_QString = QString::fromUtf8(sheet.data, sheet.len);
     self->setStyleSheet(sheet_QString);
@@ -284,10 +288,6 @@ void QApplication_SetStyleSheet(QApplication* self, const libqt_string sheet) {
 
 void QApplication_SetAutoSipEnabled(QApplication* self, const bool enabled) {
     self->setAutoSipEnabled(enabled);
-}
-
-bool QApplication_AutoSipEnabled(const QApplication* self) {
-    return self->autoSipEnabled();
 }
 
 void QApplication_CloseAllWindows() {

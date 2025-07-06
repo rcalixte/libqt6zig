@@ -153,6 +153,12 @@ void QsciLexerRuby_QBaseConnectNotify(QsciLexerRuby* self, const QMetaMethod* si
 void QsciLexerRuby_DisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
 void QsciLexerRuby_OnDisconnectNotify(QsciLexerRuby* self, intptr_t slot);
 void QsciLexerRuby_QBaseDisconnectNotify(QsciLexerRuby* self, const QMetaMethod* signal);
+libqt_string QsciLexerRuby_TextAsBytes(const QsciLexerRuby* self, const libqt_string text);
+void QsciLexerRuby_OnTextAsBytes(const QsciLexerRuby* self, intptr_t slot);
+libqt_string QsciLexerRuby_QBaseTextAsBytes(const QsciLexerRuby* self, const libqt_string text);
+libqt_string QsciLexerRuby_BytesAsText(const QsciLexerRuby* self, const char* bytes, int size);
+void QsciLexerRuby_OnBytesAsText(const QsciLexerRuby* self, intptr_t slot);
+libqt_string QsciLexerRuby_QBaseBytesAsText(const QsciLexerRuby* self, const char* bytes, int size);
 QObject* QsciLexerRuby_Sender(const QsciLexerRuby* self);
 void QsciLexerRuby_OnSender(const QsciLexerRuby* self, intptr_t slot);
 QObject* QsciLexerRuby_QBaseSender(const QsciLexerRuby* self);

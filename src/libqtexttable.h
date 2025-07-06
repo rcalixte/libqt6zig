@@ -15,9 +15,6 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QTextFrame__iterator)
-typedef QTextFrame::iterator QTextFrame__iterator;
-#endif
 #else
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
@@ -28,7 +25,6 @@ typedef struct QTextCharFormat QTextCharFormat;
 typedef struct QTextCursor QTextCursor;
 typedef struct QTextDocument QTextDocument;
 typedef struct QTextFrame QTextFrame;
-typedef struct QTextFrame__iterator QTextFrame__iterator;
 typedef struct QTextObject QTextObject;
 typedef struct QTextTable QTextTable;
 typedef struct QTextTableCell QTextTableCell;
@@ -52,8 +48,6 @@ int QTextTableCell_FirstPosition(const QTextTableCell* self);
 int QTextTableCell_LastPosition(const QTextTableCell* self);
 bool QTextTableCell_OperatorEqual(const QTextTableCell* self, const QTextTableCell* other);
 bool QTextTableCell_OperatorNotEqual(const QTextTableCell* self, const QTextTableCell* other);
-QTextFrame__iterator* QTextTableCell_Begin(const QTextTableCell* self);
-QTextFrame__iterator* QTextTableCell_End(const QTextTableCell* self);
 int QTextTableCell_TableCellFormatIndex(const QTextTableCell* self);
 void QTextTableCell_Delete(QTextTableCell* self);
 

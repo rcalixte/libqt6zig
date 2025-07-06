@@ -182,6 +182,20 @@ pub const qsvgrenderer = struct {
         qtc.QSvgRenderer_SetAspectRatioMode(@ptrCast(self), @intCast(mode));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#options)
+    ///
+    /// ``` self: QtC.QSvgRenderer ```
+    pub fn Options(self: ?*anyopaque) i64 {
+        return qtc.QSvgRenderer_Options(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setOptions)
+    ///
+    /// ``` self: QtC.QSvgRenderer, flags: u32 ```
+    pub fn SetOptions(self: ?*anyopaque, flags: i64) void {
+        qtc.QSvgRenderer_SetOptions(@ptrCast(self), @intCast(flags));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#animated)
     ///
     /// ``` self: QtC.QSvgRenderer ```
@@ -224,6 +238,20 @@ pub const qsvgrenderer = struct {
         return qtc.QSvgRenderer_AnimationDuration(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#isAnimationEnabled)
+    ///
+    /// ``` self: QtC.QSvgRenderer ```
+    pub fn IsAnimationEnabled(self: ?*anyopaque) bool {
+        return qtc.QSvgRenderer_IsAnimationEnabled(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setAnimationEnabled)
+    ///
+    /// ``` self: QtC.QSvgRenderer, enable: bool ```
+    pub fn SetAnimationEnabled(self: ?*anyopaque, enable: bool) void {
+        qtc.QSvgRenderer_SetAnimationEnabled(@ptrCast(self), enable);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#boundsOnElement)
     ///
     /// ``` self: QtC.QSvgRenderer, id: []const u8 ```
@@ -255,6 +283,13 @@ pub const qsvgrenderer = struct {
             .data = id.ptr,
         };
         return qtc.QSvgRenderer_TransformForElement(@ptrCast(self), id_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setDefaultOptions)
+    ///
+    /// ``` flags: u32 ```
+    pub fn SetDefaultOptions(flags: i64) void {
+        qtc.QSvgRenderer_SetDefaultOptions(@intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#load)
@@ -447,8 +482,8 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QSvgRenderer, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -467,6 +502,15 @@ pub const qsvgrenderer = struct {
     /// ``` self: QtC.QSvgRenderer, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QSvgRenderer, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -672,6 +716,15 @@ pub const qsvgrenderer = struct {
     /// ``` self: QtC.QSvgRenderer ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QSvgRenderer, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

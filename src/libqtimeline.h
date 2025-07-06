@@ -26,14 +26,6 @@ typedef struct QTimeLine QTimeLine;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QTimeLine::Direction Direction; // C++ enum
-typedef QTimeLine::State State;         // C++ enum
-#else
-typedef int Direction; // C ABI enum
-typedef int State;     // C ABI enum
-#endif
-
 QTimeLine* QTimeLine_new();
 QTimeLine* QTimeLine_new2(int duration);
 QTimeLine* QTimeLine_new3(int duration, QObject* parent);

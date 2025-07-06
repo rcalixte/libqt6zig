@@ -552,6 +552,70 @@ pub const qidentityproxymodel = struct {
         return qtc.QIdentityProxyModel_QBaseMoveColumns(@ptrCast(self), @ptrCast(sourceParent), @intCast(sourceColumn), @intCast(count), @ptrCast(destinationParent), @intCast(destinationChild));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#handleSourceLayoutChanges)
+    ///
+    /// ``` self: QtC.QIdentityProxyModel ```
+    pub fn HandleSourceLayoutChanges(self: ?*anyopaque) bool {
+        return qtc.QIdentityProxyModel_HandleSourceLayoutChanges(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#handleSourceDataChanges)
+    ///
+    /// ``` self: QtC.QIdentityProxyModel ```
+    pub fn HandleSourceDataChanges(self: ?*anyopaque) bool {
+        return qtc.QIdentityProxyModel_HandleSourceDataChanges(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceLayoutChanges)
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, handleSourceLayoutChanges: bool ```
+    pub fn SetHandleSourceLayoutChanges(self: ?*anyopaque, handleSourceLayoutChanges: bool) void {
+        qtc.QIdentityProxyModel_SetHandleSourceLayoutChanges(@ptrCast(self), handleSourceLayoutChanges);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceLayoutChanges)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, slot: fn (self: QtC.QIdentityProxyModel, handleSourceLayoutChanges: bool) callconv(.c) void ```
+    pub fn OnSetHandleSourceLayoutChanges(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QIdentityProxyModel_OnSetHandleSourceLayoutChanges(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceLayoutChanges)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, handleSourceLayoutChanges: bool ```
+    pub fn QBaseSetHandleSourceLayoutChanges(self: ?*anyopaque, handleSourceLayoutChanges: bool) void {
+        qtc.QIdentityProxyModel_QBaseSetHandleSourceLayoutChanges(@ptrCast(self), handleSourceLayoutChanges);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceDataChanges)
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, handleSourceDataChanges: bool ```
+    pub fn SetHandleSourceDataChanges(self: ?*anyopaque, handleSourceDataChanges: bool) void {
+        qtc.QIdentityProxyModel_SetHandleSourceDataChanges(@ptrCast(self), handleSourceDataChanges);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceDataChanges)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, slot: fn (self: QtC.QIdentityProxyModel, handleSourceDataChanges: bool) callconv(.c) void ```
+    pub fn OnSetHandleSourceDataChanges(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QIdentityProxyModel_OnSetHandleSourceDataChanges(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qidentityproxymodel.html#setHandleSourceDataChanges)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, handleSourceDataChanges: bool ```
+    pub fn QBaseSetHandleSourceDataChanges(self: ?*anyopaque, handleSourceDataChanges: bool) void {
+        qtc.QIdentityProxyModel_QBaseSetHandleSourceDataChanges(@ptrCast(self), handleSourceDataChanges);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -980,8 +1044,8 @@ pub const qidentityproxymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QIdentityProxyModel, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1000,6 +1064,15 @@ pub const qidentityproxymodel = struct {
     /// ``` self: QtC.QIdentityProxyModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1196,6 +1269,15 @@ pub const qidentityproxymodel = struct {
     /// ``` self: QtC.QIdentityProxyModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QIdentityProxyModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

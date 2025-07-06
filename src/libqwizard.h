@@ -55,20 +55,6 @@ typedef struct QWizard QWizard;
 typedef struct QWizardPage QWizardPage;
 #endif
 
-#ifdef __cplusplus
-typedef QWizard::WizardButton WizardButton;   // C++ enum
-typedef QWizard::WizardOption WizardOption;   // C++ enum
-typedef QWizard::WizardOptions WizardOptions; // C++ QFlags
-typedef QWizard::WizardPixmap WizardPixmap;   // C++ enum
-typedef QWizard::WizardStyle WizardStyle;     // C++ enum
-#else
-typedef int WizardButton;  // C ABI enum
-typedef int WizardOption;  // C ABI enum
-typedef int WizardOptions; // C ABI QFlags
-typedef int WizardPixmap;  // C ABI enum
-typedef int WizardStyle;   // C ABI enum
-#endif
-
 QWizard* QWizard_new(QWidget* parent);
 QWizard* QWizard_new2();
 QWizard* QWizard_new3(QWidget* parent, int flags);
@@ -326,6 +312,9 @@ int QWizard_QBaseReceivers(const QWizard* self, const char* signal);
 bool QWizard_IsSignalConnected(const QWizard* self, const QMetaMethod* signal);
 void QWizard_OnIsSignalConnected(const QWizard* self, intptr_t slot);
 bool QWizard_QBaseIsSignalConnected(const QWizard* self, const QMetaMethod* signal);
+double QWizard_GetDecodedMetricF(const QWizard* self, int metricA, int metricB);
+void QWizard_OnGetDecodedMetricF(const QWizard* self, intptr_t slot);
+double QWizard_QBaseGetDecodedMetricF(const QWizard* self, int metricA, int metricB);
 void QWizard_Delete(QWizard* self);
 
 QWizardPage* QWizardPage_new(QWidget* parent);
@@ -553,6 +542,9 @@ int QWizardPage_QBaseReceivers(const QWizardPage* self, const char* signal);
 bool QWizardPage_IsSignalConnected(const QWizardPage* self, const QMetaMethod* signal);
 void QWizardPage_OnIsSignalConnected(const QWizardPage* self, intptr_t slot);
 bool QWizardPage_QBaseIsSignalConnected(const QWizardPage* self, const QMetaMethod* signal);
+double QWizardPage_GetDecodedMetricF(const QWizardPage* self, int metricA, int metricB);
+void QWizardPage_OnGetDecodedMetricF(const QWizardPage* self, intptr_t slot);
+double QWizardPage_QBaseGetDecodedMetricF(const QWizardPage* self, int metricA, int metricB);
 void QWizardPage_Delete(QWizardPage* self);
 
 #ifdef __cplusplus

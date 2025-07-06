@@ -1861,6 +1861,35 @@ void QSplashScreen_OnIsSignalConnected(const QSplashScreen* self, intptr_t slot)
     }
 }
 
+// Derived class handler implementation
+double QSplashScreen_GetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB) {
+    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        return vqsplashscreen->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSplashScreen*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QSplashScreen_QBaseGetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB) {
+    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_GetDecodedMetricF_IsBase(true);
+        return vqsplashscreen->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSplashScreen*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSplashScreen_OnGetDecodedMetricF(const QSplashScreen* self, intptr_t slot) {
+    auto* vqsplashscreen = const_cast<VirtualQSplashScreen*>(dynamic_cast<const VirtualQSplashScreen*>(self));
+    if (vqsplashscreen && vqsplashscreen->isVirtualQSplashScreen) {
+        vqsplashscreen->setQSplashScreen_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSplashScreen::QSplashScreen_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QSplashScreen_Delete(QSplashScreen* self) {
     delete self;
 }

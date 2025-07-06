@@ -145,8 +145,8 @@ class VirtualQFormLayout final : public QFormLayout {
     mutable bool qformlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQFormLayout(QWidget* parent) : QFormLayout(parent){};
-    VirtualQFormLayout() : QFormLayout(){};
+    VirtualQFormLayout(QWidget* parent) : QFormLayout(parent) {};
+    VirtualQFormLayout() : QFormLayout() {};
 
     ~VirtualQFormLayout() {
         qformlayout_metacall_callback = nullptr;

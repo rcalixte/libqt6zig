@@ -419,23 +419,23 @@ libqt_list /* of int */ QAbstractItemDelegate_PaintingRoles(const QAbstractItemD
     if (vqabstractitemdelegate && vqabstractitemdelegate->isVirtualQAbstractItemDelegate) {
         QList<int> _ret = vqabstractitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
         QList<int> _ret = self->QAbstractItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -448,23 +448,23 @@ libqt_list /* of int */ QAbstractItemDelegate_QBasePaintingRoles(const QAbstract
         vqabstractitemdelegate->setQAbstractItemDelegate_PaintingRoles_IsBase(true);
         QList<int> _ret = vqabstractitemdelegate->paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
         QList<int> _ret = self->QAbstractItemDelegate::paintingRoles();
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = _ret[i];
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

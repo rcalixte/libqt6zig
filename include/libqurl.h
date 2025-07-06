@@ -16,30 +16,9 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QByteArrayView QByteArrayView;
 typedef struct QUrl QUrl;
 typedef struct QUrlQuery QUrlQuery;
-#endif
-
-#ifdef __cplusplus
-typedef QUrl::AceProcessingOption AceProcessingOption;               // C++ enum
-typedef QUrl::AceProcessingOptions AceProcessingOptions;             // C++ QFlags
-typedef QUrl::ComponentFormattingOption ComponentFormattingOption;   // C++ enum
-typedef QUrl::ComponentFormattingOptions ComponentFormattingOptions; // C++ QFlags
-typedef QUrl::DataPtr DataPtr;                                       // C++ QFlags
-typedef QUrl::FormattingOptions FormattingOptions;                   // C++ QFlags
-typedef QUrl::ParsingMode ParsingMode;                               // C++ enum
-typedef QUrl::UrlFormattingOption UrlFormattingOption;               // C++ enum
-typedef QUrl::UserInputResolutionOption UserInputResolutionOption;   // C++ enum
-typedef QUrl::UserInputResolutionOptions UserInputResolutionOptions; // C++ QFlags
-#else
-typedef int AceProcessingOptions;               // C ABI QFlags
-typedef int ComponentFormattingOptions;         // C ABI QFlags
-typedef int ParsingMode;                        // C ABI enum
-typedef int UserInputResolutionOption;          // C ABI enum
-typedef int UserInputResolutionOptions;         // C ABI QFlags
-typedef unsigned int AceProcessingOption;       // C ABI enum
-typedef unsigned int ComponentFormattingOption; // C ABI enum
-typedef unsigned int UrlFormattingOption;       // C ABI enum
 #endif
 
 QUrl* QUrl_new();
@@ -54,7 +33,7 @@ libqt_string QUrl_Url(const QUrl* self);
 libqt_string QUrl_ToString(const QUrl* self);
 libqt_string QUrl_ToDisplayString(const QUrl* self);
 libqt_string QUrl_ToEncoded(const QUrl* self);
-QUrl* QUrl_FromEncoded(const libqt_string url);
+QUrl* QUrl_FromEncoded(QByteArrayView* input);
 QUrl* QUrl_FromUserInput(const libqt_string userInput);
 bool QUrl_IsValid(const QUrl* self);
 libqt_string QUrl_ErrorString(const QUrl* self);
@@ -92,9 +71,6 @@ QUrl* QUrl_FromLocalFile(const libqt_string localfile);
 libqt_string QUrl_ToLocalFile(const QUrl* self);
 void QUrl_Detach(QUrl* self);
 bool QUrl_IsDetached(const QUrl* self);
-bool QUrl_OperatorLesser(const QUrl* self, const QUrl* url);
-bool QUrl_OperatorEqual(const QUrl* self, const QUrl* url);
-bool QUrl_OperatorNotEqual(const QUrl* self, const QUrl* url);
 libqt_string QUrl_FromPercentEncoding(const libqt_string param1);
 libqt_string QUrl_ToPercentEncoding(const libqt_string param1);
 libqt_string QUrl_FromAce(const libqt_string domain);
@@ -104,7 +80,7 @@ libqt_list /* of libqt_string */ QUrl_ToStringList(const libqt_list /* of QUrl* 
 libqt_list /* of QUrl* */ QUrl_FromStringList(const libqt_list /* of libqt_string */ uris);
 void QUrl_SetIdnWhitelist(const libqt_list /* of libqt_string */ idnWhitelist);
 void QUrl_SetUrl2(QUrl* self, const libqt_string url, int mode);
-QUrl* QUrl_FromEncoded2(const libqt_string url, int mode);
+QUrl* QUrl_FromEncoded2(QByteArrayView* input, int mode);
 QUrl* QUrl_FromUserInput2(const libqt_string userInput, const libqt_string workingDirectory);
 QUrl* QUrl_FromUserInput3(const libqt_string userInput, const libqt_string workingDirectory, int options);
 void QUrl_SetAuthority2(QUrl* self, const libqt_string authority, int mode);

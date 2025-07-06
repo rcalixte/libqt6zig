@@ -22,9 +22,12 @@ pub const qstringencoder = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New3(name: []const u8) QtC.QStringEncoder {
-        const name_Cstring = name.ptr;
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
 
-        return qtc.QStringEncoder_new3(name_Cstring);
+        return qtc.QStringEncoder_new3(name_str);
     }
 
     /// New4 constructs a new QStringEncoder object.
@@ -38,9 +41,12 @@ pub const qstringencoder = struct {
     ///
     /// ``` name: []const u8, flags: i32 ```
     pub fn New5(name: []const u8, flags: i64) QtC.QStringEncoder {
-        const name_Cstring = name.ptr;
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
 
-        return qtc.QStringEncoder_new5(name_Cstring, @intCast(flags));
+        return qtc.QStringEncoder_new5(name_str, @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringencoder.html#requiredSpace)
@@ -97,6 +103,30 @@ pub const qstringencoder = struct {
         return std.mem.span(_ret);
     }
 
+    /// Inherited from QStringConverter
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
+    ///
+    /// ``` allocator: std.mem.Allocator ```
+    pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QStringConverter_AvailableCodecs();
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            }
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstringencoder.AvailableCodecs: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstringencoder.AvailableCodecs: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringencoder.html#dtor.QStringEncoder)
     ///
     /// Delete this object from C++ memory.
@@ -127,9 +157,12 @@ pub const qstringdecoder = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New3(name: []const u8) QtC.QStringDecoder {
-        const name_Cstring = name.ptr;
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
 
-        return qtc.QStringDecoder_new3(name_Cstring);
+        return qtc.QStringDecoder_new3(name_str);
     }
 
     /// New4 constructs a new QStringDecoder object.
@@ -143,9 +176,12 @@ pub const qstringdecoder = struct {
     ///
     /// ``` name: []const u8, f: i32 ```
     pub fn New5(name: []const u8, f: i64) QtC.QStringDecoder {
-        const name_Cstring = name.ptr;
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
 
-        return qtc.QStringDecoder_new5(name_Cstring, @intCast(f));
+        return qtc.QStringDecoder_new5(name_str, @intCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#requiredSpace)
@@ -214,6 +250,30 @@ pub const qstringdecoder = struct {
     pub fn NameForEncoding(e: i64) []const u8 {
         const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
         return std.mem.span(_ret);
+    }
+
+    /// Inherited from QStringConverter
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#availableCodecs)
+    ///
+    /// ``` allocator: std.mem.Allocator ```
+    pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QStringConverter_AvailableCodecs();
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            }
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstringdecoder.AvailableCodecs: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstringdecoder.AvailableCodecs: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#dtor.QStringDecoder)

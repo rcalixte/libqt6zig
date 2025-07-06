@@ -1887,6 +1887,35 @@ void QSlider_OnIsSignalConnected(const QSlider* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QSlider_GetDecodedMetricF(const QSlider* self, int metricA, int metricB) {
+    auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
+    if (vqslider && vqslider->isVirtualQSlider) {
+        return vqslider->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSlider*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QSlider_QBaseGetDecodedMetricF(const QSlider* self, int metricA, int metricB) {
+    auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
+    if (vqslider && vqslider->isVirtualQSlider) {
+        vqslider->setQSlider_GetDecodedMetricF_IsBase(true);
+        return vqslider->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSlider*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSlider_OnGetDecodedMetricF(const QSlider* self, intptr_t slot) {
+    auto* vqslider = const_cast<VirtualQSlider*>(dynamic_cast<const VirtualQSlider*>(self));
+    if (vqslider && vqslider->isVirtualQSlider) {
+        vqslider->setQSlider_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSlider::QSlider_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QSlider_Delete(QSlider* self) {
     delete self;
 }

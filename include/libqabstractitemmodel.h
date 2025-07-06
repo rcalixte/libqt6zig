@@ -35,18 +35,7 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractItemModel::CheckIndexOption CheckIndexOption;   // C++ enum
-typedef QAbstractItemModel::CheckIndexOptions CheckIndexOptions; // C++ QFlags
-typedef QAbstractItemModel::LayoutChangeHint LayoutChangeHint;   // C++ enum
-#else
-typedef int CheckIndexOption;  // C ABI enum
-typedef int CheckIndexOptions; // C ABI QFlags
-typedef int LayoutChangeHint;  // C ABI enum
-#endif
-
 QModelRoleData* QModelRoleData_new(int role);
-QModelRoleData* QModelRoleData_new2(const QModelRoleData* param1);
 int QModelRoleData_Role(const QModelRoleData* self);
 QVariant* QModelRoleData_Data(QModelRoleData* self);
 QVariant* QModelRoleData_Data2(const QModelRoleData* self);
@@ -91,22 +80,14 @@ void QModelIndex_MultiData(const QModelIndex* self, QModelRoleDataSpan* roleData
 int QModelIndex_Flags(const QModelIndex* self);
 QAbstractItemModel* QModelIndex_Model(const QModelIndex* self);
 bool QModelIndex_IsValid(const QModelIndex* self);
-bool QModelIndex_OperatorEqual(const QModelIndex* self, const QModelIndex* other);
-bool QModelIndex_OperatorNotEqual(const QModelIndex* self, const QModelIndex* other);
-bool QModelIndex_OperatorLesser(const QModelIndex* self, const QModelIndex* other);
 QVariant* QModelIndex_Data1(const QModelIndex* self, int role);
 void QModelIndex_Delete(QModelIndex* self);
 
 QPersistentModelIndex* QPersistentModelIndex_new();
 QPersistentModelIndex* QPersistentModelIndex_new2(const QModelIndex* index);
 QPersistentModelIndex* QPersistentModelIndex_new3(const QPersistentModelIndex* other);
-bool QPersistentModelIndex_OperatorLesser(const QPersistentModelIndex* self, const QPersistentModelIndex* other);
-bool QPersistentModelIndex_OperatorEqual(const QPersistentModelIndex* self, const QPersistentModelIndex* other);
-bool QPersistentModelIndex_OperatorNotEqual(const QPersistentModelIndex* self, const QPersistentModelIndex* other);
 void QPersistentModelIndex_OperatorAssign(QPersistentModelIndex* self, const QPersistentModelIndex* other);
 void QPersistentModelIndex_Swap(QPersistentModelIndex* self, QPersistentModelIndex* other);
-bool QPersistentModelIndex_OperatorEqualWithOther(const QPersistentModelIndex* self, const QModelIndex* other);
-bool QPersistentModelIndex_OperatorNotEqualWithOther(const QPersistentModelIndex* self, const QModelIndex* other);
 void QPersistentModelIndex_OperatorAssignWithOther(QPersistentModelIndex* self, const QModelIndex* other);
 QModelIndex* QPersistentModelIndex_ToQModelIndex(const QPersistentModelIndex* self);
 int QPersistentModelIndex_Row(const QPersistentModelIndex* self);

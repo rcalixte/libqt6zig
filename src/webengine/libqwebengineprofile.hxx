@@ -61,10 +61,10 @@ class VirtualQWebEngineProfile final : public QWebEngineProfile {
     mutable bool qwebengineprofile_issignalconnected_isbase = false;
 
   public:
-    VirtualQWebEngineProfile() : QWebEngineProfile(){};
-    VirtualQWebEngineProfile(const QString& name) : QWebEngineProfile(name){};
-    VirtualQWebEngineProfile(QObject* parent) : QWebEngineProfile(parent){};
-    VirtualQWebEngineProfile(const QString& name, QObject* parent) : QWebEngineProfile(name, parent){};
+    VirtualQWebEngineProfile() : QWebEngineProfile() {};
+    VirtualQWebEngineProfile(const QString& name) : QWebEngineProfile(name) {};
+    VirtualQWebEngineProfile(QObject* parent) : QWebEngineProfile(parent) {};
+    VirtualQWebEngineProfile(const QString& name, QObject* parent) : QWebEngineProfile(name, parent) {};
 
     ~VirtualQWebEngineProfile() {
         qwebengineprofile_metacall_callback = nullptr;

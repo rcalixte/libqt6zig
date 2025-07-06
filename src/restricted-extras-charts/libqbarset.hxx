@@ -61,8 +61,8 @@ class VirtualQBarSet final : public QBarSet {
     mutable bool qbarset_issignalconnected_isbase = false;
 
   public:
-    VirtualQBarSet(const QString label) : QBarSet(label){};
-    VirtualQBarSet(const QString label, QObject* parent) : QBarSet(label, parent){};
+    VirtualQBarSet(const QString label) : QBarSet(label) {};
+    VirtualQBarSet(const QString label, QObject* parent) : QBarSet(label, parent) {};
 
     ~VirtualQBarSet() {
         qbarset_metacall_callback = nullptr;

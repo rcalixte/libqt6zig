@@ -33,12 +33,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractItemDelegate::EndEditHint EndEditHint; // C++ enum
-#else
-typedef int EndEditHint; // C ABI enum
-#endif
-
 QAbstractItemDelegate* QAbstractItemDelegate_new();
 QAbstractItemDelegate* QAbstractItemDelegate_new2(QObject* parent);
 QMetaObject* QAbstractItemDelegate_MetaObject(const QAbstractItemDelegate* self);

@@ -434,23 +434,23 @@ libqt_list /* of QTextBlock* */ QTextList_BlockList(const QTextList* self) {
     if (vqtextlist && vqtextlist->isVirtualQTextList) {
         QList<QTextBlock> _ret = vqtextlist->blockList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QTextBlock(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
         QList<QTextBlock> _ret = ((VirtualQTextList*)self)->blockList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QTextBlock(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -463,23 +463,23 @@ libqt_list /* of QTextBlock* */ QTextList_QBaseBlockList(const QTextList* self) 
         vqtextlist->setQTextList_BlockList_IsBase(true);
         QList<QTextBlock> _ret = vqtextlist->blockList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QTextBlock(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
         QList<QTextBlock> _ret = ((VirtualQTextList*)self)->blockList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QTextBlock** _arr = static_cast<QTextBlock**>(malloc(sizeof(QTextBlock*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QTextBlock(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

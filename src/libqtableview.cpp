@@ -618,6 +618,35 @@ void QTableView_OnTimerEvent(QTableView* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
+void QTableView_DropEvent(QTableView* self, QDropEvent* event) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->dropEvent(event);
+    } else {
+        ((VirtualQTableView*)self)->dropEvent(event);
+    }
+}
+
+// Base class handler implementation
+void QTableView_QBaseDropEvent(QTableView* self, QDropEvent* event) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_DropEvent_IsBase(true);
+        vqtableview->dropEvent(event);
+    } else {
+        ((VirtualQTableView*)self)->dropEvent(event);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnDropEvent(QTableView* self, intptr_t slot) {
+    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_DropEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_DropEvent_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 int QTableView_HorizontalOffset(const QTableView* self) {
     auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
     if (vqtableview && vqtableview->isVirtualQTableView) {
@@ -762,25 +791,25 @@ void QTableView_OnVisualRegionForSelection(const QTableView* self, intptr_t slot
 libqt_list /* of QModelIndex* */ QTableView_SelectedIndexes(const QTableView* self) {
     auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
     if (vqtableview && vqtableview->isVirtualQTableView) {
-        QModelIndexList _ret = vqtableview->selectedIndexes();
+        QList<QModelIndex> _ret = vqtableview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQTableView*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQTableView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -791,25 +820,25 @@ libqt_list /* of QModelIndex* */ QTableView_QBaseSelectedIndexes(const QTableVie
     auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
     if (vqtableview && vqtableview->isVirtualQTableView) {
         vqtableview->setQTableView_SelectedIndexes_IsBase(true);
-        QModelIndexList _ret = vqtableview->selectedIndexes();
+        QList<QModelIndex> _ret = vqtableview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQTableView*)self)->selectedIndexes();
+        QList<QModelIndex> _ret = ((VirtualQTableView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1905,35 +1934,6 @@ void QTableView_OnDragLeaveEvent(QTableView* self, intptr_t slot) {
     auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
     if (vqtableview && vqtableview->isVirtualQTableView) {
         vqtableview->setQTableView_DragLeaveEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_DragLeaveEvent_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-void QTableView_DropEvent(QTableView* self, QDropEvent* event) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->dropEvent(event);
-    } else {
-        ((VirtualQTableView*)self)->dropEvent(event);
-    }
-}
-
-// Base class handler implementation
-void QTableView_QBaseDropEvent(QTableView* self, QDropEvent* event) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_DropEvent_IsBase(true);
-        vqtableview->dropEvent(event);
-    } else {
-        ((VirtualQTableView*)self)->dropEvent(event);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QTableView_OnDropEvent(QTableView* self, intptr_t slot) {
-    auto* vqtableview = dynamic_cast<VirtualQTableView*>(self);
-    if (vqtableview && vqtableview->isVirtualQTableView) {
-        vqtableview->setQTableView_DropEvent_Callback(reinterpret_cast<VirtualQTableView::QTableView_DropEvent_Callback>(slot));
     }
 }
 
@@ -3817,6 +3817,35 @@ void QTableView_OnIsSignalConnected(const QTableView* self, intptr_t slot) {
     auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
     if (vqtableview && vqtableview->isVirtualQTableView) {
         vqtableview->setQTableView_IsSignalConnected_Callback(reinterpret_cast<VirtualQTableView::QTableView_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QTableView_GetDecodedMetricF(const QTableView* self, int metricA, int metricB) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        return vqtableview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTableView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QTableView_QBaseGetDecodedMetricF(const QTableView* self, int metricA, int metricB) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_GetDecodedMetricF_IsBase(true);
+        return vqtableview->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTableView*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTableView_OnGetDecodedMetricF(const QTableView* self, intptr_t slot) {
+    auto* vqtableview = const_cast<VirtualQTableView*>(dynamic_cast<const VirtualQTableView*>(self));
+    if (vqtableview && vqtableview->isVirtualQTableView) {
+        vqtableview->setQTableView_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTableView::QTableView_GetDecodedMetricF_Callback>(slot));
     }
 }
 

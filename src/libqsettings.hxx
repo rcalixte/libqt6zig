@@ -61,21 +61,21 @@ class VirtualQSettings final : public QSettings {
     mutable bool qsettings_issignalconnected_isbase = false;
 
   public:
-    VirtualQSettings(const QString& organization) : QSettings(organization){};
-    VirtualQSettings(QSettings::Scope scope, const QString& organization) : QSettings(scope, organization){};
-    VirtualQSettings(QSettings::Format format, QSettings::Scope scope, const QString& organization) : QSettings(format, scope, organization){};
-    VirtualQSettings(const QString& fileName, QSettings::Format format) : QSettings(fileName, format){};
-    VirtualQSettings() : QSettings(){};
-    VirtualQSettings(QSettings::Scope scope) : QSettings(scope){};
-    VirtualQSettings(const QString& organization, const QString& application) : QSettings(organization, application){};
-    VirtualQSettings(const QString& organization, const QString& application, QObject* parent) : QSettings(organization, application, parent){};
-    VirtualQSettings(QSettings::Scope scope, const QString& organization, const QString& application) : QSettings(scope, organization, application){};
-    VirtualQSettings(QSettings::Scope scope, const QString& organization, const QString& application, QObject* parent) : QSettings(scope, organization, application, parent){};
-    VirtualQSettings(QSettings::Format format, QSettings::Scope scope, const QString& organization, const QString& application) : QSettings(format, scope, organization, application){};
-    VirtualQSettings(QSettings::Format format, QSettings::Scope scope, const QString& organization, const QString& application, QObject* parent) : QSettings(format, scope, organization, application, parent){};
-    VirtualQSettings(const QString& fileName, QSettings::Format format, QObject* parent) : QSettings(fileName, format, parent){};
-    VirtualQSettings(QObject* parent) : QSettings(parent){};
-    VirtualQSettings(QSettings::Scope scope, QObject* parent) : QSettings(scope, parent){};
+    VirtualQSettings(const QString& organization) : QSettings(organization) {};
+    VirtualQSettings(QSettings::Scope scope, const QString& organization) : QSettings(scope, organization) {};
+    VirtualQSettings(QSettings::Format format, QSettings::Scope scope, const QString& organization) : QSettings(format, scope, organization) {};
+    VirtualQSettings(const QString& fileName, QSettings::Format format) : QSettings(fileName, format) {};
+    VirtualQSettings() : QSettings() {};
+    VirtualQSettings(QSettings::Scope scope) : QSettings(scope) {};
+    VirtualQSettings(const QString& organization, const QString& application) : QSettings(organization, application) {};
+    VirtualQSettings(const QString& organization, const QString& application, QObject* parent) : QSettings(organization, application, parent) {};
+    VirtualQSettings(QSettings::Scope scope, const QString& organization, const QString& application) : QSettings(scope, organization, application) {};
+    VirtualQSettings(QSettings::Scope scope, const QString& organization, const QString& application, QObject* parent) : QSettings(scope, organization, application, parent) {};
+    VirtualQSettings(QSettings::Format format, QSettings::Scope scope, const QString& organization, const QString& application) : QSettings(format, scope, organization, application) {};
+    VirtualQSettings(QSettings::Format format, QSettings::Scope scope, const QString& organization, const QString& application, QObject* parent) : QSettings(format, scope, organization, application, parent) {};
+    VirtualQSettings(const QString& fileName, QSettings::Format format, QObject* parent) : QSettings(fileName, format, parent) {};
+    VirtualQSettings(QObject* parent) : QSettings(parent) {};
+    VirtualQSettings(QSettings::Scope scope, QObject* parent) : QSettings(scope, parent) {};
 
     ~VirtualQSettings() {
         qsettings_metacall_callback = nullptr;

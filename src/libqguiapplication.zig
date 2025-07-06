@@ -92,6 +92,13 @@ pub const qguiapplication = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#setBadgeNumber)
+    ///
+    /// ``` self: QtC.QGuiApplication, number: i64 ```
+    pub fn SetBadgeNumber(self: ?*anyopaque, number: i64) void {
+        qtc.QGuiApplication_SetBadgeNumber(@ptrCast(self), @intCast(number));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#setDesktopFileName)
     ///
     /// ``` name: []const u8 ```
@@ -941,6 +948,15 @@ pub const qguiapplication = struct {
 
     /// Inherited from QCoreApplication
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
+    ///
+    /// ``` flags: i32, deadline: QtC.QDeadlineTimer ```
+    pub fn ProcessEvents3(flags: i64, deadline: QtC.QDeadlineTimer) void {
+        qtc.QCoreApplication_ProcessEvents3(@intCast(flags), @ptrCast(deadline));
+    }
+
+    /// Inherited from QCoreApplication
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#sendEvent)
     ///
     /// ``` receiver: QtC.QObject, event: QtC.QEvent ```
@@ -1044,6 +1060,15 @@ pub const qguiapplication = struct {
     ///
     pub fn ApplicationPid() i64 {
         return qtc.QCoreApplication_ApplicationPid();
+    }
+
+    /// Inherited from QCoreApplication
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#checkPermission)
+    ///
+    /// ``` self: QtC.QGuiApplication, permission: QtC.QPermission ```
+    pub fn CheckPermission(self: ?*anyopaque, permission: ?*anyopaque) i64 {
+        return qtc.QCoreApplication_CheckPermission(@ptrCast(self), @ptrCast(permission));
     }
 
     /// Inherited from QCoreApplication
@@ -1474,8 +1499,8 @@ pub const qguiapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QGuiApplication, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1494,6 +1519,15 @@ pub const qguiapplication = struct {
     /// ``` self: QtC.QGuiApplication, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QGuiApplication, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1699,6 +1733,15 @@ pub const qguiapplication = struct {
     /// ``` self: QtC.QGuiApplication ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QGuiApplication, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

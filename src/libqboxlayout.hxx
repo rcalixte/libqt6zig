@@ -145,8 +145,8 @@ class VirtualQBoxLayout final : public QBoxLayout {
     mutable bool qboxlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQBoxLayout(QBoxLayout::Direction param1) : QBoxLayout(param1){};
-    VirtualQBoxLayout(QBoxLayout::Direction param1, QWidget* parent) : QBoxLayout(param1, parent){};
+    VirtualQBoxLayout(QBoxLayout::Direction param1) : QBoxLayout(param1) {};
+    VirtualQBoxLayout(QBoxLayout::Direction param1, QWidget* parent) : QBoxLayout(param1, parent) {};
 
     ~VirtualQBoxLayout() {
         qboxlayout_metacall_callback = nullptr;
@@ -1012,8 +1012,8 @@ class VirtualQHBoxLayout final : public QHBoxLayout {
     mutable bool qhboxlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQHBoxLayout(QWidget* parent) : QHBoxLayout(parent){};
-    VirtualQHBoxLayout() : QHBoxLayout(){};
+    VirtualQHBoxLayout(QWidget* parent) : QHBoxLayout(parent) {};
+    VirtualQHBoxLayout() : QHBoxLayout() {};
 
     ~VirtualQHBoxLayout() {
         qhboxlayout_metacall_callback = nullptr;
@@ -1879,8 +1879,8 @@ class VirtualQVBoxLayout final : public QVBoxLayout {
     mutable bool qvboxlayout_issignalconnected_isbase = false;
 
   public:
-    VirtualQVBoxLayout(QWidget* parent) : QVBoxLayout(parent){};
-    VirtualQVBoxLayout() : QVBoxLayout(){};
+    VirtualQVBoxLayout(QWidget* parent) : QVBoxLayout(parent) {};
+    VirtualQVBoxLayout() : QVBoxLayout() {};
 
     ~VirtualQVBoxLayout() {
         qvboxlayout_metacall_callback = nullptr;

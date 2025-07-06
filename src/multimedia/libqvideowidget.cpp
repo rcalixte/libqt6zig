@@ -1786,6 +1786,35 @@ void QVideoWidget_OnIsSignalConnected(const QVideoWidget* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QVideoWidget_GetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB) {
+    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        return vqvideowidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQVideoWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QVideoWidget_QBaseGetDecodedMetricF(const QVideoWidget* self, int metricA, int metricB) {
+    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_GetDecodedMetricF_IsBase(true);
+        return vqvideowidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQVideoWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QVideoWidget_OnGetDecodedMetricF(const QVideoWidget* self, intptr_t slot) {
+    auto* vqvideowidget = const_cast<VirtualQVideoWidget*>(dynamic_cast<const VirtualQVideoWidget*>(self));
+    if (vqvideowidget && vqvideowidget->isVirtualQVideoWidget) {
+        vqvideowidget->setQVideoWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQVideoWidget::QVideoWidget_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QVideoWidget_Delete(QVideoWidget* self) {
     delete self;
 }

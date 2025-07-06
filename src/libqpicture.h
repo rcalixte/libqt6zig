@@ -25,12 +25,6 @@ typedef struct QPoint QPoint;
 typedef struct QRect QRect;
 #endif
 
-#ifdef __cplusplus
-typedef QPicture::DataPtr DataPtr; // C++ QFlags
-#else
-
-#endif
-
 QPicture* QPicture_new();
 QPicture* QPicture_new2(const QPicture* param1);
 QPicture* QPicture_new3(int formatVersion);
@@ -69,6 +63,9 @@ QPaintDevice* QPicture_QBaseRedirected(const QPicture* self, QPoint* offset);
 QPainter* QPicture_SharedPainter(const QPicture* self);
 void QPicture_OnSharedPainter(const QPicture* self, intptr_t slot);
 QPainter* QPicture_QBaseSharedPainter(const QPicture* self);
+double QPicture_GetDecodedMetricF(const QPicture* self, int metricA, int metricB);
+void QPicture_OnGetDecodedMetricF(const QPicture* self, intptr_t slot);
+double QPicture_QBaseGetDecodedMetricF(const QPicture* self, int metricA, int metricB);
 void QPicture_Delete(QPicture* self);
 
 #ifdef __cplusplus

@@ -285,6 +285,9 @@ int QSpinBox_QBaseReceivers(const QSpinBox* self, const char* signal);
 bool QSpinBox_IsSignalConnected(const QSpinBox* self, const QMetaMethod* signal);
 void QSpinBox_OnIsSignalConnected(const QSpinBox* self, intptr_t slot);
 bool QSpinBox_QBaseIsSignalConnected(const QSpinBox* self, const QMetaMethod* signal);
+double QSpinBox_GetDecodedMetricF(const QSpinBox* self, int metricA, int metricB);
+void QSpinBox_OnGetDecodedMetricF(const QSpinBox* self, intptr_t slot);
+double QSpinBox_QBaseGetDecodedMetricF(const QSpinBox* self, int metricA, int metricB);
 void QSpinBox_Delete(QSpinBox* self);
 
 QDoubleSpinBox* QDoubleSpinBox_new(QWidget* parent);
@@ -517,6 +520,9 @@ int QDoubleSpinBox_QBaseReceivers(const QDoubleSpinBox* self, const char* signal
 bool QDoubleSpinBox_IsSignalConnected(const QDoubleSpinBox* self, const QMetaMethod* signal);
 void QDoubleSpinBox_OnIsSignalConnected(const QDoubleSpinBox* self, intptr_t slot);
 bool QDoubleSpinBox_QBaseIsSignalConnected(const QDoubleSpinBox* self, const QMetaMethod* signal);
+double QDoubleSpinBox_GetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB);
+void QDoubleSpinBox_OnGetDecodedMetricF(const QDoubleSpinBox* self, intptr_t slot);
+double QDoubleSpinBox_QBaseGetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB);
 void QDoubleSpinBox_Delete(QDoubleSpinBox* self);
 
 #ifdef __cplusplus

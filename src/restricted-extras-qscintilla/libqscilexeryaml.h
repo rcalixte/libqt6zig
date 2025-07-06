@@ -158,6 +158,12 @@ void QsciLexerYAML_QBaseConnectNotify(QsciLexerYAML* self, const QMetaMethod* si
 void QsciLexerYAML_DisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
 void QsciLexerYAML_OnDisconnectNotify(QsciLexerYAML* self, intptr_t slot);
 void QsciLexerYAML_QBaseDisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
+libqt_string QsciLexerYAML_TextAsBytes(const QsciLexerYAML* self, const libqt_string text);
+void QsciLexerYAML_OnTextAsBytes(const QsciLexerYAML* self, intptr_t slot);
+libqt_string QsciLexerYAML_QBaseTextAsBytes(const QsciLexerYAML* self, const libqt_string text);
+libqt_string QsciLexerYAML_BytesAsText(const QsciLexerYAML* self, const char* bytes, int size);
+void QsciLexerYAML_OnBytesAsText(const QsciLexerYAML* self, intptr_t slot);
+libqt_string QsciLexerYAML_QBaseBytesAsText(const QsciLexerYAML* self, const char* bytes, int size);
 QObject* QsciLexerYAML_Sender(const QsciLexerYAML* self);
 void QsciLexerYAML_OnSender(const QsciLexerYAML* self, intptr_t slot);
 QObject* QsciLexerYAML_QBaseSender(const QsciLexerYAML* self);

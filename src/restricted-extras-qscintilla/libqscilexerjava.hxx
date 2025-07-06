@@ -65,6 +65,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     using QsciLexerJava_CustomEvent_Callback = void (*)(QsciLexerJava*, QEvent*);
     using QsciLexerJava_ConnectNotify_Callback = void (*)(QsciLexerJava*, QMetaMethod*);
     using QsciLexerJava_DisconnectNotify_Callback = void (*)(QsciLexerJava*, QMetaMethod*);
+    using QsciLexerJava_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJava*, libqt_string);
+    using QsciLexerJava_BytesAsText_Callback = libqt_string (*)(const QsciLexerJava*, const char*, int);
     using QsciLexerJava_Sender_Callback = QObject* (*)();
     using QsciLexerJava_SenderSignalIndex_Callback = int (*)();
     using QsciLexerJava_Receivers_Callback = int (*)(const QsciLexerJava*, const char*);
@@ -119,6 +121,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     QsciLexerJava_CustomEvent_Callback qscilexerjava_customevent_callback = nullptr;
     QsciLexerJava_ConnectNotify_Callback qscilexerjava_connectnotify_callback = nullptr;
     QsciLexerJava_DisconnectNotify_Callback qscilexerjava_disconnectnotify_callback = nullptr;
+    QsciLexerJava_TextAsBytes_Callback qscilexerjava_textasbytes_callback = nullptr;
+    QsciLexerJava_BytesAsText_Callback qscilexerjava_bytesastext_callback = nullptr;
     QsciLexerJava_Sender_Callback qscilexerjava_sender_callback = nullptr;
     QsciLexerJava_SenderSignalIndex_Callback qscilexerjava_sendersignalindex_callback = nullptr;
     QsciLexerJava_Receivers_Callback qscilexerjava_receivers_callback = nullptr;
@@ -172,14 +176,16 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     mutable bool qscilexerjava_customevent_isbase = false;
     mutable bool qscilexerjava_connectnotify_isbase = false;
     mutable bool qscilexerjava_disconnectnotify_isbase = false;
+    mutable bool qscilexerjava_textasbytes_isbase = false;
+    mutable bool qscilexerjava_bytesastext_isbase = false;
     mutable bool qscilexerjava_sender_isbase = false;
     mutable bool qscilexerjava_sendersignalindex_isbase = false;
     mutable bool qscilexerjava_receivers_isbase = false;
     mutable bool qscilexerjava_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerJava() : QsciLexerJava(){};
-    VirtualQsciLexerJava(QObject* parent) : QsciLexerJava(parent){};
+    VirtualQsciLexerJava() : QsciLexerJava() {};
+    VirtualQsciLexerJava(QObject* parent) : QsciLexerJava(parent) {};
 
     ~VirtualQsciLexerJava() {
         qscilexerjava_metacall_callback = nullptr;
@@ -229,6 +235,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
         qscilexerjava_customevent_callback = nullptr;
         qscilexerjava_connectnotify_callback = nullptr;
         qscilexerjava_disconnectnotify_callback = nullptr;
+        qscilexerjava_textasbytes_callback = nullptr;
+        qscilexerjava_bytesastext_callback = nullptr;
         qscilexerjava_sender_callback = nullptr;
         qscilexerjava_sendersignalindex_callback = nullptr;
         qscilexerjava_receivers_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     inline void setQsciLexerJava_CustomEvent_Callback(QsciLexerJava_CustomEvent_Callback cb) { qscilexerjava_customevent_callback = cb; }
     inline void setQsciLexerJava_ConnectNotify_Callback(QsciLexerJava_ConnectNotify_Callback cb) { qscilexerjava_connectnotify_callback = cb; }
     inline void setQsciLexerJava_DisconnectNotify_Callback(QsciLexerJava_DisconnectNotify_Callback cb) { qscilexerjava_disconnectnotify_callback = cb; }
+    inline void setQsciLexerJava_TextAsBytes_Callback(QsciLexerJava_TextAsBytes_Callback cb) { qscilexerjava_textasbytes_callback = cb; }
+    inline void setQsciLexerJava_BytesAsText_Callback(QsciLexerJava_BytesAsText_Callback cb) { qscilexerjava_bytesastext_callback = cb; }
     inline void setQsciLexerJava_Sender_Callback(QsciLexerJava_Sender_Callback cb) { qscilexerjava_sender_callback = cb; }
     inline void setQsciLexerJava_SenderSignalIndex_Callback(QsciLexerJava_SenderSignalIndex_Callback cb) { qscilexerjava_sendersignalindex_callback = cb; }
     inline void setQsciLexerJava_Receivers_Callback(QsciLexerJava_Receivers_Callback cb) { qscilexerjava_receivers_callback = cb; }
@@ -336,6 +346,8 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     inline void setQsciLexerJava_CustomEvent_IsBase(bool value) const { qscilexerjava_customevent_isbase = value; }
     inline void setQsciLexerJava_ConnectNotify_IsBase(bool value) const { qscilexerjava_connectnotify_isbase = value; }
     inline void setQsciLexerJava_DisconnectNotify_IsBase(bool value) const { qscilexerjava_disconnectnotify_isbase = value; }
+    inline void setQsciLexerJava_TextAsBytes_IsBase(bool value) const { qscilexerjava_textasbytes_isbase = value; }
+    inline void setQsciLexerJava_BytesAsText_IsBase(bool value) const { qscilexerjava_bytesastext_isbase = value; }
     inline void setQsciLexerJava_Sender_IsBase(bool value) const { qscilexerjava_sender_isbase = value; }
     inline void setQsciLexerJava_SenderSignalIndex_IsBase(bool value) const { qscilexerjava_sendersignalindex_isbase = value; }
     inline void setQsciLexerJava_Receivers_IsBase(bool value) const { qscilexerjava_receivers_isbase = value; }
@@ -478,13 +490,13 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerjava_autocompletionwordseparators_isbase) {
             qscilexerjava_autocompletionwordseparators_isbase = false;
             return QsciLexerJava::autoCompletionWordSeparators();
         } else if (qscilexerjava_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerjava_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -1045,6 +1057,47 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerjava_textasbytes_isbase) {
+            qscilexerjava_textasbytes_isbase = false;
+            return QsciLexerJava::textAsBytes(text);
+        } else if (qscilexerjava_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerjava_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerJava::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerjava_bytesastext_isbase) {
+            qscilexerjava_bytesastext_isbase = false;
+            return QsciLexerJava::bytesAsText(bytes, size);
+        } else if (qscilexerjava_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerjava_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerJava::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerjava_sender_isbase) {
             qscilexerjava_sender_isbase = false;
@@ -1117,6 +1170,10 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     friend void QsciLexerJava_QBaseConnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
     friend void QsciLexerJava_DisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
     friend void QsciLexerJava_QBaseDisconnectNotify(QsciLexerJava* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerJava_TextAsBytes(const QsciLexerJava* self, const libqt_string text);
+    friend libqt_string QsciLexerJava_QBaseTextAsBytes(const QsciLexerJava* self, const libqt_string text);
+    friend libqt_string QsciLexerJava_BytesAsText(const QsciLexerJava* self, const char* bytes, int size);
+    friend libqt_string QsciLexerJava_QBaseBytesAsText(const QsciLexerJava* self, const char* bytes, int size);
     friend QObject* QsciLexerJava_Sender(const QsciLexerJava* self);
     friend QObject* QsciLexerJava_QBaseSender(const QsciLexerJava* self);
     friend int QsciLexerJava_SenderSignalIndex(const QsciLexerJava* self);

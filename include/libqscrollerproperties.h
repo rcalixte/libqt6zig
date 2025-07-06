@@ -20,16 +20,6 @@ typedef struct QScrollerProperties QScrollerProperties;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QScrollerProperties::FrameRates FrameRates;           // C++ enum
-typedef QScrollerProperties::OvershootPolicy OvershootPolicy; // C++ enum
-typedef QScrollerProperties::ScrollMetric ScrollMetric;       // C++ enum
-#else
-typedef int FrameRates;      // C ABI enum
-typedef int OvershootPolicy; // C ABI enum
-typedef int ScrollMetric;    // C ABI enum
-#endif
-
 QScrollerProperties* QScrollerProperties_new();
 QScrollerProperties* QScrollerProperties_new2(const QScrollerProperties* sp);
 void QScrollerProperties_OperatorAssign(QScrollerProperties* self, const QScrollerProperties* sp);

@@ -1218,8 +1218,8 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTextDocument, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1238,6 +1238,15 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QTextDocument, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1443,6 +1452,15 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QTextDocument, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -1884,12 +1902,13 @@ pub const enums = struct {
         pub const DocumentTitle: i32 = 0;
         pub const DocumentUrl: i32 = 1;
         pub const CssMedia: i32 = 2;
+        pub const FrontMatter: i32 = 3;
     };
 
     pub const MarkdownFeature = enum {
         pub const MarkdownNoHTML: i32 = 96;
         pub const MarkdownDialectCommonMark: i32 = 0;
-        pub const MarkdownDialectGitHub: i32 = 20236;
+        pub const MarkdownDialectGitHub: i32 = 1068812;
     };
 
     pub const FindFlag = enum {

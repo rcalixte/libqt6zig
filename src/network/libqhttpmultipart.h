@@ -28,12 +28,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QHttpMultiPart::ContentType ContentType; // C++ enum
-#else
-typedef int ContentType; // C ABI enum
-#endif
-
 QHttpPart* QHttpPart_new();
 QHttpPart* QHttpPart_new2(const QHttpPart* other);
 void QHttpPart_OperatorAssign(QHttpPart* self, const QHttpPart* other);

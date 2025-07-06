@@ -179,8 +179,8 @@ class VirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
     mutable bool qgraphicsvideoitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsVideoItem() : QGraphicsVideoItem(){};
-    VirtualQGraphicsVideoItem(QGraphicsItem* parent) : QGraphicsVideoItem(parent){};
+    VirtualQGraphicsVideoItem() : QGraphicsVideoItem() {};
+    VirtualQGraphicsVideoItem(QGraphicsItem* parent) : QGraphicsVideoItem(parent) {};
 
     ~VirtualQGraphicsVideoItem() {
         qgraphicsvideoitem_metacall_callback = nullptr;

@@ -30,16 +30,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QAction::ActionEvent ActionEvent; // C++ enum
-typedef QAction::MenuRole MenuRole;       // C++ enum
-typedef QAction::Priority Priority;       // C++ enum
-#else
-typedef int ActionEvent; // C ABI enum
-typedef int MenuRole;    // C ABI enum
-typedef int Priority;    // C ABI enum
-#endif
-
 QAction* QAction_new();
 QAction* QAction_new2(const libqt_string text);
 QAction* QAction_new3(const QIcon* icon, const libqt_string text);

@@ -25,7 +25,11 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QMetaObject__Connection)
 typedef QMetaObject::Connection QMetaObject__Connection;
 #endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t)
+typedef Qt::Disambiguated_t Disambiguated_t;
+#endif
 #else
+typedef struct Disambiguated_t Disambiguated_t;
 typedef struct QAnyStringView QAnyStringView;
 typedef struct QBindingStorage QBindingStorage;
 typedef struct QChildEvent QChildEvent;
@@ -71,9 +75,10 @@ bool QObject_IsQuickItemType(const QObject* self);
 bool QObject_SignalsBlocked(const QObject* self);
 bool QObject_BlockSignals(QObject* self, bool b);
 QThread* QObject_Thread(const QObject* self);
-void QObject_MoveToThread(QObject* self, QThread* thread);
+bool QObject_MoveToThread(QObject* self, QThread* thread);
 int QObject_StartTimer(QObject* self, int interval);
 void QObject_KillTimer(QObject* self, int id);
+void QObject_KillTimerWithId(QObject* self, int id);
 libqt_list /* of QObject* */ QObject_Children(const QObject* self);
 void QObject_SetParent(QObject* self, QObject* parent);
 void QObject_InstallEventFilter(QObject* self, QObject* filterObj);
@@ -111,6 +116,7 @@ void QObject_OnDisconnectNotify(QObject* self, intptr_t slot);
 void QObject_QBaseDisconnectNotify(QObject* self, const QMetaMethod* signal);
 libqt_string QObject_Tr2(const char* s, const char* c);
 libqt_string QObject_Tr3(const char* s, const char* c, int n);
+bool QObject_MoveToThread2(QObject* self, QThread* thread, Disambiguated_t* param2);
 int QObject_StartTimer2(QObject* self, int interval, int timerType);
 QMetaObject__Connection* QObject_Connect5(const QObject* sender, const QMetaMethod* signal, const QObject* receiver, const QMetaMethod* method, int typeVal);
 QMetaObject__Connection* QObject_Connect4(const QObject* self, const QObject* sender, const char* signal, const char* member, int typeVal);
@@ -135,6 +141,7 @@ QSignalBlocker* QSignalBlocker_new(QObject* o);
 QSignalBlocker* QSignalBlocker_new2(QObject* o);
 void QSignalBlocker_Reblock(QSignalBlocker* self);
 void QSignalBlocker_Unblock(QSignalBlocker* self);
+void QSignalBlocker_Dismiss(QSignalBlocker* self);
 void QSignalBlocker_Delete(QSignalBlocker* self);
 
 #ifdef __cplusplus

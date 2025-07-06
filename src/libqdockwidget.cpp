@@ -1903,6 +1903,35 @@ void QDockWidget_OnIsSignalConnected(const QDockWidget* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QDockWidget_GetDecodedMetricF(const QDockWidget* self, int metricA, int metricB) {
+    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        return vqdockwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDockWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QDockWidget_QBaseGetDecodedMetricF(const QDockWidget* self, int metricA, int metricB) {
+    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_GetDecodedMetricF_IsBase(true);
+        return vqdockwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDockWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDockWidget_OnGetDecodedMetricF(const QDockWidget* self, intptr_t slot) {
+    auto* vqdockwidget = const_cast<VirtualQDockWidget*>(dynamic_cast<const VirtualQDockWidget*>(self));
+    if (vqdockwidget && vqdockwidget->isVirtualQDockWidget) {
+        vqdockwidget->setQDockWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDockWidget::QDockWidget_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QDockWidget_Delete(QDockWidget* self) {
     delete self;
 }

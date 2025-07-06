@@ -53,14 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QFontDialog::FontDialogOption FontDialogOption;   // C++ enum
-typedef QFontDialog::FontDialogOptions FontDialogOptions; // C++ QFlags
-#else
-typedef int FontDialogOption;  // C ABI enum
-typedef int FontDialogOptions; // C ABI QFlags
-#endif
-
 QFontDialog* QFontDialog_new(QWidget* parent);
 QFontDialog* QFontDialog_new2();
 QFontDialog* QFontDialog_new3(const QFont* initial);
@@ -277,6 +269,9 @@ int QFontDialog_QBaseReceivers(const QFontDialog* self, const char* signal);
 bool QFontDialog_IsSignalConnected(const QFontDialog* self, const QMetaMethod* signal);
 void QFontDialog_OnIsSignalConnected(const QFontDialog* self, intptr_t slot);
 bool QFontDialog_QBaseIsSignalConnected(const QFontDialog* self, const QMetaMethod* signal);
+double QFontDialog_GetDecodedMetricF(const QFontDialog* self, int metricA, int metricB);
+void QFontDialog_OnGetDecodedMetricF(const QFontDialog* self, intptr_t slot);
+double QFontDialog_QBaseGetDecodedMetricF(const QFontDialog* self, int metricA, int metricB);
 void QFontDialog_Delete(QFontDialog* self);
 
 #ifdef __cplusplus

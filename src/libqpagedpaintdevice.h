@@ -24,12 +24,6 @@ typedef struct QPagedPaintDevice QPagedPaintDevice;
 typedef struct QPaintDevice QPaintDevice;
 #endif
 
-#ifdef __cplusplus
-typedef QPagedPaintDevice::PdfVersion PdfVersion; // C++ enum
-#else
-typedef int PdfVersion; // C ABI enum
-#endif
-
 bool QPagedPaintDevice_NewPage(QPagedPaintDevice* self);
 bool QPagedPaintDevice_SetPageLayout(QPagedPaintDevice* self, const QPageLayout* pageLayout);
 bool QPagedPaintDevice_SetPageSize(QPagedPaintDevice* self, const QPageSize* pageSize);

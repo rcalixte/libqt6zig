@@ -8,6 +8,14 @@
 #include "libqhostaddress.h"
 #include "libqhostaddress.hxx"
 
+QIPv6Address* QIPv6Address_new() {
+    return new QIPv6Address();
+}
+
+QIPv6Address* QIPv6Address_new2(const QIPv6Address* param1) {
+    return new QIPv6Address(*param1);
+}
+
 unsigned char QIPv6Address_OperatorSubscript(const QIPv6Address* self, int index) {
     return static_cast<unsigned char>(self->operator[](static_cast<int>(index)));
 }
@@ -177,6 +185,10 @@ bool QHostAddress_IsMulticast(const QHostAddress* self) {
 
 bool QHostAddress_IsBroadcast(const QHostAddress* self) {
     return self->isBroadcast();
+}
+
+bool QHostAddress_IsPrivateUse(const QHostAddress* self) {
+    return self->isPrivateUse();
 }
 
 libqt_pair /* tuple of QHostAddress* and int */ QHostAddress_ParseSubnet(const libqt_string subnet) {

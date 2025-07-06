@@ -1968,6 +1968,35 @@ void QAbstractPrintDialog_OnIsSignalConnected(const QAbstractPrintDialog* self, 
     }
 }
 
+// Derived class handler implementation
+double QAbstractPrintDialog_GetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB) {
+    auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+        return vqabstractprintdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractPrintDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QAbstractPrintDialog_QBaseGetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB) {
+    auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+        vqabstractprintdialog->setQAbstractPrintDialog_GetDecodedMetricF_IsBase(true);
+        return vqabstractprintdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQAbstractPrintDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QAbstractPrintDialog_OnGetDecodedMetricF(const QAbstractPrintDialog* self, intptr_t slot) {
+    auto* vqabstractprintdialog = const_cast<VirtualQAbstractPrintDialog*>(dynamic_cast<const VirtualQAbstractPrintDialog*>(self));
+    if (vqabstractprintdialog && vqabstractprintdialog->isVirtualQAbstractPrintDialog) {
+        vqabstractprintdialog->setQAbstractPrintDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQAbstractPrintDialog::QAbstractPrintDialog_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QAbstractPrintDialog_Delete(QAbstractPrintDialog* self) {
     delete self;
 }

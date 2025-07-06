@@ -67,8 +67,8 @@ class VirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
     mutable bool qcandlesticklegendmarker_issignalconnected_isbase = false;
 
   public:
-    VirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend) : QCandlestickLegendMarker(series, legend){};
-    VirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend, QObject* parent) : QCandlestickLegendMarker(series, legend, parent){};
+    VirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend) : QCandlestickLegendMarker(series, legend) {};
+    VirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend, QObject* parent) : QCandlestickLegendMarker(series, legend, parent) {};
 
     ~VirtualQCandlestickLegendMarker() {
         qcandlesticklegendmarker_metacall_callback = nullptr;

@@ -21,53 +21,72 @@ pub const qcolorspace = struct {
 
     /// New3 constructs a new QColorSpace object.
     ///
-    /// ``` primaries: qcolorspace_enums.Primaries, transferFunction: qcolorspace_enums.TransferFunction ```
-    pub fn New3(primaries: i64, transferFunction: i64) QtC.QColorSpace {
-        return qtc.QColorSpace_new3(@intCast(primaries), @intCast(transferFunction));
+    /// ``` whitePoint: QtC.QPointF, transferFunction: qcolorspace_enums.TransferFunction ```
+    pub fn New3(whitePoint: QtC.QPointF, transferFunction: i64) QtC.QColorSpace {
+        return qtc.QColorSpace_new3(@ptrCast(whitePoint), @intCast(transferFunction));
     }
 
     /// New4 constructs a new QColorSpace object.
     ///
-    /// ``` primaries: qcolorspace_enums.Primaries, gamma: f32 ```
-    pub fn New4(primaries: i64, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_new4(@intCast(primaries), @floatCast(gamma));
+    /// ``` whitePoint: QtC.QPointF, transferFunctionTable: []u16 ```
+    pub fn New4(whitePoint: QtC.QPointF, transferFunctionTable: []u16) QtC.QColorSpace {
+        const transferFunctionTable_list = qtc.struct_libqt_list{
+            .len = transferFunctionTable.len,
+            .data = transferFunctionTable.ptr,
+        };
+
+        return qtc.QColorSpace_new4(@ptrCast(whitePoint), transferFunctionTable_list);
     }
 
     /// New5 constructs a new QColorSpace object.
     ///
-    /// ``` primaries: qcolorspace_enums.Primaries, transferFunctionTable: []u16 ```
-    pub fn New5(primaries: i64, transferFunctionTable: []u16) QtC.QColorSpace {
-        const transferFunctionTable_list = qtc.struct_libqt_list{
-            .len = transferFunctionTable.len,
-            .data = transferFunctionTable.ptr,
-        };
-
-        return qtc.QColorSpace_new5(@intCast(primaries), transferFunctionTable_list);
+    /// ``` primaries: qcolorspace_enums.Primaries, transferFunction: qcolorspace_enums.TransferFunction ```
+    pub fn New5(primaries: i64, transferFunction: i64) QtC.QColorSpace {
+        return qtc.QColorSpace_new5(@intCast(primaries), @intCast(transferFunction));
     }
 
     /// New6 constructs a new QColorSpace object.
     ///
-    /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, transferFunction: qcolorspace_enums.TransferFunction ```
-    pub fn New6(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunction: i64) QtC.QColorSpace {
-        return qtc.QColorSpace_new6(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction));
+    /// ``` primaries: qcolorspace_enums.Primaries, gamma: f32 ```
+    pub fn New6(primaries: i64, gamma: f32) QtC.QColorSpace {
+        return qtc.QColorSpace_new6(@intCast(primaries), @floatCast(gamma));
     }
 
     /// New7 constructs a new QColorSpace object.
     ///
-    /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, transferFunctionTable: []u16 ```
-    pub fn New7(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunctionTable: []u16) QtC.QColorSpace {
+    /// ``` primaries: qcolorspace_enums.Primaries, transferFunctionTable: []u16 ```
+    pub fn New7(primaries: i64, transferFunctionTable: []u16) QtC.QColorSpace {
         const transferFunctionTable_list = qtc.struct_libqt_list{
             .len = transferFunctionTable.len,
             .data = transferFunctionTable.ptr,
         };
 
-        return qtc.QColorSpace_new7(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), transferFunctionTable_list);
+        return qtc.QColorSpace_new7(@intCast(primaries), transferFunctionTable_list);
     }
 
     /// New8 constructs a new QColorSpace object.
     ///
+    /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, transferFunction: qcolorspace_enums.TransferFunction ```
+    pub fn New8(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunction: i64) QtC.QColorSpace {
+        return qtc.QColorSpace_new8(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction));
+    }
+
+    /// New9 constructs a new QColorSpace object.
+    ///
+    /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, transferFunctionTable: []u16 ```
+    pub fn New9(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunctionTable: []u16) QtC.QColorSpace {
+        const transferFunctionTable_list = qtc.struct_libqt_list{
+            .len = transferFunctionTable.len,
+            .data = transferFunctionTable.ptr,
+        };
+
+        return qtc.QColorSpace_new9(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), transferFunctionTable_list);
+    }
+
+    /// New10 constructs a new QColorSpace object.
+    ///
     /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16 ```
-    pub fn New8(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16) QtC.QColorSpace {
+    pub fn New10(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16) QtC.QColorSpace {
         const redTransferFunctionTable_list = qtc.struct_libqt_list{
             .len = redTransferFunctionTable.len,
             .data = redTransferFunctionTable.ptr,
@@ -81,28 +100,35 @@ pub const qcolorspace = struct {
             .data = blueTransferFunctionTable.ptr,
         };
 
-        return qtc.QColorSpace_new8(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), redTransferFunctionTable_list, greenTransferFunctionTable_list, blueTransferFunctionTable_list);
-    }
-
-    /// New9 constructs a new QColorSpace object.
-    ///
-    /// ``` colorSpace: QtC.QColorSpace ```
-    pub fn New9(colorSpace: ?*anyopaque) QtC.QColorSpace {
-        return qtc.QColorSpace_new9(@ptrCast(colorSpace));
-    }
-
-    /// New10 constructs a new QColorSpace object.
-    ///
-    /// ``` primaries: qcolorspace_enums.Primaries, transferFunction: qcolorspace_enums.TransferFunction, gamma: f32 ```
-    pub fn New10(primaries: i64, transferFunction: i64, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_new10(@intCast(primaries), @intCast(transferFunction), @floatCast(gamma));
+        return qtc.QColorSpace_new10(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), redTransferFunctionTable_list, greenTransferFunctionTable_list, blueTransferFunctionTable_list);
     }
 
     /// New11 constructs a new QColorSpace object.
     ///
+    /// ``` colorSpace: QtC.QColorSpace ```
+    pub fn New11(colorSpace: ?*anyopaque) QtC.QColorSpace {
+        return qtc.QColorSpace_new11(@ptrCast(colorSpace));
+    }
+
+    /// New12 constructs a new QColorSpace object.
+    ///
+    /// ``` whitePoint: QtC.QPointF, transferFunction: qcolorspace_enums.TransferFunction, gamma: f32 ```
+    pub fn New12(whitePoint: QtC.QPointF, transferFunction: i64, gamma: f32) QtC.QColorSpace {
+        return qtc.QColorSpace_new12(@ptrCast(whitePoint), @intCast(transferFunction), @floatCast(gamma));
+    }
+
+    /// New13 constructs a new QColorSpace object.
+    ///
+    /// ``` primaries: qcolorspace_enums.Primaries, transferFunction: qcolorspace_enums.TransferFunction, gamma: f32 ```
+    pub fn New13(primaries: i64, transferFunction: i64, gamma: f32) QtC.QColorSpace {
+        return qtc.QColorSpace_new13(@intCast(primaries), @intCast(transferFunction), @floatCast(gamma));
+    }
+
+    /// New14 constructs a new QColorSpace object.
+    ///
     /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, transferFunction: qcolorspace_enums.TransferFunction, gamma: f32 ```
-    pub fn New11(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunction: i64, gamma: f32) QtC.QColorSpace {
-        return qtc.QColorSpace_new11(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction), @floatCast(gamma));
+    pub fn New14(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunction: i64, gamma: f32) QtC.QColorSpace {
+        return qtc.QColorSpace_new14(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction), @floatCast(gamma));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#operator=)
@@ -250,6 +276,34 @@ pub const qcolorspace = struct {
         qtc.QColorSpace_SetPrimaries2(@ptrCast(self), @ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#setWhitePoint)
+    ///
+    /// ``` self: QtC.QColorSpace, whitePoint: QtC.QPointF ```
+    pub fn SetWhitePoint(self: ?*anyopaque, whitePoint: QtC.QPointF) void {
+        qtc.QColorSpace_SetWhitePoint(@ptrCast(self), @ptrCast(whitePoint));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#whitePoint)
+    ///
+    /// ``` self: QtC.QColorSpace ```
+    pub fn WhitePoint(self: ?*anyopaque) QtC.QPointF {
+        return qtc.QColorSpace_WhitePoint(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#transformModel)
+    ///
+    /// ``` self: QtC.QColorSpace ```
+    pub fn TransformModel(self: ?*anyopaque) i64 {
+        return qtc.QColorSpace_TransformModel(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#colorModel)
+    ///
+    /// ``` self: QtC.QColorSpace ```
+    pub fn ColorModel(self: ?*anyopaque) i64 {
+        return qtc.QColorSpace_ColorModel(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#detach)
     ///
     /// ``` self: QtC.QColorSpace ```
@@ -262,6 +316,13 @@ pub const qcolorspace = struct {
     /// ``` self: QtC.QColorSpace ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QColorSpace_IsValid(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#isValidTarget)
+    ///
+    /// ``` self: QtC.QColorSpace ```
+    pub fn IsValidTarget(self: ?*anyopaque) bool {
+        return qtc.QColorSpace_IsValidTarget(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#fromIccProfile)
@@ -332,6 +393,9 @@ pub const enums = struct {
         pub const AdobeRgb: i32 = 3;
         pub const DisplayP3: i32 = 4;
         pub const ProPhotoRgb: i32 = 5;
+        pub const Bt2020: i32 = 6;
+        pub const Bt2100Pq: i32 = 7;
+        pub const Bt2100Hlg: i32 = 8;
     };
 
     pub const Primaries = enum {
@@ -340,6 +404,7 @@ pub const enums = struct {
         pub const AdobeRgb: i32 = 2;
         pub const DciP3D65: i32 = 3;
         pub const ProPhotoRgb: i32 = 4;
+        pub const Bt2020: i32 = 5;
     };
 
     pub const TransferFunction = enum {
@@ -348,5 +413,20 @@ pub const enums = struct {
         pub const Gamma: i32 = 2;
         pub const SRgb: i32 = 3;
         pub const ProPhotoRgb: i32 = 4;
+        pub const Bt2020: i32 = 5;
+        pub const St2084: i32 = 6;
+        pub const Hlg: i32 = 7;
+    };
+
+    pub const TransformModel = enum {
+        pub const ThreeComponentMatrix: u8 = 0;
+        pub const ElementListProcessing: u8 = 1;
+    };
+
+    pub const ColorModel = enum {
+        pub const Undefined: u8 = 0;
+        pub const Rgb: u8 = 1;
+        pub const Gray: u8 = 2;
+        pub const Cmyk: u8 = 3;
     };
 };

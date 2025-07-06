@@ -136,6 +136,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     using QAbstractItemView_SenderSignalIndex_Callback = int (*)();
     using QAbstractItemView_Receivers_Callback = int (*)(const QAbstractItemView*, const char*);
     using QAbstractItemView_IsSignalConnected_Callback = bool (*)(const QAbstractItemView*, QMetaMethod*);
+    using QAbstractItemView_GetDecodedMetricF_Callback = double (*)(const QAbstractItemView*, int, int);
 
   protected:
     // Instance callback storage
@@ -254,6 +255,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     QAbstractItemView_SenderSignalIndex_Callback qabstractitemview_sendersignalindex_callback = nullptr;
     QAbstractItemView_Receivers_Callback qabstractitemview_receivers_callback = nullptr;
     QAbstractItemView_IsSignalConnected_Callback qabstractitemview_issignalconnected_callback = nullptr;
+    QAbstractItemView_GetDecodedMetricF_Callback qabstractitemview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qabstractitemview_metacall_isbase = false;
@@ -371,10 +373,11 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     mutable bool qabstractitemview_sendersignalindex_isbase = false;
     mutable bool qabstractitemview_receivers_isbase = false;
     mutable bool qabstractitemview_issignalconnected_isbase = false;
+    mutable bool qabstractitemview_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQAbstractItemView(QWidget* parent) : QAbstractItemView(parent){};
-    VirtualQAbstractItemView() : QAbstractItemView(){};
+    VirtualQAbstractItemView(QWidget* parent) : QAbstractItemView(parent) {};
+    VirtualQAbstractItemView() : QAbstractItemView() {};
 
     ~VirtualQAbstractItemView() {
         qabstractitemview_metacall_callback = nullptr;
@@ -492,6 +495,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
         qabstractitemview_sendersignalindex_callback = nullptr;
         qabstractitemview_receivers_callback = nullptr;
         qabstractitemview_issignalconnected_callback = nullptr;
+        qabstractitemview_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -610,6 +614,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     inline void setQAbstractItemView_SenderSignalIndex_Callback(QAbstractItemView_SenderSignalIndex_Callback cb) { qabstractitemview_sendersignalindex_callback = cb; }
     inline void setQAbstractItemView_Receivers_Callback(QAbstractItemView_Receivers_Callback cb) { qabstractitemview_receivers_callback = cb; }
     inline void setQAbstractItemView_IsSignalConnected_Callback(QAbstractItemView_IsSignalConnected_Callback cb) { qabstractitemview_issignalconnected_callback = cb; }
+    inline void setQAbstractItemView_GetDecodedMetricF_Callback(QAbstractItemView_GetDecodedMetricF_Callback cb) { qabstractitemview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQAbstractItemView_Metacall_IsBase(bool value) const { qabstractitemview_metacall_isbase = value; }
@@ -727,6 +732,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     inline void setQAbstractItemView_SenderSignalIndex_IsBase(bool value) const { qabstractitemview_sendersignalindex_isbase = value; }
     inline void setQAbstractItemView_Receivers_IsBase(bool value) const { qabstractitemview_receivers_isbase = value; }
     inline void setQAbstractItemView_IsSignalConnected_IsBase(bool value) const { qabstractitemview_issignalconnected_isbase = value; }
+    inline void setQAbstractItemView_GetDecodedMetricF_IsBase(bool value) const { qabstractitemview_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -962,13 +968,13 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
-            for (size_t i = 0; i < roles_ret.length(); ++i) {
+            // Convert const QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            for (size_t i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
             libqt_list roles_out;
-            roles_out.len = roles_ret.length();
+            roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
@@ -1261,13 +1267,13 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QModelIndexList selectedIndexes() const override {
+    virtual QList<QModelIndex> selectedIndexes() const override {
         if (qabstractitemview_selectedindexes_isbase) {
             qabstractitemview_selectedindexes_isbase = false;
             return QAbstractItemView::selectedIndexes();
         } else if (qabstractitemview_selectedindexes_callback != nullptr) {
             libqt_list /* of QModelIndex* */ callback_ret = qabstractitemview_selectedindexes_callback();
-            QModelIndexList callback_ret_QList;
+            QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -2382,6 +2388,22 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qabstractitemview_getdecodedmetricf_isbase) {
+            qabstractitemview_getdecodedmetricf_isbase = false;
+            return QAbstractItemView::getDecodedMetricF(metricA, metricB);
+        } else if (qabstractitemview_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qabstractitemview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QAbstractItemView::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QAbstractItemView_DataChanged(QAbstractItemView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
     friend void QAbstractItemView_QBaseDataChanged(QAbstractItemView* self, const QModelIndex* topLeft, const QModelIndex* bottomRight, const libqt_list /* of int */ roles);
@@ -2567,6 +2589,8 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     friend int QAbstractItemView_QBaseReceivers(const QAbstractItemView* self, const char* signal);
     friend bool QAbstractItemView_IsSignalConnected(const QAbstractItemView* self, const QMetaMethod* signal);
     friend bool QAbstractItemView_QBaseIsSignalConnected(const QAbstractItemView* self, const QMetaMethod* signal);
+    friend double QAbstractItemView_GetDecodedMetricF(const QAbstractItemView* self, int metricA, int metricB);
+    friend double QAbstractItemView_QBaseGetDecodedMetricF(const QAbstractItemView* self, int metricA, int metricB);
 };
 
 #endif

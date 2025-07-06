@@ -3,6 +3,25 @@ const qtc = @import("qt6c");
 const qproperty_enums = enums;
 const std = @import("std");
 
+/// https://doc.qt.io/qt-6/qscopedpropertyupdategroup.html
+pub const qscopedpropertyupdategroup = struct {
+    /// New constructs a new QScopedPropertyUpdateGroup object.
+    ///
+    ///
+    pub fn New() QtC.QScopedPropertyUpdateGroup {
+        return qtc.QScopedPropertyUpdateGroup_new();
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qscopedpropertyupdategroup.html#dtor.QScopedPropertyUpdateGroup)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QScopedPropertyUpdateGroup ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QScopedPropertyUpdateGroup_Delete(@ptrCast(self));
+    }
+};
+
 /// https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html
 pub const qpropertybindingsourcelocation = struct {
     /// New constructs a new QPropertyBindingSourceLocation object.
@@ -402,6 +421,5 @@ pub const enums = struct {
         pub const ObserverNotifiesBinding: i32 = 0;
         pub const ObserverNotifiesChangeHandler: i32 = 1;
         pub const ObserverIsPlaceholder: i32 = 2;
-        pub const ObserverIsAlias: i32 = 3;
     };
 };

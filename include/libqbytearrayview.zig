@@ -139,6 +139,28 @@ pub const qbytearrayview = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#slice)
+    ///
+    /// ``` self: QtC.QByteArrayView, pos: i64, allocator: std.mem.Allocator ```
+    pub fn Slice(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QByteArrayView_Slice(@ptrCast(self), @intCast(pos));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Slice: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#slice)
+    ///
+    /// ``` self: QtC.QByteArrayView, pos: i64, n: i64, allocator: std.mem.Allocator ```
+    pub fn Slice2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QByteArrayView_Slice2(@ptrCast(self), @intCast(pos), @intCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Slice2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#chopped)
     ///
     /// ``` self: QtC.QByteArrayView, lenVal: i64, allocator: std.mem.Allocator ```
@@ -146,6 +168,39 @@ pub const qbytearrayview = struct {
         const _str = qtc.QByteArrayView_Chopped(@ptrCast(self), @intCast(lenVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Chopped: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#left)
+    ///
+    /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
+    pub fn Left(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QByteArrayView_Left(@ptrCast(self), @intCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Left: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#right)
+    ///
+    /// ``` self: QtC.QByteArrayView, n: i64, allocator: std.mem.Allocator ```
+    pub fn Right(self: ?*anyopaque, n: i64, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QByteArrayView_Right(@ptrCast(self), @intCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Right: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#mid)
+    ///
+    /// ``` self: QtC.QByteArrayView, pos: i64, allocator: std.mem.Allocator ```
+    pub fn Mid(self: ?*anyopaque, pos: i64, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QByteArrayView_Mid(@ptrCast(self), @intCast(pos));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Mid: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -403,6 +458,13 @@ pub const qbytearrayview = struct {
         return qtc.QByteArrayView_Back(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#max_size)
+    ///
+    /// ``` self: QtC.QByteArrayView ```
+    pub fn MaxSize(self: ?*anyopaque) i64 {
+        return qtc.QByteArrayView_MaxSize(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#isNull)
     ///
     /// ``` self: QtC.QByteArrayView ```
@@ -436,6 +498,24 @@ pub const qbytearrayview = struct {
     /// ``` self: QtC.QByteArrayView ```
     pub fn Last2(self: ?*anyopaque) i8 {
         return qtc.QByteArrayView_Last2(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#maxSize)
+    ///
+    ///
+    pub fn MaxSize2() i64 {
+        return qtc.QByteArrayView_MaxSize2();
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#mid)
+    ///
+    /// ``` self: QtC.QByteArrayView, pos: i64, n: i64, allocator: std.mem.Allocator ```
+    pub fn Mid2(self: ?*anyopaque, pos: i64, n: i64, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QByteArrayView_Mid2(@ptrCast(self), @intCast(pos), @intCast(n));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbytearrayview.Mid2: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#toShort)

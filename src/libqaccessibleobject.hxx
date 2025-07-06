@@ -82,7 +82,7 @@ class VirtualQAccessibleObject final : public QAccessibleObject {
     mutable bool qaccessibleobject_interfacecast_isbase = false;
 
   public:
-    VirtualQAccessibleObject(QObject* object) : QAccessibleObject(object){};
+    VirtualQAccessibleObject(QObject* object) : QAccessibleObject(object) {};
 
   protected:
     ~VirtualQAccessibleObject() {
@@ -242,7 +242,7 @@ class VirtualQAccessibleObject final : public QAccessibleObject {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QList<QPair<QAccessibleInterface*, QAccessible::Relation>> relations(QAccessible::Relation match) const override {
+    virtual QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> relations(QAccessible::Relation match) const override {
         if (qaccessibleobject_relations_isbase) {
             qaccessibleobject_relations_isbase = false;
             return QAccessibleObject::relations(match);
@@ -250,7 +250,7 @@ class VirtualQAccessibleObject final : public QAccessibleObject {
             int cbval1 = static_cast<int>(match);
 
             libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ callback_ret = qaccessibleobject_relations_callback(this, cbval1);
-            QList<QPair<QAccessibleInterface*, QAccessible::Relation>> callback_ret_QList;
+            QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_pair /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -486,7 +486,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
     mutable bool qaccessibleapplication_interfacecast_isbase = false;
 
   public:
-    VirtualQAccessibleApplication() : QAccessibleApplication(){};
+    VirtualQAccessibleApplication() : QAccessibleApplication() {};
 
     ~VirtualQAccessibleApplication() {
         qaccessibleapplication_window_callback = nullptr;
@@ -755,7 +755,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QList<QPair<QAccessibleInterface*, QAccessible::Relation>> relations(QAccessible::Relation match) const override {
+    virtual QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> relations(QAccessible::Relation match) const override {
         if (qaccessibleapplication_relations_isbase) {
             qaccessibleapplication_relations_isbase = false;
             return QAccessibleApplication::relations(match);
@@ -763,7 +763,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
             int cbval1 = static_cast<int>(match);
 
             libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ callback_ret = qaccessibleapplication_relations_callback(this, cbval1);
-            QList<QPair<QAccessibleInterface*, QAccessible::Relation>> callback_ret_QList;
+            QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_pair /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {

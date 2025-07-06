@@ -2378,6 +2378,35 @@ void QsciScintillaBase_OnIsSignalConnected(const QsciScintillaBase* self, intptr
     }
 }
 
+// Derived class handler implementation
+double QsciScintillaBase_GetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        return vqsciscintillabase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQsciScintillaBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QsciScintillaBase_QBaseGetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_GetDecodedMetricF_IsBase(true);
+        return vqsciscintillabase->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQsciScintillaBase*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintillaBase_OnGetDecodedMetricF(const QsciScintillaBase* self, intptr_t slot) {
+    auto* vqsciscintillabase = const_cast<VirtualQsciScintillaBase*>(dynamic_cast<const VirtualQsciScintillaBase*>(self));
+    if (vqsciscintillabase && vqsciscintillabase->isVirtualQsciScintillaBase) {
+        vqsciscintillabase->setQsciScintillaBase_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQsciScintillaBase::QsciScintillaBase_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QsciScintillaBase_Delete(QsciScintillaBase* self) {
     delete self;
 }

@@ -24,20 +24,6 @@ typedef struct QMetaType QMetaType;
 typedef struct QPartialOrdering QPartialOrdering;
 #endif
 
-#ifdef __cplusplus
-typedef QCborSimpleType QCborSimpleType;                    // C++ enum
-typedef QMetaType::ConverterFunction ConverterFunction;     // C++ QFlags
-typedef QMetaType::MutableViewFunction MutableViewFunction; // C++ QFlags
-typedef QMetaType::Type Type;                               // C++ enum
-typedef QMetaType::TypeFlag TypeFlag;                       // C++ enum
-typedef QMetaType::TypeFlags TypeFlags;                     // C++ QFlags
-#else
-typedef int TypeFlag;                  // C ABI enum
-typedef int TypeFlags;                 // C ABI QFlags
-typedef unsigned char QCborSimpleType; // C ABI enum
-typedef unsigned char Type;            // C ABI enum
-#endif
-
 QMetaType* QMetaType_new(const QMetaType* other);
 QMetaType* QMetaType_new2(QMetaType* other);
 QMetaType* QMetaType_new3(int typeVal);
@@ -59,6 +45,7 @@ void QMetaType_Destruct(int typeVal, void* where);
 bool QMetaType_IsRegistered(int typeVal);
 bool QMetaType_IsValid(const QMetaType* self);
 bool QMetaType_IsRegistered2(const QMetaType* self);
+void QMetaType_RegisterType(const QMetaType* self);
 int QMetaType_Id(const QMetaType* self);
 ptrdiff_t QMetaType_SizeOf2(const QMetaType* self);
 ptrdiff_t QMetaType_AlignOf(const QMetaType* self);
@@ -71,6 +58,10 @@ void* QMetaType_ConstructWithWhere(const QMetaType* self, void* where);
 void QMetaType_DestructWithData(const QMetaType* self, void* data);
 QPartialOrdering* QMetaType_Compare(const QMetaType* self, const void* lhs, const void* rhs);
 bool QMetaType_Equals(const QMetaType* self, const void* lhs, const void* rhs);
+bool QMetaType_IsDefaultConstructible(const QMetaType* self);
+bool QMetaType_IsCopyConstructible(const QMetaType* self);
+bool QMetaType_IsMoveConstructible(const QMetaType* self);
+bool QMetaType_IsDestructible(const QMetaType* self);
 bool QMetaType_IsEqualityComparable(const QMetaType* self);
 bool QMetaType_IsOrdered(const QMetaType* self);
 bool QMetaType_Save(const QMetaType* self, QDataStream* stream, const void* data);
@@ -78,6 +69,7 @@ bool QMetaType_Load(const QMetaType* self, QDataStream* stream, void* data);
 bool QMetaType_HasRegisteredDataStreamOperators(const QMetaType* self);
 bool QMetaType_Save2(QDataStream* stream, int typeVal, const void* data);
 bool QMetaType_Load2(QDataStream* stream, int typeVal, void* data);
+QMetaType* QMetaType_UnderlyingType(const QMetaType* self);
 QMetaType* QMetaType_FromName(QByteArrayView* name);
 bool QMetaType_DebugStream(QMetaType* self, QDebug* dbg, const void* rhs);
 bool QMetaType_HasRegisteredDebugStreamOperator(const QMetaType* self);

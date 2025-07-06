@@ -214,9 +214,9 @@ void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot) {
 bool QTemporaryFile_OpenWithFlags(QTemporaryFile* self, int flags) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return vqtemporaryfile->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     } else {
-        return ((VirtualQTemporaryFile*)self)->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return ((VirtualQTemporaryFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
 }
 
@@ -225,9 +225,9 @@ bool QTemporaryFile_QBaseOpenWithFlags(QTemporaryFile* self, int flags) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_OpenWithFlags_IsBase(true);
-        return vqtemporaryfile->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     } else {
-        return ((VirtualQTemporaryFile*)self)->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return ((VirtualQTemporaryFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
 }
 

@@ -70,8 +70,8 @@ class VirtualQsciMacro final : public QsciMacro {
     mutable bool qscimacro_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciMacro(QsciScintilla* parent) : QsciMacro(parent){};
-    VirtualQsciMacro(const QString& asc, QsciScintilla* parent) : QsciMacro(asc, parent){};
+    VirtualQsciMacro(QsciScintilla* parent) : QsciMacro(parent) {};
+    VirtualQsciMacro(const QString& asc, QsciScintilla* parent) : QsciMacro(asc, parent) {};
 
     ~VirtualQsciMacro() {
         qscimacro_metacall_callback = nullptr;

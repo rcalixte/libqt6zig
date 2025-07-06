@@ -38,7 +38,7 @@ libqt_string QBuffer_Tr(const char* s);
 libqt_string QBuffer_Buffer(QBuffer* self);
 libqt_string QBuffer_Buffer2(const QBuffer* self);
 void QBuffer_SetData(QBuffer* self, const libqt_string data);
-void QBuffer_SetData2(QBuffer* self, const char* data, int lenVal);
+void QBuffer_SetData2(QBuffer* self, const char* data, ptrdiff_t lenVal);
 libqt_string QBuffer_Data(const QBuffer* self);
 bool QBuffer_Open(QBuffer* self, int openMode);
 void QBuffer_OnOpen(QBuffer* self, intptr_t slot);

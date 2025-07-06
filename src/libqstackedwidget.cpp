@@ -1869,6 +1869,35 @@ void QStackedWidget_OnIsSignalConnected(const QStackedWidget* self, intptr_t slo
     }
 }
 
+// Derived class handler implementation
+double QStackedWidget_GetDecodedMetricF(const QStackedWidget* self, int metricA, int metricB) {
+    auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        return vqstackedwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQStackedWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QStackedWidget_QBaseGetDecodedMetricF(const QStackedWidget* self, int metricA, int metricB) {
+    auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_GetDecodedMetricF_IsBase(true);
+        return vqstackedwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQStackedWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QStackedWidget_OnGetDecodedMetricF(const QStackedWidget* self, intptr_t slot) {
+    auto* vqstackedwidget = const_cast<VirtualQStackedWidget*>(dynamic_cast<const VirtualQStackedWidget*>(self));
+    if (vqstackedwidget && vqstackedwidget->isVirtualQStackedWidget) {
+        vqstackedwidget->setQStackedWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQStackedWidget::QStackedWidget_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QStackedWidget_Delete(QStackedWidget* self) {
     delete self;
 }

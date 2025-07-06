@@ -70,6 +70,10 @@ double QPaintDevice_DevicePixelRatioFScale() {
     return static_cast<double>(QPaintDevice::devicePixelRatioFScale());
 }
 
+int QPaintDevice_EncodeMetricF(int metric, double value) {
+    return QPaintDevice::encodeMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metric), static_cast<double>(value));
+}
+
 void QPaintDevice_Delete(QPaintDevice* self) {
     delete self;
 }

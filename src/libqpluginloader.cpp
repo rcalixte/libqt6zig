@@ -90,14 +90,14 @@ QJsonObject* QPluginLoader_MetaData(const QPluginLoader* self) {
 }
 
 libqt_list /* of QObject* */ QPluginLoader_StaticInstances() {
-    QObjectList _ret = QPluginLoader::staticInstances();
+    QList<QObject*> _ret = QPluginLoader::staticInstances();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -105,12 +105,12 @@ libqt_list /* of QObject* */ QPluginLoader_StaticInstances() {
 libqt_list /* of QStaticPlugin* */ QPluginLoader_StaticPlugins() {
     QList<QStaticPlugin> _ret = QPluginLoader::staticPlugins();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QStaticPlugin** _arr = static_cast<QStaticPlugin**>(malloc(sizeof(QStaticPlugin*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QStaticPlugin** _arr = static_cast<QStaticPlugin**>(malloc(sizeof(QStaticPlugin*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QStaticPlugin(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

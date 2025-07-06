@@ -61,8 +61,8 @@ class VirtualQWebChannel final : public QWebChannel {
     mutable bool qwebchannel_issignalconnected_isbase = false;
 
   public:
-    VirtualQWebChannel() : QWebChannel(){};
-    VirtualQWebChannel(QObject* parent) : QWebChannel(parent){};
+    VirtualQWebChannel() : QWebChannel() {};
+    VirtualQWebChannel(QObject* parent) : QWebChannel(parent) {};
 
     ~VirtualQWebChannel() {
         qwebchannel_metacall_callback = nullptr;

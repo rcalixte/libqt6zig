@@ -22,21 +22,6 @@ typedef struct QRegularExpressionMatch QRegularExpressionMatch;
 typedef struct QStringView QStringView;
 #endif
 
-#ifdef __cplusplus
-typedef QStringView::const_pointer const_pointer;     // C++ QFlags
-typedef QStringView::const_reference const_reference; // C++ QFlags
-typedef QStringView::difference_type difference_type; // C++ QFlags
-typedef QStringView::iterator iterator;               // C++ QFlags
-typedef QStringView::pointer pointer;                 // C++ QFlags
-typedef QStringView::reference reference;             // C++ QFlags
-typedef QStringView::size_type size_type;             // C++ QFlags
-typedef QStringView::storage_type storage_type;       // C++ QFlags
-typedef QStringView::value_type value_type;           // C++ QFlags
-#else
-typedef long long difference_type; // C ABI QFlags
-typedef ptrdiff_t size_type;       // C ABI QFlags
-#endif
-
 QStringView* QStringView_new();
 void QStringView_CopyAssign(QStringView* self, QStringView* other);
 void QStringView_MoveAssign(QStringView* self, QStringView* other);
@@ -53,7 +38,7 @@ QChar* QStringView_At(const QStringView* self, ptrdiff_t n);
 void QStringView_Truncate(QStringView* self, ptrdiff_t n);
 void QStringView_Chop(QStringView* self, ptrdiff_t n);
 int QStringView_CompareWithQChar(const QStringView* self, QChar* c);
-int QStringView_Compare2(const QStringView* self, QChar* c, int cs);
+int QStringView_Compare3(const QStringView* self, QChar* c, int cs);
 bool QStringView_StartsWithWithQChar(const QStringView* self, QChar* c);
 bool QStringView_StartsWith2(const QStringView* self, QChar* c, int cs);
 bool QStringView_EndsWithWithQChar(const QStringView* self, QChar* c);
@@ -69,6 +54,8 @@ bool QStringView_ContainsWithRe(const QStringView* self, const QRegularExpressio
 ptrdiff_t QStringView_CountWithRe(const QStringView* self, const QRegularExpression* re);
 bool QStringView_IsRightToLeft(const QStringView* self);
 bool QStringView_IsValidUtf16(const QStringView* self);
+bool QStringView_IsUpper(const QStringView* self);
+bool QStringView_IsLower(const QStringView* self);
 int16_t QStringView_ToShort(const QStringView* self);
 uint16_t QStringView_ToUShort(const QStringView* self);
 int QStringView_ToInt(const QStringView* self);
@@ -86,6 +73,7 @@ QChar* QStringView_Cend(const QStringView* self);
 bool QStringView_Empty(const QStringView* self);
 QChar* QStringView_Front(const QStringView* self);
 QChar* QStringView_Back(const QStringView* self);
+ptrdiff_t QStringView_MaxSize(const QStringView* self);
 QChar* QStringView_ConstBegin(const QStringView* self);
 QChar* QStringView_ConstEnd(const QStringView* self);
 bool QStringView_IsNull(const QStringView* self);
@@ -93,6 +81,7 @@ bool QStringView_IsEmpty(const QStringView* self);
 ptrdiff_t QStringView_Length(const QStringView* self);
 QChar* QStringView_First2(const QStringView* self);
 QChar* QStringView_Last2(const QStringView* self);
+ptrdiff_t QStringView_MaxSize2();
 ptrdiff_t QStringView_IndexOf2(const QStringView* self, QChar* c, ptrdiff_t from);
 ptrdiff_t QStringView_IndexOf3(const QStringView* self, QChar* c, ptrdiff_t from, int cs);
 bool QStringView_Contains2(const QStringView* self, QChar* c, int cs);

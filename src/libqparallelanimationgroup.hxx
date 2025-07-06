@@ -73,8 +73,8 @@ class VirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
     mutable bool qparallelanimationgroup_issignalconnected_isbase = false;
 
   public:
-    VirtualQParallelAnimationGroup() : QParallelAnimationGroup(){};
-    VirtualQParallelAnimationGroup(QObject* parent) : QParallelAnimationGroup(parent){};
+    VirtualQParallelAnimationGroup() : QParallelAnimationGroup() {};
+    VirtualQParallelAnimationGroup(QObject* parent) : QParallelAnimationGroup(parent) {};
 
     ~VirtualQParallelAnimationGroup() {
         qparallelanimationgroup_metacall_callback = nullptr;

@@ -7,6 +7,20 @@ pub const struct_qtcqhostaddress_i32 = struct { first: QtC.QHostAddress, second:
 
 /// https://doc.qt.io/qt-6/qipv6address.html
 pub const qipv6address = struct {
+    /// New constructs a new QIPv6Address object.
+    ///
+    ///
+    pub fn New() QtC.QIPv6Address {
+        return qtc.QIPv6Address_new();
+    }
+
+    /// New2 constructs a new QIPv6Address object.
+    ///
+    /// ``` param1: QtC.QIPv6Address ```
+    pub fn New2(param1: ?*anyopaque) QtC.QIPv6Address {
+        return qtc.QIPv6Address_new2(@ptrCast(param1));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qipv6address.html#operator[])
     ///
     /// ``` self: QtC.QIPv6Address, index: i32 ```
@@ -297,6 +311,13 @@ pub const qhostaddress = struct {
     /// ``` self: QtC.QHostAddress ```
     pub fn IsBroadcast(self: ?*anyopaque) bool {
         return qtc.QHostAddress_IsBroadcast(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#isPrivateUse)
+    ///
+    /// ``` self: QtC.QHostAddress ```
+    pub fn IsPrivateUse(self: ?*anyopaque) bool {
+        return qtc.QHostAddress_IsPrivateUse(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#parseSubnet)

@@ -125,13 +125,9 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromEncoded)
     ///
-    /// ``` url: []u8 ```
-    pub fn FromEncoded(url: []u8) QtC.QUrl {
-        const url_str = qtc.struct_libqt_string{
-            .len = url.len,
-            .data = url.ptr,
-        };
-        return qtc.QUrl_FromEncoded(url_str);
+    /// ``` input: []const u8 ```
+    pub fn FromEncoded(input: []const u8) QtC.QUrl {
+        return qtc.QUrl_FromEncoded(input.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
@@ -485,27 +481,6 @@ pub const qurl = struct {
         return qtc.QUrl_IsDetached(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator<)
-    ///
-    /// ``` self: QtC.QUrl, url: QtC.QUrl ```
-    pub fn OperatorLesser(self: ?*anyopaque, url: ?*anyopaque) bool {
-        return qtc.QUrl_OperatorLesser(@ptrCast(self), @ptrCast(url));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator==)
-    ///
-    /// ``` self: QtC.QUrl, url: QtC.QUrl ```
-    pub fn OperatorEqual(self: ?*anyopaque, url: ?*anyopaque) bool {
-        return qtc.QUrl_OperatorEqual(@ptrCast(self), @ptrCast(url));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator!=)
-    ///
-    /// ``` self: QtC.QUrl, url: QtC.QUrl ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, url: ?*anyopaque) bool {
-        return qtc.QUrl_OperatorNotEqual(@ptrCast(self), @ptrCast(url));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromPercentEncoding)
     ///
     /// ``` param1: []u8, allocator: std.mem.Allocator ```
@@ -670,13 +645,9 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromEncoded)
     ///
-    /// ``` url: []u8, mode: qurl_enums.ParsingMode ```
-    pub fn FromEncoded2(url: []u8, mode: i64) QtC.QUrl {
-        const url_str = qtc.struct_libqt_string{
-            .len = url.len,
-            .data = url.ptr,
-        };
-        return qtc.QUrl_FromEncoded2(url_str, @intCast(mode));
+    /// ``` input: []const u8, mode: qurl_enums.ParsingMode ```
+    pub fn FromEncoded2(input: []const u8, mode: i64) QtC.QUrl {
+        return qtc.QUrl_FromEncoded2(input.ptr, @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)

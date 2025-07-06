@@ -78,6 +78,7 @@ class VirtualQAbstractButton final : public QAbstractButton {
     using QAbstractButton_SenderSignalIndex_Callback = int (*)();
     using QAbstractButton_Receivers_Callback = int (*)(const QAbstractButton*, const char*);
     using QAbstractButton_IsSignalConnected_Callback = bool (*)(const QAbstractButton*, QMetaMethod*);
+    using QAbstractButton_GetDecodedMetricF_Callback = double (*)(const QAbstractButton*, int, int);
 
   protected:
     // Instance callback storage
@@ -141,6 +142,7 @@ class VirtualQAbstractButton final : public QAbstractButton {
     QAbstractButton_SenderSignalIndex_Callback qabstractbutton_sendersignalindex_callback = nullptr;
     QAbstractButton_Receivers_Callback qabstractbutton_receivers_callback = nullptr;
     QAbstractButton_IsSignalConnected_Callback qabstractbutton_issignalconnected_callback = nullptr;
+    QAbstractButton_GetDecodedMetricF_Callback qabstractbutton_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qabstractbutton_metacall_isbase = false;
@@ -203,10 +205,11 @@ class VirtualQAbstractButton final : public QAbstractButton {
     mutable bool qabstractbutton_sendersignalindex_isbase = false;
     mutable bool qabstractbutton_receivers_isbase = false;
     mutable bool qabstractbutton_issignalconnected_isbase = false;
+    mutable bool qabstractbutton_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQAbstractButton(QWidget* parent) : QAbstractButton(parent){};
-    VirtualQAbstractButton() : QAbstractButton(){};
+    VirtualQAbstractButton(QWidget* parent) : QAbstractButton(parent) {};
+    VirtualQAbstractButton() : QAbstractButton() {};
 
     ~VirtualQAbstractButton() {
         qabstractbutton_metacall_callback = nullptr;
@@ -269,6 +272,7 @@ class VirtualQAbstractButton final : public QAbstractButton {
         qabstractbutton_sendersignalindex_callback = nullptr;
         qabstractbutton_receivers_callback = nullptr;
         qabstractbutton_issignalconnected_callback = nullptr;
+        qabstractbutton_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -332,6 +336,7 @@ class VirtualQAbstractButton final : public QAbstractButton {
     inline void setQAbstractButton_SenderSignalIndex_Callback(QAbstractButton_SenderSignalIndex_Callback cb) { qabstractbutton_sendersignalindex_callback = cb; }
     inline void setQAbstractButton_Receivers_Callback(QAbstractButton_Receivers_Callback cb) { qabstractbutton_receivers_callback = cb; }
     inline void setQAbstractButton_IsSignalConnected_Callback(QAbstractButton_IsSignalConnected_Callback cb) { qabstractbutton_issignalconnected_callback = cb; }
+    inline void setQAbstractButton_GetDecodedMetricF_Callback(QAbstractButton_GetDecodedMetricF_Callback cb) { qabstractbutton_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQAbstractButton_Metacall_IsBase(bool value) const { qabstractbutton_metacall_isbase = value; }
@@ -394,6 +399,7 @@ class VirtualQAbstractButton final : public QAbstractButton {
     inline void setQAbstractButton_SenderSignalIndex_IsBase(bool value) const { qabstractbutton_sendersignalindex_isbase = value; }
     inline void setQAbstractButton_Receivers_IsBase(bool value) const { qabstractbutton_receivers_isbase = value; }
     inline void setQAbstractButton_IsSignalConnected_IsBase(bool value) const { qabstractbutton_issignalconnected_isbase = value; }
+    inline void setQAbstractButton_GetDecodedMetricF_IsBase(bool value) const { qabstractbutton_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1242,6 +1248,22 @@ class VirtualQAbstractButton final : public QAbstractButton {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qabstractbutton_getdecodedmetricf_isbase) {
+            qabstractbutton_getdecodedmetricf_isbase = false;
+            return QAbstractButton::getDecodedMetricF(metricA, metricB);
+        } else if (qabstractbutton_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qabstractbutton_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QAbstractButton::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QAbstractButton_PaintEvent(QAbstractButton* self, QPaintEvent* e);
     friend void QAbstractButton_QBasePaintEvent(QAbstractButton* self, QPaintEvent* e);
@@ -1343,6 +1365,8 @@ class VirtualQAbstractButton final : public QAbstractButton {
     friend int QAbstractButton_QBaseReceivers(const QAbstractButton* self, const char* signal);
     friend bool QAbstractButton_IsSignalConnected(const QAbstractButton* self, const QMetaMethod* signal);
     friend bool QAbstractButton_QBaseIsSignalConnected(const QAbstractButton* self, const QMetaMethod* signal);
+    friend double QAbstractButton_GetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB);
+    friend double QAbstractButton_QBaseGetDecodedMetricF(const QAbstractButton* self, int metricA, int metricB);
 };
 
 #endif

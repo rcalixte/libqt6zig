@@ -200,8 +200,8 @@ pub const qobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QObject, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
@@ -216,6 +216,13 @@ pub const qobject = struct {
     /// ``` self: QtC.QObject, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QObject, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#children)
@@ -636,6 +643,13 @@ pub const qobject = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QObject, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QObject, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -720,6 +734,13 @@ pub const qsignalblocker = struct {
     /// ``` self: QtC.QSignalBlocker ```
     pub fn Unblock(self: ?*anyopaque) void {
         qtc.QSignalBlocker_Unblock(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsignalblocker.html#dismiss)
+    ///
+    /// ``` self: QtC.QSignalBlocker ```
+    pub fn Dismiss(self: ?*anyopaque) void {
+        qtc.QSignalBlocker_Dismiss(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsignalblocker.html#dtor.QSignalBlocker)

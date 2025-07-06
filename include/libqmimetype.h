@@ -19,18 +19,10 @@ extern "C" {
 typedef struct QMimeType QMimeType;
 #endif
 
-#ifdef __cplusplus
-typedef QMimeType::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QMimeType* QMimeType_new();
 QMimeType* QMimeType_new2(const QMimeType* other);
 void QMimeType_OperatorAssign(QMimeType* self, const QMimeType* other);
 void QMimeType_Swap(QMimeType* self, QMimeType* other);
-bool QMimeType_OperatorEqual(const QMimeType* self, const QMimeType* other);
-bool QMimeType_OperatorNotEqual(const QMimeType* self, const QMimeType* other);
 bool QMimeType_IsValid(const QMimeType* self);
 bool QMimeType_IsDefault(const QMimeType* self);
 libqt_string QMimeType_Name(const QMimeType* self);

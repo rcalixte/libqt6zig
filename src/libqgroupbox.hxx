@@ -76,6 +76,7 @@ class VirtualQGroupBox final : public QGroupBox {
     using QGroupBox_SenderSignalIndex_Callback = int (*)();
     using QGroupBox_Receivers_Callback = int (*)(const QGroupBox*, const char*);
     using QGroupBox_IsSignalConnected_Callback = bool (*)(const QGroupBox*, QMetaMethod*);
+    using QGroupBox_GetDecodedMetricF_Callback = double (*)(const QGroupBox*, int, int);
 
   protected:
     // Instance callback storage
@@ -137,6 +138,7 @@ class VirtualQGroupBox final : public QGroupBox {
     QGroupBox_SenderSignalIndex_Callback qgroupbox_sendersignalindex_callback = nullptr;
     QGroupBox_Receivers_Callback qgroupbox_receivers_callback = nullptr;
     QGroupBox_IsSignalConnected_Callback qgroupbox_issignalconnected_callback = nullptr;
+    QGroupBox_GetDecodedMetricF_Callback qgroupbox_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qgroupbox_metacall_isbase = false;
@@ -197,12 +199,13 @@ class VirtualQGroupBox final : public QGroupBox {
     mutable bool qgroupbox_sendersignalindex_isbase = false;
     mutable bool qgroupbox_receivers_isbase = false;
     mutable bool qgroupbox_issignalconnected_isbase = false;
+    mutable bool qgroupbox_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQGroupBox(QWidget* parent) : QGroupBox(parent){};
-    VirtualQGroupBox() : QGroupBox(){};
-    VirtualQGroupBox(const QString& title) : QGroupBox(title){};
-    VirtualQGroupBox(const QString& title, QWidget* parent) : QGroupBox(title, parent){};
+    VirtualQGroupBox(QWidget* parent) : QGroupBox(parent) {};
+    VirtualQGroupBox() : QGroupBox() {};
+    VirtualQGroupBox(const QString& title) : QGroupBox(title) {};
+    VirtualQGroupBox(const QString& title, QWidget* parent) : QGroupBox(title, parent) {};
 
     ~VirtualQGroupBox() {
         qgroupbox_metacall_callback = nullptr;
@@ -263,6 +266,7 @@ class VirtualQGroupBox final : public QGroupBox {
         qgroupbox_sendersignalindex_callback = nullptr;
         qgroupbox_receivers_callback = nullptr;
         qgroupbox_issignalconnected_callback = nullptr;
+        qgroupbox_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -324,6 +328,7 @@ class VirtualQGroupBox final : public QGroupBox {
     inline void setQGroupBox_SenderSignalIndex_Callback(QGroupBox_SenderSignalIndex_Callback cb) { qgroupbox_sendersignalindex_callback = cb; }
     inline void setQGroupBox_Receivers_Callback(QGroupBox_Receivers_Callback cb) { qgroupbox_receivers_callback = cb; }
     inline void setQGroupBox_IsSignalConnected_Callback(QGroupBox_IsSignalConnected_Callback cb) { qgroupbox_issignalconnected_callback = cb; }
+    inline void setQGroupBox_GetDecodedMetricF_Callback(QGroupBox_GetDecodedMetricF_Callback cb) { qgroupbox_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQGroupBox_Metacall_IsBase(bool value) const { qgroupbox_metacall_isbase = value; }
@@ -384,6 +389,7 @@ class VirtualQGroupBox final : public QGroupBox {
     inline void setQGroupBox_SenderSignalIndex_IsBase(bool value) const { qgroupbox_sendersignalindex_isbase = value; }
     inline void setQGroupBox_Receivers_IsBase(bool value) const { qgroupbox_receivers_isbase = value; }
     inline void setQGroupBox_IsSignalConnected_IsBase(bool value) const { qgroupbox_issignalconnected_isbase = value; }
+    inline void setQGroupBox_GetDecodedMetricF_IsBase(bool value) const { qgroupbox_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1210,6 +1216,22 @@ class VirtualQGroupBox final : public QGroupBox {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qgroupbox_getdecodedmetricf_isbase) {
+            qgroupbox_getdecodedmetricf_isbase = false;
+            return QGroupBox::getDecodedMetricF(metricA, metricB);
+        } else if (qgroupbox_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qgroupbox_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QGroupBox::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QGroupBox_Event(QGroupBox* self, QEvent* event);
     friend bool QGroupBox_QBaseEvent(QGroupBox* self, QEvent* event);
@@ -1307,6 +1329,8 @@ class VirtualQGroupBox final : public QGroupBox {
     friend int QGroupBox_QBaseReceivers(const QGroupBox* self, const char* signal);
     friend bool QGroupBox_IsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
     friend bool QGroupBox_QBaseIsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
+    friend double QGroupBox_GetDecodedMetricF(const QGroupBox* self, int metricA, int metricB);
+    friend double QGroupBox_QBaseGetDecodedMetricF(const QGroupBox* self, int metricA, int metricB);
 };
 
 #endif

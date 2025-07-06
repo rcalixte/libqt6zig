@@ -310,7 +310,7 @@ void QComboBox_AddItem2(QComboBox* self, const QIcon* icon, const libqt_string t
 }
 
 void QComboBox_AddItems(QComboBox* self, const libqt_list /* of libqt_string */ texts) {
-    QStringList texts_QList;
+    QList<QString> texts_QList;
     texts_QList.reserve(texts.len);
     libqt_string* texts_arr = static_cast<libqt_string*>(texts.data);
     for (size_t i = 0; i < texts.len; ++i) {
@@ -331,7 +331,7 @@ void QComboBox_InsertItem2(QComboBox* self, int index, const QIcon* icon, const 
 }
 
 void QComboBox_InsertItems(QComboBox* self, int index, const libqt_list /* of libqt_string */ texts) {
-    QStringList texts_QList;
+    QList<QString> texts_QList;
     texts_QList.reserve(texts.len);
     libqt_string* texts_arr = static_cast<libqt_string*>(texts.data);
     for (size_t i = 0; i < texts.len; ++i) {
@@ -2324,6 +2324,35 @@ void QComboBox_OnIsSignalConnected(const QComboBox* self, intptr_t slot) {
     auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
     if (vqcombobox && vqcombobox->isVirtualQComboBox) {
         vqcombobox->setQComboBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QComboBox_GetDecodedMetricF(const QComboBox* self, int metricA, int metricB) {
+    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        return vqcombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QComboBox_QBaseGetDecodedMetricF(const QComboBox* self, int metricA, int metricB) {
+    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_GetDecodedMetricF_IsBase(true);
+        return vqcombobox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQComboBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QComboBox_OnGetDecodedMetricF(const QComboBox* self, intptr_t slot) {
+    auto* vqcombobox = const_cast<VirtualQComboBox*>(dynamic_cast<const VirtualQComboBox*>(self));
+    if (vqcombobox && vqcombobox->isVirtualQComboBox) {
+        vqcombobox->setQComboBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQComboBox::QComboBox_GetDecodedMetricF_Callback>(slot));
     }
 }
 

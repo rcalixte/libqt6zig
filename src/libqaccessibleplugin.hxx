@@ -64,8 +64,8 @@ class VirtualQAccessiblePlugin final : public QAccessiblePlugin {
     mutable bool qaccessibleplugin_issignalconnected_isbase = false;
 
   public:
-    VirtualQAccessiblePlugin() : QAccessiblePlugin(){};
-    VirtualQAccessiblePlugin(QObject* parent) : QAccessiblePlugin(parent){};
+    VirtualQAccessiblePlugin() : QAccessiblePlugin() {};
+    VirtualQAccessiblePlugin(QObject* parent) : QAccessiblePlugin(parent) {};
 
     ~VirtualQAccessiblePlugin() {
         qaccessibleplugin_metacall_callback = nullptr;

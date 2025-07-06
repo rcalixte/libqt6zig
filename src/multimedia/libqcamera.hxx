@@ -61,12 +61,12 @@ class VirtualQCamera final : public QCamera {
     mutable bool qcamera_issignalconnected_isbase = false;
 
   public:
-    VirtualQCamera() : QCamera(){};
-    VirtualQCamera(const QCameraDevice& cameraDevice) : QCamera(cameraDevice){};
-    VirtualQCamera(QCameraDevice::Position position) : QCamera(position){};
-    VirtualQCamera(QObject* parent) : QCamera(parent){};
-    VirtualQCamera(const QCameraDevice& cameraDevice, QObject* parent) : QCamera(cameraDevice, parent){};
-    VirtualQCamera(QCameraDevice::Position position, QObject* parent) : QCamera(position, parent){};
+    VirtualQCamera() : QCamera() {};
+    VirtualQCamera(const QCameraDevice& cameraDevice) : QCamera(cameraDevice) {};
+    VirtualQCamera(QCameraDevice::Position position) : QCamera(position) {};
+    VirtualQCamera(QObject* parent) : QCamera(parent) {};
+    VirtualQCamera(const QCameraDevice& cameraDevice, QObject* parent) : QCamera(cameraDevice, parent) {};
+    VirtualQCamera(QCameraDevice::Position position, QObject* parent) : QCamera(position, parent) {};
 
     ~VirtualQCamera() {
         qcamera_metacall_callback = nullptr;

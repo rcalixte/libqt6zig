@@ -53,12 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QSlider::TickPosition TickPosition; // C++ enum
-#else
-typedef int TickPosition; // C ABI enum
-#endif
-
 QSlider* QSlider_new(QWidget* parent);
 QSlider* QSlider_new2();
 QSlider* QSlider_new3(int orientation);
@@ -255,6 +249,9 @@ int QSlider_QBaseReceivers(const QSlider* self, const char* signal);
 bool QSlider_IsSignalConnected(const QSlider* self, const QMetaMethod* signal);
 void QSlider_OnIsSignalConnected(const QSlider* self, intptr_t slot);
 bool QSlider_QBaseIsSignalConnected(const QSlider* self, const QMetaMethod* signal);
+double QSlider_GetDecodedMetricF(const QSlider* self, int metricA, int metricB);
+void QSlider_OnGetDecodedMetricF(const QSlider* self, intptr_t slot);
+double QSlider_QBaseGetDecodedMetricF(const QSlider* self, int metricA, int metricB);
 void QSlider_Delete(QSlider* self);
 
 #ifdef __cplusplus

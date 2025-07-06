@@ -24,21 +24,15 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
 typedef struct QWebEngineClientCertificateStore QWebEngineClientCertificateStore;
+typedef struct QWebEngineClientHints QWebEngineClientHints;
 typedef struct QWebEngineCookieStore QWebEngineCookieStore;
 typedef struct QWebEngineDownloadRequest QWebEngineDownloadRequest;
+typedef struct QWebEnginePermission QWebEnginePermission;
 typedef struct QWebEngineProfile QWebEngineProfile;
 typedef struct QWebEngineScriptCollection QWebEngineScriptCollection;
 typedef struct QWebEngineSettings QWebEngineSettings;
 typedef struct QWebEngineUrlRequestInterceptor QWebEngineUrlRequestInterceptor;
 typedef struct QWebEngineUrlSchemeHandler QWebEngineUrlSchemeHandler;
-#endif
-
-#ifdef __cplusplus
-typedef QWebEngineProfile::HttpCacheType HttpCacheType;                     // C++ enum
-typedef QWebEngineProfile::PersistentCookiesPolicy PersistentCookiesPolicy; // C++ enum
-#else
-typedef int HttpCacheType;           // C ABI enum
-typedef int PersistentCookiesPolicy; // C ABI enum
 #endif
 
 QWebEngineProfile* QWebEngineProfile_new();
@@ -65,6 +59,8 @@ void QWebEngineProfile_SetHttpAcceptLanguage(QWebEngineProfile* self, const libq
 libqt_string QWebEngineProfile_HttpAcceptLanguage(const QWebEngineProfile* self);
 int QWebEngineProfile_PersistentCookiesPolicy(const QWebEngineProfile* self);
 void QWebEngineProfile_SetPersistentCookiesPolicy(QWebEngineProfile* self, int persistentCookiesPolicy);
+uint8_t QWebEngineProfile_PersistentPermissionsPolicy(const QWebEngineProfile* self);
+void QWebEngineProfile_SetPersistentPermissionsPolicy(QWebEngineProfile* self, uint8_t persistentPermissionsPolicy);
 int QWebEngineProfile_HttpCacheMaximumSize(const QWebEngineProfile* self);
 void QWebEngineProfile_SetHttpCacheMaximumSize(QWebEngineProfile* self, int maxSize);
 QWebEngineCookieStore* QWebEngineProfile_CookieStore(QWebEngineProfile* self);
@@ -74,6 +70,7 @@ void QWebEngineProfile_ClearVisitedLinks(QWebEngineProfile* self, const libqt_li
 bool QWebEngineProfile_VisitedLinksContainsUrl(const QWebEngineProfile* self, const QUrl* url);
 QWebEngineSettings* QWebEngineProfile_Settings(const QWebEngineProfile* self);
 QWebEngineScriptCollection* QWebEngineProfile_Scripts(const QWebEngineProfile* self);
+QWebEngineClientHints* QWebEngineProfile_ClientHints(const QWebEngineProfile* self);
 QWebEngineUrlSchemeHandler* QWebEngineProfile_UrlSchemeHandler(const QWebEngineProfile* self, const libqt_string param1);
 void QWebEngineProfile_InstallUrlSchemeHandler(QWebEngineProfile* self, const libqt_string scheme, QWebEngineUrlSchemeHandler* param2);
 void QWebEngineProfile_RemoveUrlScheme(QWebEngineProfile* self, const libqt_string scheme);
@@ -86,10 +83,18 @@ void QWebEngineProfile_SetSpellCheckEnabled(QWebEngineProfile* self, bool enable
 bool QWebEngineProfile_IsSpellCheckEnabled(const QWebEngineProfile* self);
 libqt_string QWebEngineProfile_DownloadPath(const QWebEngineProfile* self);
 void QWebEngineProfile_SetDownloadPath(QWebEngineProfile* self, const libqt_string path);
+bool QWebEngineProfile_IsPushServiceEnabled(const QWebEngineProfile* self);
+void QWebEngineProfile_SetPushServiceEnabled(QWebEngineProfile* self, bool enabled);
 QWebEngineClientCertificateStore* QWebEngineProfile_ClientCertificateStore(QWebEngineProfile* self);
+QWebEnginePermission* QWebEngineProfile_QueryPermission(const QWebEngineProfile* self, const QUrl* securityOrigin, uint8_t permissionType);
+libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListAllPermissions(const QWebEngineProfile* self);
+libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForOrigin(const QWebEngineProfile* self, const QUrl* securityOrigin);
+libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForPermissionType(const QWebEngineProfile* self, uint8_t permissionType);
 QWebEngineProfile* QWebEngineProfile_DefaultProfile();
 void QWebEngineProfile_DownloadRequested(QWebEngineProfile* self, QWebEngineDownloadRequest* download);
 void QWebEngineProfile_Connect_DownloadRequested(QWebEngineProfile* self, intptr_t slot);
+void QWebEngineProfile_ClearHttpCacheCompleted(QWebEngineProfile* self);
+void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, intptr_t slot);
 libqt_string QWebEngineProfile_Tr2(const char* s, const char* c);
 libqt_string QWebEngineProfile_Tr3(const char* s, const char* c, int n);
 bool QWebEngineProfile_Event(QWebEngineProfile* self, QEvent* event);

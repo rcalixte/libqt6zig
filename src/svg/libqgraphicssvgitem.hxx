@@ -179,10 +179,10 @@ class VirtualQGraphicsSvgItem final : public QGraphicsSvgItem {
     mutable bool qgraphicssvgitem_preparegeometrychange_isbase = false;
 
   public:
-    VirtualQGraphicsSvgItem() : QGraphicsSvgItem(){};
-    VirtualQGraphicsSvgItem(const QString& fileName) : QGraphicsSvgItem(fileName){};
-    VirtualQGraphicsSvgItem(QGraphicsItem* parentItem) : QGraphicsSvgItem(parentItem){};
-    VirtualQGraphicsSvgItem(const QString& fileName, QGraphicsItem* parentItem) : QGraphicsSvgItem(fileName, parentItem){};
+    VirtualQGraphicsSvgItem() : QGraphicsSvgItem() {};
+    VirtualQGraphicsSvgItem(const QString& fileName) : QGraphicsSvgItem(fileName) {};
+    VirtualQGraphicsSvgItem(QGraphicsItem* parentItem) : QGraphicsSvgItem(parentItem) {};
+    VirtualQGraphicsSvgItem(const QString& fileName, QGraphicsItem* parentItem) : QGraphicsSvgItem(fileName, parentItem) {};
 
     ~VirtualQGraphicsSvgItem() {
         qgraphicssvgitem_metacall_callback = nullptr;

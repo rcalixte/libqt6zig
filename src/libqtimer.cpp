@@ -76,6 +76,10 @@ int QTimer_TimerId(const QTimer* self) {
     return self->timerId();
 }
 
+int QTimer_Id(const QTimer* self) {
+    return static_cast<int>(self->id());
+}
+
 void QTimer_SetInterval(QTimer* self, int msec) {
     self->setInterval(static_cast<int>(msec));
 }

@@ -144,12 +144,12 @@ void QStorageInfo_Refresh(QStorageInfo* self) {
 libqt_list /* of QStorageInfo* */ QStorageInfo_MountedVolumes() {
     QList<QStorageInfo> _ret = QStorageInfo::mountedVolumes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QStorageInfo** _arr = static_cast<QStorageInfo**>(malloc(sizeof(QStorageInfo*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QStorageInfo** _arr = static_cast<QStorageInfo**>(malloc(sizeof(QStorageInfo*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QStorageInfo(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

@@ -61,7 +61,7 @@ class VirtualQDrag final : public QDrag {
     mutable bool qdrag_issignalconnected_isbase = false;
 
   public:
-    VirtualQDrag(QObject* dragSource) : QDrag(dragSource){};
+    VirtualQDrag(QObject* dragSource) : QDrag(dragSource) {};
 
     ~VirtualQDrag() {
         qdrag_metacall_callback = nullptr;

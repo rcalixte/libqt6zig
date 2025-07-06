@@ -102,12 +102,12 @@ void QGraphicsItem_SetParentItem(QGraphicsItem* self, QGraphicsItem* parent) {
 libqt_list /* of QGraphicsItem* */ QGraphicsItem_ChildItems(const QGraphicsItem* self) {
     QList<QGraphicsItem*> _ret = self->childItems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -448,12 +448,12 @@ double QGraphicsItem_Scale(const QGraphicsItem* self) {
 libqt_list /* of QGraphicsTransform* */ QGraphicsItem_Transformations(const QGraphicsItem* self) {
     QList<QGraphicsTransform*> _ret = self->transformations();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGraphicsTransform** _arr = static_cast<QGraphicsTransform**>(malloc(sizeof(QGraphicsTransform*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGraphicsTransform** _arr = static_cast<QGraphicsTransform**>(malloc(sizeof(QGraphicsTransform*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -511,12 +511,12 @@ QPainterPath* QGraphicsItem_ClipPath(const QGraphicsItem* self) {
 libqt_list /* of QGraphicsItem* */ QGraphicsItem_CollidingItems(const QGraphicsItem* self) {
     QList<QGraphicsItem*> _ret = self->collidingItems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -752,12 +752,12 @@ void QGraphicsItem_SetTransform2(QGraphicsItem* self, const QTransform* matrix, 
 libqt_list /* of QGraphicsItem* */ QGraphicsItem_CollidingItems1(const QGraphicsItem* self, int mode) {
     QList<QGraphicsItem*> _ret = self->collidingItems(static_cast<Qt::ItemSelectionMode>(mode));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

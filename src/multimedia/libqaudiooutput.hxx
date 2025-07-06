@@ -61,10 +61,10 @@ class VirtualQAudioOutput final : public QAudioOutput {
     mutable bool qaudiooutput_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioOutput() : QAudioOutput(){};
-    VirtualQAudioOutput(const QAudioDevice& device) : QAudioOutput(device){};
-    VirtualQAudioOutput(QObject* parent) : QAudioOutput(parent){};
-    VirtualQAudioOutput(const QAudioDevice& device, QObject* parent) : QAudioOutput(device, parent){};
+    VirtualQAudioOutput() : QAudioOutput() {};
+    VirtualQAudioOutput(const QAudioDevice& device) : QAudioOutput(device) {};
+    VirtualQAudioOutput(QObject* parent) : QAudioOutput(parent) {};
+    VirtualQAudioOutput(const QAudioDevice& device, QObject* parent) : QAudioOutput(device, parent) {};
 
     ~VirtualQAudioOutput() {
         qaudiooutput_metacall_callback = nullptr;

@@ -259,16 +259,30 @@ pub const qtransform = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotate)
     ///
+    /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis, distanceToPlane: f64 ```
+    pub fn Rotate(self: ?*anyopaque, a: f64, axis: i64, distanceToPlane: f64) QtC.QTransform {
+        return qtc.QTransform_Rotate(@ptrCast(self), @floatCast(a), @intCast(axis), @floatCast(distanceToPlane));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotate)
+    ///
     /// ``` self: QtC.QTransform, a: f64 ```
-    pub fn Rotate(self: ?*anyopaque, a: f64) QtC.QTransform {
-        return qtc.QTransform_Rotate(@ptrCast(self), @floatCast(a));
+    pub fn RotateWithQreal(self: ?*anyopaque, a: f64) QtC.QTransform {
+        return qtc.QTransform_RotateWithQreal(@ptrCast(self), @floatCast(a));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
+    ///
+    /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis, distanceToPlane: f64 ```
+    pub fn RotateRadians(self: ?*anyopaque, a: f64, axis: i64, distanceToPlane: f64) QtC.QTransform {
+        return qtc.QTransform_RotateRadians(@ptrCast(self), @floatCast(a), @intCast(axis), @floatCast(distanceToPlane));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
     ///
     /// ``` self: QtC.QTransform, a: f64 ```
-    pub fn RotateRadians(self: ?*anyopaque, a: f64) QtC.QTransform {
-        return qtc.QTransform_RotateRadians(@ptrCast(self), @floatCast(a));
+    pub fn RotateRadiansWithQreal(self: ?*anyopaque, a: f64) QtC.QTransform {
+        return qtc.QTransform_RotateRadiansWithQreal(@ptrCast(self), @floatCast(a));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator==)

@@ -91,8 +91,8 @@ class VirtualQHBarModelMapper final : public QHBarModelMapper {
     mutable bool qhbarmodelmapper_issignalconnected_isbase = false;
 
   public:
-    VirtualQHBarModelMapper() : QHBarModelMapper(){};
-    VirtualQHBarModelMapper(QObject* parent) : QHBarModelMapper(parent){};
+    VirtualQHBarModelMapper() : QHBarModelMapper() {};
+    VirtualQHBarModelMapper(QObject* parent) : QHBarModelMapper(parent) {};
 
     ~VirtualQHBarModelMapper() {
         qhbarmodelmapper_metacall_callback = nullptr;

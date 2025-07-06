@@ -61,7 +61,7 @@ class VirtualQAmbientSound final : public QAmbientSound {
     mutable bool qambientsound_issignalconnected_isbase = false;
 
   public:
-    VirtualQAmbientSound(QAudioEngine* engine) : QAmbientSound(engine){};
+    VirtualQAmbientSound(QAudioEngine* engine) : QAmbientSound(engine) {};
 
     ~VirtualQAmbientSound() {
         qambientsound_metacall_callback = nullptr;

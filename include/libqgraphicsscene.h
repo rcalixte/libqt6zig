@@ -59,16 +59,6 @@ typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QGraphicsScene::ItemIndexMethod ItemIndexMethod; // C++ enum
-typedef QGraphicsScene::SceneLayer SceneLayer;           // C++ enum
-typedef QGraphicsScene::SceneLayers SceneLayers;         // C++ QFlags
-#else
-typedef int ItemIndexMethod; // C ABI enum
-typedef int SceneLayer;      // C ABI enum
-typedef int SceneLayers;     // C ABI QFlags
-#endif
-
 QGraphicsScene* QGraphicsScene_new();
 QGraphicsScene* QGraphicsScene_new2(const QRectF* sceneRect);
 QGraphicsScene* QGraphicsScene_new3(double x, double y, double width, double height);

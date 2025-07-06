@@ -28,14 +28,6 @@ typedef struct QVariant QVariant;
 typedef struct QVariantAnimation QVariantAnimation;
 #endif
 
-#ifdef __cplusplus
-typedef QVariantAnimation::Interpolator Interpolator; // C++ QFlags
-typedef QVariantAnimation::KeyValue KeyValue;         // C++ QFlags
-typedef QVariantAnimation::KeyValues KeyValues;       // C++ QFlags
-#else
-typedef libqt_pair /* tuple of double and QVariant* */ KeyValue; // C ABI QFlags
-#endif
-
 QVariantAnimation* QVariantAnimation_new();
 QVariantAnimation* QVariantAnimation_new2(QObject* parent);
 QMetaObject* QVariantAnimation_MetaObject(const QVariantAnimation* self);

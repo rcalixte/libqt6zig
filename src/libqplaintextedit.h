@@ -81,12 +81,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QPlainTextEdit::LineWrapMode LineWrapMode; // C++ enum
-#else
-typedef int LineWrapMode; // C ABI enum
-#endif
-
 QPlainTextEdit* QPlainTextEdit_new(QWidget* parent);
 QPlainTextEdit* QPlainTextEdit_new2();
 QPlainTextEdit* QPlainTextEdit_new3(const libqt_string text);
@@ -413,6 +407,9 @@ int QPlainTextEdit_QBaseReceivers(const QPlainTextEdit* self, const char* signal
 bool QPlainTextEdit_IsSignalConnected(const QPlainTextEdit* self, const QMetaMethod* signal);
 void QPlainTextEdit_OnIsSignalConnected(const QPlainTextEdit* self, intptr_t slot);
 bool QPlainTextEdit_QBaseIsSignalConnected(const QPlainTextEdit* self, const QMetaMethod* signal);
+double QPlainTextEdit_GetDecodedMetricF(const QPlainTextEdit* self, int metricA, int metricB);
+void QPlainTextEdit_OnGetDecodedMetricF(const QPlainTextEdit* self, intptr_t slot);
+double QPlainTextEdit_QBaseGetDecodedMetricF(const QPlainTextEdit* self, int metricA, int metricB);
 void QPlainTextEdit_Delete(QPlainTextEdit* self);
 
 QPlainTextDocumentLayout* QPlainTextDocumentLayout_new(QTextDocument* document);

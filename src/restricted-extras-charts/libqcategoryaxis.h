@@ -27,12 +27,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QValueAxis QValueAxis;
 #endif
 
-#ifdef __cplusplus
-typedef QCategoryAxis::AxisLabelsPosition AxisLabelsPosition; // C++ enum
-#else
-typedef int AxisLabelsPosition; // C ABI enum
-#endif
-
 QCategoryAxis* QCategoryAxis_new();
 QCategoryAxis* QCategoryAxis_new2(QObject* parent);
 QMetaObject* QCategoryAxis_MetaObject(const QCategoryAxis* self);

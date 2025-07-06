@@ -1903,6 +1903,35 @@ void QCommandLinkButton_OnIsSignalConnected(const QCommandLinkButton* self, intp
     }
 }
 
+// Derived class handler implementation
+double QCommandLinkButton_GetDecodedMetricF(const QCommandLinkButton* self, int metricA, int metricB) {
+    auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        return vqcommandlinkbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQCommandLinkButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QCommandLinkButton_QBaseGetDecodedMetricF(const QCommandLinkButton* self, int metricA, int metricB) {
+    auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        vqcommandlinkbutton->setQCommandLinkButton_GetDecodedMetricF_IsBase(true);
+        return vqcommandlinkbutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQCommandLinkButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCommandLinkButton_OnGetDecodedMetricF(const QCommandLinkButton* self, intptr_t slot) {
+    auto* vqcommandlinkbutton = const_cast<VirtualQCommandLinkButton*>(dynamic_cast<const VirtualQCommandLinkButton*>(self));
+    if (vqcommandlinkbutton && vqcommandlinkbutton->isVirtualQCommandLinkButton) {
+        vqcommandlinkbutton->setQCommandLinkButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQCommandLinkButton::QCommandLinkButton_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QCommandLinkButton_Delete(QCommandLinkButton* self) {
     delete self;
 }

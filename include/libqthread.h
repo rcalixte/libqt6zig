@@ -27,12 +27,6 @@ typedef struct QThread QThread;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QThread::Priority Priority; // C++ enum
-#else
-typedef int Priority; // C ABI enum
-#endif
-
 QThread* QThread_new();
 QThread* QThread_new2(QObject* parent);
 QMetaObject* QThread_MetaObject(const QThread* self);
@@ -43,6 +37,7 @@ int QThread_QBaseMetacall(QThread* self, int param1, int param2, void** param3);
 libqt_string QThread_Tr(const char* s);
 void* QThread_CurrentThreadId();
 QThread* QThread_CurrentThread();
+bool QThread_IsMainThread();
 int QThread_IdealThreadCount();
 void QThread_YieldCurrentThread();
 void QThread_SetPriority(QThread* self, int priority);
@@ -59,6 +54,7 @@ bool QThread_Event(QThread* self, QEvent* event);
 void QThread_OnEvent(QThread* self, intptr_t slot);
 bool QThread_QBaseEvent(QThread* self, QEvent* event);
 int QThread_LoopLevel(const QThread* self);
+bool QThread_IsCurrentThread(const QThread* self);
 void QThread_Start(QThread* self);
 void QThread_Terminate(QThread* self);
 void QThread_Exit(QThread* self);

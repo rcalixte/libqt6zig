@@ -63,12 +63,12 @@ QMimeType* QMediaFormat_MimeType(const QMediaFormat* self) {
 libqt_list /* of int */ QMediaFormat_SupportedFileFormats(QMediaFormat* self, int m) {
     QList<QMediaFormat::FileFormat> _ret = self->supportedFileFormats(static_cast<QMediaFormat::ConversionMode>(m));
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -76,12 +76,12 @@ libqt_list /* of int */ QMediaFormat_SupportedFileFormats(QMediaFormat* self, in
 libqt_list /* of int */ QMediaFormat_SupportedVideoCodecs(QMediaFormat* self, int m) {
     QList<QMediaFormat::VideoCodec> _ret = self->supportedVideoCodecs(static_cast<QMediaFormat::ConversionMode>(m));
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -89,12 +89,12 @@ libqt_list /* of int */ QMediaFormat_SupportedVideoCodecs(QMediaFormat* self, in
 libqt_list /* of int */ QMediaFormat_SupportedAudioCodecs(QMediaFormat* self, int m) {
     QList<QMediaFormat::AudioCodec> _ret = self->supportedAudioCodecs(static_cast<QMediaFormat::ConversionMode>(m));
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

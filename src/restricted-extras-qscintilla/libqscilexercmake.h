@@ -160,6 +160,12 @@ void QsciLexerCMake_QBaseConnectNotify(QsciLexerCMake* self, const QMetaMethod* 
 void QsciLexerCMake_DisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
 void QsciLexerCMake_OnDisconnectNotify(QsciLexerCMake* self, intptr_t slot);
 void QsciLexerCMake_QBaseDisconnectNotify(QsciLexerCMake* self, const QMetaMethod* signal);
+libqt_string QsciLexerCMake_TextAsBytes(const QsciLexerCMake* self, const libqt_string text);
+void QsciLexerCMake_OnTextAsBytes(const QsciLexerCMake* self, intptr_t slot);
+libqt_string QsciLexerCMake_QBaseTextAsBytes(const QsciLexerCMake* self, const libqt_string text);
+libqt_string QsciLexerCMake_BytesAsText(const QsciLexerCMake* self, const char* bytes, int size);
+void QsciLexerCMake_OnBytesAsText(const QsciLexerCMake* self, intptr_t slot);
+libqt_string QsciLexerCMake_QBaseBytesAsText(const QsciLexerCMake* self, const char* bytes, int size);
 QObject* QsciLexerCMake_Sender(const QsciLexerCMake* self);
 void QsciLexerCMake_OnSender(const QsciLexerCMake* self, intptr_t slot);
 QObject* QsciLexerCMake_QBaseSender(const QsciLexerCMake* self);

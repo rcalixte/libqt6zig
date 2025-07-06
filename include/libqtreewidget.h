@@ -70,14 +70,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QTreeWidgetItem::ChildIndicatorPolicy ChildIndicatorPolicy; // C++ enum
-typedef QTreeWidgetItem::ItemType ItemType;                         // C++ enum
-#else
-typedef int ChildIndicatorPolicy; // C ABI enum
-typedef int ItemType;             // C ABI enum
-#endif
-
 QTreeWidgetItem* QTreeWidgetItem_new();
 QTreeWidgetItem* QTreeWidgetItem_new2(const libqt_list /* of libqt_string */ strings);
 QTreeWidgetItem* QTreeWidgetItem_new3(QTreeWidget* treeview);
@@ -632,6 +624,9 @@ int QTreeWidget_QBaseReceivers(const QTreeWidget* self, const char* signal);
 bool QTreeWidget_IsSignalConnected(const QTreeWidget* self, const QMetaMethod* signal);
 void QTreeWidget_OnIsSignalConnected(const QTreeWidget* self, intptr_t slot);
 bool QTreeWidget_QBaseIsSignalConnected(const QTreeWidget* self, const QMetaMethod* signal);
+double QTreeWidget_GetDecodedMetricF(const QTreeWidget* self, int metricA, int metricB);
+void QTreeWidget_OnGetDecodedMetricF(const QTreeWidget* self, intptr_t slot);
+double QTreeWidget_QBaseGetDecodedMetricF(const QTreeWidget* self, int metricA, int metricB);
 void QTreeWidget_Delete(QTreeWidget* self);
 
 #ifdef __cplusplus

@@ -18,6 +18,7 @@ extern "C" {
 #else
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
+typedef struct QIODevice QIODevice;
 typedef struct QMediaCaptureSession QMediaCaptureSession;
 typedef struct QMediaFormat QMediaFormat;
 typedef struct QMediaMetaData QMediaMetaData;
@@ -28,18 +29,6 @@ typedef struct QObject QObject;
 typedef struct QSize QSize;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
-#endif
-
-#ifdef __cplusplus
-typedef QMediaRecorder::EncodingMode EncodingMode;   // C++ enum
-typedef QMediaRecorder::Error Error;                 // C++ enum
-typedef QMediaRecorder::Quality Quality;             // C++ enum
-typedef QMediaRecorder::RecorderState RecorderState; // C++ enum
-#else
-typedef int EncodingMode;  // C ABI enum
-typedef int Error;         // C ABI enum
-typedef int Quality;       // C ABI enum
-typedef int RecorderState; // C ABI enum
 #endif
 
 QMediaRecorder* QMediaRecorder_new();
@@ -53,6 +42,8 @@ libqt_string QMediaRecorder_Tr(const char* s);
 bool QMediaRecorder_IsAvailable(const QMediaRecorder* self);
 QUrl* QMediaRecorder_OutputLocation(const QMediaRecorder* self);
 void QMediaRecorder_SetOutputLocation(QMediaRecorder* self, const QUrl* location);
+void QMediaRecorder_SetOutputDevice(QMediaRecorder* self, QIODevice* device);
+QIODevice* QMediaRecorder_OutputDevice(const QMediaRecorder* self);
 QUrl* QMediaRecorder_ActualLocation(const QMediaRecorder* self);
 int QMediaRecorder_RecorderState(const QMediaRecorder* self);
 int QMediaRecorder_Error(const QMediaRecorder* self);
@@ -80,6 +71,8 @@ void QMediaRecorder_SetAudioSampleRate(QMediaRecorder* self, int sampleRate);
 QMediaMetaData* QMediaRecorder_MetaData(const QMediaRecorder* self);
 void QMediaRecorder_SetMetaData(QMediaRecorder* self, const QMediaMetaData* metaData);
 void QMediaRecorder_AddMetaData(QMediaRecorder* self, const QMediaMetaData* metaData);
+bool QMediaRecorder_AutoStop(const QMediaRecorder* self);
+void QMediaRecorder_SetAutoStop(QMediaRecorder* self, bool autoStop);
 QMediaCaptureSession* QMediaRecorder_CaptureSession(const QMediaRecorder* self);
 void QMediaRecorder_Record(QMediaRecorder* self);
 void QMediaRecorder_Pause(QMediaRecorder* self);
@@ -116,6 +109,8 @@ void QMediaRecorder_AudioChannelCountChanged(QMediaRecorder* self);
 void QMediaRecorder_Connect_AudioChannelCountChanged(QMediaRecorder* self, intptr_t slot);
 void QMediaRecorder_AudioSampleRateChanged(QMediaRecorder* self);
 void QMediaRecorder_Connect_AudioSampleRateChanged(QMediaRecorder* self, intptr_t slot);
+void QMediaRecorder_AutoStopChanged(QMediaRecorder* self);
+void QMediaRecorder_Connect_AutoStopChanged(QMediaRecorder* self, intptr_t slot);
 libqt_string QMediaRecorder_Tr2(const char* s, const char* c);
 libqt_string QMediaRecorder_Tr3(const char* s, const char* c, int n);
 bool QMediaRecorder_Event(QMediaRecorder* self, QEvent* event);

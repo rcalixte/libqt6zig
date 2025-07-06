@@ -140,12 +140,12 @@ bool QLegend_IsBackgroundVisible(const QLegend* self) {
 libqt_list /* of QLegendMarker* */ QLegend_Markers(const QLegend* self) {
     QList<QLegendMarker*> _ret = self->markers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QLegendMarker** _arr = static_cast<QLegendMarker**>(malloc(sizeof(QLegendMarker*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QLegendMarker** _arr = static_cast<QLegendMarker**>(malloc(sizeof(QLegendMarker*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -333,12 +333,12 @@ void QLegend_SetBackgroundVisible1(QLegend* self, bool visible) {
 libqt_list /* of QLegendMarker* */ QLegend_Markers1(const QLegend* self, QAbstractSeries* series) {
     QList<QLegendMarker*> _ret = self->markers(series);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QLegendMarker** _arr = static_cast<QLegendMarker**>(malloc(sizeof(QLegendMarker*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QLegendMarker** _arr = static_cast<QLegendMarker**>(malloc(sizeof(QLegendMarker*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

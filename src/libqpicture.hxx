@@ -25,6 +25,7 @@ class VirtualQPicture final : public QPicture {
     using QPicture_InitPainter_Callback = void (*)(const QPicture*, QPainter*);
     using QPicture_Redirected_Callback = QPaintDevice* (*)(const QPicture*, QPoint*);
     using QPicture_SharedPainter_Callback = QPainter* (*)();
+    using QPicture_GetDecodedMetricF_Callback = double (*)(const QPicture*, int, int);
 
   protected:
     // Instance callback storage
@@ -35,6 +36,7 @@ class VirtualQPicture final : public QPicture {
     QPicture_InitPainter_Callback qpicture_initpainter_callback = nullptr;
     QPicture_Redirected_Callback qpicture_redirected_callback = nullptr;
     QPicture_SharedPainter_Callback qpicture_sharedpainter_callback = nullptr;
+    QPicture_GetDecodedMetricF_Callback qpicture_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qpicture_devtype_isbase = false;
@@ -44,11 +46,12 @@ class VirtualQPicture final : public QPicture {
     mutable bool qpicture_initpainter_isbase = false;
     mutable bool qpicture_redirected_isbase = false;
     mutable bool qpicture_sharedpainter_isbase = false;
+    mutable bool qpicture_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQPicture() : QPicture(){};
-    VirtualQPicture(const QPicture& param1) : QPicture(param1){};
-    VirtualQPicture(int formatVersion) : QPicture(formatVersion){};
+    VirtualQPicture() : QPicture() {};
+    VirtualQPicture(const QPicture& param1) : QPicture(param1) {};
+    VirtualQPicture(int formatVersion) : QPicture(formatVersion) {};
 
     ~VirtualQPicture() {
         qpicture_devtype_callback = nullptr;
@@ -58,6 +61,7 @@ class VirtualQPicture final : public QPicture {
         qpicture_initpainter_callback = nullptr;
         qpicture_redirected_callback = nullptr;
         qpicture_sharedpainter_callback = nullptr;
+        qpicture_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -68,6 +72,7 @@ class VirtualQPicture final : public QPicture {
     inline void setQPicture_InitPainter_Callback(QPicture_InitPainter_Callback cb) { qpicture_initpainter_callback = cb; }
     inline void setQPicture_Redirected_Callback(QPicture_Redirected_Callback cb) { qpicture_redirected_callback = cb; }
     inline void setQPicture_SharedPainter_Callback(QPicture_SharedPainter_Callback cb) { qpicture_sharedpainter_callback = cb; }
+    inline void setQPicture_GetDecodedMetricF_Callback(QPicture_GetDecodedMetricF_Callback cb) { qpicture_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQPicture_DevType_IsBase(bool value) const { qpicture_devtype_isbase = value; }
@@ -77,6 +82,7 @@ class VirtualQPicture final : public QPicture {
     inline void setQPicture_InitPainter_IsBase(bool value) const { qpicture_initpainter_isbase = value; }
     inline void setQPicture_Redirected_IsBase(bool value) const { qpicture_redirected_isbase = value; }
     inline void setQPicture_SharedPainter_IsBase(bool value) const { qpicture_sharedpainter_isbase = value; }
+    inline void setQPicture_GetDecodedMetricF_IsBase(bool value) const { qpicture_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int devType() const override {
@@ -176,6 +182,22 @@ class VirtualQPicture final : public QPicture {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qpicture_getdecodedmetricf_isbase) {
+            qpicture_getdecodedmetricf_isbase = false;
+            return QPicture::getDecodedMetricF(metricA, metricB);
+        } else if (qpicture_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qpicture_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QPicture::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend int QPicture_Metric(const QPicture* self, int m);
     friend int QPicture_QBaseMetric(const QPicture* self, int m);
@@ -185,6 +207,8 @@ class VirtualQPicture final : public QPicture {
     friend QPaintDevice* QPicture_QBaseRedirected(const QPicture* self, QPoint* offset);
     friend QPainter* QPicture_SharedPainter(const QPicture* self);
     friend QPainter* QPicture_QBaseSharedPainter(const QPicture* self);
+    friend double QPicture_GetDecodedMetricF(const QPicture* self, int metricA, int metricB);
+    friend double QPicture_QBaseGetDecodedMetricF(const QPicture* self, int metricA, int metricB);
 };
 
 #endif

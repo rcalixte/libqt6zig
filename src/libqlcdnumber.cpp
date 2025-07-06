@@ -1901,6 +1901,35 @@ void QLCDNumber_OnIsSignalConnected(const QLCDNumber* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QLCDNumber_GetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB) {
+    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        return vqlcdnumber->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQLCDNumber*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QLCDNumber_QBaseGetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB) {
+    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_GetDecodedMetricF_IsBase(true);
+        return vqlcdnumber->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQLCDNumber*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLCDNumber_OnGetDecodedMetricF(const QLCDNumber* self, intptr_t slot) {
+    auto* vqlcdnumber = const_cast<VirtualQLCDNumber*>(dynamic_cast<const VirtualQLCDNumber*>(self));
+    if (vqlcdnumber && vqlcdnumber->isVirtualQLCDNumber) {
+        vqlcdnumber->setQLCDNumber_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQLCDNumber::QLCDNumber_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QLCDNumber_Delete(QLCDNumber* self) {
     delete self;
 }

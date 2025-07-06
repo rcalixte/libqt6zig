@@ -77,6 +77,7 @@ class VirtualQLCDNumber final : public QLCDNumber {
     using QLCDNumber_SenderSignalIndex_Callback = int (*)();
     using QLCDNumber_Receivers_Callback = int (*)(const QLCDNumber*, const char*);
     using QLCDNumber_IsSignalConnected_Callback = bool (*)(const QLCDNumber*, QMetaMethod*);
+    using QLCDNumber_GetDecodedMetricF_Callback = double (*)(const QLCDNumber*, int, int);
 
   protected:
     // Instance callback storage
@@ -139,6 +140,7 @@ class VirtualQLCDNumber final : public QLCDNumber {
     QLCDNumber_SenderSignalIndex_Callback qlcdnumber_sendersignalindex_callback = nullptr;
     QLCDNumber_Receivers_Callback qlcdnumber_receivers_callback = nullptr;
     QLCDNumber_IsSignalConnected_Callback qlcdnumber_issignalconnected_callback = nullptr;
+    QLCDNumber_GetDecodedMetricF_Callback qlcdnumber_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qlcdnumber_metacall_isbase = false;
@@ -200,12 +202,13 @@ class VirtualQLCDNumber final : public QLCDNumber {
     mutable bool qlcdnumber_sendersignalindex_isbase = false;
     mutable bool qlcdnumber_receivers_isbase = false;
     mutable bool qlcdnumber_issignalconnected_isbase = false;
+    mutable bool qlcdnumber_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQLCDNumber(QWidget* parent) : QLCDNumber(parent){};
-    VirtualQLCDNumber() : QLCDNumber(){};
-    VirtualQLCDNumber(uint numDigits) : QLCDNumber(numDigits){};
-    VirtualQLCDNumber(uint numDigits, QWidget* parent) : QLCDNumber(numDigits, parent){};
+    VirtualQLCDNumber(QWidget* parent) : QLCDNumber(parent) {};
+    VirtualQLCDNumber() : QLCDNumber() {};
+    VirtualQLCDNumber(uint numDigits) : QLCDNumber(numDigits) {};
+    VirtualQLCDNumber(uint numDigits, QWidget* parent) : QLCDNumber(numDigits, parent) {};
 
     ~VirtualQLCDNumber() {
         qlcdnumber_metacall_callback = nullptr;
@@ -267,6 +270,7 @@ class VirtualQLCDNumber final : public QLCDNumber {
         qlcdnumber_sendersignalindex_callback = nullptr;
         qlcdnumber_receivers_callback = nullptr;
         qlcdnumber_issignalconnected_callback = nullptr;
+        qlcdnumber_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -329,6 +333,7 @@ class VirtualQLCDNumber final : public QLCDNumber {
     inline void setQLCDNumber_SenderSignalIndex_Callback(QLCDNumber_SenderSignalIndex_Callback cb) { qlcdnumber_sendersignalindex_callback = cb; }
     inline void setQLCDNumber_Receivers_Callback(QLCDNumber_Receivers_Callback cb) { qlcdnumber_receivers_callback = cb; }
     inline void setQLCDNumber_IsSignalConnected_Callback(QLCDNumber_IsSignalConnected_Callback cb) { qlcdnumber_issignalconnected_callback = cb; }
+    inline void setQLCDNumber_GetDecodedMetricF_Callback(QLCDNumber_GetDecodedMetricF_Callback cb) { qlcdnumber_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQLCDNumber_Metacall_IsBase(bool value) const { qlcdnumber_metacall_isbase = value; }
@@ -390,6 +395,7 @@ class VirtualQLCDNumber final : public QLCDNumber {
     inline void setQLCDNumber_SenderSignalIndex_IsBase(bool value) const { qlcdnumber_sendersignalindex_isbase = value; }
     inline void setQLCDNumber_Receivers_IsBase(bool value) const { qlcdnumber_receivers_isbase = value; }
     inline void setQLCDNumber_IsSignalConnected_IsBase(bool value) const { qlcdnumber_issignalconnected_isbase = value; }
+    inline void setQLCDNumber_GetDecodedMetricF_IsBase(bool value) const { qlcdnumber_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1230,6 +1236,22 @@ class VirtualQLCDNumber final : public QLCDNumber {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qlcdnumber_getdecodedmetricf_isbase) {
+            qlcdnumber_getdecodedmetricf_isbase = false;
+            return QLCDNumber::getDecodedMetricF(metricA, metricB);
+        } else if (qlcdnumber_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qlcdnumber_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QLCDNumber::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QLCDNumber_Event(QLCDNumber* self, QEvent* e);
     friend bool QLCDNumber_QBaseEvent(QLCDNumber* self, QEvent* e);
@@ -1329,6 +1351,8 @@ class VirtualQLCDNumber final : public QLCDNumber {
     friend int QLCDNumber_QBaseReceivers(const QLCDNumber* self, const char* signal);
     friend bool QLCDNumber_IsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal);
     friend bool QLCDNumber_QBaseIsSignalConnected(const QLCDNumber* self, const QMetaMethod* signal);
+    friend double QLCDNumber_GetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB);
+    friend double QLCDNumber_QBaseGetDecodedMetricF(const QLCDNumber* self, int metricA, int metricB);
 };
 
 #endif

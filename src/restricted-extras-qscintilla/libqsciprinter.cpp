@@ -552,6 +552,35 @@ void QsciPrinter_OnSetEngines(QsciPrinter* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QsciPrinter_GetDecodedMetricF(const QsciPrinter* self, int metricA, int metricB) {
+    auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+        return vqsciprinter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQsciPrinter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QsciPrinter_QBaseGetDecodedMetricF(const QsciPrinter* self, int metricA, int metricB) {
+    auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+        vqsciprinter->setQsciPrinter_GetDecodedMetricF_IsBase(true);
+        return vqsciprinter->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQsciPrinter*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciPrinter_OnGetDecodedMetricF(const QsciPrinter* self, intptr_t slot) {
+    auto* vqsciprinter = const_cast<VirtualQsciPrinter*>(dynamic_cast<const VirtualQsciPrinter*>(self));
+    if (vqsciprinter && vqsciprinter->isVirtualQsciPrinter) {
+        vqsciprinter->setQsciPrinter_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQsciPrinter::QsciPrinter_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QsciPrinter_Delete(QsciPrinter* self) {
     delete self;
 }

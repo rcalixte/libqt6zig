@@ -96,6 +96,14 @@ void QVideoFrameFormat_SetFrameRate(QVideoFrameFormat* self, double rate) {
     self->setFrameRate(static_cast<qreal>(rate));
 }
 
+double QVideoFrameFormat_StreamFrameRate(const QVideoFrameFormat* self) {
+    return static_cast<double>(self->streamFrameRate());
+}
+
+void QVideoFrameFormat_SetStreamFrameRate(QVideoFrameFormat* self, double rate) {
+    self->setStreamFrameRate(static_cast<qreal>(rate));
+}
+
 int QVideoFrameFormat_YCbCrColorSpace(const QVideoFrameFormat* self) {
     return static_cast<int>(self->yCbCrColorSpace());
 }
@@ -134,6 +142,14 @@ bool QVideoFrameFormat_IsMirrored(const QVideoFrameFormat* self) {
 
 void QVideoFrameFormat_SetMirrored(QVideoFrameFormat* self, bool mirrored) {
     self->setMirrored(mirrored);
+}
+
+int QVideoFrameFormat_Rotation(const QVideoFrameFormat* self) {
+    return static_cast<int>(self->rotation());
+}
+
+void QVideoFrameFormat_SetRotation(QVideoFrameFormat* self, int rotation) {
+    self->setRotation(static_cast<QtVideo::Rotation>(rotation));
 }
 
 libqt_string QVideoFrameFormat_VertexShaderFileName(const QVideoFrameFormat* self) {

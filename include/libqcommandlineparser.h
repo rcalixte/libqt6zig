@@ -21,14 +21,6 @@ typedef struct QCommandLineParser QCommandLineParser;
 typedef struct QCoreApplication QCoreApplication;
 #endif
 
-#ifdef __cplusplus
-typedef QCommandLineParser::OptionsAfterPositionalArgumentsMode OptionsAfterPositionalArgumentsMode; // C++ enum
-typedef QCommandLineParser::SingleDashWordOptionMode SingleDashWordOptionMode;                       // C++ enum
-#else
-typedef int OptionsAfterPositionalArgumentsMode; // C ABI enum
-typedef int SingleDashWordOptionMode;            // C ABI enum
-#endif
-
 QCommandLineParser* QCommandLineParser_new();
 libqt_string QCommandLineParser_Tr(const char* sourceText);
 void QCommandLineParser_SetSingleDashWordOptionMode(QCommandLineParser* self, int parsingMode);

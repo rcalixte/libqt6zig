@@ -64,8 +64,8 @@ class VirtualQLogValueAxis final : public QLogValueAxis {
     mutable bool qlogvalueaxis_issignalconnected_isbase = false;
 
   public:
-    VirtualQLogValueAxis() : QLogValueAxis(){};
-    VirtualQLogValueAxis(QObject* parent) : QLogValueAxis(parent){};
+    VirtualQLogValueAxis() : QLogValueAxis() {};
+    VirtualQLogValueAxis(QObject* parent) : QLogValueAxis(parent) {};
 
     ~VirtualQLogValueAxis() {
         qlogvalueaxis_metacall_callback = nullptr;

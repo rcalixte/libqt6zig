@@ -20,22 +20,11 @@ typedef struct QEasingCurve QEasingCurve;
 typedef struct QPointF QPointF;
 #endif
 
-#ifdef __cplusplus
-typedef QEasingCurve::EasingFunction EasingFunction; // C++ QFlags
-typedef QEasingCurve::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QEasingCurve::Type Type;                     // C++ enum
-#else
-typedef unsigned char Type;  // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QEasingCurve* QEasingCurve_new();
 QEasingCurve* QEasingCurve_new2(const QEasingCurve* other);
 QEasingCurve* QEasingCurve_new3(int typeVal);
 void QEasingCurve_OperatorAssign(QEasingCurve* self, const QEasingCurve* other);
 void QEasingCurve_Swap(QEasingCurve* self, QEasingCurve* other);
-bool QEasingCurve_OperatorEqual(const QEasingCurve* self, const QEasingCurve* other);
-bool QEasingCurve_OperatorNotEqual(const QEasingCurve* self, const QEasingCurve* other);
 double QEasingCurve_Amplitude(const QEasingCurve* self);
 void QEasingCurve_SetAmplitude(QEasingCurve* self, double amplitude);
 double QEasingCurve_Period(const QEasingCurve* self);

@@ -9,7 +9,6 @@
 #include <QByteArray>
 #include <cstring>
 #include <QTextBlock>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QTextBlock__iterator
 #include <QTextBlockFormat>
 #include <QTextBlockGroup>
 #include <QTextBlockUserData>
@@ -19,7 +18,6 @@
 #include <QTextFormat>
 #include <QTextFragment>
 #include <QTextFrame>
-#define WORKAROUND_INNER_CLASS_DEFINITION_QTextFrame__iterator
 #include <QTextFrameFormat>
 #include <QTextFrameLayoutData>
 #include <QTextLayout>
@@ -238,26 +236,18 @@ void QTextFrame_SetLayoutData(QTextFrame* self, QTextFrameLayoutData* data) {
 libqt_list /* of QTextFrame* */ QTextFrame_ChildFrames(const QTextFrame* self) {
     QList<QTextFrame*> _ret = self->childFrames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextFrame** _arr = static_cast<QTextFrame**>(malloc(sizeof(QTextFrame*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QTextFrame** _arr = static_cast<QTextFrame**>(malloc(sizeof(QTextFrame*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 QTextFrame* QTextFrame_ParentFrame(const QTextFrame* self) {
     return self->parentFrame();
-}
-
-QTextFrame__iterator* QTextFrame_Begin(const QTextFrame* self) {
-    return new QTextFrame::iterator(self->begin());
-}
-
-QTextFrame__iterator* QTextFrame_End(const QTextFrame* self) {
-    return new QTextFrame::iterator(self->end());
 }
 
 libqt_string QTextFrame_Tr2(const char* s, const char* c) {
@@ -727,12 +717,12 @@ libqt_string QTextBlock_Text(const QTextBlock* self) {
 libqt_list /* of QTextLayout__FormatRange* */ QTextBlock_TextFormats(const QTextBlock* self) {
     QList<QTextLayout::FormatRange> _ret = self->textFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextLayout__FormatRange** _arr = static_cast<QTextLayout__FormatRange**>(malloc(sizeof(QTextLayout__FormatRange*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QTextLayout__FormatRange** _arr = static_cast<QTextLayout__FormatRange**>(malloc(sizeof(QTextLayout__FormatRange*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextLayout::FormatRange(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -791,14 +781,6 @@ void QTextBlock_SetLineCount(QTextBlock* self, int count) {
 
 int QTextBlock_LineCount(const QTextBlock* self) {
     return self->lineCount();
-}
-
-QTextBlock__iterator* QTextBlock_Begin(const QTextBlock* self) {
-    return new QTextBlock::iterator(self->begin());
-}
-
-QTextBlock__iterator* QTextBlock_End(const QTextBlock* self) {
-    return new QTextBlock::iterator(self->end());
 }
 
 QTextBlock* QTextBlock_Next(const QTextBlock* self) {
@@ -880,12 +862,12 @@ libqt_string QTextFragment_Text(const QTextFragment* self) {
 libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns(const QTextFragment* self) {
     QList<QGlyphRun> _ret = self->glyphRuns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGlyphRun(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -893,12 +875,12 @@ libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns(const QTextFragment* self
 libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns1(const QTextFragment* self, int from) {
     QList<QGlyphRun> _ret = self->glyphRuns(static_cast<int>(from));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGlyphRun(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -906,152 +888,16 @@ libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns1(const QTextFragment* sel
 libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns2(const QTextFragment* self, int from, int length) {
     QList<QGlyphRun> _ret = self->glyphRuns(static_cast<int>(from), static_cast<int>(length));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGlyphRun(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 void QTextFragment_Delete(QTextFragment* self) {
-    delete self;
-}
-
-QTextFrame__iterator* QTextFrame__iterator_new(const QTextFrame__iterator* other) {
-    return new QTextFrame::iterator(*other);
-}
-
-QTextFrame__iterator* QTextFrame__iterator_new2(QTextFrame__iterator* other) {
-    return new QTextFrame::iterator(std::move(*other));
-}
-
-QTextFrame__iterator* QTextFrame__iterator_new3() {
-    return new QTextFrame::iterator();
-}
-
-QTextFrame__iterator* QTextFrame__iterator_new4(const QTextFrame__iterator* param1) {
-    return new QTextFrame::iterator(*param1);
-}
-
-void QTextFrame__iterator_CopyAssign(QTextFrame__iterator* self, QTextFrame__iterator* other) {
-    *self = *other;
-}
-
-void QTextFrame__iterator_MoveAssign(QTextFrame__iterator* self, QTextFrame__iterator* other) {
-    *self = std::move(*other);
-}
-
-QTextFrame* QTextFrame__iterator_ParentFrame(const QTextFrame__iterator* self) {
-    return self->parentFrame();
-}
-
-QTextFrame* QTextFrame__iterator_CurrentFrame(const QTextFrame__iterator* self) {
-    return self->currentFrame();
-}
-
-QTextBlock* QTextFrame__iterator_CurrentBlock(const QTextFrame__iterator* self) {
-    return new QTextBlock(self->currentBlock());
-}
-
-bool QTextFrame__iterator_AtEnd(const QTextFrame__iterator* self) {
-    return self->atEnd();
-}
-
-bool QTextFrame__iterator_OperatorEqual(const QTextFrame__iterator* self, const QTextFrame__iterator* o) {
-    return (*self == *o);
-}
-
-bool QTextFrame__iterator_OperatorNotEqual(const QTextFrame__iterator* self, const QTextFrame__iterator* o) {
-    return (*self != *o);
-}
-
-QTextFrame__iterator* QTextFrame__iterator_OperatorPlusPlus(QTextFrame__iterator* self) {
-    QTextFrame::iterator& _ret = self->operator++();
-    // Cast returned reference into pointer
-    return &_ret;
-}
-
-QTextFrame__iterator* QTextFrame__iterator_OperatorPlusPlusWithInt(QTextFrame__iterator* self, int param1) {
-    return new QTextFrame::iterator(self->operator++(static_cast<int>(param1)));
-}
-
-QTextFrame__iterator* QTextFrame__iterator_OperatorMinusMinus(QTextFrame__iterator* self) {
-    QTextFrame::iterator& _ret = self->operator--();
-    // Cast returned reference into pointer
-    return &_ret;
-}
-
-QTextFrame__iterator* QTextFrame__iterator_OperatorMinusMinusWithInt(QTextFrame__iterator* self, int param1) {
-    return new QTextFrame::iterator(self->operator--(static_cast<int>(param1)));
-}
-
-void QTextFrame__iterator_Delete(QTextFrame__iterator* self) {
-    delete self;
-}
-
-QTextBlock__iterator* QTextBlock__iterator_new(const QTextBlock__iterator* other) {
-    return new QTextBlock::iterator(*other);
-}
-
-QTextBlock__iterator* QTextBlock__iterator_new2(QTextBlock__iterator* other) {
-    return new QTextBlock::iterator(std::move(*other));
-}
-
-QTextBlock__iterator* QTextBlock__iterator_new3() {
-    return new QTextBlock::iterator();
-}
-
-QTextBlock__iterator* QTextBlock__iterator_new4(const QTextBlock__iterator* param1) {
-    return new QTextBlock::iterator(*param1);
-}
-
-void QTextBlock__iterator_CopyAssign(QTextBlock__iterator* self, QTextBlock__iterator* other) {
-    *self = *other;
-}
-
-void QTextBlock__iterator_MoveAssign(QTextBlock__iterator* self, QTextBlock__iterator* other) {
-    *self = std::move(*other);
-}
-
-QTextFragment* QTextBlock__iterator_Fragment(const QTextBlock__iterator* self) {
-    return new QTextFragment(self->fragment());
-}
-
-bool QTextBlock__iterator_AtEnd(const QTextBlock__iterator* self) {
-    return self->atEnd();
-}
-
-bool QTextBlock__iterator_OperatorEqual(const QTextBlock__iterator* self, const QTextBlock__iterator* o) {
-    return (*self == *o);
-}
-
-bool QTextBlock__iterator_OperatorNotEqual(const QTextBlock__iterator* self, const QTextBlock__iterator* o) {
-    return (*self != *o);
-}
-
-QTextBlock__iterator* QTextBlock__iterator_OperatorPlusPlus(QTextBlock__iterator* self) {
-    QTextBlock::iterator& _ret = self->operator++();
-    // Cast returned reference into pointer
-    return &_ret;
-}
-
-QTextBlock__iterator* QTextBlock__iterator_OperatorPlusPlusWithInt(QTextBlock__iterator* self, int param1) {
-    return new QTextBlock::iterator(self->operator++(static_cast<int>(param1)));
-}
-
-QTextBlock__iterator* QTextBlock__iterator_OperatorMinusMinus(QTextBlock__iterator* self) {
-    QTextBlock::iterator& _ret = self->operator--();
-    // Cast returned reference into pointer
-    return &_ret;
-}
-
-QTextBlock__iterator* QTextBlock__iterator_OperatorMinusMinusWithInt(QTextBlock__iterator* self, int param1) {
-    return new QTextBlock::iterator(self->operator--(static_cast<int>(param1)));
-}
-
-void QTextBlock__iterator_Delete(QTextBlock__iterator* self) {
     delete self;
 }

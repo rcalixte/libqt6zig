@@ -30,14 +30,6 @@ typedef struct QDate QDate;
 typedef struct QLocale QLocale;
 #endif
 
-#ifdef __cplusplus
-typedef QCalendar::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QCalendar::System System;                 // C++ enum
-#else
-typedef int System;          // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QCalendar* QCalendar_new(const QCalendar* other);
 QCalendar* QCalendar_new2(QCalendar* other);
 QCalendar* QCalendar_new3();
@@ -64,6 +56,7 @@ int QCalendar_MaximumMonthsInYear(const QCalendar* self);
 libqt_string QCalendar_Name(const QCalendar* self);
 QDate* QCalendar_DateFromParts(const QCalendar* self, int year, int month, int day);
 QDate* QCalendar_DateFromPartsWithParts(const QCalendar* self, const QCalendar__YearMonthDay* parts);
+QDate* QCalendar_MatchCenturyToWeekday(const QCalendar* self, const QCalendar__YearMonthDay* parts, int dow);
 QCalendar__YearMonthDay* QCalendar_PartsFromDate(const QCalendar* self, QDate* date);
 int QCalendar_DayOfWeek(const QCalendar* self, QDate* date);
 libqt_string QCalendar_MonthName(const QCalendar* self, const QLocale* locale, int month);

@@ -16,25 +16,12 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QHttpHeaders QHttpHeaders;
 typedef struct QNetworkProxy QNetworkProxy;
 typedef struct QNetworkProxyFactory QNetworkProxyFactory;
 typedef struct QNetworkProxyQuery QNetworkProxyQuery;
 typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
-#endif
-
-#ifdef __cplusplus
-typedef QNetworkProxy::Capabilities Capabilities;          // C++ QFlags
-typedef QNetworkProxy::Capability Capability;              // C++ enum
-typedef QNetworkProxy::ProxyType ProxyType;                // C++ enum
-typedef QNetworkProxyQuery::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QNetworkProxyQuery::QueryType QueryType;           // C++ enum
-#else
-typedef int Capabilities;    // C ABI QFlags
-typedef int Capability;      // C ABI enum
-typedef int ProxyType;       // C ABI enum
-typedef int QueryType;       // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
 #endif
 
 QNetworkProxyQuery* QNetworkProxyQuery_new();
@@ -92,6 +79,8 @@ void QNetworkProxy_SetPort(QNetworkProxy* self, uint16_t port);
 uint16_t QNetworkProxy_Port(const QNetworkProxy* self);
 void QNetworkProxy_SetApplicationProxy(const QNetworkProxy* proxy);
 QNetworkProxy* QNetworkProxy_ApplicationProxy();
+QHttpHeaders* QNetworkProxy_Headers(const QNetworkProxy* self);
+void QNetworkProxy_SetHeaders(QNetworkProxy* self, const QHttpHeaders* newHeaders);
 QVariant* QNetworkProxy_Header(const QNetworkProxy* self, int header);
 void QNetworkProxy_SetHeader(QNetworkProxy* self, int header, const QVariant* value);
 bool QNetworkProxy_HasRawHeader(const QNetworkProxy* self, const libqt_string headerName);

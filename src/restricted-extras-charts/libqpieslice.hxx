@@ -61,10 +61,10 @@ class VirtualQPieSlice final : public QPieSlice {
     mutable bool qpieslice_issignalconnected_isbase = false;
 
   public:
-    VirtualQPieSlice() : QPieSlice(){};
-    VirtualQPieSlice(QString label, qreal value) : QPieSlice(label, value){};
-    VirtualQPieSlice(QObject* parent) : QPieSlice(parent){};
-    VirtualQPieSlice(QString label, qreal value, QObject* parent) : QPieSlice(label, value, parent){};
+    VirtualQPieSlice() : QPieSlice() {};
+    VirtualQPieSlice(QString label, qreal value) : QPieSlice(label, value) {};
+    VirtualQPieSlice(QObject* parent) : QPieSlice(parent) {};
+    VirtualQPieSlice(QString label, qreal value, QObject* parent) : QPieSlice(label, value, parent) {};
 
     ~VirtualQPieSlice() {
         qpieslice_metacall_callback = nullptr;

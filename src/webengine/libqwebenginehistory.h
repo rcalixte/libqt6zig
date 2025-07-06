@@ -31,12 +31,6 @@ typedef struct QWebEngineHistoryItem QWebEngineHistoryItem;
 typedef struct QWebEngineHistoryModel QWebEngineHistoryModel;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineHistoryModel::Roles Roles; // C++ enum
-#else
-typedef int Roles; // C ABI enum
-#endif
-
 QWebEngineHistoryItem* QWebEngineHistoryItem_new(const QWebEngineHistoryItem* other);
 void QWebEngineHistoryItem_OperatorAssign(QWebEngineHistoryItem* self, const QWebEngineHistoryItem* other);
 QUrl* QWebEngineHistoryItem_OriginalUrl(const QWebEngineHistoryItem* self);

@@ -76,6 +76,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
     using QSplashScreen_SenderSignalIndex_Callback = int (*)();
     using QSplashScreen_Receivers_Callback = int (*)(const QSplashScreen*, const char*);
     using QSplashScreen_IsSignalConnected_Callback = bool (*)(const QSplashScreen*, QMetaMethod*);
+    using QSplashScreen_GetDecodedMetricF_Callback = double (*)(const QSplashScreen*, int, int);
 
   protected:
     // Instance callback storage
@@ -137,6 +138,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
     QSplashScreen_SenderSignalIndex_Callback qsplashscreen_sendersignalindex_callback = nullptr;
     QSplashScreen_Receivers_Callback qsplashscreen_receivers_callback = nullptr;
     QSplashScreen_IsSignalConnected_Callback qsplashscreen_issignalconnected_callback = nullptr;
+    QSplashScreen_GetDecodedMetricF_Callback qsplashscreen_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qsplashscreen_metacall_isbase = false;
@@ -197,14 +199,15 @@ class VirtualQSplashScreen final : public QSplashScreen {
     mutable bool qsplashscreen_sendersignalindex_isbase = false;
     mutable bool qsplashscreen_receivers_isbase = false;
     mutable bool qsplashscreen_issignalconnected_isbase = false;
+    mutable bool qsplashscreen_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQSplashScreen() : QSplashScreen(){};
-    VirtualQSplashScreen(QScreen* screen) : QSplashScreen(screen){};
-    VirtualQSplashScreen(const QPixmap& pixmap) : QSplashScreen(pixmap){};
-    VirtualQSplashScreen(const QPixmap& pixmap, Qt::WindowFlags f) : QSplashScreen(pixmap, f){};
-    VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap) : QSplashScreen(screen, pixmap){};
-    VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap, Qt::WindowFlags f) : QSplashScreen(screen, pixmap, f){};
+    VirtualQSplashScreen() : QSplashScreen() {};
+    VirtualQSplashScreen(QScreen* screen) : QSplashScreen(screen) {};
+    VirtualQSplashScreen(const QPixmap& pixmap) : QSplashScreen(pixmap) {};
+    VirtualQSplashScreen(const QPixmap& pixmap, Qt::WindowFlags f) : QSplashScreen(pixmap, f) {};
+    VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap) : QSplashScreen(screen, pixmap) {};
+    VirtualQSplashScreen(QScreen* screen, const QPixmap& pixmap, Qt::WindowFlags f) : QSplashScreen(screen, pixmap, f) {};
 
     ~VirtualQSplashScreen() {
         qsplashscreen_metacall_callback = nullptr;
@@ -265,6 +268,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
         qsplashscreen_sendersignalindex_callback = nullptr;
         qsplashscreen_receivers_callback = nullptr;
         qsplashscreen_issignalconnected_callback = nullptr;
+        qsplashscreen_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -326,6 +330,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
     inline void setQSplashScreen_SenderSignalIndex_Callback(QSplashScreen_SenderSignalIndex_Callback cb) { qsplashscreen_sendersignalindex_callback = cb; }
     inline void setQSplashScreen_Receivers_Callback(QSplashScreen_Receivers_Callback cb) { qsplashscreen_receivers_callback = cb; }
     inline void setQSplashScreen_IsSignalConnected_Callback(QSplashScreen_IsSignalConnected_Callback cb) { qsplashscreen_issignalconnected_callback = cb; }
+    inline void setQSplashScreen_GetDecodedMetricF_Callback(QSplashScreen_GetDecodedMetricF_Callback cb) { qsplashscreen_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQSplashScreen_Metacall_IsBase(bool value) const { qsplashscreen_metacall_isbase = value; }
@@ -386,6 +391,7 @@ class VirtualQSplashScreen final : public QSplashScreen {
     inline void setQSplashScreen_SenderSignalIndex_IsBase(bool value) const { qsplashscreen_sendersignalindex_isbase = value; }
     inline void setQSplashScreen_Receivers_IsBase(bool value) const { qsplashscreen_receivers_isbase = value; }
     inline void setQSplashScreen_IsSignalConnected_IsBase(bool value) const { qsplashscreen_issignalconnected_isbase = value; }
+    inline void setQSplashScreen_GetDecodedMetricF_IsBase(bool value) const { qsplashscreen_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1212,6 +1218,22 @@ class VirtualQSplashScreen final : public QSplashScreen {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qsplashscreen_getdecodedmetricf_isbase) {
+            qsplashscreen_getdecodedmetricf_isbase = false;
+            return QSplashScreen::getDecodedMetricF(metricA, metricB);
+        } else if (qsplashscreen_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qsplashscreen_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QSplashScreen::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QSplashScreen_Event(QSplashScreen* self, QEvent* e);
     friend bool QSplashScreen_QBaseEvent(QSplashScreen* self, QEvent* e);
@@ -1309,6 +1331,8 @@ class VirtualQSplashScreen final : public QSplashScreen {
     friend int QSplashScreen_QBaseReceivers(const QSplashScreen* self, const char* signal);
     friend bool QSplashScreen_IsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal);
     friend bool QSplashScreen_QBaseIsSignalConnected(const QSplashScreen* self, const QMetaMethod* signal);
+    friend double QSplashScreen_GetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB);
+    friend double QSplashScreen_QBaseGetDecodedMetricF(const QSplashScreen* self, int metricA, int metricB);
 };
 
 #endif

@@ -106,9 +106,9 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
     mutable bool qaccessiblewidget_addcontrollingsignal_isbase = false;
 
   public:
-    VirtualQAccessibleWidget(QWidget* o) : QAccessibleWidget(o){};
-    VirtualQAccessibleWidget(QWidget* o, QAccessible::Role r) : QAccessibleWidget(o, r){};
-    VirtualQAccessibleWidget(QWidget* o, QAccessible::Role r, const QString& name) : QAccessibleWidget(o, r, name){};
+    VirtualQAccessibleWidget(QWidget* o) : QAccessibleWidget(o) {};
+    VirtualQAccessibleWidget(QWidget* o, QAccessible::Role r) : QAccessibleWidget(o, r) {};
+    VirtualQAccessibleWidget(QWidget* o, QAccessible::Role r, const QString& name) : QAccessibleWidget(o, r, name) {};
 
   protected:
     ~VirtualQAccessibleWidget() {
@@ -255,7 +255,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QList<QPair<QAccessibleInterface*, QAccessible::Relation>> relations(QAccessible::Relation match) const override {
+    virtual QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> relations(QAccessible::Relation match) const override {
         if (qaccessiblewidget_relations_isbase) {
             qaccessiblewidget_relations_isbase = false;
             return QAccessibleWidget::relations(match);
@@ -263,7 +263,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             int cbval1 = static_cast<int>(match);
 
             libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ callback_ret = qaccessiblewidget_relations_callback(this, cbval1);
-            QList<QPair<QAccessibleInterface*, QAccessible::Relation>> callback_ret_QList;
+            QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_pair /* tuple of QAccessibleInterface* and int */* callback_ret_arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -418,13 +418,13 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList actionNames() const override {
+    virtual QList<QString> actionNames() const override {
         if (qaccessiblewidget_actionnames_isbase) {
             qaccessiblewidget_actionnames_isbase = false;
             return QAccessibleWidget::actionNames();
         } else if (qaccessiblewidget_actionnames_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qaccessiblewidget_actionnames_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -460,7 +460,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList keyBindingsForAction(const QString& actionName) const override {
+    virtual QList<QString> keyBindingsForAction(const QString& actionName) const override {
         if (qaccessiblewidget_keybindingsforaction_isbase) {
             qaccessiblewidget_keybindingsforaction_isbase = false;
             return QAccessibleWidget::keyBindingsForAction(actionName);
@@ -476,7 +476,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             libqt_string cbval1 = actionName_str;
 
             libqt_list /* of libqt_string */ callback_ret = qaccessiblewidget_keybindingsforaction_callback(this, cbval1);
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {

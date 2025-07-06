@@ -11,8 +11,10 @@
 #include <QTimerEvent>
 #include <QUrl>
 #include <QWebEngineClientCertificateStore>
+#include <QWebEngineClientHints>
 #include <QWebEngineCookieStore>
 #include <QWebEngineDownloadRequest>
+#include <QWebEnginePermission>
 #include <QWebEngineProfile>
 #include <QWebEngineScriptCollection>
 #include <QWebEngineSettings>
@@ -188,6 +190,14 @@ void QWebEngineProfile_SetPersistentCookiesPolicy(QWebEngineProfile* self, int p
     self->setPersistentCookiesPolicy(static_cast<QWebEngineProfile::PersistentCookiesPolicy>(persistentCookiesPolicy));
 }
 
+uint8_t QWebEngineProfile_PersistentPermissionsPolicy(const QWebEngineProfile* self) {
+    return static_cast<uint8_t>(self->persistentPermissionsPolicy());
+}
+
+void QWebEngineProfile_SetPersistentPermissionsPolicy(QWebEngineProfile* self, uint8_t persistentPermissionsPolicy) {
+    self->setPersistentPermissionsPolicy(static_cast<QWebEngineProfile::PersistentPermissionsPolicy>(persistentPermissionsPolicy));
+}
+
 int QWebEngineProfile_HttpCacheMaximumSize(const QWebEngineProfile* self) {
     return self->httpCacheMaximumSize();
 }
@@ -230,6 +240,10 @@ QWebEngineScriptCollection* QWebEngineProfile_Scripts(const QWebEngineProfile* s
     return self->scripts();
 }
 
+QWebEngineClientHints* QWebEngineProfile_ClientHints(const QWebEngineProfile* self) {
+    return self->clientHints();
+}
+
 QWebEngineUrlSchemeHandler* QWebEngineProfile_UrlSchemeHandler(const QWebEngineProfile* self, const libqt_string param1) {
     QByteArray param1_QByteArray(param1.data, param1.len);
     return (QWebEngineUrlSchemeHandler*)self->urlSchemeHandler(param1_QByteArray);
@@ -258,7 +272,7 @@ void QWebEngineProfile_ClearHttpCache(QWebEngineProfile* self) {
 }
 
 void QWebEngineProfile_SetSpellCheckLanguages(QWebEngineProfile* self, const libqt_list /* of libqt_string */ languages) {
-    QStringList languages_QList;
+    QList<QString> languages_QList;
     languages_QList.reserve(languages.len);
     libqt_string* languages_arr = static_cast<libqt_string*>(languages.data);
     for (size_t i = 0; i < languages.len; ++i) {
@@ -269,10 +283,10 @@ void QWebEngineProfile_SetSpellCheckLanguages(QWebEngineProfile* self, const lib
 }
 
 libqt_list /* of libqt_string */ QWebEngineProfile_SpellCheckLanguages(const QWebEngineProfile* self) {
-    QStringList _ret = self->spellCheckLanguages();
+    QList<QString> _ret = self->spellCheckLanguages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -284,7 +298,7 @@ libqt_list /* of libqt_string */ QWebEngineProfile_SpellCheckLanguages(const QWe
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -314,8 +328,59 @@ void QWebEngineProfile_SetDownloadPath(QWebEngineProfile* self, const libqt_stri
     self->setDownloadPath(path_QString);
 }
 
+bool QWebEngineProfile_IsPushServiceEnabled(const QWebEngineProfile* self) {
+    return self->isPushServiceEnabled();
+}
+
+void QWebEngineProfile_SetPushServiceEnabled(QWebEngineProfile* self, bool enabled) {
+    self->setPushServiceEnabled(enabled);
+}
+
 QWebEngineClientCertificateStore* QWebEngineProfile_ClientCertificateStore(QWebEngineProfile* self) {
     return self->clientCertificateStore();
+}
+
+QWebEnginePermission* QWebEngineProfile_QueryPermission(const QWebEngineProfile* self, const QUrl* securityOrigin, uint8_t permissionType) {
+    return new QWebEnginePermission(self->queryPermission(*securityOrigin, static_cast<QWebEnginePermission::PermissionType>(permissionType)));
+}
+
+libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListAllPermissions(const QWebEngineProfile* self) {
+    QList<QWebEnginePermission> _ret = self->listAllPermissions();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QWebEnginePermission(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForOrigin(const QWebEngineProfile* self, const QUrl* securityOrigin) {
+    QList<QWebEnginePermission> _ret = self->listPermissionsForOrigin(*securityOrigin);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QWebEnginePermission(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForPermissionType(const QWebEngineProfile* self, uint8_t permissionType) {
+    QList<QWebEnginePermission> _ret = self->listPermissionsForPermissionType(static_cast<QWebEnginePermission::PermissionType>(permissionType));
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QWebEnginePermission(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QWebEngineProfile* QWebEngineProfile_DefaultProfile() {
@@ -331,6 +396,17 @@ void QWebEngineProfile_Connect_DownloadRequested(QWebEngineProfile* self, intptr
     QWebEngineProfile::connect(self, &QWebEngineProfile::downloadRequested, [self, slotFunc](QWebEngineDownloadRequest* download) {
         QWebEngineDownloadRequest* sigval1 = download;
         slotFunc(self, sigval1);
+    });
+}
+
+void QWebEngineProfile_ClearHttpCacheCompleted(QWebEngineProfile* self) {
+    self->clearHttpCacheCompleted();
+}
+
+void QWebEngineProfile_Connect_ClearHttpCacheCompleted(QWebEngineProfile* self, intptr_t slot) {
+    void (*slotFunc)(QWebEngineProfile*) = reinterpret_cast<void (*)(QWebEngineProfile*)>(slot);
+    QWebEngineProfile::connect(self, &QWebEngineProfile::clearHttpCacheCompleted, [self, slotFunc]() {
+        slotFunc(self);
     });
 }
 

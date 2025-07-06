@@ -60,6 +60,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     using QsciLexerVerilog_CustomEvent_Callback = void (*)(QsciLexerVerilog*, QEvent*);
     using QsciLexerVerilog_ConnectNotify_Callback = void (*)(QsciLexerVerilog*, QMetaMethod*);
     using QsciLexerVerilog_DisconnectNotify_Callback = void (*)(QsciLexerVerilog*, QMetaMethod*);
+    using QsciLexerVerilog_TextAsBytes_Callback = libqt_string (*)(const QsciLexerVerilog*, libqt_string);
+    using QsciLexerVerilog_BytesAsText_Callback = libqt_string (*)(const QsciLexerVerilog*, const char*, int);
     using QsciLexerVerilog_Sender_Callback = QObject* (*)();
     using QsciLexerVerilog_SenderSignalIndex_Callback = int (*)();
     using QsciLexerVerilog_Receivers_Callback = int (*)(const QsciLexerVerilog*, const char*);
@@ -109,6 +111,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     QsciLexerVerilog_CustomEvent_Callback qscilexerverilog_customevent_callback = nullptr;
     QsciLexerVerilog_ConnectNotify_Callback qscilexerverilog_connectnotify_callback = nullptr;
     QsciLexerVerilog_DisconnectNotify_Callback qscilexerverilog_disconnectnotify_callback = nullptr;
+    QsciLexerVerilog_TextAsBytes_Callback qscilexerverilog_textasbytes_callback = nullptr;
+    QsciLexerVerilog_BytesAsText_Callback qscilexerverilog_bytesastext_callback = nullptr;
     QsciLexerVerilog_Sender_Callback qscilexerverilog_sender_callback = nullptr;
     QsciLexerVerilog_SenderSignalIndex_Callback qscilexerverilog_sendersignalindex_callback = nullptr;
     QsciLexerVerilog_Receivers_Callback qscilexerverilog_receivers_callback = nullptr;
@@ -157,14 +161,16 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     mutable bool qscilexerverilog_customevent_isbase = false;
     mutable bool qscilexerverilog_connectnotify_isbase = false;
     mutable bool qscilexerverilog_disconnectnotify_isbase = false;
+    mutable bool qscilexerverilog_textasbytes_isbase = false;
+    mutable bool qscilexerverilog_bytesastext_isbase = false;
     mutable bool qscilexerverilog_sender_isbase = false;
     mutable bool qscilexerverilog_sendersignalindex_isbase = false;
     mutable bool qscilexerverilog_receivers_isbase = false;
     mutable bool qscilexerverilog_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerVerilog() : QsciLexerVerilog(){};
-    VirtualQsciLexerVerilog(QObject* parent) : QsciLexerVerilog(parent){};
+    VirtualQsciLexerVerilog() : QsciLexerVerilog() {};
+    VirtualQsciLexerVerilog(QObject* parent) : QsciLexerVerilog(parent) {};
 
     ~VirtualQsciLexerVerilog() {
         qscilexerverilog_metacall_callback = nullptr;
@@ -209,6 +215,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
         qscilexerverilog_customevent_callback = nullptr;
         qscilexerverilog_connectnotify_callback = nullptr;
         qscilexerverilog_disconnectnotify_callback = nullptr;
+        qscilexerverilog_textasbytes_callback = nullptr;
+        qscilexerverilog_bytesastext_callback = nullptr;
         qscilexerverilog_sender_callback = nullptr;
         qscilexerverilog_sendersignalindex_callback = nullptr;
         qscilexerverilog_receivers_callback = nullptr;
@@ -258,6 +266,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     inline void setQsciLexerVerilog_CustomEvent_Callback(QsciLexerVerilog_CustomEvent_Callback cb) { qscilexerverilog_customevent_callback = cb; }
     inline void setQsciLexerVerilog_ConnectNotify_Callback(QsciLexerVerilog_ConnectNotify_Callback cb) { qscilexerverilog_connectnotify_callback = cb; }
     inline void setQsciLexerVerilog_DisconnectNotify_Callback(QsciLexerVerilog_DisconnectNotify_Callback cb) { qscilexerverilog_disconnectnotify_callback = cb; }
+    inline void setQsciLexerVerilog_TextAsBytes_Callback(QsciLexerVerilog_TextAsBytes_Callback cb) { qscilexerverilog_textasbytes_callback = cb; }
+    inline void setQsciLexerVerilog_BytesAsText_Callback(QsciLexerVerilog_BytesAsText_Callback cb) { qscilexerverilog_bytesastext_callback = cb; }
     inline void setQsciLexerVerilog_Sender_Callback(QsciLexerVerilog_Sender_Callback cb) { qscilexerverilog_sender_callback = cb; }
     inline void setQsciLexerVerilog_SenderSignalIndex_Callback(QsciLexerVerilog_SenderSignalIndex_Callback cb) { qscilexerverilog_sendersignalindex_callback = cb; }
     inline void setQsciLexerVerilog_Receivers_Callback(QsciLexerVerilog_Receivers_Callback cb) { qscilexerverilog_receivers_callback = cb; }
@@ -306,6 +316,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     inline void setQsciLexerVerilog_CustomEvent_IsBase(bool value) const { qscilexerverilog_customevent_isbase = value; }
     inline void setQsciLexerVerilog_ConnectNotify_IsBase(bool value) const { qscilexerverilog_connectnotify_isbase = value; }
     inline void setQsciLexerVerilog_DisconnectNotify_IsBase(bool value) const { qscilexerverilog_disconnectnotify_isbase = value; }
+    inline void setQsciLexerVerilog_TextAsBytes_IsBase(bool value) const { qscilexerverilog_textasbytes_isbase = value; }
+    inline void setQsciLexerVerilog_BytesAsText_IsBase(bool value) const { qscilexerverilog_bytesastext_isbase = value; }
     inline void setQsciLexerVerilog_Sender_IsBase(bool value) const { qscilexerverilog_sender_isbase = value; }
     inline void setQsciLexerVerilog_SenderSignalIndex_IsBase(bool value) const { qscilexerverilog_sendersignalindex_isbase = value; }
     inline void setQsciLexerVerilog_Receivers_IsBase(bool value) const { qscilexerverilog_receivers_isbase = value; }
@@ -378,13 +390,13 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerverilog_autocompletionwordseparators_isbase) {
             qscilexerverilog_autocompletionwordseparators_isbase = false;
             return QsciLexerVerilog::autoCompletionWordSeparators();
         } else if (qscilexerverilog_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerverilog_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -945,6 +957,47 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerverilog_textasbytes_isbase) {
+            qscilexerverilog_textasbytes_isbase = false;
+            return QsciLexerVerilog::textAsBytes(text);
+        } else if (qscilexerverilog_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerverilog_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerVerilog::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerverilog_bytesastext_isbase) {
+            qscilexerverilog_bytesastext_isbase = false;
+            return QsciLexerVerilog::bytesAsText(bytes, size);
+        } else if (qscilexerverilog_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerverilog_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerVerilog::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerverilog_sender_isbase) {
             qscilexerverilog_sender_isbase = false;
@@ -1017,6 +1070,10 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     friend void QsciLexerVerilog_QBaseConnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
     friend void QsciLexerVerilog_DisconnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
     friend void QsciLexerVerilog_QBaseDisconnectNotify(QsciLexerVerilog* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerVerilog_TextAsBytes(const QsciLexerVerilog* self, const libqt_string text);
+    friend libqt_string QsciLexerVerilog_QBaseTextAsBytes(const QsciLexerVerilog* self, const libqt_string text);
+    friend libqt_string QsciLexerVerilog_BytesAsText(const QsciLexerVerilog* self, const char* bytes, int size);
+    friend libqt_string QsciLexerVerilog_QBaseBytesAsText(const QsciLexerVerilog* self, const char* bytes, int size);
     friend QObject* QsciLexerVerilog_Sender(const QsciLexerVerilog* self);
     friend QObject* QsciLexerVerilog_QBaseSender(const QsciLexerVerilog* self);
     friend int QsciLexerVerilog_SenderSignalIndex(const QsciLexerVerilog* self);

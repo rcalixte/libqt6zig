@@ -22,14 +22,6 @@ typedef struct QRgba64 QRgba64;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QColor::NameFormat NameFormat; // C++ enum
-typedef QColor::Spec Spec;             // C++ enum
-#else
-typedef int NameFormat; // C ABI enum
-typedef int Spec;       // C ABI enum
-#endif
-
 QColor* QColor_new(const QColor* other);
 QColor* QColor_new2(QColor* other);
 QColor* QColor_new3();

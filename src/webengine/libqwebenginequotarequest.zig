@@ -5,16 +5,37 @@ const qtc = @import("qt6c");
 pub const qwebenginequotarequest = struct {
     /// New constructs a new QWebEngineQuotaRequest object.
     ///
-    ///
-    pub fn New() QtC.QWebEngineQuotaRequest {
-        return qtc.QWebEngineQuotaRequest_new();
+    /// ``` other: QtC.QWebEngineQuotaRequest ```
+    pub fn New(other: ?*anyopaque) QtC.QWebEngineQuotaRequest {
+        return qtc.QWebEngineQuotaRequest_new(@ptrCast(other));
     }
 
-    /// New2 constructs a new QWebEngineQuotaRequest object.
+    /// New2 constructs a new QWebEngineQuotaRequest object and invalidates the source QWebEngineQuotaRequest object.
     ///
-    /// ``` param1: QtC.QWebEngineQuotaRequest ```
-    pub fn New2(param1: ?*anyopaque) QtC.QWebEngineQuotaRequest {
-        return qtc.QWebEngineQuotaRequest_new2(@ptrCast(param1));
+    /// ``` other: QtC.QWebEngineQuotaRequest ```
+    pub fn New2(other: ?*anyopaque) QtC.QWebEngineQuotaRequest {
+        return qtc.QWebEngineQuotaRequest_new2(@ptrCast(other));
+    }
+
+    /// New3 constructs a new QWebEngineQuotaRequest object.
+    ///
+    ///
+    pub fn New3() QtC.QWebEngineQuotaRequest {
+        return qtc.QWebEngineQuotaRequest_new3();
+    }
+
+    /// CopyAssign shallow copies `other` into `self`.
+    ///
+    /// ``` self: QtC.QWebEngineQuotaRequest, other: QtC.QWebEngineQuotaRequest ```
+    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QWebEngineQuotaRequest_CopyAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    ///
+    /// ``` self: QtC.QWebEngineQuotaRequest, other: QtC.QWebEngineQuotaRequest ```
+    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QWebEngineQuotaRequest_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#accept)
@@ -47,16 +68,16 @@ pub const qwebenginequotarequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator==)
     ///
-    /// ``` self: QtC.QWebEngineQuotaRequest, that: QtC.QWebEngineQuotaRequest ```
-    pub fn OperatorEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return qtc.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self), @ptrCast(that));
+    /// ``` self: QtC.QWebEngineQuotaRequest, param1: QtC.QWebEngineQuotaRequest ```
+    pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator!=)
     ///
-    /// ``` self: QtC.QWebEngineQuotaRequest, that: QtC.QWebEngineQuotaRequest ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
-        return qtc.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(that));
+    /// ``` self: QtC.QWebEngineQuotaRequest, param1: QtC.QWebEngineQuotaRequest ```
+    pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
+        return qtc.QWebEngineQuotaRequest_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#dtor.QWebEngineQuotaRequest)

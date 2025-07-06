@@ -61,8 +61,8 @@ class VirtualQVideoSink final : public QVideoSink {
     mutable bool qvideosink_issignalconnected_isbase = false;
 
   public:
-    VirtualQVideoSink() : QVideoSink(){};
-    VirtualQVideoSink(QObject* parent) : QVideoSink(parent){};
+    VirtualQVideoSink() : QVideoSink() {};
+    VirtualQVideoSink(QObject* parent) : QVideoSink(parent) {};
 
     ~VirtualQVideoSink() {
         qvideosink_metacall_callback = nullptr;

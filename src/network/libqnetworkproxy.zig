@@ -494,6 +494,20 @@ pub const qnetworkproxy = struct {
         return qtc.QNetworkProxy_ApplicationProxy();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#headers)
+    ///
+    /// ``` self: QtC.QNetworkProxy ```
+    pub fn Headers(self: ?*anyopaque) QtC.QHttpHeaders {
+        return qtc.QNetworkProxy_Headers(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#setHeaders)
+    ///
+    /// ``` self: QtC.QNetworkProxy, newHeaders: QtC.QHttpHeaders ```
+    pub fn SetHeaders(self: ?*anyopaque, newHeaders: ?*anyopaque) void {
+        qtc.QNetworkProxy_SetHeaders(@ptrCast(self), @ptrCast(newHeaders));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#header)
     ///
     /// ``` self: QtC.QNetworkProxy, header: qnetworkrequest_enums.KnownHeaders ```

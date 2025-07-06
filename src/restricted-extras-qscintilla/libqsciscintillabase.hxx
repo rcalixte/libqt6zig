@@ -88,6 +88,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     using QsciScintillaBase_SenderSignalIndex_Callback = int (*)();
     using QsciScintillaBase_Receivers_Callback = int (*)(const QsciScintillaBase*, const char*);
     using QsciScintillaBase_IsSignalConnected_Callback = bool (*)(const QsciScintillaBase*, QMetaMethod*);
+    using QsciScintillaBase_GetDecodedMetricF_Callback = double (*)(const QsciScintillaBase*, int, int);
 
   protected:
     // Instance callback storage
@@ -161,6 +162,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     QsciScintillaBase_SenderSignalIndex_Callback qsciscintillabase_sendersignalindex_callback = nullptr;
     QsciScintillaBase_Receivers_Callback qsciscintillabase_receivers_callback = nullptr;
     QsciScintillaBase_IsSignalConnected_Callback qsciscintillabase_issignalconnected_callback = nullptr;
+    QsciScintillaBase_GetDecodedMetricF_Callback qsciscintillabase_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qsciscintillabase_metacall_isbase = false;
@@ -233,10 +235,11 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     mutable bool qsciscintillabase_sendersignalindex_isbase = false;
     mutable bool qsciscintillabase_receivers_isbase = false;
     mutable bool qsciscintillabase_issignalconnected_isbase = false;
+    mutable bool qsciscintillabase_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQsciScintillaBase(QWidget* parent) : QsciScintillaBase(parent){};
-    VirtualQsciScintillaBase() : QsciScintillaBase(){};
+    VirtualQsciScintillaBase(QWidget* parent) : QsciScintillaBase(parent) {};
+    VirtualQsciScintillaBase() : QsciScintillaBase() {};
 
     ~VirtualQsciScintillaBase() {
         qsciscintillabase_metacall_callback = nullptr;
@@ -309,6 +312,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         qsciscintillabase_sendersignalindex_callback = nullptr;
         qsciscintillabase_receivers_callback = nullptr;
         qsciscintillabase_issignalconnected_callback = nullptr;
+        qsciscintillabase_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -382,6 +386,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     inline void setQsciScintillaBase_SenderSignalIndex_Callback(QsciScintillaBase_SenderSignalIndex_Callback cb) { qsciscintillabase_sendersignalindex_callback = cb; }
     inline void setQsciScintillaBase_Receivers_Callback(QsciScintillaBase_Receivers_Callback cb) { qsciscintillabase_receivers_callback = cb; }
     inline void setQsciScintillaBase_IsSignalConnected_Callback(QsciScintillaBase_IsSignalConnected_Callback cb) { qsciscintillabase_issignalconnected_callback = cb; }
+    inline void setQsciScintillaBase_GetDecodedMetricF_Callback(QsciScintillaBase_GetDecodedMetricF_Callback cb) { qsciscintillabase_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQsciScintillaBase_Metacall_IsBase(bool value) const { qsciscintillabase_metacall_isbase = value; }
@@ -454,6 +459,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     inline void setQsciScintillaBase_SenderSignalIndex_IsBase(bool value) const { qsciscintillabase_sendersignalindex_isbase = value; }
     inline void setQsciScintillaBase_Receivers_IsBase(bool value) const { qsciscintillabase_receivers_isbase = value; }
     inline void setQsciScintillaBase_IsSignalConnected_IsBase(bool value) const { qsciscintillabase_issignalconnected_isbase = value; }
+    inline void setQsciScintillaBase_GetDecodedMetricF_IsBase(bool value) const { qsciscintillabase_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1463,6 +1469,22 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qsciscintillabase_getdecodedmetricf_isbase) {
+            qsciscintillabase_getdecodedmetricf_isbase = false;
+            return QsciScintillaBase::getDecodedMetricF(metricA, metricB);
+        } else if (qsciscintillabase_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qsciscintillabase_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QsciScintillaBase::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QsciScintillaBase_CanInsertFromMimeData(const QsciScintillaBase* self, const QMimeData* source);
     friend bool QsciScintillaBase_QBaseCanInsertFromMimeData(const QsciScintillaBase* self, const QMimeData* source);
@@ -1584,6 +1606,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     friend int QsciScintillaBase_QBaseReceivers(const QsciScintillaBase* self, const char* signal);
     friend bool QsciScintillaBase_IsSignalConnected(const QsciScintillaBase* self, const QMetaMethod* signal);
     friend bool QsciScintillaBase_QBaseIsSignalConnected(const QsciScintillaBase* self, const QMetaMethod* signal);
+    friend double QsciScintillaBase_GetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB);
+    friend double QsciScintillaBase_QBaseGetDecodedMetricF(const QsciScintillaBase* self, int metricA, int metricB);
 };
 
 #endif

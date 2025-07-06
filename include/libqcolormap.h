@@ -20,12 +20,6 @@ typedef struct QColor QColor;
 typedef struct QColormap QColormap;
 #endif
 
-#ifdef __cplusplus
-typedef QColormap::Mode Mode; // C++ enum
-#else
-typedef int Mode; // C ABI enum
-#endif
-
 QColormap* QColormap_new(const QColormap* colormap);
 void QColormap_Initialize();
 void QColormap_Cleanup();

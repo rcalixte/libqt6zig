@@ -546,27 +546,6 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_Compare(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator==)
-    ///
-    /// ``` self: QtC.QCborValue, other: QtC.QCborValue ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValue_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator!=)
-    ///
-    /// ``` self: QtC.QCborValue, other: QtC.QCborValue ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValue_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator<)
-    ///
-    /// ``` self: QtC.QCborValue, other: QtC.QCborValue ```
-    pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValue_OperatorLesser(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromVariant)
     ///
     /// ``` variant: QtC.QVariant ```
@@ -1137,27 +1116,6 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_Compare(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator==)
-    ///
-    /// ``` self: QtC.QCborValueConstRef, other: QtC.QCborValue ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValueConstRef_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator!=)
-    ///
-    /// ``` self: QtC.QCborValueConstRef, other: QtC.QCborValue ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValueConstRef_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator<)
-    ///
-    /// ``` self: QtC.QCborValueConstRef, other: QtC.QCborValue ```
-    pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValueConstRef_OperatorLesser(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toVariant)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
@@ -1692,27 +1650,6 @@ pub const qcborvalueref = struct {
     /// ``` self: QtC.QCborValueRef, other: QtC.QCborValue ```
     pub fn Compare(self: ?*anyopaque, other: ?*anyopaque) i32 {
         return qtc.QCborValueRef_Compare(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator==)
-    ///
-    /// ``` self: QtC.QCborValueRef, other: QtC.QCborValue ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValueRef_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator!=)
-    ///
-    /// ``` self: QtC.QCborValueRef, other: QtC.QCborValue ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValueRef_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator<)
-    ///
-    /// ``` self: QtC.QCborValueRef, other: QtC.QCborValue ```
-    pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QCborValueRef_OperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toVariant)

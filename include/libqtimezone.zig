@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qlocale_enums = @import("libqlocale.zig").enums;
+const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qtimezone_enums = enums;
 const std = @import("std");
 
@@ -15,14 +16,9 @@ pub const qtimezone = struct {
 
     /// New2 constructs a new QTimeZone object.
     ///
-    /// ``` ianaId: []u8 ```
-    pub fn New2(ianaId: []u8) QtC.QTimeZone {
-        const ianaId_str = qtc.struct_libqt_string{
-            .len = ianaId.len,
-            .data = ianaId.ptr,
-        };
-
-        return qtc.QTimeZone_new2(ianaId_str);
+    /// ``` spec: qtimezone_enums.Initialization ```
+    pub fn New2(spec: i64) QtC.QTimeZone {
+        return qtc.QTimeZone_new2(@intCast(spec));
     }
 
     /// New3 constructs a new QTimeZone object.
@@ -34,35 +30,20 @@ pub const qtimezone = struct {
 
     /// New4 constructs a new QTimeZone object.
     ///
-    /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8 ```
-    pub fn New4(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8) QtC.QTimeZone {
-        const zoneId_str = qtc.struct_libqt_string{
-            .len = zoneId.len,
-            .data = zoneId.ptr,
-        };
-        const name_str = qtc.struct_libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        const abbreviation_str = qtc.struct_libqt_string{
-            .len = abbreviation.len,
-            .data = abbreviation.ptr,
+    /// ``` ianaId: []u8 ```
+    pub fn New4(ianaId: []u8) QtC.QTimeZone {
+        const ianaId_str = qtc.struct_libqt_string{
+            .len = ianaId.len,
+            .data = ianaId.ptr,
         };
 
-        return qtc.QTimeZone_new4(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str);
+        return qtc.QTimeZone_new4(ianaId_str);
     }
 
     /// New5 constructs a new QTimeZone object.
     ///
-    /// ``` other: QtC.QTimeZone ```
-    pub fn New5(other: ?*anyopaque) QtC.QTimeZone {
-        return qtc.QTimeZone_new5(@ptrCast(other));
-    }
-
-    /// New6 constructs a new QTimeZone object.
-    ///
-    /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: qlocale_enums.Country ```
-    pub fn New6(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: i64) QtC.QTimeZone {
+    /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8 ```
+    pub fn New5(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8) QtC.QTimeZone {
         const zoneId_str = qtc.struct_libqt_string{
             .len = zoneId.len,
             .data = zoneId.ptr,
@@ -76,13 +57,40 @@ pub const qtimezone = struct {
             .data = abbreviation.ptr,
         };
 
-        return qtc.QTimeZone_new6(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory));
+        return qtc.QTimeZone_new5(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str);
+    }
+
+    /// New6 constructs a new QTimeZone object.
+    ///
+    /// ``` other: QtC.QTimeZone ```
+    pub fn New6(other: ?*anyopaque) QtC.QTimeZone {
+        return qtc.QTimeZone_new6(@ptrCast(other));
     }
 
     /// New7 constructs a new QTimeZone object.
     ///
+    /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: qlocale_enums.Country ```
+    pub fn New7(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: i64) QtC.QTimeZone {
+        const zoneId_str = qtc.struct_libqt_string{
+            .len = zoneId.len,
+            .data = zoneId.ptr,
+        };
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const abbreviation_str = qtc.struct_libqt_string{
+            .len = abbreviation.len,
+            .data = abbreviation.ptr,
+        };
+
+        return qtc.QTimeZone_new7(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory));
+    }
+
+    /// New8 constructs a new QTimeZone object.
+    ///
     /// ``` zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: qlocale_enums.Country, comment: []const u8 ```
-    pub fn New7(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: i64, comment: []const u8) QtC.QTimeZone {
+    pub fn New8(zoneId: []u8, offsetSeconds: i32, name: []const u8, abbreviation: []const u8, territory: i64, comment: []const u8) QtC.QTimeZone {
         const zoneId_str = qtc.struct_libqt_string{
             .len = zoneId.len,
             .data = zoneId.ptr,
@@ -100,7 +108,7 @@ pub const qtimezone = struct {
             .data = comment.ptr,
         };
 
-        return qtc.QTimeZone_new7(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory), comment_str);
+        return qtc.QTimeZone_new8(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory), comment_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#operator=)
@@ -122,6 +130,55 @@ pub const qtimezone = struct {
     /// ``` self: QtC.QTimeZone ```
     pub fn IsValid(self: ?*anyopaque) bool {
         return qtc.QTimeZone_IsValid(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#fromSecondsAheadOfUtc)
+    ///
+    /// ``` offset: i32 ```
+    pub fn FromSecondsAheadOfUtc(offset: i32) QtC.QTimeZone {
+        return qtc.QTimeZone_FromSecondsAheadOfUtc(@intCast(offset));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#timeSpec)
+    ///
+    /// ``` self: QtC.QTimeZone ```
+    pub fn TimeSpec(self: ?*anyopaque) i64 {
+        return qtc.QTimeZone_TimeSpec(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#fixedSecondsAheadOfUtc)
+    ///
+    /// ``` self: QtC.QTimeZone ```
+    pub fn FixedSecondsAheadOfUtc(self: ?*anyopaque) i32 {
+        return qtc.QTimeZone_FixedSecondsAheadOfUtc(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset)
+    ///
+    /// ``` spec: qnamespace_enums.TimeSpec ```
+    pub fn IsUtcOrFixedOffset(spec: i64) bool {
+        return qtc.QTimeZone_IsUtcOrFixedOffset(@intCast(spec));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#isUtcOrFixedOffset)
+    ///
+    /// ``` self: QtC.QTimeZone ```
+    pub fn IsUtcOrFixedOffset2(self: ?*anyopaque) bool {
+        return qtc.QTimeZone_IsUtcOrFixedOffset2(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#asBackendZone)
+    ///
+    /// ``` self: QtC.QTimeZone ```
+    pub fn AsBackendZone(self: ?*anyopaque) QtC.QTimeZone {
+        return qtc.QTimeZone_AsBackendZone(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#hasAlternativeName)
+    ///
+    /// ``` self: QtC.QTimeZone, alias: []const u8 ```
+    pub fn HasAlternativeName(self: ?*anyopaque, alias: []const u8) bool {
+        return qtc.QTimeZone_HasAlternativeName(@ptrCast(self), alias.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#id)
@@ -530,6 +587,13 @@ pub const qtimezone__offsetdata = struct {
         return qtc.QTimeZone__OffsetData_new(@ptrCast(param1));
     }
 
+    /// New2 constructs a new QTimeZone::OffsetData object.
+    ///
+    ///
+    pub fn New2() QtC.QTimeZone__OffsetData {
+        return qtc.QTimeZone__OffsetData_new2();
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone__offsetdata.html#operator=)
     ///
     /// ``` self: QtC.QTimeZone__OffsetData, param1: QtC.QTimeZone__OffsetData ```
@@ -547,9 +611,9 @@ pub const qtimezone__offsetdata = struct {
 
 /// https://doc.qt.io/qt-6/qtimezone.html#types
 pub const enums = struct {
-    pub const QTimeZone = enum {
-        pub const MinUtcOffsetSecs: i32 = -50400;
-        pub const MaxUtcOffsetSecs: i32 = 50400;
+    pub const Initialization = enum {
+        pub const LocalTime: i32 = 0;
+        pub const UTC: i32 = 1;
     };
 
     pub const TimeType = enum {

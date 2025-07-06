@@ -61,12 +61,12 @@ class VirtualQAudioSink final : public QAudioSink {
     mutable bool qaudiosink_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioSink() : QAudioSink(){};
-    VirtualQAudioSink(const QAudioDevice& audioDeviceInfo) : QAudioSink(audioDeviceInfo){};
-    VirtualQAudioSink(const QAudioFormat& format) : QAudioSink(format){};
-    VirtualQAudioSink(const QAudioFormat& format, QObject* parent) : QAudioSink(format, parent){};
-    VirtualQAudioSink(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format) : QAudioSink(audioDeviceInfo, format){};
-    VirtualQAudioSink(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format, QObject* parent) : QAudioSink(audioDeviceInfo, format, parent){};
+    VirtualQAudioSink() : QAudioSink() {};
+    VirtualQAudioSink(const QAudioDevice& audioDeviceInfo) : QAudioSink(audioDeviceInfo) {};
+    VirtualQAudioSink(const QAudioFormat& format) : QAudioSink(format) {};
+    VirtualQAudioSink(const QAudioFormat& format, QObject* parent) : QAudioSink(format, parent) {};
+    VirtualQAudioSink(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format) : QAudioSink(audioDeviceInfo, format) {};
+    VirtualQAudioSink(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format, QObject* parent) : QAudioSink(audioDeviceInfo, format, parent) {};
 
     ~VirtualQAudioSink() {
         qaudiosink_metacall_callback = nullptr;

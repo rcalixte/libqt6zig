@@ -323,6 +323,9 @@ int QTextBrowser_QBaseReceivers(const QTextBrowser* self, const char* signal);
 bool QTextBrowser_IsSignalConnected(const QTextBrowser* self, const QMetaMethod* signal);
 void QTextBrowser_OnIsSignalConnected(const QTextBrowser* self, intptr_t slot);
 bool QTextBrowser_QBaseIsSignalConnected(const QTextBrowser* self, const QMetaMethod* signal);
+double QTextBrowser_GetDecodedMetricF(const QTextBrowser* self, int metricA, int metricB);
+void QTextBrowser_OnGetDecodedMetricF(const QTextBrowser* self, intptr_t slot);
+double QTextBrowser_QBaseGetDecodedMetricF(const QTextBrowser* self, int metricA, int metricB);
 void QTextBrowser_Delete(QTextBrowser* self);
 
 #ifdef __cplusplus

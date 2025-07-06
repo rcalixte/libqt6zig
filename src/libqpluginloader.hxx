@@ -61,10 +61,10 @@ class VirtualQPluginLoader final : public QPluginLoader {
     mutable bool qpluginloader_issignalconnected_isbase = false;
 
   public:
-    VirtualQPluginLoader() : QPluginLoader(){};
-    VirtualQPluginLoader(const QString& fileName) : QPluginLoader(fileName){};
-    VirtualQPluginLoader(QObject* parent) : QPluginLoader(parent){};
-    VirtualQPluginLoader(const QString& fileName, QObject* parent) : QPluginLoader(fileName, parent){};
+    VirtualQPluginLoader() : QPluginLoader() {};
+    VirtualQPluginLoader(const QString& fileName) : QPluginLoader(fileName) {};
+    VirtualQPluginLoader(QObject* parent) : QPluginLoader(parent) {};
+    VirtualQPluginLoader(const QString& fileName, QObject* parent) : QPluginLoader(fileName, parent) {};
 
     ~VirtualQPluginLoader() {
         qpluginloader_metacall_callback = nullptr;

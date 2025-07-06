@@ -91,8 +91,8 @@ class VirtualQVPieModelMapper final : public QVPieModelMapper {
     mutable bool qvpiemodelmapper_issignalconnected_isbase = false;
 
   public:
-    VirtualQVPieModelMapper() : QVPieModelMapper(){};
-    VirtualQVPieModelMapper(QObject* parent) : QVPieModelMapper(parent){};
+    VirtualQVPieModelMapper() : QVPieModelMapper() {};
+    VirtualQVPieModelMapper(QObject* parent) : QVPieModelMapper(parent) {};
 
     ~VirtualQVPieModelMapper() {
         qvpiemodelmapper_metacall_callback = nullptr;

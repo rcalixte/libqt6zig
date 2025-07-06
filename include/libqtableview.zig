@@ -783,6 +783,31 @@ pub const qtableview = struct {
         qtc.QTableView_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#dropEvent)
+    ///
+    /// ``` self: QtC.QTableView, event: QtC.QDropEvent ```
+    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_DropEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#dropEvent)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QTableView, slot: fn (self: QtC.QTableView, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTableView_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#dropEvent)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QTableView, event: QtC.QDropEvent ```
+    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QTableView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qtableview.html#horizontalOffset)
     ///
     /// ``` self: QtC.QTableView ```
@@ -4333,6 +4358,15 @@ pub const qtableview = struct {
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    ///
+    /// ``` self: QtC.QTableView, p: QtC.QPointF ```
+    pub fn ChildAtWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPointF(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// Inherited from QWidget
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTableView, param1: qnamespace_enums.WidgetAttribute ```
@@ -4748,8 +4782,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTableView, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -4768,6 +4802,15 @@ pub const qtableview = struct {
     /// ``` self: QtC.QTableView, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QTableView, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -4968,6 +5011,15 @@ pub const qtableview = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QTableView, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTableView, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -5119,6 +5171,15 @@ pub const qtableview = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QAbstractItemView
@@ -6059,39 +6120,6 @@ pub const qtableview = struct {
     /// ``` self: QtC.QTableView, slot: fn (self: QtC.QTableView, event: QtC.QDragLeaveEvent) callconv(.c) void ```
     pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableView_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.QTableView, event: QtC.QDropEvent ```
-    pub fn DropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_DropEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.QTableView, event: QtC.QDropEvent ```
-    pub fn QBaseDropEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.QTableView_QBaseDropEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QAbstractItemView
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dropEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.QTableView, slot: fn (self: QtC.QTableView, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTableView_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractItemView
@@ -8049,6 +8077,39 @@ pub const qtableview = struct {
     /// ``` self: QtC.QTableView, slot: fn (self: QtC.QTableView, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QTableView_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QTableView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QTableView_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QTableView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QTableView_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QTableView, slot: fn (self: QtC.QTableView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QTableView_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject

@@ -22,16 +22,6 @@ typedef struct QMetaSequence QMetaSequence;
 typedef struct QMetaType QMetaType;
 #endif
 
-#ifdef __cplusplus
-typedef QtMetaContainerPrivate::AddRemoveCapability AddRemoveCapability;                           // C++ enum
-typedef QtMetaContainerPrivate::IteratorCapability IteratorCapability;                             // C++ enum
-typedef QtMetaContainerPrivate::QMetaContainerInterface::Position QMetaContainerInterfacePosition; // C++ enum
-#else
-typedef unsigned char AddRemoveCapability;             // C ABI enum
-typedef unsigned char IteratorCapability;              // C ABI enum
-typedef unsigned char QMetaContainerInterfacePosition; // C ABI enum
-#endif
-
 QMetaContainer* QMetaContainer_new(const QMetaContainer* other);
 QMetaContainer* QMetaContainer_new2(QMetaContainer* other);
 QMetaContainer* QMetaContainer_new3();

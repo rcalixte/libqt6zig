@@ -23,12 +23,6 @@ typedef struct QMimeType QMimeType;
 typedef struct QUrl QUrl;
 #endif
 
-#ifdef __cplusplus
-typedef QMimeDatabase::MatchMode MatchMode; // C++ enum
-#else
-typedef int MatchMode; // C ABI enum
-#endif
-
 QMimeDatabase* QMimeDatabase_new();
 QMimeType* QMimeDatabase_MimeTypeForName(const QMimeDatabase* self, const libqt_string nameOrAlias);
 QMimeType* QMimeDatabase_MimeTypeForFile(const QMimeDatabase* self, const libqt_string fileName);

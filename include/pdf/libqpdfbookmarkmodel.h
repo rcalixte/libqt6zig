@@ -33,12 +33,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfBookmarkModel::Role Role; // C++ enum
-#else
-typedef int Role; // C ABI enum
-#endif
-
 QPdfBookmarkModel* QPdfBookmarkModel_new();
 QPdfBookmarkModel* QPdfBookmarkModel_new2(QObject* parent);
 QMetaObject* QPdfBookmarkModel_MetaObject(const QPdfBookmarkModel* self);

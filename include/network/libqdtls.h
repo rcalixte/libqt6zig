@@ -36,16 +36,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QUdpSocket QUdpSocket;
 #endif
 
-#ifdef __cplusplus
-typedef QDtls::GeneratorParameters GeneratorParameters; // C++ QFlags
-typedef QDtls::HandshakeState HandshakeState;           // C++ enum
-typedef QDtlsError QDtlsError;                          // C++ enum
-#else
-typedef QDtlsClientVerifier__GeneratorParameters* GeneratorParameters; // C ABI QFlags
-typedef int HandshakeState;                                            // C ABI enum
-typedef unsigned char QDtlsError;                                      // C ABI enum
-#endif
-
 QDtlsClientVerifier* QDtlsClientVerifier_new();
 QDtlsClientVerifier* QDtlsClientVerifier_new2(QObject* parent);
 QMetaObject* QDtlsClientVerifier_MetaObject(const QDtlsClientVerifier* self);

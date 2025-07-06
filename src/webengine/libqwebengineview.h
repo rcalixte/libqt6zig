@@ -54,6 +54,7 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
 typedef struct QWebEngineContextMenuRequest QWebEngineContextMenuRequest;
+typedef struct QWebEngineFrame QWebEngineFrame;
 typedef struct QWebEngineHistory QWebEngineHistory;
 typedef struct QWebEngineHttpRequest QWebEngineHttpRequest;
 typedef struct QWebEnginePage QWebEnginePage;
@@ -129,6 +130,8 @@ void QWebEngineView_PdfPrintingFinished(QWebEngineView* self, const libqt_string
 void QWebEngineView_Connect_PdfPrintingFinished(QWebEngineView* self, intptr_t slot);
 void QWebEngineView_PrintRequested(QWebEngineView* self);
 void QWebEngineView_Connect_PrintRequested(QWebEngineView* self, intptr_t slot);
+void QWebEngineView_PrintRequestedByFrame(QWebEngineView* self, QWebEngineFrame* frame);
+void QWebEngineView_Connect_PrintRequestedByFrame(QWebEngineView* self, intptr_t slot);
 void QWebEngineView_PrintFinished(QWebEngineView* self, bool success);
 void QWebEngineView_Connect_PrintFinished(QWebEngineView* self, intptr_t slot);
 QWebEngineView* QWebEngineView_CreateWindow(QWebEngineView* self, int typeVal);
@@ -307,6 +310,9 @@ int QWebEngineView_QBaseReceivers(const QWebEngineView* self, const char* signal
 bool QWebEngineView_IsSignalConnected(const QWebEngineView* self, const QMetaMethod* signal);
 void QWebEngineView_OnIsSignalConnected(const QWebEngineView* self, intptr_t slot);
 bool QWebEngineView_QBaseIsSignalConnected(const QWebEngineView* self, const QMetaMethod* signal);
+double QWebEngineView_GetDecodedMetricF(const QWebEngineView* self, int metricA, int metricB);
+void QWebEngineView_OnGetDecodedMetricF(const QWebEngineView* self, intptr_t slot);
+double QWebEngineView_QBaseGetDecodedMetricF(const QWebEngineView* self, int metricA, int metricB);
 void QWebEngineView_Delete(QWebEngineView* self);
 
 #ifdef __cplusplus

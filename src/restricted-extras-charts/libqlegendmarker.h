@@ -26,12 +26,6 @@ typedef struct QObject QObject;
 typedef struct QPen QPen;
 #endif
 
-#ifdef __cplusplus
-typedef QLegendMarker::LegendMarkerType LegendMarkerType; // C++ enum
-#else
-typedef int LegendMarkerType; // C ABI enum
-#endif
-
 QMetaObject* QLegendMarker_MetaObject(const QLegendMarker* self);
 void* QLegendMarker_Metacast(QLegendMarker* self, const char* param1);
 int QLegendMarker_Metacall(QLegendMarker* self, int param1, int param2, void** param3);

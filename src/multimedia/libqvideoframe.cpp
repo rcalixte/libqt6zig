@@ -20,7 +20,11 @@ QVideoFrame* QVideoFrame_new2(const QVideoFrameFormat* format) {
     return new QVideoFrame(*format);
 }
 
-QVideoFrame* QVideoFrame_new3(const QVideoFrame* other) {
+QVideoFrame* QVideoFrame_new3(const QImage* image) {
+    return new QVideoFrame(*image);
+}
+
+QVideoFrame* QVideoFrame_new4(const QVideoFrame* other) {
     return new QVideoFrame(*other);
 }
 
@@ -128,12 +132,20 @@ void QVideoFrame_SetEndTime(QVideoFrame* self, long long time) {
     self->setEndTime(static_cast<qint64>(time));
 }
 
-void QVideoFrame_SetRotationAngle(QVideoFrame* self, int rotationAngle) {
-    self->setRotationAngle(static_cast<QVideoFrame::RotationAngle>(rotationAngle));
+void QVideoFrame_SetRotationAngle(QVideoFrame* self, int angle) {
+    self->setRotationAngle(static_cast<QVideoFrame::RotationAngle>(angle));
 }
 
 int QVideoFrame_RotationAngle(const QVideoFrame* self) {
     return static_cast<int>(self->rotationAngle());
+}
+
+void QVideoFrame_SetRotation(QVideoFrame* self, int angle) {
+    self->setRotation(static_cast<QtVideo::Rotation>(angle));
+}
+
+int QVideoFrame_Rotation(const QVideoFrame* self) {
+    return static_cast<int>(self->rotation());
 }
 
 void QVideoFrame_SetMirrored(QVideoFrame* self, bool mirrored) {
@@ -142,6 +154,14 @@ void QVideoFrame_SetMirrored(QVideoFrame* self, bool mirrored) {
 
 bool QVideoFrame_Mirrored(const QVideoFrame* self) {
     return self->mirrored();
+}
+
+void QVideoFrame_SetStreamFrameRate(QVideoFrame* self, double rate) {
+    self->setStreamFrameRate(static_cast<qreal>(rate));
+}
+
+double QVideoFrame_StreamFrameRate(const QVideoFrame* self) {
+    return static_cast<double>(self->streamFrameRate());
 }
 
 QImage* QVideoFrame_ToImage(const QVideoFrame* self) {

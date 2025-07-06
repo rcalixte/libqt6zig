@@ -2029,6 +2029,35 @@ void QScrollArea_OnIsSignalConnected(const QScrollArea* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QScrollArea_GetDecodedMetricF(const QScrollArea* self, int metricA, int metricB) {
+    auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        return vqscrollarea->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQScrollArea*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QScrollArea_QBaseGetDecodedMetricF(const QScrollArea* self, int metricA, int metricB) {
+    auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        vqscrollarea->setQScrollArea_GetDecodedMetricF_IsBase(true);
+        return vqscrollarea->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQScrollArea*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QScrollArea_OnGetDecodedMetricF(const QScrollArea* self, intptr_t slot) {
+    auto* vqscrollarea = const_cast<VirtualQScrollArea*>(dynamic_cast<const VirtualQScrollArea*>(self));
+    if (vqscrollarea && vqscrollarea->isVirtualQScrollArea) {
+        vqscrollarea->setQScrollArea_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQScrollArea::QScrollArea_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QScrollArea_Delete(QScrollArea* self) {
     delete self;
 }

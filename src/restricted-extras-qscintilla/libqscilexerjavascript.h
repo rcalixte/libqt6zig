@@ -174,6 +174,12 @@ void QsciLexerJavaScript_QBaseConnectNotify(QsciLexerJavaScript* self, const QMe
 void QsciLexerJavaScript_DisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
 void QsciLexerJavaScript_OnDisconnectNotify(QsciLexerJavaScript* self, intptr_t slot);
 void QsciLexerJavaScript_QBaseDisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
+libqt_string QsciLexerJavaScript_TextAsBytes(const QsciLexerJavaScript* self, const libqt_string text);
+void QsciLexerJavaScript_OnTextAsBytes(const QsciLexerJavaScript* self, intptr_t slot);
+libqt_string QsciLexerJavaScript_QBaseTextAsBytes(const QsciLexerJavaScript* self, const libqt_string text);
+libqt_string QsciLexerJavaScript_BytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size);
+void QsciLexerJavaScript_OnBytesAsText(const QsciLexerJavaScript* self, intptr_t slot);
+libqt_string QsciLexerJavaScript_QBaseBytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size);
 QObject* QsciLexerJavaScript_Sender(const QsciLexerJavaScript* self);
 void QsciLexerJavaScript_OnSender(const QsciLexerJavaScript* self, intptr_t slot);
 QObject* QsciLexerJavaScript_QBaseSender(const QsciLexerJavaScript* self);

@@ -61,7 +61,7 @@ class VirtualQAudioRoom final : public QAudioRoom {
     mutable bool qaudioroom_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioRoom(QAudioEngine* engine) : QAudioRoom(engine){};
+    VirtualQAudioRoom(QAudioEngine* engine) : QAudioRoom(engine) {};
 
     ~VirtualQAudioRoom() {
         qaudioroom_metacall_callback = nullptr;

@@ -120,12 +120,20 @@ void QCalendarWidget_SetMinimumDate(QCalendarWidget* self, QDate* date) {
     self->setMinimumDate(*date);
 }
 
+void QCalendarWidget_ClearMinimumDate(QCalendarWidget* self) {
+    self->clearMinimumDate();
+}
+
 QDate* QCalendarWidget_MaximumDate(const QCalendarWidget* self) {
     return new QDate(self->maximumDate());
 }
 
 void QCalendarWidget_SetMaximumDate(QCalendarWidget* self, QDate* date) {
     self->setMaximumDate(*date);
+}
+
+void QCalendarWidget_ClearMaximumDate(QCalendarWidget* self) {
+    self->clearMaximumDate();
 }
 
 int QCalendarWidget_FirstDayOfWeek(const QCalendarWidget* self) {
@@ -2060,6 +2068,35 @@ void QCalendarWidget_OnIsSignalConnected(const QCalendarWidget* self, intptr_t s
     auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
         vqcalendarwidget->setQCalendarWidget_IsSignalConnected_Callback(reinterpret_cast<VirtualQCalendarWidget::QCalendarWidget_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QCalendarWidget_GetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB) {
+    auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        return vqcalendarwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQCalendarWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QCalendarWidget_QBaseGetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB) {
+    auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        vqcalendarwidget->setQCalendarWidget_GetDecodedMetricF_IsBase(true);
+        return vqcalendarwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQCalendarWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QCalendarWidget_OnGetDecodedMetricF(const QCalendarWidget* self, intptr_t slot) {
+    auto* vqcalendarwidget = const_cast<VirtualQCalendarWidget*>(dynamic_cast<const VirtualQCalendarWidget*>(self));
+    if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
+        vqcalendarwidget->setQCalendarWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQCalendarWidget::QCalendarWidget_GetDecodedMetricF_Callback>(slot));
     }
 }
 

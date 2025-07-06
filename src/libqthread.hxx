@@ -67,8 +67,8 @@ class VirtualQThread final : public QThread {
     mutable bool qthread_issignalconnected_isbase = false;
 
   public:
-    VirtualQThread() : QThread(){};
-    VirtualQThread(QObject* parent) : QThread(parent){};
+    VirtualQThread() : QThread() {};
+    VirtualQThread(QObject* parent) : QThread(parent) {};
 
     ~VirtualQThread() {
         qthread_metacall_callback = nullptr;

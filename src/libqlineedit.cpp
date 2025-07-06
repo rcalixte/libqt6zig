@@ -2230,6 +2230,35 @@ void QLineEdit_OnIsSignalConnected(const QLineEdit* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QLineEdit_GetDecodedMetricF(const QLineEdit* self, int metricA, int metricB) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        return vqlineedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQLineEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QLineEdit_QBaseGetDecodedMetricF(const QLineEdit* self, int metricA, int metricB) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_GetDecodedMetricF_IsBase(true);
+        return vqlineedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQLineEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QLineEdit_OnGetDecodedMetricF(const QLineEdit* self, intptr_t slot) {
+    auto* vqlineedit = const_cast<VirtualQLineEdit*>(dynamic_cast<const VirtualQLineEdit*>(self));
+    if (vqlineedit && vqlineedit->isVirtualQLineEdit) {
+        vqlineedit->setQLineEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQLineEdit::QLineEdit_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QLineEdit_Delete(QLineEdit* self) {
     delete self;
 }

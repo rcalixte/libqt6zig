@@ -25,14 +25,6 @@ void QEasingCurve_Swap(QEasingCurve* self, QEasingCurve* other) {
     self->swap(*other);
 }
 
-bool QEasingCurve_OperatorEqual(const QEasingCurve* self, const QEasingCurve* other) {
-    return (*self == *other);
-}
-
-bool QEasingCurve_OperatorNotEqual(const QEasingCurve* self, const QEasingCurve* other) {
-    return (*self != *other);
-}
-
 double QEasingCurve_Amplitude(const QEasingCurve* self) {
     return static_cast<double>(self->amplitude());
 }
@@ -68,12 +60,12 @@ void QEasingCurve_AddTCBSegment(QEasingCurve* self, const QPointF* nextPoint, do
 libqt_list /* of QPointF* */ QEasingCurve_ToCubicSpline(const QEasingCurve* self) {
     QList<QPointF> _ret = self->toCubicSpline();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

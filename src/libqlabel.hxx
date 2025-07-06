@@ -77,6 +77,7 @@ class VirtualQLabel final : public QLabel {
     using QLabel_SenderSignalIndex_Callback = int (*)();
     using QLabel_Receivers_Callback = int (*)(const QLabel*, const char*);
     using QLabel_IsSignalConnected_Callback = bool (*)(const QLabel*, QMetaMethod*);
+    using QLabel_GetDecodedMetricF_Callback = double (*)(const QLabel*, int, int);
 
   protected:
     // Instance callback storage
@@ -139,6 +140,7 @@ class VirtualQLabel final : public QLabel {
     QLabel_SenderSignalIndex_Callback qlabel_sendersignalindex_callback = nullptr;
     QLabel_Receivers_Callback qlabel_receivers_callback = nullptr;
     QLabel_IsSignalConnected_Callback qlabel_issignalconnected_callback = nullptr;
+    QLabel_GetDecodedMetricF_Callback qlabel_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qlabel_metacall_isbase = false;
@@ -200,14 +202,15 @@ class VirtualQLabel final : public QLabel {
     mutable bool qlabel_sendersignalindex_isbase = false;
     mutable bool qlabel_receivers_isbase = false;
     mutable bool qlabel_issignalconnected_isbase = false;
+    mutable bool qlabel_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQLabel(QWidget* parent) : QLabel(parent){};
-    VirtualQLabel() : QLabel(){};
-    VirtualQLabel(const QString& text) : QLabel(text){};
-    VirtualQLabel(QWidget* parent, Qt::WindowFlags f) : QLabel(parent, f){};
-    VirtualQLabel(const QString& text, QWidget* parent) : QLabel(text, parent){};
-    VirtualQLabel(const QString& text, QWidget* parent, Qt::WindowFlags f) : QLabel(text, parent, f){};
+    VirtualQLabel(QWidget* parent) : QLabel(parent) {};
+    VirtualQLabel() : QLabel() {};
+    VirtualQLabel(const QString& text) : QLabel(text) {};
+    VirtualQLabel(QWidget* parent, Qt::WindowFlags f) : QLabel(parent, f) {};
+    VirtualQLabel(const QString& text, QWidget* parent) : QLabel(text, parent) {};
+    VirtualQLabel(const QString& text, QWidget* parent, Qt::WindowFlags f) : QLabel(text, parent, f) {};
 
     ~VirtualQLabel() {
         qlabel_metacall_callback = nullptr;
@@ -269,6 +272,7 @@ class VirtualQLabel final : public QLabel {
         qlabel_sendersignalindex_callback = nullptr;
         qlabel_receivers_callback = nullptr;
         qlabel_issignalconnected_callback = nullptr;
+        qlabel_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -331,6 +335,7 @@ class VirtualQLabel final : public QLabel {
     inline void setQLabel_SenderSignalIndex_Callback(QLabel_SenderSignalIndex_Callback cb) { qlabel_sendersignalindex_callback = cb; }
     inline void setQLabel_Receivers_Callback(QLabel_Receivers_Callback cb) { qlabel_receivers_callback = cb; }
     inline void setQLabel_IsSignalConnected_Callback(QLabel_IsSignalConnected_Callback cb) { qlabel_issignalconnected_callback = cb; }
+    inline void setQLabel_GetDecodedMetricF_Callback(QLabel_GetDecodedMetricF_Callback cb) { qlabel_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQLabel_Metacall_IsBase(bool value) const { qlabel_metacall_isbase = value; }
@@ -392,6 +397,7 @@ class VirtualQLabel final : public QLabel {
     inline void setQLabel_SenderSignalIndex_IsBase(bool value) const { qlabel_sendersignalindex_isbase = value; }
     inline void setQLabel_Receivers_IsBase(bool value) const { qlabel_receivers_isbase = value; }
     inline void setQLabel_IsSignalConnected_IsBase(bool value) const { qlabel_issignalconnected_isbase = value; }
+    inline void setQLabel_GetDecodedMetricF_IsBase(bool value) const { qlabel_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1232,6 +1238,22 @@ class VirtualQLabel final : public QLabel {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qlabel_getdecodedmetricf_isbase) {
+            qlabel_getdecodedmetricf_isbase = false;
+            return QLabel::getDecodedMetricF(metricA, metricB);
+        } else if (qlabel_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qlabel_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QLabel::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QLabel_Event(QLabel* self, QEvent* e);
     friend bool QLabel_QBaseEvent(QLabel* self, QEvent* e);
@@ -1331,6 +1353,8 @@ class VirtualQLabel final : public QLabel {
     friend int QLabel_QBaseReceivers(const QLabel* self, const char* signal);
     friend bool QLabel_IsSignalConnected(const QLabel* self, const QMetaMethod* signal);
     friend bool QLabel_QBaseIsSignalConnected(const QLabel* self, const QMetaMethod* signal);
+    friend double QLabel_GetDecodedMetricF(const QLabel* self, int metricA, int metricB);
+    friend double QLabel_QBaseGetDecodedMetricF(const QLabel* self, int metricA, int metricB);
 };
 
 #endif

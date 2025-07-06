@@ -24,18 +24,6 @@ typedef struct QTextOption QTextOption;
 typedef struct QTextOption__Tab QTextOption__Tab;
 #endif
 
-#ifdef __cplusplus
-typedef QTextOption::Flag Flag;         // C++ enum
-typedef QTextOption::Flags Flags;       // C++ QFlags
-typedef QTextOption::TabType TabType;   // C++ enum
-typedef QTextOption::WrapMode WrapMode; // C++ enum
-#else
-typedef int Flag;     // C ABI enum
-typedef int Flags;    // C ABI QFlags
-typedef int TabType;  // C ABI enum
-typedef int WrapMode; // C ABI enum
-#endif
-
 QTextOption* QTextOption_new();
 QTextOption* QTextOption_new2(int alignment);
 QTextOption* QTextOption_new3(const QTextOption* o);

@@ -16,19 +16,26 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QByteArrayView QByteArrayView;
 typedef struct QIODevice QIODevice;
 typedef struct QMessageAuthenticationCode QMessageAuthenticationCode;
 #endif
 
 QMessageAuthenticationCode* QMessageAuthenticationCode_new(int method);
-QMessageAuthenticationCode* QMessageAuthenticationCode_new2(int method, const libqt_string key);
+QMessageAuthenticationCode* QMessageAuthenticationCode_new2(int method, QByteArrayView* key);
+void QMessageAuthenticationCode_Swap(QMessageAuthenticationCode* self, QMessageAuthenticationCode* other);
 void QMessageAuthenticationCode_Reset(QMessageAuthenticationCode* self);
-void QMessageAuthenticationCode_SetKey(QMessageAuthenticationCode* self, const libqt_string key);
+void QMessageAuthenticationCode_SetKey(QMessageAuthenticationCode* self, QByteArrayView* key);
 void QMessageAuthenticationCode_AddData(QMessageAuthenticationCode* self, const char* data, ptrdiff_t length);
-void QMessageAuthenticationCode_AddDataWithData(QMessageAuthenticationCode* self, const libqt_string data);
+void QMessageAuthenticationCode_AddDataWithData(QMessageAuthenticationCode* self, QByteArrayView* data);
 bool QMessageAuthenticationCode_AddDataWithDevice(QMessageAuthenticationCode* self, QIODevice* device);
+QByteArrayView* QMessageAuthenticationCode_ResultView(const QMessageAuthenticationCode* self);
 libqt_string QMessageAuthenticationCode_Result(const QMessageAuthenticationCode* self);
-libqt_string QMessageAuthenticationCode_Hash(const libqt_string message, const libqt_string key, int method);
+libqt_string QMessageAuthenticationCode_Hash(QByteArrayView* message, QByteArrayView* key, int method);
+QByteArrayView* QMessageAuthenticationCode_HashInto(libqt_list /* of char */ buffer, QByteArrayView* message, QByteArrayView* key, int method);
+QByteArrayView* QMessageAuthenticationCode_HashInto2(libqt_list /* of unsigned char */ buffer, QByteArrayView* message, QByteArrayView* key, int method);
+QByteArrayView* QMessageAuthenticationCode_HashInto4(libqt_list /* of char */ buffer, libqt_list /* of QByteArrayView* */ messageParts, QByteArrayView* key, int method);
+QByteArrayView* QMessageAuthenticationCode_HashInto5(libqt_list /* of unsigned char */ buffer, libqt_list /* of QByteArrayView* */ messageParts, QByteArrayView* key, int method);
 void QMessageAuthenticationCode_Delete(QMessageAuthenticationCode* self);
 
 #ifdef __cplusplus

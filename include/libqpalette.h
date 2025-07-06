@@ -22,18 +22,6 @@ typedef struct QPalette QPalette;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QPalette::ColorGroup ColorGroup;         // C++ enum
-typedef QPalette::ColorRole ColorRole;           // C++ enum
-typedef QPalette::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QPalette::ResolveMask ResolveMask;       // C++ QFlags
-#else
-typedef int ColorGroup;       // C ABI enum
-typedef int ColorRole;        // C ABI enum
-typedef uint64_t ResolveMask; // C ABI QFlags
-typedef void QtGadgetHelper;  // C ABI QFlags
-#endif
-
 QPalette* QPalette_new();
 QPalette* QPalette_new2(const QColor* button);
 QPalette* QPalette_new3(int button);
@@ -77,6 +65,7 @@ QBrush* QPalette_HighlightedText(const QPalette* self);
 QBrush* QPalette_Link(const QPalette* self);
 QBrush* QPalette_LinkVisited(const QPalette* self);
 QBrush* QPalette_PlaceholderText(const QPalette* self);
+QBrush* QPalette_Accent(const QPalette* self);
 bool QPalette_OperatorEqual(const QPalette* self, const QPalette* p);
 bool QPalette_OperatorNotEqual(const QPalette* self, const QPalette* p);
 bool QPalette_IsCopyOf(const QPalette* self, const QPalette* p);

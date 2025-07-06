@@ -535,13 +535,6 @@ pub const qtextcharformat = struct {
         return qtc.QTextCharFormat_new();
     }
 
-    /// New2 constructs a new QTextCharFormat object.
-    ///
-    /// ``` param1: QtC.QTextCharFormat ```
-    pub fn New2(param1: ?*anyopaque) QtC.QTextCharFormat {
-        return qtc.QTextCharFormat_new2(@ptrCast(param1));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#isValid)
     ///
     /// ``` self: QtC.QTextCharFormat ```
@@ -1588,13 +1581,6 @@ pub const qtextblockformat = struct {
         return qtc.QTextBlockFormat_new();
     }
 
-    /// New2 constructs a new QTextBlockFormat object.
-    ///
-    /// ``` param1: QtC.QTextBlockFormat ```
-    pub fn New2(param1: ?*anyopaque) QtC.QTextBlockFormat {
-        return qtc.QTextBlockFormat_new2(@ptrCast(param1));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#isValid)
     ///
     /// ``` self: QtC.QTextBlockFormat ```
@@ -2303,13 +2289,6 @@ pub const qtextlistformat = struct {
         return qtc.QTextListFormat_new();
     }
 
-    /// New2 constructs a new QTextListFormat object.
-    ///
-    /// ``` param1: QtC.QTextListFormat ```
-    pub fn New2(param1: ?*anyopaque) QtC.QTextListFormat {
-        return qtc.QTextListFormat_new2(@ptrCast(param1));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#isValid)
     ///
     /// ``` self: QtC.QTextListFormat ```
@@ -2387,6 +2366,20 @@ pub const qtextlistformat = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlistformat.NumberSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#setStart)
+    ///
+    /// ``` self: QtC.QTextListFormat, indent: i32 ```
+    pub fn SetStart(self: ?*anyopaque, indent: i32) void {
+        qtc.QTextListFormat_SetStart(@ptrCast(self), @intCast(indent));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#start)
+    ///
+    /// ``` self: QtC.QTextListFormat ```
+    pub fn Start(self: ?*anyopaque) i32 {
+        return qtc.QTextListFormat_Start(@ptrCast(self));
     }
 
     /// Inherited from QTextFormat
@@ -2926,6 +2919,20 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     pub fn Width(self: ?*anyopaque) f64 {
         return qtc.QTextImageFormat_Width(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#setMaximumWidth)
+    ///
+    /// ``` self: QtC.QTextImageFormat, maxWidth: QtC.QTextLength ```
+    pub fn SetMaximumWidth(self: ?*anyopaque, maxWidth: QtC.QTextLength) void {
+        qtc.QTextImageFormat_SetMaximumWidth(@ptrCast(self), @ptrCast(maxWidth));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#maximumWidth)
+    ///
+    /// ``` self: QtC.QTextImageFormat ```
+    pub fn MaximumWidth(self: ?*anyopaque) QtC.QTextLength {
+        return qtc.QTextImageFormat_MaximumWidth(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextimageformat.html#setHeight)
@@ -4136,13 +4143,6 @@ pub const qtextframeformat = struct {
     ///
     pub fn New() QtC.QTextFrameFormat {
         return qtc.QTextFrameFormat_new();
-    }
-
-    /// New2 constructs a new QTextFrameFormat object.
-    ///
-    /// ``` param1: QtC.QTextFrameFormat ```
-    pub fn New2(param1: ?*anyopaque) QtC.QTextFrameFormat {
-        return qtc.QTextFrameFormat_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#isValid)
@@ -7224,6 +7224,7 @@ pub const enums = struct {
         pub const ListIndent: i32 = 12289;
         pub const ListNumberPrefix: i32 = 12290;
         pub const ListNumberSuffix: i32 = 12291;
+        pub const ListStart: i32 = 12292;
         pub const FrameBorder: i32 = 16384;
         pub const FrameMargin: i32 = 16385;
         pub const FramePadding: i32 = 16386;
@@ -7265,6 +7266,7 @@ pub const enums = struct {
         pub const ImageWidth: i32 = 20496;
         pub const ImageHeight: i32 = 20497;
         pub const ImageQuality: i32 = 20500;
+        pub const ImageMaxWidth: i32 = 20501;
         pub const FullWidthSelection: i32 = 24576;
         pub const PageBreakPolicy: i32 = 28672;
         pub const UserProperty: i32 = 1048576;

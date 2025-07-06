@@ -746,6 +746,24 @@ pub const qaccessiblewidget = struct {
         return qtc.QAccessibleInterface_HyperlinkInterface(@ptrCast(self));
     }
 
+    /// Inherited from QAccessibleInterface
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
+    ///
+    /// ``` self: QtC.QAccessibleWidget ```
+    pub fn SelectionInterface(self: ?*anyopaque) QtC.QAccessibleSelectionInterface {
+        return qtc.QAccessibleInterface_SelectionInterface(@ptrCast(self));
+    }
+
+    /// Inherited from QAccessibleInterface
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
+    ///
+    /// ``` self: QtC.QAccessibleWidget ```
+    pub fn AttributesInterface(self: ?*anyopaque) QtC.QAccessibleAttributesInterface {
+        return qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self));
+    }
+
     /// Inherited from QAccessibleActionInterface
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

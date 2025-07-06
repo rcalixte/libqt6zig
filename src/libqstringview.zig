@@ -141,8 +141,8 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#compare)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Compare2(self: ?*anyopaque, c: QtC.QChar, cs: i64) i32 {
-        return qtc.QStringView_Compare2(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn Compare3(self: ?*anyopaque, c: QtC.QChar, cs: i64) i32 {
+        return qtc.QStringView_Compare3(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#startsWith)
@@ -248,6 +248,20 @@ pub const qstringview = struct {
     /// ``` self: QtC.QStringView ```
     pub fn IsValidUtf16(self: ?*anyopaque) bool {
         return qtc.QStringView_IsValidUtf16(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#isUpper)
+    ///
+    /// ``` self: QtC.QStringView ```
+    pub fn IsUpper(self: ?*anyopaque) bool {
+        return qtc.QStringView_IsUpper(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#isLower)
+    ///
+    /// ``` self: QtC.QStringView ```
+    pub fn IsLower(self: ?*anyopaque) bool {
+        return qtc.QStringView_IsLower(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toShort)
@@ -369,6 +383,13 @@ pub const qstringview = struct {
         return qtc.QStringView_Back(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#max_size)
+    ///
+    /// ``` self: QtC.QStringView ```
+    pub fn MaxSize(self: ?*anyopaque) i64 {
+        return qtc.QStringView_MaxSize(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#constBegin)
     ///
     /// ``` self: QtC.QStringView ```
@@ -416,6 +437,13 @@ pub const qstringview = struct {
     /// ``` self: QtC.QStringView ```
     pub fn Last2(self: ?*anyopaque) QtC.QChar {
         return qtc.QStringView_Last2(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#maxSize)
+    ///
+    ///
+    pub fn MaxSize2() i64 {
+        return qtc.QStringView_MaxSize2();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)

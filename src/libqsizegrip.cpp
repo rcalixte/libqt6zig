@@ -1741,6 +1741,35 @@ void QSizeGrip_OnIsSignalConnected(const QSizeGrip* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QSizeGrip_GetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB) {
+    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        return vqsizegrip->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSizeGrip*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QSizeGrip_QBaseGetDecodedMetricF(const QSizeGrip* self, int metricA, int metricB) {
+    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        vqsizegrip->setQSizeGrip_GetDecodedMetricF_IsBase(true);
+        return vqsizegrip->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSizeGrip*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSizeGrip_OnGetDecodedMetricF(const QSizeGrip* self, intptr_t slot) {
+    auto* vqsizegrip = const_cast<VirtualQSizeGrip*>(dynamic_cast<const VirtualQSizeGrip*>(self));
+    if (vqsizegrip && vqsizegrip->isVirtualQSizeGrip) {
+        vqsizegrip->setQSizeGrip_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSizeGrip::QSizeGrip_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QSizeGrip_Delete(QSizeGrip* self) {
     delete self;
 }

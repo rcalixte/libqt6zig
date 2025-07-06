@@ -251,9 +251,9 @@ class VirtualQGraphicsWidget final : public QGraphicsWidget {
     mutable bool qgraphicswidget_setownedbylayout_isbase = false;
 
   public:
-    VirtualQGraphicsWidget() : QGraphicsWidget(){};
-    VirtualQGraphicsWidget(QGraphicsItem* parent) : QGraphicsWidget(parent){};
-    VirtualQGraphicsWidget(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QGraphicsWidget(parent, wFlags){};
+    VirtualQGraphicsWidget() : QGraphicsWidget() {};
+    VirtualQGraphicsWidget(QGraphicsItem* parent) : QGraphicsWidget(parent) {};
+    VirtualQGraphicsWidget(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QGraphicsWidget(parent, wFlags) {};
 
     ~VirtualQGraphicsWidget() {
         qgraphicswidget_metacall_callback = nullptr;

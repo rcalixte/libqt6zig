@@ -153,6 +153,12 @@ void QsciLexerCoffeeScript_QBaseConnectNotify(QsciLexerCoffeeScript* self, const
 void QsciLexerCoffeeScript_DisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
 void QsciLexerCoffeeScript_OnDisconnectNotify(QsciLexerCoffeeScript* self, intptr_t slot);
 void QsciLexerCoffeeScript_QBaseDisconnectNotify(QsciLexerCoffeeScript* self, const QMetaMethod* signal);
+libqt_string QsciLexerCoffeeScript_TextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text);
+void QsciLexerCoffeeScript_OnTextAsBytes(const QsciLexerCoffeeScript* self, intptr_t slot);
+libqt_string QsciLexerCoffeeScript_QBaseTextAsBytes(const QsciLexerCoffeeScript* self, const libqt_string text);
+libqt_string QsciLexerCoffeeScript_BytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size);
+void QsciLexerCoffeeScript_OnBytesAsText(const QsciLexerCoffeeScript* self, intptr_t slot);
+libqt_string QsciLexerCoffeeScript_QBaseBytesAsText(const QsciLexerCoffeeScript* self, const char* bytes, int size);
 QObject* QsciLexerCoffeeScript_Sender(const QsciLexerCoffeeScript* self);
 void QsciLexerCoffeeScript_OnSender(const QsciLexerCoffeeScript* self, intptr_t slot);
 QObject* QsciLexerCoffeeScript_QBaseSender(const QsciLexerCoffeeScript* self);

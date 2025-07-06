@@ -27,13 +27,6 @@ pub const qitemselectionrange = struct {
         return qtc.QItemSelectionRange_new3(@ptrCast(index));
     }
 
-    /// New4 constructs a new QItemSelectionRange object.
-    ///
-    /// ``` param1: QtC.QItemSelectionRange ```
-    pub fn New4(param1: ?*anyopaque) QtC.QItemSelectionRange {
-        return qtc.QItemSelectionRange_new4(@ptrCast(param1));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionrange.html#swap)
     ///
     /// ``` self: QtC.QItemSelectionRange, other: QtC.QItemSelectionRange ```
@@ -137,20 +130,6 @@ pub const qitemselectionrange = struct {
     /// ``` self: QtC.QItemSelectionRange, other: QtC.QItemSelectionRange ```
     pub fn Intersected(self: ?*anyopaque, other: ?*anyopaque) QtC.QItemSelectionRange {
         return qtc.QItemSelectionRange_Intersected(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionrange.html#operator==)
-    ///
-    /// ``` self: QtC.QItemSelectionRange, other: QtC.QItemSelectionRange ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QItemSelectionRange_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionrange.html#operator!=)
-    ///
-    /// ``` self: QtC.QItemSelectionRange, other: QtC.QItemSelectionRange ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QItemSelectionRange_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionrange.html#isValid)
@@ -784,8 +763,8 @@ pub const qitemselectionmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QItemSelectionModel, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -804,6 +783,15 @@ pub const qitemselectionmodel = struct {
     /// ``` self: QtC.QItemSelectionModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QItemSelectionModel, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1009,6 +997,15 @@ pub const qitemselectionmodel = struct {
     /// ``` self: QtC.QItemSelectionModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QItemSelectionModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

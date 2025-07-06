@@ -61,8 +61,8 @@ class VirtualQPdfPageRenderer final : public QPdfPageRenderer {
     mutable bool qpdfpagerenderer_issignalconnected_isbase = false;
 
   public:
-    VirtualQPdfPageRenderer() : QPdfPageRenderer(){};
-    VirtualQPdfPageRenderer(QObject* parent) : QPdfPageRenderer(parent){};
+    VirtualQPdfPageRenderer() : QPdfPageRenderer() {};
+    VirtualQPdfPageRenderer(QObject* parent) : QPdfPageRenderer(parent) {};
 
     ~VirtualQPdfPageRenderer() {
         qpdfpagerenderer_metacall_callback = nullptr;

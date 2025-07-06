@@ -99,6 +99,8 @@ bool QIdentityProxyModel_QBaseMoveRows(QIdentityProxyModel* self, const QModelIn
 bool QIdentityProxyModel_MoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
 void QIdentityProxyModel_OnMoveColumns(QIdentityProxyModel* self, intptr_t slot);
 bool QIdentityProxyModel_QBaseMoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
+bool QIdentityProxyModel_HandleSourceLayoutChanges(const QIdentityProxyModel* self);
+bool QIdentityProxyModel_HandleSourceDataChanges(const QIdentityProxyModel* self);
 libqt_string QIdentityProxyModel_Tr2(const char* s, const char* c);
 libqt_string QIdentityProxyModel_Tr3(const char* s, const char* c, int n);
 bool QIdentityProxyModel_Submit(QIdentityProxyModel* self);
@@ -191,6 +193,12 @@ void QIdentityProxyModel_QBaseConnectNotify(QIdentityProxyModel* self, const QMe
 void QIdentityProxyModel_DisconnectNotify(QIdentityProxyModel* self, const QMetaMethod* signal);
 void QIdentityProxyModel_OnDisconnectNotify(QIdentityProxyModel* self, intptr_t slot);
 void QIdentityProxyModel_QBaseDisconnectNotify(QIdentityProxyModel* self, const QMetaMethod* signal);
+void QIdentityProxyModel_SetHandleSourceLayoutChanges(QIdentityProxyModel* self, bool handleSourceLayoutChanges);
+void QIdentityProxyModel_OnSetHandleSourceLayoutChanges(QIdentityProxyModel* self, intptr_t slot);
+void QIdentityProxyModel_QBaseSetHandleSourceLayoutChanges(QIdentityProxyModel* self, bool handleSourceLayoutChanges);
+void QIdentityProxyModel_SetHandleSourceDataChanges(QIdentityProxyModel* self, bool handleSourceDataChanges);
+void QIdentityProxyModel_OnSetHandleSourceDataChanges(QIdentityProxyModel* self, intptr_t slot);
+void QIdentityProxyModel_QBaseSetHandleSourceDataChanges(QIdentityProxyModel* self, bool handleSourceDataChanges);
 QModelIndex* QIdentityProxyModel_CreateSourceIndex(const QIdentityProxyModel* self, int row, int col, void* internalPtr);
 void QIdentityProxyModel_OnCreateSourceIndex(const QIdentityProxyModel* self, intptr_t slot);
 QModelIndex* QIdentityProxyModel_QBaseCreateSourceIndex(const QIdentityProxyModel* self, int row, int col, void* internalPtr);

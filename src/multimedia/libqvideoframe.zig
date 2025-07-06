@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qtvideo_enums = @import("libqtvideo.zig").enums;
 const qvideoframe_enums = enums;
 const qvideoframeformat_enums = @import("libqvideoframeformat.zig").enums;
 const std = @import("std");
@@ -22,9 +23,16 @@ pub const qvideoframe = struct {
 
     /// New3 constructs a new QVideoFrame object.
     ///
+    /// ``` image: QtC.QImage ```
+    pub fn New3(image: ?*anyopaque) QtC.QVideoFrame {
+        return qtc.QVideoFrame_new3(@ptrCast(image));
+    }
+
+    /// New4 constructs a new QVideoFrame object.
+    ///
     /// ``` other: QtC.QVideoFrame ```
-    pub fn New3(other: ?*anyopaque) QtC.QVideoFrame {
-        return qtc.QVideoFrame_new3(@ptrCast(other));
+    pub fn New4(other: ?*anyopaque) QtC.QVideoFrame {
+        return qtc.QVideoFrame_new4(@ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#swap)
@@ -211,9 +219,9 @@ pub const qvideoframe = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#setRotationAngle)
     ///
-    /// ``` self: QtC.QVideoFrame, rotationAngle: qvideoframe_enums.RotationAngle ```
-    pub fn SetRotationAngle(self: ?*anyopaque, rotationAngle: i64) void {
-        qtc.QVideoFrame_SetRotationAngle(@ptrCast(self), @intCast(rotationAngle));
+    /// ``` self: QtC.QVideoFrame, angle: qvideoframe_enums.RotationAngle ```
+    pub fn SetRotationAngle(self: ?*anyopaque, angle: i64) void {
+        qtc.QVideoFrame_SetRotationAngle(@ptrCast(self), @intCast(angle));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#rotationAngle)
@@ -221,6 +229,20 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame ```
     pub fn RotationAngle(self: ?*anyopaque) i64 {
         return qtc.QVideoFrame_RotationAngle(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#setRotation)
+    ///
+    /// ``` self: QtC.QVideoFrame, angle: qtvideo_enums.Rotation ```
+    pub fn SetRotation(self: ?*anyopaque, angle: i64) void {
+        qtc.QVideoFrame_SetRotation(@ptrCast(self), @intCast(angle));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#rotation)
+    ///
+    /// ``` self: QtC.QVideoFrame ```
+    pub fn Rotation(self: ?*anyopaque) i64 {
+        return qtc.QVideoFrame_Rotation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#setMirrored)
@@ -235,6 +257,20 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame ```
     pub fn Mirrored(self: ?*anyopaque) bool {
         return qtc.QVideoFrame_Mirrored(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#setStreamFrameRate)
+    ///
+    /// ``` self: QtC.QVideoFrame, rate: f64 ```
+    pub fn SetStreamFrameRate(self: ?*anyopaque, rate: f64) void {
+        qtc.QVideoFrame_SetStreamFrameRate(@ptrCast(self), @floatCast(rate));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#streamFrameRate)
+    ///
+    /// ``` self: QtC.QVideoFrame ```
+    pub fn StreamFrameRate(self: ?*anyopaque) f64 {
+        return qtc.QVideoFrame_StreamFrameRate(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#toImage)

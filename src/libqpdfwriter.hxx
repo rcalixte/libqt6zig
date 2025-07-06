@@ -42,6 +42,7 @@ class VirtualQPdfWriter final : public QPdfWriter {
     using QPdfWriter_SenderSignalIndex_Callback = int (*)();
     using QPdfWriter_Receivers_Callback = int (*)(const QPdfWriter*, const char*);
     using QPdfWriter_IsSignalConnected_Callback = bool (*)(const QPdfWriter*, QMetaMethod*);
+    using QPdfWriter_GetDecodedMetricF_Callback = double (*)(const QPdfWriter*, int, int);
 
   protected:
     // Instance callback storage
@@ -69,6 +70,7 @@ class VirtualQPdfWriter final : public QPdfWriter {
     QPdfWriter_SenderSignalIndex_Callback qpdfwriter_sendersignalindex_callback = nullptr;
     QPdfWriter_Receivers_Callback qpdfwriter_receivers_callback = nullptr;
     QPdfWriter_IsSignalConnected_Callback qpdfwriter_issignalconnected_callback = nullptr;
+    QPdfWriter_GetDecodedMetricF_Callback qpdfwriter_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qpdfwriter_metacall_isbase = false;
@@ -95,10 +97,11 @@ class VirtualQPdfWriter final : public QPdfWriter {
     mutable bool qpdfwriter_sendersignalindex_isbase = false;
     mutable bool qpdfwriter_receivers_isbase = false;
     mutable bool qpdfwriter_issignalconnected_isbase = false;
+    mutable bool qpdfwriter_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQPdfWriter(const QString& filename) : QPdfWriter(filename){};
-    VirtualQPdfWriter(QIODevice* device) : QPdfWriter(device){};
+    VirtualQPdfWriter(const QString& filename) : QPdfWriter(filename) {};
+    VirtualQPdfWriter(QIODevice* device) : QPdfWriter(device) {};
 
     ~VirtualQPdfWriter() {
         qpdfwriter_metacall_callback = nullptr;
@@ -125,6 +128,7 @@ class VirtualQPdfWriter final : public QPdfWriter {
         qpdfwriter_sendersignalindex_callback = nullptr;
         qpdfwriter_receivers_callback = nullptr;
         qpdfwriter_issignalconnected_callback = nullptr;
+        qpdfwriter_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -152,6 +156,7 @@ class VirtualQPdfWriter final : public QPdfWriter {
     inline void setQPdfWriter_SenderSignalIndex_Callback(QPdfWriter_SenderSignalIndex_Callback cb) { qpdfwriter_sendersignalindex_callback = cb; }
     inline void setQPdfWriter_Receivers_Callback(QPdfWriter_Receivers_Callback cb) { qpdfwriter_receivers_callback = cb; }
     inline void setQPdfWriter_IsSignalConnected_Callback(QPdfWriter_IsSignalConnected_Callback cb) { qpdfwriter_issignalconnected_callback = cb; }
+    inline void setQPdfWriter_GetDecodedMetricF_Callback(QPdfWriter_GetDecodedMetricF_Callback cb) { qpdfwriter_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQPdfWriter_Metacall_IsBase(bool value) const { qpdfwriter_metacall_isbase = value; }
@@ -178,6 +183,7 @@ class VirtualQPdfWriter final : public QPdfWriter {
     inline void setQPdfWriter_SenderSignalIndex_IsBase(bool value) const { qpdfwriter_sendersignalindex_isbase = value; }
     inline void setQPdfWriter_Receivers_IsBase(bool value) const { qpdfwriter_receivers_isbase = value; }
     inline void setQPdfWriter_IsSignalConnected_IsBase(bool value) const { qpdfwriter_issignalconnected_isbase = value; }
+    inline void setQPdfWriter_GetDecodedMetricF_IsBase(bool value) const { qpdfwriter_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -538,6 +544,22 @@ class VirtualQPdfWriter final : public QPdfWriter {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qpdfwriter_getdecodedmetricf_isbase) {
+            qpdfwriter_getdecodedmetricf_isbase = false;
+            return QPdfWriter::getDecodedMetricF(metricA, metricB);
+        } else if (qpdfwriter_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qpdfwriter_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QPdfWriter::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend QPaintEngine* QPdfWriter_PaintEngine(const QPdfWriter* self);
     friend QPaintEngine* QPdfWriter_QBasePaintEngine(const QPdfWriter* self);
@@ -567,6 +589,8 @@ class VirtualQPdfWriter final : public QPdfWriter {
     friend int QPdfWriter_QBaseReceivers(const QPdfWriter* self, const char* signal);
     friend bool QPdfWriter_IsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal);
     friend bool QPdfWriter_QBaseIsSignalConnected(const QPdfWriter* self, const QMetaMethod* signal);
+    friend double QPdfWriter_GetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB);
+    friend double QPdfWriter_QBaseGetDecodedMetricF(const QPdfWriter* self, int metricA, int metricB);
 };
 
 #endif

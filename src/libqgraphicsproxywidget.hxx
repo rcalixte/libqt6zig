@@ -254,9 +254,9 @@ class VirtualQGraphicsProxyWidget final : public QGraphicsProxyWidget {
     mutable bool qgraphicsproxywidget_setownedbylayout_isbase = false;
 
   public:
-    VirtualQGraphicsProxyWidget() : QGraphicsProxyWidget(){};
-    VirtualQGraphicsProxyWidget(QGraphicsItem* parent) : QGraphicsProxyWidget(parent){};
-    VirtualQGraphicsProxyWidget(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QGraphicsProxyWidget(parent, wFlags){};
+    VirtualQGraphicsProxyWidget() : QGraphicsProxyWidget() {};
+    VirtualQGraphicsProxyWidget(QGraphicsItem* parent) : QGraphicsProxyWidget(parent) {};
+    VirtualQGraphicsProxyWidget(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QGraphicsProxyWidget(parent, wFlags) {};
 
     ~VirtualQGraphicsProxyWidget() {
         qgraphicsproxywidget_metacall_callback = nullptr;

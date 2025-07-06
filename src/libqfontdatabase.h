@@ -21,16 +21,6 @@ typedef struct QFontDatabase QFontDatabase;
 typedef struct QFontInfo QFontInfo;
 #endif
 
-#ifdef __cplusplus
-typedef QFontDatabase::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QFontDatabase::SystemFont SystemFont;         // C++ enum
-typedef QFontDatabase::WritingSystem WritingSystem;   // C++ enum
-#else
-typedef int SystemFont;      // C ABI enum
-typedef int WritingSystem;   // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QFontDatabase* QFontDatabase_new(const QFontDatabase* other);
 QFontDatabase* QFontDatabase_new2(QFontDatabase* other);
 QFontDatabase* QFontDatabase_new3();
@@ -62,6 +52,10 @@ int QFontDatabase_AddApplicationFontFromData(const libqt_string fontData);
 libqt_list /* of libqt_string */ QFontDatabase_ApplicationFontFamilies(int id);
 bool QFontDatabase_RemoveApplicationFont(int id);
 bool QFontDatabase_RemoveAllApplicationFonts();
+void QFontDatabase_AddApplicationFallbackFontFamily(int script, const libqt_string familyName);
+bool QFontDatabase_RemoveApplicationFallbackFontFamily(int script, const libqt_string familyName);
+void QFontDatabase_SetApplicationFallbackFontFamilies(int param1, const libqt_list /* of libqt_string */ familyNames);
+libqt_list /* of libqt_string */ QFontDatabase_ApplicationFallbackFontFamilies(int script);
 QFont* QFontDatabase_SystemFont(int typeVal);
 libqt_list /* of libqt_string */ QFontDatabase_Families1(int writingSystem);
 libqt_list /* of int */ QFontDatabase_PointSizes2(const libqt_string family, const libqt_string style);

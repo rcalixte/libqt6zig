@@ -156,6 +156,12 @@ void QsciLexerDiff_QBaseConnectNotify(QsciLexerDiff* self, const QMetaMethod* si
 void QsciLexerDiff_DisconnectNotify(QsciLexerDiff* self, const QMetaMethod* signal);
 void QsciLexerDiff_OnDisconnectNotify(QsciLexerDiff* self, intptr_t slot);
 void QsciLexerDiff_QBaseDisconnectNotify(QsciLexerDiff* self, const QMetaMethod* signal);
+libqt_string QsciLexerDiff_TextAsBytes(const QsciLexerDiff* self, const libqt_string text);
+void QsciLexerDiff_OnTextAsBytes(const QsciLexerDiff* self, intptr_t slot);
+libqt_string QsciLexerDiff_QBaseTextAsBytes(const QsciLexerDiff* self, const libqt_string text);
+libqt_string QsciLexerDiff_BytesAsText(const QsciLexerDiff* self, const char* bytes, int size);
+void QsciLexerDiff_OnBytesAsText(const QsciLexerDiff* self, intptr_t slot);
+libqt_string QsciLexerDiff_QBaseBytesAsText(const QsciLexerDiff* self, const char* bytes, int size);
 QObject* QsciLexerDiff_Sender(const QsciLexerDiff* self);
 void QsciLexerDiff_OnSender(const QsciLexerDiff* self, intptr_t slot);
 QObject* QsciLexerDiff_QBaseSender(const QsciLexerDiff* self);

@@ -623,8 +623,8 @@ pub const qabstracttextdocumentlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -643,6 +643,15 @@ pub const qabstracttextdocumentlayout = struct {
     /// ``` self: QtC.QAbstractTextDocumentLayout, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -848,6 +857,15 @@ pub const qabstracttextdocumentlayout = struct {
     /// ``` self: QtC.QAbstractTextDocumentLayout ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -1320,9 +1338,9 @@ pub const qtextobjectinterface = struct {
 pub const qabstracttextdocumentlayout__selection = struct {
     /// New constructs a new QAbstractTextDocumentLayout::Selection object.
     ///
-    /// ``` param1: QtC.QAbstractTextDocumentLayout__Selection ```
-    pub fn New(param1: ?*anyopaque) QtC.QAbstractTextDocumentLayout__Selection {
-        return qtc.QAbstractTextDocumentLayout__Selection_new(@ptrCast(param1));
+    ///
+    pub fn New() QtC.QAbstractTextDocumentLayout__Selection {
+        return qtc.QAbstractTextDocumentLayout__Selection_new();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__selection.html#operator=)
@@ -1347,13 +1365,6 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
     ///
     pub fn New() QtC.QAbstractTextDocumentLayout__PaintContext {
         return qtc.QAbstractTextDocumentLayout__PaintContext_new();
-    }
-
-    /// New2 constructs a new QAbstractTextDocumentLayout::PaintContext object.
-    ///
-    /// ``` param1: QtC.QAbstractTextDocumentLayout__PaintContext ```
-    pub fn New2(param1: ?*anyopaque) QtC.QAbstractTextDocumentLayout__PaintContext {
-        return qtc.QAbstractTextDocumentLayout__PaintContext_new2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__paintcontext.html#operator=)

@@ -166,5 +166,6 @@ pub const enums = struct {
         pub const ViewSourceAllowed: i32 = 32;
         pub const ContentSecurityPolicyIgnored: i32 = 64;
         pub const CorsEnabled: i32 = 128;
+        pub const FetchApiAllowed: i32 = 256;
     };
 };

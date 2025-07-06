@@ -92,12 +92,12 @@ libqt_list /* of QKeySequence* */ QKeySequence_ListFromString(const libqt_string
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QKeySequence> _ret = QKeySequence::listFromString(str_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -132,12 +132,12 @@ QKeySequence* QKeySequence_Mnemonic(const libqt_string text) {
 libqt_list /* of QKeySequence* */ QKeySequence_KeyBindings(int key) {
     QList<QKeySequence> _ret = QKeySequence::keyBindings(static_cast<QKeySequence::StandardKey>(key));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -207,12 +207,12 @@ libqt_list /* of QKeySequence* */ QKeySequence_ListFromString2(const libqt_strin
     QString str_QString = QString::fromUtf8(str.data, str.len);
     QList<QKeySequence> _ret = QKeySequence::listFromString(str_QString, static_cast<QKeySequence::SequenceFormat>(format));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

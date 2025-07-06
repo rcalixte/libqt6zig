@@ -20,14 +20,6 @@ typedef struct QSslCertificate QSslCertificate;
 typedef struct QSslError QSslError;
 #endif
 
-#ifdef __cplusplus
-typedef QSslError::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QSslError::SslError SslError;             // C++ enum
-#else
-typedef int SslError;        // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QSslError* QSslError_new();
 QSslError* QSslError_new2(int errorVal);
 QSslError* QSslError_new3(int errorVal, const QSslCertificate* certificate);

@@ -52,16 +52,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QInputDialog::InputDialogOption InputDialogOption;   // C++ enum
-typedef QInputDialog::InputDialogOptions InputDialogOptions; // C++ QFlags
-typedef QInputDialog::InputMode InputMode;                   // C++ enum
-#else
-typedef int InputDialogOption;  // C ABI enum
-typedef int InputDialogOptions; // C ABI QFlags
-typedef int InputMode;          // C ABI enum
-#endif
-
 QInputDialog* QInputDialog_new(QWidget* parent);
 QInputDialog* QInputDialog_new2();
 QInputDialog* QInputDialog_new3(QWidget* parent, int flags);
@@ -344,6 +334,9 @@ int QInputDialog_QBaseReceivers(const QInputDialog* self, const char* signal);
 bool QInputDialog_IsSignalConnected(const QInputDialog* self, const QMetaMethod* signal);
 void QInputDialog_OnIsSignalConnected(const QInputDialog* self, intptr_t slot);
 bool QInputDialog_QBaseIsSignalConnected(const QInputDialog* self, const QMetaMethod* signal);
+double QInputDialog_GetDecodedMetricF(const QInputDialog* self, int metricA, int metricB);
+void QInputDialog_OnGetDecodedMetricF(const QInputDialog* self, intptr_t slot);
+double QInputDialog_QBaseGetDecodedMetricF(const QInputDialog* self, int metricA, int metricB);
 void QInputDialog_Delete(QInputDialog* self);
 
 #ifdef __cplusplus

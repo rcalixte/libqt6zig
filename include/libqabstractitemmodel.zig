@@ -16,13 +16,6 @@ pub const qmodelroledata = struct {
         return qtc.QModelRoleData_new(@intCast(role));
     }
 
-    /// New2 constructs a new QModelRoleData object.
-    ///
-    /// ``` param1: QtC.QModelRoleData ```
-    pub fn New2(param1: ?*anyopaque) QtC.QModelRoleData {
-        return qtc.QModelRoleData_new2(@ptrCast(param1));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#role)
     ///
     /// ``` self: QtC.QModelRoleData ```
@@ -327,27 +320,6 @@ pub const qmodelindex = struct {
         return qtc.QModelIndex_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#operator==)
-    ///
-    /// ``` self: QtC.QModelIndex, other: QtC.QModelIndex ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QModelIndex_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#operator!=)
-    ///
-    /// ``` self: QtC.QModelIndex, other: QtC.QModelIndex ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QModelIndex_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#operator<)
-    ///
-    /// ``` self: QtC.QModelIndex, other: QtC.QModelIndex ```
-    pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QModelIndex_OperatorLesser(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#data)
     ///
     /// ``` self: QtC.QModelIndex, role: i32 ```
@@ -388,27 +360,6 @@ pub const qpersistentmodelindex = struct {
         return qtc.QPersistentModelIndex_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator<)
-    ///
-    /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
-    pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QPersistentModelIndex_OperatorLesser(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator==)
-    ///
-    /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QPersistentModelIndex_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator!=)
-    ///
-    /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QPersistentModelIndex_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator=)
     ///
     /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
@@ -421,20 +372,6 @@ pub const qpersistentmodelindex = struct {
     /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPersistentModelIndex_Swap(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator==)
-    ///
-    /// ``` self: QtC.QPersistentModelIndex, other: QtC.QModelIndex ```
-    pub fn OperatorEqualWithOther(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QPersistentModelIndex_OperatorEqualWithOther(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator!=)
-    ///
-    /// ``` self: QtC.QPersistentModelIndex, other: QtC.QModelIndex ```
-    pub fn OperatorNotEqualWithOther(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QPersistentModelIndex_OperatorNotEqualWithOther(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator=)
@@ -2614,8 +2551,8 @@ pub const qabstractitemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractItemModel, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -2634,6 +2571,15 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QAbstractItemModel, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -2830,6 +2776,15 @@ pub const qabstractitemmodel = struct {
     /// ``` self: QtC.QAbstractItemModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QAbstractItemModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -4032,8 +3987,8 @@ pub const qabstracttablemodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractTableModel, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -4052,6 +4007,15 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QAbstractTableModel, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -4248,6 +4212,15 @@ pub const qabstracttablemodel = struct {
     /// ``` self: QtC.QAbstractTableModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QAbstractTableModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -7364,8 +7337,8 @@ pub const qabstractlistmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QAbstractListModel, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -7384,6 +7357,15 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QAbstractListModel, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -7580,6 +7562,15 @@ pub const qabstractlistmodel = struct {
     /// ``` self: QtC.QAbstractListModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QAbstractListModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

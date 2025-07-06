@@ -160,6 +160,12 @@ void QsciLexerJSON_QBaseConnectNotify(QsciLexerJSON* self, const QMetaMethod* si
 void QsciLexerJSON_DisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
 void QsciLexerJSON_OnDisconnectNotify(QsciLexerJSON* self, intptr_t slot);
 void QsciLexerJSON_QBaseDisconnectNotify(QsciLexerJSON* self, const QMetaMethod* signal);
+libqt_string QsciLexerJSON_TextAsBytes(const QsciLexerJSON* self, const libqt_string text);
+void QsciLexerJSON_OnTextAsBytes(const QsciLexerJSON* self, intptr_t slot);
+libqt_string QsciLexerJSON_QBaseTextAsBytes(const QsciLexerJSON* self, const libqt_string text);
+libqt_string QsciLexerJSON_BytesAsText(const QsciLexerJSON* self, const char* bytes, int size);
+void QsciLexerJSON_OnBytesAsText(const QsciLexerJSON* self, intptr_t slot);
+libqt_string QsciLexerJSON_QBaseBytesAsText(const QsciLexerJSON* self, const char* bytes, int size);
 QObject* QsciLexerJSON_Sender(const QsciLexerJSON* self);
 void QsciLexerJSON_OnSender(const QsciLexerJSON* self, intptr_t slot);
 QObject* QsciLexerJSON_QBaseSender(const QsciLexerJSON* self);

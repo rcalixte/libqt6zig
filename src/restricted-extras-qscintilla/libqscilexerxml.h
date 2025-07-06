@@ -168,6 +168,12 @@ void QsciLexerXML_QBaseConnectNotify(QsciLexerXML* self, const QMetaMethod* sign
 void QsciLexerXML_DisconnectNotify(QsciLexerXML* self, const QMetaMethod* signal);
 void QsciLexerXML_OnDisconnectNotify(QsciLexerXML* self, intptr_t slot);
 void QsciLexerXML_QBaseDisconnectNotify(QsciLexerXML* self, const QMetaMethod* signal);
+libqt_string QsciLexerXML_TextAsBytes(const QsciLexerXML* self, const libqt_string text);
+void QsciLexerXML_OnTextAsBytes(const QsciLexerXML* self, intptr_t slot);
+libqt_string QsciLexerXML_QBaseTextAsBytes(const QsciLexerXML* self, const libqt_string text);
+libqt_string QsciLexerXML_BytesAsText(const QsciLexerXML* self, const char* bytes, int size);
+void QsciLexerXML_OnBytesAsText(const QsciLexerXML* self, intptr_t slot);
+libqt_string QsciLexerXML_QBaseBytesAsText(const QsciLexerXML* self, const char* bytes, int size);
 QObject* QsciLexerXML_Sender(const QsciLexerXML* self);
 void QsciLexerXML_OnSender(const QsciLexerXML* self, intptr_t slot);
 QObject* QsciLexerXML_QBaseSender(const QsciLexerXML* self);

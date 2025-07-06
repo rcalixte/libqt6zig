@@ -61,7 +61,7 @@ class VirtualQAudioListener final : public QAudioListener {
     mutable bool qaudiolistener_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioListener(QAudioEngine* engine) : QAudioListener(engine){};
+    VirtualQAudioListener(QAudioEngine* engine) : QAudioListener(engine) {};
 
     ~VirtualQAudioListener() {
         qaudiolistener_metacall_callback = nullptr;

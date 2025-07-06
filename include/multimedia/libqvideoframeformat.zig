@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qimage_enums = @import("../libqimage.zig").enums;
+const qtvideo_enums = @import("libqtvideo.zig").enums;
 const qvideoframeformat_enums = enums;
 const std = @import("std");
 
@@ -160,6 +161,20 @@ pub const qvideoframeformat = struct {
         qtc.QVideoFrameFormat_SetFrameRate(@ptrCast(self), @floatCast(rate));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#streamFrameRate)
+    ///
+    /// ``` self: QtC.QVideoFrameFormat ```
+    pub fn StreamFrameRate(self: ?*anyopaque) f64 {
+        return qtc.QVideoFrameFormat_StreamFrameRate(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setStreamFrameRate)
+    ///
+    /// ``` self: QtC.QVideoFrameFormat, rate: f64 ```
+    pub fn SetStreamFrameRate(self: ?*anyopaque, rate: f64) void {
+        qtc.QVideoFrameFormat_SetStreamFrameRate(@ptrCast(self), @floatCast(rate));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#yCbCrColorSpace)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
@@ -228,6 +243,20 @@ pub const qvideoframeformat = struct {
     /// ``` self: QtC.QVideoFrameFormat, mirrored: bool ```
     pub fn SetMirrored(self: ?*anyopaque, mirrored: bool) void {
         qtc.QVideoFrameFormat_SetMirrored(@ptrCast(self), mirrored);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#rotation)
+    ///
+    /// ``` self: QtC.QVideoFrameFormat ```
+    pub fn Rotation(self: ?*anyopaque) i64 {
+        return qtc.QVideoFrameFormat_Rotation(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#setRotation)
+    ///
+    /// ``` self: QtC.QVideoFrameFormat, rotation: qtvideo_enums.Rotation ```
+    pub fn SetRotation(self: ?*anyopaque, rotation: i64) void {
+        qtc.QVideoFrameFormat_SetRotation(@ptrCast(self), @intCast(rotation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#vertexShaderFileName)

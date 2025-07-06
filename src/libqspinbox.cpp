@@ -2208,6 +2208,35 @@ void QSpinBox_OnIsSignalConnected(const QSpinBox* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QSpinBox_GetDecodedMetricF(const QSpinBox* self, int metricA, int metricB) {
+    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        return vqspinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QSpinBox_QBaseGetDecodedMetricF(const QSpinBox* self, int metricA, int metricB) {
+    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_GetDecodedMetricF_IsBase(true);
+        return vqspinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QSpinBox_OnGetDecodedMetricF(const QSpinBox* self, intptr_t slot) {
+    auto* vqspinbox = const_cast<VirtualQSpinBox*>(dynamic_cast<const VirtualQSpinBox*>(self));
+    if (vqspinbox && vqspinbox->isVirtualQSpinBox) {
+        vqspinbox->setQSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQSpinBox::QSpinBox_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QSpinBox_Delete(QSpinBox* self) {
     delete self;
 }
@@ -4374,6 +4403,35 @@ void QDoubleSpinBox_OnIsSignalConnected(const QDoubleSpinBox* self, intptr_t slo
     auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
     if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
         vqdoublespinbox->setQDoubleSpinBox_IsSignalConnected_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QDoubleSpinBox_GetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB) {
+    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        return vqdoublespinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDoubleSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QDoubleSpinBox_QBaseGetDecodedMetricF(const QDoubleSpinBox* self, int metricA, int metricB) {
+    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_GetDecodedMetricF_IsBase(true);
+        return vqdoublespinbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDoubleSpinBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDoubleSpinBox_OnGetDecodedMetricF(const QDoubleSpinBox* self, intptr_t slot) {
+    auto* vqdoublespinbox = const_cast<VirtualQDoubleSpinBox*>(dynamic_cast<const VirtualQDoubleSpinBox*>(self));
+    if (vqdoublespinbox && vqdoublespinbox->isVirtualQDoubleSpinBox) {
+        vqdoublespinbox->setQDoubleSpinBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDoubleSpinBox::QDoubleSpinBox_GetDecodedMetricF_Callback>(slot));
     }
 }
 

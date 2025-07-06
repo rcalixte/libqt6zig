@@ -2,6 +2,9 @@
 #include <QCborError>
 #include <QCborStreamReader>
 #include <QIODevice>
+#include <QString>
+#include <QByteArray>
+#include <cstring>
 #include <qcborstreamreader.h>
 #include "libqcborstreamreader.h"
 #include "libqcborstreamreader.hxx"
@@ -60,7 +63,7 @@ void QCborStreamReader_Reset(QCborStreamReader* self) {
     self->reset();
 }
 
-QCborError* QCborStreamReader_LastError(QCborStreamReader* self) {
+QCborError* QCborStreamReader_LastError(const QCborStreamReader* self) {
     return new QCborError(self->lastError());
 }
 
@@ -188,6 +191,21 @@ bool QCborStreamReader_LeaveContainer(QCborStreamReader* self) {
     return self->leaveContainer();
 }
 
+bool QCborStreamReader_ReadAndAppendToString(QCborStreamReader* self, libqt_string dst) {
+    QString dst_QString = QString::fromUtf8(dst.data, dst.len);
+    return self->readAndAppendToString(dst_QString);
+}
+
+bool QCborStreamReader_ReadAndAppendToUtf8String(QCborStreamReader* self, libqt_string dst) {
+    QByteArray dst_QByteArray(dst.data, dst.len);
+    return self->readAndAppendToUtf8String(dst_QByteArray);
+}
+
+bool QCborStreamReader_ReadAndAppendToByteArray(QCborStreamReader* self, libqt_string dst) {
+    QByteArray dst_QByteArray(dst.data, dst.len);
+    return self->readAndAppendToByteArray(dst_QByteArray);
+}
+
 ptrdiff_t QCborStreamReader_CurrentStringChunkSize(const QCborStreamReader* self) {
     return static_cast<ptrdiff_t>(self->currentStringChunkSize());
 }
@@ -222,6 +240,38 @@ double QCborStreamReader_ToDouble(const QCborStreamReader* self) {
 
 long long QCborStreamReader_ToInteger(const QCborStreamReader* self) {
     return static_cast<long long>(self->toInteger());
+}
+
+libqt_string QCborStreamReader_ReadAllString(QCborStreamReader* self) {
+    QString _ret = self->readAllString();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QCborStreamReader_ReadAllUtf8String(QCborStreamReader* self) {
+    QByteArray _qb = self->readAllUtf8String();
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QCborStreamReader_ReadAllByteArray(QCborStreamReader* self) {
+    QByteArray _qb = self->readAllByteArray();
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 bool QCborStreamReader_Next1(QCborStreamReader* self, int maxRecursion) {

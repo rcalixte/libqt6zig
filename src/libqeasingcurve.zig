@@ -40,20 +40,6 @@ pub const qeasingcurve = struct {
         qtc.QEasingCurve_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#operator==)
-    ///
-    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QEasingCurve_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#operator!=)
-    ///
-    /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QEasingCurve_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#amplitude)
     ///
     /// ``` self: QtC.QEasingCurve ```

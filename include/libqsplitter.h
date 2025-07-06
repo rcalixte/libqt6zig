@@ -279,6 +279,9 @@ int QSplitter_QBaseReceivers(const QSplitter* self, const char* signal);
 bool QSplitter_IsSignalConnected(const QSplitter* self, const QMetaMethod* signal);
 void QSplitter_OnIsSignalConnected(const QSplitter* self, intptr_t slot);
 bool QSplitter_QBaseIsSignalConnected(const QSplitter* self, const QMetaMethod* signal);
+double QSplitter_GetDecodedMetricF(const QSplitter* self, int metricA, int metricB);
+void QSplitter_OnGetDecodedMetricF(const QSplitter* self, intptr_t slot);
+double QSplitter_QBaseGetDecodedMetricF(const QSplitter* self, int metricA, int metricB);
 void QSplitter_Delete(QSplitter* self);
 
 QSplitterHandle* QSplitterHandle_new(int o, QSplitter* parent);
@@ -468,6 +471,9 @@ int QSplitterHandle_QBaseReceivers(const QSplitterHandle* self, const char* sign
 bool QSplitterHandle_IsSignalConnected(const QSplitterHandle* self, const QMetaMethod* signal);
 void QSplitterHandle_OnIsSignalConnected(const QSplitterHandle* self, intptr_t slot);
 bool QSplitterHandle_QBaseIsSignalConnected(const QSplitterHandle* self, const QMetaMethod* signal);
+double QSplitterHandle_GetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB);
+void QSplitterHandle_OnGetDecodedMetricF(const QSplitterHandle* self, intptr_t slot);
+double QSplitterHandle_QBaseGetDecodedMetricF(const QSplitterHandle* self, int metricA, int metricB);
 void QSplitterHandle_Delete(QSplitterHandle* self);
 
 #ifdef __cplusplus

@@ -28,14 +28,6 @@ typedef struct QVector3D QVector3D;
 typedef struct QVector4D QVector4D;
 #endif
 
-#ifdef __cplusplus
-typedef QMatrix4x4::Flag Flag;   // C++ enum
-typedef QMatrix4x4::Flags Flags; // C++ QFlags
-#else
-typedef int Flag;  // C ABI enum
-typedef int Flags; // C ABI QFlags
-#endif
-
 QMatrix4x4* QMatrix4x4_new(const QMatrix4x4* other);
 QMatrix4x4* QMatrix4x4_new2(QMatrix4x4* other);
 QMatrix4x4* QMatrix4x4_new3();
@@ -99,7 +91,8 @@ const float* QMatrix4x4_Data2(const QMatrix4x4* self);
 const float* QMatrix4x4_ConstData(const QMatrix4x4* self);
 void QMatrix4x4_Optimize(QMatrix4x4* self);
 QVariant* QMatrix4x4_ToQVariant(const QMatrix4x4* self);
-void QMatrix4x4_ProjectedRotate(QMatrix4x4* self, float angle, float x, float y, float z);
+void QMatrix4x4_ProjectedRotate(QMatrix4x4* self, float angle, float x, float y, float z, float distanceToPlane);
+void QMatrix4x4_ProjectedRotate2(QMatrix4x4* self, float angle, float x, float y, float z);
 int QMatrix4x4_Flags(const QMatrix4x4* self);
 QMatrix4x4* QMatrix4x4_Inverted1(const QMatrix4x4* self, bool* invertible);
 void QMatrix4x4_Rotate4(QMatrix4x4* self, float angle, float x, float y, float z);

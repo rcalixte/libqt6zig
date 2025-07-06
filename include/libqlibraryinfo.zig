@@ -48,6 +48,13 @@ pub const qlibraryinfo = struct {
         return qtc.QLibraryInfo_IsDebugBuild();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#isSharedBuild)
+    ///
+    ///
+    pub fn IsSharedBuild() bool {
+        return qtc.QLibraryInfo_IsSharedBuild();
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#version)
     ///
     ///
@@ -63,6 +70,28 @@ pub const qlibraryinfo = struct {
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlibraryinfo.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#paths)
+    ///
+    /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
+    pub fn Paths(p: i64, allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QLibraryInfo_Paths(@intCast(p));
+        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        defer {
+            for (0.._arr.len) |i| {
+                qtc.libqt_string_free(@ptrCast(&_str[i]));
+            }
+            qtc.libqt_free(_arr.data);
+        }
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qlibraryinfo.Paths: Memory allocation failed");
+        for (0.._arr.len) |i| {
+            const _data = _str[i];
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qlibraryinfo.Paths: Memory allocation failed");
+            @memcpy(_buf, _data.data[0.._data.len]);
+            _ret[i] = _buf;
+        }
         return _ret;
     }
 

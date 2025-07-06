@@ -20,14 +20,6 @@ typedef struct QMediaMetaData QMediaMetaData;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QMediaMetaData::Key Key;                       // C++ enum
-typedef QMediaMetaData::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef int Key;             // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QMediaMetaData* QMediaMetaData_new(const QMediaMetaData* param1);
 QMediaMetaData* QMediaMetaData_new2();
 QVariant* QMediaMetaData_Value(const QMediaMetaData* self, int k);

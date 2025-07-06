@@ -26,14 +26,6 @@ typedef struct QSocketNotifier QSocketNotifier;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QSocketDescriptor::DescriptorType DescriptorType; // C++ QFlags
-typedef QSocketNotifier::Type Type;                       // C++ enum
-#else
-typedef int DescriptorType; // C ABI QFlags
-typedef unsigned char Type; // C ABI enum
-#endif
-
 QSocketNotifier* QSocketNotifier_new(int param1);
 QSocketNotifier* QSocketNotifier_new2(intptr_t socket, int param2);
 QSocketNotifier* QSocketNotifier_new3(int param1, QObject* parent);

@@ -28,12 +28,6 @@ typedef struct QTransform QTransform;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QTransform::TransformationType TransformationType; // C++ enum
-#else
-typedef int TransformationType; // C ABI enum
-#endif
-
 QTransform* QTransform_new(const QTransform* other);
 QTransform* QTransform_new2(QTransform* other);
 QTransform* QTransform_new3(int param1);
@@ -70,8 +64,10 @@ QTransform* QTransform_Transposed(const QTransform* self);
 QTransform* QTransform_Translate(QTransform* self, double dx, double dy);
 QTransform* QTransform_Scale(QTransform* self, double sx, double sy);
 QTransform* QTransform_Shear(QTransform* self, double sh, double sv);
-QTransform* QTransform_Rotate(QTransform* self, double a);
-QTransform* QTransform_RotateRadians(QTransform* self, double a);
+QTransform* QTransform_Rotate(QTransform* self, double a, int axis, double distanceToPlane);
+QTransform* QTransform_RotateWithQreal(QTransform* self, double a);
+QTransform* QTransform_RotateRadians(QTransform* self, double a, int axis, double distanceToPlane);
+QTransform* QTransform_RotateRadiansWithQreal(QTransform* self, double a);
 bool QTransform_OperatorEqual(const QTransform* self, const QTransform* param1);
 bool QTransform_OperatorNotEqual(const QTransform* self, const QTransform* param1);
 QTransform* QTransform_OperatorMultiplyAssign(QTransform* self, const QTransform* param1);

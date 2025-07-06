@@ -134,6 +134,13 @@ pub const qstylehints = struct {
         return qtc.QStyleHints_KeyboardAutoRepeatRate(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#keyboardAutoRepeatRateF)
+    ///
+    /// ``` self: QtC.QStyleHints ```
+    pub fn KeyboardAutoRepeatRateF(self: ?*anyopaque) f64 {
+        return qtc.QStyleHints_KeyboardAutoRepeatRateF(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#setCursorFlashTime)
     ///
     /// ``` self: QtC.QStyleHints, cursorFlashTime: i32 ```
@@ -174,6 +181,20 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints, showShortcutsInContextMenus: bool ```
     pub fn SetShowShortcutsInContextMenus(self: ?*anyopaque, showShortcutsInContextMenus: bool) void {
         qtc.QStyleHints_SetShowShortcutsInContextMenus(@ptrCast(self), showShortcutsInContextMenus);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTrigger)
+    ///
+    /// ``` self: QtC.QStyleHints ```
+    pub fn ContextMenuTrigger(self: ?*anyopaque) i64 {
+        return qtc.QStyleHints_ContextMenuTrigger(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#setContextMenuTrigger)
+    ///
+    /// ``` self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger ```
+    pub fn SetContextMenuTrigger(self: ?*anyopaque, contextMenuTrigger: i64) void {
+        qtc.QStyleHints_SetContextMenuTrigger(@ptrCast(self), @intCast(contextMenuTrigger));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#passwordMaskDelay)
@@ -272,6 +293,27 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints ```
     pub fn MouseQuickSelectionThreshold(self: ?*anyopaque) i32 {
         return qtc.QStyleHints_MouseQuickSelectionThreshold(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#colorScheme)
+    ///
+    /// ``` self: QtC.QStyleHints ```
+    pub fn ColorScheme(self: ?*anyopaque) i64 {
+        return qtc.QStyleHints_ColorScheme(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#setColorScheme)
+    ///
+    /// ``` self: QtC.QStyleHints, scheme: qnamespace_enums.ColorScheme ```
+    pub fn SetColorScheme(self: ?*anyopaque, scheme: i64) void {
+        qtc.QStyleHints_SetColorScheme(@ptrCast(self), @intCast(scheme));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#unsetColorScheme)
+    ///
+    /// ``` self: QtC.QStyleHints ```
+    pub fn UnsetColorScheme(self: ?*anyopaque) void {
+        qtc.QStyleHints_UnsetColorScheme(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#cursorFlashTimeChanged)
@@ -400,6 +442,20 @@ pub const qstylehints = struct {
         qtc.QStyleHints_Connect_ShowShortcutsInContextMenusChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
+    ///
+    /// ``` self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger ```
+    pub fn ContextMenuTriggerChanged(self: ?*anyopaque, contextMenuTrigger: i64) void {
+        qtc.QStyleHints_ContextMenuTriggerChanged(@ptrCast(self), @intCast(contextMenuTrigger));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
+    ///
+    /// ``` self: QtC.QStyleHints, slot: fn (self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger) callconv(.c) void ```
+    pub fn OnContextMenuTriggerChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_ContextMenuTriggerChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#wheelScrollLinesChanged)
     ///
     /// ``` self: QtC.QStyleHints, scrollLines: i32 ```
@@ -426,6 +482,20 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints, slot: fn (self: QtC.QStyleHints, threshold: i32) callconv(.c) void ```
     pub fn OnMouseQuickSelectionThresholdChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_MouseQuickSelectionThresholdChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
+    ///
+    /// ``` self: QtC.QStyleHints, colorScheme: qnamespace_enums.ColorScheme ```
+    pub fn ColorSchemeChanged(self: ?*anyopaque, colorScheme: i64) void {
+        qtc.QStyleHints_ColorSchemeChanged(@ptrCast(self), @intCast(colorScheme));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
+    ///
+    /// ``` self: QtC.QStyleHints, slot: fn (self: QtC.QStyleHints, colorScheme: qnamespace_enums.ColorScheme) callconv(.c) void ```
+    pub fn OnColorSchemeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.QStyleHints_Connect_ColorSchemeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -557,8 +627,8 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QStyleHints, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -577,6 +647,15 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QStyleHints, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -782,6 +861,15 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QStyleHints, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

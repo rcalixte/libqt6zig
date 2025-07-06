@@ -91,8 +91,8 @@ class VirtualQVBoxPlotModelMapper final : public QVBoxPlotModelMapper {
     mutable bool qvboxplotmodelmapper_issignalconnected_isbase = false;
 
   public:
-    VirtualQVBoxPlotModelMapper() : QVBoxPlotModelMapper(){};
-    VirtualQVBoxPlotModelMapper(QObject* parent) : QVBoxPlotModelMapper(parent){};
+    VirtualQVBoxPlotModelMapper() : QVBoxPlotModelMapper() {};
+    VirtualQVBoxPlotModelMapper(QObject* parent) : QVBoxPlotModelMapper(parent) {};
 
     ~VirtualQVBoxPlotModelMapper() {
         qvboxplotmodelmapper_metacall_callback = nullptr;

@@ -33,6 +33,7 @@ class VirtualQTableView final : public QTableView {
     using QTableView_InitViewItemOption_Callback = void (*)(const QTableView*, QStyleOptionViewItem*);
     using QTableView_PaintEvent_Callback = void (*)(QTableView*, QPaintEvent*);
     using QTableView_TimerEvent_Callback = void (*)(QTableView*, QTimerEvent*);
+    using QTableView_DropEvent_Callback = void (*)(QTableView*, QDropEvent*);
     using QTableView_HorizontalOffset_Callback = int (*)();
     using QTableView_VerticalOffset_Callback = int (*)();
     using QTableView_MoveCursor_Callback = QModelIndex* (*)(QTableView*, int, int);
@@ -76,7 +77,6 @@ class VirtualQTableView final : public QTableView {
     using QTableView_DragEnterEvent_Callback = void (*)(QTableView*, QDragEnterEvent*);
     using QTableView_DragMoveEvent_Callback = void (*)(QTableView*, QDragMoveEvent*);
     using QTableView_DragLeaveEvent_Callback = void (*)(QTableView*, QDragLeaveEvent*);
-    using QTableView_DropEvent_Callback = void (*)(QTableView*, QDropEvent*);
     using QTableView_FocusInEvent_Callback = void (*)(QTableView*, QFocusEvent*);
     using QTableView_FocusOutEvent_Callback = void (*)(QTableView*, QFocusEvent*);
     using QTableView_KeyPressEvent_Callback = void (*)(QTableView*, QKeyEvent*);
@@ -142,6 +142,7 @@ class VirtualQTableView final : public QTableView {
     using QTableView_SenderSignalIndex_Callback = int (*)();
     using QTableView_Receivers_Callback = int (*)(const QTableView*, const char*);
     using QTableView_IsSignalConnected_Callback = bool (*)(const QTableView*, QMetaMethod*);
+    using QTableView_GetDecodedMetricF_Callback = double (*)(const QTableView*, int, int);
 
   protected:
     // Instance callback storage
@@ -157,6 +158,7 @@ class VirtualQTableView final : public QTableView {
     QTableView_InitViewItemOption_Callback qtableview_initviewitemoption_callback = nullptr;
     QTableView_PaintEvent_Callback qtableview_paintevent_callback = nullptr;
     QTableView_TimerEvent_Callback qtableview_timerevent_callback = nullptr;
+    QTableView_DropEvent_Callback qtableview_dropevent_callback = nullptr;
     QTableView_HorizontalOffset_Callback qtableview_horizontaloffset_callback = nullptr;
     QTableView_VerticalOffset_Callback qtableview_verticaloffset_callback = nullptr;
     QTableView_MoveCursor_Callback qtableview_movecursor_callback = nullptr;
@@ -200,7 +202,6 @@ class VirtualQTableView final : public QTableView {
     QTableView_DragEnterEvent_Callback qtableview_dragenterevent_callback = nullptr;
     QTableView_DragMoveEvent_Callback qtableview_dragmoveevent_callback = nullptr;
     QTableView_DragLeaveEvent_Callback qtableview_dragleaveevent_callback = nullptr;
-    QTableView_DropEvent_Callback qtableview_dropevent_callback = nullptr;
     QTableView_FocusInEvent_Callback qtableview_focusinevent_callback = nullptr;
     QTableView_FocusOutEvent_Callback qtableview_focusoutevent_callback = nullptr;
     QTableView_KeyPressEvent_Callback qtableview_keypressevent_callback = nullptr;
@@ -266,6 +267,7 @@ class VirtualQTableView final : public QTableView {
     QTableView_SenderSignalIndex_Callback qtableview_sendersignalindex_callback = nullptr;
     QTableView_Receivers_Callback qtableview_receivers_callback = nullptr;
     QTableView_IsSignalConnected_Callback qtableview_issignalconnected_callback = nullptr;
+    QTableView_GetDecodedMetricF_Callback qtableview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qtableview_metacall_isbase = false;
@@ -280,6 +282,7 @@ class VirtualQTableView final : public QTableView {
     mutable bool qtableview_initviewitemoption_isbase = false;
     mutable bool qtableview_paintevent_isbase = false;
     mutable bool qtableview_timerevent_isbase = false;
+    mutable bool qtableview_dropevent_isbase = false;
     mutable bool qtableview_horizontaloffset_isbase = false;
     mutable bool qtableview_verticaloffset_isbase = false;
     mutable bool qtableview_movecursor_isbase = false;
@@ -323,7 +326,6 @@ class VirtualQTableView final : public QTableView {
     mutable bool qtableview_dragenterevent_isbase = false;
     mutable bool qtableview_dragmoveevent_isbase = false;
     mutable bool qtableview_dragleaveevent_isbase = false;
-    mutable bool qtableview_dropevent_isbase = false;
     mutable bool qtableview_focusinevent_isbase = false;
     mutable bool qtableview_focusoutevent_isbase = false;
     mutable bool qtableview_keypressevent_isbase = false;
@@ -389,10 +391,11 @@ class VirtualQTableView final : public QTableView {
     mutable bool qtableview_sendersignalindex_isbase = false;
     mutable bool qtableview_receivers_isbase = false;
     mutable bool qtableview_issignalconnected_isbase = false;
+    mutable bool qtableview_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQTableView(QWidget* parent) : QTableView(parent){};
-    VirtualQTableView() : QTableView(){};
+    VirtualQTableView(QWidget* parent) : QTableView(parent) {};
+    VirtualQTableView() : QTableView() {};
 
     ~VirtualQTableView() {
         qtableview_metacall_callback = nullptr;
@@ -407,6 +410,7 @@ class VirtualQTableView final : public QTableView {
         qtableview_initviewitemoption_callback = nullptr;
         qtableview_paintevent_callback = nullptr;
         qtableview_timerevent_callback = nullptr;
+        qtableview_dropevent_callback = nullptr;
         qtableview_horizontaloffset_callback = nullptr;
         qtableview_verticaloffset_callback = nullptr;
         qtableview_movecursor_callback = nullptr;
@@ -450,7 +454,6 @@ class VirtualQTableView final : public QTableView {
         qtableview_dragenterevent_callback = nullptr;
         qtableview_dragmoveevent_callback = nullptr;
         qtableview_dragleaveevent_callback = nullptr;
-        qtableview_dropevent_callback = nullptr;
         qtableview_focusinevent_callback = nullptr;
         qtableview_focusoutevent_callback = nullptr;
         qtableview_keypressevent_callback = nullptr;
@@ -516,6 +519,7 @@ class VirtualQTableView final : public QTableView {
         qtableview_sendersignalindex_callback = nullptr;
         qtableview_receivers_callback = nullptr;
         qtableview_issignalconnected_callback = nullptr;
+        qtableview_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -531,6 +535,7 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_InitViewItemOption_Callback(QTableView_InitViewItemOption_Callback cb) { qtableview_initviewitemoption_callback = cb; }
     inline void setQTableView_PaintEvent_Callback(QTableView_PaintEvent_Callback cb) { qtableview_paintevent_callback = cb; }
     inline void setQTableView_TimerEvent_Callback(QTableView_TimerEvent_Callback cb) { qtableview_timerevent_callback = cb; }
+    inline void setQTableView_DropEvent_Callback(QTableView_DropEvent_Callback cb) { qtableview_dropevent_callback = cb; }
     inline void setQTableView_HorizontalOffset_Callback(QTableView_HorizontalOffset_Callback cb) { qtableview_horizontaloffset_callback = cb; }
     inline void setQTableView_VerticalOffset_Callback(QTableView_VerticalOffset_Callback cb) { qtableview_verticaloffset_callback = cb; }
     inline void setQTableView_MoveCursor_Callback(QTableView_MoveCursor_Callback cb) { qtableview_movecursor_callback = cb; }
@@ -574,7 +579,6 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_DragEnterEvent_Callback(QTableView_DragEnterEvent_Callback cb) { qtableview_dragenterevent_callback = cb; }
     inline void setQTableView_DragMoveEvent_Callback(QTableView_DragMoveEvent_Callback cb) { qtableview_dragmoveevent_callback = cb; }
     inline void setQTableView_DragLeaveEvent_Callback(QTableView_DragLeaveEvent_Callback cb) { qtableview_dragleaveevent_callback = cb; }
-    inline void setQTableView_DropEvent_Callback(QTableView_DropEvent_Callback cb) { qtableview_dropevent_callback = cb; }
     inline void setQTableView_FocusInEvent_Callback(QTableView_FocusInEvent_Callback cb) { qtableview_focusinevent_callback = cb; }
     inline void setQTableView_FocusOutEvent_Callback(QTableView_FocusOutEvent_Callback cb) { qtableview_focusoutevent_callback = cb; }
     inline void setQTableView_KeyPressEvent_Callback(QTableView_KeyPressEvent_Callback cb) { qtableview_keypressevent_callback = cb; }
@@ -640,6 +644,7 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_SenderSignalIndex_Callback(QTableView_SenderSignalIndex_Callback cb) { qtableview_sendersignalindex_callback = cb; }
     inline void setQTableView_Receivers_Callback(QTableView_Receivers_Callback cb) { qtableview_receivers_callback = cb; }
     inline void setQTableView_IsSignalConnected_Callback(QTableView_IsSignalConnected_Callback cb) { qtableview_issignalconnected_callback = cb; }
+    inline void setQTableView_GetDecodedMetricF_Callback(QTableView_GetDecodedMetricF_Callback cb) { qtableview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQTableView_Metacall_IsBase(bool value) const { qtableview_metacall_isbase = value; }
@@ -654,6 +659,7 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_InitViewItemOption_IsBase(bool value) const { qtableview_initviewitemoption_isbase = value; }
     inline void setQTableView_PaintEvent_IsBase(bool value) const { qtableview_paintevent_isbase = value; }
     inline void setQTableView_TimerEvent_IsBase(bool value) const { qtableview_timerevent_isbase = value; }
+    inline void setQTableView_DropEvent_IsBase(bool value) const { qtableview_dropevent_isbase = value; }
     inline void setQTableView_HorizontalOffset_IsBase(bool value) const { qtableview_horizontaloffset_isbase = value; }
     inline void setQTableView_VerticalOffset_IsBase(bool value) const { qtableview_verticaloffset_isbase = value; }
     inline void setQTableView_MoveCursor_IsBase(bool value) const { qtableview_movecursor_isbase = value; }
@@ -697,7 +703,6 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_DragEnterEvent_IsBase(bool value) const { qtableview_dragenterevent_isbase = value; }
     inline void setQTableView_DragMoveEvent_IsBase(bool value) const { qtableview_dragmoveevent_isbase = value; }
     inline void setQTableView_DragLeaveEvent_IsBase(bool value) const { qtableview_dragleaveevent_isbase = value; }
-    inline void setQTableView_DropEvent_IsBase(bool value) const { qtableview_dropevent_isbase = value; }
     inline void setQTableView_FocusInEvent_IsBase(bool value) const { qtableview_focusinevent_isbase = value; }
     inline void setQTableView_FocusOutEvent_IsBase(bool value) const { qtableview_focusoutevent_isbase = value; }
     inline void setQTableView_KeyPressEvent_IsBase(bool value) const { qtableview_keypressevent_isbase = value; }
@@ -763,6 +768,7 @@ class VirtualQTableView final : public QTableView {
     inline void setQTableView_SenderSignalIndex_IsBase(bool value) const { qtableview_sendersignalindex_isbase = value; }
     inline void setQTableView_Receivers_IsBase(bool value) const { qtableview_receivers_isbase = value; }
     inline void setQTableView_IsSignalConnected_IsBase(bool value) const { qtableview_issignalconnected_isbase = value; }
+    inline void setQTableView_GetDecodedMetricF_IsBase(bool value) const { qtableview_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -946,6 +952,20 @@ class VirtualQTableView final : public QTableView {
     }
 
     // Virtual method for C ABI access and custom callback
+    virtual void dropEvent(QDropEvent* event) override {
+        if (qtableview_dropevent_isbase) {
+            qtableview_dropevent_isbase = false;
+            QTableView::dropEvent(event);
+        } else if (qtableview_dropevent_callback != nullptr) {
+            QDropEvent* cbval1 = event;
+
+            qtableview_dropevent_callback(this, cbval1);
+        } else {
+            QTableView::dropEvent(event);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     virtual int horizontalOffset() const override {
         if (qtableview_horizontaloffset_isbase) {
             qtableview_horizontaloffset_isbase = false;
@@ -1022,13 +1042,13 @@ class VirtualQTableView final : public QTableView {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QModelIndexList selectedIndexes() const override {
+    virtual QList<QModelIndex> selectedIndexes() const override {
         if (qtableview_selectedindexes_isbase) {
             qtableview_selectedindexes_isbase = false;
             return QTableView::selectedIndexes();
         } else if (qtableview_selectedindexes_callback != nullptr) {
             libqt_list /* of QModelIndex* */ callback_ret = qtableview_selectedindexes_callback();
-            QModelIndexList callback_ret_QList;
+            QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -1269,13 +1289,13 @@ class VirtualQTableView final : public QTableView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
-            for (size_t i = 0; i < roles_ret.length(); ++i) {
+            // Convert const QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            for (size_t i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
             libqt_list roles_out;
-            roles_out.len = roles_ret.length();
+            roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
@@ -1607,20 +1627,6 @@ class VirtualQTableView final : public QTableView {
             qtableview_dragleaveevent_callback(this, cbval1);
         } else {
             QTableView::dragLeaveEvent(event);
-        }
-    }
-
-    // Virtual method for C ABI access and custom callback
-    virtual void dropEvent(QDropEvent* event) override {
-        if (qtableview_dropevent_isbase) {
-            qtableview_dropevent_isbase = false;
-            QTableView::dropEvent(event);
-        } else if (qtableview_dropevent_callback != nullptr) {
-            QDropEvent* cbval1 = event;
-
-            qtableview_dropevent_callback(this, cbval1);
-        } else {
-            QTableView::dropEvent(event);
         }
     }
 
@@ -2543,6 +2549,22 @@ class VirtualQTableView final : public QTableView {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qtableview_getdecodedmetricf_isbase) {
+            qtableview_getdecodedmetricf_isbase = false;
+            return QTableView::getDecodedMetricF(metricA, metricB);
+        } else if (qtableview_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qtableview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QTableView::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QTableView_ScrollContentsBy(QTableView* self, int dx, int dy);
     friend void QTableView_QBaseScrollContentsBy(QTableView* self, int dx, int dy);
@@ -2552,6 +2574,8 @@ class VirtualQTableView final : public QTableView {
     friend void QTableView_QBasePaintEvent(QTableView* self, QPaintEvent* e);
     friend void QTableView_TimerEvent(QTableView* self, QTimerEvent* event);
     friend void QTableView_QBaseTimerEvent(QTableView* self, QTimerEvent* event);
+    friend void QTableView_DropEvent(QTableView* self, QDropEvent* event);
+    friend void QTableView_QBaseDropEvent(QTableView* self, QDropEvent* event);
     friend int QTableView_HorizontalOffset(const QTableView* self);
     friend int QTableView_QBaseHorizontalOffset(const QTableView* self);
     friend int QTableView_VerticalOffset(const QTableView* self);
@@ -2628,8 +2652,6 @@ class VirtualQTableView final : public QTableView {
     friend void QTableView_QBaseDragMoveEvent(QTableView* self, QDragMoveEvent* event);
     friend void QTableView_DragLeaveEvent(QTableView* self, QDragLeaveEvent* event);
     friend void QTableView_QBaseDragLeaveEvent(QTableView* self, QDragLeaveEvent* event);
-    friend void QTableView_DropEvent(QTableView* self, QDropEvent* event);
-    friend void QTableView_QBaseDropEvent(QTableView* self, QDropEvent* event);
     friend void QTableView_FocusInEvent(QTableView* self, QFocusEvent* event);
     friend void QTableView_QBaseFocusInEvent(QTableView* self, QFocusEvent* event);
     friend void QTableView_FocusOutEvent(QTableView* self, QFocusEvent* event);
@@ -2744,6 +2766,8 @@ class VirtualQTableView final : public QTableView {
     friend int QTableView_QBaseReceivers(const QTableView* self, const char* signal);
     friend bool QTableView_IsSignalConnected(const QTableView* self, const QMetaMethod* signal);
     friend bool QTableView_QBaseIsSignalConnected(const QTableView* self, const QMetaMethod* signal);
+    friend double QTableView_GetDecodedMetricF(const QTableView* self, int metricA, int metricB);
+    friend double QTableView_QBaseGetDecodedMetricF(const QTableView* self, int metricA, int metricB);
 };
 
 #endif

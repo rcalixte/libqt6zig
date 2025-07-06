@@ -20,22 +20,6 @@ typedef struct QMediaFormat QMediaFormat;
 typedef struct QMimeType QMimeType;
 #endif
 
-#ifdef __cplusplus
-typedef QMediaFormat::AudioCodec AudioCodec;         // C++ enum
-typedef QMediaFormat::ConversionMode ConversionMode; // C++ enum
-typedef QMediaFormat::FileFormat FileFormat;         // C++ enum
-typedef QMediaFormat::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-typedef QMediaFormat::ResolveFlags ResolveFlags;     // C++ enum
-typedef QMediaFormat::VideoCodec VideoCodec;         // C++ enum
-#else
-typedef int AudioCodec;      // C ABI enum
-typedef int ConversionMode;  // C ABI enum
-typedef int FileFormat;      // C ABI enum
-typedef int ResolveFlags;    // C ABI enum
-typedef int VideoCodec;      // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QMediaFormat* QMediaFormat_new();
 QMediaFormat* QMediaFormat_new2(const QMediaFormat* other);
 QMediaFormat* QMediaFormat_new3(int format);

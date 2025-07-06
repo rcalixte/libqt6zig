@@ -209,11 +209,11 @@ bool QFile_Copy2(const libqt_string fileName, const libqt_string newName) {
 }
 
 bool QFile_Open2(QFile* self, int flags, int permissions) {
-    return self->open(static_cast<QIODeviceBase::OpenMode>(flags), static_cast<QFileDevice::Permissions>(permissions));
+    return self->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags), static_cast<QFileDevice::Permissions>(permissions));
 }
 
 bool QFile_Open4(QFile* self, int fd, int ioFlags) {
-    return self->open(static_cast<int>(fd), static_cast<QIODeviceBase::OpenMode>(ioFlags));
+    return self->open(static_cast<int>(fd), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(ioFlags));
 }
 
 bool QFile_Resize2(const libqt_string filename, long long sz) {
@@ -256,7 +256,7 @@ libqt_string QFile_Tr3(const char* s, const char* c, int n) {
 }
 
 bool QFile_Open33(QFile* self, int fd, int ioFlags, int handleFlags) {
-    return self->open(static_cast<int>(fd), static_cast<QIODeviceBase::OpenMode>(ioFlags), static_cast<QFileDevice::FileHandleFlags>(handleFlags));
+    return self->open(static_cast<int>(fd), static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(ioFlags), static_cast<QFileDevice::FileHandleFlags>(handleFlags));
 }
 
 // Derived class handler implementation
@@ -324,9 +324,9 @@ void QFile_OnFileName(const QFile* self, intptr_t slot) {
 bool QFile_Open(QFile* self, int flags) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
-        return vqfile->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return vqfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     } else {
-        return self->QFile::open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return self->QFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
 }
 
@@ -335,9 +335,9 @@ bool QFile_QBaseOpen(QFile* self, int flags) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_Open_IsBase(true);
-        return vqfile->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return vqfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     } else {
-        return self->QFile::open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return self->QFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
 }
 

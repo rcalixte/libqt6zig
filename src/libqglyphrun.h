@@ -22,14 +22,6 @@ typedef struct QRawFont QRawFont;
 typedef struct QRectF QRectF;
 #endif
 
-#ifdef __cplusplus
-typedef QGlyphRun::GlyphRunFlag GlyphRunFlag;   // C++ enum
-typedef QGlyphRun::GlyphRunFlags GlyphRunFlags; // C++ QFlags
-#else
-typedef int GlyphRunFlag;  // C ABI enum
-typedef int GlyphRunFlags; // C ABI QFlags
-#endif
-
 QGlyphRun* QGlyphRun_new();
 QGlyphRun* QGlyphRun_new2(const QGlyphRun* other);
 void QGlyphRun_OperatorAssign(QGlyphRun* self, const QGlyphRun* other);
@@ -57,6 +49,10 @@ void QGlyphRun_SetFlags(QGlyphRun* self, int flags);
 int QGlyphRun_Flags(const QGlyphRun* self);
 void QGlyphRun_SetBoundingRect(QGlyphRun* self, const QRectF* boundingRect);
 QRectF* QGlyphRun_BoundingRect(const QGlyphRun* self);
+libqt_list /* of ptrdiff_t */ QGlyphRun_StringIndexes(const QGlyphRun* self);
+void QGlyphRun_SetStringIndexes(QGlyphRun* self, const libqt_list /* of ptrdiff_t */ stringIndexes);
+void QGlyphRun_SetSourceString(QGlyphRun* self, const libqt_string sourceString);
+libqt_string QGlyphRun_SourceString(const QGlyphRun* self);
 bool QGlyphRun_IsEmpty(const QGlyphRun* self);
 void QGlyphRun_SetFlag2(QGlyphRun* self, int flag, bool enabled);
 void QGlyphRun_Delete(QGlyphRun* self);

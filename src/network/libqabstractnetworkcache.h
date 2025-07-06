@@ -18,6 +18,7 @@ extern "C" {
 #else
 typedef struct QAbstractNetworkCache QAbstractNetworkCache;
 typedef struct QDateTime QDateTime;
+typedef struct QHttpHeaders QHttpHeaders;
 typedef struct QIODevice QIODevice;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
@@ -25,15 +26,6 @@ typedef struct QNetworkCacheMetaData QNetworkCacheMetaData;
 typedef struct QObject QObject;
 typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
-#endif
-
-#ifdef __cplusplus
-typedef QNetworkCacheMetaData::AttributesMap AttributesMap; // C++ QFlags
-typedef QNetworkCacheMetaData::RawHeader RawHeader;         // C++ QFlags
-typedef QNetworkCacheMetaData::RawHeaderList RawHeaderList; // C++ QFlags
-#else
-typedef libqt_map /* of int to QVariant* */ AttributesMap;                 // C ABI QFlags
-typedef libqt_pair /* tuple of libqt_string and libqt_string */ RawHeader; // C ABI QFlags
 #endif
 
 QNetworkCacheMetaData* QNetworkCacheMetaData_new();
@@ -47,6 +39,8 @@ QUrl* QNetworkCacheMetaData_Url(const QNetworkCacheMetaData* self);
 void QNetworkCacheMetaData_SetUrl(QNetworkCacheMetaData* self, const QUrl* url);
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkCacheMetaData_RawHeaders(const QNetworkCacheMetaData* self);
 void QNetworkCacheMetaData_SetRawHeaders(QNetworkCacheMetaData* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers);
+QHttpHeaders* QNetworkCacheMetaData_Headers(const QNetworkCacheMetaData* self);
+void QNetworkCacheMetaData_SetHeaders(QNetworkCacheMetaData* self, const QHttpHeaders* headers);
 QDateTime* QNetworkCacheMetaData_LastModified(const QNetworkCacheMetaData* self);
 void QNetworkCacheMetaData_SetLastModified(QNetworkCacheMetaData* self, const QDateTime* dateTime);
 QDateTime* QNetworkCacheMetaData_ExpirationDate(const QNetworkCacheMetaData* self);

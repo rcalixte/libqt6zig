@@ -21,22 +21,6 @@ typedef struct QSize QSize;
 typedef struct QVideoFrameFormat QVideoFrameFormat;
 #endif
 
-#ifdef __cplusplus
-typedef QVideoFrameFormat::ColorRange ColorRange;           // C++ enum
-typedef QVideoFrameFormat::ColorSpace ColorSpace;           // C++ enum
-typedef QVideoFrameFormat::ColorTransfer ColorTransfer;     // C++ enum
-typedef QVideoFrameFormat::Direction Direction;             // C++ enum
-typedef QVideoFrameFormat::PixelFormat PixelFormat;         // C++ enum
-typedef QVideoFrameFormat::YCbCrColorSpace YCbCrColorSpace; // C++ enum
-#else
-typedef int ColorRange;      // C ABI enum
-typedef int ColorSpace;      // C ABI enum
-typedef int ColorTransfer;   // C ABI enum
-typedef int Direction;       // C ABI enum
-typedef int PixelFormat;     // C ABI enum
-typedef int YCbCrColorSpace; // C ABI enum
-#endif
-
 QVideoFrameFormat* QVideoFrameFormat_new();
 QVideoFrameFormat* QVideoFrameFormat_new2(const QSize* size, int pixelFormat);
 QVideoFrameFormat* QVideoFrameFormat_new3(const QVideoFrameFormat* format);
@@ -59,6 +43,8 @@ int QVideoFrameFormat_ScanLineDirection(const QVideoFrameFormat* self);
 void QVideoFrameFormat_SetScanLineDirection(QVideoFrameFormat* self, int direction);
 double QVideoFrameFormat_FrameRate(const QVideoFrameFormat* self);
 void QVideoFrameFormat_SetFrameRate(QVideoFrameFormat* self, double rate);
+double QVideoFrameFormat_StreamFrameRate(const QVideoFrameFormat* self);
+void QVideoFrameFormat_SetStreamFrameRate(QVideoFrameFormat* self, double rate);
 int QVideoFrameFormat_YCbCrColorSpace(const QVideoFrameFormat* self);
 void QVideoFrameFormat_SetYCbCrColorSpace(QVideoFrameFormat* self, int colorSpace);
 int QVideoFrameFormat_ColorSpace(const QVideoFrameFormat* self);
@@ -69,6 +55,8 @@ int QVideoFrameFormat_ColorRange(const QVideoFrameFormat* self);
 void QVideoFrameFormat_SetColorRange(QVideoFrameFormat* self, int range);
 bool QVideoFrameFormat_IsMirrored(const QVideoFrameFormat* self);
 void QVideoFrameFormat_SetMirrored(QVideoFrameFormat* self, bool mirrored);
+int QVideoFrameFormat_Rotation(const QVideoFrameFormat* self);
+void QVideoFrameFormat_SetRotation(QVideoFrameFormat* self, int rotation);
 libqt_string QVideoFrameFormat_VertexShaderFileName(const QVideoFrameFormat* self);
 libqt_string QVideoFrameFormat_FragmentShaderFileName(const QVideoFrameFormat* self);
 float QVideoFrameFormat_MaxLuminance(const QVideoFrameFormat* self);

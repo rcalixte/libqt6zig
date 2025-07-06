@@ -111,12 +111,12 @@ int QCameraDevice_Position(const QCameraDevice* self) {
 libqt_list /* of QSize* */ QCameraDevice_PhotoResolutions(const QCameraDevice* self) {
     QList<QSize> _ret = self->photoResolutions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSize(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -124,14 +124,18 @@ libqt_list /* of QSize* */ QCameraDevice_PhotoResolutions(const QCameraDevice* s
 libqt_list /* of QCameraFormat* */ QCameraDevice_VideoFormats(const QCameraDevice* self) {
     QList<QCameraFormat> _ret = self->videoFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCameraFormat** _arr = static_cast<QCameraFormat**>(malloc(sizeof(QCameraFormat*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QCameraFormat** _arr = static_cast<QCameraFormat**>(malloc(sizeof(QCameraFormat*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCameraFormat(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+int QCameraDevice_CorrectionAngle(const QCameraDevice* self) {
+    return static_cast<int>(self->correctionAngle());
 }
 
 void QCameraDevice_Delete(QCameraDevice* self) {

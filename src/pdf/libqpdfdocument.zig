@@ -158,6 +158,17 @@ pub const qpdfdocument = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageIndexForLabel)
+    ///
+    /// ``` self: QtC.QPdfDocument, label: []const u8 ```
+    pub fn PageIndexForLabel(self: ?*anyopaque, label: []const u8) i32 {
+        const label_str = qtc.struct_libqt_string{
+            .len = label.len,
+            .data = label.ptr,
+        };
+        return qtc.QPdfDocument_PageIndexForLabel(@ptrCast(self), label_str);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#pageModel)
     ///
     /// ``` self: QtC.QPdfDocument ```
@@ -381,8 +392,8 @@ pub const qpdfdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPdfDocument, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -401,6 +412,15 @@ pub const qpdfdocument = struct {
     /// ``` self: QtC.QPdfDocument, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QPdfDocument, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -606,6 +626,15 @@ pub const qpdfdocument = struct {
     /// ``` self: QtC.QPdfDocument ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QPdfDocument, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

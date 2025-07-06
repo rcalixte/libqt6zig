@@ -19,12 +19,6 @@ extern "C" {
 typedef struct QWebEngineFindTextResult QWebEngineFindTextResult;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineFindTextResult::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QWebEngineFindTextResult* QWebEngineFindTextResult_new();
 QWebEngineFindTextResult* QWebEngineFindTextResult_new2(const QWebEngineFindTextResult* other);
 int QWebEngineFindTextResult_NumberOfMatches(const QWebEngineFindTextResult* self);

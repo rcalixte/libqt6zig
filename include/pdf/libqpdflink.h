@@ -22,12 +22,6 @@ typedef struct QRectF QRectF;
 typedef struct QUrl QUrl;
 #endif
 
-#ifdef __cplusplus
-typedef QPdfLink::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QPdfLink* QPdfLink_new();
 QPdfLink* QPdfLink_new2(const QPdfLink* other);
 void QPdfLink_OperatorAssign(QPdfLink* self, const QPdfLink* other);

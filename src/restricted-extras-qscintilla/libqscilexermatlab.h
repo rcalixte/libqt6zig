@@ -157,6 +157,12 @@ void QsciLexerMatlab_QBaseConnectNotify(QsciLexerMatlab* self, const QMetaMethod
 void QsciLexerMatlab_DisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
 void QsciLexerMatlab_OnDisconnectNotify(QsciLexerMatlab* self, intptr_t slot);
 void QsciLexerMatlab_QBaseDisconnectNotify(QsciLexerMatlab* self, const QMetaMethod* signal);
+libqt_string QsciLexerMatlab_TextAsBytes(const QsciLexerMatlab* self, const libqt_string text);
+void QsciLexerMatlab_OnTextAsBytes(const QsciLexerMatlab* self, intptr_t slot);
+libqt_string QsciLexerMatlab_QBaseTextAsBytes(const QsciLexerMatlab* self, const libqt_string text);
+libqt_string QsciLexerMatlab_BytesAsText(const QsciLexerMatlab* self, const char* bytes, int size);
+void QsciLexerMatlab_OnBytesAsText(const QsciLexerMatlab* self, intptr_t slot);
+libqt_string QsciLexerMatlab_QBaseBytesAsText(const QsciLexerMatlab* self, const char* bytes, int size);
 QObject* QsciLexerMatlab_Sender(const QsciLexerMatlab* self);
 void QsciLexerMatlab_OnSender(const QsciLexerMatlab* self, intptr_t slot);
 QObject* QsciLexerMatlab_QBaseSender(const QsciLexerMatlab* self);

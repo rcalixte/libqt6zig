@@ -1982,6 +1982,35 @@ void QToolBox_OnIsSignalConnected(const QToolBox* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QToolBox_GetDecodedMetricF(const QToolBox* self, int metricA, int metricB) {
+    auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        return vqtoolbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQToolBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QToolBox_QBaseGetDecodedMetricF(const QToolBox* self, int metricA, int metricB) {
+    auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_GetDecodedMetricF_IsBase(true);
+        return vqtoolbox->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQToolBox*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QToolBox_OnGetDecodedMetricF(const QToolBox* self, intptr_t slot) {
+    auto* vqtoolbox = const_cast<VirtualQToolBox*>(dynamic_cast<const VirtualQToolBox*>(self));
+    if (vqtoolbox && vqtoolbox->isVirtualQToolBox) {
+        vqtoolbox->setQToolBox_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQToolBox::QToolBox_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QToolBox_Delete(QToolBox* self) {
     delete self;
 }

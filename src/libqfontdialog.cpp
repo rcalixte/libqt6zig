@@ -2015,6 +2015,35 @@ void QFontDialog_OnIsSignalConnected(const QFontDialog* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QFontDialog_GetDecodedMetricF(const QFontDialog* self, int metricA, int metricB) {
+    auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        return vqfontdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQFontDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QFontDialog_QBaseGetDecodedMetricF(const QFontDialog* self, int metricA, int metricB) {
+    auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_GetDecodedMetricF_IsBase(true);
+        return vqfontdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQFontDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFontDialog_OnGetDecodedMetricF(const QFontDialog* self, intptr_t slot) {
+    auto* vqfontdialog = const_cast<VirtualQFontDialog*>(dynamic_cast<const VirtualQFontDialog*>(self));
+    if (vqfontdialog && vqfontdialog->isVirtualQFontDialog) {
+        vqfontdialog->setQFontDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFontDialog::QFontDialog_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QFontDialog_Delete(QFontDialog* self) {
     delete self;
 }

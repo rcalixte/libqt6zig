@@ -26,12 +26,6 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QAudioEngine::OutputMode OutputMode; // C++ enum
-#else
-typedef int OutputMode; // C ABI enum
-#endif
-
 QAudioEngine* QAudioEngine_new();
 QAudioEngine* QAudioEngine_new2(QObject* parent);
 QAudioEngine* QAudioEngine_new3(int sampleRate);

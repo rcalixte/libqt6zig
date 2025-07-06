@@ -30,10 +30,6 @@ QItemSelectionRange* QItemSelectionRange_new3(const QModelIndex* index) {
     return new QItemSelectionRange(*index);
 }
 
-QItemSelectionRange* QItemSelectionRange_new4(const QItemSelectionRange* param1) {
-    return new QItemSelectionRange(*param1);
-}
-
 void QItemSelectionRange_Swap(QItemSelectionRange* self, QItemSelectionRange* other) {
     self->swap(*other);
 }
@@ -98,14 +94,6 @@ QItemSelectionRange* QItemSelectionRange_Intersected(const QItemSelectionRange* 
     return new QItemSelectionRange(self->intersected(*other));
 }
 
-bool QItemSelectionRange_OperatorEqual(const QItemSelectionRange* self, const QItemSelectionRange* other) {
-    return (*self == *other);
-}
-
-bool QItemSelectionRange_OperatorNotEqual(const QItemSelectionRange* self, const QItemSelectionRange* other) {
-    return (*self != *other);
-}
-
 bool QItemSelectionRange_IsValid(const QItemSelectionRange* self) {
     return self->isValid();
 }
@@ -115,14 +103,14 @@ bool QItemSelectionRange_IsEmpty(const QItemSelectionRange* self) {
 }
 
 libqt_list /* of QModelIndex* */ QItemSelectionRange_Indexes(const QItemSelectionRange* self) {
-    QModelIndexList _ret = self->indexes();
+    QList<QModelIndex> _ret = self->indexes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -220,40 +208,40 @@ bool QItemSelectionModel_HasSelection(const QItemSelectionModel* self) {
 }
 
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedIndexes(const QItemSelectionModel* self) {
-    QModelIndexList _ret = self->selectedIndexes();
+    QList<QModelIndex> _ret = self->selectedIndexes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedRows(const QItemSelectionModel* self) {
-    QModelIndexList _ret = self->selectedRows();
+    QList<QModelIndex> _ret = self->selectedRows();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedColumns(const QItemSelectionModel* self) {
-    QModelIndexList _ret = self->selectedColumns();
+    QList<QModelIndex> _ret = self->selectedColumns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -399,27 +387,27 @@ bool QItemSelectionModel_ColumnIntersectsSelection2(const QItemSelectionModel* s
 }
 
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedRows1(const QItemSelectionModel* self, int column) {
-    QModelIndexList _ret = self->selectedRows(static_cast<int>(column));
+    QList<QModelIndex> _ret = self->selectedRows(static_cast<int>(column));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 libqt_list /* of QModelIndex* */ QItemSelectionModel_SelectedColumns1(const QItemSelectionModel* self, int row) {
-    QModelIndexList _ret = self->selectedColumns(static_cast<int>(row));
+    QList<QModelIndex> _ret = self->selectedColumns(static_cast<int>(row));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -971,14 +959,14 @@ bool QItemSelection_Contains(const QItemSelection* self, const QModelIndex* inde
 }
 
 libqt_list /* of QModelIndex* */ QItemSelection_Indexes(const QItemSelection* self) {
-    QModelIndexList _ret = self->indexes();
+    QList<QModelIndex> _ret = self->indexes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QModelIndex(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

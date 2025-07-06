@@ -55,12 +55,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QToolButton::ToolButtonPopupMode ToolButtonPopupMode; // C++ enum
-#else
-typedef int ToolButtonPopupMode; // C ABI enum
-#endif
-
 QToolButton* QToolButton_new(QWidget* parent);
 QToolButton* QToolButton_new2();
 QMetaObject* QToolButton_MetaObject(const QToolButton* self);
@@ -266,6 +260,9 @@ int QToolButton_QBaseReceivers(const QToolButton* self, const char* signal);
 bool QToolButton_IsSignalConnected(const QToolButton* self, const QMetaMethod* signal);
 void QToolButton_OnIsSignalConnected(const QToolButton* self, intptr_t slot);
 bool QToolButton_QBaseIsSignalConnected(const QToolButton* self, const QMetaMethod* signal);
+double QToolButton_GetDecodedMetricF(const QToolButton* self, int metricA, int metricB);
+void QToolButton_OnGetDecodedMetricF(const QToolButton* self, intptr_t slot);
+double QToolButton_QBaseGetDecodedMetricF(const QToolButton* self, int metricA, int metricB);
 void QToolButton_Delete(QToolButton* self);
 
 #ifdef __cplusplus

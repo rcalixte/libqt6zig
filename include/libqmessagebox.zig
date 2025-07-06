@@ -400,6 +400,34 @@ pub const qmessagebox = struct {
         return qtc.QMessageBox_CheckBox(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
+    ///
+    /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option ```
+    pub fn SetOption(self: ?*anyopaque, option: i64) void {
+        qtc.QMessageBox_SetOption(@ptrCast(self), @intCast(option));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#testOption)
+    ///
+    /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option ```
+    pub fn TestOption(self: ?*anyopaque, option: i64) bool {
+        return qtc.QMessageBox_TestOption(@ptrCast(self), @intCast(option));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOptions)
+    ///
+    /// ``` self: QtC.QMessageBox, options: i32 ```
+    pub fn SetOptions(self: ?*anyopaque, options: i64) void {
+        qtc.QMessageBox_SetOptions(@ptrCast(self), @intCast(options));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#options)
+    ///
+    /// ``` self: QtC.QMessageBox ```
+    pub fn Options(self: ?*anyopaque) i64 {
+        return qtc.QMessageBox_Options(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
@@ -957,6 +985,13 @@ pub const qmessagebox = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
+    ///
+    /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option, on: bool ```
+    pub fn SetOption2(self: ?*anyopaque, option: i64, on: bool) void {
+        qtc.QMessageBox_SetOption2(@ptrCast(self), @intCast(option), on);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#information)
@@ -3922,6 +3957,15 @@ pub const qmessagebox = struct {
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    ///
+    /// ``` self: QtC.QMessageBox, p: QtC.QPointF ```
+    pub fn ChildAtWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPointF(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// Inherited from QWidget
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WidgetAttribute ```
@@ -4337,8 +4381,8 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMessageBox, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -4357,6 +4401,15 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QMessageBox, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -4557,6 +4610,15 @@ pub const qmessagebox = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QMessageBox, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMessageBox, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -4708,6 +4770,15 @@ pub const qmessagebox = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QDialog
@@ -6568,6 +6639,39 @@ pub const qmessagebox = struct {
         qtc.QMessageBox_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QMessageBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QMessageBox_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QMessageBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QMessageBox_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QMessageBox, slot: fn (self: QtC.QMessageBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QMessageBox_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// Inherited from QObject
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#objectNameChanged)
@@ -6591,6 +6695,10 @@ pub const qmessagebox = struct {
 
 /// https://doc.qt.io/qt-6/qmessagebox.html#types
 pub const enums = struct {
+    pub const Option = enum {
+        pub const DontUseNativeDialog: i32 = 1;
+    };
+
     pub const Icon = enum {
         pub const NoIcon: i32 = 0;
         pub const Information: i32 = 1;

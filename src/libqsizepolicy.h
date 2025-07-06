@@ -20,20 +20,6 @@ typedef struct QSizePolicy QSizePolicy;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QSizePolicy::ControlType ControlType;       // C++ enum
-typedef QSizePolicy::ControlTypes ControlTypes;     // C++ QFlags
-typedef QSizePolicy::Policy Policy;                 // C++ enum
-typedef QSizePolicy::PolicyFlag PolicyFlag;         // C++ enum
-typedef QSizePolicy::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef int ControlType;     // C ABI enum
-typedef int ControlTypes;    // C ABI QFlags
-typedef int Policy;          // C ABI enum
-typedef int PolicyFlag;      // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QSizePolicy* QSizePolicy_new(const QSizePolicy* other);
 QSizePolicy* QSizePolicy_new2(QSizePolicy* other);
 QSizePolicy* QSizePolicy_new3();

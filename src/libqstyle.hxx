@@ -130,7 +130,7 @@ class VirtualQStyle final : public QStyle {
     mutable bool qstyle_issignalconnected_isbase = false;
 
   public:
-    VirtualQStyle() : QStyle(){};
+    VirtualQStyle() : QStyle() {};
 
     ~VirtualQStyle() {
         qstyle_metacall_callback = nullptr;

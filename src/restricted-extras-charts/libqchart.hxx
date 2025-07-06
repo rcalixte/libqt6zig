@@ -251,9 +251,9 @@ class VirtualQChart final : public QChart {
     mutable bool qchart_setownedbylayout_isbase = false;
 
   public:
-    VirtualQChart() : QChart(){};
-    VirtualQChart(QGraphicsItem* parent) : QChart(parent){};
-    VirtualQChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QChart(parent, wFlags){};
+    VirtualQChart() : QChart() {};
+    VirtualQChart(QGraphicsItem* parent) : QChart(parent) {};
+    VirtualQChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QChart(parent, wFlags) {};
 
     ~VirtualQChart() {
         qchart_metacall_callback = nullptr;

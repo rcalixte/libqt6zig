@@ -447,9 +447,16 @@ pub const qmatrix4x4 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#projectedRotate)
     ///
+    /// ``` self: QtC.QMatrix4x4, angle: f32, x: f32, y: f32, z: f32, distanceToPlane: f32 ```
+    pub fn ProjectedRotate(self: ?*anyopaque, angle: f32, x: f32, y: f32, z: f32, distanceToPlane: f32) void {
+        qtc.QMatrix4x4_ProjectedRotate(@ptrCast(self), @floatCast(angle), @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(distanceToPlane));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#projectedRotate)
+    ///
     /// ``` self: QtC.QMatrix4x4, angle: f32, x: f32, y: f32, z: f32 ```
-    pub fn ProjectedRotate(self: ?*anyopaque, angle: f32, x: f32, y: f32, z: f32) void {
-        qtc.QMatrix4x4_ProjectedRotate(@ptrCast(self), @floatCast(angle), @floatCast(x), @floatCast(y), @floatCast(z));
+    pub fn ProjectedRotate2(self: ?*anyopaque, angle: f32, x: f32, y: f32, z: f32) void {
+        qtc.QMatrix4x4_ProjectedRotate2(@ptrCast(self), @floatCast(angle), @floatCast(x), @floatCast(y), @floatCast(z));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#flags)

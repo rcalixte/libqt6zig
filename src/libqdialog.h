@@ -51,12 +51,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QDialog::DialogCode DialogCode; // C++ enum
-#else
-typedef int DialogCode; // C ABI enum
-#endif
-
 QDialog* QDialog_new(QWidget* parent);
 QDialog* QDialog_new2();
 QDialog* QDialog_new3(QWidget* parent, int f);
@@ -265,6 +259,9 @@ int QDialog_QBaseReceivers(const QDialog* self, const char* signal);
 bool QDialog_IsSignalConnected(const QDialog* self, const QMetaMethod* signal);
 void QDialog_OnIsSignalConnected(const QDialog* self, intptr_t slot);
 bool QDialog_QBaseIsSignalConnected(const QDialog* self, const QMetaMethod* signal);
+double QDialog_GetDecodedMetricF(const QDialog* self, int metricA, int metricB);
+void QDialog_OnGetDecodedMetricF(const QDialog* self, intptr_t slot);
+double QDialog_QBaseGetDecodedMetricF(const QDialog* self, int metricA, int metricB);
 void QDialog_Delete(QDialog* self);
 
 #ifdef __cplusplus

@@ -24,12 +24,6 @@ typedef struct QRect QRect;
 typedef struct QSize QSize;
 #endif
 
-#ifdef __cplusplus
-typedef QImageReader::ImageReaderError ImageReaderError; // C++ enum
-#else
-typedef int ImageReaderError; // C ABI enum
-#endif
-
 QImageReader* QImageReader_new();
 QImageReader* QImageReader_new2(QIODevice* device);
 QImageReader* QImageReader_new3(const libqt_string fileName);

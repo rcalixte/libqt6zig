@@ -28,14 +28,6 @@ typedef struct QSystemTrayIcon QSystemTrayIcon;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QSystemTrayIcon::ActivationReason ActivationReason; // C++ enum
-typedef QSystemTrayIcon::MessageIcon MessageIcon;           // C++ enum
-#else
-typedef int ActivationReason; // C ABI enum
-typedef int MessageIcon;      // C ABI enum
-#endif
-
 QSystemTrayIcon* QSystemTrayIcon_new();
 QSystemTrayIcon* QSystemTrayIcon_new2(const QIcon* icon);
 QSystemTrayIcon* QSystemTrayIcon_new3(QObject* parent);

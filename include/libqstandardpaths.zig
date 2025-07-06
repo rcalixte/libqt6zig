@@ -212,6 +212,8 @@ pub const enums = struct {
         pub const AppConfigLocation: i32 = 18;
         pub const PublicShareLocation: i32 = 19;
         pub const TemplatesLocation: i32 = 20;
+        pub const StateLocation: i32 = 21;
+        pub const GenericStateLocation: i32 = 22;
     };
 
     pub const LocateOption = enum {

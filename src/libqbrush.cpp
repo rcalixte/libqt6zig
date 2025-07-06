@@ -188,10 +188,10 @@ void QGradient_SetColorAt(QGradient* self, double pos, const QColor* color) {
 }
 
 libqt_list /* of libqt_pair  tuple of double and QColor*  */ QGradient_Stops(const QGradient* self) {
-    QGradientStops _ret = self->stops();
+    QList<QPair<double, QColor>> _ret = self->stops();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QColor* */* _arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(malloc(sizeof(libqt_pair /* tuple of double and QColor* */) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_pair /* tuple of double and QColor* */* _arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(malloc(sizeof(libqt_pair /* tuple of double and QColor* */) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QPair<double, QColor> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
@@ -204,7 +204,7 @@ libqt_list /* of libqt_pair  tuple of double and QColor*  */ QGradient_Stops(con
         _arr[i] = _lv_out;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

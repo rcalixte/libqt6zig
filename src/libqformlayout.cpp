@@ -1407,3 +1407,15 @@ void QFormLayout_OnIsSignalConnected(const QFormLayout* self, intptr_t slot) {
 void QFormLayout_Delete(QFormLayout* self) {
     delete self;
 }
+
+QFormLayout__TakeRowResult* QFormLayout__TakeRowResult_new() {
+    return new QFormLayout::TakeRowResult();
+}
+
+QFormLayout__TakeRowResult* QFormLayout__TakeRowResult_new2(const QFormLayout__TakeRowResult* param1) {
+    return new QFormLayout::TakeRowResult(*param1);
+}
+
+void QFormLayout__TakeRowResult_Delete(QFormLayout__TakeRowResult* self) {
+    delete self;
+}

@@ -52,14 +52,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QPrintPreviewWidget::ViewMode ViewMode; // C++ enum
-typedef QPrintPreviewWidget::ZoomMode ZoomMode; // C++ enum
-#else
-typedef int ViewMode; // C ABI enum
-typedef int ZoomMode; // C ABI enum
-#endif
-
 QPrintPreviewWidget* QPrintPreviewWidget_new(QWidget* parent);
 QPrintPreviewWidget* QPrintPreviewWidget_new2(QPrinter* printer);
 QPrintPreviewWidget* QPrintPreviewWidget_new3();
@@ -270,6 +262,9 @@ int QPrintPreviewWidget_QBaseReceivers(const QPrintPreviewWidget* self, const ch
 bool QPrintPreviewWidget_IsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal);
 void QPrintPreviewWidget_OnIsSignalConnected(const QPrintPreviewWidget* self, intptr_t slot);
 bool QPrintPreviewWidget_QBaseIsSignalConnected(const QPrintPreviewWidget* self, const QMetaMethod* signal);
+double QPrintPreviewWidget_GetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB);
+void QPrintPreviewWidget_OnGetDecodedMetricF(const QPrintPreviewWidget* self, intptr_t slot);
+double QPrintPreviewWidget_QBaseGetDecodedMetricF(const QPrintPreviewWidget* self, int metricA, int metricB);
 void QPrintPreviewWidget_Delete(QPrintPreviewWidget* self);
 
 #ifdef __cplusplus

@@ -16,6 +16,7 @@
 #include <QThread>
 #include <QTimerEvent>
 #include <QVariant>
+#define WORKAROUND_INNER_CLASS_DEFINITION_Disambiguated_t
 #include <qobject.h>
 #include "libqobject.h"
 #include "libqobject.hxx"
@@ -130,8 +131,8 @@ QThread* QObject_Thread(const QObject* self) {
     return self->thread();
 }
 
-void QObject_MoveToThread(QObject* self, QThread* thread) {
-    self->moveToThread(thread);
+bool QObject_MoveToThread(QObject* self, QThread* thread) {
+    return self->moveToThread(thread);
 }
 
 int QObject_StartTimer(QObject* self, int interval) {
@@ -142,15 +143,19 @@ void QObject_KillTimer(QObject* self, int id) {
     self->killTimer(static_cast<int>(id));
 }
 
+void QObject_KillTimerWithId(QObject* self, int id) {
+    self->killTimer(static_cast<Qt::TimerId>(id));
+}
+
 libqt_list /* of QObject* */ QObject_Children(const QObject* self) {
-    const QObjectList& _ret = self->children();
-    // Convert QList<> from C++ memory to manually-managed C memory
-    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    const QList<QObject*>& _ret = self->children();
+    // Convert const QList<> from C++ memory to manually-managed C memory
+    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -202,8 +207,8 @@ QVariant* QObject_Property(const QObject* self, const char* name) {
 libqt_list /* of libqt_string */ QObject_DynamicPropertyNames(const QObject* self) {
     QList<QByteArray> _ret = self->dynamicPropertyNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -213,7 +218,7 @@ libqt_list /* of libqt_string */ QObject_DynamicPropertyNames(const QObject* sel
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -271,6 +276,10 @@ libqt_string QObject_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+bool QObject_MoveToThread2(QObject* self, QThread* thread, Disambiguated_t* param2) {
+    return self->moveToThread(thread, *param2);
 }
 
 int QObject_StartTimer2(QObject* self, int interval, int timerType) {
@@ -650,6 +659,10 @@ void QSignalBlocker_Reblock(QSignalBlocker* self) {
 
 void QSignalBlocker_Unblock(QSignalBlocker* self) {
     self->unblock();
+}
+
+void QSignalBlocker_Dismiss(QSignalBlocker* self) {
+    self->dismiss();
 }
 
 void QSignalBlocker_Delete(QSignalBlocker* self) {

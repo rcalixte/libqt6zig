@@ -16,6 +16,7 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
+typedef struct QDeadlineTimer QDeadlineTimer;
 typedef struct QSemaphore QSemaphore;
 typedef struct QSemaphoreReleaser QSemaphoreReleaser;
 #endif
@@ -25,9 +26,10 @@ QSemaphore* QSemaphore_new2(int n);
 void QSemaphore_Acquire(QSemaphore* self);
 bool QSemaphore_TryAcquire(QSemaphore* self);
 bool QSemaphore_TryAcquire2(QSemaphore* self, int n, int timeout);
+bool QSemaphore_TryAcquire3(QSemaphore* self, int n, QDeadlineTimer* timeout);
 void QSemaphore_Release(QSemaphore* self);
 int QSemaphore_Available(const QSemaphore* self);
-bool QSemaphore_TryAcquire3(QSemaphore* self);
+bool QSemaphore_TryAcquire4(QSemaphore* self);
 void QSemaphore_Acquire1(QSemaphore* self, int n);
 bool QSemaphore_TryAcquire1(QSemaphore* self, int n);
 void QSemaphore_Release1(QSemaphore* self, int n);

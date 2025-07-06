@@ -38,28 +38,10 @@ typedef struct QTextItem QTextItem;
 typedef struct QTransform QTransform;
 #endif
 
-#ifdef __cplusplus
-typedef QPaintEngine::DirtyFlag DirtyFlag;                     // C++ enum
-typedef QPaintEngine::DirtyFlags DirtyFlags;                   // C++ QFlags
-typedef QPaintEngine::PaintEngineFeature PaintEngineFeature;   // C++ enum
-typedef QPaintEngine::PaintEngineFeatures PaintEngineFeatures; // C++ QFlags
-typedef QPaintEngine::PolygonDrawMode PolygonDrawMode;         // C++ enum
-typedef QPaintEngine::Type Type;                               // C++ enum
-typedef QTextItem::RenderFlag RenderFlag;                      // C++ enum
-typedef QTextItem::RenderFlags RenderFlags;                    // C++ QFlags
-#else
-typedef int DirtyFlag;           // C ABI enum
-typedef int DirtyFlags;          // C ABI QFlags
-typedef int PaintEngineFeature;  // C ABI enum
-typedef int PaintEngineFeatures; // C ABI QFlags
-typedef int PolygonDrawMode;     // C ABI enum
-typedef int RenderFlag;          // C ABI enum
-typedef int RenderFlags;         // C ABI QFlags
-typedef unsigned char Type;      // C ABI enum
-#endif
-
 QTextItem* QTextItem_new(const QTextItem* other);
 QTextItem* QTextItem_new2(QTextItem* other);
+QTextItem* QTextItem_new3();
+QTextItem* QTextItem_new4(const QTextItem* param1);
 void QTextItem_CopyAssign(QTextItem* self, QTextItem* other);
 void QTextItem_MoveAssign(QTextItem* self, QTextItem* other);
 double QTextItem_Descent(const QTextItem* self);

@@ -54,14 +54,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QTabWidget::TabPosition TabPosition; // C++ enum
-typedef QTabWidget::TabShape TabShape;       // C++ enum
-#else
-typedef int TabPosition; // C ABI enum
-typedef int TabShape;    // C ABI enum
-#endif
-
 QTabWidget* QTabWidget_new(QWidget* parent);
 QTabWidget* QTabWidget_new2();
 QMetaObject* QTabWidget_MetaObject(const QTabWidget* self);
@@ -308,6 +300,9 @@ int QTabWidget_QBaseReceivers(const QTabWidget* self, const char* signal);
 bool QTabWidget_IsSignalConnected(const QTabWidget* self, const QMetaMethod* signal);
 void QTabWidget_OnIsSignalConnected(const QTabWidget* self, intptr_t slot);
 bool QTabWidget_QBaseIsSignalConnected(const QTabWidget* self, const QMetaMethod* signal);
+double QTabWidget_GetDecodedMetricF(const QTabWidget* self, int metricA, int metricB);
+void QTabWidget_OnGetDecodedMetricF(const QTabWidget* self, intptr_t slot);
+double QTabWidget_QBaseGetDecodedMetricF(const QTabWidget* self, int metricA, int metricB);
 void QTabWidget_Delete(QTabWidget* self);
 
 #ifdef __cplusplus

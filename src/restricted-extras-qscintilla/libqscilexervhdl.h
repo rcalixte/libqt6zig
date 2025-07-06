@@ -172,6 +172,12 @@ void QsciLexerVHDL_QBaseConnectNotify(QsciLexerVHDL* self, const QMetaMethod* si
 void QsciLexerVHDL_DisconnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
 void QsciLexerVHDL_OnDisconnectNotify(QsciLexerVHDL* self, intptr_t slot);
 void QsciLexerVHDL_QBaseDisconnectNotify(QsciLexerVHDL* self, const QMetaMethod* signal);
+libqt_string QsciLexerVHDL_TextAsBytes(const QsciLexerVHDL* self, const libqt_string text);
+void QsciLexerVHDL_OnTextAsBytes(const QsciLexerVHDL* self, intptr_t slot);
+libqt_string QsciLexerVHDL_QBaseTextAsBytes(const QsciLexerVHDL* self, const libqt_string text);
+libqt_string QsciLexerVHDL_BytesAsText(const QsciLexerVHDL* self, const char* bytes, int size);
+void QsciLexerVHDL_OnBytesAsText(const QsciLexerVHDL* self, intptr_t slot);
+libqt_string QsciLexerVHDL_QBaseBytesAsText(const QsciLexerVHDL* self, const char* bytes, int size);
 QObject* QsciLexerVHDL_Sender(const QsciLexerVHDL* self);
 void QsciLexerVHDL_OnSender(const QsciLexerVHDL* self, intptr_t slot);
 QObject* QsciLexerVHDL_QBaseSender(const QsciLexerVHDL* self);

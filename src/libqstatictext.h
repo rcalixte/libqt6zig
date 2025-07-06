@@ -23,12 +23,6 @@ typedef struct QTextOption QTextOption;
 typedef struct QTransform QTransform;
 #endif
 
-#ifdef __cplusplus
-typedef QStaticText::PerformanceHint PerformanceHint; // C++ enum
-#else
-typedef int PerformanceHint; // C ABI enum
-#endif
-
 QStaticText* QStaticText_new();
 QStaticText* QStaticText_new2(const libqt_string text);
 QStaticText* QStaticText_new3(const QStaticText* other);

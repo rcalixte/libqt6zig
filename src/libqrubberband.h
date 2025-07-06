@@ -53,12 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QRubberBand::Shape Shape; // C++ enum
-#else
-typedef int Shape; // C ABI enum
-#endif
-
 QRubberBand* QRubberBand_new(int param1);
 QRubberBand* QRubberBand_new2(int param1, QWidget* param2);
 QMetaObject* QRubberBand_MetaObject(const QRubberBand* self);
@@ -247,6 +241,9 @@ int QRubberBand_QBaseReceivers(const QRubberBand* self, const char* signal);
 bool QRubberBand_IsSignalConnected(const QRubberBand* self, const QMetaMethod* signal);
 void QRubberBand_OnIsSignalConnected(const QRubberBand* self, intptr_t slot);
 bool QRubberBand_QBaseIsSignalConnected(const QRubberBand* self, const QMetaMethod* signal);
+double QRubberBand_GetDecodedMetricF(const QRubberBand* self, int metricA, int metricB);
+void QRubberBand_OnGetDecodedMetricF(const QRubberBand* self, intptr_t slot);
+double QRubberBand_QBaseGetDecodedMetricF(const QRubberBand* self, int metricA, int metricB);
 void QRubberBand_Delete(QRubberBand* self);
 
 #ifdef __cplusplus

@@ -33,18 +33,9 @@ typedef struct QModelIndex QModelIndex;
 typedef struct QModelRoleDataSpan QModelRoleDataSpan;
 typedef struct QObject QObject;
 typedef struct QSize QSize;
+typedef struct QTimeZone QTimeZone;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
-#endif
-
-#ifdef __cplusplus
-typedef QFileSystemModel::Option Option;   // C++ enum
-typedef QFileSystemModel::Options Options; // C++ QFlags
-typedef QFileSystemModel::Roles Roles;     // C++ enum
-#else
-typedef int Option;  // C ABI enum
-typedef int Options; // C ABI QFlags
-typedef int Roles;   // C ABI enum
 #endif
 
 QFileSystemModel* QFileSystemModel_new();
@@ -141,6 +132,7 @@ bool QFileSystemModel_IsDir(const QFileSystemModel* self, const QModelIndex* ind
 long long QFileSystemModel_Size(const QFileSystemModel* self, const QModelIndex* index);
 libqt_string QFileSystemModel_Type(const QFileSystemModel* self, const QModelIndex* index);
 QDateTime* QFileSystemModel_LastModified(const QFileSystemModel* self, const QModelIndex* index);
+QDateTime* QFileSystemModel_LastModified2(const QFileSystemModel* self, const QModelIndex* index, const QTimeZone* tz);
 QModelIndex* QFileSystemModel_Mkdir(QFileSystemModel* self, const QModelIndex* parent, const libqt_string name);
 bool QFileSystemModel_Rmdir(QFileSystemModel* self, const QModelIndex* index);
 libqt_string QFileSystemModel_FileName(const QFileSystemModel* self, const QModelIndex* index);

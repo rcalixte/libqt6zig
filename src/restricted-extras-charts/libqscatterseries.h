@@ -30,12 +30,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QXYSeries QXYSeries;
 #endif
 
-#ifdef __cplusplus
-typedef QScatterSeries::MarkerShape MarkerShape; // C++ enum
-#else
-typedef int MarkerShape; // C ABI enum
-#endif
-
 QScatterSeries* QScatterSeries_new();
 QScatterSeries* QScatterSeries_new2(QObject* parent);
 QMetaObject* QScatterSeries_MetaObject(const QScatterSeries* self);

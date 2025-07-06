@@ -1,7 +1,10 @@
 #include <QAbstractEventDispatcher>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QAbstractEventDispatcher__TimerInfo
+#define WORKAROUND_INNER_CLASS_DEFINITION_QAbstractEventDispatcher__TimerInfoV2
+#include <QAbstractEventDispatcherV2>
 #include <QAbstractNativeEventFilter>
 #include <QByteArray>
+#include <QDeadlineTimer>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
@@ -74,18 +77,35 @@ bool QAbstractEventDispatcher_UnregisterTimers(QAbstractEventDispatcher* self, Q
 libqt_list /* of QAbstractEventDispatcher__TimerInfo* */ QAbstractEventDispatcher_RegisteredTimers(const QAbstractEventDispatcher* self, QObject* object) {
     QList<QAbstractEventDispatcher::TimerInfo> _ret = self->registeredTimers(object);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractEventDispatcher__TimerInfo** _arr = static_cast<QAbstractEventDispatcher__TimerInfo**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfo*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QAbstractEventDispatcher__TimerInfo** _arr = static_cast<QAbstractEventDispatcher__TimerInfo**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfo*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAbstractEventDispatcher::TimerInfo(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
 int QAbstractEventDispatcher_RemainingTime(QAbstractEventDispatcher* self, int timerId) {
     return self->remainingTime(static_cast<int>(timerId));
+}
+
+bool QAbstractEventDispatcher_UnregisterTimerWithTimerId(QAbstractEventDispatcher* self, int timerId) {
+    return self->unregisterTimer(static_cast<Qt::TimerId>(timerId));
+}
+
+libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatcher_TimersForObject(const QAbstractEventDispatcher* self, QObject* object) {
+    QList<QAbstractEventDispatcher::TimerInfoV2> _ret = self->timersForObject(object);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QAbstractEventDispatcher::TimerInfoV2(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 void QAbstractEventDispatcher_WakeUp(QAbstractEventDispatcher* self) {
@@ -171,6 +191,79 @@ void QAbstractEventDispatcher_Delete(QAbstractEventDispatcher* self) {
     delete self;
 }
 
+QMetaObject* QAbstractEventDispatcherV2_MetaObject(const QAbstractEventDispatcherV2* self) {
+    return (QMetaObject*)self->metaObject();
+}
+
+void* QAbstractEventDispatcherV2_Metacast(QAbstractEventDispatcherV2* self, const char* param1) {
+    return self->qt_metacast(param1);
+}
+
+int QAbstractEventDispatcherV2_Metacall(QAbstractEventDispatcherV2* self, int param1, int param2, void** param3) {
+    return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
+}
+
+libqt_string QAbstractEventDispatcherV2_Tr(const char* s) {
+    QString _ret = QAbstractEventDispatcherV2::tr(s);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+bool QAbstractEventDispatcherV2_UnregisterTimer(QAbstractEventDispatcherV2* self, int timerId) {
+    return self->unregisterTimer(static_cast<Qt::TimerId>(timerId));
+}
+
+libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatcherV2_TimersForObject(const QAbstractEventDispatcherV2* self, QObject* object) {
+    QList<QAbstractEventDispatcher::TimerInfoV2> _ret = self->timersForObject(object);
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QAbstractEventDispatcher::TimerInfoV2(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
+}
+
+bool QAbstractEventDispatcherV2_ProcessEventsWithDeadline(QAbstractEventDispatcherV2* self, int flags, QDeadlineTimer* deadline) {
+    return self->processEventsWithDeadline(static_cast<QEventLoop::ProcessEventsFlags>(flags), *deadline);
+}
+
+libqt_string QAbstractEventDispatcherV2_Tr2(const char* s, const char* c) {
+    QString _ret = QAbstractEventDispatcherV2::tr(s, c);
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+libqt_string QAbstractEventDispatcherV2_Tr3(const char* s, const char* c, int n) {
+    QString _ret = QAbstractEventDispatcherV2::tr(s, c, static_cast<int>(n));
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
+void QAbstractEventDispatcherV2_Delete(QAbstractEventDispatcherV2* self) {
+    delete self;
+}
+
 QAbstractEventDispatcher__TimerInfo* QAbstractEventDispatcher__TimerInfo_new(const QAbstractEventDispatcher__TimerInfo* other) {
     return new QAbstractEventDispatcher::TimerInfo(*other);
 }
@@ -183,6 +276,10 @@ QAbstractEventDispatcher__TimerInfo* QAbstractEventDispatcher__TimerInfo_new3(in
     return new QAbstractEventDispatcher::TimerInfo(static_cast<int>(id), static_cast<int>(i), static_cast<Qt::TimerType>(t));
 }
 
+QAbstractEventDispatcher__TimerInfo* QAbstractEventDispatcher__TimerInfo_new4(const QAbstractEventDispatcher__TimerInfo* param1) {
+    return new QAbstractEventDispatcher::TimerInfo(*param1);
+}
+
 void QAbstractEventDispatcher__TimerInfo_CopyAssign(QAbstractEventDispatcher__TimerInfo* self, QAbstractEventDispatcher__TimerInfo* other) {
     *self = *other;
 }
@@ -192,5 +289,21 @@ void QAbstractEventDispatcher__TimerInfo_MoveAssign(QAbstractEventDispatcher__Ti
 }
 
 void QAbstractEventDispatcher__TimerInfo_Delete(QAbstractEventDispatcher__TimerInfo* self) {
+    delete self;
+}
+
+QAbstractEventDispatcher__TimerInfoV2* QAbstractEventDispatcher__TimerInfoV2_new(const QAbstractEventDispatcher__TimerInfoV2* param1) {
+    return new QAbstractEventDispatcher::TimerInfoV2(*param1);
+}
+
+QAbstractEventDispatcher__TimerInfoV2* QAbstractEventDispatcher__TimerInfoV2_new2() {
+    return new QAbstractEventDispatcher::TimerInfoV2();
+}
+
+void QAbstractEventDispatcher__TimerInfoV2_OperatorAssign(QAbstractEventDispatcher__TimerInfoV2* self, const QAbstractEventDispatcher__TimerInfoV2* param1) {
+    self->operator=(*param1);
+}
+
+void QAbstractEventDispatcher__TimerInfoV2_Delete(QAbstractEventDispatcher__TimerInfoV2* self) {
     delete self;
 }

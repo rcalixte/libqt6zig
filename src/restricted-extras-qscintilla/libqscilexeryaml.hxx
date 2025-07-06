@@ -61,6 +61,8 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     using QsciLexerYAML_CustomEvent_Callback = void (*)(QsciLexerYAML*, QEvent*);
     using QsciLexerYAML_ConnectNotify_Callback = void (*)(QsciLexerYAML*, QMetaMethod*);
     using QsciLexerYAML_DisconnectNotify_Callback = void (*)(QsciLexerYAML*, QMetaMethod*);
+    using QsciLexerYAML_TextAsBytes_Callback = libqt_string (*)(const QsciLexerYAML*, libqt_string);
+    using QsciLexerYAML_BytesAsText_Callback = libqt_string (*)(const QsciLexerYAML*, const char*, int);
     using QsciLexerYAML_Sender_Callback = QObject* (*)();
     using QsciLexerYAML_SenderSignalIndex_Callback = int (*)();
     using QsciLexerYAML_Receivers_Callback = int (*)(const QsciLexerYAML*, const char*);
@@ -111,6 +113,8 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     QsciLexerYAML_CustomEvent_Callback qscilexeryaml_customevent_callback = nullptr;
     QsciLexerYAML_ConnectNotify_Callback qscilexeryaml_connectnotify_callback = nullptr;
     QsciLexerYAML_DisconnectNotify_Callback qscilexeryaml_disconnectnotify_callback = nullptr;
+    QsciLexerYAML_TextAsBytes_Callback qscilexeryaml_textasbytes_callback = nullptr;
+    QsciLexerYAML_BytesAsText_Callback qscilexeryaml_bytesastext_callback = nullptr;
     QsciLexerYAML_Sender_Callback qscilexeryaml_sender_callback = nullptr;
     QsciLexerYAML_SenderSignalIndex_Callback qscilexeryaml_sendersignalindex_callback = nullptr;
     QsciLexerYAML_Receivers_Callback qscilexeryaml_receivers_callback = nullptr;
@@ -160,14 +164,16 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     mutable bool qscilexeryaml_customevent_isbase = false;
     mutable bool qscilexeryaml_connectnotify_isbase = false;
     mutable bool qscilexeryaml_disconnectnotify_isbase = false;
+    mutable bool qscilexeryaml_textasbytes_isbase = false;
+    mutable bool qscilexeryaml_bytesastext_isbase = false;
     mutable bool qscilexeryaml_sender_isbase = false;
     mutable bool qscilexeryaml_sendersignalindex_isbase = false;
     mutable bool qscilexeryaml_receivers_isbase = false;
     mutable bool qscilexeryaml_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerYAML() : QsciLexerYAML(){};
-    VirtualQsciLexerYAML(QObject* parent) : QsciLexerYAML(parent){};
+    VirtualQsciLexerYAML() : QsciLexerYAML() {};
+    VirtualQsciLexerYAML(QObject* parent) : QsciLexerYAML(parent) {};
 
     ~VirtualQsciLexerYAML() {
         qscilexeryaml_metacall_callback = nullptr;
@@ -213,6 +219,8 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
         qscilexeryaml_customevent_callback = nullptr;
         qscilexeryaml_connectnotify_callback = nullptr;
         qscilexeryaml_disconnectnotify_callback = nullptr;
+        qscilexeryaml_textasbytes_callback = nullptr;
+        qscilexeryaml_bytesastext_callback = nullptr;
         qscilexeryaml_sender_callback = nullptr;
         qscilexeryaml_sendersignalindex_callback = nullptr;
         qscilexeryaml_receivers_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     inline void setQsciLexerYAML_CustomEvent_Callback(QsciLexerYAML_CustomEvent_Callback cb) { qscilexeryaml_customevent_callback = cb; }
     inline void setQsciLexerYAML_ConnectNotify_Callback(QsciLexerYAML_ConnectNotify_Callback cb) { qscilexeryaml_connectnotify_callback = cb; }
     inline void setQsciLexerYAML_DisconnectNotify_Callback(QsciLexerYAML_DisconnectNotify_Callback cb) { qscilexeryaml_disconnectnotify_callback = cb; }
+    inline void setQsciLexerYAML_TextAsBytes_Callback(QsciLexerYAML_TextAsBytes_Callback cb) { qscilexeryaml_textasbytes_callback = cb; }
+    inline void setQsciLexerYAML_BytesAsText_Callback(QsciLexerYAML_BytesAsText_Callback cb) { qscilexeryaml_bytesastext_callback = cb; }
     inline void setQsciLexerYAML_Sender_Callback(QsciLexerYAML_Sender_Callback cb) { qscilexeryaml_sender_callback = cb; }
     inline void setQsciLexerYAML_SenderSignalIndex_Callback(QsciLexerYAML_SenderSignalIndex_Callback cb) { qscilexeryaml_sendersignalindex_callback = cb; }
     inline void setQsciLexerYAML_Receivers_Callback(QsciLexerYAML_Receivers_Callback cb) { qscilexeryaml_receivers_callback = cb; }
@@ -312,6 +322,8 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     inline void setQsciLexerYAML_CustomEvent_IsBase(bool value) const { qscilexeryaml_customevent_isbase = value; }
     inline void setQsciLexerYAML_ConnectNotify_IsBase(bool value) const { qscilexeryaml_connectnotify_isbase = value; }
     inline void setQsciLexerYAML_DisconnectNotify_IsBase(bool value) const { qscilexeryaml_disconnectnotify_isbase = value; }
+    inline void setQsciLexerYAML_TextAsBytes_IsBase(bool value) const { qscilexeryaml_textasbytes_isbase = value; }
+    inline void setQsciLexerYAML_BytesAsText_IsBase(bool value) const { qscilexeryaml_bytesastext_isbase = value; }
     inline void setQsciLexerYAML_Sender_IsBase(bool value) const { qscilexeryaml_sender_isbase = value; }
     inline void setQsciLexerYAML_SenderSignalIndex_IsBase(bool value) const { qscilexeryaml_sendersignalindex_isbase = value; }
     inline void setQsciLexerYAML_Receivers_IsBase(bool value) const { qscilexeryaml_receivers_isbase = value; }
@@ -398,13 +410,13 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexeryaml_autocompletionwordseparators_isbase) {
             qscilexeryaml_autocompletionwordseparators_isbase = false;
             return QsciLexerYAML::autoCompletionWordSeparators();
         } else if (qscilexeryaml_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexeryaml_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -965,6 +977,47 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexeryaml_textasbytes_isbase) {
+            qscilexeryaml_textasbytes_isbase = false;
+            return QsciLexerYAML::textAsBytes(text);
+        } else if (qscilexeryaml_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexeryaml_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerYAML::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexeryaml_bytesastext_isbase) {
+            qscilexeryaml_bytesastext_isbase = false;
+            return QsciLexerYAML::bytesAsText(bytes, size);
+        } else if (qscilexeryaml_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexeryaml_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerYAML::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexeryaml_sender_isbase) {
             qscilexeryaml_sender_isbase = false;
@@ -1037,6 +1090,10 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     friend void QsciLexerYAML_QBaseConnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
     friend void QsciLexerYAML_DisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
     friend void QsciLexerYAML_QBaseDisconnectNotify(QsciLexerYAML* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerYAML_TextAsBytes(const QsciLexerYAML* self, const libqt_string text);
+    friend libqt_string QsciLexerYAML_QBaseTextAsBytes(const QsciLexerYAML* self, const libqt_string text);
+    friend libqt_string QsciLexerYAML_BytesAsText(const QsciLexerYAML* self, const char* bytes, int size);
+    friend libqt_string QsciLexerYAML_QBaseBytesAsText(const QsciLexerYAML* self, const char* bytes, int size);
     friend QObject* QsciLexerYAML_Sender(const QsciLexerYAML* self);
     friend QObject* QsciLexerYAML_QBaseSender(const QsciLexerYAML* self);
     friend int QsciLexerYAML_SenderSignalIndex(const QsciLexerYAML* self);

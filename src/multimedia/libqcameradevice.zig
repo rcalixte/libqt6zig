@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qcameradevice_enums = enums;
+const qtvideo_enums = @import("libqtvideo.zig").enums;
 const qvideoframeformat_enums = @import("libqvideoframeformat.zig").enums;
 const std = @import("std");
 
@@ -188,6 +189,13 @@ pub const qcameradevice = struct {
         const _data: [*]QtC.QCameraFormat = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#correctionAngle)
+    ///
+    /// ``` self: QtC.QCameraDevice ```
+    pub fn CorrectionAngle(self: ?*anyopaque) i64 {
+        return qtc.QCameraDevice_CorrectionAngle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#dtor.QCameraDevice)

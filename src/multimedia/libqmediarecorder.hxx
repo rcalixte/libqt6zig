@@ -61,8 +61,8 @@ class VirtualQMediaRecorder final : public QMediaRecorder {
     mutable bool qmediarecorder_issignalconnected_isbase = false;
 
   public:
-    VirtualQMediaRecorder() : QMediaRecorder(){};
-    VirtualQMediaRecorder(QObject* parent) : QMediaRecorder(parent){};
+    VirtualQMediaRecorder() : QMediaRecorder() {};
+    VirtualQMediaRecorder(QObject* parent) : QMediaRecorder(parent) {};
 
     ~VirtualQMediaRecorder() {
         qmediarecorder_metacall_callback = nullptr;

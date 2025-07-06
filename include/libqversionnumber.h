@@ -17,16 +17,14 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct QAnyStringView QAnyStringView;
-typedef struct QTypeRevision QTypeRevision;
 typedef struct QVersionNumber QVersionNumber;
 #endif
 
 QVersionNumber* QVersionNumber_new();
-QVersionNumber* QVersionNumber_new2(const libqt_list /* of int */ seg);
+QVersionNumber* QVersionNumber_new2(libqt_list /* of const int */ args);
 QVersionNumber* QVersionNumber_new3(int maj);
 QVersionNumber* QVersionNumber_new4(int maj, int min);
 QVersionNumber* QVersionNumber_new5(int maj, int min, int mic);
-QVersionNumber* QVersionNumber_new6(const QVersionNumber* param1);
 bool QVersionNumber_IsNull(const QVersionNumber* self);
 bool QVersionNumber_IsNormalized(const QVersionNumber* self);
 int QVersionNumber_MajorVersion(const QVersionNumber* self);
@@ -43,20 +41,6 @@ libqt_string QVersionNumber_ToString(const QVersionNumber* self);
 QVersionNumber* QVersionNumber_FromString(libqt_string stringVal);
 QVersionNumber* QVersionNumber_FromString2(libqt_string stringVal, ptrdiff_t* suffixIndex);
 void QVersionNumber_Delete(QVersionNumber* self);
-
-QTypeRevision* QTypeRevision_new(const QTypeRevision* other);
-QTypeRevision* QTypeRevision_new2(QTypeRevision* other);
-QTypeRevision* QTypeRevision_new3();
-QTypeRevision* QTypeRevision_new4(const QTypeRevision* param1);
-void QTypeRevision_CopyAssign(QTypeRevision* self, QTypeRevision* other);
-void QTypeRevision_MoveAssign(QTypeRevision* self, QTypeRevision* other);
-QTypeRevision* QTypeRevision_Zero();
-bool QTypeRevision_HasMajorVersion(const QTypeRevision* self);
-unsigned char QTypeRevision_MajorVersion(const QTypeRevision* self);
-bool QTypeRevision_HasMinorVersion(const QTypeRevision* self);
-unsigned char QTypeRevision_MinorVersion(const QTypeRevision* self);
-bool QTypeRevision_IsValid(const QTypeRevision* self);
-void QTypeRevision_Delete(QTypeRevision* self);
 
 #ifdef __cplusplus
 } /* extern C */

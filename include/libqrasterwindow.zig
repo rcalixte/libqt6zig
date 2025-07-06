@@ -117,6 +117,31 @@ pub const qrasterwindow = struct {
         return qtc.QRasterWindow_QBaseRedirected(@ptrCast(self), @ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
+    ///
+    /// ``` self: QtC.QRasterWindow, event: QtC.QResizeEvent ```
+    pub fn ResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRasterWindow_ResizeEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QRasterWindow_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrasterwindow.html#resizeEvent)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QRasterWindow, event: QtC.QResizeEvent ```
+    pub fn QBaseResizeEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QRasterWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(event));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -1580,8 +1605,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QRasterWindow, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1600,6 +1625,15 @@ pub const qrasterwindow = struct {
     /// ``` self: QtC.QRasterWindow, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QRasterWindow, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1791,6 +1825,15 @@ pub const qrasterwindow = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QRasterWindow, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QRasterWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -1960,6 +2003,15 @@ pub const qrasterwindow = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QPaintDeviceWindow
@@ -2224,39 +2276,6 @@ pub const qrasterwindow = struct {
     /// ``` self: QtC.QRasterWindow, slot: fn () callconv(.c) QtC.QObject ```
     pub fn OnFocusObject(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
         qtc.QRasterWindow_OnFocusObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QWindow
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.QRasterWindow, param1: QtC.QResizeEvent ```
-    pub fn ResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_ResizeEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QWindow
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.QRasterWindow, param1: QtC.QResizeEvent ```
-    pub fn QBaseResizeEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QRasterWindow_QBaseResizeEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QWindow
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, param1: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QRasterWindow_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QWindow
@@ -3259,6 +3278,39 @@ pub const qrasterwindow = struct {
     /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QRasterWindow_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QRasterWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QRasterWindow_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QRasterWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QRasterWindow_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QRasterWindow_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject

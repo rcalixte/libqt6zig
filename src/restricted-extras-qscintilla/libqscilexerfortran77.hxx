@@ -61,6 +61,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     using QsciLexerFortran77_CustomEvent_Callback = void (*)(QsciLexerFortran77*, QEvent*);
     using QsciLexerFortran77_ConnectNotify_Callback = void (*)(QsciLexerFortran77*, QMetaMethod*);
     using QsciLexerFortran77_DisconnectNotify_Callback = void (*)(QsciLexerFortran77*, QMetaMethod*);
+    using QsciLexerFortran77_TextAsBytes_Callback = libqt_string (*)(const QsciLexerFortran77*, libqt_string);
+    using QsciLexerFortran77_BytesAsText_Callback = libqt_string (*)(const QsciLexerFortran77*, const char*, int);
     using QsciLexerFortran77_Sender_Callback = QObject* (*)();
     using QsciLexerFortran77_SenderSignalIndex_Callback = int (*)();
     using QsciLexerFortran77_Receivers_Callback = int (*)(const QsciLexerFortran77*, const char*);
@@ -111,6 +113,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     QsciLexerFortran77_CustomEvent_Callback qscilexerfortran77_customevent_callback = nullptr;
     QsciLexerFortran77_ConnectNotify_Callback qscilexerfortran77_connectnotify_callback = nullptr;
     QsciLexerFortran77_DisconnectNotify_Callback qscilexerfortran77_disconnectnotify_callback = nullptr;
+    QsciLexerFortran77_TextAsBytes_Callback qscilexerfortran77_textasbytes_callback = nullptr;
+    QsciLexerFortran77_BytesAsText_Callback qscilexerfortran77_bytesastext_callback = nullptr;
     QsciLexerFortran77_Sender_Callback qscilexerfortran77_sender_callback = nullptr;
     QsciLexerFortran77_SenderSignalIndex_Callback qscilexerfortran77_sendersignalindex_callback = nullptr;
     QsciLexerFortran77_Receivers_Callback qscilexerfortran77_receivers_callback = nullptr;
@@ -160,14 +164,16 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     mutable bool qscilexerfortran77_customevent_isbase = false;
     mutable bool qscilexerfortran77_connectnotify_isbase = false;
     mutable bool qscilexerfortran77_disconnectnotify_isbase = false;
+    mutable bool qscilexerfortran77_textasbytes_isbase = false;
+    mutable bool qscilexerfortran77_bytesastext_isbase = false;
     mutable bool qscilexerfortran77_sender_isbase = false;
     mutable bool qscilexerfortran77_sendersignalindex_isbase = false;
     mutable bool qscilexerfortran77_receivers_isbase = false;
     mutable bool qscilexerfortran77_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerFortran77() : QsciLexerFortran77(){};
-    VirtualQsciLexerFortran77(QObject* parent) : QsciLexerFortran77(parent){};
+    VirtualQsciLexerFortran77() : QsciLexerFortran77() {};
+    VirtualQsciLexerFortran77(QObject* parent) : QsciLexerFortran77(parent) {};
 
     ~VirtualQsciLexerFortran77() {
         qscilexerfortran77_metacall_callback = nullptr;
@@ -213,6 +219,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
         qscilexerfortran77_customevent_callback = nullptr;
         qscilexerfortran77_connectnotify_callback = nullptr;
         qscilexerfortran77_disconnectnotify_callback = nullptr;
+        qscilexerfortran77_textasbytes_callback = nullptr;
+        qscilexerfortran77_bytesastext_callback = nullptr;
         qscilexerfortran77_sender_callback = nullptr;
         qscilexerfortran77_sendersignalindex_callback = nullptr;
         qscilexerfortran77_receivers_callback = nullptr;
@@ -263,6 +271,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     inline void setQsciLexerFortran77_CustomEvent_Callback(QsciLexerFortran77_CustomEvent_Callback cb) { qscilexerfortran77_customevent_callback = cb; }
     inline void setQsciLexerFortran77_ConnectNotify_Callback(QsciLexerFortran77_ConnectNotify_Callback cb) { qscilexerfortran77_connectnotify_callback = cb; }
     inline void setQsciLexerFortran77_DisconnectNotify_Callback(QsciLexerFortran77_DisconnectNotify_Callback cb) { qscilexerfortran77_disconnectnotify_callback = cb; }
+    inline void setQsciLexerFortran77_TextAsBytes_Callback(QsciLexerFortran77_TextAsBytes_Callback cb) { qscilexerfortran77_textasbytes_callback = cb; }
+    inline void setQsciLexerFortran77_BytesAsText_Callback(QsciLexerFortran77_BytesAsText_Callback cb) { qscilexerfortran77_bytesastext_callback = cb; }
     inline void setQsciLexerFortran77_Sender_Callback(QsciLexerFortran77_Sender_Callback cb) { qscilexerfortran77_sender_callback = cb; }
     inline void setQsciLexerFortran77_SenderSignalIndex_Callback(QsciLexerFortran77_SenderSignalIndex_Callback cb) { qscilexerfortran77_sendersignalindex_callback = cb; }
     inline void setQsciLexerFortran77_Receivers_Callback(QsciLexerFortran77_Receivers_Callback cb) { qscilexerfortran77_receivers_callback = cb; }
@@ -312,6 +322,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     inline void setQsciLexerFortran77_CustomEvent_IsBase(bool value) const { qscilexerfortran77_customevent_isbase = value; }
     inline void setQsciLexerFortran77_ConnectNotify_IsBase(bool value) const { qscilexerfortran77_connectnotify_isbase = value; }
     inline void setQsciLexerFortran77_DisconnectNotify_IsBase(bool value) const { qscilexerfortran77_disconnectnotify_isbase = value; }
+    inline void setQsciLexerFortran77_TextAsBytes_IsBase(bool value) const { qscilexerfortran77_textasbytes_isbase = value; }
+    inline void setQsciLexerFortran77_BytesAsText_IsBase(bool value) const { qscilexerfortran77_bytesastext_isbase = value; }
     inline void setQsciLexerFortran77_Sender_IsBase(bool value) const { qscilexerfortran77_sender_isbase = value; }
     inline void setQsciLexerFortran77_SenderSignalIndex_IsBase(bool value) const { qscilexerfortran77_sendersignalindex_isbase = value; }
     inline void setQsciLexerFortran77_Receivers_IsBase(bool value) const { qscilexerfortran77_receivers_isbase = value; }
@@ -398,13 +410,13 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerfortran77_autocompletionwordseparators_isbase) {
             qscilexerfortran77_autocompletionwordseparators_isbase = false;
             return QsciLexerFortran77::autoCompletionWordSeparators();
         } else if (qscilexerfortran77_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerfortran77_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -965,6 +977,47 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerfortran77_textasbytes_isbase) {
+            qscilexerfortran77_textasbytes_isbase = false;
+            return QsciLexerFortran77::textAsBytes(text);
+        } else if (qscilexerfortran77_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerfortran77_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerFortran77::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerfortran77_bytesastext_isbase) {
+            qscilexerfortran77_bytesastext_isbase = false;
+            return QsciLexerFortran77::bytesAsText(bytes, size);
+        } else if (qscilexerfortran77_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerfortran77_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerFortran77::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerfortran77_sender_isbase) {
             qscilexerfortran77_sender_isbase = false;
@@ -1037,6 +1090,10 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     friend void QsciLexerFortran77_QBaseConnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
     friend void QsciLexerFortran77_DisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
     friend void QsciLexerFortran77_QBaseDisconnectNotify(QsciLexerFortran77* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerFortran77_TextAsBytes(const QsciLexerFortran77* self, const libqt_string text);
+    friend libqt_string QsciLexerFortran77_QBaseTextAsBytes(const QsciLexerFortran77* self, const libqt_string text);
+    friend libqt_string QsciLexerFortran77_BytesAsText(const QsciLexerFortran77* self, const char* bytes, int size);
+    friend libqt_string QsciLexerFortran77_QBaseBytesAsText(const QsciLexerFortran77* self, const char* bytes, int size);
     friend QObject* QsciLexerFortran77_Sender(const QsciLexerFortran77* self);
     friend QObject* QsciLexerFortran77_QBaseSender(const QsciLexerFortran77* self);
     friend int QsciLexerFortran77_SenderSignalIndex(const QsciLexerFortran77* self);

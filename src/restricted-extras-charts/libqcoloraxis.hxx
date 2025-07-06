@@ -64,8 +64,8 @@ class VirtualQColorAxis final : public QColorAxis {
     mutable bool qcoloraxis_issignalconnected_isbase = false;
 
   public:
-    VirtualQColorAxis() : QColorAxis(){};
-    VirtualQColorAxis(QObject* parent) : QColorAxis(parent){};
+    VirtualQColorAxis() : QColorAxis() {};
+    VirtualQColorAxis(QObject* parent) : QColorAxis(parent) {};
 
     ~VirtualQColorAxis() {
         qcoloraxis_metacall_callback = nullptr;

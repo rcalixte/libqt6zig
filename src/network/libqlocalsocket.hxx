@@ -118,8 +118,8 @@ class VirtualQLocalSocket final : public QLocalSocket {
     mutable bool qlocalsocket_issignalconnected_isbase = false;
 
   public:
-    VirtualQLocalSocket() : QLocalSocket(){};
-    VirtualQLocalSocket(QObject* parent) : QLocalSocket(parent){};
+    VirtualQLocalSocket() : QLocalSocket() {};
+    VirtualQLocalSocket(QObject* parent) : QLocalSocket(parent) {};
 
     ~VirtualQLocalSocket() {
         qlocalsocket_metacall_callback = nullptr;
@@ -291,7 +291,7 @@ class VirtualQLocalSocket final : public QLocalSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool open(QIODeviceBase::OpenMode openMode) override {
+    virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> openMode) override {
         if (qlocalsocket_open_isbase) {
             qlocalsocket_open_isbase = false;
             return QLocalSocket::open(openMode);

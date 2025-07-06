@@ -444,6 +444,9 @@ int QUndoView_QBaseReceivers(const QUndoView* self, const char* signal);
 bool QUndoView_IsSignalConnected(const QUndoView* self, const QMetaMethod* signal);
 void QUndoView_OnIsSignalConnected(const QUndoView* self, intptr_t slot);
 bool QUndoView_QBaseIsSignalConnected(const QUndoView* self, const QMetaMethod* signal);
+double QUndoView_GetDecodedMetricF(const QUndoView* self, int metricA, int metricB);
+void QUndoView_OnGetDecodedMetricF(const QUndoView* self, intptr_t slot);
+double QUndoView_QBaseGetDecodedMetricF(const QUndoView* self, int metricA, int metricB);
 void QUndoView_Delete(QUndoView* self);
 
 #ifdef __cplusplus

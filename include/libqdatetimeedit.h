@@ -55,18 +55,11 @@ typedef struct QStyleOptionSpinBox QStyleOptionSpinBox;
 typedef struct QTabletEvent QTabletEvent;
 typedef struct QTime QTime;
 typedef struct QTimeEdit QTimeEdit;
+typedef struct QTimeZone QTimeZone;
 typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
-#endif
-
-#ifdef __cplusplus
-typedef QDateTimeEdit::Section Section;   // C++ enum
-typedef QDateTimeEdit::Sections Sections; // C++ QFlags
-#else
-typedef int Section;  // C ABI enum
-typedef int Sections; // C ABI QFlags
 #endif
 
 QDateTimeEdit* QDateTimeEdit_new(QWidget* parent);
@@ -126,6 +119,8 @@ bool QDateTimeEdit_CalendarPopup(const QDateTimeEdit* self);
 void QDateTimeEdit_SetCalendarPopup(QDateTimeEdit* self, bool enable);
 int QDateTimeEdit_TimeSpec(const QDateTimeEdit* self);
 void QDateTimeEdit_SetTimeSpec(QDateTimeEdit* self, int spec);
+QTimeZone* QDateTimeEdit_TimeZone(const QDateTimeEdit* self);
+void QDateTimeEdit_SetTimeZone(QDateTimeEdit* self, const QTimeZone* zone);
 QSize* QDateTimeEdit_SizeHint(const QDateTimeEdit* self);
 void QDateTimeEdit_OnSizeHint(const QDateTimeEdit* self, intptr_t slot);
 QSize* QDateTimeEdit_QBaseSizeHint(const QDateTimeEdit* self);
@@ -335,6 +330,9 @@ int QDateTimeEdit_QBaseReceivers(const QDateTimeEdit* self, const char* signal);
 bool QDateTimeEdit_IsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal);
 void QDateTimeEdit_OnIsSignalConnected(const QDateTimeEdit* self, intptr_t slot);
 bool QDateTimeEdit_QBaseIsSignalConnected(const QDateTimeEdit* self, const QMetaMethod* signal);
+double QDateTimeEdit_GetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB);
+void QDateTimeEdit_OnGetDecodedMetricF(const QDateTimeEdit* self, intptr_t slot);
+double QDateTimeEdit_QBaseGetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB);
 void QDateTimeEdit_Delete(QDateTimeEdit* self);
 
 QTimeEdit* QTimeEdit_new(QWidget* parent);
@@ -549,6 +547,9 @@ int QTimeEdit_QBaseReceivers(const QTimeEdit* self, const char* signal);
 bool QTimeEdit_IsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal);
 void QTimeEdit_OnIsSignalConnected(const QTimeEdit* self, intptr_t slot);
 bool QTimeEdit_QBaseIsSignalConnected(const QTimeEdit* self, const QMetaMethod* signal);
+double QTimeEdit_GetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB);
+void QTimeEdit_OnGetDecodedMetricF(const QTimeEdit* self, intptr_t slot);
+double QTimeEdit_QBaseGetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB);
 void QTimeEdit_Delete(QTimeEdit* self);
 
 QDateEdit* QDateEdit_new(QWidget* parent);
@@ -763,6 +764,9 @@ int QDateEdit_QBaseReceivers(const QDateEdit* self, const char* signal);
 bool QDateEdit_IsSignalConnected(const QDateEdit* self, const QMetaMethod* signal);
 void QDateEdit_OnIsSignalConnected(const QDateEdit* self, intptr_t slot);
 bool QDateEdit_QBaseIsSignalConnected(const QDateEdit* self, const QMetaMethod* signal);
+double QDateEdit_GetDecodedMetricF(const QDateEdit* self, int metricA, int metricB);
+void QDateEdit_OnGetDecodedMetricF(const QDateEdit* self, intptr_t slot);
+double QDateEdit_QBaseGetDecodedMetricF(const QDateEdit* self, int metricA, int metricB);
 void QDateEdit_Delete(QDateEdit* self);
 
 #ifdef __cplusplus

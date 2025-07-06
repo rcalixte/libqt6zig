@@ -64,6 +64,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     using QsciLexerPostScript_CustomEvent_Callback = void (*)(QsciLexerPostScript*, QEvent*);
     using QsciLexerPostScript_ConnectNotify_Callback = void (*)(QsciLexerPostScript*, QMetaMethod*);
     using QsciLexerPostScript_DisconnectNotify_Callback = void (*)(QsciLexerPostScript*, QMetaMethod*);
+    using QsciLexerPostScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPostScript*, libqt_string);
+    using QsciLexerPostScript_BytesAsText_Callback = libqt_string (*)(const QsciLexerPostScript*, const char*, int);
     using QsciLexerPostScript_Sender_Callback = QObject* (*)();
     using QsciLexerPostScript_SenderSignalIndex_Callback = int (*)();
     using QsciLexerPostScript_Receivers_Callback = int (*)(const QsciLexerPostScript*, const char*);
@@ -117,6 +119,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     QsciLexerPostScript_CustomEvent_Callback qscilexerpostscript_customevent_callback = nullptr;
     QsciLexerPostScript_ConnectNotify_Callback qscilexerpostscript_connectnotify_callback = nullptr;
     QsciLexerPostScript_DisconnectNotify_Callback qscilexerpostscript_disconnectnotify_callback = nullptr;
+    QsciLexerPostScript_TextAsBytes_Callback qscilexerpostscript_textasbytes_callback = nullptr;
+    QsciLexerPostScript_BytesAsText_Callback qscilexerpostscript_bytesastext_callback = nullptr;
     QsciLexerPostScript_Sender_Callback qscilexerpostscript_sender_callback = nullptr;
     QsciLexerPostScript_SenderSignalIndex_Callback qscilexerpostscript_sendersignalindex_callback = nullptr;
     QsciLexerPostScript_Receivers_Callback qscilexerpostscript_receivers_callback = nullptr;
@@ -169,14 +173,16 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     mutable bool qscilexerpostscript_customevent_isbase = false;
     mutable bool qscilexerpostscript_connectnotify_isbase = false;
     mutable bool qscilexerpostscript_disconnectnotify_isbase = false;
+    mutable bool qscilexerpostscript_textasbytes_isbase = false;
+    mutable bool qscilexerpostscript_bytesastext_isbase = false;
     mutable bool qscilexerpostscript_sender_isbase = false;
     mutable bool qscilexerpostscript_sendersignalindex_isbase = false;
     mutable bool qscilexerpostscript_receivers_isbase = false;
     mutable bool qscilexerpostscript_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerPostScript() : QsciLexerPostScript(){};
-    VirtualQsciLexerPostScript(QObject* parent) : QsciLexerPostScript(parent){};
+    VirtualQsciLexerPostScript() : QsciLexerPostScript() {};
+    VirtualQsciLexerPostScript(QObject* parent) : QsciLexerPostScript(parent) {};
 
     ~VirtualQsciLexerPostScript() {
         qscilexerpostscript_metacall_callback = nullptr;
@@ -225,6 +231,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
         qscilexerpostscript_customevent_callback = nullptr;
         qscilexerpostscript_connectnotify_callback = nullptr;
         qscilexerpostscript_disconnectnotify_callback = nullptr;
+        qscilexerpostscript_textasbytes_callback = nullptr;
+        qscilexerpostscript_bytesastext_callback = nullptr;
         qscilexerpostscript_sender_callback = nullptr;
         qscilexerpostscript_sendersignalindex_callback = nullptr;
         qscilexerpostscript_receivers_callback = nullptr;
@@ -278,6 +286,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     inline void setQsciLexerPostScript_CustomEvent_Callback(QsciLexerPostScript_CustomEvent_Callback cb) { qscilexerpostscript_customevent_callback = cb; }
     inline void setQsciLexerPostScript_ConnectNotify_Callback(QsciLexerPostScript_ConnectNotify_Callback cb) { qscilexerpostscript_connectnotify_callback = cb; }
     inline void setQsciLexerPostScript_DisconnectNotify_Callback(QsciLexerPostScript_DisconnectNotify_Callback cb) { qscilexerpostscript_disconnectnotify_callback = cb; }
+    inline void setQsciLexerPostScript_TextAsBytes_Callback(QsciLexerPostScript_TextAsBytes_Callback cb) { qscilexerpostscript_textasbytes_callback = cb; }
+    inline void setQsciLexerPostScript_BytesAsText_Callback(QsciLexerPostScript_BytesAsText_Callback cb) { qscilexerpostscript_bytesastext_callback = cb; }
     inline void setQsciLexerPostScript_Sender_Callback(QsciLexerPostScript_Sender_Callback cb) { qscilexerpostscript_sender_callback = cb; }
     inline void setQsciLexerPostScript_SenderSignalIndex_Callback(QsciLexerPostScript_SenderSignalIndex_Callback cb) { qscilexerpostscript_sendersignalindex_callback = cb; }
     inline void setQsciLexerPostScript_Receivers_Callback(QsciLexerPostScript_Receivers_Callback cb) { qscilexerpostscript_receivers_callback = cb; }
@@ -330,6 +340,8 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     inline void setQsciLexerPostScript_CustomEvent_IsBase(bool value) const { qscilexerpostscript_customevent_isbase = value; }
     inline void setQsciLexerPostScript_ConnectNotify_IsBase(bool value) const { qscilexerpostscript_connectnotify_isbase = value; }
     inline void setQsciLexerPostScript_DisconnectNotify_IsBase(bool value) const { qscilexerpostscript_disconnectnotify_isbase = value; }
+    inline void setQsciLexerPostScript_TextAsBytes_IsBase(bool value) const { qscilexerpostscript_textasbytes_isbase = value; }
+    inline void setQsciLexerPostScript_BytesAsText_IsBase(bool value) const { qscilexerpostscript_bytesastext_isbase = value; }
     inline void setQsciLexerPostScript_Sender_IsBase(bool value) const { qscilexerpostscript_sender_isbase = value; }
     inline void setQsciLexerPostScript_SenderSignalIndex_IsBase(bool value) const { qscilexerpostscript_sendersignalindex_isbase = value; }
     inline void setQsciLexerPostScript_Receivers_IsBase(bool value) const { qscilexerpostscript_receivers_isbase = value; }
@@ -458,13 +470,13 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerpostscript_autocompletionwordseparators_isbase) {
             qscilexerpostscript_autocompletionwordseparators_isbase = false;
             return QsciLexerPostScript::autoCompletionWordSeparators();
         } else if (qscilexerpostscript_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerpostscript_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -1025,6 +1037,47 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerpostscript_textasbytes_isbase) {
+            qscilexerpostscript_textasbytes_isbase = false;
+            return QsciLexerPostScript::textAsBytes(text);
+        } else if (qscilexerpostscript_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerpostscript_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerPostScript::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerpostscript_bytesastext_isbase) {
+            qscilexerpostscript_bytesastext_isbase = false;
+            return QsciLexerPostScript::bytesAsText(bytes, size);
+        } else if (qscilexerpostscript_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerpostscript_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerPostScript::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerpostscript_sender_isbase) {
             qscilexerpostscript_sender_isbase = false;
@@ -1097,6 +1150,10 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     friend void QsciLexerPostScript_QBaseConnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
     friend void QsciLexerPostScript_DisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
     friend void QsciLexerPostScript_QBaseDisconnectNotify(QsciLexerPostScript* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerPostScript_TextAsBytes(const QsciLexerPostScript* self, const libqt_string text);
+    friend libqt_string QsciLexerPostScript_QBaseTextAsBytes(const QsciLexerPostScript* self, const libqt_string text);
+    friend libqt_string QsciLexerPostScript_BytesAsText(const QsciLexerPostScript* self, const char* bytes, int size);
+    friend libqt_string QsciLexerPostScript_QBaseBytesAsText(const QsciLexerPostScript* self, const char* bytes, int size);
     friend QObject* QsciLexerPostScript_Sender(const QsciLexerPostScript* self);
     friend QObject* QsciLexerPostScript_QBaseSender(const QsciLexerPostScript* self);
     friend int QsciLexerPostScript_SenderSignalIndex(const QsciLexerPostScript* self);

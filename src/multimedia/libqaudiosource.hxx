@@ -61,12 +61,12 @@ class VirtualQAudioSource final : public QAudioSource {
     mutable bool qaudiosource_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioSource() : QAudioSource(){};
-    VirtualQAudioSource(const QAudioDevice& audioDeviceInfo) : QAudioSource(audioDeviceInfo){};
-    VirtualQAudioSource(const QAudioFormat& format) : QAudioSource(format){};
-    VirtualQAudioSource(const QAudioFormat& format, QObject* parent) : QAudioSource(format, parent){};
-    VirtualQAudioSource(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format) : QAudioSource(audioDeviceInfo, format){};
-    VirtualQAudioSource(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format, QObject* parent) : QAudioSource(audioDeviceInfo, format, parent){};
+    VirtualQAudioSource() : QAudioSource() {};
+    VirtualQAudioSource(const QAudioDevice& audioDeviceInfo) : QAudioSource(audioDeviceInfo) {};
+    VirtualQAudioSource(const QAudioFormat& format) : QAudioSource(format) {};
+    VirtualQAudioSource(const QAudioFormat& format, QObject* parent) : QAudioSource(format, parent) {};
+    VirtualQAudioSource(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format) : QAudioSource(audioDeviceInfo, format) {};
+    VirtualQAudioSource(const QAudioDevice& audioDeviceInfo, const QAudioFormat& format, QObject* parent) : QAudioSource(audioDeviceInfo, format, parent) {};
 
     ~VirtualQAudioSource() {
         qaudiosource_metacall_callback = nullptr;

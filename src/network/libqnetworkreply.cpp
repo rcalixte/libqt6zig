@@ -1,4 +1,7 @@
+#include <QAnyStringView>
 #include <QByteArray>
+#include <QByteArrayView>
+#include <QHttpHeaders>
 #include <QIODevice>
 #include <QIODeviceBase>
 #include <QList>
@@ -93,16 +96,16 @@ QVariant* QNetworkReply_Header(const QNetworkReply* self, int header) {
     return new QVariant(self->header(static_cast<QNetworkRequest::KnownHeaders>(header)));
 }
 
-bool QNetworkReply_HasRawHeader(const QNetworkReply* self, const libqt_string headerName) {
-    QByteArray headerName_QByteArray(headerName.data, headerName.len);
-    return self->hasRawHeader(headerName_QByteArray);
+bool QNetworkReply_HasRawHeader(const QNetworkReply* self, libqt_string headerName) {
+    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
+    return self->hasRawHeader(QAnyStringView(headerName_QString));
 }
 
 libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply* self) {
     QList<QByteArray> _ret = self->rawHeaderList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -112,14 +115,14 @@ libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
 
-libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, const libqt_string headerName) {
-    QByteArray headerName_QByteArray(headerName.data, headerName.len);
-    QByteArray _qb = self->rawHeader(headerName_QByteArray);
+libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, libqt_string headerName) {
+    QString headerName_QString = QString::fromUtf8(headerName.data, headerName.len);
+    QByteArray _qb = self->rawHeader(QAnyStringView(headerName_QString));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
@@ -129,10 +132,10 @@ libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, const libqt_stri
 }
 
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkReply_RawHeaderPairs(const QNetworkReply* self) {
-    const QList<QNetworkReply::RawHeaderPair>& _ret = self->rawHeaderPairs();
-    // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    const QList<QPair<QByteArray, QByteArray>>& _ret = self->rawHeaderPairs();
+    // Convert const QList<> from C++ memory to manually-managed C memory
+    libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QPair<QByteArray, QByteArray> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         libqt_string* _lv_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
@@ -157,9 +160,13 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetwork
         _arr[i] = _lv_out;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
+}
+
+QHttpHeaders* QNetworkReply_Headers(const QNetworkReply* self) {
+    return new QHttpHeaders(self->headers());
 }
 
 QVariant* QNetworkReply_Attribute(const QNetworkReply* self, int code) {
@@ -273,13 +280,13 @@ void QNetworkReply_Connect_SslErrors(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QNetworkReply*, libqt_list /* of QSslError* */)>(slot);
     QNetworkReply::connect(self, &QNetworkReply::sslErrors, [self, slotFunc](const QList<QSslError>& errors) {
         const QList<QSslError>& errors_ret = errors;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * errors_ret.length()));
-        for (size_t i = 0; i < errors_ret.length(); ++i) {
+        // Convert const QList<> from C++ memory to manually-managed C memory
+        QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * errors_ret.size()));
+        for (size_t i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);
         }
         libqt_list errors_out;
-        errors_out.len = errors_ret.length();
+        errors_out.len = errors_ret.size();
         errors_out.data = static_cast<void*>(errors_arr);
         libqt_list /* of QSslError* */ sigval1 = errors_out;
         slotFunc(self, sigval1);

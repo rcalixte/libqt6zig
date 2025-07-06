@@ -2083,6 +2083,35 @@ void QProgressDialog_OnIsSignalConnected(const QProgressDialog* self, intptr_t s
     }
 }
 
+// Derived class handler implementation
+double QProgressDialog_GetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB) {
+    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        return vqprogressdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQProgressDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QProgressDialog_QBaseGetDecodedMetricF(const QProgressDialog* self, int metricA, int metricB) {
+    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        vqprogressdialog->setQProgressDialog_GetDecodedMetricF_IsBase(true);
+        return vqprogressdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQProgressDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QProgressDialog_OnGetDecodedMetricF(const QProgressDialog* self, intptr_t slot) {
+    auto* vqprogressdialog = const_cast<VirtualQProgressDialog*>(dynamic_cast<const VirtualQProgressDialog*>(self));
+    if (vqprogressdialog && vqprogressdialog->isVirtualQProgressDialog) {
+        vqprogressdialog->setQProgressDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQProgressDialog::QProgressDialog_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QProgressDialog_Delete(QProgressDialog* self) {
     delete self;
 }

@@ -61,8 +61,8 @@ class VirtualQMediaCaptureSession final : public QMediaCaptureSession {
     mutable bool qmediacapturesession_issignalconnected_isbase = false;
 
   public:
-    VirtualQMediaCaptureSession() : QMediaCaptureSession(){};
-    VirtualQMediaCaptureSession(QObject* parent) : QMediaCaptureSession(parent){};
+    VirtualQMediaCaptureSession() : QMediaCaptureSession() {};
+    VirtualQMediaCaptureSession(QObject* parent) : QMediaCaptureSession(parent) {};
 
     ~VirtualQMediaCaptureSession() {
         qmediacapturesession_metacall_callback = nullptr;

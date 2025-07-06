@@ -19,12 +19,6 @@ extern "C" {
 typedef struct QElapsedTimer QElapsedTimer;
 #endif
 
-#ifdef __cplusplus
-typedef QElapsedTimer::ClockType ClockType; // C++ enum
-#else
-typedef int ClockType; // C ABI enum
-#endif
-
 QElapsedTimer* QElapsedTimer_new(const QElapsedTimer* other);
 QElapsedTimer* QElapsedTimer_new2(QElapsedTimer* other);
 QElapsedTimer* QElapsedTimer_new3();

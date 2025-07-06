@@ -47,22 +47,6 @@ typedef struct QTextOption QTextOption;
 typedef struct QTransform QTransform;
 #endif
 
-#ifdef __cplusplus
-typedef QPainter::CompositionMode CompositionMode;         // C++ enum
-typedef QPainter::PixmapFragmentHint PixmapFragmentHint;   // C++ enum
-typedef QPainter::PixmapFragmentHints PixmapFragmentHints; // C++ QFlags
-typedef QPainter::QtGadgetHelper QtGadgetHelper;           // C++ QFlags
-typedef QPainter::RenderHint RenderHint;                   // C++ enum
-typedef QPainter::RenderHints RenderHints;                 // C++ QFlags
-#else
-typedef int CompositionMode;     // C ABI enum
-typedef int PixmapFragmentHint;  // C ABI enum
-typedef int PixmapFragmentHints; // C ABI QFlags
-typedef int RenderHint;          // C ABI enum
-typedef int RenderHints;         // C ABI QFlags
-typedef void QtGadgetHelper;     // C ABI QFlags
-#endif
-
 QPainter* QPainter_new();
 QPainter* QPainter_new2(QPaintDevice* param1);
 QPaintDevice* QPainter_Device(const QPainter* self);
@@ -286,6 +270,8 @@ void QPainter_SetRenderHint2(QPainter* self, int hint, bool on);
 void QPainter_SetRenderHints2(QPainter* self, int hints, bool on);
 void QPainter_Delete(QPainter* self);
 
+QPainter__PixmapFragment* QPainter__PixmapFragment_new();
+QPainter__PixmapFragment* QPainter__PixmapFragment_new2(const QPainter__PixmapFragment* param1);
 QPainter__PixmapFragment* QPainter__PixmapFragment_Create(const QPointF* pos, const QRectF* sourceRect);
 QPainter__PixmapFragment* QPainter__PixmapFragment_Create3(const QPointF* pos, const QRectF* sourceRect, double scaleX);
 QPainter__PixmapFragment* QPainter__PixmapFragment_Create4(const QPointF* pos, const QRectF* sourceRect, double scaleX, double scaleY);

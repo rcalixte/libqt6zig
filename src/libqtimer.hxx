@@ -61,8 +61,8 @@ class VirtualQTimer final : public QTimer {
     mutable bool qtimer_issignalconnected_isbase = false;
 
   public:
-    VirtualQTimer() : QTimer(){};
-    VirtualQTimer(QObject* parent) : QTimer(parent){};
+    VirtualQTimer() : QTimer() {};
+    VirtualQTimer(QObject* parent) : QTimer(parent) {};
 
     ~VirtualQTimer() {
         qtimer_metacall_callback = nullptr;

@@ -20,12 +20,6 @@ typedef struct QIODevice QIODevice;
 typedef struct QSslDiffieHellmanParameters QSslDiffieHellmanParameters;
 #endif
 
-#ifdef __cplusplus
-typedef QSslDiffieHellmanParameters::Error Error; // C++ enum
-#else
-typedef int Error; // C ABI enum
-#endif
-
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new();
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new2(const QSslDiffieHellmanParameters* other);
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_DefaultParameters();

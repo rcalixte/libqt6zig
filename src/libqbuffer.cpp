@@ -96,8 +96,8 @@ void QBuffer_SetData(QBuffer* self, const libqt_string data) {
     self->setData(data_QByteArray);
 }
 
-void QBuffer_SetData2(QBuffer* self, const char* data, int lenVal) {
-    self->setData(data, static_cast<int>(lenVal));
+void QBuffer_SetData2(QBuffer* self, const char* data, ptrdiff_t lenVal) {
+    self->setData(data, (qsizetype)(lenVal));
 }
 
 libqt_string QBuffer_Data(const QBuffer* self) {
@@ -138,9 +138,9 @@ libqt_string QBuffer_Tr3(const char* s, const char* c, int n) {
 bool QBuffer_Open(QBuffer* self, int openMode) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return vqbuffer->open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return vqbuffer->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     } else {
-        return self->QBuffer::open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return self->QBuffer::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     }
 }
 
@@ -149,9 +149,9 @@ bool QBuffer_QBaseOpen(QBuffer* self, int openMode) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_Open_IsBase(true);
-        return vqbuffer->open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return vqbuffer->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     } else {
-        return self->QBuffer::open(static_cast<QIODeviceBase::OpenMode>(openMode));
+        return self->QBuffer::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
     }
 }
 

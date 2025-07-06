@@ -58,14 +58,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QChartView::RubberBand RubberBand;   // C++ enum
-typedef QChartView::RubberBands RubberBands; // C++ QFlags
-#else
-typedef int RubberBand;  // C ABI enum
-typedef int RubberBands; // C ABI QFlags
-#endif
-
 QChartView* QChartView_new(QWidget* parent);
 QChartView* QChartView_new2();
 QChartView* QChartView_new3(QChart* chart);
@@ -280,6 +272,9 @@ int QChartView_QBaseReceivers(const QChartView* self, const char* signal);
 bool QChartView_IsSignalConnected(const QChartView* self, const QMetaMethod* signal);
 void QChartView_OnIsSignalConnected(const QChartView* self, intptr_t slot);
 bool QChartView_QBaseIsSignalConnected(const QChartView* self, const QMetaMethod* signal);
+double QChartView_GetDecodedMetricF(const QChartView* self, int metricA, int metricB);
+void QChartView_OnGetDecodedMetricF(const QChartView* self, intptr_t slot);
+double QChartView_QBaseGetDecodedMetricF(const QChartView* self, int metricA, int metricB);
 void QChartView_Delete(QChartView* self);
 
 #ifdef __cplusplus

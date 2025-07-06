@@ -15,7 +15,6 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-typedef QWebEngineCookieStore::FilterRequest FilterRequest;
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QWebEngineCookieStore__FilterRequest)
 typedef QWebEngineCookieStore::FilterRequest QWebEngineCookieStore__FilterRequest;
 #endif
@@ -47,6 +46,10 @@ libqt_string QWebEngineCookieStore_Tr3(const char* s, const char* c, int n);
 void QWebEngineCookieStore_SetCookie2(QWebEngineCookieStore* self, const QNetworkCookie* cookie, const QUrl* origin);
 void QWebEngineCookieStore_DeleteCookie2(QWebEngineCookieStore* self, const QNetworkCookie* cookie, const QUrl* origin);
 void QWebEngineCookieStore_Delete(QWebEngineCookieStore* self);
+
+QWebEngineCookieStore__FilterRequest* QWebEngineCookieStore__FilterRequest_new(const QWebEngineCookieStore__FilterRequest* param1);
+void QWebEngineCookieStore__FilterRequest_OperatorAssign(QWebEngineCookieStore__FilterRequest* self, const QWebEngineCookieStore__FilterRequest* param1);
+void QWebEngineCookieStore__FilterRequest_Delete(QWebEngineCookieStore__FilterRequest* self);
 
 #ifdef __cplusplus
 } /* extern C */

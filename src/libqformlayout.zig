@@ -1084,8 +1084,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QFormLayout, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1104,6 +1104,15 @@ pub const qformlayout = struct {
     /// ``` self: QtC.QFormLayout, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QFormLayout, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1309,6 +1318,15 @@ pub const qformlayout = struct {
     /// ``` self: QtC.QFormLayout ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QFormLayout, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -2245,6 +2263,30 @@ pub const qformlayout = struct {
     /// ``` self: QtC.QFormLayout ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QFormLayout_Delete(@ptrCast(self));
+    }
+};
+
+/// https://doc.qt.io/qt-6/qformlayout-takerowresult.html
+pub const qformlayout__takerowresult = struct {
+    /// New constructs a new QFormLayout::TakeRowResult object.
+    ///
+    ///
+    pub fn New() QtC.QFormLayout__TakeRowResult {
+        return qtc.QFormLayout__TakeRowResult_new();
+    }
+
+    /// New2 constructs a new QFormLayout::TakeRowResult object.
+    ///
+    /// ``` param1: QtC.QFormLayout__TakeRowResult ```
+    pub fn New2(param1: ?*anyopaque) QtC.QFormLayout__TakeRowResult {
+        return qtc.QFormLayout__TakeRowResult_new2(@ptrCast(param1));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QFormLayout__TakeRowResult ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QFormLayout__TakeRowResult_Delete(@ptrCast(self));
     }
 };
 

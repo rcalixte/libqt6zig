@@ -161,6 +161,12 @@ void QsciLexerFortran_QBaseConnectNotify(QsciLexerFortran* self, const QMetaMeth
 void QsciLexerFortran_DisconnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
 void QsciLexerFortran_OnDisconnectNotify(QsciLexerFortran* self, intptr_t slot);
 void QsciLexerFortran_QBaseDisconnectNotify(QsciLexerFortran* self, const QMetaMethod* signal);
+libqt_string QsciLexerFortran_TextAsBytes(const QsciLexerFortran* self, const libqt_string text);
+void QsciLexerFortran_OnTextAsBytes(const QsciLexerFortran* self, intptr_t slot);
+libqt_string QsciLexerFortran_QBaseTextAsBytes(const QsciLexerFortran* self, const libqt_string text);
+libqt_string QsciLexerFortran_BytesAsText(const QsciLexerFortran* self, const char* bytes, int size);
+void QsciLexerFortran_OnBytesAsText(const QsciLexerFortran* self, intptr_t slot);
+libqt_string QsciLexerFortran_QBaseBytesAsText(const QsciLexerFortran* self, const char* bytes, int size);
 QObject* QsciLexerFortran_Sender(const QsciLexerFortran* self);
 void QsciLexerFortran_OnSender(const QsciLexerFortran* self, intptr_t slot);
 QObject* QsciLexerFortran_QBaseSender(const QsciLexerFortran* self);

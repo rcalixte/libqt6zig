@@ -236,6 +236,13 @@ pub const qcoreapplication = struct {
         qtc.QCoreApplication_ProcessEvents2(@intCast(flags), @intCast(maxtime));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
+    ///
+    /// ``` flags: i32, deadline: QtC.QDeadlineTimer ```
+    pub fn ProcessEvents3(flags: i64, deadline: QtC.QDeadlineTimer) void {
+        qtc.QCoreApplication_ProcessEvents3(@intCast(flags), @ptrCast(deadline));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#sendEvent)
     ///
     /// ``` receiver: QtC.QObject, event: QtC.QEvent ```
@@ -344,6 +351,13 @@ pub const qcoreapplication = struct {
     ///
     pub fn ApplicationPid() i64 {
         return qtc.QCoreApplication_ApplicationPid();
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#checkPermission)
+    ///
+    /// ``` self: QtC.QCoreApplication, permission: QtC.QPermission ```
+    pub fn CheckPermission(self: ?*anyopaque, permission: ?*anyopaque) i64 {
+        return qtc.QCoreApplication_CheckPermission(@ptrCast(self), @ptrCast(permission));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#setLibraryPaths)
@@ -788,8 +802,8 @@ pub const qcoreapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QCoreApplication, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -808,6 +822,15 @@ pub const qcoreapplication = struct {
     /// ``` self: QtC.QCoreApplication, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QCoreApplication, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1013,6 +1036,15 @@ pub const qcoreapplication = struct {
     /// ``` self: QtC.QCoreApplication ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QCoreApplication, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -1427,6 +1459,6 @@ pub const qcoreapplication = struct {
 /// https://doc.qt.io/qt-6/qcoreapplication.html#types
 pub const enums = struct {
     pub const QCoreApplication = enum {
-        pub const ApplicationFlags: i32 = 394242;
+        pub const ApplicationFlags: i32 = 395266;
     };
 };

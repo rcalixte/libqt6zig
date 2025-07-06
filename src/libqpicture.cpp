@@ -285,6 +285,35 @@ void QPicture_OnSharedPainter(const QPicture* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QPicture_GetDecodedMetricF(const QPicture* self, int metricA, int metricB) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        return vqpicture->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPicture*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QPicture_QBaseGetDecodedMetricF(const QPicture* self, int metricA, int metricB) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_GetDecodedMetricF_IsBase(true);
+        return vqpicture->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQPicture*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QPicture_OnGetDecodedMetricF(const QPicture* self, intptr_t slot) {
+    auto* vqpicture = const_cast<VirtualQPicture*>(dynamic_cast<const VirtualQPicture*>(self));
+    if (vqpicture && vqpicture->isVirtualQPicture) {
+        vqpicture->setQPicture_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQPicture::QPicture_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QPicture_Delete(QPicture* self) {
     delete self;
 }

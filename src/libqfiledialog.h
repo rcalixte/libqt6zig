@@ -57,22 +57,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QFileDialog::AcceptMode AcceptMode;   // C++ enum
-typedef QFileDialog::DialogLabel DialogLabel; // C++ enum
-typedef QFileDialog::FileMode FileMode;       // C++ enum
-typedef QFileDialog::Option Option;           // C++ enum
-typedef QFileDialog::Options Options;         // C++ QFlags
-typedef QFileDialog::ViewMode ViewMode;       // C++ enum
-#else
-typedef int AcceptMode;  // C ABI enum
-typedef int DialogLabel; // C ABI enum
-typedef int FileMode;    // C ABI enum
-typedef int Option;      // C ABI enum
-typedef int Options;     // C ABI QFlags
-typedef int ViewMode;    // C ABI enum
-#endif
-
 QFileDialog* QFileDialog_new(QWidget* parent);
 QFileDialog* QFileDialog_new2(QWidget* parent, int f);
 QFileDialog* QFileDialog_new3();
@@ -208,6 +192,7 @@ libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls1(QWidget* parent);
 libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls2(QWidget* parent, const libqt_string caption);
 libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls3(QWidget* parent, const libqt_string caption, const QUrl* dir);
 libqt_list /* of QUrl* */ QFileDialog_GetOpenFileUrls4(QWidget* parent, const libqt_string caption, const QUrl* dir, const libqt_string filter);
+void QFileDialog_SaveFileContent3(const libqt_string fileContent, const libqt_string fileNameHint, QWidget* parent);
 QSize* QFileDialog_SizeHint(const QFileDialog* self);
 void QFileDialog_OnSizeHint(const QFileDialog* self, intptr_t slot);
 QSize* QFileDialog_QBaseSizeHint(const QFileDialog* self);
@@ -382,6 +367,9 @@ int QFileDialog_QBaseReceivers(const QFileDialog* self, const char* signal);
 bool QFileDialog_IsSignalConnected(const QFileDialog* self, const QMetaMethod* signal);
 void QFileDialog_OnIsSignalConnected(const QFileDialog* self, intptr_t slot);
 bool QFileDialog_QBaseIsSignalConnected(const QFileDialog* self, const QMetaMethod* signal);
+double QFileDialog_GetDecodedMetricF(const QFileDialog* self, int metricA, int metricB);
+void QFileDialog_OnGetDecodedMetricF(const QFileDialog* self, intptr_t slot);
+double QFileDialog_QBaseGetDecodedMetricF(const QFileDialog* self, int metricA, int metricB);
 void QFileDialog_Delete(QFileDialog* self);
 
 #ifdef __cplusplus

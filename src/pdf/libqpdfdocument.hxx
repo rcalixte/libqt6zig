@@ -61,8 +61,8 @@ class VirtualQPdfDocument final : public QPdfDocument {
     mutable bool qpdfdocument_issignalconnected_isbase = false;
 
   public:
-    VirtualQPdfDocument() : QPdfDocument(){};
-    VirtualQPdfDocument(QObject* parent) : QPdfDocument(parent){};
+    VirtualQPdfDocument() : QPdfDocument() {};
+    VirtualQPdfDocument(QObject* parent) : QPdfDocument(parent) {};
 
     ~VirtualQPdfDocument() {
         qpdfdocument_metacall_callback = nullptr;

@@ -19,15 +19,29 @@ QColorSpace* QColorSpace_new2(int namedColorSpace) {
     return new QColorSpace(static_cast<QColorSpace::NamedColorSpace>(namedColorSpace));
 }
 
-QColorSpace* QColorSpace_new3(int primaries, int transferFunction) {
+QColorSpace* QColorSpace_new3(QPointF* whitePoint, int transferFunction) {
+    return new QColorSpace(*whitePoint, static_cast<QColorSpace::TransferFunction>(transferFunction));
+}
+
+QColorSpace* QColorSpace_new4(QPointF* whitePoint, const libqt_list /* of uint16_t */ transferFunctionTable) {
+    QList<uint16_t> transferFunctionTable_QList;
+    transferFunctionTable_QList.reserve(transferFunctionTable.len);
+    uint16_t* transferFunctionTable_arr = static_cast<uint16_t*>(transferFunctionTable.data);
+    for (size_t i = 0; i < transferFunctionTable.len; ++i) {
+        transferFunctionTable_QList.push_back(static_cast<uint16_t>(transferFunctionTable_arr[i]));
+    }
+    return new QColorSpace(*whitePoint, transferFunctionTable_QList);
+}
+
+QColorSpace* QColorSpace_new5(int primaries, int transferFunction) {
     return new QColorSpace(static_cast<QColorSpace::Primaries>(primaries), static_cast<QColorSpace::TransferFunction>(transferFunction));
 }
 
-QColorSpace* QColorSpace_new4(int primaries, float gamma) {
+QColorSpace* QColorSpace_new6(int primaries, float gamma) {
     return new QColorSpace(static_cast<QColorSpace::Primaries>(primaries), static_cast<float>(gamma));
 }
 
-QColorSpace* QColorSpace_new5(int primaries, const libqt_list /* of uint16_t */ transferFunctionTable) {
+QColorSpace* QColorSpace_new7(int primaries, const libqt_list /* of uint16_t */ transferFunctionTable) {
     QList<uint16_t> transferFunctionTable_QList;
     transferFunctionTable_QList.reserve(transferFunctionTable.len);
     uint16_t* transferFunctionTable_arr = static_cast<uint16_t*>(transferFunctionTable.data);
@@ -37,11 +51,11 @@ QColorSpace* QColorSpace_new5(int primaries, const libqt_list /* of uint16_t */ 
     return new QColorSpace(static_cast<QColorSpace::Primaries>(primaries), transferFunctionTable_QList);
 }
 
-QColorSpace* QColorSpace_new6(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, int transferFunction) {
+QColorSpace* QColorSpace_new8(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, int transferFunction) {
     return new QColorSpace(*whitePoint, *redPoint, *greenPoint, *bluePoint, static_cast<QColorSpace::TransferFunction>(transferFunction));
 }
 
-QColorSpace* QColorSpace_new7(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, const libqt_list /* of uint16_t */ transferFunctionTable) {
+QColorSpace* QColorSpace_new9(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, const libqt_list /* of uint16_t */ transferFunctionTable) {
     QList<uint16_t> transferFunctionTable_QList;
     transferFunctionTable_QList.reserve(transferFunctionTable.len);
     uint16_t* transferFunctionTable_arr = static_cast<uint16_t*>(transferFunctionTable.data);
@@ -51,7 +65,7 @@ QColorSpace* QColorSpace_new7(const QPointF* whitePoint, const QPointF* redPoint
     return new QColorSpace(*whitePoint, *redPoint, *greenPoint, *bluePoint, transferFunctionTable_QList);
 }
 
-QColorSpace* QColorSpace_new8(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, const libqt_list /* of uint16_t */ redTransferFunctionTable, const libqt_list /* of uint16_t */ greenTransferFunctionTable, const libqt_list /* of uint16_t */ blueTransferFunctionTable) {
+QColorSpace* QColorSpace_new10(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, const libqt_list /* of uint16_t */ redTransferFunctionTable, const libqt_list /* of uint16_t */ greenTransferFunctionTable, const libqt_list /* of uint16_t */ blueTransferFunctionTable) {
     QList<uint16_t> redTransferFunctionTable_QList;
     redTransferFunctionTable_QList.reserve(redTransferFunctionTable.len);
     uint16_t* redTransferFunctionTable_arr = static_cast<uint16_t*>(redTransferFunctionTable.data);
@@ -73,15 +87,19 @@ QColorSpace* QColorSpace_new8(const QPointF* whitePoint, const QPointF* redPoint
     return new QColorSpace(*whitePoint, *redPoint, *greenPoint, *bluePoint, redTransferFunctionTable_QList, greenTransferFunctionTable_QList, blueTransferFunctionTable_QList);
 }
 
-QColorSpace* QColorSpace_new9(const QColorSpace* colorSpace) {
+QColorSpace* QColorSpace_new11(const QColorSpace* colorSpace) {
     return new QColorSpace(*colorSpace);
 }
 
-QColorSpace* QColorSpace_new10(int primaries, int transferFunction, float gamma) {
+QColorSpace* QColorSpace_new12(QPointF* whitePoint, int transferFunction, float gamma) {
+    return new QColorSpace(*whitePoint, static_cast<QColorSpace::TransferFunction>(transferFunction), static_cast<float>(gamma));
+}
+
+QColorSpace* QColorSpace_new13(int primaries, int transferFunction, float gamma) {
     return new QColorSpace(static_cast<QColorSpace::Primaries>(primaries), static_cast<QColorSpace::TransferFunction>(transferFunction), static_cast<float>(gamma));
 }
 
-QColorSpace* QColorSpace_new11(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, int transferFunction, float gamma) {
+QColorSpace* QColorSpace_new14(const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint, int transferFunction, float gamma) {
     return new QColorSpace(*whitePoint, *redPoint, *greenPoint, *bluePoint, static_cast<QColorSpace::TransferFunction>(transferFunction), static_cast<float>(gamma));
 }
 
@@ -202,12 +220,32 @@ void QColorSpace_SetPrimaries2(QColorSpace* self, const QPointF* whitePoint, con
     self->setPrimaries(*whitePoint, *redPoint, *greenPoint, *bluePoint);
 }
 
+void QColorSpace_SetWhitePoint(QColorSpace* self, QPointF* whitePoint) {
+    self->setWhitePoint(*whitePoint);
+}
+
+QPointF* QColorSpace_WhitePoint(const QColorSpace* self) {
+    return new QPointF(self->whitePoint());
+}
+
+uint8_t QColorSpace_TransformModel(const QColorSpace* self) {
+    return static_cast<uint8_t>(self->transformModel());
+}
+
+uint8_t QColorSpace_ColorModel(const QColorSpace* self) {
+    return static_cast<uint8_t>(self->colorModel());
+}
+
 void QColorSpace_Detach(QColorSpace* self) {
     self->detach();
 }
 
 bool QColorSpace_IsValid(const QColorSpace* self) {
     return self->isValid();
+}
+
+bool QColorSpace_IsValidTarget(const QColorSpace* self) {
+    return self->isValidTarget();
 }
 
 QColorSpace* QColorSpace_FromIccProfile(const libqt_string iccProfile) {

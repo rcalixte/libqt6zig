@@ -21,6 +21,20 @@ pub const qtextitem = struct {
         return qtc.QTextItem_new2(@ptrCast(other));
     }
 
+    /// New3 constructs a new QTextItem object.
+    ///
+    ///
+    pub fn New3() QtC.QTextItem {
+        return qtc.QTextItem_new3();
+    }
+
+    /// New4 constructs a new QTextItem object.
+    ///
+    /// ``` param1: QtC.QTextItem ```
+    pub fn New4(param1: ?*anyopaque) QtC.QTextItem {
+        return qtc.QTextItem_new4(@ptrCast(param1));
+    }
+
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ``` self: QtC.QTextItem, other: QtC.QTextItem ```

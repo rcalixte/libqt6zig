@@ -78,6 +78,20 @@ pub const qmediacapturesession = struct {
         qtc.QMediaCaptureSession_SetAudioInput(@ptrCast(self), @ptrCast(input));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioBufferInput)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn AudioBufferInput(self: ?*anyopaque) QtC.QAudioBufferInput {
+        return qtc.QMediaCaptureSession_AudioBufferInput(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#setAudioBufferInput)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, input: QtC.QAudioBufferInput ```
+    pub fn SetAudioBufferInput(self: ?*anyopaque, input: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_SetAudioBufferInput(@ptrCast(self), @ptrCast(input));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#camera)
     ///
     /// ``` self: QtC.QMediaCaptureSession ```
@@ -104,6 +118,48 @@ pub const qmediacapturesession = struct {
     /// ``` self: QtC.QMediaCaptureSession, imageCapture: QtC.QImageCapture ```
     pub fn SetImageCapture(self: ?*anyopaque, imageCapture: ?*anyopaque) void {
         qtc.QMediaCaptureSession_SetImageCapture(@ptrCast(self), @ptrCast(imageCapture));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#screenCapture)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn ScreenCapture(self: ?*anyopaque) QtC.QScreenCapture {
+        return qtc.QMediaCaptureSession_ScreenCapture(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#setScreenCapture)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, screenCapture: QtC.QScreenCapture ```
+    pub fn SetScreenCapture(self: ?*anyopaque, screenCapture: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_SetScreenCapture(@ptrCast(self), @ptrCast(screenCapture));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#windowCapture)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn WindowCapture(self: ?*anyopaque) QtC.QWindowCapture {
+        return qtc.QMediaCaptureSession_WindowCapture(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#setWindowCapture)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, windowCapture: QtC.QWindowCapture ```
+    pub fn SetWindowCapture(self: ?*anyopaque, windowCapture: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_SetWindowCapture(@ptrCast(self), @ptrCast(windowCapture));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#videoFrameInput)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn VideoFrameInput(self: ?*anyopaque) QtC.QVideoFrameInput {
+        return qtc.QMediaCaptureSession_VideoFrameInput(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#setVideoFrameInput)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, input: QtC.QVideoFrameInput ```
+    pub fn SetVideoFrameInput(self: ?*anyopaque, input: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_SetVideoFrameInput(@ptrCast(self), @ptrCast(input));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#recorder)
@@ -176,6 +232,20 @@ pub const qmediacapturesession = struct {
         qtc.QMediaCaptureSession_Connect_AudioInputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioBufferInputChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn AudioBufferInputChanged(self: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_AudioBufferInputChanged(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioBufferInputChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnAudioBufferInputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_AudioBufferInputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#cameraChanged)
     ///
     /// ``` self: QtC.QMediaCaptureSession ```
@@ -188,6 +258,48 @@ pub const qmediacapturesession = struct {
     /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
     pub fn OnCameraChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QMediaCaptureSession_Connect_CameraChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#screenCaptureChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn ScreenCaptureChanged(self: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_ScreenCaptureChanged(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#screenCaptureChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnScreenCaptureChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_ScreenCaptureChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#windowCaptureChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn WindowCaptureChanged(self: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_WindowCaptureChanged(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#windowCaptureChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnWindowCaptureChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_WindowCaptureChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#videoFrameInputChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession ```
+    pub fn VideoFrameInputChanged(self: ?*anyopaque) void {
+        qtc.QMediaCaptureSession_VideoFrameInputChanged(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#videoFrameInputChanged)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnVideoFrameInputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_VideoFrameInputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#imageCaptureChanged)
@@ -357,8 +469,8 @@ pub const qmediacapturesession = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QMediaCaptureSession, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -377,6 +489,15 @@ pub const qmediacapturesession = struct {
     /// ``` self: QtC.QMediaCaptureSession, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -582,6 +703,15 @@ pub const qmediacapturesession = struct {
     /// ``` self: QtC.QMediaCaptureSession ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QMediaCaptureSession, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

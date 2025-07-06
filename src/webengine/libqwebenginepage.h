@@ -35,8 +35,10 @@ typedef struct QUrl QUrl;
 typedef struct QWebChannel QWebChannel;
 typedef struct QWebEngineCertificateError QWebEngineCertificateError;
 typedef struct QWebEngineClientCertificateSelection QWebEngineClientCertificateSelection;
+typedef struct QWebEngineDesktopMediaRequest QWebEngineDesktopMediaRequest;
 typedef struct QWebEngineFileSystemAccessRequest QWebEngineFileSystemAccessRequest;
 typedef struct QWebEngineFindTextResult QWebEngineFindTextResult;
+typedef struct QWebEngineFrame QWebEngineFrame;
 typedef struct QWebEngineFullScreenRequest QWebEngineFullScreenRequest;
 typedef struct QWebEngineHistory QWebEngineHistory;
 typedef struct QWebEngineHttpRequest QWebEngineHttpRequest;
@@ -44,38 +46,14 @@ typedef struct QWebEngineLoadingInfo QWebEngineLoadingInfo;
 typedef struct QWebEngineNavigationRequest QWebEngineNavigationRequest;
 typedef struct QWebEngineNewWindowRequest QWebEngineNewWindowRequest;
 typedef struct QWebEnginePage QWebEnginePage;
+typedef struct QWebEnginePermission QWebEnginePermission;
 typedef struct QWebEngineProfile QWebEngineProfile;
 typedef struct QWebEngineQuotaRequest QWebEngineQuotaRequest;
 typedef struct QWebEngineRegisterProtocolHandlerRequest QWebEngineRegisterProtocolHandlerRequest;
 typedef struct QWebEngineScriptCollection QWebEngineScriptCollection;
 typedef struct QWebEngineSettings QWebEngineSettings;
 typedef struct QWebEngineUrlRequestInterceptor QWebEngineUrlRequestInterceptor;
-#endif
-
-#ifdef __cplusplus
-typedef QWebEnginePage::Feature Feature;                                               // C++ enum
-typedef QWebEnginePage::FileSelectionMode FileSelectionMode;                           // C++ enum
-typedef QWebEnginePage::FindFlag FindFlag;                                             // C++ enum
-typedef QWebEnginePage::FindFlags FindFlags;                                           // C++ QFlags
-typedef QWebEnginePage::JavaScriptConsoleMessageLevel JavaScriptConsoleMessageLevel;   // C++ enum
-typedef QWebEnginePage::LifecycleState LifecycleState;                                 // C++ enum
-typedef QWebEnginePage::NavigationType NavigationType;                                 // C++ enum
-typedef QWebEnginePage::PermissionPolicy PermissionPolicy;                             // C++ enum
-typedef QWebEnginePage::RenderProcessTerminationStatus RenderProcessTerminationStatus; // C++ enum
-typedef QWebEnginePage::WebAction WebAction;                                           // C++ enum
-typedef QWebEnginePage::WebWindowType WebWindowType;                                   // C++ enum
-#else
-typedef int Feature;                        // C ABI enum
-typedef int FileSelectionMode;              // C ABI enum
-typedef int FindFlag;                       // C ABI enum
-typedef int FindFlags;                      // C ABI QFlags
-typedef int JavaScriptConsoleMessageLevel;  // C ABI enum
-typedef int LifecycleState;                 // C ABI enum
-typedef int NavigationType;                 // C ABI enum
-typedef int PermissionPolicy;               // C ABI enum
-typedef int RenderProcessTerminationStatus; // C ABI enum
-typedef int WebAction;                      // C ABI enum
-typedef int WebWindowType;                  // C ABI enum
+typedef struct QWebEngineWebAuthUxRequest QWebEngineWebAuthUxRequest;
 #endif
 
 QWebEnginePage* QWebEnginePage_new();
@@ -100,7 +78,6 @@ void QWebEnginePage_ReplaceMisspelledWord(QWebEnginePage* self, const libqt_stri
 bool QWebEnginePage_Event(QWebEnginePage* self, QEvent* param1);
 void QWebEnginePage_OnEvent(QWebEnginePage* self, intptr_t slot);
 bool QWebEnginePage_QBaseEvent(QWebEnginePage* self, QEvent* param1);
-void QWebEnginePage_SetFeaturePermission(QWebEnginePage* self, const QUrl* securityOrigin, int feature, int policy);
 bool QWebEnginePage_IsLoading(const QWebEnginePage* self);
 void QWebEnginePage_Load(QWebEnginePage* self, const QUrl* url);
 void QWebEnginePage_LoadWithRequest(QWebEnginePage* self, const QWebEngineHttpRequest* request);
@@ -133,12 +110,14 @@ void QWebEnginePage_SetInspectedPage(QWebEnginePage* self, QWebEnginePage* page)
 QWebEnginePage* QWebEnginePage_InspectedPage(const QWebEnginePage* self);
 void QWebEnginePage_SetDevToolsPage(QWebEnginePage* self, QWebEnginePage* page);
 QWebEnginePage* QWebEnginePage_DevToolsPage(const QWebEnginePage* self);
+libqt_string QWebEnginePage_DevToolsId(const QWebEnginePage* self);
 void QWebEnginePage_SetUrlRequestInterceptor(QWebEnginePage* self, QWebEngineUrlRequestInterceptor* interceptor);
 int QWebEnginePage_LifecycleState(const QWebEnginePage* self);
 void QWebEnginePage_SetLifecycleState(QWebEnginePage* self, int state);
 int QWebEnginePage_RecommendedState(const QWebEnginePage* self);
 bool QWebEnginePage_IsVisible(const QWebEnginePage* self);
 void QWebEnginePage_SetVisible(QWebEnginePage* self, bool visible);
+QWebEngineFrame* QWebEnginePage_MainFrame(QWebEnginePage* self);
 void QWebEnginePage_AcceptAsNewWindow(QWebEnginePage* self, QWebEngineNewWindowRequest* request);
 void QWebEnginePage_LoadStarted(QWebEnginePage* self);
 void QWebEnginePage_Connect_LoadStarted(QWebEnginePage* self, intptr_t slot);
@@ -162,6 +141,8 @@ void QWebEnginePage_FeaturePermissionRequestCanceled(QWebEnginePage* self, const
 void QWebEnginePage_Connect_FeaturePermissionRequestCanceled(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_FullScreenRequested(QWebEnginePage* self, QWebEngineFullScreenRequest* fullScreenRequest);
 void QWebEnginePage_Connect_FullScreenRequested(QWebEnginePage* self, intptr_t slot);
+void QWebEnginePage_PermissionRequested(QWebEnginePage* self, QWebEnginePermission* permissionRequest);
+void QWebEnginePage_Connect_PermissionRequested(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_QuotaRequested(QWebEnginePage* self, QWebEngineQuotaRequest* quotaRequest);
 void QWebEnginePage_Connect_QuotaRequested(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_RegisterProtocolHandlerRequested(QWebEnginePage* self, QWebEngineRegisterProtocolHandlerRequest* request);
@@ -176,6 +157,8 @@ void QWebEnginePage_ProxyAuthenticationRequired(QWebEnginePage* self, const QUrl
 void QWebEnginePage_Connect_ProxyAuthenticationRequired(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_RenderProcessTerminated(QWebEnginePage* self, int terminationStatus, int exitCode);
 void QWebEnginePage_Connect_RenderProcessTerminated(QWebEnginePage* self, intptr_t slot);
+void QWebEnginePage_DesktopMediaRequested(QWebEnginePage* self, const QWebEngineDesktopMediaRequest* request);
+void QWebEnginePage_Connect_DesktopMediaRequested(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_CertificateError(QWebEnginePage* self, const QWebEngineCertificateError* certificateError);
 void QWebEnginePage_Connect_CertificateError(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_NavigationRequested(QWebEnginePage* self, QWebEngineNavigationRequest* request);
@@ -190,6 +173,8 @@ void QWebEnginePage_IconUrlChanged(QWebEnginePage* self, const QUrl* url);
 void QWebEnginePage_Connect_IconUrlChanged(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_IconChanged(QWebEnginePage* self, const QIcon* icon);
 void QWebEnginePage_Connect_IconChanged(QWebEnginePage* self, intptr_t slot);
+void QWebEnginePage_ZoomFactorChanged(QWebEnginePage* self, double factor);
+void QWebEnginePage_Connect_ZoomFactorChanged(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_ScrollPositionChanged(QWebEnginePage* self, const QPointF* position);
 void QWebEnginePage_Connect_ScrollPositionChanged(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_ContentsSizeChanged(QWebEnginePage* self, const QSizeF* size);
@@ -204,6 +189,8 @@ void QWebEnginePage_PdfPrintingFinished(QWebEnginePage* self, const libqt_string
 void QWebEnginePage_Connect_PdfPrintingFinished(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_PrintRequested(QWebEnginePage* self);
 void QWebEnginePage_Connect_PrintRequested(QWebEnginePage* self, intptr_t slot);
+void QWebEnginePage_PrintRequestedByFrame(QWebEnginePage* self, QWebEngineFrame* frame);
+void QWebEnginePage_Connect_PrintRequestedByFrame(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_VisibleChanged(QWebEnginePage* self, bool visible);
 void QWebEnginePage_Connect_VisibleChanged(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_LifecycleStateChanged(QWebEnginePage* self, int state);
@@ -214,6 +201,8 @@ void QWebEnginePage_FindTextFinished(QWebEnginePage* self, const QWebEngineFindT
 void QWebEnginePage_Connect_FindTextFinished(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_QAboutToDelete(QWebEnginePage* self);
 void QWebEnginePage_Connect_QAboutToDelete(QWebEnginePage* self, intptr_t slot);
+void QWebEnginePage_WebAuthUxRequested(QWebEnginePage* self, QWebEngineWebAuthUxRequest* request);
+void QWebEnginePage_Connect_WebAuthUxRequested(QWebEnginePage* self, intptr_t slot);
 QWebEnginePage* QWebEnginePage_CreateWindow(QWebEnginePage* self, int typeVal);
 void QWebEnginePage_OnCreateWindow(QWebEnginePage* self, intptr_t slot);
 QWebEnginePage* QWebEnginePage_QBaseCreateWindow(QWebEnginePage* self, int typeVal);

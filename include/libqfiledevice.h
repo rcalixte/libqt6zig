@@ -25,26 +25,6 @@ typedef struct QMetaObject QMetaObject;
 typedef struct QObject QObject;
 #endif
 
-#ifdef __cplusplus
-typedef QFileDevice::FileError FileError;             // C++ enum
-typedef QFileDevice::FileHandleFlag FileHandleFlag;   // C++ enum
-typedef QFileDevice::FileHandleFlags FileHandleFlags; // C++ QFlags
-typedef QFileDevice::FileTime FileTime;               // C++ enum
-typedef QFileDevice::MemoryMapFlag MemoryMapFlag;     // C++ enum
-typedef QFileDevice::MemoryMapFlags MemoryMapFlags;   // C++ QFlags
-typedef QFileDevice::Permission Permission;           // C++ enum
-typedef QFileDevice::Permissions Permissions;         // C++ QFlags
-#else
-typedef int FileError;       // C ABI enum
-typedef int FileHandleFlag;  // C ABI enum
-typedef int FileHandleFlags; // C ABI QFlags
-typedef int FileTime;        // C ABI enum
-typedef int MemoryMapFlag;   // C ABI enum
-typedef int MemoryMapFlags;  // C ABI QFlags
-typedef int Permission;      // C ABI enum
-typedef int Permissions;     // C ABI QFlags
-#endif
-
 QMetaObject* QFileDevice_MetaObject(const QFileDevice* self);
 void* QFileDevice_Metacast(QFileDevice* self, const char* param1);
 int QFileDevice_Metacall(QFileDevice* self, int param1, int param2, void** param3);

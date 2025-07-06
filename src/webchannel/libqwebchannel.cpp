@@ -1,6 +1,6 @@
 #include <QChildEvent>
 #include <QEvent>
-#include <QMap>
+#include <QHash>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
@@ -84,7 +84,7 @@ void QWebChannel_RegisterObjects(QWebChannel* self, const libqt_map /* of libqt_
 
 libqt_map /* of libqt_string to QObject* */ QWebChannel_RegisteredObjects(const QWebChannel* self) {
     QHash<QString, QObject*> _ret = self->registeredObjects();
-    // Convert QMap<> from C++ memory to manually-managed C memory
+    // Convert QHash<> from C++ memory to manually-managed C memory
     libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     QObject** _varr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.size()));
     int _ctr = 0;

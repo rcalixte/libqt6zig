@@ -161,6 +161,12 @@ void QsciLexerPascal_QBaseConnectNotify(QsciLexerPascal* self, const QMetaMethod
 void QsciLexerPascal_DisconnectNotify(QsciLexerPascal* self, const QMetaMethod* signal);
 void QsciLexerPascal_OnDisconnectNotify(QsciLexerPascal* self, intptr_t slot);
 void QsciLexerPascal_QBaseDisconnectNotify(QsciLexerPascal* self, const QMetaMethod* signal);
+libqt_string QsciLexerPascal_TextAsBytes(const QsciLexerPascal* self, const libqt_string text);
+void QsciLexerPascal_OnTextAsBytes(const QsciLexerPascal* self, intptr_t slot);
+libqt_string QsciLexerPascal_QBaseTextAsBytes(const QsciLexerPascal* self, const libqt_string text);
+libqt_string QsciLexerPascal_BytesAsText(const QsciLexerPascal* self, const char* bytes, int size);
+void QsciLexerPascal_OnBytesAsText(const QsciLexerPascal* self, intptr_t slot);
+libqt_string QsciLexerPascal_QBaseBytesAsText(const QsciLexerPascal* self, const char* bytes, int size);
 QObject* QsciLexerPascal_Sender(const QsciLexerPascal* self);
 void QsciLexerPascal_OnSender(const QsciLexerPascal* self, intptr_t slot);
 QObject* QsciLexerPascal_QBaseSender(const QsciLexerPascal* self);

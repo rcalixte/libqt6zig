@@ -82,10 +82,10 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     mutable bool qwebenginepage_issignalconnected_isbase = false;
 
   public:
-    VirtualQWebEnginePage() : QWebEnginePage(){};
-    VirtualQWebEnginePage(QWebEngineProfile* profile) : QWebEnginePage(profile){};
-    VirtualQWebEnginePage(QObject* parent) : QWebEnginePage(parent){};
-    VirtualQWebEnginePage(QWebEngineProfile* profile, QObject* parent) : QWebEnginePage(profile, parent){};
+    VirtualQWebEnginePage() : QWebEnginePage() {};
+    VirtualQWebEnginePage(QWebEngineProfile* profile) : QWebEnginePage(profile) {};
+    VirtualQWebEnginePage(QObject* parent) : QWebEnginePage(parent) {};
+    VirtualQWebEnginePage(QWebEngineProfile* profile, QObject* parent) : QWebEnginePage(profile, parent) {};
 
     ~VirtualQWebEnginePage() {
         qwebenginepage_metacall_callback = nullptr;
@@ -214,16 +214,16 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList chooseFiles(QWebEnginePage::FileSelectionMode mode, const QStringList& oldFiles, const QStringList& acceptedMimeTypes) override {
+    virtual QList<QString> chooseFiles(QWebEnginePage::FileSelectionMode mode, const QList<QString>& oldFiles, const QList<QString>& acceptedMimeTypes) override {
         if (qwebenginepage_choosefiles_isbase) {
             qwebenginepage_choosefiles_isbase = false;
             return QWebEnginePage::chooseFiles(mode, oldFiles, acceptedMimeTypes);
         } else if (qwebenginepage_choosefiles_callback != nullptr) {
             int cbval1 = static_cast<int>(mode);
-            const QStringList& oldFiles_ret = oldFiles;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* oldFiles_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * oldFiles_ret.length()));
-            for (size_t i = 0; i < oldFiles_ret.length(); ++i) {
+            const QList<QString>& oldFiles_ret = oldFiles;
+            // Convert const QList<> from C++ memory to manually-managed C memory
+            libqt_string* oldFiles_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * oldFiles_ret.size()));
+            for (size_t i = 0; i < oldFiles_ret.size(); ++i) {
                 QString oldFiles_lv_ret = oldFiles_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray oldFiles_lv_b = oldFiles_lv_ret.toUtf8();
@@ -235,13 +235,13 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
                 oldFiles_arr[i] = oldFiles_lv_str;
             }
             libqt_list oldFiles_out;
-            oldFiles_out.len = oldFiles_ret.length();
+            oldFiles_out.len = oldFiles_ret.size();
             oldFiles_out.data = static_cast<void*>(oldFiles_arr);
             libqt_list /* of libqt_string */ cbval2 = oldFiles_out;
-            const QStringList& acceptedMimeTypes_ret = acceptedMimeTypes;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * acceptedMimeTypes_ret.length()));
-            for (size_t i = 0; i < acceptedMimeTypes_ret.length(); ++i) {
+            const QList<QString>& acceptedMimeTypes_ret = acceptedMimeTypes;
+            // Convert const QList<> from C++ memory to manually-managed C memory
+            libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * acceptedMimeTypes_ret.size()));
+            for (size_t i = 0; i < acceptedMimeTypes_ret.size(); ++i) {
                 QString acceptedMimeTypes_lv_ret = acceptedMimeTypes_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray acceptedMimeTypes_lv_b = acceptedMimeTypes_lv_ret.toUtf8();
@@ -253,12 +253,12 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
                 acceptedMimeTypes_arr[i] = acceptedMimeTypes_lv_str;
             }
             libqt_list acceptedMimeTypes_out;
-            acceptedMimeTypes_out.len = acceptedMimeTypes_ret.length();
+            acceptedMimeTypes_out.len = acceptedMimeTypes_ret.size();
             acceptedMimeTypes_out.data = static_cast<void*>(acceptedMimeTypes_arr);
             libqt_list /* of libqt_string */ cbval3 = acceptedMimeTypes_out;
 
             libqt_list /* of libqt_string */ callback_ret = qwebenginepage_choosefiles_callback(this, cbval1, cbval2, cbval3);
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {

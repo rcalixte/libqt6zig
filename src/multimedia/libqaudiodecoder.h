@@ -29,12 +29,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
 #endif
 
-#ifdef __cplusplus
-typedef QAudioDecoder::Error Error; // C++ enum
-#else
-typedef int Error; // C ABI enum
-#endif
-
 QAudioDecoder* QAudioDecoder_new();
 QAudioDecoder* QAudioDecoder_new2(QObject* parent);
 QMetaObject* QAudioDecoder_MetaObject(const QAudioDecoder* self);

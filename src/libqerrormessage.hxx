@@ -81,6 +81,7 @@ class VirtualQErrorMessage final : public QErrorMessage {
     using QErrorMessage_SenderSignalIndex_Callback = int (*)();
     using QErrorMessage_Receivers_Callback = int (*)(const QErrorMessage*, const char*);
     using QErrorMessage_IsSignalConnected_Callback = bool (*)(const QErrorMessage*, QMetaMethod*);
+    using QErrorMessage_GetDecodedMetricF_Callback = double (*)(const QErrorMessage*, int, int);
 
   protected:
     // Instance callback storage
@@ -147,6 +148,7 @@ class VirtualQErrorMessage final : public QErrorMessage {
     QErrorMessage_SenderSignalIndex_Callback qerrormessage_sendersignalindex_callback = nullptr;
     QErrorMessage_Receivers_Callback qerrormessage_receivers_callback = nullptr;
     QErrorMessage_IsSignalConnected_Callback qerrormessage_issignalconnected_callback = nullptr;
+    QErrorMessage_GetDecodedMetricF_Callback qerrormessage_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qerrormessage_metacall_isbase = false;
@@ -212,10 +214,11 @@ class VirtualQErrorMessage final : public QErrorMessage {
     mutable bool qerrormessage_sendersignalindex_isbase = false;
     mutable bool qerrormessage_receivers_isbase = false;
     mutable bool qerrormessage_issignalconnected_isbase = false;
+    mutable bool qerrormessage_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQErrorMessage(QWidget* parent) : QErrorMessage(parent){};
-    VirtualQErrorMessage() : QErrorMessage(){};
+    VirtualQErrorMessage(QWidget* parent) : QErrorMessage(parent) {};
+    VirtualQErrorMessage() : QErrorMessage() {};
 
     ~VirtualQErrorMessage() {
         qerrormessage_metacall_callback = nullptr;
@@ -281,6 +284,7 @@ class VirtualQErrorMessage final : public QErrorMessage {
         qerrormessage_sendersignalindex_callback = nullptr;
         qerrormessage_receivers_callback = nullptr;
         qerrormessage_issignalconnected_callback = nullptr;
+        qerrormessage_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -347,6 +351,7 @@ class VirtualQErrorMessage final : public QErrorMessage {
     inline void setQErrorMessage_SenderSignalIndex_Callback(QErrorMessage_SenderSignalIndex_Callback cb) { qerrormessage_sendersignalindex_callback = cb; }
     inline void setQErrorMessage_Receivers_Callback(QErrorMessage_Receivers_Callback cb) { qerrormessage_receivers_callback = cb; }
     inline void setQErrorMessage_IsSignalConnected_Callback(QErrorMessage_IsSignalConnected_Callback cb) { qerrormessage_issignalconnected_callback = cb; }
+    inline void setQErrorMessage_GetDecodedMetricF_Callback(QErrorMessage_GetDecodedMetricF_Callback cb) { qerrormessage_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQErrorMessage_Metacall_IsBase(bool value) const { qerrormessage_metacall_isbase = value; }
@@ -412,6 +417,7 @@ class VirtualQErrorMessage final : public QErrorMessage {
     inline void setQErrorMessage_SenderSignalIndex_IsBase(bool value) const { qerrormessage_sendersignalindex_isbase = value; }
     inline void setQErrorMessage_Receivers_IsBase(bool value) const { qerrormessage_receivers_isbase = value; }
     inline void setQErrorMessage_IsSignalConnected_IsBase(bool value) const { qerrormessage_issignalconnected_isbase = value; }
+    inline void setQErrorMessage_GetDecodedMetricF_IsBase(bool value) const { qerrormessage_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1301,6 +1307,22 @@ class VirtualQErrorMessage final : public QErrorMessage {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qerrormessage_getdecodedmetricf_isbase) {
+            qerrormessage_getdecodedmetricf_isbase = false;
+            return QErrorMessage::getDecodedMetricF(metricA, metricB);
+        } else if (qerrormessage_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qerrormessage_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QErrorMessage::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QErrorMessage_Done(QErrorMessage* self, int param1);
     friend void QErrorMessage_QBaseDone(QErrorMessage* self, int param1);
@@ -1402,6 +1424,8 @@ class VirtualQErrorMessage final : public QErrorMessage {
     friend int QErrorMessage_QBaseReceivers(const QErrorMessage* self, const char* signal);
     friend bool QErrorMessage_IsSignalConnected(const QErrorMessage* self, const QMetaMethod* signal);
     friend bool QErrorMessage_QBaseIsSignalConnected(const QErrorMessage* self, const QMetaMethod* signal);
+    friend double QErrorMessage_GetDecodedMetricF(const QErrorMessage* self, int metricA, int metricB);
+    friend double QErrorMessage_QBaseGetDecodedMetricF(const QErrorMessage* self, int metricA, int metricB);
 };
 
 #endif

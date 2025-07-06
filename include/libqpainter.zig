@@ -1658,6 +1658,20 @@ pub const qpainter = struct {
 
 /// https://doc.qt.io/qt-6/qpainter-pixmapfragment.html
 pub const qpainter__pixmapfragment = struct {
+    /// New constructs a new QPainter::PixmapFragment object.
+    ///
+    ///
+    pub fn New() QtC.QPainter__PixmapFragment {
+        return qtc.QPainter__PixmapFragment_new();
+    }
+
+    /// New2 constructs a new QPainter::PixmapFragment object.
+    ///
+    /// ``` param1: QtC.QPainter__PixmapFragment ```
+    pub fn New2(param1: ?*anyopaque) QtC.QPainter__PixmapFragment {
+        return qtc.QPainter__PixmapFragment_new2(@ptrCast(param1));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter__pixmapfragment.html#create)
     ///
     /// ``` pos: QtC.QPointF, sourceRect: QtC.QRectF ```

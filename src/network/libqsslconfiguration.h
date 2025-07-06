@@ -25,12 +25,6 @@ typedef struct QSslKey QSslKey;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QSslConfiguration::NextProtocolNegotiationStatus NextProtocolNegotiationStatus; // C++ enum
-#else
-typedef int NextProtocolNegotiationStatus; // C ABI enum
-#endif
-
 QSslConfiguration* QSslConfiguration_new();
 QSslConfiguration* QSslConfiguration_new2(const QSslConfiguration* other);
 void QSslConfiguration_OperatorAssign(QSslConfiguration* self, const QSslConfiguration* other);

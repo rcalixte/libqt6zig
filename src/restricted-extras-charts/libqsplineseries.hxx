@@ -76,8 +76,8 @@ class VirtualQSplineSeries final : public QSplineSeries {
     mutable bool qsplineseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQSplineSeries() : QSplineSeries(){};
-    VirtualQSplineSeries(QObject* parent) : QSplineSeries(parent){};
+    VirtualQSplineSeries() : QSplineSeries() {};
+    VirtualQSplineSeries(QObject* parent) : QSplineSeries(parent) {};
 
     ~VirtualQSplineSeries() {
         qsplineseries_metacall_callback = nullptr;

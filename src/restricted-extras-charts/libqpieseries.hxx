@@ -64,8 +64,8 @@ class VirtualQPieSeries final : public QPieSeries {
     mutable bool qpieseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQPieSeries() : QPieSeries(){};
-    VirtualQPieSeries(QObject* parent) : QPieSeries(parent){};
+    VirtualQPieSeries() : QPieSeries() {};
+    VirtualQPieSeries(QObject* parent) : QPieSeries(parent) {};
 
     ~VirtualQPieSeries() {
         qpieseries_metacall_callback = nullptr;

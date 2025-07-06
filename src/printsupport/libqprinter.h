@@ -31,28 +31,6 @@ typedef struct QPrinterInfo QPrinterInfo;
 typedef struct QRectF QRectF;
 #endif
 
-#ifdef __cplusplus
-typedef QPrinter::ColorMode ColorMode;       // C++ enum
-typedef QPrinter::DuplexMode DuplexMode;     // C++ enum
-typedef QPrinter::OutputFormat OutputFormat; // C++ enum
-typedef QPrinter::PageOrder PageOrder;       // C++ enum
-typedef QPrinter::PaperSource PaperSource;   // C++ enum
-typedef QPrinter::PrintRange PrintRange;     // C++ enum
-typedef QPrinter::PrinterMode PrinterMode;   // C++ enum
-typedef QPrinter::PrinterState PrinterState; // C++ enum
-typedef QPrinter::Unit Unit;                 // C++ enum
-#else
-typedef int ColorMode;    // C ABI enum
-typedef int DuplexMode;   // C ABI enum
-typedef int OutputFormat; // C ABI enum
-typedef int PageOrder;    // C ABI enum
-typedef int PaperSource;  // C ABI enum
-typedef int PrintRange;   // C ABI enum
-typedef int PrinterMode;  // C ABI enum
-typedef int PrinterState; // C ABI enum
-typedef int Unit;         // C ABI enum
-#endif
-
 QPrinter* QPrinter_new();
 QPrinter* QPrinter_new2(const QPrinterInfo* printer);
 QPrinter* QPrinter_new3(int mode);
@@ -143,6 +121,9 @@ QPainter* QPrinter_QBaseSharedPainter(const QPrinter* self);
 void QPrinter_SetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
 void QPrinter_OnSetEngines(QPrinter* self, intptr_t slot);
 void QPrinter_QBaseSetEngines(QPrinter* self, QPrintEngine* printEngine, QPaintEngine* paintEngine);
+double QPrinter_GetDecodedMetricF(const QPrinter* self, int metricA, int metricB);
+void QPrinter_OnGetDecodedMetricF(const QPrinter* self, intptr_t slot);
+double QPrinter_QBaseGetDecodedMetricF(const QPrinter* self, int metricA, int metricB);
 void QPrinter_Delete(QPrinter* self);
 
 #ifdef __cplusplus

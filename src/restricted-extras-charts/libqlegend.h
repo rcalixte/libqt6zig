@@ -37,12 +37,6 @@ typedef struct QStyleOptionGraphicsItem QStyleOptionGraphicsItem;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QLegend::MarkerShape MarkerShape; // C++ enum
-#else
-typedef int MarkerShape; // C ABI enum
-#endif
-
 QMetaObject* QLegend_MetaObject(const QLegend* self);
 void* QLegend_Metacast(QLegend* self, const char* param1);
 int QLegend_Metacall(QLegend* self, int param1, int param2, void** param3);

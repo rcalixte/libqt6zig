@@ -51,13 +51,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractSlider::SliderAction SliderAction; // C++ enum
-#else
-typedef int SliderAction; // C ABI enum
-typedef int SliderChange; // C ABI enum
-#endif
-
 QAbstractSlider* QAbstractSlider_new(QWidget* parent);
 QAbstractSlider* QAbstractSlider_new2();
 QMetaObject* QAbstractSlider_MetaObject(const QAbstractSlider* self);
@@ -287,6 +280,9 @@ int QAbstractSlider_QBaseReceivers(const QAbstractSlider* self, const char* sign
 bool QAbstractSlider_IsSignalConnected(const QAbstractSlider* self, const QMetaMethod* signal);
 void QAbstractSlider_OnIsSignalConnected(const QAbstractSlider* self, intptr_t slot);
 bool QAbstractSlider_QBaseIsSignalConnected(const QAbstractSlider* self, const QMetaMethod* signal);
+double QAbstractSlider_GetDecodedMetricF(const QAbstractSlider* self, int metricA, int metricB);
+void QAbstractSlider_OnGetDecodedMetricF(const QAbstractSlider* self, intptr_t slot);
+double QAbstractSlider_QBaseGetDecodedMetricF(const QAbstractSlider* self, int metricA, int metricB);
 void QAbstractSlider_Delete(QAbstractSlider* self);
 
 #ifdef __cplusplus

@@ -61,7 +61,7 @@ class VirtualQTextTable final : public QTextTable {
     mutable bool qtexttable_issignalconnected_isbase = false;
 
   public:
-    VirtualQTextTable(QTextDocument* doc) : QTextTable(doc){};
+    VirtualQTextTable(QTextDocument* doc) : QTextTable(doc) {};
 
     ~VirtualQTextTable() {
         qtexttable_metacall_callback = nullptr;

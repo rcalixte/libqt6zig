@@ -30,16 +30,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVideoFrame QVideoFrame;
 #endif
 
-#ifdef __cplusplus
-typedef QImageCapture::Error Error;           // C++ enum
-typedef QImageCapture::FileFormat FileFormat; // C++ enum
-typedef QImageCapture::Quality Quality;       // C++ enum
-#else
-typedef int Error;      // C ABI enum
-typedef int FileFormat; // C ABI enum
-typedef int Quality;    // C ABI enum
-#endif
-
 QImageCapture* QImageCapture_new();
 QImageCapture* QImageCapture_new2(QObject* parent);
 QMetaObject* QImageCapture_MetaObject(const QImageCapture* self);

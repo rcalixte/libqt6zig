@@ -271,13 +271,6 @@ pub const qdatastream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#operator<<)
     ///
-    /// ``` self: QtC.QDataStream, i: bool ```
-    pub fn OperatorShiftLeftWithBool(self: ?*anyopaque, i: bool) void {
-        qtc.QDataStream_OperatorShiftLeftWithBool(@ptrCast(self), i);
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#operator<<)
-    ///
     /// ``` self: QtC.QDataStream, f: f32 ```
     pub fn OperatorShiftLeftWithFloat(self: ?*anyopaque, f: f32) void {
         qtc.QDataStream_OperatorShiftLeftWithFloat(@ptrCast(self), @floatCast(f));
@@ -306,34 +299,42 @@ pub const qdatastream = struct {
         return qtc.QDataStream_ReadBytes(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
+    ///
+    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: ?*i64 ```
+    pub fn ReadBytes2(self: ?*anyopaque, param1: []const u8, lenVal: ?*anyopaque) QtC.QDataStream {
+        const param1_Cstring = param1.ptr;
+        return qtc.QDataStream_ReadBytes2(@ptrCast(self), param1_Cstring, @intCast(lenVal));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#readRawData)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i32 ```
-    pub fn ReadRawData(self: ?*anyopaque, param1: []const u8, lenVal: i32) i32 {
+    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i64 ```
+    pub fn ReadRawData(self: ?*anyopaque, param1: []const u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#writeBytes)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: u32 ```
-    pub fn WriteBytes(self: ?*anyopaque, param1: []const u8, lenVal: u32) void {
+    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i64 ```
+    pub fn WriteBytes(self: ?*anyopaque, param1: []const u8, lenVal: i64) void {
         const param1_Cstring = param1.ptr;
         qtc.QDataStream_WriteBytes(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#writeRawData)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i32 ```
-    pub fn WriteRawData(self: ?*anyopaque, param1: []const u8, lenVal: i32) i32 {
+    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i64 ```
+    pub fn WriteRawData(self: ?*anyopaque, param1: []const u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_WriteRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#skipRawData)
     ///
-    /// ``` self: QtC.QDataStream, lenVal: i32 ```
-    pub fn SkipRawData(self: ?*anyopaque, lenVal: i32) i32 {
+    /// ``` self: QtC.QDataStream, lenVal: i64 ```
+    pub fn SkipRawData(self: ?*anyopaque, lenVal: i64) i64 {
         return qtc.QDataStream_SkipRawData(@ptrCast(self), @intCast(lenVal));
     }
 
@@ -422,7 +423,11 @@ pub const enums = struct {
         pub const Qt_6_2: i32 = 20;
         pub const Qt_6_3: i32 = 20;
         pub const Qt_6_4: i32 = 20;
-        pub const Qt_DefaultCompiledVersion: i32 = 20;
+        pub const Qt_6_5: i32 = 20;
+        pub const Qt_6_6: i32 = 21;
+        pub const Qt_6_7: i32 = 22;
+        pub const Qt_6_8: i32 = 22;
+        pub const Qt_DefaultCompiledVersion: i32 = 22;
     };
 
     pub const ByteOrder = enum {
@@ -435,6 +440,7 @@ pub const enums = struct {
         pub const ReadPastEnd: i32 = 1;
         pub const ReadCorruptData: i32 = 2;
         pub const WriteFailed: i32 = 3;
+        pub const SizeLimitExceeded: i32 = 4;
     };
 
     pub const FloatingPointPrecision = enum {

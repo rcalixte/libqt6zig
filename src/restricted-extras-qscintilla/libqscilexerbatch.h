@@ -152,6 +152,12 @@ void QsciLexerBatch_QBaseConnectNotify(QsciLexerBatch* self, const QMetaMethod* 
 void QsciLexerBatch_DisconnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
 void QsciLexerBatch_OnDisconnectNotify(QsciLexerBatch* self, intptr_t slot);
 void QsciLexerBatch_QBaseDisconnectNotify(QsciLexerBatch* self, const QMetaMethod* signal);
+libqt_string QsciLexerBatch_TextAsBytes(const QsciLexerBatch* self, const libqt_string text);
+void QsciLexerBatch_OnTextAsBytes(const QsciLexerBatch* self, intptr_t slot);
+libqt_string QsciLexerBatch_QBaseTextAsBytes(const QsciLexerBatch* self, const libqt_string text);
+libqt_string QsciLexerBatch_BytesAsText(const QsciLexerBatch* self, const char* bytes, int size);
+void QsciLexerBatch_OnBytesAsText(const QsciLexerBatch* self, intptr_t slot);
+libqt_string QsciLexerBatch_QBaseBytesAsText(const QsciLexerBatch* self, const char* bytes, int size);
 QObject* QsciLexerBatch_Sender(const QsciLexerBatch* self);
 void QsciLexerBatch_OnSender(const QsciLexerBatch* self, intptr_t slot);
 QObject* QsciLexerBatch_QBaseSender(const QsciLexerBatch* self);

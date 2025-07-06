@@ -156,6 +156,12 @@ void QsciLexerMakefile_QBaseConnectNotify(QsciLexerMakefile* self, const QMetaMe
 void QsciLexerMakefile_DisconnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
 void QsciLexerMakefile_OnDisconnectNotify(QsciLexerMakefile* self, intptr_t slot);
 void QsciLexerMakefile_QBaseDisconnectNotify(QsciLexerMakefile* self, const QMetaMethod* signal);
+libqt_string QsciLexerMakefile_TextAsBytes(const QsciLexerMakefile* self, const libqt_string text);
+void QsciLexerMakefile_OnTextAsBytes(const QsciLexerMakefile* self, intptr_t slot);
+libqt_string QsciLexerMakefile_QBaseTextAsBytes(const QsciLexerMakefile* self, const libqt_string text);
+libqt_string QsciLexerMakefile_BytesAsText(const QsciLexerMakefile* self, const char* bytes, int size);
+void QsciLexerMakefile_OnBytesAsText(const QsciLexerMakefile* self, intptr_t slot);
+libqt_string QsciLexerMakefile_QBaseBytesAsText(const QsciLexerMakefile* self, const char* bytes, int size);
 QObject* QsciLexerMakefile_Sender(const QsciLexerMakefile* self);
 void QsciLexerMakefile_OnSender(const QsciLexerMakefile* self, intptr_t slot);
 QObject* QsciLexerMakefile_QBaseSender(const QsciLexerMakefile* self);

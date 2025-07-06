@@ -30,14 +30,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QValidator QValidator;
 #endif
 
-#ifdef __cplusplus
-typedef QDoubleValidator::Notation Notation; // C++ enum
-typedef QValidator::State State;             // C++ enum
-#else
-typedef int Notation; // C ABI enum
-typedef int State;    // C ABI enum
-#endif
-
 QValidator* QValidator_new();
 QValidator* QValidator_new2(QObject* parent);
 QMetaObject* QValidator_MetaObject(const QValidator* self);

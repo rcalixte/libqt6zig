@@ -207,6 +207,13 @@ pub const qpdfsearchmodel = struct {
         return qtc.QPdfSearchModel_QBaseData(@ptrCast(self), @ptrCast(index), @intCast(role));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfsearchmodel.html#count)
+    ///
+    /// ``` self: QtC.QPdfSearchModel ```
+    pub fn Count(self: ?*anyopaque) i32 {
+        return qtc.QPdfSearchModel_Count(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfsearchmodel.html#setSearchString)
     ///
     /// ``` self: QtC.QPdfSearchModel, searchString: []const u8 ```
@@ -251,6 +258,20 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel, slot: fn (self: QtC.QPdfSearchModel) callconv(.c) void ```
     pub fn OnSearchStringChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QPdfSearchModel_Connect_SearchStringChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfsearchmodel.html#countChanged)
+    ///
+    /// ``` self: QtC.QPdfSearchModel ```
+    pub fn CountChanged(self: ?*anyopaque) void {
+        qtc.QPdfSearchModel_CountChanged(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfsearchmodel.html#countChanged)
+    ///
+    /// ``` self: QtC.QPdfSearchModel, slot: fn (self: QtC.QPdfSearchModel) callconv(.c) void ```
+    pub fn OnCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfSearchModel_Connect_CountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfsearchmodel.html#updatePage)
@@ -815,8 +836,8 @@ pub const qpdfsearchmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPdfSearchModel, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -835,6 +856,15 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QPdfSearchModel, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1031,6 +1061,15 @@ pub const qpdfsearchmodel = struct {
     /// ``` self: QtC.QPdfSearchModel ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QPdfSearchModel, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject

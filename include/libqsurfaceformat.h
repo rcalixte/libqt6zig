@@ -20,24 +20,6 @@ typedef struct QColorSpace QColorSpace;
 typedef struct QSurfaceFormat QSurfaceFormat;
 #endif
 
-#ifdef __cplusplus
-typedef QSurfaceFormat::ColorSpace ColorSpace;                     // C++ enum
-typedef QSurfaceFormat::FormatOption FormatOption;                 // C++ enum
-typedef QSurfaceFormat::FormatOptions FormatOptions;               // C++ QFlags
-typedef QSurfaceFormat::OpenGLContextProfile OpenGLContextProfile; // C++ enum
-typedef QSurfaceFormat::QtGadgetHelper QtGadgetHelper;             // C++ QFlags
-typedef QSurfaceFormat::RenderableType RenderableType;             // C++ enum
-typedef QSurfaceFormat::SwapBehavior SwapBehavior;                 // C++ enum
-#else
-typedef int ColorSpace;           // C ABI enum
-typedef int FormatOption;         // C ABI enum
-typedef int FormatOptions;        // C ABI QFlags
-typedef int OpenGLContextProfile; // C ABI enum
-typedef int RenderableType;       // C ABI enum
-typedef int SwapBehavior;         // C ABI enum
-typedef void QtGadgetHelper;      // C ABI QFlags
-#endif
-
 QSurfaceFormat* QSurfaceFormat_new();
 QSurfaceFormat* QSurfaceFormat_new2(int options);
 QSurfaceFormat* QSurfaceFormat_new3(const QSurfaceFormat* other);

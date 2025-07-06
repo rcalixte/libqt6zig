@@ -73,8 +73,8 @@ class VirtualQAnimationGroup final : public QAnimationGroup {
     mutable bool qanimationgroup_issignalconnected_isbase = false;
 
   public:
-    VirtualQAnimationGroup() : QAnimationGroup(){};
-    VirtualQAnimationGroup(QObject* parent) : QAnimationGroup(parent){};
+    VirtualQAnimationGroup() : QAnimationGroup() {};
+    VirtualQAnimationGroup(QObject* parent) : QAnimationGroup(parent) {};
 
     ~VirtualQAnimationGroup() {
         qanimationgroup_metacall_callback = nullptr;

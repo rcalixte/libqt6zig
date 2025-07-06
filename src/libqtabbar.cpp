@@ -2240,6 +2240,35 @@ void QTabBar_OnIsSignalConnected(const QTabBar* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QTabBar_GetDecodedMetricF(const QTabBar* self, int metricA, int metricB) {
+    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        return vqtabbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTabBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QTabBar_QBaseGetDecodedMetricF(const QTabBar* self, int metricA, int metricB) {
+    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        vqtabbar->setQTabBar_GetDecodedMetricF_IsBase(true);
+        return vqtabbar->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTabBar*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTabBar_OnGetDecodedMetricF(const QTabBar* self, intptr_t slot) {
+    auto* vqtabbar = const_cast<VirtualQTabBar*>(dynamic_cast<const VirtualQTabBar*>(self));
+    if (vqtabbar && vqtabbar->isVirtualQTabBar) {
+        vqtabbar->setQTabBar_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTabBar::QTabBar_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QTabBar_Delete(QTabBar* self) {
     delete self;
 }

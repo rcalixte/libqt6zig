@@ -53,16 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractPrintDialog::PrintDialogOption PrintDialogOption;   // C++ enum
-typedef QAbstractPrintDialog::PrintDialogOptions PrintDialogOptions; // C++ QFlags
-typedef QAbstractPrintDialog::PrintRange PrintRange;                 // C++ enum
-#else
-typedef int PrintDialogOption;  // C ABI enum
-typedef int PrintDialogOptions; // C ABI QFlags
-typedef int PrintRange;         // C ABI enum
-#endif
-
 QAbstractPrintDialog* QAbstractPrintDialog_new(QPrinter* printer);
 QAbstractPrintDialog* QAbstractPrintDialog_new2(QPrinter* printer, QWidget* parent);
 QMetaObject* QAbstractPrintDialog_MetaObject(const QAbstractPrintDialog* self);
@@ -269,6 +259,9 @@ int QAbstractPrintDialog_QBaseReceivers(const QAbstractPrintDialog* self, const 
 bool QAbstractPrintDialog_IsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
 void QAbstractPrintDialog_OnIsSignalConnected(const QAbstractPrintDialog* self, intptr_t slot);
 bool QAbstractPrintDialog_QBaseIsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
+double QAbstractPrintDialog_GetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB);
+void QAbstractPrintDialog_OnGetDecodedMetricF(const QAbstractPrintDialog* self, intptr_t slot);
+double QAbstractPrintDialog_QBaseGetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB);
 void QAbstractPrintDialog_Delete(QAbstractPrintDialog* self);
 
 #ifdef __cplusplus

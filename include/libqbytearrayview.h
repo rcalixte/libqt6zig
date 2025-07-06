@@ -19,21 +19,6 @@ extern "C" {
 typedef struct QByteArrayView QByteArrayView;
 #endif
 
-#ifdef __cplusplus
-typedef QByteArrayView::const_pointer const_pointer;     // C++ QFlags
-typedef QByteArrayView::const_reference const_reference; // C++ QFlags
-typedef QByteArrayView::difference_type difference_type; // C++ QFlags
-typedef QByteArrayView::iterator iterator;               // C++ QFlags
-typedef QByteArrayView::pointer pointer;                 // C++ QFlags
-typedef QByteArrayView::reference reference;             // C++ QFlags
-typedef QByteArrayView::size_type size_type;             // C++ QFlags
-typedef QByteArrayView::storage_type storage_type;       // C++ QFlags
-typedef QByteArrayView::value_type value_type;           // C++ QFlags
-#else
-typedef long long difference_type; // C ABI QFlags
-typedef ptrdiff_t size_type;       // C ABI QFlags
-#endif
-
 QByteArrayView* QByteArrayView_new(const QByteArrayView* other);
 QByteArrayView* QByteArrayView_new2(QByteArrayView* other);
 QByteArrayView* QByteArrayView_new3();
@@ -50,7 +35,12 @@ QByteArrayView* QByteArrayView_First(const QByteArrayView* self, ptrdiff_t n);
 QByteArrayView* QByteArrayView_Last(const QByteArrayView* self, ptrdiff_t n);
 QByteArrayView* QByteArrayView_Sliced(const QByteArrayView* self, ptrdiff_t pos);
 QByteArrayView* QByteArrayView_Sliced2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n);
+QByteArrayView* QByteArrayView_Slice(QByteArrayView* self, ptrdiff_t pos);
+QByteArrayView* QByteArrayView_Slice2(QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n);
 QByteArrayView* QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t lenVal);
+QByteArrayView* QByteArrayView_Left(const QByteArrayView* self, ptrdiff_t n);
+QByteArrayView* QByteArrayView_Right(const QByteArrayView* self, ptrdiff_t n);
+QByteArrayView* QByteArrayView_Mid(const QByteArrayView* self, ptrdiff_t pos);
 void QByteArrayView_Truncate(QByteArrayView* self, ptrdiff_t n);
 void QByteArrayView_Chop(QByteArrayView* self, ptrdiff_t n);
 QByteArrayView* QByteArrayView_Trimmed(const QByteArrayView* self);
@@ -86,11 +76,14 @@ const char* QByteArrayView_Cend(const QByteArrayView* self);
 bool QByteArrayView_Empty(const QByteArrayView* self);
 char QByteArrayView_Front(const QByteArrayView* self);
 char QByteArrayView_Back(const QByteArrayView* self);
+ptrdiff_t QByteArrayView_MaxSize(const QByteArrayView* self);
 bool QByteArrayView_IsNull(const QByteArrayView* self);
 bool QByteArrayView_IsEmpty(const QByteArrayView* self);
 ptrdiff_t QByteArrayView_Length(const QByteArrayView* self);
 char QByteArrayView_First2(const QByteArrayView* self);
 char QByteArrayView_Last2(const QByteArrayView* self);
+ptrdiff_t QByteArrayView_MaxSize2();
+QByteArrayView* QByteArrayView_Mid2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n);
 int16_t QByteArrayView_ToShort1(const QByteArrayView* self, bool* ok);
 int16_t QByteArrayView_ToShort2(const QByteArrayView* self, bool* ok, int base);
 uint16_t QByteArrayView_ToUShort1(const QByteArrayView* self, bool* ok);

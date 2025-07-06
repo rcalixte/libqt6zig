@@ -29,18 +29,6 @@ typedef struct QPointingDeviceUniqueId QPointingDeviceUniqueId;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QPointingDevice::GrabTransition GrabTransition;         // C++ enum
-typedef QPointingDevice::PointerType PointerType;               // C++ enum
-typedef QPointingDevice::PointerTypes PointerTypes;             // C++ QFlags
-typedef QPointingDeviceUniqueId::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef int GrabTransition;  // C ABI enum
-typedef int PointerType;     // C ABI enum
-typedef int PointerTypes;    // C ABI QFlags
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QPointingDeviceUniqueId* QPointingDeviceUniqueId_new(const QPointingDeviceUniqueId* other);
 QPointingDeviceUniqueId* QPointingDeviceUniqueId_new2(QPointingDeviceUniqueId* other);
 QPointingDeviceUniqueId* QPointingDeviceUniqueId_new3();

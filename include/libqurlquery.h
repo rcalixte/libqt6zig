@@ -21,19 +21,11 @@ typedef struct QUrl QUrl;
 typedef struct QUrlQuery QUrlQuery;
 #endif
 
-#ifdef __cplusplus
-typedef QUrlQuery::DataPtr DataPtr; // C++ QFlags
-#else
-
-#endif
-
 QUrlQuery* QUrlQuery_new();
 QUrlQuery* QUrlQuery_new2(const QUrl* url);
 QUrlQuery* QUrlQuery_new3(const libqt_string queryString);
 QUrlQuery* QUrlQuery_new4(const QUrlQuery* other);
 void QUrlQuery_OperatorAssign(QUrlQuery* self, const QUrlQuery* other);
-bool QUrlQuery_OperatorEqual(const QUrlQuery* self, const QUrlQuery* other);
-bool QUrlQuery_OperatorNotEqual(const QUrlQuery* self, const QUrlQuery* other);
 void QUrlQuery_Swap(QUrlQuery* self, QUrlQuery* other);
 bool QUrlQuery_IsEmpty(const QUrlQuery* self);
 bool QUrlQuery_IsDetached(const QUrlQuery* self);

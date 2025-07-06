@@ -176,7 +176,7 @@ bool QInputDialog_IsComboBoxEditable(const QInputDialog* self) {
 }
 
 void QInputDialog_SetComboBoxItems(QInputDialog* self, const libqt_list /* of libqt_string */ items) {
-    QStringList items_QList;
+    QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
@@ -187,10 +187,10 @@ void QInputDialog_SetComboBoxItems(QInputDialog* self, const libqt_list /* of li
 }
 
 libqt_list /* of libqt_string */ QInputDialog_ComboBoxItems(const QInputDialog* self) {
-    QStringList _ret = self->comboBoxItems();
+    QList<QString> _ret = self->comboBoxItems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
@@ -202,7 +202,7 @@ libqt_list /* of libqt_string */ QInputDialog_ComboBoxItems(const QInputDialog* 
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -344,7 +344,7 @@ libqt_string QInputDialog_GetMultiLineText(QWidget* parent, const libqt_string t
 libqt_string QInputDialog_GetItem(QWidget* parent, const libqt_string title, const libqt_string label, const libqt_list /* of libqt_string */ items) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
-    QStringList items_QList;
+    QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
@@ -637,7 +637,7 @@ libqt_string QInputDialog_GetMultiLineText7(QWidget* parent, const libqt_string 
 libqt_string QInputDialog_GetItem5(QWidget* parent, const libqt_string title, const libqt_string label, const libqt_list /* of libqt_string */ items, int current) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
-    QStringList items_QList;
+    QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
@@ -658,7 +658,7 @@ libqt_string QInputDialog_GetItem5(QWidget* parent, const libqt_string title, co
 libqt_string QInputDialog_GetItem6(QWidget* parent, const libqt_string title, const libqt_string label, const libqt_list /* of libqt_string */ items, int current, bool editable) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
-    QStringList items_QList;
+    QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
@@ -679,7 +679,7 @@ libqt_string QInputDialog_GetItem6(QWidget* parent, const libqt_string title, co
 libqt_string QInputDialog_GetItem7(QWidget* parent, const libqt_string title, const libqt_string label, const libqt_list /* of libqt_string */ items, int current, bool editable, bool* ok) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
-    QStringList items_QList;
+    QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
@@ -700,7 +700,7 @@ libqt_string QInputDialog_GetItem7(QWidget* parent, const libqt_string title, co
 libqt_string QInputDialog_GetItem8(QWidget* parent, const libqt_string title, const libqt_string label, const libqt_list /* of libqt_string */ items, int current, bool editable, bool* ok, int flags) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
-    QStringList items_QList;
+    QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
@@ -721,7 +721,7 @@ libqt_string QInputDialog_GetItem8(QWidget* parent, const libqt_string title, co
 libqt_string QInputDialog_GetItem9(QWidget* parent, const libqt_string title, const libqt_string label, const libqt_list /* of libqt_string */ items, int current, bool editable, bool* ok, int flags, int inputMethodHints) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     QString label_QString = QString::fromUtf8(label.data, label.len);
-    QStringList items_QList;
+    QList<QString> items_QList;
     items_QList.reserve(items.len);
     libqt_string* items_arr = static_cast<libqt_string*>(items.data);
     for (size_t i = 0; i < items.len; ++i) {
@@ -2614,6 +2614,35 @@ void QInputDialog_OnIsSignalConnected(const QInputDialog* self, intptr_t slot) {
     auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
     if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
         vqinputdialog->setQInputDialog_IsSignalConnected_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QInputDialog_GetDecodedMetricF(const QInputDialog* self, int metricA, int metricB) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        return vqinputdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQInputDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QInputDialog_QBaseGetDecodedMetricF(const QInputDialog* self, int metricA, int metricB) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_GetDecodedMetricF_IsBase(true);
+        return vqinputdialog->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQInputDialog*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QInputDialog_OnGetDecodedMetricF(const QInputDialog* self, intptr_t slot) {
+    auto* vqinputdialog = const_cast<VirtualQInputDialog*>(dynamic_cast<const VirtualQInputDialog*>(self));
+    if (vqinputdialog && vqinputdialog->isVirtualQInputDialog) {
+        vqinputdialog->setQInputDialog_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQInputDialog::QInputDialog_GetDecodedMetricF_Callback>(slot));
     }
 }
 

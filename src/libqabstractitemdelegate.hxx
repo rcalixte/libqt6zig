@@ -91,8 +91,8 @@ class VirtualQAbstractItemDelegate final : public QAbstractItemDelegate {
     mutable bool qabstractitemdelegate_issignalconnected_isbase = false;
 
   public:
-    VirtualQAbstractItemDelegate() : QAbstractItemDelegate(){};
-    VirtualQAbstractItemDelegate(QObject* parent) : QAbstractItemDelegate(parent){};
+    VirtualQAbstractItemDelegate() : QAbstractItemDelegate() {};
+    VirtualQAbstractItemDelegate(QObject* parent) : QAbstractItemDelegate(parent) {};
 
     ~VirtualQAbstractItemDelegate() {
         qabstractitemdelegate_metacall_callback = nullptr;

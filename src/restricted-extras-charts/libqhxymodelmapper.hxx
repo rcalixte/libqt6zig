@@ -91,8 +91,8 @@ class VirtualQHXYModelMapper final : public QHXYModelMapper {
     mutable bool qhxymodelmapper_issignalconnected_isbase = false;
 
   public:
-    VirtualQHXYModelMapper() : QHXYModelMapper(){};
-    VirtualQHXYModelMapper(QObject* parent) : QHXYModelMapper(parent){};
+    VirtualQHXYModelMapper() : QHXYModelMapper() {};
+    VirtualQHXYModelMapper(QObject* parent) : QHXYModelMapper(parent) {};
 
     ~VirtualQHXYModelMapper() {
         qhxymodelmapper_metacall_callback = nullptr;

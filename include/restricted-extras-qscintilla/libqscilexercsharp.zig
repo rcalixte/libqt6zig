@@ -606,8 +606,8 @@ pub const qscilexercsharp = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QsciLexerCSharp, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -626,6 +626,15 @@ pub const qscilexercsharp = struct {
     /// ``` self: QtC.QsciLexerCSharp, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -831,6 +840,15 @@ pub const qscilexercsharp = struct {
     /// ``` self: QtC.QsciLexerCSharp ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -2322,6 +2340,98 @@ pub const qscilexercsharp = struct {
     /// ``` self: QtC.QsciLexerCSharp, slot: fn (self: QtC.QsciLexerCSharp, signal: QtC.QMetaMethod) callconv(.c) void ```
     pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QsciLexerCSharp_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, text: []const u8, allocator: std.mem.Allocator ```
+    pub fn TextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
+        const text_str = qtc.struct_libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        const _bytearray: qtc.struct_libqt_string = qtc.QsciLexerCSharp_TextAsBytes(@ptrCast(self), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexercsharp.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, text: []const u8, allocator: std.mem.Allocator ```
+    pub fn QBaseTextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
+        const text_str = qtc.struct_libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        const _bytearray: qtc.struct_libqt_string = qtc.QsciLexerCSharp_QBaseTextAsBytes(@ptrCast(self), text_str);
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexercsharp.TextAsBytes: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, slot: fn (self: QtC.QsciLexerCSharp, text: []const u8) callconv(.c) []u8 ```
+    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) []u8) void {
+        qtc.QsciLexerCSharp_OnTextAsBytes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, bytes: []const u8, size: i32, allocator: std.mem.Allocator ```
+    pub fn BytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        const _str = qtc.QsciLexerCSharp_BytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercsharp.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, bytes: []const u8, size: i32, allocator: std.mem.Allocator ```
+    pub fn QBaseBytesAsText(self: ?*anyopaque, bytes: []const u8, size: i32, allocator: std.mem.Allocator) []const u8 {
+        const bytes_Cstring = bytes.ptr;
+        const _str = qtc.QsciLexerCSharp_QBaseBytesAsText(@ptrCast(self), bytes_Cstring, @intCast(size));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscilexercsharp.BytesAsText: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// Inherited from QsciLexer
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciLexerCSharp, slot: fn (self: QtC.QsciLexerCSharp, bytes: []const u8, size: i32) callconv(.c) []const u8 ```
+    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) []const u8) void {
+        qtc.QsciLexerCSharp_OnBytesAsText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject

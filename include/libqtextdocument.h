@@ -42,25 +42,6 @@ typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QTextDocument::FindFlag FindFlag;                 // C++ enum
-typedef QTextDocument::FindFlags FindFlags;               // C++ QFlags
-typedef QTextDocument::MarkdownFeature MarkdownFeature;   // C++ enum
-typedef QTextDocument::MarkdownFeatures MarkdownFeatures; // C++ QFlags
-typedef QTextDocument::MetaInformation MetaInformation;   // C++ enum
-typedef QTextDocument::ResourceProvider ResourceProvider; // C++ QFlags
-typedef QTextDocument::ResourceType ResourceType;         // C++ enum
-typedef QTextDocument::Stacks Stacks;                     // C++ enum
-#else
-typedef int FindFlag;         // C ABI enum
-typedef int FindFlags;        // C ABI QFlags
-typedef int MarkdownFeature;  // C ABI enum
-typedef int MarkdownFeatures; // C ABI QFlags
-typedef int MetaInformation;  // C ABI enum
-typedef int ResourceType;     // C ABI enum
-typedef int Stacks;           // C ABI enum
-#endif
-
 void QAbstractUndoItem_Undo(QAbstractUndoItem* self);
 void QAbstractUndoItem_Redo(QAbstractUndoItem* self);
 void QAbstractUndoItem_OperatorAssign(QAbstractUndoItem* self, const QAbstractUndoItem* param1);

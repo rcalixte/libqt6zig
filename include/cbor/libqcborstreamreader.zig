@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qcborstreamreader_enums = enums;
+const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qcborstreamreader.html
 pub const qcborstreamreader = struct {
@@ -331,6 +332,39 @@ pub const qcborstreamreader = struct {
         return qtc.QCborStreamReader_LeaveContainer(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#readAndAppendToString)
+    ///
+    /// ``` self: QtC.QCborStreamReader, dst: []const u8 ```
+    pub fn ReadAndAppendToString(self: ?*anyopaque, dst: []const u8) bool {
+        const dst_str = qtc.struct_libqt_string{
+            .len = dst.len,
+            .data = dst.ptr,
+        };
+        return qtc.QCborStreamReader_ReadAndAppendToString(@ptrCast(self), dst_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#readAndAppendToUtf8String)
+    ///
+    /// ``` self: QtC.QCborStreamReader, dst: []u8 ```
+    pub fn ReadAndAppendToUtf8String(self: ?*anyopaque, dst: []u8) bool {
+        const dst_str = qtc.struct_libqt_string{
+            .len = dst.len,
+            .data = dst.ptr,
+        };
+        return qtc.QCborStreamReader_ReadAndAppendToUtf8String(@ptrCast(self), dst_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#readAndAppendToByteArray)
+    ///
+    /// ``` self: QtC.QCborStreamReader, dst: []u8 ```
+    pub fn ReadAndAppendToByteArray(self: ?*anyopaque, dst: []u8) bool {
+        const dst_str = qtc.struct_libqt_string{
+            .len = dst.len,
+            .data = dst.ptr,
+        };
+        return qtc.QCborStreamReader_ReadAndAppendToByteArray(@ptrCast(self), dst_str);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#currentStringChunkSize)
     ///
     /// ``` self: QtC.QCborStreamReader ```
@@ -392,6 +426,39 @@ pub const qcborstreamreader = struct {
     /// ``` self: QtC.QCborStreamReader ```
     pub fn ToInteger(self: ?*anyopaque) i64 {
         return qtc.QCborStreamReader_ToInteger(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#readAllString)
+    ///
+    /// ``` self: QtC.QCborStreamReader, allocator: std.mem.Allocator ```
+    pub fn ReadAllString(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QCborStreamReader_ReadAllString(@ptrCast(self));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborstreamreader.ReadAllString: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#readAllUtf8String)
+    ///
+    /// ``` self: QtC.QCborStreamReader, allocator: std.mem.Allocator ```
+    pub fn ReadAllUtf8String(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QCborStreamReader_ReadAllUtf8String(@ptrCast(self));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllUtf8String: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#readAllByteArray)
+    ///
+    /// ``` self: QtC.QCborStreamReader, allocator: std.mem.Allocator ```
+    pub fn ReadAllByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QCborStreamReader_ReadAllByteArray(@ptrCast(self));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllByteArray: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#next)

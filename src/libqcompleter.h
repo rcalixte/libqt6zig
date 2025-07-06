@@ -30,14 +30,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QCompleter::CompletionMode CompletionMode; // C++ enum
-typedef QCompleter::ModelSorting ModelSorting;     // C++ enum
-#else
-typedef int CompletionMode; // C ABI enum
-typedef int ModelSorting;   // C ABI enum
-#endif
-
 QCompleter* QCompleter_new();
 QCompleter* QCompleter_new2(QAbstractItemModel* model);
 QCompleter* QCompleter_new3(const libqt_list /* of libqt_string */ completions);

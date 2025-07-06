@@ -639,16 +639,30 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertedToColorSpace)
     ///
-    /// ``` self: QtC.QImage, param1: QtC.QColorSpace ```
-    pub fn ConvertedToColorSpace(self: ?*anyopaque, param1: ?*anyopaque) QtC.QImage {
-        return qtc.QImage_ConvertedToColorSpace(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace ```
+    pub fn ConvertedToColorSpace(self: ?*anyopaque, colorSpace: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_ConvertedToColorSpace(@ptrCast(self), @ptrCast(colorSpace));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertedToColorSpace)
+    ///
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format ```
+    pub fn ConvertedToColorSpace2(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i64) QtC.QImage {
+        return qtc.QImage_ConvertedToColorSpace2(@ptrCast(self), @ptrCast(colorSpace), @intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToColorSpace)
     ///
-    /// ``` self: QtC.QImage, param1: QtC.QColorSpace ```
-    pub fn ConvertToColorSpace(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QImage_ConvertToColorSpace(@ptrCast(self), @ptrCast(param1));
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace ```
+    pub fn ConvertToColorSpace(self: ?*anyopaque, colorSpace: ?*anyopaque) void {
+        qtc.QImage_ConvertToColorSpace(@ptrCast(self), @ptrCast(colorSpace));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToColorSpace)
+    ///
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format ```
+    pub fn ConvertToColorSpace2(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i64) void {
+        qtc.QImage_ConvertToColorSpace2(@ptrCast(self), @ptrCast(colorSpace), @intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#setColorSpace)
@@ -665,11 +679,25 @@ pub const qimage = struct {
         return qtc.QImage_ColorTransformed(@ptrCast(self), @ptrCast(transform));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#colorTransformed)
+    ///
+    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format ```
+    pub fn ColorTransformed2(self: ?*anyopaque, transform: ?*anyopaque, format: i64) QtC.QImage {
+        return qtc.QImage_ColorTransformed2(@ptrCast(self), @ptrCast(transform), @intCast(format));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#applyColorTransform)
     ///
     /// ``` self: QtC.QImage, transform: QtC.QColorTransform ```
     pub fn ApplyColorTransform(self: ?*anyopaque, transform: ?*anyopaque) void {
         qtc.QImage_ApplyColorTransform(@ptrCast(self), @ptrCast(transform));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#applyColorTransform)
+    ///
+    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format ```
+    pub fn ApplyColorTransform2(self: ?*anyopaque, transform: ?*anyopaque, format: i64) void {
+        qtc.QImage_ApplyColorTransform2(@ptrCast(self), @ptrCast(transform), @intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#load)
@@ -1271,6 +1299,34 @@ pub const qimage = struct {
         qtc.QImage_InvertPixels1(@ptrCast(self), @intCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertedToColorSpace)
+    ///
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: i32 ```
+    pub fn ConvertedToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i64, flags: i64) QtC.QImage {
+        return qtc.QImage_ConvertedToColorSpace3(@ptrCast(self), @ptrCast(colorSpace), @intCast(format), @intCast(flags));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToColorSpace)
+    ///
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: i32 ```
+    pub fn ConvertToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i64, flags: i64) void {
+        qtc.QImage_ConvertToColorSpace3(@ptrCast(self), @ptrCast(colorSpace), @intCast(format), @intCast(flags));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#colorTransformed)
+    ///
+    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: i32 ```
+    pub fn ColorTransformed3(self: ?*anyopaque, transform: ?*anyopaque, format: i64, flags: i64) QtC.QImage {
+        return qtc.QImage_ColorTransformed3(@ptrCast(self), @ptrCast(transform), @intCast(format), @intCast(flags));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#applyColorTransform)
+    ///
+    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: i32 ```
+    pub fn ApplyColorTransform3(self: ?*anyopaque, transform: ?*anyopaque, format: i64, flags: i64) void {
+        qtc.QImage_ApplyColorTransform3(@ptrCast(self), @ptrCast(transform), @intCast(format), @intCast(flags));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#load)
     ///
     /// ``` self: QtC.QImage, fileName: []const u8, format: []const u8 ```
@@ -1502,6 +1558,15 @@ pub const qimage = struct {
 
     /// Inherited from QPaintDevice
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#initPainter)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -1599,6 +1664,39 @@ pub const qimage = struct {
         qtc.QImage_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QImage_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QImage_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QImage_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#dtor.QImage)
     ///
     /// Delete this object from C++ memory.
@@ -1653,6 +1751,7 @@ pub const enums = struct {
         pub const Format_RGBX32FPx4: i32 = 33;
         pub const Format_RGBA32FPx4: i32 = 34;
         pub const Format_RGBA32FPx4_Premultiplied: i32 = 35;
-        pub const NImageFormats: i32 = 36;
+        pub const Format_CMYK8888: i32 = 36;
+        pub const NImageFormats: i32 = 37;
     };
 };

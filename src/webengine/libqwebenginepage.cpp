@@ -22,8 +22,10 @@
 #include <QWebChannel>
 #include <QWebEngineCertificateError>
 #include <QWebEngineClientCertificateSelection>
+#include <QWebEngineDesktopMediaRequest>
 #include <QWebEngineFileSystemAccessRequest>
 #include <QWebEngineFindTextResult>
+#include <QWebEngineFrame>
 #include <QWebEngineFullScreenRequest>
 #include <QWebEngineHistory>
 #include <QWebEngineHttpRequest>
@@ -31,12 +33,14 @@
 #include <QWebEngineNavigationRequest>
 #include <QWebEngineNewWindowRequest>
 #include <QWebEnginePage>
+#include <QWebEnginePermission>
 #include <QWebEngineProfile>
 #include <QWebEngineQuotaRequest>
 #include <QWebEngineRegisterProtocolHandlerRequest>
 #include <QWebEngineScriptCollection>
 #include <QWebEngineSettings>
 #include <QWebEngineUrlRequestInterceptor>
+#include <QWebEngineWebAuthUxRequest>
 #include <qwebenginepage.h>
 #include "libqwebenginepage.h"
 #include "libqwebenginepage.hxx"
@@ -136,10 +140,6 @@ QAction* QWebEnginePage_Action(const QWebEnginePage* self, int action) {
 void QWebEnginePage_ReplaceMisspelledWord(QWebEnginePage* self, const libqt_string replacement) {
     QString replacement_QString = QString::fromUtf8(replacement.data, replacement.len);
     self->replaceMisspelledWord(replacement_QString);
-}
-
-void QWebEnginePage_SetFeaturePermission(QWebEnginePage* self, const QUrl* securityOrigin, int feature, int policy) {
-    self->setFeaturePermission(*securityOrigin, static_cast<QWebEnginePage::Feature>(feature), static_cast<QWebEnginePage::PermissionPolicy>(policy));
 }
 
 bool QWebEnginePage_IsLoading(const QWebEnginePage* self) {
@@ -284,6 +284,18 @@ QWebEnginePage* QWebEnginePage_DevToolsPage(const QWebEnginePage* self) {
     return self->devToolsPage();
 }
 
+libqt_string QWebEnginePage_DevToolsId(const QWebEnginePage* self) {
+    QString _ret = self->devToolsId();
+    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+    QByteArray _b = _ret.toUtf8();
+    libqt_string _str;
+    _str.len = _b.length();
+    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    memcpy((void*)_str.data, _b.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
+}
+
 void QWebEnginePage_SetUrlRequestInterceptor(QWebEnginePage* self, QWebEngineUrlRequestInterceptor* interceptor) {
     self->setUrlRequestInterceptor(interceptor);
 }
@@ -306,6 +318,10 @@ bool QWebEnginePage_IsVisible(const QWebEnginePage* self) {
 
 void QWebEnginePage_SetVisible(QWebEnginePage* self, bool visible) {
     self->setVisible(visible);
+}
+
+QWebEngineFrame* QWebEnginePage_MainFrame(QWebEnginePage* self) {
+    return new QWebEngineFrame(self->mainFrame());
 }
 
 void QWebEnginePage_AcceptAsNewWindow(QWebEnginePage* self, QWebEngineNewWindowRequest* request) {
@@ -460,6 +476,18 @@ void QWebEnginePage_Connect_FullScreenRequested(QWebEnginePage* self, intptr_t s
     });
 }
 
+void QWebEnginePage_PermissionRequested(QWebEnginePage* self, QWebEnginePermission* permissionRequest) {
+    self->permissionRequested(*permissionRequest);
+}
+
+void QWebEnginePage_Connect_PermissionRequested(QWebEnginePage* self, intptr_t slot) {
+    void (*slotFunc)(QWebEnginePage*, QWebEnginePermission*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEnginePermission*)>(slot);
+    QWebEnginePage::connect(self, &QWebEnginePage::permissionRequested, [self, slotFunc](QWebEnginePermission permissionRequest) {
+        QWebEnginePermission* sigval1 = new QWebEnginePermission(permissionRequest);
+        slotFunc(self, sigval1);
+    });
+}
+
 void QWebEnginePage_QuotaRequested(QWebEnginePage* self, QWebEngineQuotaRequest* quotaRequest) {
     self->quotaRequested(*quotaRequest);
 }
@@ -558,6 +586,20 @@ void QWebEnginePage_Connect_RenderProcessTerminated(QWebEnginePage* self, intptr
         int sigval1 = static_cast<int>(terminationStatus);
         int sigval2 = exitCode;
         slotFunc(self, sigval1, sigval2);
+    });
+}
+
+void QWebEnginePage_DesktopMediaRequested(QWebEnginePage* self, const QWebEngineDesktopMediaRequest* request) {
+    self->desktopMediaRequested(*request);
+}
+
+void QWebEnginePage_Connect_DesktopMediaRequested(QWebEnginePage* self, intptr_t slot) {
+    void (*slotFunc)(QWebEnginePage*, QWebEngineDesktopMediaRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineDesktopMediaRequest*)>(slot);
+    QWebEnginePage::connect(self, &QWebEnginePage::desktopMediaRequested, [self, slotFunc](const QWebEngineDesktopMediaRequest& request) {
+        const QWebEngineDesktopMediaRequest& request_ret = request;
+        // Cast returned reference into pointer
+        QWebEngineDesktopMediaRequest* sigval1 = const_cast<QWebEngineDesktopMediaRequest*>(&request_ret);
+        slotFunc(self, sigval1);
     });
 }
 
@@ -666,6 +708,18 @@ void QWebEnginePage_Connect_IconChanged(QWebEnginePage* self, intptr_t slot) {
     });
 }
 
+void QWebEnginePage_ZoomFactorChanged(QWebEnginePage* self, double factor) {
+    self->zoomFactorChanged(static_cast<qreal>(factor));
+}
+
+void QWebEnginePage_Connect_ZoomFactorChanged(QWebEnginePage* self, intptr_t slot) {
+    void (*slotFunc)(QWebEnginePage*, double) = reinterpret_cast<void (*)(QWebEnginePage*, double)>(slot);
+    QWebEnginePage::connect(self, &QWebEnginePage::zoomFactorChanged, [self, slotFunc](qreal factor) {
+        double sigval1 = static_cast<double>(factor);
+        slotFunc(self, sigval1);
+    });
+}
+
 void QWebEnginePage_ScrollPositionChanged(QWebEnginePage* self, const QPointF* position) {
     self->scrollPositionChanged(*position);
 }
@@ -763,6 +817,18 @@ void QWebEnginePage_Connect_PrintRequested(QWebEnginePage* self, intptr_t slot) 
     });
 }
 
+void QWebEnginePage_PrintRequestedByFrame(QWebEnginePage* self, QWebEngineFrame* frame) {
+    self->printRequestedByFrame(*frame);
+}
+
+void QWebEnginePage_Connect_PrintRequestedByFrame(QWebEnginePage* self, intptr_t slot) {
+    void (*slotFunc)(QWebEnginePage*, QWebEngineFrame*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineFrame*)>(slot);
+    QWebEnginePage::connect(self, &QWebEnginePage::printRequestedByFrame, [self, slotFunc](QWebEngineFrame frame) {
+        QWebEngineFrame* sigval1 = new QWebEngineFrame(frame);
+        slotFunc(self, sigval1);
+    });
+}
+
 void QWebEnginePage_VisibleChanged(QWebEnginePage* self, bool visible) {
     self->visibleChanged(visible);
 }
@@ -821,6 +887,18 @@ void QWebEnginePage_Connect_QAboutToDelete(QWebEnginePage* self, intptr_t slot) 
     void (*slotFunc)(QWebEnginePage*) = reinterpret_cast<void (*)(QWebEnginePage*)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::_q_aboutToDelete, [self, slotFunc]() {
         slotFunc(self);
+    });
+}
+
+void QWebEnginePage_WebAuthUxRequested(QWebEnginePage* self, QWebEngineWebAuthUxRequest* request) {
+    self->webAuthUxRequested(request);
+}
+
+void QWebEnginePage_Connect_WebAuthUxRequested(QWebEnginePage* self, intptr_t slot) {
+    void (*slotFunc)(QWebEnginePage*, QWebEngineWebAuthUxRequest*) = reinterpret_cast<void (*)(QWebEnginePage*, QWebEngineWebAuthUxRequest*)>(slot);
+    QWebEnginePage::connect(self, &QWebEnginePage::webAuthUxRequested, [self, slotFunc](QWebEngineWebAuthUxRequest* request) {
+        QWebEngineWebAuthUxRequest* sigval1 = request;
+        slotFunc(self, sigval1);
     });
 }
 
@@ -979,14 +1057,14 @@ void QWebEnginePage_OnCreateWindow(QWebEnginePage* self, intptr_t slot) {
 // Derived class handler implementation
 libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    QStringList oldFiles_QList;
+    QList<QString> oldFiles_QList;
     oldFiles_QList.reserve(oldFiles.len);
     libqt_string* oldFiles_arr = static_cast<libqt_string*>(oldFiles.data);
     for (size_t i = 0; i < oldFiles.len; ++i) {
         QString oldFiles_arr_i_QString = QString::fromUtf8(oldFiles_arr[i].data, oldFiles_arr[i].len);
         oldFiles_QList.push_back(oldFiles_arr_i_QString);
     }
-    QStringList acceptedMimeTypes_QList;
+    QList<QString> acceptedMimeTypes_QList;
     acceptedMimeTypes_QList.reserve(acceptedMimeTypes.len);
     libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(acceptedMimeTypes.data);
     for (size_t i = 0; i < acceptedMimeTypes.len; ++i) {
@@ -994,10 +1072,10 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
         acceptedMimeTypes_QList.push_back(acceptedMimeTypes_arr_i_QString);
     }
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
-        QStringList _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
+        QList<QString> _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1009,14 +1087,14 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = ((VirtualQWebEnginePage*)self)->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
+        QList<QString> _ret = ((VirtualQWebEnginePage*)self)->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1028,7 +1106,7 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1037,14 +1115,14 @@ libqt_list /* of libqt_string */ QWebEnginePage_ChooseFiles(QWebEnginePage* self
 // Base class handler implementation
 libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage* self, int mode, const libqt_list /* of libqt_string */ oldFiles, const libqt_list /* of libqt_string */ acceptedMimeTypes) {
     auto* vqwebenginepage = dynamic_cast<VirtualQWebEnginePage*>(self);
-    QStringList oldFiles_QList;
+    QList<QString> oldFiles_QList;
     oldFiles_QList.reserve(oldFiles.len);
     libqt_string* oldFiles_arr = static_cast<libqt_string*>(oldFiles.data);
     for (size_t i = 0; i < oldFiles.len; ++i) {
         QString oldFiles_arr_i_QString = QString::fromUtf8(oldFiles_arr[i].data, oldFiles_arr[i].len);
         oldFiles_QList.push_back(oldFiles_arr_i_QString);
     }
-    QStringList acceptedMimeTypes_QList;
+    QList<QString> acceptedMimeTypes_QList;
     acceptedMimeTypes_QList.reserve(acceptedMimeTypes.len);
     libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(acceptedMimeTypes.data);
     for (size_t i = 0; i < acceptedMimeTypes.len; ++i) {
@@ -1053,10 +1131,10 @@ libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage*
     }
     if (vqwebenginepage && vqwebenginepage->isVirtualQWebEnginePage) {
         vqwebenginepage->setQWebEnginePage_ChooseFiles_IsBase(true);
-        QStringList _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
+        QList<QString> _ret = vqwebenginepage->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1068,14 +1146,14 @@ libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage*
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = ((VirtualQWebEnginePage*)self)->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
+        QList<QString> _ret = ((VirtualQWebEnginePage*)self)->chooseFiles(static_cast<QWebEnginePage::FileSelectionMode>(mode), oldFiles_QList, acceptedMimeTypes_QList);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -1087,7 +1165,7 @@ libqt_list /* of libqt_string */ QWebEnginePage_QBaseChooseFiles(QWebEnginePage*
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

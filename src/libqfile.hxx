@@ -130,10 +130,10 @@ class VirtualQFile final : public QFile {
     mutable bool qfile_issignalconnected_isbase = false;
 
   public:
-    VirtualQFile() : QFile(){};
-    VirtualQFile(const QString& name) : QFile(name){};
-    VirtualQFile(QObject* parent) : QFile(parent){};
-    VirtualQFile(const QString& name, QObject* parent) : QFile(name, parent){};
+    VirtualQFile() : QFile() {};
+    VirtualQFile(const QString& name) : QFile(name) {};
+    VirtualQFile(QObject* parent) : QFile(parent) {};
+    VirtualQFile(const QString& name, QObject* parent) : QFile(name, parent) {};
 
     ~VirtualQFile() {
         qfile_metacall_callback = nullptr;
@@ -279,7 +279,7 @@ class VirtualQFile final : public QFile {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool open(QIODeviceBase::OpenMode flags) override {
+    virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> flags) override {
         if (qfile_open_isbase) {
             qfile_open_isbase = false;
             return QFile::open(flags);

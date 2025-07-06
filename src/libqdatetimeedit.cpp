@@ -41,6 +41,7 @@
 #include <QTabletEvent>
 #include <QTime>
 #include <QTimeEdit>
+#include <QTimeZone>
 #include <QTimerEvent>
 #include <QVariant>
 #include <QWheelEvent>
@@ -316,6 +317,14 @@ int QDateTimeEdit_TimeSpec(const QDateTimeEdit* self) {
 
 void QDateTimeEdit_SetTimeSpec(QDateTimeEdit* self, int spec) {
     self->setTimeSpec(static_cast<Qt::TimeSpec>(spec));
+}
+
+QTimeZone* QDateTimeEdit_TimeZone(const QDateTimeEdit* self) {
+    return new QTimeZone(self->timeZone());
+}
+
+void QDateTimeEdit_SetTimeZone(QDateTimeEdit* self, const QTimeZone* zone) {
+    self->setTimeZone(*zone);
 }
 
 void QDateTimeEdit_DateTimeChanged(QDateTimeEdit* self, const QDateTime* dateTime) {
@@ -2341,6 +2350,35 @@ void QDateTimeEdit_OnIsSignalConnected(const QDateTimeEdit* self, intptr_t slot)
     auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
     if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
         vqdatetimeedit->setQDateTimeEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QDateTimeEdit_GetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        return vqdatetimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDateTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QDateTimeEdit_QBaseGetDecodedMetricF(const QDateTimeEdit* self, int metricA, int metricB) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_GetDecodedMetricF_IsBase(true);
+        return vqdatetimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDateTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateTimeEdit_OnGetDecodedMetricF(const QDateTimeEdit* self, intptr_t slot) {
+    auto* vqdatetimeedit = const_cast<VirtualQDateTimeEdit*>(dynamic_cast<const VirtualQDateTimeEdit*>(self));
+    if (vqdatetimeedit && vqdatetimeedit->isVirtualQDateTimeEdit) {
+        vqdatetimeedit->setQDateTimeEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDateTimeEdit::QDateTimeEdit_GetDecodedMetricF_Callback>(slot));
     }
 }
 
@@ -4400,6 +4438,35 @@ void QTimeEdit_OnIsSignalConnected(const QTimeEdit* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QTimeEdit_GetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB) {
+    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        return vqtimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QTimeEdit_QBaseGetDecodedMetricF(const QTimeEdit* self, int metricA, int metricB) {
+    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        vqtimeedit->setQTimeEdit_GetDecodedMetricF_IsBase(true);
+        return vqtimeedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTimeEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTimeEdit_OnGetDecodedMetricF(const QTimeEdit* self, intptr_t slot) {
+    auto* vqtimeedit = const_cast<VirtualQTimeEdit*>(dynamic_cast<const VirtualQTimeEdit*>(self));
+    if (vqtimeedit && vqtimeedit->isVirtualQTimeEdit) {
+        vqtimeedit->setQTimeEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTimeEdit::QTimeEdit_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QTimeEdit_Delete(QTimeEdit* self) {
     delete self;
 }
@@ -6453,6 +6520,35 @@ void QDateEdit_OnIsSignalConnected(const QDateEdit* self, intptr_t slot) {
     auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
     if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
         vqdateedit->setQDateEdit_IsSignalConnected_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_IsSignalConnected_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
+double QDateEdit_GetDecodedMetricF(const QDateEdit* self, int metricA, int metricB) {
+    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        return vqdateedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDateEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QDateEdit_QBaseGetDecodedMetricF(const QDateEdit* self, int metricA, int metricB) {
+    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        vqdateedit->setQDateEdit_GetDecodedMetricF_IsBase(true);
+        return vqdateedit->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDateEdit*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDateEdit_OnGetDecodedMetricF(const QDateEdit* self, intptr_t slot) {
+    auto* vqdateedit = const_cast<VirtualQDateEdit*>(dynamic_cast<const VirtualQDateEdit*>(self));
+    if (vqdateedit && vqdateedit->isVirtualQDateEdit) {
+        vqdateedit->setQDateEdit_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDateEdit::QDateEdit_GetDecodedMetricF_Callback>(slot));
     }
 }
 

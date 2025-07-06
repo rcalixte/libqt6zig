@@ -221,6 +221,24 @@ pub const qaccessibleobject = struct {
 
     /// Inherited from QAccessibleInterface
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
+    ///
+    /// ``` self: QtC.QAccessibleObject ```
+    pub fn SelectionInterface(self: ?*anyopaque) QtC.QAccessibleSelectionInterface {
+        return qtc.QAccessibleInterface_SelectionInterface(@ptrCast(self));
+    }
+
+    /// Inherited from QAccessibleInterface
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
+    ///
+    /// ``` self: QtC.QAccessibleObject ```
+    pub fn AttributesInterface(self: ?*anyopaque) QtC.QAccessibleAttributesInterface {
+        return qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self));
+    }
+
+    /// Inherited from QAccessibleInterface
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#window)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -1026,6 +1044,24 @@ pub const qaccessibleapplication = struct {
     /// ``` self: QtC.QAccessibleApplication ```
     pub fn HyperlinkInterface(self: ?*anyopaque) QtC.QAccessibleHyperlinkInterface {
         return qtc.QAccessibleInterface_HyperlinkInterface(@ptrCast(self));
+    }
+
+    /// Inherited from QAccessibleInterface
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#selectionInterface)
+    ///
+    /// ``` self: QtC.QAccessibleApplication ```
+    pub fn SelectionInterface(self: ?*anyopaque) QtC.QAccessibleSelectionInterface {
+        return qtc.QAccessibleInterface_SelectionInterface(@ptrCast(self));
+    }
+
+    /// Inherited from QAccessibleInterface
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#attributesInterface)
+    ///
+    /// ``` self: QtC.QAccessibleApplication ```
+    pub fn AttributesInterface(self: ?*anyopaque) QtC.QAccessibleAttributesInterface {
+        return qtc.QAccessibleInterface_AttributesInterface(@ptrCast(self));
     }
 
     /// Inherited from QAccessibleObject

@@ -78,6 +78,13 @@ pub const qeventloop = struct {
         qtc.QEventLoop_ProcessEvents2(@ptrCast(self), @intCast(flags), @intCast(maximumTime));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#processEvents)
+    ///
+    /// ``` self: QtC.QEventLoop, flags: i32, deadline: QtC.QDeadlineTimer ```
+    pub fn ProcessEvents3(self: ?*anyopaque, flags: i64, deadline: QtC.QDeadlineTimer) void {
+        qtc.QEventLoop_ProcessEvents3(@ptrCast(self), @intCast(flags), @ptrCast(deadline));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#exec)
     ///
     /// ``` self: QtC.QEventLoop ```
@@ -270,8 +277,8 @@ pub const qeventloop = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QEventLoop, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -290,6 +297,15 @@ pub const qeventloop = struct {
     /// ``` self: QtC.QEventLoop, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QEventLoop, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -495,6 +511,15 @@ pub const qeventloop = struct {
     /// ``` self: QtC.QEventLoop ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QEventLoop, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -918,6 +943,13 @@ pub const qeventlooplocker = struct {
     /// ``` thread: QtC.QThread ```
     pub fn New3(thread: ?*anyopaque) QtC.QEventLoopLocker {
         return qtc.QEventLoopLocker_new3(@ptrCast(thread));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qeventlooplocker.html#swap)
+    ///
+    /// ``` self: QtC.QEventLoopLocker, other: QtC.QEventLoopLocker ```
+    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QEventLoopLocker_Swap(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventlooplocker.html#dtor.QEventLoopLocker)

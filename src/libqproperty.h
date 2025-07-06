@@ -22,20 +22,13 @@ typedef struct QPropertyBindingSourceLocation QPropertyBindingSourceLocation;
 typedef struct QPropertyNotifier QPropertyNotifier;
 typedef struct QPropertyObserver QPropertyObserver;
 typedef struct QPropertyObserverBase QPropertyObserverBase;
+typedef struct QScopedPropertyUpdateGroup QScopedPropertyUpdateGroup;
 typedef struct QUntypedBindable QUntypedBindable;
 typedef struct QUntypedPropertyBinding QUntypedPropertyBinding;
 #endif
 
-#ifdef __cplusplus
-typedef QPropertyBindingError::Type Type;                                     // C++ enum
-typedef QPropertyObserverBase::ObserverTag ObserverTag;                       // C++ enum
-typedef QUntypedPropertyBinding::BindingFunctionVTable BindingFunctionVTable; // C++ QFlags
-typedef QtPrivate::BindableWarnings::Reason BindableWarningsReason;           // C++ enum
-#else
-typedef int BindableWarningsReason; // C ABI enum
-typedef int ObserverTag;            // C ABI enum
-typedef unsigned char Type;         // C ABI enum
-#endif
+QScopedPropertyUpdateGroup* QScopedPropertyUpdateGroup_new();
+void QScopedPropertyUpdateGroup_Delete(QScopedPropertyUpdateGroup* self);
 
 QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new(const QPropertyBindingSourceLocation* other);
 QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new2(QPropertyBindingSourceLocation* other);

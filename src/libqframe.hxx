@@ -77,6 +77,7 @@ class VirtualQFrame final : public QFrame {
     using QFrame_SenderSignalIndex_Callback = int (*)();
     using QFrame_Receivers_Callback = int (*)(const QFrame*, const char*);
     using QFrame_IsSignalConnected_Callback = bool (*)(const QFrame*, QMetaMethod*);
+    using QFrame_GetDecodedMetricF_Callback = double (*)(const QFrame*, int, int);
 
   protected:
     // Instance callback storage
@@ -139,6 +140,7 @@ class VirtualQFrame final : public QFrame {
     QFrame_SenderSignalIndex_Callback qframe_sendersignalindex_callback = nullptr;
     QFrame_Receivers_Callback qframe_receivers_callback = nullptr;
     QFrame_IsSignalConnected_Callback qframe_issignalconnected_callback = nullptr;
+    QFrame_GetDecodedMetricF_Callback qframe_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qframe_metacall_isbase = false;
@@ -200,11 +202,12 @@ class VirtualQFrame final : public QFrame {
     mutable bool qframe_sendersignalindex_isbase = false;
     mutable bool qframe_receivers_isbase = false;
     mutable bool qframe_issignalconnected_isbase = false;
+    mutable bool qframe_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQFrame(QWidget* parent) : QFrame(parent){};
-    VirtualQFrame() : QFrame(){};
-    VirtualQFrame(QWidget* parent, Qt::WindowFlags f) : QFrame(parent, f){};
+    VirtualQFrame(QWidget* parent) : QFrame(parent) {};
+    VirtualQFrame() : QFrame() {};
+    VirtualQFrame(QWidget* parent, Qt::WindowFlags f) : QFrame(parent, f) {};
 
     ~VirtualQFrame() {
         qframe_metacall_callback = nullptr;
@@ -266,6 +269,7 @@ class VirtualQFrame final : public QFrame {
         qframe_sendersignalindex_callback = nullptr;
         qframe_receivers_callback = nullptr;
         qframe_issignalconnected_callback = nullptr;
+        qframe_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -328,6 +332,7 @@ class VirtualQFrame final : public QFrame {
     inline void setQFrame_SenderSignalIndex_Callback(QFrame_SenderSignalIndex_Callback cb) { qframe_sendersignalindex_callback = cb; }
     inline void setQFrame_Receivers_Callback(QFrame_Receivers_Callback cb) { qframe_receivers_callback = cb; }
     inline void setQFrame_IsSignalConnected_Callback(QFrame_IsSignalConnected_Callback cb) { qframe_issignalconnected_callback = cb; }
+    inline void setQFrame_GetDecodedMetricF_Callback(QFrame_GetDecodedMetricF_Callback cb) { qframe_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQFrame_Metacall_IsBase(bool value) const { qframe_metacall_isbase = value; }
@@ -389,6 +394,7 @@ class VirtualQFrame final : public QFrame {
     inline void setQFrame_SenderSignalIndex_IsBase(bool value) const { qframe_sendersignalindex_isbase = value; }
     inline void setQFrame_Receivers_IsBase(bool value) const { qframe_receivers_isbase = value; }
     inline void setQFrame_IsSignalConnected_IsBase(bool value) const { qframe_issignalconnected_isbase = value; }
+    inline void setQFrame_GetDecodedMetricF_IsBase(bool value) const { qframe_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1229,6 +1235,22 @@ class VirtualQFrame final : public QFrame {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qframe_getdecodedmetricf_isbase) {
+            qframe_getdecodedmetricf_isbase = false;
+            return QFrame::getDecodedMetricF(metricA, metricB);
+        } else if (qframe_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qframe_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QFrame::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QFrame_Event(QFrame* self, QEvent* e);
     friend bool QFrame_QBaseEvent(QFrame* self, QEvent* e);
@@ -1328,6 +1350,8 @@ class VirtualQFrame final : public QFrame {
     friend int QFrame_QBaseReceivers(const QFrame* self, const char* signal);
     friend bool QFrame_IsSignalConnected(const QFrame* self, const QMetaMethod* signal);
     friend bool QFrame_QBaseIsSignalConnected(const QFrame* self, const QMetaMethod* signal);
+    friend double QFrame_GetDecodedMetricF(const QFrame* self, int metricA, int metricB);
+    friend double QFrame_QBaseGetDecodedMetricF(const QFrame* self, int metricA, int metricB);
 };
 
 #endif

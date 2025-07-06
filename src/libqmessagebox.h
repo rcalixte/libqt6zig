@@ -56,20 +56,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QMessageBox::Button Button;                   // C++ QFlags
-typedef QMessageBox::ButtonRole ButtonRole;           // C++ enum
-typedef QMessageBox::Icon Icon;                       // C++ enum
-typedef QMessageBox::StandardButton StandardButton;   // C++ enum
-typedef QMessageBox::StandardButtons StandardButtons; // C++ QFlags
-#else
-typedef int Button;          // C ABI QFlags
-typedef int ButtonRole;      // C ABI enum
-typedef int Icon;            // C ABI enum
-typedef int StandardButton;  // C ABI enum
-typedef int StandardButtons; // C ABI QFlags
-#endif
-
 QMessageBox* QMessageBox_new(QWidget* parent);
 QMessageBox* QMessageBox_new2();
 QMessageBox* QMessageBox_new3(int icon, const libqt_string title, const libqt_string text);
@@ -114,6 +100,10 @@ void QMessageBox_SetTextInteractionFlags(QMessageBox* self, int flags);
 int QMessageBox_TextInteractionFlags(const QMessageBox* self);
 void QMessageBox_SetCheckBox(QMessageBox* self, QCheckBox* cb);
 QCheckBox* QMessageBox_CheckBox(const QMessageBox* self);
+void QMessageBox_SetOption(QMessageBox* self, int option);
+bool QMessageBox_TestOption(const QMessageBox* self, int option);
+void QMessageBox_SetOptions(QMessageBox* self, int options);
+int QMessageBox_Options(const QMessageBox* self);
 int QMessageBox_Information(QWidget* parent, const libqt_string title, const libqt_string text);
 int QMessageBox_Information2(QWidget* parent, const libqt_string title, const libqt_string text, int button0);
 int QMessageBox_Question(QWidget* parent, const libqt_string title, const libqt_string text);
@@ -163,6 +153,7 @@ void QMessageBox_OnChangeEvent(QMessageBox* self, intptr_t slot);
 void QMessageBox_QBaseChangeEvent(QMessageBox* self, QEvent* event);
 libqt_string QMessageBox_Tr2(const char* s, const char* c);
 libqt_string QMessageBox_Tr3(const char* s, const char* c, int n);
+void QMessageBox_SetOption2(QMessageBox* self, int option, bool on);
 int QMessageBox_Information42(QWidget* parent, const libqt_string title, const libqt_string text, int buttons);
 int QMessageBox_Information5(QWidget* parent, const libqt_string title, const libqt_string text, int buttons, int defaultButton);
 int QMessageBox_Information52(QWidget* parent, const libqt_string title, const libqt_string text, int button0, int button1);
@@ -363,6 +354,9 @@ int QMessageBox_QBaseReceivers(const QMessageBox* self, const char* signal);
 bool QMessageBox_IsSignalConnected(const QMessageBox* self, const QMetaMethod* signal);
 void QMessageBox_OnIsSignalConnected(const QMessageBox* self, intptr_t slot);
 bool QMessageBox_QBaseIsSignalConnected(const QMessageBox* self, const QMetaMethod* signal);
+double QMessageBox_GetDecodedMetricF(const QMessageBox* self, int metricA, int metricB);
+void QMessageBox_OnGetDecodedMetricF(const QMessageBox* self, intptr_t slot);
+double QMessageBox_QBaseGetDecodedMetricF(const QMessageBox* self, int metricA, int metricB);
 void QMessageBox_Delete(QMessageBox* self);
 
 #ifdef __cplusplus

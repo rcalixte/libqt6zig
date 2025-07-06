@@ -20,16 +20,6 @@ typedef struct QUrl QUrl;
 typedef struct QWebEngineLoadingInfo QWebEngineLoadingInfo;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineLoadingInfo::ErrorDomain ErrorDomain;       // C++ enum
-typedef QWebEngineLoadingInfo::LoadStatus LoadStatus;         // C++ enum
-typedef QWebEngineLoadingInfo::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef int ErrorDomain;     // C ABI enum
-typedef int LoadStatus;      // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QWebEngineLoadingInfo* QWebEngineLoadingInfo_new(const QWebEngineLoadingInfo* other);
 void QWebEngineLoadingInfo_OperatorAssign(QWebEngineLoadingInfo* self, const QWebEngineLoadingInfo* other);
 QUrl* QWebEngineLoadingInfo_Url(const QWebEngineLoadingInfo* self);

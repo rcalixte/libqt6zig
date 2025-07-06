@@ -32,6 +32,13 @@ pub const qbasictimer = struct {
         return qtc.QBasicTimer_TimerId(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbasictimer.html#id)
+    ///
+    /// ``` self: QtC.QBasicTimer ```
+    pub fn Id(self: ?*anyopaque) i64 {
+        return qtc.QBasicTimer_Id(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
     /// ``` self: QtC.QBasicTimer, msec: i32, obj: QtC.QObject ```

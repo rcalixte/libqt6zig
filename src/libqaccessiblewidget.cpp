@@ -150,10 +150,10 @@ void QAccessibleWidget_OnIndexOfChild(const QAccessibleWidget* self, intptr_t sl
 libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleWidget_Relations(const QAccessibleWidget* self, int match) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        QList<QPair<QAccessibleInterface*, QAccessible::Relation>> _ret = vqaccessiblewidget->relations(static_cast<QAccessible::Relation>(match));
+        QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = vqaccessiblewidget->relations(static_cast<QAccessible::Relation>(match));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
             // Convert QPair<> from C++ memory to manually-managed C memory
             QAccessibleInterface** _lv_first = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*)));
@@ -166,14 +166,14 @@ libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessi
             _arr[i] = _lv_out;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QPair<QAccessibleInterface*, QAccessible::Relation>> _ret = self->QAccessibleWidget::relations(static_cast<QAccessible::Relation>(match));
+        QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = self->QAccessibleWidget::relations(static_cast<QAccessible::Relation>(match));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
             // Convert QPair<> from C++ memory to manually-managed C memory
             QAccessibleInterface** _lv_first = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*)));
@@ -186,7 +186,7 @@ libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessi
             _arr[i] = _lv_out;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -197,10 +197,10 @@ libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessi
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_Relations_IsBase(true);
-        QList<QPair<QAccessibleInterface*, QAccessible::Relation>> _ret = vqaccessiblewidget->relations(static_cast<QAccessible::Relation>(match));
+        QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = vqaccessiblewidget->relations(static_cast<QAccessible::Relation>(match));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
             // Convert QPair<> from C++ memory to manually-managed C memory
             QAccessibleInterface** _lv_first = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*)));
@@ -213,14 +213,14 @@ libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessi
             _arr[i] = _lv_out;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QList<QPair<QAccessibleInterface*, QAccessible::Relation>> _ret = self->QAccessibleWidget::relations(static_cast<QAccessible::Relation>(match));
+        QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = self->QAccessibleWidget::relations(static_cast<QAccessible::Relation>(match));
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
             // Convert QPair<> from C++ memory to manually-managed C memory
             QAccessibleInterface** _lv_first = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*)));
@@ -233,7 +233,7 @@ libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessi
             _arr[i] = _lv_out;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -573,10 +573,10 @@ void QAccessibleWidget_OnInterfaceCast(QAccessibleWidget* self, intptr_t slot) {
 libqt_list /* of libqt_string */ QAccessibleWidget_ActionNames(const QAccessibleWidget* self) {
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        QStringList _ret = vqaccessiblewidget->actionNames();
+        QList<QString> _ret = vqaccessiblewidget->actionNames();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -588,14 +588,14 @@ libqt_list /* of libqt_string */ QAccessibleWidget_ActionNames(const QAccessible
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QAccessibleWidget::actionNames();
+        QList<QString> _ret = self->QAccessibleWidget::actionNames();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -607,7 +607,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_ActionNames(const QAccessible
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -618,10 +618,10 @@ libqt_list /* of libqt_string */ QAccessibleWidget_QBaseActionNames(const QAcces
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_ActionNames_IsBase(true);
-        QStringList _ret = vqaccessiblewidget->actionNames();
+        QList<QString> _ret = vqaccessiblewidget->actionNames();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -633,14 +633,14 @@ libqt_list /* of libqt_string */ QAccessibleWidget_QBaseActionNames(const QAcces
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QAccessibleWidget::actionNames();
+        QList<QString> _ret = self->QAccessibleWidget::actionNames();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -652,7 +652,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_QBaseActionNames(const QAcces
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -702,10 +702,10 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
     auto* vqaccessiblewidget = const_cast<VirtualQAccessibleWidget*>(dynamic_cast<const VirtualQAccessibleWidget*>(self));
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
-        QStringList _ret = vqaccessiblewidget->keyBindingsForAction(actionName_QString);
+        QList<QString> _ret = vqaccessiblewidget->keyBindingsForAction(actionName_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -717,14 +717,14 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QAccessibleWidget::keyBindingsForAction(actionName_QString);
+        QList<QString> _ret = self->QAccessibleWidget::keyBindingsForAction(actionName_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -736,7 +736,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_KeyBindingsForAction(const QA
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -748,10 +748,10 @@ libqt_list /* of libqt_string */ QAccessibleWidget_QBaseKeyBindingsForAction(con
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     if (vqaccessiblewidget && vqaccessiblewidget->isVirtualQAccessibleWidget) {
         vqaccessiblewidget->setQAccessibleWidget_KeyBindingsForAction_IsBase(true);
-        QStringList _ret = vqaccessiblewidget->keyBindingsForAction(actionName_QString);
+        QList<QString> _ret = vqaccessiblewidget->keyBindingsForAction(actionName_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -763,14 +763,14 @@ libqt_list /* of libqt_string */ QAccessibleWidget_QBaseKeyBindingsForAction(con
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QAccessibleWidget::keyBindingsForAction(actionName_QString);
+        QList<QString> _ret = self->QAccessibleWidget::keyBindingsForAction(actionName_QString);
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -782,7 +782,7 @@ libqt_list /* of libqt_string */ QAccessibleWidget_QBaseKeyBindingsForAction(con
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

@@ -160,6 +160,12 @@ void QsciLexerProperties_QBaseConnectNotify(QsciLexerProperties* self, const QMe
 void QsciLexerProperties_DisconnectNotify(QsciLexerProperties* self, const QMetaMethod* signal);
 void QsciLexerProperties_OnDisconnectNotify(QsciLexerProperties* self, intptr_t slot);
 void QsciLexerProperties_QBaseDisconnectNotify(QsciLexerProperties* self, const QMetaMethod* signal);
+libqt_string QsciLexerProperties_TextAsBytes(const QsciLexerProperties* self, const libqt_string text);
+void QsciLexerProperties_OnTextAsBytes(const QsciLexerProperties* self, intptr_t slot);
+libqt_string QsciLexerProperties_QBaseTextAsBytes(const QsciLexerProperties* self, const libqt_string text);
+libqt_string QsciLexerProperties_BytesAsText(const QsciLexerProperties* self, const char* bytes, int size);
+void QsciLexerProperties_OnBytesAsText(const QsciLexerProperties* self, intptr_t slot);
+libqt_string QsciLexerProperties_QBaseBytesAsText(const QsciLexerProperties* self, const char* bytes, int size);
 QObject* QsciLexerProperties_Sender(const QsciLexerProperties* self);
 void QsciLexerProperties_OnSender(const QsciLexerProperties* self, intptr_t slot);
 QObject* QsciLexerProperties_QBaseSender(const QsciLexerProperties* self);

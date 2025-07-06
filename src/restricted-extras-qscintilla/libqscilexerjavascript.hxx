@@ -65,6 +65,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     using QsciLexerJavaScript_CustomEvent_Callback = void (*)(QsciLexerJavaScript*, QEvent*);
     using QsciLexerJavaScript_ConnectNotify_Callback = void (*)(QsciLexerJavaScript*, QMetaMethod*);
     using QsciLexerJavaScript_DisconnectNotify_Callback = void (*)(QsciLexerJavaScript*, QMetaMethod*);
+    using QsciLexerJavaScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerJavaScript*, libqt_string);
+    using QsciLexerJavaScript_BytesAsText_Callback = libqt_string (*)(const QsciLexerJavaScript*, const char*, int);
     using QsciLexerJavaScript_Sender_Callback = QObject* (*)();
     using QsciLexerJavaScript_SenderSignalIndex_Callback = int (*)();
     using QsciLexerJavaScript_Receivers_Callback = int (*)(const QsciLexerJavaScript*, const char*);
@@ -119,6 +121,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     QsciLexerJavaScript_CustomEvent_Callback qscilexerjavascript_customevent_callback = nullptr;
     QsciLexerJavaScript_ConnectNotify_Callback qscilexerjavascript_connectnotify_callback = nullptr;
     QsciLexerJavaScript_DisconnectNotify_Callback qscilexerjavascript_disconnectnotify_callback = nullptr;
+    QsciLexerJavaScript_TextAsBytes_Callback qscilexerjavascript_textasbytes_callback = nullptr;
+    QsciLexerJavaScript_BytesAsText_Callback qscilexerjavascript_bytesastext_callback = nullptr;
     QsciLexerJavaScript_Sender_Callback qscilexerjavascript_sender_callback = nullptr;
     QsciLexerJavaScript_SenderSignalIndex_Callback qscilexerjavascript_sendersignalindex_callback = nullptr;
     QsciLexerJavaScript_Receivers_Callback qscilexerjavascript_receivers_callback = nullptr;
@@ -172,14 +176,16 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     mutable bool qscilexerjavascript_customevent_isbase = false;
     mutable bool qscilexerjavascript_connectnotify_isbase = false;
     mutable bool qscilexerjavascript_disconnectnotify_isbase = false;
+    mutable bool qscilexerjavascript_textasbytes_isbase = false;
+    mutable bool qscilexerjavascript_bytesastext_isbase = false;
     mutable bool qscilexerjavascript_sender_isbase = false;
     mutable bool qscilexerjavascript_sendersignalindex_isbase = false;
     mutable bool qscilexerjavascript_receivers_isbase = false;
     mutable bool qscilexerjavascript_issignalconnected_isbase = false;
 
   public:
-    VirtualQsciLexerJavaScript() : QsciLexerJavaScript(){};
-    VirtualQsciLexerJavaScript(QObject* parent) : QsciLexerJavaScript(parent){};
+    VirtualQsciLexerJavaScript() : QsciLexerJavaScript() {};
+    VirtualQsciLexerJavaScript(QObject* parent) : QsciLexerJavaScript(parent) {};
 
     ~VirtualQsciLexerJavaScript() {
         qscilexerjavascript_metacall_callback = nullptr;
@@ -229,6 +235,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
         qscilexerjavascript_customevent_callback = nullptr;
         qscilexerjavascript_connectnotify_callback = nullptr;
         qscilexerjavascript_disconnectnotify_callback = nullptr;
+        qscilexerjavascript_textasbytes_callback = nullptr;
+        qscilexerjavascript_bytesastext_callback = nullptr;
         qscilexerjavascript_sender_callback = nullptr;
         qscilexerjavascript_sendersignalindex_callback = nullptr;
         qscilexerjavascript_receivers_callback = nullptr;
@@ -283,6 +291,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     inline void setQsciLexerJavaScript_CustomEvent_Callback(QsciLexerJavaScript_CustomEvent_Callback cb) { qscilexerjavascript_customevent_callback = cb; }
     inline void setQsciLexerJavaScript_ConnectNotify_Callback(QsciLexerJavaScript_ConnectNotify_Callback cb) { qscilexerjavascript_connectnotify_callback = cb; }
     inline void setQsciLexerJavaScript_DisconnectNotify_Callback(QsciLexerJavaScript_DisconnectNotify_Callback cb) { qscilexerjavascript_disconnectnotify_callback = cb; }
+    inline void setQsciLexerJavaScript_TextAsBytes_Callback(QsciLexerJavaScript_TextAsBytes_Callback cb) { qscilexerjavascript_textasbytes_callback = cb; }
+    inline void setQsciLexerJavaScript_BytesAsText_Callback(QsciLexerJavaScript_BytesAsText_Callback cb) { qscilexerjavascript_bytesastext_callback = cb; }
     inline void setQsciLexerJavaScript_Sender_Callback(QsciLexerJavaScript_Sender_Callback cb) { qscilexerjavascript_sender_callback = cb; }
     inline void setQsciLexerJavaScript_SenderSignalIndex_Callback(QsciLexerJavaScript_SenderSignalIndex_Callback cb) { qscilexerjavascript_sendersignalindex_callback = cb; }
     inline void setQsciLexerJavaScript_Receivers_Callback(QsciLexerJavaScript_Receivers_Callback cb) { qscilexerjavascript_receivers_callback = cb; }
@@ -336,6 +346,8 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     inline void setQsciLexerJavaScript_CustomEvent_IsBase(bool value) const { qscilexerjavascript_customevent_isbase = value; }
     inline void setQsciLexerJavaScript_ConnectNotify_IsBase(bool value) const { qscilexerjavascript_connectnotify_isbase = value; }
     inline void setQsciLexerJavaScript_DisconnectNotify_IsBase(bool value) const { qscilexerjavascript_disconnectnotify_isbase = value; }
+    inline void setQsciLexerJavaScript_TextAsBytes_IsBase(bool value) const { qscilexerjavascript_textasbytes_isbase = value; }
+    inline void setQsciLexerJavaScript_BytesAsText_IsBase(bool value) const { qscilexerjavascript_bytesastext_isbase = value; }
     inline void setQsciLexerJavaScript_Sender_IsBase(bool value) const { qscilexerjavascript_sender_isbase = value; }
     inline void setQsciLexerJavaScript_SenderSignalIndex_IsBase(bool value) const { qscilexerjavascript_sendersignalindex_isbase = value; }
     inline void setQsciLexerJavaScript_Receivers_IsBase(bool value) const { qscilexerjavascript_receivers_isbase = value; }
@@ -478,13 +490,13 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QStringList autoCompletionWordSeparators() const override {
+    virtual QList<QString> autoCompletionWordSeparators() const override {
         if (qscilexerjavascript_autocompletionwordseparators_isbase) {
             qscilexerjavascript_autocompletionwordseparators_isbase = false;
             return QsciLexerJavaScript::autoCompletionWordSeparators();
         } else if (qscilexerjavascript_autocompletionwordseparators_callback != nullptr) {
             libqt_list /* of libqt_string */ callback_ret = qscilexerjavascript_autocompletionwordseparators_callback();
-            QStringList callback_ret_QList;
+            QList<QString> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -1045,6 +1057,47 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     }
 
     // Virtual method for C ABI access and custom callback
+    QByteArray textAsBytes(const QString& text) const {
+        if (qscilexerjavascript_textasbytes_isbase) {
+            qscilexerjavascript_textasbytes_isbase = false;
+            return QsciLexerJavaScript::textAsBytes(text);
+        } else if (qscilexerjavascript_textasbytes_callback != nullptr) {
+            const QString text_ret = text;
+            // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+            QByteArray text_b = text_ret.toUtf8();
+            libqt_string text_str;
+            text_str.len = text_b.length();
+            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            memcpy((void*)text_str.data, text_b.data(), text_str.len);
+            ((char*)text_str.data)[text_str.len] = '\0';
+            libqt_string cbval1 = text_str;
+
+            libqt_string callback_ret = qscilexerjavascript_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            return callback_ret_QByteArray;
+        } else {
+            return QsciLexerJavaScript::textAsBytes(text);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QString bytesAsText(const char* bytes, int size) const {
+        if (qscilexerjavascript_bytesastext_isbase) {
+            qscilexerjavascript_bytesastext_isbase = false;
+            return QsciLexerJavaScript::bytesAsText(bytes, size);
+        } else if (qscilexerjavascript_bytesastext_callback != nullptr) {
+            const char* cbval1 = (const char*)bytes;
+            int cbval2 = size;
+
+            libqt_string callback_ret = qscilexerjavascript_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            return callback_ret_QString;
+        } else {
+            return QsciLexerJavaScript::bytesAsText(bytes, size);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     QObject* sender() const {
         if (qscilexerjavascript_sender_isbase) {
             qscilexerjavascript_sender_isbase = false;
@@ -1117,6 +1170,10 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     friend void QsciLexerJavaScript_QBaseConnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
     friend void QsciLexerJavaScript_DisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
     friend void QsciLexerJavaScript_QBaseDisconnectNotify(QsciLexerJavaScript* self, const QMetaMethod* signal);
+    friend libqt_string QsciLexerJavaScript_TextAsBytes(const QsciLexerJavaScript* self, const libqt_string text);
+    friend libqt_string QsciLexerJavaScript_QBaseTextAsBytes(const QsciLexerJavaScript* self, const libqt_string text);
+    friend libqt_string QsciLexerJavaScript_BytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size);
+    friend libqt_string QsciLexerJavaScript_QBaseBytesAsText(const QsciLexerJavaScript* self, const char* bytes, int size);
     friend QObject* QsciLexerJavaScript_Sender(const QsciLexerJavaScript* self);
     friend QObject* QsciLexerJavaScript_QBaseSender(const QsciLexerJavaScript* self);
     friend int QsciLexerJavaScript_SenderSignalIndex(const QsciLexerJavaScript* self);

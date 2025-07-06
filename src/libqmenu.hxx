@@ -77,6 +77,7 @@ class VirtualQMenu final : public QMenu {
     using QMenu_SenderSignalIndex_Callback = int (*)();
     using QMenu_Receivers_Callback = int (*)(const QMenu*, const char*);
     using QMenu_IsSignalConnected_Callback = bool (*)(const QMenu*, QMetaMethod*);
+    using QMenu_GetDecodedMetricF_Callback = double (*)(const QMenu*, int, int);
 
   protected:
     // Instance callback storage
@@ -139,6 +140,7 @@ class VirtualQMenu final : public QMenu {
     QMenu_SenderSignalIndex_Callback qmenu_sendersignalindex_callback = nullptr;
     QMenu_Receivers_Callback qmenu_receivers_callback = nullptr;
     QMenu_IsSignalConnected_Callback qmenu_issignalconnected_callback = nullptr;
+    QMenu_GetDecodedMetricF_Callback qmenu_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qmenu_metacall_isbase = false;
@@ -200,12 +202,13 @@ class VirtualQMenu final : public QMenu {
     mutable bool qmenu_sendersignalindex_isbase = false;
     mutable bool qmenu_receivers_isbase = false;
     mutable bool qmenu_issignalconnected_isbase = false;
+    mutable bool qmenu_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQMenu(QWidget* parent) : QMenu(parent){};
-    VirtualQMenu() : QMenu(){};
-    VirtualQMenu(const QString& title) : QMenu(title){};
-    VirtualQMenu(const QString& title, QWidget* parent) : QMenu(title, parent){};
+    VirtualQMenu(QWidget* parent) : QMenu(parent) {};
+    VirtualQMenu() : QMenu() {};
+    VirtualQMenu(const QString& title) : QMenu(title) {};
+    VirtualQMenu(const QString& title, QWidget* parent) : QMenu(title, parent) {};
 
     ~VirtualQMenu() {
         qmenu_metacall_callback = nullptr;
@@ -267,6 +270,7 @@ class VirtualQMenu final : public QMenu {
         qmenu_sendersignalindex_callback = nullptr;
         qmenu_receivers_callback = nullptr;
         qmenu_issignalconnected_callback = nullptr;
+        qmenu_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -329,6 +333,7 @@ class VirtualQMenu final : public QMenu {
     inline void setQMenu_SenderSignalIndex_Callback(QMenu_SenderSignalIndex_Callback cb) { qmenu_sendersignalindex_callback = cb; }
     inline void setQMenu_Receivers_Callback(QMenu_Receivers_Callback cb) { qmenu_receivers_callback = cb; }
     inline void setQMenu_IsSignalConnected_Callback(QMenu_IsSignalConnected_Callback cb) { qmenu_issignalconnected_callback = cb; }
+    inline void setQMenu_GetDecodedMetricF_Callback(QMenu_GetDecodedMetricF_Callback cb) { qmenu_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQMenu_Metacall_IsBase(bool value) const { qmenu_metacall_isbase = value; }
@@ -390,6 +395,7 @@ class VirtualQMenu final : public QMenu {
     inline void setQMenu_SenderSignalIndex_IsBase(bool value) const { qmenu_sendersignalindex_isbase = value; }
     inline void setQMenu_Receivers_IsBase(bool value) const { qmenu_receivers_isbase = value; }
     inline void setQMenu_IsSignalConnected_IsBase(bool value) const { qmenu_issignalconnected_isbase = value; }
+    inline void setQMenu_GetDecodedMetricF_IsBase(bool value) const { qmenu_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1230,6 +1236,22 @@ class VirtualQMenu final : public QMenu {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qmenu_getdecodedmetricf_isbase) {
+            qmenu_getdecodedmetricf_isbase = false;
+            return QMenu::getDecodedMetricF(metricA, metricB);
+        } else if (qmenu_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qmenu_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QMenu::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QMenu_ChangeEvent(QMenu* self, QEvent* param1);
     friend void QMenu_QBaseChangeEvent(QMenu* self, QEvent* param1);
@@ -1329,6 +1351,8 @@ class VirtualQMenu final : public QMenu {
     friend int QMenu_QBaseReceivers(const QMenu* self, const char* signal);
     friend bool QMenu_IsSignalConnected(const QMenu* self, const QMetaMethod* signal);
     friend bool QMenu_QBaseIsSignalConnected(const QMenu* self, const QMetaMethod* signal);
+    friend double QMenu_GetDecodedMetricF(const QMenu* self, int metricA, int metricB);
+    friend double QMenu_QBaseGetDecodedMetricF(const QMenu* self, int metricA, int metricB);
 };
 
 #endif

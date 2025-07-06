@@ -112,10 +112,10 @@ class VirtualQWaveDecoder final : public QWaveDecoder {
     mutable bool qwavedecoder_issignalconnected_isbase = false;
 
   public:
-    VirtualQWaveDecoder(QIODevice* device) : QWaveDecoder(device){};
-    VirtualQWaveDecoder(QIODevice* device, const QAudioFormat& format) : QWaveDecoder(device, format){};
-    VirtualQWaveDecoder(QIODevice* device, QObject* parent) : QWaveDecoder(device, parent){};
-    VirtualQWaveDecoder(QIODevice* device, const QAudioFormat& format, QObject* parent) : QWaveDecoder(device, format, parent){};
+    VirtualQWaveDecoder(QIODevice* device) : QWaveDecoder(device) {};
+    VirtualQWaveDecoder(QIODevice* device, const QAudioFormat& format) : QWaveDecoder(device, format) {};
+    VirtualQWaveDecoder(QIODevice* device, QObject* parent) : QWaveDecoder(device, parent) {};
+    VirtualQWaveDecoder(QIODevice* device, const QAudioFormat& format, QObject* parent) : QWaveDecoder(device, format, parent) {};
 
     ~VirtualQWaveDecoder() {
         qwavedecoder_metacall_callback = nullptr;

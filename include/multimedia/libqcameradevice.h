@@ -21,14 +21,6 @@ typedef struct QCameraFormat QCameraFormat;
 typedef struct QSize QSize;
 #endif
 
-#ifdef __cplusplus
-typedef QCameraDevice::Position Position;             // C++ enum
-typedef QCameraDevice::QtGadgetHelper QtGadgetHelper; // C++ QFlags
-#else
-typedef int Position;        // C ABI enum
-typedef void QtGadgetHelper; // C ABI QFlags
-#endif
-
 QCameraFormat* QCameraFormat_new();
 QCameraFormat* QCameraFormat_new2(const QCameraFormat* other);
 void QCameraFormat_OperatorAssign(QCameraFormat* self, const QCameraFormat* other);
@@ -53,6 +45,7 @@ bool QCameraDevice_IsDefault(const QCameraDevice* self);
 int QCameraDevice_Position(const QCameraDevice* self);
 libqt_list /* of QSize* */ QCameraDevice_PhotoResolutions(const QCameraDevice* self);
 libqt_list /* of QCameraFormat* */ QCameraDevice_VideoFormats(const QCameraDevice* self);
+int QCameraDevice_CorrectionAngle(const QCameraDevice* self);
 void QCameraDevice_Delete(QCameraDevice* self);
 
 #ifdef __cplusplus

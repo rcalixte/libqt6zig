@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qsysinfo_enums = @import("libqsysinfo.zig").enums;
 const quuid_enums = enums;
 const std = @import("std");
 
@@ -35,21 +36,35 @@ pub const quuid = struct {
 
     /// New5 constructs a new QUuid object.
     ///
+    /// ``` id128: QtC.QUuid__Id128Bytes ```
+    pub fn New5(id128: QtC.QUuid__Id128Bytes) QtC.QUuid {
+        return qtc.QUuid_new5(@ptrCast(id128));
+    }
+
+    /// New6 constructs a new QUuid object.
+    ///
     /// ``` stringVal: []const u8 ```
-    pub fn New5(stringVal: []const u8) QtC.QUuid {
+    pub fn New6(stringVal: []const u8) QtC.QUuid {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
 
-        return qtc.QUuid_new5(stringVal_str);
+        return qtc.QUuid_new6(stringVal_str);
     }
 
-    /// New6 constructs a new QUuid object.
+    /// New7 constructs a new QUuid object.
     ///
     /// ``` param1: QtC.QUuid ```
-    pub fn New6(param1: ?*anyopaque) QtC.QUuid {
-        return qtc.QUuid_new6(@ptrCast(param1));
+    pub fn New7(param1: ?*anyopaque) QtC.QUuid {
+        return qtc.QUuid_new7(@ptrCast(param1));
+    }
+
+    /// New8 constructs a new QUuid object.
+    ///
+    /// ``` id128: QtC.QUuid__Id128Bytes, order: qsysinfo_enums.Endian ```
+    pub fn New8(id128: QtC.QUuid__Id128Bytes, order: i64) QtC.QUuid {
+        return qtc.QUuid_new8(@ptrCast(id128), @intCast(order));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -99,6 +114,13 @@ pub const quuid = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toBytes)
+    ///
+    /// ``` self: QtC.QUuid ```
+    pub fn ToBytes(self: ?*anyopaque) QtC.QUuid__Id128Bytes {
+        return qtc.QUuid_ToBytes(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toRfc4122)
     ///
     /// ``` self: QtC.QUuid, allocator: std.mem.Allocator ```
@@ -108,6 +130,13 @@ pub const quuid = struct {
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToRfc4122: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromBytes)
+    ///
+    /// ``` bytes: ?*anyopaque ```
+    pub fn FromBytes(bytes: ?*anyopaque) QtC.QUuid {
+        return qtc.QUuid_FromBytes(bytes);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromRfc4122)
@@ -124,34 +153,6 @@ pub const quuid = struct {
         return qtc.QUuid_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#operator==)
-    ///
-    /// ``` self: QtC.QUuid, orig: QtC.QUuid ```
-    pub fn OperatorEqual(self: ?*anyopaque, orig: ?*anyopaque) bool {
-        return qtc.QUuid_OperatorEqual(@ptrCast(self), @ptrCast(orig));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#operator!=)
-    ///
-    /// ``` self: QtC.QUuid, orig: QtC.QUuid ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, orig: ?*anyopaque) bool {
-        return qtc.QUuid_OperatorNotEqual(@ptrCast(self), @ptrCast(orig));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#operator<)
-    ///
-    /// ``` self: QtC.QUuid, other: QtC.QUuid ```
-    pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QUuid_OperatorLesser(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#operator>)
-    ///
-    /// ``` self: QtC.QUuid, other: QtC.QUuid ```
-    pub fn OperatorGreater(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QUuid_OperatorGreater(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuid)
     ///
     ///
@@ -159,48 +160,18 @@ pub const quuid = struct {
         return qtc.QUuid_CreateUuid();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuidV3)
-    ///
-    /// ``` ns: QtC.QUuid, baseData: []u8 ```
-    pub fn CreateUuidV3(ns: ?*anyopaque, baseData: []u8) QtC.QUuid {
-        const baseData_str = qtc.struct_libqt_string{
-            .len = baseData.len,
-            .data = baseData.ptr,
-        };
-        return qtc.QUuid_CreateUuidV3(@ptrCast(ns), baseData_str);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuidV5)
     ///
-    /// ``` ns: QtC.QUuid, baseData: []u8 ```
-    pub fn CreateUuidV5(ns: ?*anyopaque, baseData: []u8) QtC.QUuid {
-        const baseData_str = qtc.struct_libqt_string{
-            .len = baseData.len,
-            .data = baseData.ptr,
-        };
-        return qtc.QUuid_CreateUuidV5(@ptrCast(ns), baseData_str);
+    /// ``` ns: QtC.QUuid, baseData: []const u8 ```
+    pub fn CreateUuidV5(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
+        return qtc.QUuid_CreateUuidV5(@ptrCast(ns), baseData.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuidV3)
     ///
     /// ``` ns: QtC.QUuid, baseData: []const u8 ```
-    pub fn CreateUuidV32(ns: ?*anyopaque, baseData: []const u8) QtC.QUuid {
-        const baseData_str = qtc.struct_libqt_string{
-            .len = baseData.len,
-            .data = baseData.ptr,
-        };
-        return qtc.QUuid_CreateUuidV32(@ptrCast(ns), baseData_str);
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuidV5)
-    ///
-    /// ``` ns: QtC.QUuid, baseData: []const u8 ```
-    pub fn CreateUuidV52(ns: ?*anyopaque, baseData: []const u8) QtC.QUuid {
-        const baseData_str = qtc.struct_libqt_string{
-            .len = baseData.len,
-            .data = baseData.ptr,
-        };
-        return qtc.QUuid_CreateUuidV52(@ptrCast(ns), baseData_str);
+    pub fn CreateUuidV3(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
+        return qtc.QUuid_CreateUuidV3(@ptrCast(ns), baseData.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#variant)
@@ -239,6 +210,20 @@ pub const quuid = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toBytes)
+    ///
+    /// ``` self: QtC.QUuid, order: qsysinfo_enums.Endian ```
+    pub fn ToBytes1(self: ?*anyopaque, order: i64) QtC.QUuid__Id128Bytes {
+        return qtc.QUuid_ToBytes1(@ptrCast(self), @intCast(order));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromBytes)
+    ///
+    /// ``` bytes: ?*anyopaque, order: qsysinfo_enums.Endian ```
+    pub fn FromBytes2(bytes: ?*anyopaque, order: i64) QtC.QUuid {
+        return qtc.QUuid_FromBytes2(bytes, @intCast(order));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#dtor.QUuid)
     ///
     /// Delete this object from C++ memory.
@@ -246,6 +231,41 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QUuid_Delete(@ptrCast(self));
+    }
+};
+
+/// https://doc.qt.io/qt-6/quuid-id128bytes.html
+pub const quuid__id128bytes = struct {
+    /// New constructs a new QUuid::Id128Bytes object.
+    ///
+    ///
+    pub fn New() QtC.QUuid__Id128Bytes {
+        return qtc.QUuid__Id128Bytes_new();
+    }
+
+    /// New2 constructs a new QUuid::Id128Bytes object.
+    ///
+    /// ``` param1: QtC.QUuid__Id128Bytes ```
+    pub fn New2(param1: ?*anyopaque) QtC.QUuid__Id128Bytes {
+        return qtc.QUuid__Id128Bytes_new2(@ptrCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid__id128bytes.html#operator QByteArrayView)
+    ///
+    /// ``` self: QtC.QUuid__Id128Bytes, allocator: std.mem.Allocator ```
+    pub fn ToQByteArrayView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QUuid__Id128Bytes_ToQByteArrayView(@ptrCast(self));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid::id128bytes.ToQByteArrayView: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QUuid__Id128Bytes ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QUuid__Id128Bytes_Delete(@ptrCast(self));
     }
 };
 

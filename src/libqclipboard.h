@@ -25,12 +25,6 @@ typedef struct QObject QObject;
 typedef struct QPixmap QPixmap;
 #endif
 
-#ifdef __cplusplus
-typedef QClipboard::Mode Mode; // C++ enum
-#else
-typedef int Mode; // C ABI enum
-#endif
-
 QMetaObject* QClipboard_MetaObject(const QClipboard* self);
 void* QClipboard_Metacast(QClipboard* self, const char* param1);
 int QClipboard_Metacall(QClipboard* self, int param1, int param2, void** param3);

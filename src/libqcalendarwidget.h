@@ -55,16 +55,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QCalendarWidget::HorizontalHeaderFormat HorizontalHeaderFormat; // C++ enum
-typedef QCalendarWidget::SelectionMode SelectionMode;                   // C++ enum
-typedef QCalendarWidget::VerticalHeaderFormat VerticalHeaderFormat;     // C++ enum
-#else
-typedef int HorizontalHeaderFormat; // C ABI enum
-typedef int SelectionMode;          // C ABI enum
-typedef int VerticalHeaderFormat;   // C ABI enum
-#endif
-
 QCalendarWidget* QCalendarWidget_new(QWidget* parent);
 QCalendarWidget* QCalendarWidget_new2();
 QMetaObject* QCalendarWidget_MetaObject(const QCalendarWidget* self);
@@ -84,8 +74,10 @@ int QCalendarWidget_YearShown(const QCalendarWidget* self);
 int QCalendarWidget_MonthShown(const QCalendarWidget* self);
 QDate* QCalendarWidget_MinimumDate(const QCalendarWidget* self);
 void QCalendarWidget_SetMinimumDate(QCalendarWidget* self, QDate* date);
+void QCalendarWidget_ClearMinimumDate(QCalendarWidget* self);
 QDate* QCalendarWidget_MaximumDate(const QCalendarWidget* self);
 void QCalendarWidget_SetMaximumDate(QCalendarWidget* self, QDate* date);
+void QCalendarWidget_ClearMaximumDate(QCalendarWidget* self);
 int QCalendarWidget_FirstDayOfWeek(const QCalendarWidget* self);
 void QCalendarWidget_SetFirstDayOfWeek(QCalendarWidget* self, int dayOfWeek);
 bool QCalendarWidget_IsNavigationBarVisible(const QCalendarWidget* self);
@@ -301,6 +293,9 @@ int QCalendarWidget_QBaseReceivers(const QCalendarWidget* self, const char* sign
 bool QCalendarWidget_IsSignalConnected(const QCalendarWidget* self, const QMetaMethod* signal);
 void QCalendarWidget_OnIsSignalConnected(const QCalendarWidget* self, intptr_t slot);
 bool QCalendarWidget_QBaseIsSignalConnected(const QCalendarWidget* self, const QMetaMethod* signal);
+double QCalendarWidget_GetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB);
+void QCalendarWidget_OnGetDecodedMetricF(const QCalendarWidget* self, intptr_t slot);
+double QCalendarWidget_QBaseGetDecodedMetricF(const QCalendarWidget* self, int metricA, int metricB);
 void QCalendarWidget_Delete(QCalendarWidget* self);
 
 #ifdef __cplusplus

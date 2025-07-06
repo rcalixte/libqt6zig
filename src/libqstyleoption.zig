@@ -1388,6 +1388,7 @@ pub const enums = struct {
         pub const Middle: i32 = 1;
         pub const End: i32 = 2;
         pub const OnlyOneTab: i32 = 3;
+        pub const Moving: i32 = 4;
     };
 
     pub const QStyleOptionTab__SelectedPosition = enum {

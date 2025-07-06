@@ -22,6 +22,7 @@ typedef QInputMethodEvent::Attribute QInputMethodEvent__Attribute;
 typedef struct QAction QAction;
 typedef struct QActionEvent QActionEvent;
 typedef struct QApplicationStateChangeEvent QApplicationStateChangeEvent;
+typedef struct QChildWindowEvent QChildWindowEvent;
 typedef struct QCloseEvent QCloseEvent;
 typedef struct QContextMenuEvent QContextMenuEvent;
 typedef struct QDragEnterEvent QDragEnterEvent;
@@ -66,6 +67,7 @@ typedef struct QScreen QScreen;
 typedef struct QScreenOrientationChangeEvent QScreenOrientationChangeEvent;
 typedef struct QScrollEvent QScrollEvent;
 typedef struct QScrollPrepareEvent QScrollPrepareEvent;
+typedef struct QShortcut QShortcut;
 typedef struct QShortcutEvent QShortcutEvent;
 typedef struct QShowEvent QShowEvent;
 typedef struct QSinglePointEvent QSinglePointEvent;
@@ -79,21 +81,8 @@ typedef struct QUrl QUrl;
 typedef struct QVariant QVariant;
 typedef struct QWhatsThisClickedEvent QWhatsThisClickedEvent;
 typedef struct QWheelEvent QWheelEvent;
+typedef struct QWindow QWindow;
 typedef struct QWindowStateChangeEvent QWindowStateChangeEvent;
-#endif
-
-#ifdef __cplusplus
-typedef QContextMenuEvent::Reason Reason;                         // C++ enum
-typedef QInputMethodEvent::AttributeType AttributeType;           // C++ enum
-typedef QPlatformSurfaceEvent::SurfaceEventType SurfaceEventType; // C++ enum
-typedef QScrollEvent::ScrollState ScrollState;                    // C++ enum
-#else
-typedef QEventPoint* TouchPoint; // C ABI QFlags
-typedef int AttributeType;       // C ABI enum
-typedef int Reason;              // C ABI enum
-typedef int ScrollState;         // C ABI enum
-typedef int SurfaceEventType;    // C ABI enum
-typedef void QtGadgetHelper;     // C ABI QFlags
 #endif
 
 QInputEvent* QInputEvent_new(int typeVal, const QInputDevice* m_dev);
@@ -675,7 +664,10 @@ void QToolBarChangeEvent_QBaseSetAccepted(QToolBarChangeEvent* self, bool accept
 void QToolBarChangeEvent_Delete(QToolBarChangeEvent* self);
 
 QShortcutEvent* QShortcutEvent_new(const QKeySequence* key, int id);
-QShortcutEvent* QShortcutEvent_new2(const QKeySequence* key, int id, bool ambiguous);
+QShortcutEvent* QShortcutEvent_new2(const QKeySequence* key);
+QShortcutEvent* QShortcutEvent_new3(const QKeySequence* key, int id, bool ambiguous);
+QShortcutEvent* QShortcutEvent_new4(const QKeySequence* key, const QShortcut* shortcut);
+QShortcutEvent* QShortcutEvent_new5(const QKeySequence* key, const QShortcut* shortcut, bool ambiguous);
 QShortcutEvent* QShortcutEvent_Clone(const QShortcutEvent* self);
 void QShortcutEvent_OnClone(const QShortcutEvent* self, intptr_t slot);
 QShortcutEvent* QShortcutEvent_QBaseClone(const QShortcutEvent* self);
@@ -777,9 +769,18 @@ void QApplicationStateChangeEvent_OnSetAccepted(QApplicationStateChangeEvent* se
 void QApplicationStateChangeEvent_QBaseSetAccepted(QApplicationStateChangeEvent* self, bool accepted);
 void QApplicationStateChangeEvent_Delete(QApplicationStateChangeEvent* self);
 
+QChildWindowEvent* QChildWindowEvent_new(int typeVal, QWindow* childWindow);
+QChildWindowEvent* QChildWindowEvent_Clone(const QChildWindowEvent* self);
+void QChildWindowEvent_OnClone(const QChildWindowEvent* self, intptr_t slot);
+QChildWindowEvent* QChildWindowEvent_QBaseClone(const QChildWindowEvent* self);
+QWindow* QChildWindowEvent_Child(const QChildWindowEvent* self);
+void QChildWindowEvent_SetAccepted(QChildWindowEvent* self, bool accepted);
+void QChildWindowEvent_OnSetAccepted(QChildWindowEvent* self, intptr_t slot);
+void QChildWindowEvent_QBaseSetAccepted(QChildWindowEvent* self, bool accepted);
+void QChildWindowEvent_Delete(QChildWindowEvent* self);
+
 QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new(int typ, int s, int l, QVariant* val);
 QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new2(int typ, int s, int l);
-QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new3(const QInputMethodEvent__Attribute* param1);
 void QInputMethodEvent__Attribute_OperatorAssign(QInputMethodEvent__Attribute* self, const QInputMethodEvent__Attribute* param1);
 void QInputMethodEvent__Attribute_Delete(QInputMethodEvent__Attribute* self);
 

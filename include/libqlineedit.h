@@ -59,14 +59,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QLineEdit::ActionPosition ActionPosition; // C++ enum
-typedef QLineEdit::EchoMode EchoMode;             // C++ enum
-#else
-typedef int ActionPosition; // C ABI enum
-typedef int EchoMode;       // C ABI enum
-#endif
-
 QLineEdit* QLineEdit_new(QWidget* parent);
 QLineEdit* QLineEdit_new2();
 QLineEdit* QLineEdit_new3(const libqt_string param1);
@@ -334,6 +326,9 @@ int QLineEdit_QBaseReceivers(const QLineEdit* self, const char* signal);
 bool QLineEdit_IsSignalConnected(const QLineEdit* self, const QMetaMethod* signal);
 void QLineEdit_OnIsSignalConnected(const QLineEdit* self, intptr_t slot);
 bool QLineEdit_QBaseIsSignalConnected(const QLineEdit* self, const QMetaMethod* signal);
+double QLineEdit_GetDecodedMetricF(const QLineEdit* self, int metricA, int metricB);
+void QLineEdit_OnGetDecodedMetricF(const QLineEdit* self, intptr_t slot);
+double QLineEdit_QBaseGetDecodedMetricF(const QLineEdit* self, int metricA, int metricB);
 void QLineEdit_Delete(QLineEdit* self);
 
 #ifdef __cplusplus

@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
+const qwebenginepermission_enums = @import("libqwebenginepermission.zig").enums;
 const qwebengineprofile_enums = enums;
 const std = @import("std");
 
@@ -223,6 +224,20 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetPersistentCookiesPolicy(@ptrCast(self), @intCast(persistentCookiesPolicy));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#persistentPermissionsPolicy)
+    ///
+    /// ``` self: QtC.QWebEngineProfile ```
+    pub fn PersistentPermissionsPolicy(self: ?*anyopaque) i64 {
+        return qtc.QWebEngineProfile_PersistentPermissionsPolicy(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentPermissionsPolicy)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, persistentPermissionsPolicy: qwebengineprofile_enums.PersistentPermissionsPolicy ```
+    pub fn SetPersistentPermissionsPolicy(self: ?*anyopaque, persistentPermissionsPolicy: i64) void {
+        qtc.QWebEngineProfile_SetPersistentPermissionsPolicy(@ptrCast(self), @intCast(persistentPermissionsPolicy));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#httpCacheMaximumSize)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
@@ -288,6 +303,13 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn Scripts(self: ?*anyopaque) QtC.QWebEngineScriptCollection {
         return qtc.QWebEngineProfile_Scripts(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clientHints)
+    ///
+    /// ``` self: QtC.QWebEngineProfile ```
+    pub fn ClientHints(self: ?*anyopaque) QtC.QWebEngineClientHints {
+        return qtc.QWebEngineProfile_ClientHints(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#urlSchemeHandler)
@@ -421,11 +443,68 @@ pub const qwebengineprofile = struct {
         qtc.QWebEngineProfile_SetDownloadPath(@ptrCast(self), path_str);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#isPushServiceEnabled)
+    ///
+    /// ``` self: QtC.QWebEngineProfile ```
+    pub fn IsPushServiceEnabled(self: ?*anyopaque) bool {
+        return qtc.QWebEngineProfile_IsPushServiceEnabled(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPushServiceEnabled)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, enabled: bool ```
+    pub fn SetPushServiceEnabled(self: ?*anyopaque, enabled: bool) void {
+        qtc.QWebEngineProfile_SetPushServiceEnabled(@ptrCast(self), enabled);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clientCertificateStore)
     ///
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn ClientCertificateStore(self: ?*anyopaque) QtC.QWebEngineClientCertificateStore {
         return qtc.QWebEngineProfile_ClientCertificateStore(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#queryPermission)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, securityOrigin: QtC.QUrl, permissionType: qwebenginepermission_enums.PermissionType ```
+    pub fn QueryPermission(self: ?*anyopaque, securityOrigin: ?*anyopaque, permissionType: i64) QtC.QWebEnginePermission {
+        return qtc.QWebEngineProfile_QueryPermission(@ptrCast(self), @ptrCast(securityOrigin), @intCast(permissionType));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#listAllPermissions)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, allocator: std.mem.Allocator ```
+    pub fn ListAllPermissions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
+        const _arr: qtc.struct_libqt_list = qtc.QWebEngineProfile_ListAllPermissions(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListAllPermissions: Memory allocation failed");
+        const _data: [*]QtC.QWebEnginePermission = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#listPermissionsForOrigin)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, securityOrigin: QtC.QUrl, allocator: std.mem.Allocator ```
+    pub fn ListPermissionsForOrigin(self: ?*anyopaque, securityOrigin: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
+        const _arr: qtc.struct_libqt_list = qtc.QWebEngineProfile_ListPermissionsForOrigin(@ptrCast(self), @ptrCast(securityOrigin));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListPermissionsForOrigin: Memory allocation failed");
+        const _data: [*]QtC.QWebEnginePermission = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#listPermissionsForPermissionType)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, permissionType: qwebenginepermission_enums.PermissionType, allocator: std.mem.Allocator ```
+    pub fn ListPermissionsForPermissionType(self: ?*anyopaque, permissionType: i64, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
+        const _arr: qtc.struct_libqt_list = qtc.QWebEngineProfile_ListPermissionsForPermissionType(@ptrCast(self), @intCast(permissionType));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListPermissionsForPermissionType: Memory allocation failed");
+        const _data: [*]QtC.QWebEnginePermission = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#defaultProfile)
@@ -447,6 +526,20 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, slot: fn (self: QtC.QWebEngineProfile, download: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
     pub fn OnDownloadRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWebEngineProfile_Connect_DownloadRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCacheCompleted)
+    ///
+    /// ``` self: QtC.QWebEngineProfile ```
+    pub fn ClearHttpCacheCompleted(self: ?*anyopaque) void {
+        qtc.QWebEngineProfile_ClearHttpCacheCompleted(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#clearHttpCacheCompleted)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, slot: fn (self: QtC.QWebEngineProfile) callconv(.c) void ```
+    pub fn OnClearHttpCacheCompleted(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineProfile_Connect_ClearHttpCacheCompleted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -560,8 +653,8 @@ pub const qwebengineprofile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QWebEngineProfile, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -580,6 +673,15 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -785,6 +887,15 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QWebEngineProfile, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -1232,5 +1343,11 @@ pub const enums = struct {
         pub const NoPersistentCookies: i32 = 0;
         pub const AllowPersistentCookies: i32 = 1;
         pub const ForcePersistentCookies: i32 = 2;
+    };
+
+    pub const PersistentPermissionsPolicy = enum {
+        pub const AskEveryTime: u8 = 0;
+        pub const StoreInMemory: u8 = 1;
+        pub const StoreOnDisk: u8 = 2;
     };
 };

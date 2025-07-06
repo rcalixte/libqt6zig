@@ -334,18 +334,6 @@ int QCborValue_Compare(const QCborValue* self, const QCborValue* other) {
     return self->compare(*other);
 }
 
-bool QCborValue_OperatorEqual(const QCborValue* self, const QCborValue* other) {
-    return (*self == *other);
-}
-
-bool QCborValue_OperatorNotEqual(const QCborValue* self, const QCborValue* other) {
-    return (*self != *other);
-}
-
-bool QCborValue_OperatorLesser(const QCborValue* self, const QCborValue* other) {
-    return (*self < *other);
-}
-
 QCborValue* QCborValue_FromVariant(const QVariant* variant) {
     return new QCborValue(QCborValue::fromVariant(*variant));
 }
@@ -699,18 +687,6 @@ int QCborValueConstRef_Compare(const QCborValueConstRef* self, const QCborValue*
     return self->compare(*other);
 }
 
-bool QCborValueConstRef_OperatorEqual(const QCborValueConstRef* self, const QCborValue* other) {
-    return (*self == *other);
-}
-
-bool QCborValueConstRef_OperatorNotEqual(const QCborValueConstRef* self, const QCborValue* other) {
-    return (*self != *other);
-}
-
-bool QCborValueConstRef_OperatorLesser(const QCborValueConstRef* self, const QCborValue* other) {
-    return (*self < *other);
-}
-
 QVariant* QCborValueConstRef_ToVariant(const QCborValueConstRef* self) {
     return new QVariant(self->toVariant());
 }
@@ -1045,18 +1021,6 @@ QCborValue* QCborValueRef_OperatorSubscript5(const QCborValueRef* self, long lon
 
 int QCborValueRef_Compare(const QCborValueRef* self, const QCborValue* other) {
     return self->compare(*other);
-}
-
-bool QCborValueRef_OperatorEqual(const QCborValueRef* self, const QCborValue* other) {
-    return (*self == *other);
-}
-
-bool QCborValueRef_OperatorNotEqual(const QCborValueRef* self, const QCborValue* other) {
-    return (*self != *other);
-}
-
-bool QCborValueRef_OperatorLesser(const QCborValueRef* self, const QCborValue* other) {
-    return (*self < *other);
 }
 
 QVariant* QCborValueRef_ToVariant(const QCborValueRef* self) {

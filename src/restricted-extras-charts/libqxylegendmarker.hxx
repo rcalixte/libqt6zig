@@ -67,8 +67,8 @@ class VirtualQXYLegendMarker final : public QXYLegendMarker {
     mutable bool qxylegendmarker_issignalconnected_isbase = false;
 
   public:
-    VirtualQXYLegendMarker(QXYSeries* series, QLegend* legend) : QXYLegendMarker(series, legend){};
-    VirtualQXYLegendMarker(QXYSeries* series, QLegend* legend, QObject* parent) : QXYLegendMarker(series, legend, parent){};
+    VirtualQXYLegendMarker(QXYSeries* series, QLegend* legend) : QXYLegendMarker(series, legend) {};
+    VirtualQXYLegendMarker(QXYSeries* series, QLegend* legend, QObject* parent) : QXYLegendMarker(series, legend, parent) {};
 
     ~VirtualQXYLegendMarker() {
         qxylegendmarker_metacall_callback = nullptr;

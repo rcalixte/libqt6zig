@@ -29,12 +29,6 @@ typedef struct QRectF QRectF;
 typedef struct QRegion QRegion;
 #endif
 
-#ifdef __cplusplus
-typedef QPainterPath::ElementType ElementType; // C++ enum
-#else
-typedef int ElementType; // C ABI enum
-#endif
-
 QPainterPath* QPainterPath_new();
 QPainterPath* QPainterPath_new2(const QPointF* startPoint);
 QPainterPath* QPainterPath_new3(const QPainterPath* other);
@@ -130,6 +124,8 @@ double QPainterPathStroker_DashOffset(const QPainterPathStroker* self);
 QPainterPath* QPainterPathStroker_CreateStroke(const QPainterPathStroker* self, const QPainterPath* path);
 void QPainterPathStroker_Delete(QPainterPathStroker* self);
 
+QPainterPath__Element* QPainterPath__Element_new();
+QPainterPath__Element* QPainterPath__Element_new2(const QPainterPath__Element* param1);
 bool QPainterPath__Element_IsMoveTo(const QPainterPath__Element* self);
 bool QPainterPath__Element_IsLineTo(const QPainterPath__Element* self);
 bool QPainterPath__Element_IsCurveTo(const QPainterPath__Element* self);

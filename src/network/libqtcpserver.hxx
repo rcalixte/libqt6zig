@@ -73,8 +73,8 @@ class VirtualQTcpServer final : public QTcpServer {
     mutable bool qtcpserver_issignalconnected_isbase = false;
 
   public:
-    VirtualQTcpServer() : QTcpServer(){};
-    VirtualQTcpServer(QObject* parent) : QTcpServer(parent){};
+    VirtualQTcpServer() : QTcpServer() {};
+    VirtualQTcpServer(QObject* parent) : QTcpServer(parent) {};
 
     ~VirtualQTcpServer() {
         qtcpserver_metacall_callback = nullptr;

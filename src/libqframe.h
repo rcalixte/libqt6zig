@@ -53,16 +53,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QFrame::Shadow Shadow;       // C++ enum
-typedef QFrame::Shape Shape;         // C++ enum
-typedef QFrame::StyleMask StyleMask; // C++ enum
-#else
-typedef int Shadow;    // C ABI enum
-typedef int Shape;     // C ABI enum
-typedef int StyleMask; // C ABI enum
-#endif
-
 QFrame* QFrame_new(QWidget* parent);
 QFrame* QFrame_new2();
 QFrame* QFrame_new3(QWidget* parent, int f);
@@ -261,6 +251,9 @@ int QFrame_QBaseReceivers(const QFrame* self, const char* signal);
 bool QFrame_IsSignalConnected(const QFrame* self, const QMetaMethod* signal);
 void QFrame_OnIsSignalConnected(const QFrame* self, intptr_t slot);
 bool QFrame_QBaseIsSignalConnected(const QFrame* self, const QMetaMethod* signal);
+double QFrame_GetDecodedMetricF(const QFrame* self, int metricA, int metricB);
+void QFrame_OnGetDecodedMetricF(const QFrame* self, intptr_t slot);
+double QFrame_QBaseGetDecodedMetricF(const QFrame* self, int metricA, int metricB);
 void QFrame_Delete(QFrame* self);
 
 #ifdef __cplusplus

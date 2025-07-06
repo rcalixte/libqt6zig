@@ -42,6 +42,10 @@ bool QWebEngineNavigationRequest_IsMainFrame(const QWebEngineNavigationRequest* 
     return self->isMainFrame();
 }
 
+bool QWebEngineNavigationRequest_HasFormData(const QWebEngineNavigationRequest* self) {
+    return self->hasFormData();
+}
+
 int QWebEngineNavigationRequest_NavigationType(const QWebEngineNavigationRequest* self) {
     return static_cast<int>(self->navigationType());
 }

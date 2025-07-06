@@ -67,8 +67,8 @@ class VirtualQBarLegendMarker final : public QBarLegendMarker {
     mutable bool qbarlegendmarker_issignalconnected_isbase = false;
 
   public:
-    VirtualQBarLegendMarker(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend) : QBarLegendMarker(series, barset, legend){};
-    VirtualQBarLegendMarker(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend, QObject* parent) : QBarLegendMarker(series, barset, legend, parent){};
+    VirtualQBarLegendMarker(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend) : QBarLegendMarker(series, barset, legend) {};
+    VirtualQBarLegendMarker(QAbstractBarSeries* series, QBarSet* barset, QLegend* legend, QObject* parent) : QBarLegendMarker(series, barset, legend, parent) {};
 
     ~VirtualQBarLegendMarker() {
         qbarlegendmarker_metacall_callback = nullptr;

@@ -119,3 +119,15 @@ void QWebEngineCookieStore_DeleteCookie2(QWebEngineCookieStore* self, const QNet
 void QWebEngineCookieStore_Delete(QWebEngineCookieStore* self) {
     delete self;
 }
+
+QWebEngineCookieStore__FilterRequest* QWebEngineCookieStore__FilterRequest_new(const QWebEngineCookieStore__FilterRequest* param1) {
+    return new QWebEngineCookieStore::FilterRequest(*param1);
+}
+
+void QWebEngineCookieStore__FilterRequest_OperatorAssign(QWebEngineCookieStore__FilterRequest* self, const QWebEngineCookieStore__FilterRequest* param1) {
+    self->operator=(*param1);
+}
+
+void QWebEngineCookieStore__FilterRequest_Delete(QWebEngineCookieStore__FilterRequest* self) {
+    delete self;
+}

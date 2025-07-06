@@ -61,10 +61,10 @@ class VirtualQAudioInput final : public QAudioInput {
     mutable bool qaudioinput_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioInput() : QAudioInput(){};
-    VirtualQAudioInput(const QAudioDevice& deviceInfo) : QAudioInput(deviceInfo){};
-    VirtualQAudioInput(QObject* parent) : QAudioInput(parent){};
-    VirtualQAudioInput(const QAudioDevice& deviceInfo, QObject* parent) : QAudioInput(deviceInfo, parent){};
+    VirtualQAudioInput() : QAudioInput() {};
+    VirtualQAudioInput(const QAudioDevice& deviceInfo) : QAudioInput(deviceInfo) {};
+    VirtualQAudioInput(QObject* parent) : QAudioInput(parent) {};
+    VirtualQAudioInput(const QAudioDevice& deviceInfo, QObject* parent) : QAudioInput(deviceInfo, parent) {};
 
     ~VirtualQAudioInput() {
         qaudioinput_metacall_callback = nullptr;

@@ -1,5 +1,5 @@
 #include <QAuthenticator>
-#include <QMap>
+#include <QHash>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -85,8 +85,8 @@ QVariant* QAuthenticator_Option(const QAuthenticator* self, const libqt_string o
 }
 
 libqt_map /* of libqt_string to QVariant* */ QAuthenticator_Options(const QAuthenticator* self) {
-    QVariantHash _ret = self->options();
-    // Convert QMap<> from C++ memory to manually-managed C memory
+    QHash<QString, QVariant> _ret = self->options();
+    // Convert QHash<> from C++ memory to manually-managed C memory
     libqt_string* _karr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
     QVariant** _varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
     int _ctr = 0;

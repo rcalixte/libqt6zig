@@ -162,6 +162,12 @@ void QsciLexerPOV_QBaseConnectNotify(QsciLexerPOV* self, const QMetaMethod* sign
 void QsciLexerPOV_DisconnectNotify(QsciLexerPOV* self, const QMetaMethod* signal);
 void QsciLexerPOV_OnDisconnectNotify(QsciLexerPOV* self, intptr_t slot);
 void QsciLexerPOV_QBaseDisconnectNotify(QsciLexerPOV* self, const QMetaMethod* signal);
+libqt_string QsciLexerPOV_TextAsBytes(const QsciLexerPOV* self, const libqt_string text);
+void QsciLexerPOV_OnTextAsBytes(const QsciLexerPOV* self, intptr_t slot);
+libqt_string QsciLexerPOV_QBaseTextAsBytes(const QsciLexerPOV* self, const libqt_string text);
+libqt_string QsciLexerPOV_BytesAsText(const QsciLexerPOV* self, const char* bytes, int size);
+void QsciLexerPOV_OnBytesAsText(const QsciLexerPOV* self, intptr_t slot);
+libqt_string QsciLexerPOV_QBaseBytesAsText(const QsciLexerPOV* self, const char* bytes, int size);
 QObject* QsciLexerPOV_Sender(const QsciLexerPOV* self);
 void QsciLexerPOV_OnSender(const QsciLexerPOV* self, intptr_t slot);
 QObject* QsciLexerPOV_QBaseSender(const QsciLexerPOV* self);

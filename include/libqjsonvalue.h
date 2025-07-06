@@ -24,12 +24,6 @@ typedef struct QJsonValueRef QJsonValueRef;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QJsonValue::Type Type; // C++ enum
-#else
-typedef unsigned char Type; // C ABI enum
-#endif
-
 QJsonValue* QJsonValue_new();
 QJsonValue* QJsonValue_new2(bool b);
 QJsonValue* QJsonValue_new3(double n);
@@ -65,8 +59,6 @@ QJsonObject* QJsonValue_ToObject(const QJsonValue* self);
 QJsonObject* QJsonValue_ToObjectWithDefaultValue(const QJsonValue* self, const QJsonObject* defaultValue);
 QJsonValue* QJsonValue_OperatorSubscript(const QJsonValue* self, const libqt_string key);
 QJsonValue* QJsonValue_OperatorSubscriptWithQsizetype(const QJsonValue* self, ptrdiff_t i);
-bool QJsonValue_OperatorEqual(const QJsonValue* self, const QJsonValue* other);
-bool QJsonValue_OperatorNotEqual(const QJsonValue* self, const QJsonValue* other);
 bool QJsonValue_ToBool1(const QJsonValue* self, bool defaultValue);
 int QJsonValue_ToInt1(const QJsonValue* self, int defaultValue);
 long long QJsonValue_ToInteger1(const QJsonValue* self, long long defaultValue);
@@ -93,8 +85,6 @@ libqt_string QJsonValueConstRef_ToString(const QJsonValueConstRef* self);
 QJsonArray* QJsonValueConstRef_ToArray(const QJsonValueConstRef* self);
 QJsonObject* QJsonValueConstRef_ToObject(const QJsonValueConstRef* self);
 QJsonValue* QJsonValueConstRef_OperatorSubscriptWithQsizetype(const QJsonValueConstRef* self, ptrdiff_t i);
-bool QJsonValueConstRef_OperatorEqual(const QJsonValueConstRef* self, const QJsonValue* other);
-bool QJsonValueConstRef_OperatorNotEqual(const QJsonValueConstRef* self, const QJsonValue* other);
 bool QJsonValueConstRef_ToBool1(const QJsonValueConstRef* self, bool defaultValue);
 int QJsonValueConstRef_ToInt1(const QJsonValueConstRef* self, int defaultValue);
 long long QJsonValueConstRef_ToInteger1(const QJsonValueConstRef* self, long long defaultValue);
@@ -126,8 +116,6 @@ libqt_string QJsonValueRef_ToString(const QJsonValueRef* self);
 QJsonArray* QJsonValueRef_ToArray(const QJsonValueRef* self);
 QJsonObject* QJsonValueRef_ToObject(const QJsonValueRef* self);
 QJsonValue* QJsonValueRef_OperatorSubscriptWithQsizetype(const QJsonValueRef* self, ptrdiff_t i);
-bool QJsonValueRef_OperatorEqual(const QJsonValueRef* self, const QJsonValue* other);
-bool QJsonValueRef_OperatorNotEqual(const QJsonValueRef* self, const QJsonValue* other);
 bool QJsonValueRef_ToBool1(const QJsonValueRef* self, bool defaultValue);
 int QJsonValueRef_ToInt1(const QJsonValueRef* self, int defaultValue);
 long long QJsonValueRef_ToInteger1(const QJsonValueRef* self, long long defaultValue);

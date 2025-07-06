@@ -21,16 +21,6 @@ typedef struct QCborStreamReader QCborStreamReader;
 typedef struct QIODevice QIODevice;
 #endif
 
-#ifdef __cplusplus
-typedef QCborStreamReader::QtGadgetHelper QtGadgetHelper;     // C++ QFlags
-typedef QCborStreamReader::StringResultCode StringResultCode; // C++ enum
-typedef QCborStreamReader::Type Type;                         // C++ enum
-#else
-typedef int StringResultCode; // C ABI enum
-typedef unsigned char Type;   // C ABI enum
-typedef void QtGadgetHelper;  // C ABI QFlags
-#endif
-
 QCborStreamReader* QCborStreamReader_new();
 QCborStreamReader* QCborStreamReader_new2(const char* data, ptrdiff_t lenVal);
 QCborStreamReader* QCborStreamReader_new3(const unsigned char* data, ptrdiff_t lenVal);
@@ -44,7 +34,7 @@ void QCborStreamReader_AddData3(QCborStreamReader* self, const unsigned char* da
 void QCborStreamReader_Reparse(QCborStreamReader* self);
 void QCborStreamReader_Clear(QCborStreamReader* self);
 void QCborStreamReader_Reset(QCborStreamReader* self);
-QCborError* QCborStreamReader_LastError(QCborStreamReader* self);
+QCborError* QCborStreamReader_LastError(const QCborStreamReader* self);
 long long QCborStreamReader_CurrentOffset(const QCborStreamReader* self);
 bool QCborStreamReader_IsValid(const QCborStreamReader* self);
 int QCborStreamReader_ContainerDepth(const QCborStreamReader* self);
@@ -76,6 +66,9 @@ unsigned long long QCborStreamReader_Length(const QCborStreamReader* self);
 bool QCborStreamReader_IsContainer(const QCborStreamReader* self);
 bool QCborStreamReader_EnterContainer(QCborStreamReader* self);
 bool QCborStreamReader_LeaveContainer(QCborStreamReader* self);
+bool QCborStreamReader_ReadAndAppendToString(QCborStreamReader* self, libqt_string dst);
+bool QCborStreamReader_ReadAndAppendToUtf8String(QCborStreamReader* self, libqt_string dst);
+bool QCborStreamReader_ReadAndAppendToByteArray(QCborStreamReader* self, libqt_string dst);
 ptrdiff_t QCborStreamReader_CurrentStringChunkSize(const QCborStreamReader* self);
 bool QCborStreamReader_ToBool(const QCborStreamReader* self);
 uint64_t QCborStreamReader_ToTag(const QCborStreamReader* self);
@@ -85,6 +78,9 @@ uint8_t QCborStreamReader_ToSimpleType(const QCborStreamReader* self);
 float QCborStreamReader_ToFloat(const QCborStreamReader* self);
 double QCborStreamReader_ToDouble(const QCborStreamReader* self);
 long long QCborStreamReader_ToInteger(const QCborStreamReader* self);
+libqt_string QCborStreamReader_ReadAllString(QCborStreamReader* self);
+libqt_string QCborStreamReader_ReadAllUtf8String(QCborStreamReader* self);
+libqt_string QCborStreamReader_ReadAllByteArray(QCborStreamReader* self);
 bool QCborStreamReader_Next1(QCborStreamReader* self, int maxRecursion);
 void QCborStreamReader_Delete(QCborStreamReader* self);
 

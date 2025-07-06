@@ -226,6 +226,12 @@ QBrush* QPalette_PlaceholderText(const QPalette* self) {
     return const_cast<QBrush*>(&_ret);
 }
 
+QBrush* QPalette_Accent(const QPalette* self) {
+    const QBrush& _ret = self->accent();
+    // Cast returned reference into pointer
+    return const_cast<QBrush*>(&_ret);
+}
+
 bool QPalette_OperatorEqual(const QPalette* self, const QPalette* p) {
     return (*self == *p);
 }

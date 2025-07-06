@@ -1,4 +1,5 @@
 #include <QByteArray>
+#include <QByteArrayView>
 #include <QDateTime>
 #include <QList>
 #include <QNetworkCookie>
@@ -163,16 +164,15 @@ void QNetworkCookie_Normalize(QNetworkCookie* self, const QUrl* url) {
     self->normalize(*url);
 }
 
-libqt_list /* of QNetworkCookie* */ QNetworkCookie_ParseCookies(const libqt_string cookieString) {
-    QByteArray cookieString_QByteArray(cookieString.data, cookieString.len);
-    QList<QNetworkCookie> _ret = QNetworkCookie::parseCookies(cookieString_QByteArray);
+libqt_list /* of QNetworkCookie* */ QNetworkCookie_ParseCookies(QByteArrayView* cookieString) {
+    QList<QNetworkCookie> _ret = QNetworkCookie::parseCookies(*cookieString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QNetworkCookie(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

@@ -30,18 +30,9 @@ typedef struct QPersistentModelIndex QPersistentModelIndex;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QItemSelectionModel::SelectionFlag SelectionFlag;   // C++ enum
-typedef QItemSelectionModel::SelectionFlags SelectionFlags; // C++ QFlags
-#else
-typedef int SelectionFlag;  // C ABI enum
-typedef int SelectionFlags; // C ABI QFlags
-#endif
-
 QItemSelectionRange* QItemSelectionRange_new();
 QItemSelectionRange* QItemSelectionRange_new2(const QModelIndex* topL, const QModelIndex* bottomR);
 QItemSelectionRange* QItemSelectionRange_new3(const QModelIndex* index);
-QItemSelectionRange* QItemSelectionRange_new4(const QItemSelectionRange* param1);
 void QItemSelectionRange_Swap(QItemSelectionRange* self, QItemSelectionRange* other);
 int QItemSelectionRange_Top(const QItemSelectionRange* self);
 int QItemSelectionRange_Left(const QItemSelectionRange* self);
@@ -57,8 +48,6 @@ bool QItemSelectionRange_Contains(const QItemSelectionRange* self, const QModelI
 bool QItemSelectionRange_Contains2(const QItemSelectionRange* self, int row, int column, const QModelIndex* parentIndex);
 bool QItemSelectionRange_Intersects(const QItemSelectionRange* self, const QItemSelectionRange* other);
 QItemSelectionRange* QItemSelectionRange_Intersected(const QItemSelectionRange* self, const QItemSelectionRange* other);
-bool QItemSelectionRange_OperatorEqual(const QItemSelectionRange* self, const QItemSelectionRange* other);
-bool QItemSelectionRange_OperatorNotEqual(const QItemSelectionRange* self, const QItemSelectionRange* other);
 bool QItemSelectionRange_IsValid(const QItemSelectionRange* self);
 bool QItemSelectionRange_IsEmpty(const QItemSelectionRange* self);
 libqt_list /* of QModelIndex* */ QItemSelectionRange_Indexes(const QItemSelectionRange* self);

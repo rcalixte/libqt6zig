@@ -256,6 +256,9 @@ int QPrintPreviewDialog_QBaseReceivers(const QPrintPreviewDialog* self, const ch
 bool QPrintPreviewDialog_IsSignalConnected(const QPrintPreviewDialog* self, const QMetaMethod* signal);
 void QPrintPreviewDialog_OnIsSignalConnected(const QPrintPreviewDialog* self, intptr_t slot);
 bool QPrintPreviewDialog_QBaseIsSignalConnected(const QPrintPreviewDialog* self, const QMetaMethod* signal);
+double QPrintPreviewDialog_GetDecodedMetricF(const QPrintPreviewDialog* self, int metricA, int metricB);
+void QPrintPreviewDialog_OnGetDecodedMetricF(const QPrintPreviewDialog* self, intptr_t slot);
+double QPrintPreviewDialog_QBaseGetDecodedMetricF(const QPrintPreviewDialog* self, int metricA, int metricB);
 void QPrintPreviewDialog_Delete(QPrintPreviewDialog* self);
 
 #ifdef __cplusplus

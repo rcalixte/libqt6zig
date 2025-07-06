@@ -1861,6 +1861,35 @@ void QFrame_OnIsSignalConnected(const QFrame* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QFrame_GetDecodedMetricF(const QFrame* self, int metricA, int metricB) {
+    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
+    if (vqframe && vqframe->isVirtualQFrame) {
+        return vqframe->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQFrame*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QFrame_QBaseGetDecodedMetricF(const QFrame* self, int metricA, int metricB) {
+    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_GetDecodedMetricF_IsBase(true);
+        return vqframe->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQFrame*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QFrame_OnGetDecodedMetricF(const QFrame* self, intptr_t slot) {
+    auto* vqframe = const_cast<VirtualQFrame*>(dynamic_cast<const VirtualQFrame*>(self));
+    if (vqframe && vqframe->isVirtualQFrame) {
+        vqframe->setQFrame_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQFrame::QFrame_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QFrame_Delete(QFrame* self) {
     delete self;
 }

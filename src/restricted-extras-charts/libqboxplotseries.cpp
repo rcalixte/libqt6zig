@@ -106,12 +106,12 @@ int QBoxPlotSeries_Count(const QBoxPlotSeries* self) {
 libqt_list /* of QBoxSet* */ QBoxPlotSeries_BoxSets(const QBoxPlotSeries* self) {
     QList<QBoxSet*> _ret = self->boxSets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QBoxSet** _arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QBoxSet** _arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -282,13 +282,13 @@ void QBoxPlotSeries_Connect_BoxsetsAdded(QBoxPlotSeries* self, intptr_t slot) {
     void (*slotFunc)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */) = reinterpret_cast<void (*)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */)>(slot);
     QBoxPlotSeries::connect(self, &QBoxPlotSeries::boxsetsAdded, [self, slotFunc](const QList<QBoxSet*>& sets) {
         const QList<QBoxSet*>& sets_ret = sets;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * sets_ret.length()));
-        for (size_t i = 0; i < sets_ret.length(); ++i) {
+        // Convert const QList<> from C++ memory to manually-managed C memory
+        QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * sets_ret.size()));
+        for (size_t i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
         libqt_list sets_out;
-        sets_out.len = sets_ret.length();
+        sets_out.len = sets_ret.size();
         sets_out.data = static_cast<void*>(sets_arr);
         libqt_list /* of QBoxSet* */ sigval1 = sets_out;
         slotFunc(self, sigval1);
@@ -309,13 +309,13 @@ void QBoxPlotSeries_Connect_BoxsetsRemoved(QBoxPlotSeries* self, intptr_t slot) 
     void (*slotFunc)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */) = reinterpret_cast<void (*)(QBoxPlotSeries*, libqt_list /* of QBoxSet* */)>(slot);
     QBoxPlotSeries::connect(self, &QBoxPlotSeries::boxsetsRemoved, [self, slotFunc](const QList<QBoxSet*>& sets) {
         const QList<QBoxSet*>& sets_ret = sets;
-        // Convert QList<> from C++ memory to manually-managed C memory
-        QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * sets_ret.length()));
-        for (size_t i = 0; i < sets_ret.length(); ++i) {
+        // Convert const QList<> from C++ memory to manually-managed C memory
+        QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * sets_ret.size()));
+        for (size_t i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
         libqt_list sets_out;
-        sets_out.len = sets_ret.length();
+        sets_out.len = sets_ret.size();
         sets_out.data = static_cast<void*>(sets_arr);
         libqt_list /* of QBoxSet* */ sigval1 = sets_out;
         slotFunc(self, sigval1);

@@ -24,6 +24,7 @@ QBasicTimer* QBasicTimer_new();
 void QBasicTimer_Swap(QBasicTimer* self, QBasicTimer* other);
 bool QBasicTimer_IsActive(const QBasicTimer* self);
 int QBasicTimer_TimerId(const QBasicTimer* self);
+int QBasicTimer_Id(const QBasicTimer* self);
 void QBasicTimer_Start(QBasicTimer* self, int msec, QObject* obj);
 void QBasicTimer_Start2(QBasicTimer* self, int msec, int timerType, QObject* obj);
 void QBasicTimer_Stop(QBasicTimer* self);

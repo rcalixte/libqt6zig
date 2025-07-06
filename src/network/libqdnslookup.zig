@@ -385,6 +385,96 @@ pub const qdnstextrecord = struct {
     }
 };
 
+/// https://doc.qt.io/qt-6/qdnstlsassociationrecord.html
+pub const qdnstlsassociationrecord = struct {
+    /// New constructs a new QDnsTlsAssociationRecord object.
+    ///
+    ///
+    pub fn New() QtC.QDnsTlsAssociationRecord {
+        return qtc.QDnsTlsAssociationRecord_new();
+    }
+
+    /// New2 constructs a new QDnsTlsAssociationRecord object.
+    ///
+    /// ``` other: QtC.QDnsTlsAssociationRecord ```
+    pub fn New2(other: ?*anyopaque) QtC.QDnsTlsAssociationRecord {
+        return qtc.QDnsTlsAssociationRecord_new2(@ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#operator=)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord, other: QtC.QDnsTlsAssociationRecord ```
+    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QDnsTlsAssociationRecord_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#swap)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord, other: QtC.QDnsTlsAssociationRecord ```
+    pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QDnsTlsAssociationRecord_Swap(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#name)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord, allocator: std.mem.Allocator ```
+    pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QDnsTlsAssociationRecord_Name(@ptrCast(self));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnstlsassociationrecord.Name: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#timeToLive)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    pub fn TimeToLive(self: ?*anyopaque) u32 {
+        return qtc.QDnsTlsAssociationRecord_TimeToLive(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#usage)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    pub fn Usage(self: ?*anyopaque) i64 {
+        return qtc.QDnsTlsAssociationRecord_Usage(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#selector)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    pub fn Selector(self: ?*anyopaque) i64 {
+        return qtc.QDnsTlsAssociationRecord_Selector(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#matchType)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    pub fn MatchType(self: ?*anyopaque) i64 {
+        return qtc.QDnsTlsAssociationRecord_MatchType(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#value)
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord, allocator: std.mem.Allocator ```
+    pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QDnsTlsAssociationRecord_Value(@ptrCast(self));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdnstlsassociationrecord.Value: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#dtor.QDnsTlsAssociationRecord)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QDnsTlsAssociationRecord_Delete(@ptrCast(self));
+    }
+};
+
 /// https://doc.qt.io/qt-6/qdnslookup.html
 pub const qdnslookup = struct {
     /// New constructs a new QDnsLookup object.
@@ -420,33 +510,93 @@ pub const qdnslookup = struct {
 
     /// New4 constructs a new QDnsLookup object.
     ///
-    /// ``` parent: QtC.QObject ```
-    pub fn New4(parent: ?*anyopaque) QtC.QDnsLookup {
-        return qtc.QDnsLookup_new4(@ptrCast(parent));
+    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress, port: u16 ```
+    pub fn New4(typeVal: i64, name: []const u8, nameserver: ?*anyopaque, port: u16) QtC.QDnsLookup {
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+
+        return qtc.QDnsLookup_new4(@intCast(typeVal), name_str, @ptrCast(nameserver), @intCast(port));
     }
 
     /// New5 constructs a new QDnsLookup object.
     ///
-    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, parent: QtC.QObject ```
-    pub fn New5(typeVal: i64, name: []const u8, parent: ?*anyopaque) QtC.QDnsLookup {
+    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress ```
+    pub fn New5(typeVal: i64, name: []const u8, protocol: i64, nameserver: ?*anyopaque) QtC.QDnsLookup {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new5(@intCast(typeVal), name_str, @ptrCast(parent));
+        return qtc.QDnsLookup_new5(@intCast(typeVal), name_str, @intCast(protocol), @ptrCast(nameserver));
     }
 
     /// New6 constructs a new QDnsLookup object.
     ///
-    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress, parent: QtC.QObject ```
-    pub fn New6(typeVal: i64, name: []const u8, nameserver: ?*anyopaque, parent: ?*anyopaque) QtC.QDnsLookup {
+    /// ``` parent: QtC.QObject ```
+    pub fn New6(parent: ?*anyopaque) QtC.QDnsLookup {
+        return qtc.QDnsLookup_new6(@ptrCast(parent));
+    }
+
+    /// New7 constructs a new QDnsLookup object.
+    ///
+    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, parent: QtC.QObject ```
+    pub fn New7(typeVal: i64, name: []const u8, parent: ?*anyopaque) QtC.QDnsLookup {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
 
-        return qtc.QDnsLookup_new6(@intCast(typeVal), name_str, @ptrCast(nameserver), @ptrCast(parent));
+        return qtc.QDnsLookup_new7(@intCast(typeVal), name_str, @ptrCast(parent));
+    }
+
+    /// New8 constructs a new QDnsLookup object.
+    ///
+    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress, parent: QtC.QObject ```
+    pub fn New8(typeVal: i64, name: []const u8, nameserver: ?*anyopaque, parent: ?*anyopaque) QtC.QDnsLookup {
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+
+        return qtc.QDnsLookup_new8(@intCast(typeVal), name_str, @ptrCast(nameserver), @ptrCast(parent));
+    }
+
+    /// New9 constructs a new QDnsLookup object.
+    ///
+    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress, port: u16, parent: QtC.QObject ```
+    pub fn New9(typeVal: i64, name: []const u8, nameserver: ?*anyopaque, port: u16, parent: ?*anyopaque) QtC.QDnsLookup {
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+
+        return qtc.QDnsLookup_new9(@intCast(typeVal), name_str, @ptrCast(nameserver), @intCast(port), @ptrCast(parent));
+    }
+
+    /// New10 constructs a new QDnsLookup object.
+    ///
+    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress, port: u16 ```
+    pub fn New10(typeVal: i64, name: []const u8, protocol: i64, nameserver: ?*anyopaque, port: u16) QtC.QDnsLookup {
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+
+        return qtc.QDnsLookup_new10(@intCast(typeVal), name_str, @intCast(protocol), @ptrCast(nameserver), @intCast(port));
+    }
+
+    /// New11 constructs a new QDnsLookup object.
+    ///
+    /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress, port: u16, parent: QtC.QObject ```
+    pub fn New11(typeVal: i64, name: []const u8, protocol: i64, nameserver: ?*anyopaque, port: u16, parent: ?*anyopaque) QtC.QDnsLookup {
+        const name_str = qtc.struct_libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+
+        return qtc.QDnsLookup_new11(@intCast(typeVal), name_str, @intCast(protocol), @ptrCast(nameserver), @intCast(port), @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -491,6 +641,13 @@ pub const qdnslookup = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#isAuthenticData)
+    ///
+    /// ``` self: QtC.QDnsLookup ```
+    pub fn IsAuthenticData(self: ?*anyopaque) bool {
+        return qtc.QDnsLookup_IsAuthenticData(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#error)
@@ -566,6 +723,48 @@ pub const qdnslookup = struct {
     /// ``` self: QtC.QDnsLookup, nameserver: QtC.QHostAddress ```
     pub fn SetNameserver(self: ?*anyopaque, nameserver: ?*anyopaque) void {
         qtc.QDnsLookup_SetNameserver(@ptrCast(self), @ptrCast(nameserver));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPort)
+    ///
+    /// ``` self: QtC.QDnsLookup ```
+    pub fn NameserverPort(self: ?*anyopaque) u16 {
+        return qtc.QDnsLookup_NameserverPort(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverPort)
+    ///
+    /// ``` self: QtC.QDnsLookup, port: u16 ```
+    pub fn SetNameserverPort(self: ?*anyopaque, port: u16) void {
+        qtc.QDnsLookup_SetNameserverPort(@ptrCast(self), @intCast(port));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocol)
+    ///
+    /// ``` self: QtC.QDnsLookup ```
+    pub fn NameserverProtocol(self: ?*anyopaque) i64 {
+        return qtc.QDnsLookup_NameserverProtocol(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverProtocol)
+    ///
+    /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol ```
+    pub fn SetNameserverProtocol(self: ?*anyopaque, protocol: i64) void {
+        qtc.QDnsLookup_SetNameserverProtocol(@ptrCast(self), @intCast(protocol));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
+    ///
+    /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress ```
+    pub fn SetNameserver2(self: ?*anyopaque, protocol: i64, nameserver: ?*anyopaque) void {
+        qtc.QDnsLookup_SetNameserver2(@ptrCast(self), @intCast(protocol), @ptrCast(nameserver));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
+    ///
+    /// ``` self: QtC.QDnsLookup, nameserver: QtC.QHostAddress, port: u16 ```
+    pub fn SetNameserver3(self: ?*anyopaque, nameserver: ?*anyopaque, port: u16) void {
+        qtc.QDnsLookup_SetNameserver3(@ptrCast(self), @ptrCast(nameserver), @intCast(port));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#canonicalNameRecords)
@@ -652,6 +851,46 @@ pub const qdnslookup = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#tlsAssociationRecords)
+    ///
+    /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
+    pub fn TlsAssociationRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsTlsAssociationRecord {
+        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_TlsAssociationRecords(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QDnsTlsAssociationRecord, _arr.len) catch @panic("qdnslookup.TlsAssociationRecords: Memory allocation failed");
+        const _data: [*]QtC.QDnsTlsAssociationRecord = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setSslConfiguration)
+    ///
+    /// ``` self: QtC.QDnsLookup, sslConfiguration: QtC.QSslConfiguration ```
+    pub fn SetSslConfiguration(self: ?*anyopaque, sslConfiguration: ?*anyopaque) void {
+        qtc.QDnsLookup_SetSslConfiguration(@ptrCast(self), @ptrCast(sslConfiguration));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#sslConfiguration)
+    ///
+    /// ``` self: QtC.QDnsLookup ```
+    pub fn SslConfiguration(self: ?*anyopaque) QtC.QSslConfiguration {
+        return qtc.QDnsLookup_SslConfiguration(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#isProtocolSupported)
+    ///
+    /// ``` protocol: qdnslookup_enums.Protocol ```
+    pub fn IsProtocolSupported(protocol: i64) bool {
+        return qtc.QDnsLookup_IsProtocolSupported(@intCast(protocol));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#defaultPortForProtocol)
+    ///
+    /// ``` protocol: qdnslookup_enums.Protocol ```
+    pub fn DefaultPortForProtocol(protocol: i64) u16 {
+        return qtc.QDnsLookup_DefaultPortForProtocol(@intCast(protocol));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#abort)
     ///
     /// ``` self: QtC.QDnsLookup ```
@@ -726,6 +965,34 @@ pub const qdnslookup = struct {
         qtc.QDnsLookup_Connect_NameserverChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
+    ///
+    /// ``` self: QtC.QDnsLookup, port: u16 ```
+    pub fn NameserverPortChanged(self: ?*anyopaque, port: u16) void {
+        qtc.QDnsLookup_NameserverPortChanged(@ptrCast(self), @intCast(port));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
+    ///
+    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, port: u16) callconv(.c) void ```
+    pub fn OnNameserverPortChanged(self: ?*anyopaque, slot: fn (?*anyopaque, u16) callconv(.c) void) void {
+        qtc.QDnsLookup_Connect_NameserverPortChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
+    ///
+    /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol ```
+    pub fn NameserverProtocolChanged(self: ?*anyopaque, protocol: i64) void {
+        qtc.QDnsLookup_NameserverProtocolChanged(@ptrCast(self), @intCast(protocol));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
+    ///
+    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol) callconv(.c) void ```
+    pub fn OnNameserverProtocolChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.QDnsLookup_Connect_NameserverProtocolChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -750,6 +1017,13 @@ pub const qdnslookup = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
+    ///
+    /// ``` self: QtC.QDnsLookup, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress, port: u16 ```
+    pub fn SetNameserver32(self: ?*anyopaque, protocol: i64, nameserver: ?*anyopaque, port: u16) void {
+        qtc.QDnsLookup_SetNameserver32(@ptrCast(self), @intCast(protocol), @ptrCast(nameserver), @intCast(port));
     }
 
     /// Inherited from QObject
@@ -837,8 +1111,8 @@ pub const qdnslookup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QDnsLookup, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -857,6 +1131,15 @@ pub const qdnslookup = struct {
     /// ``` self: QtC.QDnsLookup, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QDnsLookup, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1062,6 +1345,15 @@ pub const qdnslookup = struct {
     /// ``` self: QtC.QDnsLookup ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QDnsLookup, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -1499,6 +1791,36 @@ pub const qdnslookup = struct {
 
 /// https://doc.qt.io/qt-6/qdnslookup.html#types
 pub const enums = struct {
+    pub const CertificateUsage = enum {
+        pub const CertificateAuthorityConstrait: u8 = 0;
+        pub const ServiceCertificateConstraint: u8 = 1;
+        pub const TrustAnchorAssertion: u8 = 2;
+        pub const DomainIssuedCertificate: u8 = 3;
+        pub const PrivateUse: u8 = 255;
+        pub const PKIX_TA: u8 = 0;
+        pub const PKIX_EE: u8 = 1;
+        pub const DANE_TA: u8 = 2;
+        pub const DANE_EE: u8 = 3;
+        pub const PrivCert: u8 = 255;
+    };
+
+    pub const Selector = enum {
+        pub const FullCertificate: u8 = 0;
+        pub const SubjectPublicKeyInfo: u8 = 1;
+        pub const PrivateUse: u8 = 255;
+        pub const Cert: u8 = 0;
+        pub const SPKI: u8 = 1;
+        pub const PrivSel: u8 = 255;
+    };
+
+    pub const MatchingType = enum {
+        pub const Exact: u8 = 0;
+        pub const Sha256: u8 = 1;
+        pub const Sha512: u8 = 2;
+        pub const PrivateUse: u8 = 255;
+        pub const PrivMatch: u8 = 255;
+    };
+
     pub const Error = enum {
         pub const NoError: i32 = 0;
         pub const ResolverError: i32 = 1;
@@ -1508,6 +1830,7 @@ pub const enums = struct {
         pub const ServerFailureError: i32 = 5;
         pub const ServerRefusedError: i32 = 6;
         pub const NotFoundError: i32 = 7;
+        pub const TimeoutError: i32 = 8;
     };
 
     pub const Type = enum {
@@ -1519,6 +1842,12 @@ pub const enums = struct {
         pub const NS: i32 = 2;
         pub const PTR: i32 = 12;
         pub const SRV: i32 = 33;
+        pub const TLSA: i32 = 52;
         pub const TXT: i32 = 16;
+    };
+
+    pub const Protocol = enum {
+        pub const Standard: u8 = 0;
+        pub const DnsOverTls: u8 = 1;
     };
 };

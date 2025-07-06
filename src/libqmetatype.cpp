@@ -95,6 +95,10 @@ bool QMetaType_IsRegistered2(const QMetaType* self) {
     return self->isRegistered();
 }
 
+void QMetaType_RegisterType(const QMetaType* self) {
+    self->registerType();
+}
+
 int QMetaType_Id(const QMetaType* self) {
     return self->id();
 }
@@ -143,6 +147,22 @@ bool QMetaType_Equals(const QMetaType* self, const void* lhs, const void* rhs) {
     return self->equals(lhs, rhs);
 }
 
+bool QMetaType_IsDefaultConstructible(const QMetaType* self) {
+    return self->isDefaultConstructible();
+}
+
+bool QMetaType_IsCopyConstructible(const QMetaType* self) {
+    return self->isCopyConstructible();
+}
+
+bool QMetaType_IsMoveConstructible(const QMetaType* self) {
+    return self->isMoveConstructible();
+}
+
+bool QMetaType_IsDestructible(const QMetaType* self) {
+    return self->isDestructible();
+}
+
 bool QMetaType_IsEqualityComparable(const QMetaType* self) {
     return self->isEqualityComparable();
 }
@@ -169,6 +189,10 @@ bool QMetaType_Save2(QDataStream* stream, int typeVal, const void* data) {
 
 bool QMetaType_Load2(QDataStream* stream, int typeVal, void* data) {
     return QMetaType::load(*stream, static_cast<int>(typeVal), data);
+}
+
+QMetaType* QMetaType_UnderlyingType(const QMetaType* self) {
+    return new QMetaType(self->underlyingType());
 }
 
 QMetaType* QMetaType_FromName(QByteArrayView* name) {

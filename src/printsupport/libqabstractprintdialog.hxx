@@ -81,6 +81,7 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     using QAbstractPrintDialog_SenderSignalIndex_Callback = int (*)();
     using QAbstractPrintDialog_Receivers_Callback = int (*)(const QAbstractPrintDialog*, const char*);
     using QAbstractPrintDialog_IsSignalConnected_Callback = bool (*)(const QAbstractPrintDialog*, QMetaMethod*);
+    using QAbstractPrintDialog_GetDecodedMetricF_Callback = double (*)(const QAbstractPrintDialog*, int, int);
 
   protected:
     // Instance callback storage
@@ -147,6 +148,7 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     QAbstractPrintDialog_SenderSignalIndex_Callback qabstractprintdialog_sendersignalindex_callback = nullptr;
     QAbstractPrintDialog_Receivers_Callback qabstractprintdialog_receivers_callback = nullptr;
     QAbstractPrintDialog_IsSignalConnected_Callback qabstractprintdialog_issignalconnected_callback = nullptr;
+    QAbstractPrintDialog_GetDecodedMetricF_Callback qabstractprintdialog_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qabstractprintdialog_metacall_isbase = false;
@@ -212,10 +214,11 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     mutable bool qabstractprintdialog_sendersignalindex_isbase = false;
     mutable bool qabstractprintdialog_receivers_isbase = false;
     mutable bool qabstractprintdialog_issignalconnected_isbase = false;
+    mutable bool qabstractprintdialog_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQAbstractPrintDialog(QPrinter* printer) : QAbstractPrintDialog(printer){};
-    VirtualQAbstractPrintDialog(QPrinter* printer, QWidget* parent) : QAbstractPrintDialog(printer, parent){};
+    VirtualQAbstractPrintDialog(QPrinter* printer) : QAbstractPrintDialog(printer) {};
+    VirtualQAbstractPrintDialog(QPrinter* printer, QWidget* parent) : QAbstractPrintDialog(printer, parent) {};
 
     ~VirtualQAbstractPrintDialog() {
         qabstractprintdialog_metacall_callback = nullptr;
@@ -281,6 +284,7 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
         qabstractprintdialog_sendersignalindex_callback = nullptr;
         qabstractprintdialog_receivers_callback = nullptr;
         qabstractprintdialog_issignalconnected_callback = nullptr;
+        qabstractprintdialog_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -347,6 +351,7 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     inline void setQAbstractPrintDialog_SenderSignalIndex_Callback(QAbstractPrintDialog_SenderSignalIndex_Callback cb) { qabstractprintdialog_sendersignalindex_callback = cb; }
     inline void setQAbstractPrintDialog_Receivers_Callback(QAbstractPrintDialog_Receivers_Callback cb) { qabstractprintdialog_receivers_callback = cb; }
     inline void setQAbstractPrintDialog_IsSignalConnected_Callback(QAbstractPrintDialog_IsSignalConnected_Callback cb) { qabstractprintdialog_issignalconnected_callback = cb; }
+    inline void setQAbstractPrintDialog_GetDecodedMetricF_Callback(QAbstractPrintDialog_GetDecodedMetricF_Callback cb) { qabstractprintdialog_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQAbstractPrintDialog_Metacall_IsBase(bool value) const { qabstractprintdialog_metacall_isbase = value; }
@@ -412,6 +417,7 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     inline void setQAbstractPrintDialog_SenderSignalIndex_IsBase(bool value) const { qabstractprintdialog_sendersignalindex_isbase = value; }
     inline void setQAbstractPrintDialog_Receivers_IsBase(bool value) const { qabstractprintdialog_receivers_isbase = value; }
     inline void setQAbstractPrintDialog_IsSignalConnected_IsBase(bool value) const { qabstractprintdialog_issignalconnected_isbase = value; }
+    inline void setQAbstractPrintDialog_GetDecodedMetricF_IsBase(bool value) const { qabstractprintdialog_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -1301,6 +1307,22 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qabstractprintdialog_getdecodedmetricf_isbase) {
+            qabstractprintdialog_getdecodedmetricf_isbase = false;
+            return QAbstractPrintDialog::getDecodedMetricF(metricA, metricB);
+        } else if (qabstractprintdialog_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qabstractprintdialog_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QAbstractPrintDialog::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend void QAbstractPrintDialog_KeyPressEvent(QAbstractPrintDialog* self, QKeyEvent* param1);
     friend void QAbstractPrintDialog_QBaseKeyPressEvent(QAbstractPrintDialog* self, QKeyEvent* param1);
@@ -1400,6 +1422,8 @@ class VirtualQAbstractPrintDialog final : public QAbstractPrintDialog {
     friend int QAbstractPrintDialog_QBaseReceivers(const QAbstractPrintDialog* self, const char* signal);
     friend bool QAbstractPrintDialog_IsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
     friend bool QAbstractPrintDialog_QBaseIsSignalConnected(const QAbstractPrintDialog* self, const QMetaMethod* signal);
+    friend double QAbstractPrintDialog_GetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB);
+    friend double QAbstractPrintDialog_QBaseGetDecodedMetricF(const QAbstractPrintDialog* self, int metricA, int metricB);
 };
 
 #endif

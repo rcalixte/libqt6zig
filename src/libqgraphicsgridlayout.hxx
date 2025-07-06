@@ -64,8 +64,8 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
     mutable bool qgraphicsgridlayout_setownedbylayout_isbase = false;
 
   public:
-    VirtualQGraphicsGridLayout() : QGraphicsGridLayout(){};
-    VirtualQGraphicsGridLayout(QGraphicsLayoutItem* parent) : QGraphicsGridLayout(parent){};
+    VirtualQGraphicsGridLayout() : QGraphicsGridLayout() {};
+    VirtualQGraphicsGridLayout(QGraphicsLayoutItem* parent) : QGraphicsGridLayout(parent) {};
 
     ~VirtualQGraphicsGridLayout() {
         qgraphicsgridlayout_count_callback = nullptr;

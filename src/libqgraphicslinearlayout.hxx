@@ -64,10 +64,10 @@ class VirtualQGraphicsLinearLayout final : public QGraphicsLinearLayout {
     mutable bool qgraphicslinearlayout_setownedbylayout_isbase = false;
 
   public:
-    VirtualQGraphicsLinearLayout() : QGraphicsLinearLayout(){};
-    VirtualQGraphicsLinearLayout(Qt::Orientation orientation) : QGraphicsLinearLayout(orientation){};
-    VirtualQGraphicsLinearLayout(QGraphicsLayoutItem* parent) : QGraphicsLinearLayout(parent){};
-    VirtualQGraphicsLinearLayout(Qt::Orientation orientation, QGraphicsLayoutItem* parent) : QGraphicsLinearLayout(orientation, parent){};
+    VirtualQGraphicsLinearLayout() : QGraphicsLinearLayout() {};
+    VirtualQGraphicsLinearLayout(Qt::Orientation orientation) : QGraphicsLinearLayout(orientation) {};
+    VirtualQGraphicsLinearLayout(QGraphicsLayoutItem* parent) : QGraphicsLinearLayout(parent) {};
+    VirtualQGraphicsLinearLayout(Qt::Orientation orientation, QGraphicsLayoutItem* parent) : QGraphicsLinearLayout(orientation, parent) {};
 
     ~VirtualQGraphicsLinearLayout() {
         qgraphicslinearlayout_removeat_callback = nullptr;

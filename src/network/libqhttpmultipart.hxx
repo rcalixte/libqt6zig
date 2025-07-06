@@ -61,10 +61,10 @@ class VirtualQHttpMultiPart final : public QHttpMultiPart {
     mutable bool qhttpmultipart_issignalconnected_isbase = false;
 
   public:
-    VirtualQHttpMultiPart() : QHttpMultiPart(){};
-    VirtualQHttpMultiPart(QHttpMultiPart::ContentType contentType) : QHttpMultiPart(contentType){};
-    VirtualQHttpMultiPart(QObject* parent) : QHttpMultiPart(parent){};
-    VirtualQHttpMultiPart(QHttpMultiPart::ContentType contentType, QObject* parent) : QHttpMultiPart(contentType, parent){};
+    VirtualQHttpMultiPart() : QHttpMultiPart() {};
+    VirtualQHttpMultiPart(QHttpMultiPart::ContentType contentType) : QHttpMultiPart(contentType) {};
+    VirtualQHttpMultiPart(QObject* parent) : QHttpMultiPart(parent) {};
+    VirtualQHttpMultiPart(QHttpMultiPart::ContentType contentType, QObject* parent) : QHttpMultiPart(contentType, parent) {};
 
     ~VirtualQHttpMultiPart() {
         qhttpmultipart_metacall_callback = nullptr;

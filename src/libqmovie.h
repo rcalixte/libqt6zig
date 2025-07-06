@@ -31,14 +31,6 @@ typedef struct QSize QSize;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QMovie::CacheMode CacheMode;   // C++ enum
-typedef QMovie::MovieState MovieState; // C++ enum
-#else
-typedef int CacheMode;  // C ABI enum
-typedef int MovieState; // C ABI enum
-#endif
-
 QMovie* QMovie_new();
 QMovie* QMovie_new2(QIODevice* device);
 QMovie* QMovie_new3(const libqt_string fileName);

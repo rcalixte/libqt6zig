@@ -256,16 +256,16 @@ pub const qmetamethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
     ///
-    /// ``` self: QtC.QMetaMethod, object: QtC.QObject, connectionType: qnamespace_enums.ConnectionType ```
-    pub fn Invoke3(self: ?*anyopaque, object: ?*anyopaque, connectionType: i64) bool {
-        return qtc.QMetaMethod_Invoke3(@ptrCast(self), @ptrCast(object), @intCast(connectionType));
+    /// ``` self: QtC.QMetaMethod, object: QtC.QObject, connectionType: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument ```
+    pub fn Invoke3(self: ?*anyopaque, object: ?*anyopaque, connectionType: i64, val0: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_Invoke3(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
     ///
-    /// ``` self: QtC.QMetaMethod, object: QtC.QObject ```
-    pub fn InvokeWithObject(self: ?*anyopaque, object: ?*anyopaque) bool {
-        return qtc.QMetaMethod_InvokeWithObject(@ptrCast(self), @ptrCast(object));
+    /// ``` self: QtC.QMetaMethod, object: QtC.QObject, val0: QtC.QGenericArgument ```
+    pub fn Invoke4(self: ?*anyopaque, object: ?*anyopaque, val0: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_Invoke4(@ptrCast(self), @ptrCast(object), @ptrCast(val0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
@@ -277,9 +277,9 @@ pub const qmetamethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
-    /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque ```
-    pub fn InvokeOnGadgetWithGadget(self: ?*anyopaque, gadget: ?*anyopaque) bool {
-        return qtc.QMetaMethod_InvokeOnGadgetWithGadget(@ptrCast(self), gadget);
+    /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument ```
+    pub fn InvokeOnGadget2(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_InvokeOnGadget2(@ptrCast(self), gadget, @ptrCast(val0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#isValid)
@@ -292,8 +292,8 @@ pub const qmetamethod = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
     ///
     /// ``` self: QtC.QMetaMethod, object: QtC.QObject, connectionType: qnamespace_enums.ConnectionType, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument ```
-    pub fn Invoke4(self: ?*anyopaque, object: ?*anyopaque, connectionType: i64, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke4(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0));
+    pub fn Invoke42(self: ?*anyopaque, object: ?*anyopaque, connectionType: i64, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_Invoke42(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(returnValue), @ptrCast(val0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -369,8 +369,8 @@ pub const qmetamethod = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
     ///
     /// ``` self: QtC.QMetaMethod, object: QtC.QObject, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
-    pub fn Invoke42(self: ?*anyopaque, object: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke42(@ptrCast(self), @ptrCast(object), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1));
+    pub fn Invoke43(self: ?*anyopaque, object: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_Invoke43(@ptrCast(self), @ptrCast(object), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -431,16 +431,9 @@ pub const qmetamethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
     ///
-    /// ``` self: QtC.QMetaMethod, object: QtC.QObject, connectionType: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument ```
-    pub fn Invoke33(self: ?*anyopaque, object: ?*anyopaque, connectionType: i64, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke33(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
-    ///
     /// ``` self: QtC.QMetaMethod, object: QtC.QObject, connectionType: qnamespace_enums.ConnectionType, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
-    pub fn Invoke43(self: ?*anyopaque, object: ?*anyopaque, connectionType: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke43(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1));
+    pub fn Invoke44(self: ?*anyopaque, object: ?*anyopaque, connectionType: i64, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_Invoke44(@ptrCast(self), @ptrCast(object), @intCast(connectionType), @ptrCast(val0), @ptrCast(val1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -501,23 +494,16 @@ pub const qmetamethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
     ///
-    /// ``` self: QtC.QMetaMethod, object: QtC.QObject, val0: QtC.QGenericArgument ```
-    pub fn Invoke22(self: ?*anyopaque, object: ?*anyopaque, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke22(@ptrCast(self), @ptrCast(object), @ptrCast(val0));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
-    ///
     /// ``` self: QtC.QMetaMethod, object: QtC.QObject, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
-    pub fn Invoke34(self: ?*anyopaque, object: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke34(@ptrCast(self), @ptrCast(object), @ptrCast(val0), @ptrCast(val1));
+    pub fn Invoke33(self: ?*anyopaque, object: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_Invoke33(@ptrCast(self), @ptrCast(object), @ptrCast(val0), @ptrCast(val1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
     ///
     /// ``` self: QtC.QMetaMethod, object: QtC.QObject, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument ```
-    pub fn Invoke44(self: ?*anyopaque, object: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_Invoke44(@ptrCast(self), @ptrCast(object), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
+    pub fn Invoke45(self: ?*anyopaque, object: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
+        return qtc.QMetaMethod_Invoke45(@ptrCast(self), @ptrCast(object), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invoke)
@@ -637,13 +623,6 @@ pub const qmetamethod = struct {
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument ```
     pub fn InvokeOnGadget12(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
         return qtc.QMetaMethod_InvokeOnGadget12(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
-    ///
-    /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument ```
-    pub fn InvokeOnGadget2(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget2(@ptrCast(self), gadget, @ptrCast(val0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
@@ -777,6 +756,13 @@ pub const qmetaenum = struct {
     pub fn EnumName(self: ?*anyopaque) []const u8 {
         const _ret = qtc.QMetaEnum_EnumName(@ptrCast(self));
         return std.mem.span(_ret);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaenum.html#metaType)
+    ///
+    /// ``` self: QtC.QMetaEnum ```
+    pub fn MetaType(self: ?*anyopaque) QtC.QMetaType {
+        return qtc.QMetaEnum_MetaType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaenum.html#isFlag)
@@ -1227,6 +1213,13 @@ pub const qmetaclassinfo = struct {
     ///
     pub fn New3() QtC.QMetaClassInfo {
         return qtc.QMetaClassInfo_new3();
+    }
+
+    /// New4 constructs a new QMetaClassInfo object.
+    ///
+    /// ``` param1: QtC.QMetaClassInfo ```
+    pub fn New4(param1: ?*anyopaque) QtC.QMetaClassInfo {
+        return qtc.QMetaClassInfo_new4(@ptrCast(param1));
     }
 
     /// CopyAssign shallow copies `other` into `self`.

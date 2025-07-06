@@ -66,6 +66,8 @@ QSvgRenderer* QSvgWidget_Renderer(const QSvgWidget* self);
 QSize* QSvgWidget_SizeHint(const QSvgWidget* self);
 void QSvgWidget_OnSizeHint(const QSvgWidget* self, intptr_t slot);
 QSize* QSvgWidget_QBaseSizeHint(const QSvgWidget* self);
+int QSvgWidget_Options(const QSvgWidget* self);
+void QSvgWidget_SetOptions(QSvgWidget* self, int options);
 void QSvgWidget_Load(QSvgWidget* self, const libqt_string file);
 void QSvgWidget_LoadWithContents(QSvgWidget* self, const libqt_string contents);
 void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event);
@@ -235,6 +237,9 @@ int QSvgWidget_QBaseReceivers(const QSvgWidget* self, const char* signal);
 bool QSvgWidget_IsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal);
 void QSvgWidget_OnIsSignalConnected(const QSvgWidget* self, intptr_t slot);
 bool QSvgWidget_QBaseIsSignalConnected(const QSvgWidget* self, const QMetaMethod* signal);
+double QSvgWidget_GetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB);
+void QSvgWidget_OnGetDecodedMetricF(const QSvgWidget* self, intptr_t slot);
+double QSvgWidget_QBaseGetDecodedMetricF(const QSvgWidget* self, int metricA, int metricB);
 void QSvgWidget_Delete(QSvgWidget* self);
 
 #ifdef __cplusplus

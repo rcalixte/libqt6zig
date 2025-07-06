@@ -170,6 +170,12 @@ void QsciLexerHTML_QBaseConnectNotify(QsciLexerHTML* self, const QMetaMethod* si
 void QsciLexerHTML_DisconnectNotify(QsciLexerHTML* self, const QMetaMethod* signal);
 void QsciLexerHTML_OnDisconnectNotify(QsciLexerHTML* self, intptr_t slot);
 void QsciLexerHTML_QBaseDisconnectNotify(QsciLexerHTML* self, const QMetaMethod* signal);
+libqt_string QsciLexerHTML_TextAsBytes(const QsciLexerHTML* self, const libqt_string text);
+void QsciLexerHTML_OnTextAsBytes(const QsciLexerHTML* self, intptr_t slot);
+libqt_string QsciLexerHTML_QBaseTextAsBytes(const QsciLexerHTML* self, const libqt_string text);
+libqt_string QsciLexerHTML_BytesAsText(const QsciLexerHTML* self, const char* bytes, int size);
+void QsciLexerHTML_OnBytesAsText(const QsciLexerHTML* self, intptr_t slot);
+libqt_string QsciLexerHTML_QBaseBytesAsText(const QsciLexerHTML* self, const char* bytes, int size);
 QObject* QsciLexerHTML_Sender(const QsciLexerHTML* self);
 void QsciLexerHTML_OnSender(const QsciLexerHTML* self, intptr_t slot);
 QObject* QsciLexerHTML_QBaseSender(const QsciLexerHTML* self);

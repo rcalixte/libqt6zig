@@ -251,6 +251,9 @@ int QGroupBox_QBaseReceivers(const QGroupBox* self, const char* signal);
 bool QGroupBox_IsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
 void QGroupBox_OnIsSignalConnected(const QGroupBox* self, intptr_t slot);
 bool QGroupBox_QBaseIsSignalConnected(const QGroupBox* self, const QMetaMethod* signal);
+double QGroupBox_GetDecodedMetricF(const QGroupBox* self, int metricA, int metricB);
+void QGroupBox_OnGetDecodedMetricF(const QGroupBox* self, intptr_t slot);
+double QGroupBox_QBaseGetDecodedMetricF(const QGroupBox* self, int metricA, int metricB);
 void QGroupBox_Delete(QGroupBox* self);
 
 #ifdef __cplusplus

@@ -20,23 +20,18 @@ typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
 typedef struct QMetaObject QMetaObject;
+typedef struct QNativeIpcKey QNativeIpcKey;
 typedef struct QObject QObject;
 typedef struct QSharedMemory QSharedMemory;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QSharedMemory::AccessMode AccessMode;               // C++ enum
-typedef QSharedMemory::SharedMemoryError SharedMemoryError; // C++ enum
-#else
-typedef int AccessMode;        // C ABI enum
-typedef int SharedMemoryError; // C ABI enum
-#endif
-
 QSharedMemory* QSharedMemory_new();
-QSharedMemory* QSharedMemory_new2(const libqt_string key);
-QSharedMemory* QSharedMemory_new3(QObject* parent);
-QSharedMemory* QSharedMemory_new4(const libqt_string key, QObject* parent);
+QSharedMemory* QSharedMemory_new2(const QNativeIpcKey* key);
+QSharedMemory* QSharedMemory_new3(const libqt_string key);
+QSharedMemory* QSharedMemory_new4(QObject* parent);
+QSharedMemory* QSharedMemory_new5(const QNativeIpcKey* key, QObject* parent);
+QSharedMemory* QSharedMemory_new6(const libqt_string key, QObject* parent);
 QMetaObject* QSharedMemory_MetaObject(const QSharedMemory* self);
 void* QSharedMemory_Metacast(QSharedMemory* self, const char* param1);
 int QSharedMemory_Metacall(QSharedMemory* self, int param1, int param2, void** param3);
@@ -45,8 +40,10 @@ int QSharedMemory_QBaseMetacall(QSharedMemory* self, int param1, int param2, voi
 libqt_string QSharedMemory_Tr(const char* s);
 void QSharedMemory_SetKey(QSharedMemory* self, const libqt_string key);
 libqt_string QSharedMemory_Key(const QSharedMemory* self);
-void QSharedMemory_SetNativeKey(QSharedMemory* self, const libqt_string key);
+void QSharedMemory_SetNativeKey(QSharedMemory* self, const QNativeIpcKey* key);
+void QSharedMemory_SetNativeKeyWithKey(QSharedMemory* self, const libqt_string key);
 libqt_string QSharedMemory_NativeKey(const QSharedMemory* self);
+QNativeIpcKey* QSharedMemory_NativeIpcKey(const QSharedMemory* self);
 bool QSharedMemory_Create(QSharedMemory* self, ptrdiff_t size);
 ptrdiff_t QSharedMemory_Size(const QSharedMemory* self);
 bool QSharedMemory_Attach(QSharedMemory* self);
@@ -59,10 +56,16 @@ bool QSharedMemory_Lock(QSharedMemory* self);
 bool QSharedMemory_Unlock(QSharedMemory* self);
 int QSharedMemory_Error(const QSharedMemory* self);
 libqt_string QSharedMemory_ErrorString(const QSharedMemory* self);
+bool QSharedMemory_IsKeyTypeSupported(uint16_t typeVal);
+QNativeIpcKey* QSharedMemory_PlatformSafeKey(const libqt_string key);
+QNativeIpcKey* QSharedMemory_LegacyNativeKey(const libqt_string key);
 libqt_string QSharedMemory_Tr2(const char* s, const char* c);
 libqt_string QSharedMemory_Tr3(const char* s, const char* c, int n);
+void QSharedMemory_SetNativeKey2(QSharedMemory* self, const libqt_string key, uint16_t typeVal);
 bool QSharedMemory_Create2(QSharedMemory* self, ptrdiff_t size, int mode);
 bool QSharedMemory_Attach1(QSharedMemory* self, int mode);
+QNativeIpcKey* QSharedMemory_PlatformSafeKey2(const libqt_string key, uint16_t typeVal);
+QNativeIpcKey* QSharedMemory_LegacyNativeKey2(const libqt_string key, uint16_t typeVal);
 bool QSharedMemory_Event(QSharedMemory* self, QEvent* event);
 void QSharedMemory_OnEvent(QSharedMemory* self, intptr_t slot);
 bool QSharedMemory_QBaseEvent(QSharedMemory* self, QEvent* event);

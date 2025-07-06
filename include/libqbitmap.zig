@@ -48,22 +48,15 @@ pub const qbitmap = struct {
 
     /// New6 constructs a new QBitmap object.
     ///
-    /// ``` param1: QtC.QBitmap ```
-    pub fn New6(param1: ?*anyopaque) QtC.QBitmap {
-        return qtc.QBitmap_new6(@ptrCast(param1));
-    }
-
-    /// New7 constructs a new QBitmap object.
-    ///
     /// ``` fileName: []const u8, format: []const u8 ```
-    pub fn New7(fileName: []const u8, format: []const u8) QtC.QBitmap {
+    pub fn New6(fileName: []const u8, format: []const u8) QtC.QBitmap {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
 
-        return qtc.QBitmap_new7(fileName_str, format_Cstring);
+        return qtc.QBitmap_new6(fileName_str, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator=)
@@ -855,6 +848,15 @@ pub const qbitmap = struct {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
 
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
+    }
+
     /// Inherited from QPixmap
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#devType)
@@ -1051,6 +1053,39 @@ pub const qbitmap = struct {
     /// ``` self: QtC.QBitmap, slot: fn () callconv(.c) QtC.QPainter ```
     pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
         qtc.QBitmap_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QBitmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QBitmap_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QBitmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QBitmap_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QBitmap, slot: fn (self: QtC.QBitmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QBitmap_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#dtor.QBitmap)

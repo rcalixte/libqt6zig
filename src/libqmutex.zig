@@ -71,6 +71,13 @@ pub const qmutex = struct {
         return qtc.QMutex_TryLockWithTimeout(@ptrCast(self), @intCast(timeout));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmutex.html#tryLock)
+    ///
+    /// ``` self: QtC.QMutex, timeout: QtC.QDeadlineTimer ```
+    pub fn TryLock2(self: ?*anyopaque, timeout: QtC.QDeadlineTimer) bool {
+        return qtc.QMutex_TryLock2(@ptrCast(self), @ptrCast(timeout));
+    }
+
     /// Inherited from QBasicMutex
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#lock)
@@ -87,15 +94,6 @@ pub const qmutex = struct {
     /// ``` self: QtC.QMutex ```
     pub fn Unlock(self: ?*anyopaque) void {
         qtc.QBasicMutex_Unlock(@ptrCast(self));
-    }
-
-    /// Inherited from QBasicMutex
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbasicmutex.html#try_lock)
-    ///
-    /// ``` self: QtC.QMutex ```
-    pub fn TryLock2(self: ?*anyopaque) bool {
-        return qtc.QBasicMutex_TryLock2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmutex.html#dtor.QMutex)
@@ -126,9 +124,16 @@ pub const qrecursivemutex = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock)
     ///
+    /// ``` self: QtC.QRecursiveMutex, timeout: i32 ```
+    pub fn TryLock(self: ?*anyopaque, timeout: i32) bool {
+        return qtc.QRecursiveMutex_TryLock(@ptrCast(self), @intCast(timeout));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock)
+    ///
     /// ``` self: QtC.QRecursiveMutex ```
-    pub fn TryLock(self: ?*anyopaque) bool {
-        return qtc.QRecursiveMutex_TryLock(@ptrCast(self));
+    pub fn TryLock2(self: ?*anyopaque) bool {
+        return qtc.QRecursiveMutex_TryLock2(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#unlock)
@@ -141,15 +146,15 @@ pub const qrecursivemutex = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#try_lock)
     ///
     /// ``` self: QtC.QRecursiveMutex ```
-    pub fn TryLock2(self: ?*anyopaque) bool {
-        return qtc.QRecursiveMutex_TryLock2(@ptrCast(self));
+    pub fn TryLock3(self: ?*anyopaque) bool {
+        return qtc.QRecursiveMutex_TryLock3(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#tryLock)
     ///
-    /// ``` self: QtC.QRecursiveMutex, timeout: i32 ```
-    pub fn TryLock1(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QRecursiveMutex_TryLock1(@ptrCast(self), @intCast(timeout));
+    /// ``` self: QtC.QRecursiveMutex, timer: QtC.QDeadlineTimer ```
+    pub fn TryLock1(self: ?*anyopaque, timer: QtC.QDeadlineTimer) bool {
+        return qtc.QRecursiveMutex_TryLock1(@ptrCast(self), @ptrCast(timer));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrecursivemutex.html#dtor.QRecursiveMutex)

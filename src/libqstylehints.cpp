@@ -90,6 +90,10 @@ int QStyleHints_KeyboardAutoRepeatRate(const QStyleHints* self) {
     return self->keyboardAutoRepeatRate();
 }
 
+double QStyleHints_KeyboardAutoRepeatRateF(const QStyleHints* self) {
+    return static_cast<double>(self->keyboardAutoRepeatRateF());
+}
+
 void QStyleHints_SetCursorFlashTime(QStyleHints* self, int cursorFlashTime) {
     self->setCursorFlashTime(static_cast<int>(cursorFlashTime));
 }
@@ -112,6 +116,14 @@ bool QStyleHints_ShowShortcutsInContextMenus(const QStyleHints* self) {
 
 void QStyleHints_SetShowShortcutsInContextMenus(QStyleHints* self, bool showShortcutsInContextMenus) {
     self->setShowShortcutsInContextMenus(showShortcutsInContextMenus);
+}
+
+int QStyleHints_ContextMenuTrigger(const QStyleHints* self) {
+    return static_cast<int>(self->contextMenuTrigger());
+}
+
+void QStyleHints_SetContextMenuTrigger(QStyleHints* self, int contextMenuTrigger) {
+    self->setContextMenuTrigger(static_cast<Qt::ContextMenuTrigger>(contextMenuTrigger));
 }
 
 int QStyleHints_PasswordMaskDelay(const QStyleHints* self) {
@@ -168,6 +180,18 @@ void QStyleHints_SetMouseQuickSelectionThreshold(QStyleHints* self, int threshol
 
 int QStyleHints_MouseQuickSelectionThreshold(const QStyleHints* self) {
     return self->mouseQuickSelectionThreshold();
+}
+
+int QStyleHints_ColorScheme(const QStyleHints* self) {
+    return static_cast<int>(self->colorScheme());
+}
+
+void QStyleHints_SetColorScheme(QStyleHints* self, int scheme) {
+    self->setColorScheme(static_cast<Qt::ColorScheme>(scheme));
+}
+
+void QStyleHints_UnsetColorScheme(QStyleHints* self) {
+    self->unsetColorScheme();
 }
 
 void QStyleHints_CursorFlashTimeChanged(QStyleHints* self, int cursorFlashTime) {
@@ -278,6 +302,18 @@ void QStyleHints_Connect_ShowShortcutsInContextMenusChanged(QStyleHints* self, i
     });
 }
 
+void QStyleHints_ContextMenuTriggerChanged(QStyleHints* self, int contextMenuTrigger) {
+    self->contextMenuTriggerChanged(static_cast<Qt::ContextMenuTrigger>(contextMenuTrigger));
+}
+
+void QStyleHints_Connect_ContextMenuTriggerChanged(QStyleHints* self, intptr_t slot) {
+    void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
+    QStyleHints::connect(self, &QStyleHints::contextMenuTriggerChanged, [self, slotFunc](Qt::ContextMenuTrigger contextMenuTrigger) {
+        int sigval1 = static_cast<int>(contextMenuTrigger);
+        slotFunc(self, sigval1);
+    });
+}
+
 void QStyleHints_WheelScrollLinesChanged(QStyleHints* self, int scrollLines) {
     self->wheelScrollLinesChanged(static_cast<int>(scrollLines));
 }
@@ -298,6 +334,18 @@ void QStyleHints_Connect_MouseQuickSelectionThresholdChanged(QStyleHints* self, 
     void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
     QStyleHints::connect(self, &QStyleHints::mouseQuickSelectionThresholdChanged, [self, slotFunc](int threshold) {
         int sigval1 = threshold;
+        slotFunc(self, sigval1);
+    });
+}
+
+void QStyleHints_ColorSchemeChanged(QStyleHints* self, int colorScheme) {
+    self->colorSchemeChanged(static_cast<Qt::ColorScheme>(colorScheme));
+}
+
+void QStyleHints_Connect_ColorSchemeChanged(QStyleHints* self, intptr_t slot) {
+    void (*slotFunc)(QStyleHints*, int) = reinterpret_cast<void (*)(QStyleHints*, int)>(slot);
+    QStyleHints::connect(self, &QStyleHints::colorSchemeChanged, [self, slotFunc](Qt::ColorScheme colorScheme) {
+        int sigval1 = static_cast<int>(colorScheme);
         slotFunc(self, sigval1);
     });
 }

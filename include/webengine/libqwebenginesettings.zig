@@ -119,6 +119,27 @@ pub const qwebenginesettings = struct {
         qtc.QWebEngineSettings_ResetUnknownUrlSchemePolicy(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#setImageAnimationPolicy)
+    ///
+    /// ``` self: QtC.QWebEngineSettings, policy: qwebenginesettings_enums.ImageAnimationPolicy ```
+    pub fn SetImageAnimationPolicy(self: ?*anyopaque, policy: i64) void {
+        qtc.QWebEngineSettings_SetImageAnimationPolicy(@ptrCast(self), @intCast(policy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#imageAnimationPolicy)
+    ///
+    /// ``` self: QtC.QWebEngineSettings ```
+    pub fn ImageAnimationPolicy(self: ?*anyopaque) i64 {
+        return qtc.QWebEngineSettings_ImageAnimationPolicy(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#resetImageAnimationPolicy)
+    ///
+    /// ``` self: QtC.QWebEngineSettings ```
+    pub fn ResetImageAnimationPolicy(self: ?*anyopaque) void {
+        qtc.QWebEngineSettings_ResetImageAnimationPolicy(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#dtor.QWebEngineSettings)
     ///
     /// Delete this object from C++ memory.
@@ -174,6 +195,8 @@ pub const enums = struct {
         pub const DnsPrefetchEnabled: i32 = 29;
         pub const PdfViewerEnabled: i32 = 30;
         pub const NavigateOnDropEnabled: i32 = 31;
+        pub const ReadingFromCanvasEnabled: i32 = 32;
+        pub const ForceDarkMode: i32 = 33;
     };
 
     pub const FontSize = enum {
@@ -188,5 +211,12 @@ pub const enums = struct {
         pub const DisallowUnknownUrlSchemes: i32 = 1;
         pub const AllowUnknownUrlSchemesFromUserInteraction: i32 = 2;
         pub const AllowAllUnknownUrlSchemes: i32 = 3;
+    };
+
+    pub const ImageAnimationPolicy = enum {
+        pub const Inherited: u8 = 0;
+        pub const Allow: u8 = 1;
+        pub const AnimateOnce: u8 = 2;
+        pub const Disallow: u8 = 3;
     };
 };

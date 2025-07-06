@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qregion_enums = enums;
+const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qregion.html
 pub const qregion = struct {
@@ -219,6 +220,29 @@ pub const qregion = struct {
     /// ``` self: QtC.QRegion, rect: QtC.QRect, num: i32 ```
     pub fn SetRects(self: ?*anyopaque, rect: ?*anyopaque, num: i32) void {
         qtc.QRegion_SetRects(@ptrCast(self), @ptrCast(rect), @intCast(num));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#setRects)
+    ///
+    /// ``` self: QtC.QRegion, r: []QtC.QRect ```
+    pub fn SetRectsWithQSpanLesserconstQRectGreater(self: ?*anyopaque, r: []QtC.QRect) void {
+        const r_list = qtc.struct_libqt_list{
+            .len = r.len,
+            .data = @ptrCast(r.ptr),
+        };
+        qtc.QRegion_SetRectsWithQSpanLesserconstQRectGreater(@ptrCast(self), r_list);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#rects)
+    ///
+    /// ``` self: QtC.QRegion, allocator: std.mem.Allocator ```
+    pub fn Rects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QRect {
+        const _arr: qtc.struct_libqt_list = qtc.QRegion_Rects(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QRect, _arr.len) catch @panic("qregion.Rects: Memory allocation failed");
+        const _data: [*]QtC.QRect = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#rectCount)

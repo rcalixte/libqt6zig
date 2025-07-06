@@ -26,14 +26,6 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QLocalServer::SocketOption SocketOption;   // C++ enum
-typedef QLocalServer::SocketOptions SocketOptions; // C++ QFlags
-#else
-typedef int SocketOption;  // C ABI enum
-typedef int SocketOptions; // C ABI QFlags
-#endif
-
 QLocalServer* QLocalServer_new();
 QLocalServer* QLocalServer_new2(QObject* parent);
 QMetaObject* QLocalServer_MetaObject(const QLocalServer* self);
@@ -95,6 +87,9 @@ void QLocalServer_QBaseConnectNotify(QLocalServer* self, const QMetaMethod* sign
 void QLocalServer_DisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
 void QLocalServer_OnDisconnectNotify(QLocalServer* self, intptr_t slot);
 void QLocalServer_QBaseDisconnectNotify(QLocalServer* self, const QMetaMethod* signal);
+void QLocalServer_AddPendingConnection(QLocalServer* self, QLocalSocket* socket);
+void QLocalServer_OnAddPendingConnection(QLocalServer* self, intptr_t slot);
+void QLocalServer_QBaseAddPendingConnection(QLocalServer* self, QLocalSocket* socket);
 QObject* QLocalServer_Sender(const QLocalServer* self);
 void QLocalServer_OnSender(const QLocalServer* self, intptr_t slot);
 QObject* QLocalServer_QBaseSender(const QLocalServer* self);

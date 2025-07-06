@@ -27,18 +27,6 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QLocalSocket::LocalSocketError LocalSocketError; // C++ enum
-typedef QLocalSocket::LocalSocketState LocalSocketState; // C++ enum
-typedef QLocalSocket::SocketOption SocketOption;         // C++ enum
-typedef QLocalSocket::SocketOptions SocketOptions;       // C++ QFlags
-#else
-typedef int LocalSocketError; // C ABI enum
-typedef int LocalSocketState; // C ABI enum
-typedef int SocketOption;     // C ABI enum
-typedef int SocketOptions;    // C ABI QFlags
-#endif
-
 QLocalSocket* QLocalSocket_new();
 QLocalSocket* QLocalSocket_new2(QObject* parent);
 QMetaObject* QLocalSocket_MetaObject(const QLocalSocket* self);

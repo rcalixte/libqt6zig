@@ -73,8 +73,8 @@ class VirtualQSctpServer final : public QSctpServer {
     mutable bool qsctpserver_issignalconnected_isbase = false;
 
   public:
-    VirtualQSctpServer() : QSctpServer(){};
-    VirtualQSctpServer(QObject* parent) : QSctpServer(parent){};
+    VirtualQSctpServer() : QSctpServer() {};
+    VirtualQSctpServer(QObject* parent) : QSctpServer(parent) {};
 
     ~VirtualQSctpServer() {
         qsctpserver_metacall_callback = nullptr;

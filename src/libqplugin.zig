@@ -36,6 +36,13 @@ pub const qstaticplugin = struct {
         return qtc.QStaticPlugin_new2(@ptrCast(other));
     }
 
+    /// New3 constructs a new QStaticPlugin object.
+    ///
+    /// ``` param1: QtC.QStaticPlugin ```
+    pub fn New3(param1: ?*anyopaque) QtC.QStaticPlugin {
+        return qtc.QStaticPlugin_new3(@ptrCast(param1));
+    }
+
     /// CopyAssign shallow copies `other` into `self`.
     ///
     /// ``` self: QtC.QStaticPlugin, other: QtC.QStaticPlugin ```

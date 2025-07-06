@@ -675,7 +675,9 @@ pub const enums = struct {
         pub const Script_Tangsa: i32 = 159;
         pub const Script_Toto: i32 = 160;
         pub const Script_Vithkuqi: i32 = 161;
-        pub const ScriptCount: i32 = 162;
+        pub const Script_Kawi: i32 = 162;
+        pub const Script_NagMundari: i32 = 163;
+        pub const ScriptCount: i32 = 164;
     };
 
     pub const Direction = enum {
@@ -782,5 +784,7 @@ pub const enums = struct {
         pub const Unicode_12_1: i32 = 22;
         pub const Unicode_13_0: i32 = 23;
         pub const Unicode_14_0: i32 = 24;
+        pub const Unicode_15_0: i32 = 25;
+        pub const Unicode_15_1: i32 = 26;
     };
 };

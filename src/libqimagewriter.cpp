@@ -116,8 +116,8 @@ libqt_string QImageWriter_SubType(const QImageWriter* self) {
 libqt_list /* of libqt_string */ QImageWriter_SupportedSubTypes(const QImageWriter* self) {
     QList<QByteArray> _ret = self->supportedSubTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -127,7 +127,7 @@ libqt_list /* of libqt_string */ QImageWriter_SupportedSubTypes(const QImageWrit
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -193,8 +193,8 @@ bool QImageWriter_SupportsOption(const QImageWriter* self, int option) {
 libqt_list /* of libqt_string */ QImageWriter_SupportedImageFormats() {
     QList<QByteArray> _ret = QImageWriter::supportedImageFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -204,7 +204,7 @@ libqt_list /* of libqt_string */ QImageWriter_SupportedImageFormats() {
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -212,8 +212,8 @@ libqt_list /* of libqt_string */ QImageWriter_SupportedImageFormats() {
 libqt_list /* of libqt_string */ QImageWriter_SupportedMimeTypes() {
     QList<QByteArray> _ret = QImageWriter::supportedMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -223,7 +223,7 @@ libqt_list /* of libqt_string */ QImageWriter_SupportedMimeTypes() {
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -232,8 +232,8 @@ libqt_list /* of libqt_string */ QImageWriter_ImageFormatsForMimeType(const libq
     QByteArray mimeType_QByteArray(mimeType.data, mimeType.len);
     QList<QByteArray> _ret = QImageWriter::imageFormatsForMimeType(mimeType_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
@@ -243,7 +243,7 @@ libqt_list /* of libqt_string */ QImageWriter_ImageFormatsForMimeType(const libq
         _arr[i] = _lv_str;
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

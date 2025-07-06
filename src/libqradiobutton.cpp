@@ -1873,6 +1873,35 @@ void QRadioButton_OnIsSignalConnected(const QRadioButton* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QRadioButton_GetDecodedMetricF(const QRadioButton* self, int metricA, int metricB) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        return vqradiobutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQRadioButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QRadioButton_QBaseGetDecodedMetricF(const QRadioButton* self, int metricA, int metricB) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_GetDecodedMetricF_IsBase(true);
+        return vqradiobutton->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQRadioButton*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QRadioButton_OnGetDecodedMetricF(const QRadioButton* self, intptr_t slot) {
+    auto* vqradiobutton = const_cast<VirtualQRadioButton*>(dynamic_cast<const VirtualQRadioButton*>(self));
+    if (vqradiobutton && vqradiobutton->isVirtualQRadioButton) {
+        vqradiobutton->setQRadioButton_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQRadioButton::QRadioButton_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QRadioButton_Delete(QRadioButton* self) {
     delete self;
 }

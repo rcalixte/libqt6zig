@@ -275,6 +275,8 @@ pub const enums = struct {
         pub const HelpChanged: i32 = 32928;
         pub const DefaultActionChanged: i32 = 32944;
         pub const AcceleratorChanged: i32 = 32960;
+        pub const Announcement: i32 = 32976;
+        pub const IdentifierChanged: i32 = 32992;
         pub const InvalidEvent: i32 = 32961;
     };
 
@@ -365,6 +367,7 @@ pub const enums = struct {
         pub const Help: i32 = 3;
         pub const Accelerator: i32 = 4;
         pub const DebugDescription: i32 = 5;
+        pub const Identifier: i32 = 6;
         pub const UserText: i32 = 65535;
     };
 
@@ -373,6 +376,10 @@ pub const enums = struct {
         pub const Labelled: i32 = 2;
         pub const Controller: i32 = 4;
         pub const Controlled: i32 = 8;
+        pub const DescriptionFor: i32 = 16;
+        pub const Described: i32 = 32;
+        pub const FlowsFrom: i32 = 64;
+        pub const FlowsTo: i32 = 128;
         pub const AllRelations: i64 = 4294967295;
     };
 
@@ -385,6 +392,8 @@ pub const enums = struct {
         pub const TableInterface: i32 = 5;
         pub const TableCellInterface: i32 = 6;
         pub const HyperlinkInterface: i32 = 7;
+        pub const SelectionInterface: i32 = 8;
+        pub const AttributesInterface: i32 = 9;
     };
 
     pub const TextBoundaryType = enum {
@@ -394,5 +403,15 @@ pub const enums = struct {
         pub const ParagraphBoundary: i32 = 3;
         pub const LineBoundary: i32 = 4;
         pub const NoBoundary: i32 = 5;
+    };
+
+    pub const Attribute = enum {
+        pub const Custom: i32 = 0;
+        pub const Level: i32 = 1;
+    };
+
+    pub const AnnouncementPoliteness = enum {
+        pub const Polite: i32 = 0;
+        pub const Assertive: i32 = 1;
     };
 };

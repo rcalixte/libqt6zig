@@ -55,12 +55,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QAbstractScrollArea::SizeAdjustPolicy SizeAdjustPolicy; // C++ enum
-#else
-typedef int SizeAdjustPolicy; // C ABI enum
-#endif
-
 QAbstractScrollArea* QAbstractScrollArea_new(QWidget* parent);
 QAbstractScrollArea* QAbstractScrollArea_new2();
 QMetaObject* QAbstractScrollArea_MetaObject(const QAbstractScrollArea* self);
@@ -283,6 +277,9 @@ int QAbstractScrollArea_QBaseReceivers(const QAbstractScrollArea* self, const ch
 bool QAbstractScrollArea_IsSignalConnected(const QAbstractScrollArea* self, const QMetaMethod* signal);
 void QAbstractScrollArea_OnIsSignalConnected(const QAbstractScrollArea* self, intptr_t slot);
 bool QAbstractScrollArea_QBaseIsSignalConnected(const QAbstractScrollArea* self, const QMetaMethod* signal);
+double QAbstractScrollArea_GetDecodedMetricF(const QAbstractScrollArea* self, int metricA, int metricB);
+void QAbstractScrollArea_OnGetDecodedMetricF(const QAbstractScrollArea* self, intptr_t slot);
+double QAbstractScrollArea_QBaseGetDecodedMetricF(const QAbstractScrollArea* self, int metricA, int metricB);
 void QAbstractScrollArea_Delete(QAbstractScrollArea* self);
 
 #ifdef __cplusplus

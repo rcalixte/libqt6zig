@@ -273,20 +273,6 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator==)
-    ///
-    /// ``` self: QtC.QJsonValue, other: QtC.QJsonValue ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonValue_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator!=)
-    ///
-    /// ``` self: QtC.QJsonValue, other: QtC.QJsonValue ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonValue_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: bool ```
@@ -469,20 +455,6 @@ pub const qjsonvalueconstref = struct {
     /// ``` self: QtC.QJsonValueConstRef, i: i64 ```
     pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
         return qtc.QJsonValueConstRef_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator==)
-    ///
-    /// ``` self: QtC.QJsonValueConstRef, other: QtC.QJsonValue ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonValueConstRef_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator!=)
-    ///
-    /// ``` self: QtC.QJsonValueConstRef, other: QtC.QJsonValue ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonValueConstRef_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
@@ -710,20 +682,6 @@ pub const qjsonvalueref = struct {
     /// ``` self: QtC.QJsonValueRef, i: i64 ```
     pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
         return qtc.QJsonValueRef_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator==)
-    ///
-    /// ``` self: QtC.QJsonValueRef, other: QtC.QJsonValue ```
-    pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonValueRef_OperatorEqual(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator!=)
-    ///
-    /// ``` self: QtC.QJsonValueRef, other: QtC.QJsonValue ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
-        return qtc.QJsonValueRef_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)

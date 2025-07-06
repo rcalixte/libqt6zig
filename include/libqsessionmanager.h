@@ -22,12 +22,6 @@ typedef struct QObject QObject;
 typedef struct QSessionManager QSessionManager;
 #endif
 
-#ifdef __cplusplus
-typedef QSessionManager::RestartHint RestartHint; // C++ enum
-#else
-typedef int RestartHint; // C ABI enum
-#endif
-
 QMetaObject* QSessionManager_MetaObject(const QSessionManager* self);
 void* QSessionManager_Metacast(QSessionManager* self, const char* param1);
 int QSessionManager_Metacall(QSessionManager* self, int param1, int param2, void** param3);

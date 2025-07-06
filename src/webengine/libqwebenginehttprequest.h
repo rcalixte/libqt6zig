@@ -20,12 +20,6 @@ typedef struct QUrl QUrl;
 typedef struct QWebEngineHttpRequest QWebEngineHttpRequest;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineHttpRequest::Method Method; // C++ enum
-#else
-typedef int Method; // C ABI enum
-#endif
-
 QWebEngineHttpRequest* QWebEngineHttpRequest_new();
 QWebEngineHttpRequest* QWebEngineHttpRequest_new2(const QWebEngineHttpRequest* other);
 QWebEngineHttpRequest* QWebEngineHttpRequest_new3(const QUrl* url);

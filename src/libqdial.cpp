@@ -1891,6 +1891,35 @@ void QDial_OnIsSignalConnected(const QDial* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QDial_GetDecodedMetricF(const QDial* self, int metricA, int metricB) {
+    auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
+    if (vqdial && vqdial->isVirtualQDial) {
+        return vqdial->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDial*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QDial_QBaseGetDecodedMetricF(const QDial* self, int metricA, int metricB) {
+    auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
+    if (vqdial && vqdial->isVirtualQDial) {
+        vqdial->setQDial_GetDecodedMetricF_IsBase(true);
+        return vqdial->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQDial*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QDial_OnGetDecodedMetricF(const QDial* self, intptr_t slot) {
+    auto* vqdial = const_cast<VirtualQDial*>(dynamic_cast<const VirtualQDial*>(self));
+    if (vqdial && vqdial->isVirtualQDial) {
+        vqdial->setQDial_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQDial::QDial_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QDial_Delete(QDial* self) {
     delete self;
 }

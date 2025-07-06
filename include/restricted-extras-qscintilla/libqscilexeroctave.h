@@ -158,6 +158,12 @@ void QsciLexerOctave_QBaseConnectNotify(QsciLexerOctave* self, const QMetaMethod
 void QsciLexerOctave_DisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
 void QsciLexerOctave_OnDisconnectNotify(QsciLexerOctave* self, intptr_t slot);
 void QsciLexerOctave_QBaseDisconnectNotify(QsciLexerOctave* self, const QMetaMethod* signal);
+libqt_string QsciLexerOctave_TextAsBytes(const QsciLexerOctave* self, const libqt_string text);
+void QsciLexerOctave_OnTextAsBytes(const QsciLexerOctave* self, intptr_t slot);
+libqt_string QsciLexerOctave_QBaseTextAsBytes(const QsciLexerOctave* self, const libqt_string text);
+libqt_string QsciLexerOctave_BytesAsText(const QsciLexerOctave* self, const char* bytes, int size);
+void QsciLexerOctave_OnBytesAsText(const QsciLexerOctave* self, intptr_t slot);
+libqt_string QsciLexerOctave_QBaseBytesAsText(const QsciLexerOctave* self, const char* bytes, int size);
 QObject* QsciLexerOctave_Sender(const QsciLexerOctave* self);
 void QsciLexerOctave_OnSender(const QsciLexerOctave* self, intptr_t slot);
 QObject* QsciLexerOctave_QBaseSender(const QsciLexerOctave* self);

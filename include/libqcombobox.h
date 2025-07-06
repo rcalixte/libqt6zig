@@ -60,14 +60,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QComboBox::InsertPolicy InsertPolicy;         // C++ enum
-typedef QComboBox::SizeAdjustPolicy SizeAdjustPolicy; // C++ enum
-#else
-typedef int InsertPolicy;     // C ABI enum
-typedef int SizeAdjustPolicy; // C ABI enum
-#endif
-
 QComboBox* QComboBox_new(QWidget* parent);
 QComboBox* QComboBox_new2();
 QMetaObject* QComboBox_MetaObject(const QComboBox* self);
@@ -343,6 +335,9 @@ int QComboBox_QBaseReceivers(const QComboBox* self, const char* signal);
 bool QComboBox_IsSignalConnected(const QComboBox* self, const QMetaMethod* signal);
 void QComboBox_OnIsSignalConnected(const QComboBox* self, intptr_t slot);
 bool QComboBox_QBaseIsSignalConnected(const QComboBox* self, const QMetaMethod* signal);
+double QComboBox_GetDecodedMetricF(const QComboBox* self, int metricA, int metricB);
+void QComboBox_OnGetDecodedMetricF(const QComboBox* self, intptr_t slot);
+double QComboBox_QBaseGetDecodedMetricF(const QComboBox* self, int metricA, int metricB);
 void QComboBox_Delete(QComboBox* self);
 
 #ifdef __cplusplus

@@ -94,12 +94,12 @@ int QAudioDevice_MaximumChannelCount(const QAudioDevice* self) {
 libqt_list /* of uint16_t */ QAudioDevice_SupportedSampleFormats(const QAudioDevice* self) {
     QList<QAudioFormat::SampleFormat> _ret = self->supportedSampleFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    uint16_t* _arr = static_cast<uint16_t*>(malloc(sizeof(uint16_t) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    uint16_t* _arr = static_cast<uint16_t*>(malloc(sizeof(uint16_t) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<uint16_t>(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }

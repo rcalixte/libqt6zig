@@ -174,6 +174,12 @@ void QsciLexerSQL_QBaseConnectNotify(QsciLexerSQL* self, const QMetaMethod* sign
 void QsciLexerSQL_DisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
 void QsciLexerSQL_OnDisconnectNotify(QsciLexerSQL* self, intptr_t slot);
 void QsciLexerSQL_QBaseDisconnectNotify(QsciLexerSQL* self, const QMetaMethod* signal);
+libqt_string QsciLexerSQL_TextAsBytes(const QsciLexerSQL* self, const libqt_string text);
+void QsciLexerSQL_OnTextAsBytes(const QsciLexerSQL* self, intptr_t slot);
+libqt_string QsciLexerSQL_QBaseTextAsBytes(const QsciLexerSQL* self, const libqt_string text);
+libqt_string QsciLexerSQL_BytesAsText(const QsciLexerSQL* self, const char* bytes, int size);
+void QsciLexerSQL_OnBytesAsText(const QsciLexerSQL* self, intptr_t slot);
+libqt_string QsciLexerSQL_QBaseBytesAsText(const QsciLexerSQL* self, const char* bytes, int size);
 QObject* QsciLexerSQL_Sender(const QsciLexerSQL* self);
 void QsciLexerSQL_OnSender(const QsciLexerSQL* self, intptr_t slot);
 QObject* QsciLexerSQL_QBaseSender(const QsciLexerSQL* self);

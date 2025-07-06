@@ -60,18 +60,6 @@ typedef struct QVariant QVariant;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QChart::AnimationOption AnimationOption;   // C++ enum
-typedef QChart::AnimationOptions AnimationOptions; // C++ QFlags
-typedef QChart::ChartTheme ChartTheme;             // C++ enum
-typedef QChart::ChartType ChartType;               // C++ enum
-#else
-typedef int AnimationOption;  // C ABI enum
-typedef int AnimationOptions; // C ABI QFlags
-typedef int ChartTheme;       // C ABI enum
-typedef int ChartType;        // C ABI enum
-#endif
-
 QChart* QChart_new();
 QChart* QChart_new2(QGraphicsItem* parent);
 QChart* QChart_new3(QGraphicsItem* parent, int wFlags);

@@ -61,12 +61,12 @@ class VirtualQCandlestickSet final : public QCandlestickSet {
     mutable bool qcandlestickset_issignalconnected_isbase = false;
 
   public:
-    VirtualQCandlestickSet() : QCandlestickSet(){};
-    VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close) : QCandlestickSet(open, high, low, close){};
-    VirtualQCandlestickSet(qreal timestamp) : QCandlestickSet(timestamp){};
-    VirtualQCandlestickSet(qreal timestamp, QObject* parent) : QCandlestickSet(timestamp, parent){};
-    VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close, qreal timestamp) : QCandlestickSet(open, high, low, close, timestamp){};
-    VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close, qreal timestamp, QObject* parent) : QCandlestickSet(open, high, low, close, timestamp, parent){};
+    VirtualQCandlestickSet() : QCandlestickSet() {};
+    VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close) : QCandlestickSet(open, high, low, close) {};
+    VirtualQCandlestickSet(qreal timestamp) : QCandlestickSet(timestamp) {};
+    VirtualQCandlestickSet(qreal timestamp, QObject* parent) : QCandlestickSet(timestamp, parent) {};
+    VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close, qreal timestamp) : QCandlestickSet(open, high, low, close, timestamp) {};
+    VirtualQCandlestickSet(qreal open, qreal high, qreal low, qreal close, qreal timestamp, QObject* parent) : QCandlestickSet(open, high, low, close, timestamp, parent) {};
 
     ~VirtualQCandlestickSet() {
         qcandlestickset_metacall_callback = nullptr;

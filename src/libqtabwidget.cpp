@@ -2135,6 +2135,35 @@ void QTabWidget_OnIsSignalConnected(const QTabWidget* self, intptr_t slot) {
     }
 }
 
+// Derived class handler implementation
+double QTabWidget_GetDecodedMetricF(const QTabWidget* self, int metricA, int metricB) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        return vqtabwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTabWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Base class handler implementation
+double QTabWidget_QBaseGetDecodedMetricF(const QTabWidget* self, int metricA, int metricB) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_GetDecodedMetricF_IsBase(true);
+        return vqtabwidget->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    } else {
+        return ((VirtualQTabWidget*)self)->getDecodedMetricF(static_cast<QPaintDevice::PaintDeviceMetric>(metricA), static_cast<QPaintDevice::PaintDeviceMetric>(metricB));
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void QTabWidget_OnGetDecodedMetricF(const QTabWidget* self, intptr_t slot) {
+    auto* vqtabwidget = const_cast<VirtualQTabWidget*>(dynamic_cast<const VirtualQTabWidget*>(self));
+    if (vqtabwidget && vqtabwidget->isVirtualQTabWidget) {
+        vqtabwidget->setQTabWidget_GetDecodedMetricF_Callback(reinterpret_cast<VirtualQTabWidget::QTabWidget_GetDecodedMetricF_Callback>(slot));
+    }
+}
+
 void QTabWidget_Delete(QTabWidget* self) {
     delete self;
 }

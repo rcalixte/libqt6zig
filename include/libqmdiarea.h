@@ -57,18 +57,6 @@ typedef struct QWheelEvent QWheelEvent;
 typedef struct QWidget QWidget;
 #endif
 
-#ifdef __cplusplus
-typedef QMdiArea::AreaOption AreaOption;   // C++ enum
-typedef QMdiArea::AreaOptions AreaOptions; // C++ QFlags
-typedef QMdiArea::ViewMode ViewMode;       // C++ enum
-typedef QMdiArea::WindowOrder WindowOrder; // C++ enum
-#else
-typedef int AreaOption;  // C ABI enum
-typedef int AreaOptions; // C ABI QFlags
-typedef int ViewMode;    // C ABI enum
-typedef int WindowOrder; // C ABI enum
-#endif
-
 QMdiArea* QMdiArea_new(QWidget* parent);
 QMdiArea* QMdiArea_new2();
 QMetaObject* QMdiArea_MetaObject(const QMdiArea* self);
@@ -306,6 +294,9 @@ int QMdiArea_QBaseReceivers(const QMdiArea* self, const char* signal);
 bool QMdiArea_IsSignalConnected(const QMdiArea* self, const QMetaMethod* signal);
 void QMdiArea_OnIsSignalConnected(const QMdiArea* self, intptr_t slot);
 bool QMdiArea_QBaseIsSignalConnected(const QMdiArea* self, const QMetaMethod* signal);
+double QMdiArea_GetDecodedMetricF(const QMdiArea* self, int metricA, int metricB);
+void QMdiArea_OnGetDecodedMetricF(const QMdiArea* self, intptr_t slot);
+double QMdiArea_QBaseGetDecodedMetricF(const QMdiArea* self, int metricA, int metricB);
 void QMdiArea_Delete(QMdiArea* self);
 
 #ifdef __cplusplus

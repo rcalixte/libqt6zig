@@ -4,6 +4,7 @@
 #include <QChildEvent>
 #include <QDataStream>
 #include <QEvent>
+#include <QHash>
 #include <QList>
 #include <QMap>
 #include <QMetaMethod>
@@ -84,12 +85,12 @@ libqt_string QPdfSearchModel_Tr(const char* s) {
 libqt_list /* of QPdfLink* */ QPdfSearchModel_ResultsOnPage(const QPdfSearchModel* self, int page) {
     QList<QPdfLink> _ret = self->resultsOnPage(static_cast<int>(page));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPdfLink** _arr = static_cast<QPdfLink**>(malloc(sizeof(QPdfLink*) * _ret.length()));
-    for (size_t i = 0; i < _ret.length(); ++i) {
+    QPdfLink** _arr = static_cast<QPdfLink**>(malloc(sizeof(QPdfLink*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPdfLink(_ret[i]);
     }
     libqt_list _out;
-    _out.len = _ret.length();
+    _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
 }
@@ -112,6 +113,10 @@ libqt_string QPdfSearchModel_SearchString(const QPdfSearchModel* self) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+int QPdfSearchModel_Count(const QPdfSearchModel* self) {
+    return self->count();
 }
 
 void QPdfSearchModel_SetSearchString(QPdfSearchModel* self, const libqt_string searchString) {
@@ -145,6 +150,17 @@ void QPdfSearchModel_Connect_SearchStringChanged(QPdfSearchModel* self, intptr_t
     });
 }
 
+void QPdfSearchModel_CountChanged(QPdfSearchModel* self) {
+    self->countChanged();
+}
+
+void QPdfSearchModel_Connect_CountChanged(QPdfSearchModel* self, intptr_t slot) {
+    void (*slotFunc)(QPdfSearchModel*) = reinterpret_cast<void (*)(QPdfSearchModel*)>(slot);
+    QPdfSearchModel::connect(self, &QPdfSearchModel::countChanged, [self, slotFunc]() {
+        slotFunc(self);
+    });
+}
+
 libqt_string QPdfSearchModel_Tr2(const char* s, const char* c) {
     QString _ret = QPdfSearchModel::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -174,7 +190,7 @@ libqt_map /* of int to libqt_string */ QPdfSearchModel_RoleNames(const QPdfSearc
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         QHash<int, QByteArray> _ret = vqpdfsearchmodel->roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -196,7 +212,7 @@ libqt_map /* of int to libqt_string */ QPdfSearchModel_RoleNames(const QPdfSearc
         return _out;
     } else {
         QHash<int, QByteArray> _ret = self->QPdfSearchModel::roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -225,7 +241,7 @@ libqt_map /* of int to libqt_string */ QPdfSearchModel_QBaseRoleNames(const QPdf
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_RoleNames_IsBase(true);
         QHash<int, QByteArray> _ret = vqpdfsearchmodel->roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -247,7 +263,7 @@ libqt_map /* of int to libqt_string */ QPdfSearchModel_QBaseRoleNames(const QPdf
         return _out;
     } else {
         QHash<int, QByteArray> _ret = self->QPdfSearchModel::roleNames();
-        // Convert QMap<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* _karr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
         libqt_string* _varr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
         int _ctr = 0;
@@ -727,10 +743,10 @@ void QPdfSearchModel_OnClearItemData(QPdfSearchModel* self, intptr_t slot) {
 libqt_list /* of libqt_string */ QPdfSearchModel_MimeTypes(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        QStringList _ret = vqpdfsearchmodel->mimeTypes();
+        QList<QString> _ret = vqpdfsearchmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -742,14 +758,14 @@ libqt_list /* of libqt_string */ QPdfSearchModel_MimeTypes(const QPdfSearchModel
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QPdfSearchModel::mimeTypes();
+        QList<QString> _ret = self->QPdfSearchModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -761,7 +777,7 @@ libqt_list /* of libqt_string */ QPdfSearchModel_MimeTypes(const QPdfSearchModel
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -772,10 +788,10 @@ libqt_list /* of libqt_string */ QPdfSearchModel_QBaseMimeTypes(const QPdfSearch
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_MimeTypes_IsBase(true);
-        QStringList _ret = vqpdfsearchmodel->mimeTypes();
+        QList<QString> _ret = vqpdfsearchmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -787,14 +803,14 @@ libqt_list /* of libqt_string */ QPdfSearchModel_QBaseMimeTypes(const QPdfSearch
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QStringList _ret = self->QPdfSearchModel::mimeTypes();
+        QList<QString> _ret = self->QPdfSearchModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
@@ -806,7 +822,7 @@ libqt_list /* of libqt_string */ QPdfSearchModel_QBaseMimeTypes(const QPdfSearch
             _arr[i] = _lv_str;
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -823,7 +839,7 @@ void QPdfSearchModel_OnMimeTypes(const QPdfSearchModel* self, intptr_t slot) {
 // Derived class handler implementation
 QMimeData* QPdfSearchModel_MimeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -839,7 +855,7 @@ QMimeData* QPdfSearchModel_MimeData(const QPdfSearchModel* self, const libqt_lis
 // Base class handler implementation
 QMimeData* QPdfSearchModel_QBaseMimeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -1242,25 +1258,25 @@ void QPdfSearchModel_OnBuddy(const QPdfSearchModel* self, intptr_t slot) {
 libqt_list /* of QModelIndex* */ QPdfSearchModel_Match(const QPdfSearchModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        QModelIndexList _ret = vqpdfsearchmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = vqpdfsearchmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = self->QPdfSearchModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = self->QPdfSearchModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1271,25 +1287,25 @@ libqt_list /* of QModelIndex* */ QPdfSearchModel_QBaseMatch(const QPdfSearchMode
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_Match_IsBase(true);
-        QModelIndexList _ret = vqpdfsearchmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = vqpdfsearchmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = self->QPdfSearchModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
+        QList<QModelIndex> _ret = self->QPdfSearchModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -1681,7 +1697,7 @@ void QPdfSearchModel_OnCreateIndex(const QPdfSearchModel* self, intptr_t slot) {
 // Derived class handler implementation
 void QPdfSearchModel_EncodeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -1697,7 +1713,7 @@ void QPdfSearchModel_EncodeData(const QPdfSearchModel* self, const libqt_list /*
 // Base class handler implementation
 void QPdfSearchModel_QBaseEncodeData(const QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
-    QModelIndexList indexes_QList;
+    QList<QModelIndex> indexes_QList;
     indexes_QList.reserve(indexes.len);
     QModelIndex** indexes_arr = static_cast<QModelIndex**>(indexes.data);
     for (size_t i = 0; i < indexes.len; ++i) {
@@ -2186,13 +2202,13 @@ void QPdfSearchModel_OnChangePersistentIndex(QPdfSearchModel* self, intptr_t slo
 // Derived class handler implementation
 void QPdfSearchModel_ChangePersistentIndexList(QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    QModelIndexList from_QList;
+    QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
     QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
     for (size_t i = 0; i < from.len; ++i) {
         from_QList.push_back(*(from_arr[i]));
     }
-    QModelIndexList to_QList;
+    QList<QModelIndex> to_QList;
     to_QList.reserve(to.len);
     QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
     for (size_t i = 0; i < to.len; ++i) {
@@ -2208,13 +2224,13 @@ void QPdfSearchModel_ChangePersistentIndexList(QPdfSearchModel* self, const libq
 // Base class handler implementation
 void QPdfSearchModel_QBaseChangePersistentIndexList(QPdfSearchModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to) {
     auto* vqpdfsearchmodel = dynamic_cast<VirtualQPdfSearchModel*>(self);
-    QModelIndexList from_QList;
+    QList<QModelIndex> from_QList;
     from_QList.reserve(from.len);
     QModelIndex** from_arr = static_cast<QModelIndex**>(from.data);
     for (size_t i = 0; i < from.len; ++i) {
         from_QList.push_back(*(from_arr[i]));
     }
-    QModelIndexList to_QList;
+    QList<QModelIndex> to_QList;
     to_QList.reserve(to.len);
     QModelIndex** to_arr = static_cast<QModelIndex**>(to.data);
     for (size_t i = 0; i < to.len; ++i) {
@@ -2240,25 +2256,25 @@ void QPdfSearchModel_OnChangePersistentIndexList(QPdfSearchModel* self, intptr_t
 libqt_list /* of QModelIndex* */ QPdfSearchModel_PersistentIndexList(const QPdfSearchModel* self) {
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
-        QModelIndexList _ret = vqpdfsearchmodel->persistentIndexList();
+        QList<QModelIndex> _ret = vqpdfsearchmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQPdfSearchModel*)self)->persistentIndexList();
+        QList<QModelIndex> _ret = ((VirtualQPdfSearchModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }
@@ -2269,25 +2285,25 @@ libqt_list /* of QModelIndex* */ QPdfSearchModel_QBasePersistentIndexList(const 
     auto* vqpdfsearchmodel = const_cast<VirtualQPdfSearchModel*>(dynamic_cast<const VirtualQPdfSearchModel*>(self));
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->setQPdfSearchModel_PersistentIndexList_IsBase(true);
-        QModelIndexList _ret = vqpdfsearchmodel->persistentIndexList();
+        QList<QModelIndex> _ret = vqpdfsearchmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     } else {
-        QModelIndexList _ret = ((VirtualQPdfSearchModel*)self)->persistentIndexList();
+        QList<QModelIndex> _ret = ((VirtualQPdfSearchModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
-        for (size_t i = 0; i < _ret.length(); ++i) {
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        for (size_t i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
-        _out.len = _ret.length();
+        _out.len = _ret.size();
         _out.data = static_cast<void*>(_arr);
         return _out;
     }

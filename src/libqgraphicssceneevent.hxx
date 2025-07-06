@@ -31,7 +31,7 @@ class VirtualQGraphicsSceneEvent final : public QGraphicsSceneEvent {
     mutable bool qgraphicssceneevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneEvent(QEvent::Type typeVal) : QGraphicsSceneEvent(typeVal){};
+    VirtualQGraphicsSceneEvent(QEvent::Type typeVal) : QGraphicsSceneEvent(typeVal) {};
 
     ~VirtualQGraphicsSceneEvent() {
         qgraphicssceneevent_setaccepted_callback = nullptr;
@@ -95,8 +95,8 @@ class VirtualQGraphicsSceneMouseEvent final : public QGraphicsSceneMouseEvent {
     mutable bool qgraphicsscenemouseevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneMouseEvent() : QGraphicsSceneMouseEvent(){};
-    VirtualQGraphicsSceneMouseEvent(QEvent::Type typeVal) : QGraphicsSceneMouseEvent(typeVal){};
+    VirtualQGraphicsSceneMouseEvent() : QGraphicsSceneMouseEvent() {};
+    VirtualQGraphicsSceneMouseEvent(QEvent::Type typeVal) : QGraphicsSceneMouseEvent(typeVal) {};
 
     ~VirtualQGraphicsSceneMouseEvent() {
         qgraphicsscenemouseevent_setaccepted_callback = nullptr;
@@ -160,8 +160,8 @@ class VirtualQGraphicsSceneWheelEvent final : public QGraphicsSceneWheelEvent {
     mutable bool qgraphicsscenewheelevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneWheelEvent() : QGraphicsSceneWheelEvent(){};
-    VirtualQGraphicsSceneWheelEvent(QEvent::Type typeVal) : QGraphicsSceneWheelEvent(typeVal){};
+    VirtualQGraphicsSceneWheelEvent() : QGraphicsSceneWheelEvent() {};
+    VirtualQGraphicsSceneWheelEvent(QEvent::Type typeVal) : QGraphicsSceneWheelEvent(typeVal) {};
 
     ~VirtualQGraphicsSceneWheelEvent() {
         qgraphicsscenewheelevent_setaccepted_callback = nullptr;
@@ -225,8 +225,8 @@ class VirtualQGraphicsSceneContextMenuEvent final : public QGraphicsSceneContext
     mutable bool qgraphicsscenecontextmenuevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneContextMenuEvent() : QGraphicsSceneContextMenuEvent(){};
-    VirtualQGraphicsSceneContextMenuEvent(QEvent::Type typeVal) : QGraphicsSceneContextMenuEvent(typeVal){};
+    VirtualQGraphicsSceneContextMenuEvent() : QGraphicsSceneContextMenuEvent() {};
+    VirtualQGraphicsSceneContextMenuEvent(QEvent::Type typeVal) : QGraphicsSceneContextMenuEvent(typeVal) {};
 
     ~VirtualQGraphicsSceneContextMenuEvent() {
         qgraphicsscenecontextmenuevent_setaccepted_callback = nullptr;
@@ -290,8 +290,8 @@ class VirtualQGraphicsSceneHoverEvent final : public QGraphicsSceneHoverEvent {
     mutable bool qgraphicsscenehoverevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneHoverEvent() : QGraphicsSceneHoverEvent(){};
-    VirtualQGraphicsSceneHoverEvent(QEvent::Type typeVal) : QGraphicsSceneHoverEvent(typeVal){};
+    VirtualQGraphicsSceneHoverEvent() : QGraphicsSceneHoverEvent() {};
+    VirtualQGraphicsSceneHoverEvent(QEvent::Type typeVal) : QGraphicsSceneHoverEvent(typeVal) {};
 
     ~VirtualQGraphicsSceneHoverEvent() {
         qgraphicsscenehoverevent_setaccepted_callback = nullptr;
@@ -355,8 +355,8 @@ class VirtualQGraphicsSceneHelpEvent final : public QGraphicsSceneHelpEvent {
     mutable bool qgraphicsscenehelpevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneHelpEvent() : QGraphicsSceneHelpEvent(){};
-    VirtualQGraphicsSceneHelpEvent(QEvent::Type typeVal) : QGraphicsSceneHelpEvent(typeVal){};
+    VirtualQGraphicsSceneHelpEvent() : QGraphicsSceneHelpEvent() {};
+    VirtualQGraphicsSceneHelpEvent(QEvent::Type typeVal) : QGraphicsSceneHelpEvent(typeVal) {};
 
     ~VirtualQGraphicsSceneHelpEvent() {
         qgraphicsscenehelpevent_setaccepted_callback = nullptr;
@@ -420,8 +420,8 @@ class VirtualQGraphicsSceneDragDropEvent final : public QGraphicsSceneDragDropEv
     mutable bool qgraphicsscenedragdropevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneDragDropEvent() : QGraphicsSceneDragDropEvent(){};
-    VirtualQGraphicsSceneDragDropEvent(QEvent::Type typeVal) : QGraphicsSceneDragDropEvent(typeVal){};
+    VirtualQGraphicsSceneDragDropEvent() : QGraphicsSceneDragDropEvent() {};
+    VirtualQGraphicsSceneDragDropEvent(QEvent::Type typeVal) : QGraphicsSceneDragDropEvent(typeVal) {};
 
     ~VirtualQGraphicsSceneDragDropEvent() {
         qgraphicsscenedragdropevent_setaccepted_callback = nullptr;
@@ -485,7 +485,7 @@ class VirtualQGraphicsSceneResizeEvent final : public QGraphicsSceneResizeEvent 
     mutable bool qgraphicssceneresizeevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneResizeEvent() : QGraphicsSceneResizeEvent(){};
+    VirtualQGraphicsSceneResizeEvent() : QGraphicsSceneResizeEvent() {};
 
     ~VirtualQGraphicsSceneResizeEvent() {
         qgraphicssceneresizeevent_setaccepted_callback = nullptr;
@@ -549,7 +549,7 @@ class VirtualQGraphicsSceneMoveEvent final : public QGraphicsSceneMoveEvent {
     mutable bool qgraphicsscenemoveevent_clone_isbase = false;
 
   public:
-    VirtualQGraphicsSceneMoveEvent() : QGraphicsSceneMoveEvent(){};
+    VirtualQGraphicsSceneMoveEvent() : QGraphicsSceneMoveEvent() {};
 
     ~VirtualQGraphicsSceneMoveEvent() {
         qgraphicsscenemoveevent_setaccepted_callback = nullptr;

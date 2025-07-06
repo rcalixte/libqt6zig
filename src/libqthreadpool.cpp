@@ -1,4 +1,5 @@
 #include <QChildEvent>
+#include <QDeadlineTimer>
 #include <QEvent>
 #include <QMetaMethod>
 #include <QMetaObject>
@@ -130,7 +131,11 @@ void QThreadPool_ReleaseThread(QThreadPool* self) {
     self->releaseThread();
 }
 
-bool QThreadPool_WaitForDone(QThreadPool* self) {
+bool QThreadPool_WaitForDone(QThreadPool* self, int msecs) {
+    return self->waitForDone(static_cast<int>(msecs));
+}
+
+bool QThreadPool_WaitForDone2(QThreadPool* self) {
     return self->waitForDone();
 }
 
@@ -174,8 +179,8 @@ void QThreadPool_Start2(QThreadPool* self, QRunnable* runnable, int priority) {
     self->start(runnable, static_cast<int>(priority));
 }
 
-bool QThreadPool_WaitForDone1(QThreadPool* self, int msecs) {
-    return self->waitForDone(static_cast<int>(msecs));
+bool QThreadPool_WaitForDone1(QThreadPool* self, QDeadlineTimer* deadline) {
+    return self->waitForDone(*deadline);
 }
 
 // Derived class handler implementation

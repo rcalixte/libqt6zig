@@ -29,14 +29,6 @@ typedef struct QUrl QUrl;
 typedef struct QVector3D QVector3D;
 #endif
 
-#ifdef __cplusplus
-typedef QSpatialSound::DistanceModel DistanceModel; // C++ enum
-typedef QSpatialSound::Loops Loops;                 // C++ enum
-#else
-typedef int DistanceModel; // C ABI enum
-typedef int Loops;         // C ABI enum
-#endif
-
 QSpatialSound* QSpatialSound_new(QAudioEngine* engine);
 QMetaObject* QSpatialSound_MetaObject(const QSpatialSound* self);
 void* QSpatialSound_Metacast(QSpatialSound* self, const char* param1);

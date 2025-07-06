@@ -27,14 +27,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
 #endif
 
-#ifdef __cplusplus
-typedef QSoundEffect::Loop Loop;     // C++ enum
-typedef QSoundEffect::Status Status; // C++ enum
-#else
-typedef int Loop;   // C ABI enum
-typedef int Status; // C ABI enum
-#endif
-
 QSoundEffect* QSoundEffect_new();
 QSoundEffect* QSoundEffect_new2(const QAudioDevice* audioDevice);
 QSoundEffect* QSoundEffect_new3(QObject* parent);

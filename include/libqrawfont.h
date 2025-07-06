@@ -15,25 +15,19 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QFont__Tag)
+typedef QFont::Tag QFont__Tag;
+#endif
 #else
 typedef struct QChar QChar;
 typedef struct QFont QFont;
+typedef struct QFont__Tag QFont__Tag;
 typedef struct QImage QImage;
 typedef struct QPainterPath QPainterPath;
 typedef struct QPointF QPointF;
 typedef struct QRawFont QRawFont;
 typedef struct QRectF QRectF;
 typedef struct QTransform QTransform;
-#endif
-
-#ifdef __cplusplus
-typedef QRawFont::AntialiasingType AntialiasingType; // C++ enum
-typedef QRawFont::LayoutFlag LayoutFlag;             // C++ enum
-typedef QRawFont::LayoutFlags LayoutFlags;           // C++ QFlags
-#else
-typedef int AntialiasingType; // C ABI enum
-typedef int LayoutFlag;       // C ABI enum
-typedef int LayoutFlags;      // C ABI QFlags
 #endif
 
 QRawFont* QRawFont_new();
@@ -79,6 +73,7 @@ bool QRawFont_SupportsCharacter(const QRawFont* self, unsigned int ucs4);
 bool QRawFont_SupportsCharacterWithCharacter(const QRawFont* self, QChar* character);
 libqt_list /* of int */ QRawFont_SupportedWritingSystems(const QRawFont* self);
 libqt_string QRawFont_FontTable(const QRawFont* self, const char* tagName);
+libqt_string QRawFont_FontTableWithTag(const QRawFont* self, QFont__Tag* tag);
 QRawFont* QRawFont_FromFont(const QFont* font);
 QImage* QRawFont_AlphaMapForGlyph2(const QRawFont* self, unsigned int glyphIndex, int antialiasingType);
 QImage* QRawFont_AlphaMapForGlyph3(const QRawFont* self, unsigned int glyphIndex, int antialiasingType, const QTransform* transform);

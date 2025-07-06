@@ -61,8 +61,8 @@ class VirtualQGesture final : public QGesture {
     mutable bool qgesture_issignalconnected_isbase = false;
 
   public:
-    VirtualQGesture() : QGesture(){};
-    VirtualQGesture(QObject* parent) : QGesture(parent){};
+    VirtualQGesture() : QGesture() {};
+    VirtualQGesture(QObject* parent) : QGesture(parent) {};
 
     ~VirtualQGesture() {
         qgesture_metacall_callback = nullptr;
@@ -359,8 +359,8 @@ class VirtualQPanGesture final : public QPanGesture {
     mutable bool qpangesture_issignalconnected_isbase = false;
 
   public:
-    VirtualQPanGesture() : QPanGesture(){};
-    VirtualQPanGesture(QObject* parent) : QPanGesture(parent){};
+    VirtualQPanGesture() : QPanGesture() {};
+    VirtualQPanGesture(QObject* parent) : QPanGesture(parent) {};
 
     ~VirtualQPanGesture() {
         qpangesture_metacall_callback = nullptr;
@@ -657,8 +657,8 @@ class VirtualQPinchGesture final : public QPinchGesture {
     mutable bool qpinchgesture_issignalconnected_isbase = false;
 
   public:
-    VirtualQPinchGesture() : QPinchGesture(){};
-    VirtualQPinchGesture(QObject* parent) : QPinchGesture(parent){};
+    VirtualQPinchGesture() : QPinchGesture() {};
+    VirtualQPinchGesture(QObject* parent) : QPinchGesture(parent) {};
 
     ~VirtualQPinchGesture() {
         qpinchgesture_metacall_callback = nullptr;
@@ -955,8 +955,8 @@ class VirtualQSwipeGesture final : public QSwipeGesture {
     mutable bool qswipegesture_issignalconnected_isbase = false;
 
   public:
-    VirtualQSwipeGesture() : QSwipeGesture(){};
-    VirtualQSwipeGesture(QObject* parent) : QSwipeGesture(parent){};
+    VirtualQSwipeGesture() : QSwipeGesture() {};
+    VirtualQSwipeGesture(QObject* parent) : QSwipeGesture(parent) {};
 
     ~VirtualQSwipeGesture() {
         qswipegesture_metacall_callback = nullptr;
@@ -1253,8 +1253,8 @@ class VirtualQTapGesture final : public QTapGesture {
     mutable bool qtapgesture_issignalconnected_isbase = false;
 
   public:
-    VirtualQTapGesture() : QTapGesture(){};
-    VirtualQTapGesture(QObject* parent) : QTapGesture(parent){};
+    VirtualQTapGesture() : QTapGesture() {};
+    VirtualQTapGesture(QObject* parent) : QTapGesture(parent) {};
 
     ~VirtualQTapGesture() {
         qtapgesture_metacall_callback = nullptr;
@@ -1551,8 +1551,8 @@ class VirtualQTapAndHoldGesture final : public QTapAndHoldGesture {
     mutable bool qtapandholdgesture_issignalconnected_isbase = false;
 
   public:
-    VirtualQTapAndHoldGesture() : QTapAndHoldGesture(){};
-    VirtualQTapAndHoldGesture(QObject* parent) : QTapAndHoldGesture(parent){};
+    VirtualQTapAndHoldGesture() : QTapAndHoldGesture() {};
+    VirtualQTapAndHoldGesture(QObject* parent) : QTapAndHoldGesture(parent) {};
 
     ~VirtualQTapAndHoldGesture() {
         qtapandholdgesture_metacall_callback = nullptr;
@@ -1819,8 +1819,8 @@ class VirtualQGestureEvent final : public QGestureEvent {
     mutable bool qgestureevent_clone_isbase = false;
 
   public:
-    VirtualQGestureEvent(const QList<QGesture*>& gestures) : QGestureEvent(gestures){};
-    VirtualQGestureEvent(const QGestureEvent& param1) : QGestureEvent(param1){};
+    VirtualQGestureEvent(const QList<QGesture*>& gestures) : QGestureEvent(gestures) {};
+    VirtualQGestureEvent(const QGestureEvent& param1) : QGestureEvent(param1) {};
 
     ~VirtualQGestureEvent() {
         qgestureevent_setaccepted_callback = nullptr;

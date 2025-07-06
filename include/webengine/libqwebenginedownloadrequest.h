@@ -24,16 +24,6 @@ typedef struct QWebEngineDownloadRequest QWebEngineDownloadRequest;
 typedef struct QWebEnginePage QWebEnginePage;
 #endif
 
-#ifdef __cplusplus
-typedef QWebEngineDownloadRequest::DownloadInterruptReason DownloadInterruptReason; // C++ enum
-typedef QWebEngineDownloadRequest::DownloadState DownloadState;                     // C++ enum
-typedef QWebEngineDownloadRequest::SavePageFormat SavePageFormat;                   // C++ enum
-#else
-typedef int DownloadInterruptReason; // C ABI enum
-typedef int DownloadState;           // C ABI enum
-typedef int SavePageFormat;          // C ABI enum
-#endif
-
 QMetaObject* QWebEngineDownloadRequest_MetaObject(const QWebEngineDownloadRequest* self);
 void* QWebEngineDownloadRequest_Metacast(QWebEngineDownloadRequest* self, const char* param1);
 int QWebEngineDownloadRequest_Metacall(QWebEngineDownloadRequest* self, int param1, int param2, void** param3);

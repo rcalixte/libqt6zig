@@ -193,8 +193,8 @@ pub const qtextobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTextObject, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -213,6 +213,15 @@ pub const qtextobject = struct {
     /// ``` self: QtC.QTextObject, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QTextObject, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -418,6 +427,15 @@ pub const qtextobject = struct {
     /// ``` self: QtC.QTextObject ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QTextObject, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -676,8 +694,8 @@ pub const qtextblockgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTextBlockGroup, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -696,6 +714,15 @@ pub const qtextblockgroup = struct {
     /// ``` self: QtC.QTextBlockGroup, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QTextBlockGroup, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -905,6 +932,15 @@ pub const qtextblockgroup = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QTextBlockGroup, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTextBlockGroup, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -1109,20 +1145,6 @@ pub const qtextframe = struct {
         return qtc.QTextFrame_ParentFrame(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe.html#begin)
-    ///
-    /// ``` self: QtC.QTextFrame ```
-    pub fn Begin(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame_Begin(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe.html#end)
-    ///
-    /// ``` self: QtC.QTextFrame ```
-    pub fn End(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame_End(@ptrCast(self));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -1270,8 +1292,8 @@ pub const qtextframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QTextFrame, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -1290,6 +1312,15 @@ pub const qtextframe = struct {
     /// ``` self: QtC.QTextFrame, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QTextFrame, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1495,6 +1526,15 @@ pub const qtextframe = struct {
     /// ``` self: QtC.QTextFrame ```
     pub fn DeleteLater(self: ?*anyopaque) void {
         qtc.QObject_DeleteLater(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QTextFrame, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
     }
 
     /// Inherited from QObject
@@ -2224,20 +2264,6 @@ pub const qtextblock = struct {
         return qtc.QTextBlock_LineCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#begin)
-    ///
-    /// ``` self: QtC.QTextBlock ```
-    pub fn Begin(self: ?*anyopaque) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock_Begin(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#end)
-    ///
-    /// ``` self: QtC.QTextBlock ```
-    pub fn End(self: ?*anyopaque) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock_End(@ptrCast(self));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#next)
     ///
     /// ``` self: QtC.QTextBlock ```
@@ -2409,235 +2435,5 @@ pub const qtextfragment = struct {
     /// ``` self: QtC.QTextFragment ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QTextFragment_Delete(@ptrCast(self));
-    }
-};
-
-/// https://doc.qt.io/qt-6/qtextframe-iterator.html
-pub const qtextframe__iterator = struct {
-    /// New constructs a new QTextFrame::iterator object.
-    ///
-    /// ``` other: QtC.QTextFrame__iterator ```
-    pub fn New(other: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_new(@ptrCast(other));
-    }
-
-    /// New2 constructs a new QTextFrame::iterator object and invalidates the source QTextFrame::iterator object.
-    ///
-    /// ``` other: QtC.QTextFrame__iterator ```
-    pub fn New2(other: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_new2(@ptrCast(other));
-    }
-
-    /// New3 constructs a new QTextFrame::iterator object.
-    ///
-    ///
-    pub fn New3() QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_new3();
-    }
-
-    /// New4 constructs a new QTextFrame::iterator object.
-    ///
-    /// ``` param1: QtC.QTextFrame__iterator ```
-    pub fn New4(param1: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_new4(@ptrCast(param1));
-    }
-
-    /// CopyAssign shallow copies `other` into `self`.
-    ///
-    /// ``` self: QtC.QTextFrame__iterator, other: QtC.QTextFrame__iterator ```
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTextFrame__iterator_CopyAssign(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
-    ///
-    /// ``` self: QtC.QTextFrame__iterator, other: QtC.QTextFrame__iterator ```
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTextFrame__iterator_MoveAssign(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#parentFrame)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator ```
-    pub fn ParentFrame(self: ?*anyopaque) QtC.QTextFrame {
-        return qtc.QTextFrame__iterator_ParentFrame(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#currentFrame)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator ```
-    pub fn CurrentFrame(self: ?*anyopaque) QtC.QTextFrame {
-        return qtc.QTextFrame__iterator_CurrentFrame(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#currentBlock)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator ```
-    pub fn CurrentBlock(self: ?*anyopaque) QtC.QTextBlock {
-        return qtc.QTextFrame__iterator_CurrentBlock(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#atEnd)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator ```
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QTextFrame__iterator_AtEnd(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator==)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator, o: QtC.QTextFrame__iterator ```
-    pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
-        return qtc.QTextFrame__iterator_OperatorEqual(@ptrCast(self), @ptrCast(o));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator!=)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator, o: QtC.QTextFrame__iterator ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
-        return qtc.QTextFrame__iterator_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator++)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator ```
-    pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_OperatorPlusPlus(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator++)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator, param1: i32 ```
-    pub fn OperatorPlusPlusWithInt(self: ?*anyopaque, param1: i32) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_OperatorPlusPlusWithInt(@ptrCast(self), @intCast(param1));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator--)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator ```
-    pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_OperatorMinusMinus(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator--)
-    ///
-    /// ``` self: QtC.QTextFrame__iterator, param1: i32 ```
-    pub fn OperatorMinusMinusWithInt(self: ?*anyopaque, param1: i32) QtC.QTextFrame__iterator {
-        return qtc.QTextFrame__iterator_OperatorMinusMinusWithInt(@ptrCast(self), @intCast(param1));
-    }
-
-    /// Delete this object from C++ memory.
-    ///
-    /// ``` self: QtC.QTextFrame__iterator ```
-    pub fn QDelete(self: ?*anyopaque) void {
-        qtc.QTextFrame__iterator_Delete(@ptrCast(self));
-    }
-};
-
-/// https://doc.qt.io/qt-6/qtextblock-iterator.html
-pub const qtextblock__iterator = struct {
-    /// New constructs a new QTextBlock::iterator object.
-    ///
-    /// ``` other: QtC.QTextBlock__iterator ```
-    pub fn New(other: ?*anyopaque) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_new(@ptrCast(other));
-    }
-
-    /// New2 constructs a new QTextBlock::iterator object and invalidates the source QTextBlock::iterator object.
-    ///
-    /// ``` other: QtC.QTextBlock__iterator ```
-    pub fn New2(other: ?*anyopaque) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_new2(@ptrCast(other));
-    }
-
-    /// New3 constructs a new QTextBlock::iterator object.
-    ///
-    ///
-    pub fn New3() QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_new3();
-    }
-
-    /// New4 constructs a new QTextBlock::iterator object.
-    ///
-    /// ``` param1: QtC.QTextBlock__iterator ```
-    pub fn New4(param1: ?*anyopaque) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_new4(@ptrCast(param1));
-    }
-
-    /// CopyAssign shallow copies `other` into `self`.
-    ///
-    /// ``` self: QtC.QTextBlock__iterator, other: QtC.QTextBlock__iterator ```
-    pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTextBlock__iterator_CopyAssign(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
-    ///
-    /// ``` self: QtC.QTextBlock__iterator, other: QtC.QTextBlock__iterator ```
-    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
-        qtc.QTextBlock__iterator_MoveAssign(@ptrCast(self), @ptrCast(other));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#fragment)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator ```
-    pub fn Fragment(self: ?*anyopaque) QtC.QTextFragment {
-        return qtc.QTextBlock__iterator_Fragment(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#atEnd)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator ```
-    pub fn AtEnd(self: ?*anyopaque) bool {
-        return qtc.QTextBlock__iterator_AtEnd(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator==)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator, o: QtC.QTextBlock__iterator ```
-    pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
-        return qtc.QTextBlock__iterator_OperatorEqual(@ptrCast(self), @ptrCast(o));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator!=)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator, o: QtC.QTextBlock__iterator ```
-    pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
-        return qtc.QTextBlock__iterator_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator++)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator ```
-    pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_OperatorPlusPlus(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator++)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator, param1: i32 ```
-    pub fn OperatorPlusPlusWithInt(self: ?*anyopaque, param1: i32) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_OperatorPlusPlusWithInt(@ptrCast(self), @intCast(param1));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator--)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator ```
-    pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_OperatorMinusMinus(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator--)
-    ///
-    /// ``` self: QtC.QTextBlock__iterator, param1: i32 ```
-    pub fn OperatorMinusMinusWithInt(self: ?*anyopaque, param1: i32) QtC.QTextBlock__iterator {
-        return qtc.QTextBlock__iterator_OperatorMinusMinusWithInt(@ptrCast(self), @intCast(param1));
-    }
-
-    /// Delete this object from C++ memory.
-    ///
-    /// ``` self: QtC.QTextBlock__iterator ```
-    pub fn QDelete(self: ?*anyopaque) void {
-        qtc.QTextBlock__iterator_Delete(@ptrCast(self));
     }
 };

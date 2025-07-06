@@ -36,12 +36,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
-#ifdef __cplusplus
-typedef QStandardItem::ItemType ItemType; // C++ enum
-#else
-typedef int ItemType; // C ABI enum
-#endif
-
 QStandardItem* QStandardItem_new();
 QStandardItem* QStandardItem_new2(const libqt_string text);
 QStandardItem* QStandardItem_new3(const QIcon* icon, const libqt_string text);

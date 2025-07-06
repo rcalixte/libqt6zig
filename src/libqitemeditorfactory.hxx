@@ -31,8 +31,8 @@ class VirtualQItemEditorFactory final : public QItemEditorFactory {
     mutable bool qitemeditorfactory_valuepropertyname_isbase = false;
 
   public:
-    VirtualQItemEditorFactory() : QItemEditorFactory(){};
-    VirtualQItemEditorFactory(const QItemEditorFactory& param1) : QItemEditorFactory(param1){};
+    VirtualQItemEditorFactory() : QItemEditorFactory() {};
+    VirtualQItemEditorFactory(const QItemEditorFactory& param1) : QItemEditorFactory(param1) {};
 
     ~VirtualQItemEditorFactory() {
         qitemeditorfactory_createeditor_callback = nullptr;

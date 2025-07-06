@@ -140,6 +140,7 @@ class VirtualQUndoView final : public QUndoView {
     using QUndoView_SenderSignalIndex_Callback = int (*)();
     using QUndoView_Receivers_Callback = int (*)(const QUndoView*, const char*);
     using QUndoView_IsSignalConnected_Callback = bool (*)(const QUndoView*, QMetaMethod*);
+    using QUndoView_GetDecodedMetricF_Callback = double (*)(const QUndoView*, int, int);
 
   protected:
     // Instance callback storage
@@ -262,6 +263,7 @@ class VirtualQUndoView final : public QUndoView {
     QUndoView_SenderSignalIndex_Callback qundoview_sendersignalindex_callback = nullptr;
     QUndoView_Receivers_Callback qundoview_receivers_callback = nullptr;
     QUndoView_IsSignalConnected_Callback qundoview_issignalconnected_callback = nullptr;
+    QUndoView_GetDecodedMetricF_Callback qundoview_getdecodedmetricf_callback = nullptr;
 
     // Instance base flags
     mutable bool qundoview_metacall_isbase = false;
@@ -383,14 +385,15 @@ class VirtualQUndoView final : public QUndoView {
     mutable bool qundoview_sendersignalindex_isbase = false;
     mutable bool qundoview_receivers_isbase = false;
     mutable bool qundoview_issignalconnected_isbase = false;
+    mutable bool qundoview_getdecodedmetricf_isbase = false;
 
   public:
-    VirtualQUndoView(QWidget* parent) : QUndoView(parent){};
-    VirtualQUndoView() : QUndoView(){};
-    VirtualQUndoView(QUndoStack* stack) : QUndoView(stack){};
-    VirtualQUndoView(QUndoGroup* group) : QUndoView(group){};
-    VirtualQUndoView(QUndoStack* stack, QWidget* parent) : QUndoView(stack, parent){};
-    VirtualQUndoView(QUndoGroup* group, QWidget* parent) : QUndoView(group, parent){};
+    VirtualQUndoView(QWidget* parent) : QUndoView(parent) {};
+    VirtualQUndoView() : QUndoView() {};
+    VirtualQUndoView(QUndoStack* stack) : QUndoView(stack) {};
+    VirtualQUndoView(QUndoGroup* group) : QUndoView(group) {};
+    VirtualQUndoView(QUndoStack* stack, QWidget* parent) : QUndoView(stack, parent) {};
+    VirtualQUndoView(QUndoGroup* group, QWidget* parent) : QUndoView(group, parent) {};
 
     ~VirtualQUndoView() {
         qundoview_metacall_callback = nullptr;
@@ -512,6 +515,7 @@ class VirtualQUndoView final : public QUndoView {
         qundoview_sendersignalindex_callback = nullptr;
         qundoview_receivers_callback = nullptr;
         qundoview_issignalconnected_callback = nullptr;
+        qundoview_getdecodedmetricf_callback = nullptr;
     }
 
     // Callback setters
@@ -634,6 +638,7 @@ class VirtualQUndoView final : public QUndoView {
     inline void setQUndoView_SenderSignalIndex_Callback(QUndoView_SenderSignalIndex_Callback cb) { qundoview_sendersignalindex_callback = cb; }
     inline void setQUndoView_Receivers_Callback(QUndoView_Receivers_Callback cb) { qundoview_receivers_callback = cb; }
     inline void setQUndoView_IsSignalConnected_Callback(QUndoView_IsSignalConnected_Callback cb) { qundoview_issignalconnected_callback = cb; }
+    inline void setQUndoView_GetDecodedMetricF_Callback(QUndoView_GetDecodedMetricF_Callback cb) { qundoview_getdecodedmetricf_callback = cb; }
 
     // Base flag setters
     inline void setQUndoView_Metacall_IsBase(bool value) const { qundoview_metacall_isbase = value; }
@@ -755,6 +760,7 @@ class VirtualQUndoView final : public QUndoView {
     inline void setQUndoView_SenderSignalIndex_IsBase(bool value) const { qundoview_sendersignalindex_isbase = value; }
     inline void setQUndoView_Receivers_IsBase(bool value) const { qundoview_receivers_isbase = value; }
     inline void setQUndoView_IsSignalConnected_IsBase(bool value) const { qundoview_issignalconnected_isbase = value; }
+    inline void setQUndoView_GetDecodedMetricF_IsBase(bool value) const { qundoview_getdecodedmetricf_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
@@ -907,13 +913,13 @@ class VirtualQUndoView final : public QUndoView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
-            // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.length()));
-            for (size_t i = 0; i < roles_ret.length(); ++i) {
+            // Convert const QList<> from C++ memory to manually-managed C memory
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            for (size_t i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
             libqt_list roles_out;
-            roles_out.len = roles_ret.length();
+            roles_out.len = roles_ret.size();
             roles_out.data = static_cast<void*>(roles_arr);
             libqt_list /* of int */ cbval3 = roles_out;
 
@@ -1190,13 +1196,13 @@ class VirtualQUndoView final : public QUndoView {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QModelIndexList selectedIndexes() const override {
+    virtual QList<QModelIndex> selectedIndexes() const override {
         if (qundoview_selectedindexes_isbase) {
             qundoview_selectedindexes_isbase = false;
             return QUndoView::selectedIndexes();
         } else if (qundoview_selectedindexes_callback != nullptr) {
             libqt_list /* of QModelIndex* */ callback_ret = qundoview_selectedindexes_callback();
-            QModelIndexList callback_ret_QList;
+            QList<QModelIndex> callback_ret_QList;
             callback_ret_QList.reserve(callback_ret.len);
             QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
             for (size_t i = 0; i < callback_ret.len; ++i) {
@@ -2505,6 +2511,22 @@ class VirtualQUndoView final : public QUndoView {
         }
     }
 
+    // Virtual method for C ABI access and custom callback
+    double getDecodedMetricF(QPaintDevice::PaintDeviceMetric metricA, QPaintDevice::PaintDeviceMetric metricB) const {
+        if (qundoview_getdecodedmetricf_isbase) {
+            qundoview_getdecodedmetricf_isbase = false;
+            return QUndoView::getDecodedMetricF(metricA, metricB);
+        } else if (qundoview_getdecodedmetricf_callback != nullptr) {
+            int cbval1 = static_cast<int>(metricA);
+            int cbval2 = static_cast<int>(metricB);
+
+            double callback_ret = qundoview_getdecodedmetricf_callback(this, cbval1, cbval2);
+            return static_cast<double>(callback_ret);
+        } else {
+            return QUndoView::getDecodedMetricF(metricA, metricB);
+        }
+    }
+
     // Friend functions
     friend bool QUndoView_Event(QUndoView* self, QEvent* e);
     friend bool QUndoView_QBaseEvent(QUndoView* self, QEvent* e);
@@ -2698,6 +2720,8 @@ class VirtualQUndoView final : public QUndoView {
     friend int QUndoView_QBaseReceivers(const QUndoView* self, const char* signal);
     friend bool QUndoView_IsSignalConnected(const QUndoView* self, const QMetaMethod* signal);
     friend bool QUndoView_QBaseIsSignalConnected(const QUndoView* self, const QMetaMethod* signal);
+    friend double QUndoView_GetDecodedMetricF(const QUndoView* self, int metricA, int metricB);
+    friend double QUndoView_QBaseGetDecodedMetricF(const QUndoView* self, int metricA, int metricB);
 };
 
 #endif

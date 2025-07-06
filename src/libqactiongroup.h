@@ -27,12 +27,6 @@ typedef struct QObject QObject;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QActionGroup::ExclusionPolicy ExclusionPolicy; // C++ enum
-#else
-typedef int ExclusionPolicy; // C ABI enum
-#endif
-
 QActionGroup* QActionGroup_new(QObject* parent);
 QMetaObject* QActionGroup_MetaObject(const QActionGroup* self);
 void* QActionGroup_Metacast(QActionGroup* self, const char* param1);

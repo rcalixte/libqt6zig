@@ -250,6 +250,9 @@ int QDial_QBaseReceivers(const QDial* self, const char* signal);
 bool QDial_IsSignalConnected(const QDial* self, const QMetaMethod* signal);
 void QDial_OnIsSignalConnected(const QDial* self, intptr_t slot);
 bool QDial_QBaseIsSignalConnected(const QDial* self, const QMetaMethod* signal);
+double QDial_GetDecodedMetricF(const QDial* self, int metricA, int metricB);
+void QDial_OnGetDecodedMetricF(const QDial* self, intptr_t slot);
+double QDial_QBaseGetDecodedMetricF(const QDial* self, int metricA, int metricB);
 void QDial_Delete(QDial* self);
 
 #ifdef __cplusplus

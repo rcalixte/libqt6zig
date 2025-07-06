@@ -19,12 +19,6 @@ extern "C" {
 typedef struct QsciCommand QsciCommand;
 #endif
 
-#ifdef __cplusplus
-typedef QsciCommand::Command Command; // C++ enum
-#else
-typedef int Command; // C ABI enum
-#endif
-
 int QsciCommand_Command(const QsciCommand* self);
 void QsciCommand_Execute(QsciCommand* self);
 void QsciCommand_SetKey(QsciCommand* self, int key);

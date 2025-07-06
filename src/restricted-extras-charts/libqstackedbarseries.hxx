@@ -64,8 +64,8 @@ class VirtualQStackedBarSeries final : public QStackedBarSeries {
     mutable bool qstackedbarseries_issignalconnected_isbase = false;
 
   public:
-    VirtualQStackedBarSeries() : QStackedBarSeries(){};
-    VirtualQStackedBarSeries(QObject* parent) : QStackedBarSeries(parent){};
+    VirtualQStackedBarSeries() : QStackedBarSeries() {};
+    VirtualQStackedBarSeries(QObject* parent) : QStackedBarSeries(parent) {};
 
     ~VirtualQStackedBarSeries() {
         qstackedbarseries_metacall_callback = nullptr;

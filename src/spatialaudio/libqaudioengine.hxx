@@ -61,10 +61,10 @@ class VirtualQAudioEngine final : public QAudioEngine {
     mutable bool qaudioengine_issignalconnected_isbase = false;
 
   public:
-    VirtualQAudioEngine() : QAudioEngine(){};
-    VirtualQAudioEngine(QObject* parent) : QAudioEngine(parent){};
-    VirtualQAudioEngine(int sampleRate) : QAudioEngine(sampleRate){};
-    VirtualQAudioEngine(int sampleRate, QObject* parent) : QAudioEngine(sampleRate, parent){};
+    VirtualQAudioEngine() : QAudioEngine() {};
+    VirtualQAudioEngine(QObject* parent) : QAudioEngine(parent) {};
+    VirtualQAudioEngine(int sampleRate) : QAudioEngine(sampleRate) {};
+    VirtualQAudioEngine(int sampleRate, QObject* parent) : QAudioEngine(sampleRate, parent) {};
 
     ~VirtualQAudioEngine() {
         qaudioengine_metacall_callback = nullptr;

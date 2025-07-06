@@ -191,9 +191,9 @@ void QSaveFile_OnFileName(const QSaveFile* self, intptr_t slot) {
 bool QSaveFile_Open(QSaveFile* self, int flags) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        return vqsavefile->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return vqsavefile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     } else {
-        return self->QSaveFile::open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return self->QSaveFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
 }
 
@@ -202,9 +202,9 @@ bool QSaveFile_QBaseOpen(QSaveFile* self, int flags) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_Open_IsBase(true);
-        return vqsavefile->open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return vqsavefile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     } else {
-        return self->QSaveFile::open(static_cast<QIODeviceBase::OpenMode>(flags));
+        return self->QSaveFile::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     }
 }
 

@@ -29,26 +29,6 @@ typedef struct QPointF QPointF;
 typedef struct QTimerEvent QTimerEvent;
 #endif
 
-#ifdef __cplusplus
-typedef QCamera::Error Error;                       // C++ enum
-typedef QCamera::ExposureMode ExposureMode;         // C++ enum
-typedef QCamera::Feature Feature;                   // C++ enum
-typedef QCamera::Features Features;                 // C++ QFlags
-typedef QCamera::FlashMode FlashMode;               // C++ enum
-typedef QCamera::FocusMode FocusMode;               // C++ enum
-typedef QCamera::TorchMode TorchMode;               // C++ enum
-typedef QCamera::WhiteBalanceMode WhiteBalanceMode; // C++ enum
-#else
-typedef int Error;            // C ABI enum
-typedef int ExposureMode;     // C ABI enum
-typedef int Feature;          // C ABI enum
-typedef int Features;         // C ABI QFlags
-typedef int FlashMode;        // C ABI enum
-typedef int FocusMode;        // C ABI enum
-typedef int TorchMode;        // C ABI enum
-typedef int WhiteBalanceMode; // C ABI enum
-#endif
-
 QCamera* QCamera_new();
 QCamera* QCamera_new2(const QCameraDevice* cameraDevice);
 QCamera* QCamera_new3(int position);

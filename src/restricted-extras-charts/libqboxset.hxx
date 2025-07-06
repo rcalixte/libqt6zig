@@ -61,12 +61,12 @@ class VirtualQBoxSet final : public QBoxSet {
     mutable bool qboxset_issignalconnected_isbase = false;
 
   public:
-    VirtualQBoxSet() : QBoxSet(){};
-    VirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue) : QBoxSet(le, lq, m, uq, ue){};
-    VirtualQBoxSet(const QString label) : QBoxSet(label){};
-    VirtualQBoxSet(const QString label, QObject* parent) : QBoxSet(label, parent){};
-    VirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label) : QBoxSet(le, lq, m, uq, ue, label){};
-    VirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label, QObject* parent) : QBoxSet(le, lq, m, uq, ue, label, parent){};
+    VirtualQBoxSet() : QBoxSet() {};
+    VirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue) : QBoxSet(le, lq, m, uq, ue) {};
+    VirtualQBoxSet(const QString label) : QBoxSet(label) {};
+    VirtualQBoxSet(const QString label, QObject* parent) : QBoxSet(label, parent) {};
+    VirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label) : QBoxSet(le, lq, m, uq, ue, label) {};
+    VirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label, QObject* parent) : QBoxSet(le, lq, m, uq, ue, label, parent) {};
 
     ~VirtualQBoxSet() {
         qboxset_metacall_callback = nullptr;

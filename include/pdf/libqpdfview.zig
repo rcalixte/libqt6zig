@@ -84,6 +84,27 @@ pub const qpdfview = struct {
         return qtc.QPdfView_Document(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#searchModel)
+    ///
+    /// ``` self: QtC.QPdfView ```
+    pub fn SearchModel(self: ?*anyopaque) QtC.QPdfSearchModel {
+        return qtc.QPdfView_SearchModel(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#setSearchModel)
+    ///
+    /// ``` self: QtC.QPdfView, searchModel: QtC.QPdfSearchModel ```
+    pub fn SetSearchModel(self: ?*anyopaque, searchModel: ?*anyopaque) void {
+        qtc.QPdfView_SetSearchModel(@ptrCast(self), @ptrCast(searchModel));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#currentSearchResultIndex)
+    ///
+    /// ``` self: QtC.QPdfView ```
+    pub fn CurrentSearchResultIndex(self: ?*anyopaque) i32 {
+        return qtc.QPdfView_CurrentSearchResultIndex(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#pageNavigator)
     ///
     /// ``` self: QtC.QPdfView ```
@@ -159,6 +180,13 @@ pub const qpdfview = struct {
     /// ``` self: QtC.QPdfView, factor: f64 ```
     pub fn SetZoomFactor(self: ?*anyopaque, factor: f64) void {
         qtc.QPdfView_SetZoomFactor(@ptrCast(self), @floatCast(factor));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#setCurrentSearchResultIndex)
+    ///
+    /// ``` self: QtC.QPdfView, currentResult: i32 ```
+    pub fn SetCurrentSearchResultIndex(self: ?*anyopaque, currentResult: i32) void {
+        qtc.QPdfView_SetCurrentSearchResultIndex(@ptrCast(self), @intCast(currentResult));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#documentChanged)
@@ -245,6 +273,34 @@ pub const qpdfview = struct {
         qtc.QPdfView_Connect_DocumentMarginsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#searchModelChanged)
+    ///
+    /// ``` self: QtC.QPdfView, searchModel: QtC.QPdfSearchModel ```
+    pub fn SearchModelChanged(self: ?*anyopaque, searchModel: ?*anyopaque) void {
+        qtc.QPdfView_SearchModelChanged(@ptrCast(self), @ptrCast(searchModel));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#searchModelChanged)
+    ///
+    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, searchModel: QtC.QPdfSearchModel) callconv(.c) void ```
+    pub fn OnSearchModelChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfView_Connect_SearchModelChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#currentSearchResultIndexChanged)
+    ///
+    /// ``` self: QtC.QPdfView, currentResult: i32 ```
+    pub fn CurrentSearchResultIndexChanged(self: ?*anyopaque, currentResult: i32) void {
+        qtc.QPdfView_CurrentSearchResultIndexChanged(@ptrCast(self), @intCast(currentResult));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#currentSearchResultIndexChanged)
+    ///
+    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, currentResult: i32) callconv(.c) void ```
+    pub fn OnCurrentSearchResultIndexChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPdfView_Connect_CurrentSearchResultIndexChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#paintEvent)
     ///
     /// ``` self: QtC.QPdfView, event: QtC.QPaintEvent ```
@@ -318,6 +374,81 @@ pub const qpdfview = struct {
     /// ``` self: QtC.QPdfView, dx: i32, dy: i32 ```
     pub fn QBaseScrollContentsBy(self: ?*anyopaque, dx: i32, dy: i32) void {
         qtc.QPdfView_QBaseScrollContentsBy(@ptrCast(self), @intCast(dx), @intCast(dy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mousePressEvent)
+    ///
+    /// ``` self: QtC.QPdfView, event: QtC.QMouseEvent ```
+    pub fn MousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfView_MousePressEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mousePressEvent)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfView_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mousePressEvent)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QPdfView, event: QtC.QMouseEvent ```
+    pub fn QBaseMousePressEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mouseMoveEvent)
+    ///
+    /// ``` self: QtC.QPdfView, event: QtC.QMouseEvent ```
+    pub fn MouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfView_MouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mouseMoveEvent)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfView_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mouseMoveEvent)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QPdfView, event: QtC.QMouseEvent ```
+    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mouseReleaseEvent)
+    ///
+    /// ``` self: QtC.QPdfView, event: QtC.QMouseEvent ```
+    pub fn MouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfView_MouseReleaseEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mouseReleaseEvent)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfView_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfview.html#mouseReleaseEvent)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QPdfView, event: QtC.QMouseEvent ```
+    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QPdfView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(event));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2855,6 +2986,15 @@ pub const qpdfview = struct {
 
     /// Inherited from QWidget
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
+    ///
+    /// ``` self: QtC.QPdfView, p: QtC.QPointF ```
+    pub fn ChildAtWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAtWithQPointF(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// Inherited from QWidget
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QPdfView, param1: qnamespace_enums.WidgetAttribute ```
@@ -3270,8 +3410,8 @@ pub const qpdfview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
     ///
     /// ``` self: QtC.QPdfView, thread: QtC.QThread ```
-    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) void {
-        qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
+    pub fn MoveToThread(self: ?*anyopaque, thread: ?*anyopaque) bool {
+        return qtc.QObject_MoveToThread(@ptrCast(self), @ptrCast(thread));
     }
 
     /// Inherited from QObject
@@ -3290,6 +3430,15 @@ pub const qpdfview = struct {
     /// ``` self: QtC.QPdfView, id: i32 ```
     pub fn KillTimer(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self), @intCast(id));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ``` self: QtC.QPdfView, id: qnamespace_enums.TimerId ```
+    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -3490,6 +3639,15 @@ pub const qpdfview = struct {
 
     /// Inherited from QObject
     ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#moveToThread)
+    ///
+    /// ``` self: QtC.QPdfView, thread: QtC.QThread, param2: QtC.Disambiguated_t ```
+    pub fn MoveToThread2(self: ?*anyopaque, thread: ?*anyopaque, param2: QtC.Disambiguated_t) bool {
+        return qtc.QObject_MoveToThread2(@ptrCast(self), @ptrCast(thread), @ptrCast(param2));
+    }
+
+    /// Inherited from QObject
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPdfView, interval: i32, timerType: qnamespace_enums.TimerType ```
@@ -3641,6 +3799,15 @@ pub const qpdfview = struct {
     ///
     pub fn DevicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
+    ///
+    /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
+    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -3843,72 +4010,6 @@ pub const qpdfview = struct {
 
     /// Inherited from QAbstractScrollArea
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, param1: QtC.QMouseEvent ```
-    pub fn MousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPdfView_MousePressEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, param1: QtC.QMouseEvent ```
-    pub fn QBaseMousePressEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPdfView_QBaseMousePressEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mousePressEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfView_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, param1: QtC.QMouseEvent ```
-    pub fn MouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPdfView_MouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, param1: QtC.QMouseEvent ```
-    pub fn QBaseMouseReleaseEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPdfView_QBaseMouseReleaseEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseReleaseEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfView_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseDoubleClickEvent)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -3938,39 +4039,6 @@ pub const qpdfview = struct {
     /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, param1: QtC.QMouseEvent) callconv(.c) void ```
     pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPdfView_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, param1: QtC.QMouseEvent ```
-    pub fn MouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPdfView_MouseMoveEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, param1: QtC.QMouseEvent ```
-    pub fn QBaseMouseMoveEvent(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPdfView_QBaseMouseMoveEvent(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QAbstractScrollArea
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#mouseMoveEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfView_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -5664,6 +5732,39 @@ pub const qpdfview = struct {
     /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, signal: QtC.QMetaMethod) callconv(.c) bool ```
     pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QPdfView_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QPdfView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QPdfView_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QPdfView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+        return qtc.QPdfView_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
+    }
+
+    /// Inherited from QPaintDevice
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#getDecodedMetricF)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QPdfView, slot: fn (self: QtC.QPdfView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+        qtc.QPdfView_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QObject

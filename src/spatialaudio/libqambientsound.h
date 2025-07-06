@@ -27,12 +27,6 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QUrl QUrl;
 #endif
 
-#ifdef __cplusplus
-typedef QAmbientSound::Loops Loops; // C++ enum
-#else
-typedef int Loops; // C ABI enum
-#endif
-
 QAmbientSound* QAmbientSound_new(QAudioEngine* engine);
 QMetaObject* QAmbientSound_MetaObject(const QAmbientSound* self);
 void* QAmbientSound_Metacast(QAmbientSound* self, const char* param1);

@@ -251,9 +251,9 @@ class VirtualQPolarChart final : public QPolarChart {
     mutable bool qpolarchart_setownedbylayout_isbase = false;
 
   public:
-    VirtualQPolarChart() : QPolarChart(){};
-    VirtualQPolarChart(QGraphicsItem* parent) : QPolarChart(parent){};
-    VirtualQPolarChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QPolarChart(parent, wFlags){};
+    VirtualQPolarChart() : QPolarChart() {};
+    VirtualQPolarChart(QGraphicsItem* parent) : QPolarChart(parent) {};
+    VirtualQPolarChart(QGraphicsItem* parent, Qt::WindowFlags wFlags) : QPolarChart(parent, wFlags) {};
 
     ~VirtualQPolarChart() {
         qpolarchart_metacall_callback = nullptr;

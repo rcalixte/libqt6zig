@@ -67,7 +67,7 @@ class VirtualQIconEngine final : public QIconEngine {
     mutable bool qiconengine_virtualhook_isbase = false;
 
   public:
-    VirtualQIconEngine() : QIconEngine(){};
+    VirtualQIconEngine() : QIconEngine() {};
 
     ~VirtualQIconEngine() {
         qiconengine_paint_callback = nullptr;

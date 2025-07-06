@@ -28,7 +28,7 @@ class VirtualQNetworkProxyFactory final : public QNetworkProxyFactory {
     mutable bool qnetworkproxyfactory_queryproxy_isbase = false;
 
   public:
-    VirtualQNetworkProxyFactory() : QNetworkProxyFactory(){};
+    VirtualQNetworkProxyFactory() : QNetworkProxyFactory() {};
 
     ~VirtualQNetworkProxyFactory() {
         qnetworkproxyfactory_queryproxy_callback = nullptr;

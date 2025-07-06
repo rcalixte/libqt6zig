@@ -19,12 +19,6 @@ extern "C" {
 typedef struct QLoggingCategory QLoggingCategory;
 #endif
 
-#ifdef __cplusplus
-typedef QLoggingCategory::CategoryFilter CategoryFilter; // C++ QFlags
-#else
-
-#endif
-
 QLoggingCategory* QLoggingCategory_new(const char* category);
 bool QLoggingCategory_IsDebugEnabled(const QLoggingCategory* self);
 bool QLoggingCategory_IsInfoEnabled(const QLoggingCategory* self);

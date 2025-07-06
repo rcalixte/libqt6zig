@@ -503,6 +503,9 @@ int QTreeView_QBaseReceivers(const QTreeView* self, const char* signal);
 bool QTreeView_IsSignalConnected(const QTreeView* self, const QMetaMethod* signal);
 void QTreeView_OnIsSignalConnected(const QTreeView* self, intptr_t slot);
 bool QTreeView_QBaseIsSignalConnected(const QTreeView* self, const QMetaMethod* signal);
+double QTreeView_GetDecodedMetricF(const QTreeView* self, int metricA, int metricB);
+void QTreeView_OnGetDecodedMetricF(const QTreeView* self, intptr_t slot);
+double QTreeView_QBaseGetDecodedMetricF(const QTreeView* self, int metricA, int metricB);
 void QTreeView_Delete(QTreeView* self);
 
 #ifdef __cplusplus

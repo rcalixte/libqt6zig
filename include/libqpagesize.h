@@ -23,16 +23,6 @@ typedef struct QSize QSize;
 typedef struct QSizeF QSizeF;
 #endif
 
-#ifdef __cplusplus
-typedef QPageSize::PageSizeId PageSizeId;           // C++ enum
-typedef QPageSize::SizeMatchPolicy SizeMatchPolicy; // C++ enum
-typedef QPageSize::Unit Unit;                       // C++ enum
-#else
-typedef int PageSizeId;      // C ABI enum
-typedef int SizeMatchPolicy; // C ABI enum
-typedef int Unit;            // C ABI enum
-#endif
-
 QPageSize* QPageSize_new();
 QPageSize* QPageSize_new2(int pageSizeId);
 QPageSize* QPageSize_new3(const QSize* pointSize);

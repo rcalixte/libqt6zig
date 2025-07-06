@@ -28,12 +28,6 @@ typedef struct QRect QRect;
 typedef struct QSize QSize;
 #endif
 
-#ifdef __cplusplus
-typedef QIconEngine::IconEngineHook IconEngineHook; // C++ enum
-#else
-typedef int IconEngineHook; // C ABI enum
-#endif
-
 QIconEngine* QIconEngine_new();
 void QIconEngine_Paint(QIconEngine* self, QPainter* painter, const QRect* rect, int mode, int state);
 void QIconEngine_OnPaint(QIconEngine* self, intptr_t slot);
