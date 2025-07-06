@@ -9,7 +9,6 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"strings"
 	"sync"
 	"time"
 )
@@ -24,19 +23,6 @@ type ClangMatcher func(astNodeFilename string) bool
 func ClangMatchSameHeaderDefinitionOnly(astNodeFilename string) bool {
 	return astNodeFilename == ""
 }
-
-type clangMatchUnderPath struct {
-	basePath string
-}
-
-func (c *clangMatchUnderPath) Match(astNodeFilename string) bool {
-	if astNodeFilename == "" {
-		return true
-	}
-	return strings.HasPrefix(astNodeFilename, c.basePath)
-}
-
-//
 
 func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) ([]interface{}, error) {
 
