@@ -20,223 +20,183 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	zigIncMap := map[string]string{}
 	qtstructdefs := make(map[string]struct{})
 
-	// Qt 6
-	generate(
-		"",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtCore",
-			"/usr/include/x86_64-linux-gnu/qt6/QtGui",
-			"/usr/include/x86_64-linux-gnu/qt6/QtWidgets",
-		},
-		func(fullpath string) bool {
-			// Block cbor and generate it separately
-			fname := filepath.Base(fullpath)
-			if strings.HasPrefix(fname, "qcbor") {
-				return false
-			}
+	// Define our module configuration
+	type moduleConfig struct {
+		path        string
+		dirs        []string
+		allowHeader func(string) bool
+		cflags      string
+	}
 
-			return Widgets_AllowHeader(fullpath)
+	// Qt 6 modules
+	modules := []moduleConfig{
+		{
+			path: "",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtCore",
+				"/usr/include/x86_64-linux-gnu/qt6/QtGui",
+				"/usr/include/x86_64-linux-gnu/qt6/QtWidgets",
+			},
+			allowHeader: func(fullpath string) bool {
+				// Block cbor and generate it separately
+				fname := filepath.Base(fullpath)
+				if strings.HasPrefix(fname, "qcbor") {
+					return false
+				}
+				return Widgets_AllowHeader(fullpath)
+			},
+			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Widgets"),
 		},
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6Widgets"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
+		{
+			path: "cbor",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtCore",
+			},
+			allowHeader: func(fullpath string) bool {
+				// Only include the same json, xml, cbor files excluded above
+				fname := filepath.Base(fullpath)
+				return strings.HasPrefix(fname, "qcbor")
+			},
+			cflags: "--std=c++20 " + pkgConfigCflags("Qt6Core"),
+		},
 
-	generate(
-		"cbor",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtCore",
+		// Qt 6 QtPrintSupport
+		{
+			path: "printsupport",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtPrintSupport",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
 		},
-		func(fullpath string) bool {
-			// Only include the same json, xml, cbor files excluded above
-			fname := filepath.Base(fullpath)
-			return strings.HasPrefix(fname, "qcbor")
-		},
-		clangBin,
-		"--std=c++20 "+pkgConfigCflags("Qt6Core"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 QtPrintSupport
-	generate(
-		"printsupport",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtPrintSupport",
+		// Qt 6 SVG
+		{
+			path: "svg",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtSvg",
+				"/usr/include/x86_64-linux-gnu/qt6/QtSvgWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SvgWidgets"),
 		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6PrintSupport"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 SVG
-	generate(
-		"svg",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtSvg",
-			"/usr/include/x86_64-linux-gnu/qt6/QtSvgWidgets",
+		// Qt 6 QtNetwork
+		{
+			path: "network",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtNetwork",
+			},
+			allowHeader: func(fullpath string) bool {
+				fname := filepath.Base(fullpath)
+				return fname != "qtnetwork-config.h"
+			},
+			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Network"),
 		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6SvgWidgets"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 QtNetwork
-	generate(
-		"network",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtNetwork",
+		// Qt 6 QtMultimedia
+		{
+			path: "multimedia",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtMultimedia",
+				"/usr/include/x86_64-linux-gnu/qt6/QtMultimediaWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6MultimediaWidgets"),
 		},
-		func(fullpath string) bool {
-			fname := filepath.Base(fullpath)
-			return fname != "qtnetwork-config.h"
-		},
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6Network"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 QtMultimedia
-	generate(
-		"multimedia",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtMultimedia",
-			"/usr/include/x86_64-linux-gnu/qt6/QtMultimediaWidgets",
+		// Qt 6 Spatial Audio (on Debian this is a dependency of Qt6Multimedia)
+		{
+			path: "spatialaudio",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtSpatialAudio",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SpatialAudio"),
 		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6MultimediaWidgets"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 Spatial Audio (on Debian this is a dependency of Qt6Multimedia)
-	generate(
-		"spatialaudio",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtSpatialAudio",
+		// Qt 6 QWebChannel
+		{
+			path: "webchannel",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtWebChannel",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebChannel"),
 		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6SpatialAudio"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 QWebChannel
-	generate(
-		"webchannel",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtWebChannel",
+		// Qt 6 QWebEngine
+		{
+			path: "webengine",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineCore",
+				"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineWidgets",
+			},
+			allowHeader: func(fullpath string) bool {
+				baseName := filepath.Base(fullpath)
+				return baseName != "qtwebenginewidgets-config.h"
+			},
+			cflags: "--std=c++17 " + pkgConfigCflags("Qt6WebEngineWidgets"),
 		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6WebChannel"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 QWebEngine
-	generate(
-		"webengine",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineCore",
-			"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineWidgets",
+		// Qt 6 PDF
+		// Depends on QtCore/Gui/Widgets
+		{
+			path: "pdf",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtPdf",
+				"/usr/include/x86_64-linux-gnu/qt6/QtPdfWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PdfWidgets"),
 		},
-		func(fullpath string) bool {
-			baseName := filepath.Base(fullpath)
-			return baseName != "qtwebenginewidgets-config.h"
-		},
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6WebEngineWidgets"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 PDF
-	// Depends on QtCore/Gui/Widgets
-	generate(
-		"pdf",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtPdf",
-			"/usr/include/x86_64-linux-gnu/qt6/QtPdfWidgets",
+		// Qt 6 Charts
+		// Depends on QtCore/Gui/Widgets
+		{
+			path: "restricted-extras-charts",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/QtCharts",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Charts"),
 		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6PdfWidgets"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
 
-	// Qt 6 Charts
-	// Depends on QtCore/Gui/Widgets
-	generate(
-		"restricted-extras-charts",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtCharts",
+		// Qt 6 QScintilla
+		// Depends on QtCore/Gui/Widgets, QPrintSupport
+		{
+			path: "restricted-extras-qscintilla",
+			dirs: []string{
+				"/usr/include/x86_64-linux-gnu/qt6/Qsci",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
 		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6Charts"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
+	}
 
-	// Qt 6 QScintilla
-	// Depends on QtCore/Gui/Widgets, QPrintSupport
-	generate(
-		"restricted-extras-qscintilla",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/Qsci",
-		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6PrintSupport"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-		&headerList,
-		zigIncMap,
-		qtstructdefs,
-	)
+	// PASS 1: Gather all types across all modules
+	for _, mod := range modules {
+		gatherTypes(
+			mod.path,
+			mod.dirs,
+			mod.allowHeader,
+			clangBin,
+			mod.cflags,
+		)
+	}
+
+	// PASS 2: Generate bindings with complete type information
+	for _, mod := range modules {
+		generate(
+			mod.path,
+			mod.dirs,
+			mod.allowHeader,
+			outDir,
+			&headerList,
+			zigIncMap,
+			qtstructdefs,
+		)
+	}
 
 	// Post-processing to generate auxiliary files
 	structdefs := make([]string, 0, len(qtstructdefs))
