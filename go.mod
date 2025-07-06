@@ -1,3 +1,3 @@
-module libqt6zig
+module github.com/rcalixte/libqt6zig
 
-go 1.23.4
+go 1.24.4
