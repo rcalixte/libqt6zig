@@ -11,6 +11,18 @@ import (
 var (
 	ErrTooComplex = errors.New("type declaration is too complex to parse")
 	ErrNoContent  = errors.New("there's no content to include")
+
+	// Qt container types that can hold other types
+	qtContainers = []string{
+		"QHash<",
+		"QList<",
+		"QMap<",
+		"QPair<",
+		"QQueue<",
+		"QSet<",
+		"QStack<",
+		"QVector<",
+	}
 )
 
 // parseHeader parses a whole C++ header into our CppParsedHeader intermediate format.
@@ -545,7 +557,7 @@ nextMethod:
 
 			var mm CppMethod
 
-			err := parseMethod(node, &mm)
+			err := parseMethod(node, &mm, ret.ClassName)
 			if err != nil {
 				if errors.Is(err, ErrTooComplex) {
 					log.Printf("Skipping ctor with complex type")
@@ -617,7 +629,7 @@ nextMethod:
 
 			mm.MethodName = methodName
 
-			err := parseMethod(node, &mm)
+			err := parseMethod(node, &mm, ret.ClassName)
 			if err != nil {
 				if errors.Is(err, ErrTooComplex) {
 					log.Printf("Skipping method %q with complex type", mm.MethodName)
@@ -713,8 +725,7 @@ func processEnum(node map[string]interface{}, addNamePrefix string, visibility v
 	}
 
 	// Name
-	nodename, ok := node["name"].(string)
-	if !ok {
+	if nodename, ok := node["name"].(string); !ok {
 		// An unnamed enum is possible (e.g. qcalendar.h)
 		// It defines integer constants just in the current scope
 		ret.EnumName = addNamePrefix
@@ -844,16 +855,72 @@ nextEnumEntry:
 }
 
 // parseMethod parses a Clang method into our CppMethod intermediate format.
-func parseMethod(node map[string]interface{}, mm *CppMethod) error {
+func parseMethod(node map[string]interface{}, mm *CppMethod, className string) error {
 	if typobj, ok := node["type"].(map[string]interface{}); ok {
 		qualType := getPreferredType(typobj)
 		if qualType != "" {
 			// The qualType is the whole type of the method, including its parameter types.
 			// If anything here is too complicated, skip the whole method.
 			var err error
+
 			mm.ReturnType, mm.Parameters, mm.IsConst, err = parseTypeString(qualType)
 			if err != nil {
 				return err
+			}
+
+			fullClassName := className + "::" + mm.ReturnType.ParameterType
+
+			// Add resolution for return type if it's a typedef
+			if !mm.ReturnType.IsKnownEnum() {
+				if typedef, ok := KnownTypedefs[fullClassName]; ok {
+					if strings.HasPrefix(typedef.Typedef.UnderlyingType.ParameterType, "QFlags<") {
+						mm.ReturnType.ParameterType = fullClassName
+						if mm.ReturnType.QtCppOriginalType != nil {
+							mm.ReturnType.QtCppOriginalType.ParameterType = fullClassName
+						}
+					}
+				}
+			}
+
+			// Add resolution for return type if it's a struct
+			if _, ok := KnownClassnames[fullClassName]; ok {
+				mm.ReturnType.ParameterType = fullClassName
+			}
+
+			// Add resolution for return type if it's an enum
+			if _, ok := KnownEnums[mm.ReturnType.ParameterType]; ok {
+				mm.ReturnType.ParameterType = resolveEnumType(mm.ReturnType.ParameterType, className, "Qt")
+			}
+
+			// Add resolution for parameters if they're enums
+			for i := range mm.Parameters {
+				if !mm.Parameters[i].IsKnownEnum() {
+					// Check if it's a typedef and resolve to underlying type
+					classScoped := className + "::" + mm.Parameters[i].ParameterType
+
+					if typedef, ok := KnownTypedefs[classScoped]; ok {
+						if strings.HasPrefix(typedef.Typedef.UnderlyingType.ParameterType, "QFlags<") {
+							mm.Parameters[i].ParameterType = typedef.Typedef.UnderlyingType.ParameterType
+							if mm.Parameters[i].QtCppOriginalType != nil {
+								mm.Parameters[i].QtCppOriginalType.ParameterType = typedef.Typedef.UnderlyingType.ParameterType
+							}
+						}
+					} else {
+						if typeDef, ok := KnownTypedefs[mm.Parameters[i].ParameterType]; ok && !strings.Contains(mm.Parameters[i].ParameterType, "::") {
+							if strings.HasSuffix(mm.Parameters[i].ParameterType, "Mode") || mm.Parameters[i].ParameterType == "Capabilities" {
+								mm.Parameters[i].ParameterType = typeDef.Typedef.UnderlyingType.ParameterType
+								if mm.Parameters[i].QtCppOriginalType != nil {
+									mm.Parameters[i].QtCppOriginalType.ParameterType = typeDef.Typedef.UnderlyingType.ParameterType
+								}
+							}
+						}
+					}
+				}
+
+				// Add resolution for parameters if they're enums
+				if _, ok := KnownEnums[mm.Parameters[i].ParameterType]; ok {
+					mm.Parameters[i].ParameterType = resolveEnumType(mm.Parameters[i].ParameterType, className, "Qt")
+				}
 			}
 		}
 	}
