@@ -545,8 +545,8 @@ pub const qgraphicseffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsEffect, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -624,8 +624,8 @@ pub const qgraphicseffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -768,8 +768,8 @@ pub const qgraphicseffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1529,8 +1529,8 @@ pub const qgraphicscolorizeeffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1608,8 +1608,8 @@ pub const qgraphicscolorizeeffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1752,8 +1752,8 @@ pub const qgraphicscolorizeeffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -2769,8 +2769,8 @@ pub const qgraphicsblureffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -2848,8 +2848,8 @@ pub const qgraphicsblureffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -2992,8 +2992,8 @@ pub const qgraphicsblureffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3755,8 +3755,8 @@ pub const qgraphicsdropshadoweffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setOffset)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, d: f64 ```
-    pub fn SetOffsetWithQreal(self: ?*anyopaque, d: f64) void {
-        qtc.QGraphicsDropShadowEffect_SetOffsetWithQreal(@ptrCast(self), @floatCast(d));
+    pub fn SetOffset3(self: ?*anyopaque, d: f64) void {
+        qtc.QGraphicsDropShadowEffect_SetOffset3(@ptrCast(self), @floatCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsdropshadoweffect.html#setXOffset)
@@ -4046,8 +4046,8 @@ pub const qgraphicsdropshadoweffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -4125,8 +4125,8 @@ pub const qgraphicsdropshadoweffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -4269,8 +4269,8 @@ pub const qgraphicsdropshadoweffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -5228,8 +5228,8 @@ pub const qgraphicsopacityeffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -5307,8 +5307,8 @@ pub const qgraphicsopacityeffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -5451,8 +5451,8 @@ pub const qgraphicsopacityeffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

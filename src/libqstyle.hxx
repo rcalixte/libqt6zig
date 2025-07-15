@@ -21,9 +21,9 @@ class VirtualQStyle final : public QStyle {
     using QStyle_Metacall_Callback = int (*)(QStyle*, int, int, void**);
     using QStyle_Polish_Callback = void (*)(QStyle*, QWidget*);
     using QStyle_Unpolish_Callback = void (*)(QStyle*, QWidget*);
-    using QStyle_PolishWithApplication_Callback = void (*)(QStyle*, QApplication*);
-    using QStyle_UnpolishWithApplication_Callback = void (*)(QStyle*, QApplication*);
-    using QStyle_PolishWithPalette_Callback = void (*)(QStyle*, QPalette*);
+    using QStyle_Polish2_Callback = void (*)(QStyle*, QApplication*);
+    using QStyle_Unpolish2_Callback = void (*)(QStyle*, QApplication*);
+    using QStyle_Polish3_Callback = void (*)(QStyle*, QPalette*);
     using QStyle_ItemTextRect_Callback = QRect* (*)(const QStyle*, QFontMetrics*, QRect*, int, bool, libqt_string);
     using QStyle_ItemPixmapRect_Callback = QRect* (*)(const QStyle*, QRect*, int, QPixmap*);
     using QStyle_DrawItemText_Callback = void (*)(const QStyle*, QPainter*, QRect*, int, QPalette*, bool, libqt_string, int);
@@ -59,9 +59,9 @@ class VirtualQStyle final : public QStyle {
     QStyle_Metacall_Callback qstyle_metacall_callback = nullptr;
     QStyle_Polish_Callback qstyle_polish_callback = nullptr;
     QStyle_Unpolish_Callback qstyle_unpolish_callback = nullptr;
-    QStyle_PolishWithApplication_Callback qstyle_polishwithapplication_callback = nullptr;
-    QStyle_UnpolishWithApplication_Callback qstyle_unpolishwithapplication_callback = nullptr;
-    QStyle_PolishWithPalette_Callback qstyle_polishwithpalette_callback = nullptr;
+    QStyle_Polish2_Callback qstyle_polish2_callback = nullptr;
+    QStyle_Unpolish2_Callback qstyle_unpolish2_callback = nullptr;
+    QStyle_Polish3_Callback qstyle_polish3_callback = nullptr;
     QStyle_ItemTextRect_Callback qstyle_itemtextrect_callback = nullptr;
     QStyle_ItemPixmapRect_Callback qstyle_itempixmaprect_callback = nullptr;
     QStyle_DrawItemText_Callback qstyle_drawitemtext_callback = nullptr;
@@ -96,9 +96,9 @@ class VirtualQStyle final : public QStyle {
     mutable bool qstyle_metacall_isbase = false;
     mutable bool qstyle_polish_isbase = false;
     mutable bool qstyle_unpolish_isbase = false;
-    mutable bool qstyle_polishwithapplication_isbase = false;
-    mutable bool qstyle_unpolishwithapplication_isbase = false;
-    mutable bool qstyle_polishwithpalette_isbase = false;
+    mutable bool qstyle_polish2_isbase = false;
+    mutable bool qstyle_unpolish2_isbase = false;
+    mutable bool qstyle_polish3_isbase = false;
     mutable bool qstyle_itemtextrect_isbase = false;
     mutable bool qstyle_itempixmaprect_isbase = false;
     mutable bool qstyle_drawitemtext_isbase = false;
@@ -136,9 +136,9 @@ class VirtualQStyle final : public QStyle {
         qstyle_metacall_callback = nullptr;
         qstyle_polish_callback = nullptr;
         qstyle_unpolish_callback = nullptr;
-        qstyle_polishwithapplication_callback = nullptr;
-        qstyle_unpolishwithapplication_callback = nullptr;
-        qstyle_polishwithpalette_callback = nullptr;
+        qstyle_polish2_callback = nullptr;
+        qstyle_unpolish2_callback = nullptr;
+        qstyle_polish3_callback = nullptr;
         qstyle_itemtextrect_callback = nullptr;
         qstyle_itempixmaprect_callback = nullptr;
         qstyle_drawitemtext_callback = nullptr;
@@ -174,9 +174,9 @@ class VirtualQStyle final : public QStyle {
     inline void setQStyle_Metacall_Callback(QStyle_Metacall_Callback cb) { qstyle_metacall_callback = cb; }
     inline void setQStyle_Polish_Callback(QStyle_Polish_Callback cb) { qstyle_polish_callback = cb; }
     inline void setQStyle_Unpolish_Callback(QStyle_Unpolish_Callback cb) { qstyle_unpolish_callback = cb; }
-    inline void setQStyle_PolishWithApplication_Callback(QStyle_PolishWithApplication_Callback cb) { qstyle_polishwithapplication_callback = cb; }
-    inline void setQStyle_UnpolishWithApplication_Callback(QStyle_UnpolishWithApplication_Callback cb) { qstyle_unpolishwithapplication_callback = cb; }
-    inline void setQStyle_PolishWithPalette_Callback(QStyle_PolishWithPalette_Callback cb) { qstyle_polishwithpalette_callback = cb; }
+    inline void setQStyle_Polish2_Callback(QStyle_Polish2_Callback cb) { qstyle_polish2_callback = cb; }
+    inline void setQStyle_Unpolish2_Callback(QStyle_Unpolish2_Callback cb) { qstyle_unpolish2_callback = cb; }
+    inline void setQStyle_Polish3_Callback(QStyle_Polish3_Callback cb) { qstyle_polish3_callback = cb; }
     inline void setQStyle_ItemTextRect_Callback(QStyle_ItemTextRect_Callback cb) { qstyle_itemtextrect_callback = cb; }
     inline void setQStyle_ItemPixmapRect_Callback(QStyle_ItemPixmapRect_Callback cb) { qstyle_itempixmaprect_callback = cb; }
     inline void setQStyle_DrawItemText_Callback(QStyle_DrawItemText_Callback cb) { qstyle_drawitemtext_callback = cb; }
@@ -211,9 +211,9 @@ class VirtualQStyle final : public QStyle {
     inline void setQStyle_Metacall_IsBase(bool value) const { qstyle_metacall_isbase = value; }
     inline void setQStyle_Polish_IsBase(bool value) const { qstyle_polish_isbase = value; }
     inline void setQStyle_Unpolish_IsBase(bool value) const { qstyle_unpolish_isbase = value; }
-    inline void setQStyle_PolishWithApplication_IsBase(bool value) const { qstyle_polishwithapplication_isbase = value; }
-    inline void setQStyle_UnpolishWithApplication_IsBase(bool value) const { qstyle_unpolishwithapplication_isbase = value; }
-    inline void setQStyle_PolishWithPalette_IsBase(bool value) const { qstyle_polishwithpalette_isbase = value; }
+    inline void setQStyle_Polish2_IsBase(bool value) const { qstyle_polish2_isbase = value; }
+    inline void setQStyle_Unpolish2_IsBase(bool value) const { qstyle_unpolish2_isbase = value; }
+    inline void setQStyle_Polish3_IsBase(bool value) const { qstyle_polish3_isbase = value; }
     inline void setQStyle_ItemTextRect_IsBase(bool value) const { qstyle_itemtextrect_isbase = value; }
     inline void setQStyle_ItemPixmapRect_IsBase(bool value) const { qstyle_itempixmaprect_isbase = value; }
     inline void setQStyle_DrawItemText_IsBase(bool value) const { qstyle_drawitemtext_isbase = value; }
@@ -291,13 +291,13 @@ class VirtualQStyle final : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QApplication* application) override {
-        if (qstyle_polishwithapplication_isbase) {
-            qstyle_polishwithapplication_isbase = false;
+        if (qstyle_polish2_isbase) {
+            qstyle_polish2_isbase = false;
             QStyle::polish(application);
-        } else if (qstyle_polishwithapplication_callback != nullptr) {
+        } else if (qstyle_polish2_callback != nullptr) {
             QApplication* cbval1 = application;
 
-            qstyle_polishwithapplication_callback(this, cbval1);
+            qstyle_polish2_callback(this, cbval1);
         } else {
             QStyle::polish(application);
         }
@@ -305,13 +305,13 @@ class VirtualQStyle final : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void unpolish(QApplication* application) override {
-        if (qstyle_unpolishwithapplication_isbase) {
-            qstyle_unpolishwithapplication_isbase = false;
+        if (qstyle_unpolish2_isbase) {
+            qstyle_unpolish2_isbase = false;
             QStyle::unpolish(application);
-        } else if (qstyle_unpolishwithapplication_callback != nullptr) {
+        } else if (qstyle_unpolish2_callback != nullptr) {
             QApplication* cbval1 = application;
 
-            qstyle_unpolishwithapplication_callback(this, cbval1);
+            qstyle_unpolish2_callback(this, cbval1);
         } else {
             QStyle::unpolish(application);
         }
@@ -319,15 +319,15 @@ class VirtualQStyle final : public QStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QPalette& palette) override {
-        if (qstyle_polishwithpalette_isbase) {
-            qstyle_polishwithpalette_isbase = false;
+        if (qstyle_polish3_isbase) {
+            qstyle_polish3_isbase = false;
             QStyle::polish(palette);
-        } else if (qstyle_polishwithpalette_callback != nullptr) {
+        } else if (qstyle_polish3_callback != nullptr) {
             QPalette& palette_ret = palette;
             // Cast returned reference into pointer
             QPalette* cbval1 = &palette_ret;
 
-            qstyle_polishwithpalette_callback(this, cbval1);
+            qstyle_polish3_callback(this, cbval1);
         } else {
             QStyle::polish(palette);
         }

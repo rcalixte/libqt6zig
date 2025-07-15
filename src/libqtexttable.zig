@@ -247,8 +247,8 @@ pub const qtexttable = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttable.html#mergeCells)
     ///
     /// ``` self: QtC.QTextTable, cursor: QtC.QTextCursor ```
-    pub fn MergeCellsWithCursor(self: ?*anyopaque, cursor: ?*anyopaque) void {
-        qtc.QTextTable_MergeCellsWithCursor(@ptrCast(self), @ptrCast(cursor));
+    pub fn MergeCells2(self: ?*anyopaque, cursor: ?*anyopaque) void {
+        qtc.QTextTable_MergeCells2(@ptrCast(self), @ptrCast(cursor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttable.html#splitCell)
@@ -282,15 +282,15 @@ pub const qtexttable = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttable.html#cellAt)
     ///
     /// ``` self: QtC.QTextTable, position: i32 ```
-    pub fn CellAtWithPosition(self: ?*anyopaque, position: i32) QtC.QTextTableCell {
-        return qtc.QTextTable_CellAtWithPosition(@ptrCast(self), @intCast(position));
+    pub fn CellAt2(self: ?*anyopaque, position: i32) QtC.QTextTableCell {
+        return qtc.QTextTable_CellAt2(@ptrCast(self), @intCast(position));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttable.html#cellAt)
     ///
     /// ``` self: QtC.QTextTable, c: QtC.QTextCursor ```
-    pub fn CellAtWithQTextCursor(self: ?*anyopaque, c: ?*anyopaque) QtC.QTextTableCell {
-        return qtc.QTextTable_CellAtWithQTextCursor(@ptrCast(self), @ptrCast(c));
+    pub fn CellAt3(self: ?*anyopaque, c: ?*anyopaque) QtC.QTextTableCell {
+        return qtc.QTextTable_CellAt3(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttable.html#rowStart)
@@ -581,8 +581,8 @@ pub const qtexttable = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTextTable, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -660,8 +660,8 @@ pub const qtexttable = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -804,8 +804,8 @@ pub const qtexttable = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTextTable, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

@@ -40,8 +40,8 @@ pub const qfileiconprovider = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QFileIconProvider, info: QtC.QFileInfo ```
-    pub fn IconWithInfo(self: ?*anyopaque, info: ?*anyopaque) QtC.QIcon {
-        return qtc.QFileIconProvider_IconWithInfo(@ptrCast(self), @ptrCast(info));
+    pub fn Icon2(self: ?*anyopaque, info: ?*anyopaque) QtC.QIcon {
+        return qtc.QFileIconProvider_Icon2(@ptrCast(self), @ptrCast(info));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
@@ -49,8 +49,8 @@ pub const qfileiconprovider = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, info: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
-    pub fn OnIconWithInfo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QFileIconProvider_OnIconWithInfo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnIcon2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
+        qtc.QFileIconProvider_OnIcon2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
@@ -58,39 +58,8 @@ pub const qfileiconprovider = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFileIconProvider, info: QtC.QFileInfo ```
-    pub fn QBaseIconWithInfo(self: ?*anyopaque, info: ?*anyopaque) QtC.QIcon {
-        return qtc.QFileIconProvider_QBaseIconWithInfo(@ptrCast(self), @ptrCast(info));
-    }
-
-    /// Inherited from QAbstractFileIconProvider
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
-    ///
-    /// ``` self: QtC.QFileIconProvider, param1: QtC.QFileInfo ```
-    pub fn IconWithQFileInfo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_IconWithQFileInfo(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// Inherited from QAbstractFileIconProvider
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
-    pub fn OnIconWithQFileInfo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QAbstractFileIconProvider_OnIconWithQFileInfo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QAbstractFileIconProvider
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QFileIconProvider, param1: QtC.QFileInfo ```
-    pub fn QBaseIconWithQFileInfo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_QBaseIconWithQFileInfo(@ptrCast(self), @ptrCast(param1));
+    pub fn QBaseIcon2(self: ?*anyopaque, info: ?*anyopaque) QtC.QIcon {
+        return qtc.QFileIconProvider_QBaseIcon2(@ptrCast(self), @ptrCast(info));
     }
 
     /// Inherited from QAbstractFileIconProvider

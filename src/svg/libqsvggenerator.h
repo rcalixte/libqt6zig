@@ -38,7 +38,7 @@ void QSvgGenerator_SetSize(QSvgGenerator* self, const QSize* size);
 QRect* QSvgGenerator_ViewBox(const QSvgGenerator* self);
 QRectF* QSvgGenerator_ViewBoxF(const QSvgGenerator* self);
 void QSvgGenerator_SetViewBox(QSvgGenerator* self, const QRect* viewBox);
-void QSvgGenerator_SetViewBoxWithViewBox(QSvgGenerator* self, const QRectF* viewBox);
+void QSvgGenerator_SetViewBox2(QSvgGenerator* self, const QRectF* viewBox);
 libqt_string QSvgGenerator_FileName(const QSvgGenerator* self);
 void QSvgGenerator_SetFileName(QSvgGenerator* self, const libqt_string fileName);
 QIODevice* QSvgGenerator_OutputDevice(const QSvgGenerator* self);

@@ -353,7 +353,7 @@ QPointF* QWidget_MapToGlobal(const QWidget* self, const QPointF* param1) {
     return new QPointF(self->mapToGlobal(*param1));
 }
 
-QPoint* QWidget_MapToGlobalWithQPoint(const QWidget* self, const QPoint* param1) {
+QPoint* QWidget_MapToGlobal2(const QWidget* self, const QPoint* param1) {
     return new QPoint(self->mapToGlobal(*param1));
 }
 
@@ -361,7 +361,7 @@ QPointF* QWidget_MapFromGlobal(const QWidget* self, const QPointF* param1) {
     return new QPointF(self->mapFromGlobal(*param1));
 }
 
-QPoint* QWidget_MapFromGlobalWithQPoint(const QWidget* self, const QPoint* param1) {
+QPoint* QWidget_MapFromGlobal2(const QWidget* self, const QPoint* param1) {
     return new QPoint(self->mapFromGlobal(*param1));
 }
 
@@ -369,7 +369,7 @@ QPointF* QWidget_MapToParent(const QWidget* self, const QPointF* param1) {
     return new QPointF(self->mapToParent(*param1));
 }
 
-QPoint* QWidget_MapToParentWithQPoint(const QWidget* self, const QPoint* param1) {
+QPoint* QWidget_MapToParent2(const QWidget* self, const QPoint* param1) {
     return new QPoint(self->mapToParent(*param1));
 }
 
@@ -377,7 +377,7 @@ QPointF* QWidget_MapFromParent(const QWidget* self, const QPointF* param1) {
     return new QPointF(self->mapFromParent(*param1));
 }
 
-QPoint* QWidget_MapFromParentWithQPoint(const QWidget* self, const QPoint* param1) {
+QPoint* QWidget_MapFromParent2(const QWidget* self, const QPoint* param1) {
     return new QPoint(self->mapFromParent(*param1));
 }
 
@@ -489,7 +489,7 @@ void QWidget_SetMask(QWidget* self, const QBitmap* mask) {
     self->setMask(*mask);
 }
 
-void QWidget_SetMaskWithMask(QWidget* self, const QRegion* mask) {
+void QWidget_SetMask2(QWidget* self, const QRegion* mask) {
     self->setMask(*mask);
 }
 
@@ -505,7 +505,7 @@ void QWidget_Render(QWidget* self, QPaintDevice* target) {
     self->render(target);
 }
 
-void QWidget_RenderWithPainter(QWidget* self, QPainter* painter) {
+void QWidget_Render2(QWidget* self, QPainter* painter) {
     self->render(painter);
 }
 
@@ -775,7 +775,7 @@ void QWidget_ClearFocus(QWidget* self) {
     self->clearFocus();
 }
 
-void QWidget_SetFocusWithReason(QWidget* self, int reason) {
+void QWidget_SetFocus2(QWidget* self, int reason) {
     self->setFocus(static_cast<Qt::FocusReason>(reason));
 }
 
@@ -815,7 +815,7 @@ void QWidget_GrabMouse(QWidget* self) {
     self->grabMouse();
 }
 
-void QWidget_GrabMouseWithQCursor(QWidget* self, const QCursor* param1) {
+void QWidget_GrabMouse2(QWidget* self, const QCursor* param1) {
     self->grabMouse(*param1);
 }
 
@@ -879,11 +879,11 @@ void QWidget_Update2(QWidget* self, int x, int y, int w, int h) {
     self->update(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QWidget_UpdateWithQRect(QWidget* self, const QRect* param1) {
+void QWidget_Update3(QWidget* self, const QRect* param1) {
     self->update(*param1);
 }
 
-void QWidget_UpdateWithQRegion(QWidget* self, const QRegion* param1) {
+void QWidget_Update4(QWidget* self, const QRegion* param1) {
     self->update(*param1);
 }
 
@@ -891,11 +891,11 @@ void QWidget_Repaint2(QWidget* self, int x, int y, int w, int h) {
     self->repaint(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QWidget_RepaintWithQRect(QWidget* self, const QRect* param1) {
+void QWidget_Repaint3(QWidget* self, const QRect* param1) {
     self->repaint(*param1);
 }
 
-void QWidget_RepaintWithQRegion(QWidget* self, const QRegion* param1) {
+void QWidget_Repaint4(QWidget* self, const QRegion* param1) {
     self->repaint(*param1);
 }
 
@@ -947,7 +947,7 @@ void QWidget_Move(QWidget* self, int x, int y) {
     self->move(static_cast<int>(x), static_cast<int>(y));
 }
 
-void QWidget_MoveWithQPoint(QWidget* self, const QPoint* param1) {
+void QWidget_Move2(QWidget* self, const QPoint* param1) {
     self->move(*param1);
 }
 
@@ -955,7 +955,7 @@ void QWidget_Resize(QWidget* self, int w, int h) {
     self->resize(static_cast<int>(w), static_cast<int>(h));
 }
 
-void QWidget_ResizeWithQSize(QWidget* self, const QSize* param1) {
+void QWidget_Resize2(QWidget* self, const QSize* param1) {
     self->resize(*param1);
 }
 
@@ -963,7 +963,7 @@ void QWidget_SetGeometry(QWidget* self, int x, int y, int w, int h) {
     self->setGeometry(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QWidget_SetGeometryWithGeometry(QWidget* self, const QRect* geometry) {
+void QWidget_SetGeometry2(QWidget* self, const QRect* geometry) {
     self->setGeometry(*geometry);
 }
 
@@ -1042,7 +1042,7 @@ void QWidget_SetContentsMargins(QWidget* self, int left, int top, int right, int
     self->setContentsMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
 }
 
-void QWidget_SetContentsMarginsWithMargins(QWidget* self, const QMargins* margins) {
+void QWidget_SetContentsMargins2(QWidget* self, const QMargins* margins) {
     self->setContentsMargins(*margins);
 }
 
@@ -1147,22 +1147,22 @@ libqt_list /* of QAction* */ QWidget_Actions(const QWidget* self) {
     return _out;
 }
 
-QAction* QWidget_AddActionWithText(QWidget* self, const libqt_string text) {
+QAction* QWidget_AddAction2(QWidget* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->addAction(text_QString);
 }
 
-QAction* QWidget_AddAction2(QWidget* self, const QIcon* icon, const libqt_string text) {
+QAction* QWidget_AddAction3(QWidget* self, const QIcon* icon, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->addAction(*icon, text_QString);
 }
 
-QAction* QWidget_AddAction3(QWidget* self, const libqt_string text, const QKeySequence* shortcut) {
+QAction* QWidget_AddAction4(QWidget* self, const libqt_string text, const QKeySequence* shortcut) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->addAction(text_QString, *shortcut);
 }
 
-QAction* QWidget_AddAction4(QWidget* self, const QIcon* icon, const libqt_string text, const QKeySequence* shortcut) {
+QAction* QWidget_AddAction5(QWidget* self, const QIcon* icon, const libqt_string text, const QKeySequence* shortcut) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->addAction(*icon, text_QString, *shortcut);
 }
@@ -1199,11 +1199,11 @@ QWidget* QWidget_ChildAt(const QWidget* self, int x, int y) {
     return self->childAt(static_cast<int>(x), static_cast<int>(y));
 }
 
-QWidget* QWidget_ChildAtWithQPoint(const QWidget* self, const QPoint* p) {
+QWidget* QWidget_ChildAt2(const QWidget* self, const QPoint* p) {
     return self->childAt(*p);
 }
 
-QWidget* QWidget_ChildAtWithQPointF(const QWidget* self, const QPointF* p) {
+QWidget* QWidget_ChildAt3(const QWidget* self, const QPointF* p) {
     return self->childAt(*p);
 }
 
@@ -1353,7 +1353,7 @@ libqt_string QWidget_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QWidget_Render2(QWidget* self, QPaintDevice* target, const QPoint* targetOffset) {
+void QWidget_Render22(QWidget* self, QPaintDevice* target, const QPoint* targetOffset) {
     self->render(target, *targetOffset);
 }
 
@@ -1365,7 +1365,7 @@ void QWidget_Render4(QWidget* self, QPaintDevice* target, const QPoint* targetOf
     self->render(target, *targetOffset, *sourceRegion, static_cast<QWidget::RenderFlags>(renderFlags));
 }
 
-void QWidget_Render22(QWidget* self, QPainter* painter, const QPoint* targetOffset) {
+void QWidget_Render23(QWidget* self, QPainter* painter, const QPoint* targetOffset) {
     self->render(painter, *targetOffset);
 }
 

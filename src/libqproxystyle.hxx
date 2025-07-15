@@ -38,10 +38,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
     using QProxyStyle_GeneratedIconPixmap_Callback = QPixmap* (*)(const QProxyStyle*, int, QPixmap*, QStyleOption*);
     using QProxyStyle_StandardPalette_Callback = QPalette* (*)();
     using QProxyStyle_Polish_Callback = void (*)(QProxyStyle*, QWidget*);
-    using QProxyStyle_PolishWithPal_Callback = void (*)(QProxyStyle*, QPalette*);
-    using QProxyStyle_PolishWithApp_Callback = void (*)(QProxyStyle*, QApplication*);
+    using QProxyStyle_Polish2_Callback = void (*)(QProxyStyle*, QPalette*);
+    using QProxyStyle_Polish3_Callback = void (*)(QProxyStyle*, QApplication*);
     using QProxyStyle_Unpolish_Callback = void (*)(QProxyStyle*, QWidget*);
-    using QProxyStyle_UnpolishWithApp_Callback = void (*)(QProxyStyle*, QApplication*);
+    using QProxyStyle_Unpolish2_Callback = void (*)(QProxyStyle*, QApplication*);
     using QProxyStyle_Event_Callback = bool (*)(QProxyStyle*, QEvent*);
     using QProxyStyle_EventFilter_Callback = bool (*)(QProxyStyle*, QObject*, QEvent*);
     using QProxyStyle_TimerEvent_Callback = void (*)(QProxyStyle*, QTimerEvent*);
@@ -76,10 +76,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
     QProxyStyle_GeneratedIconPixmap_Callback qproxystyle_generatediconpixmap_callback = nullptr;
     QProxyStyle_StandardPalette_Callback qproxystyle_standardpalette_callback = nullptr;
     QProxyStyle_Polish_Callback qproxystyle_polish_callback = nullptr;
-    QProxyStyle_PolishWithPal_Callback qproxystyle_polishwithpal_callback = nullptr;
-    QProxyStyle_PolishWithApp_Callback qproxystyle_polishwithapp_callback = nullptr;
+    QProxyStyle_Polish2_Callback qproxystyle_polish2_callback = nullptr;
+    QProxyStyle_Polish3_Callback qproxystyle_polish3_callback = nullptr;
     QProxyStyle_Unpolish_Callback qproxystyle_unpolish_callback = nullptr;
-    QProxyStyle_UnpolishWithApp_Callback qproxystyle_unpolishwithapp_callback = nullptr;
+    QProxyStyle_Unpolish2_Callback qproxystyle_unpolish2_callback = nullptr;
     QProxyStyle_Event_Callback qproxystyle_event_callback = nullptr;
     QProxyStyle_EventFilter_Callback qproxystyle_eventfilter_callback = nullptr;
     QProxyStyle_TimerEvent_Callback qproxystyle_timerevent_callback = nullptr;
@@ -113,10 +113,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
     mutable bool qproxystyle_generatediconpixmap_isbase = false;
     mutable bool qproxystyle_standardpalette_isbase = false;
     mutable bool qproxystyle_polish_isbase = false;
-    mutable bool qproxystyle_polishwithpal_isbase = false;
-    mutable bool qproxystyle_polishwithapp_isbase = false;
+    mutable bool qproxystyle_polish2_isbase = false;
+    mutable bool qproxystyle_polish3_isbase = false;
     mutable bool qproxystyle_unpolish_isbase = false;
-    mutable bool qproxystyle_unpolishwithapp_isbase = false;
+    mutable bool qproxystyle_unpolish2_isbase = false;
     mutable bool qproxystyle_event_isbase = false;
     mutable bool qproxystyle_eventfilter_isbase = false;
     mutable bool qproxystyle_timerevent_isbase = false;
@@ -155,10 +155,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
         qproxystyle_generatediconpixmap_callback = nullptr;
         qproxystyle_standardpalette_callback = nullptr;
         qproxystyle_polish_callback = nullptr;
-        qproxystyle_polishwithpal_callback = nullptr;
-        qproxystyle_polishwithapp_callback = nullptr;
+        qproxystyle_polish2_callback = nullptr;
+        qproxystyle_polish3_callback = nullptr;
         qproxystyle_unpolish_callback = nullptr;
-        qproxystyle_unpolishwithapp_callback = nullptr;
+        qproxystyle_unpolish2_callback = nullptr;
         qproxystyle_event_callback = nullptr;
         qproxystyle_eventfilter_callback = nullptr;
         qproxystyle_timerevent_callback = nullptr;
@@ -193,10 +193,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
     inline void setQProxyStyle_GeneratedIconPixmap_Callback(QProxyStyle_GeneratedIconPixmap_Callback cb) { qproxystyle_generatediconpixmap_callback = cb; }
     inline void setQProxyStyle_StandardPalette_Callback(QProxyStyle_StandardPalette_Callback cb) { qproxystyle_standardpalette_callback = cb; }
     inline void setQProxyStyle_Polish_Callback(QProxyStyle_Polish_Callback cb) { qproxystyle_polish_callback = cb; }
-    inline void setQProxyStyle_PolishWithPal_Callback(QProxyStyle_PolishWithPal_Callback cb) { qproxystyle_polishwithpal_callback = cb; }
-    inline void setQProxyStyle_PolishWithApp_Callback(QProxyStyle_PolishWithApp_Callback cb) { qproxystyle_polishwithapp_callback = cb; }
+    inline void setQProxyStyle_Polish2_Callback(QProxyStyle_Polish2_Callback cb) { qproxystyle_polish2_callback = cb; }
+    inline void setQProxyStyle_Polish3_Callback(QProxyStyle_Polish3_Callback cb) { qproxystyle_polish3_callback = cb; }
     inline void setQProxyStyle_Unpolish_Callback(QProxyStyle_Unpolish_Callback cb) { qproxystyle_unpolish_callback = cb; }
-    inline void setQProxyStyle_UnpolishWithApp_Callback(QProxyStyle_UnpolishWithApp_Callback cb) { qproxystyle_unpolishwithapp_callback = cb; }
+    inline void setQProxyStyle_Unpolish2_Callback(QProxyStyle_Unpolish2_Callback cb) { qproxystyle_unpolish2_callback = cb; }
     inline void setQProxyStyle_Event_Callback(QProxyStyle_Event_Callback cb) { qproxystyle_event_callback = cb; }
     inline void setQProxyStyle_EventFilter_Callback(QProxyStyle_EventFilter_Callback cb) { qproxystyle_eventfilter_callback = cb; }
     inline void setQProxyStyle_TimerEvent_Callback(QProxyStyle_TimerEvent_Callback cb) { qproxystyle_timerevent_callback = cb; }
@@ -230,10 +230,10 @@ class VirtualQProxyStyle final : public QProxyStyle {
     inline void setQProxyStyle_GeneratedIconPixmap_IsBase(bool value) const { qproxystyle_generatediconpixmap_isbase = value; }
     inline void setQProxyStyle_StandardPalette_IsBase(bool value) const { qproxystyle_standardpalette_isbase = value; }
     inline void setQProxyStyle_Polish_IsBase(bool value) const { qproxystyle_polish_isbase = value; }
-    inline void setQProxyStyle_PolishWithPal_IsBase(bool value) const { qproxystyle_polishwithpal_isbase = value; }
-    inline void setQProxyStyle_PolishWithApp_IsBase(bool value) const { qproxystyle_polishwithapp_isbase = value; }
+    inline void setQProxyStyle_Polish2_IsBase(bool value) const { qproxystyle_polish2_isbase = value; }
+    inline void setQProxyStyle_Polish3_IsBase(bool value) const { qproxystyle_polish3_isbase = value; }
     inline void setQProxyStyle_Unpolish_IsBase(bool value) const { qproxystyle_unpolish_isbase = value; }
-    inline void setQProxyStyle_UnpolishWithApp_IsBase(bool value) const { qproxystyle_unpolishwithapp_isbase = value; }
+    inline void setQProxyStyle_Unpolish2_IsBase(bool value) const { qproxystyle_unpolish2_isbase = value; }
     inline void setQProxyStyle_Event_IsBase(bool value) const { qproxystyle_event_isbase = value; }
     inline void setQProxyStyle_EventFilter_IsBase(bool value) const { qproxystyle_eventfilter_isbase = value; }
     inline void setQProxyStyle_TimerEvent_IsBase(bool value) const { qproxystyle_timerevent_isbase = value; }
@@ -630,15 +630,15 @@ class VirtualQProxyStyle final : public QProxyStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QPalette& pal) override {
-        if (qproxystyle_polishwithpal_isbase) {
-            qproxystyle_polishwithpal_isbase = false;
+        if (qproxystyle_polish2_isbase) {
+            qproxystyle_polish2_isbase = false;
             QProxyStyle::polish(pal);
-        } else if (qproxystyle_polishwithpal_callback != nullptr) {
+        } else if (qproxystyle_polish2_callback != nullptr) {
             QPalette& pal_ret = pal;
             // Cast returned reference into pointer
             QPalette* cbval1 = &pal_ret;
 
-            qproxystyle_polishwithpal_callback(this, cbval1);
+            qproxystyle_polish2_callback(this, cbval1);
         } else {
             QProxyStyle::polish(pal);
         }
@@ -646,13 +646,13 @@ class VirtualQProxyStyle final : public QProxyStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QApplication* app) override {
-        if (qproxystyle_polishwithapp_isbase) {
-            qproxystyle_polishwithapp_isbase = false;
+        if (qproxystyle_polish3_isbase) {
+            qproxystyle_polish3_isbase = false;
             QProxyStyle::polish(app);
-        } else if (qproxystyle_polishwithapp_callback != nullptr) {
+        } else if (qproxystyle_polish3_callback != nullptr) {
             QApplication* cbval1 = app;
 
-            qproxystyle_polishwithapp_callback(this, cbval1);
+            qproxystyle_polish3_callback(this, cbval1);
         } else {
             QProxyStyle::polish(app);
         }
@@ -674,13 +674,13 @@ class VirtualQProxyStyle final : public QProxyStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void unpolish(QApplication* app) override {
-        if (qproxystyle_unpolishwithapp_isbase) {
-            qproxystyle_unpolishwithapp_isbase = false;
+        if (qproxystyle_unpolish2_isbase) {
+            qproxystyle_unpolish2_isbase = false;
             QProxyStyle::unpolish(app);
-        } else if (qproxystyle_unpolishwithapp_callback != nullptr) {
+        } else if (qproxystyle_unpolish2_callback != nullptr) {
             QApplication* cbval1 = app;
 
-            qproxystyle_unpolishwithapp_callback(this, cbval1);
+            qproxystyle_unpolish2_callback(this, cbval1);
         } else {
             QProxyStyle::unpolish(app);
         }

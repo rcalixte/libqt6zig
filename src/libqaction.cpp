@@ -242,7 +242,7 @@ void QAction_SetShortcuts(QAction* self, const libqt_list /* of QKeySequence* */
     self->setShortcuts(shortcuts_QList);
 }
 
-void QAction_SetShortcutsWithShortcuts(QAction* self, int shortcuts) {
+void QAction_SetShortcuts2(QAction* self, int shortcuts) {
     self->setShortcuts(static_cast<QKeySequence::StandardKey>(shortcuts));
 }
 

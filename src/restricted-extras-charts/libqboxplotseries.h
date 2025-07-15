@@ -40,7 +40,7 @@ libqt_string QBoxPlotSeries_Tr(const char* s);
 bool QBoxPlotSeries_Append(QBoxPlotSeries* self, QBoxSet* box);
 bool QBoxPlotSeries_Remove(QBoxPlotSeries* self, QBoxSet* box);
 bool QBoxPlotSeries_Take(QBoxPlotSeries* self, QBoxSet* box);
-bool QBoxPlotSeries_AppendWithBoxes(QBoxPlotSeries* self, const libqt_list /* of QBoxSet* */ boxes);
+bool QBoxPlotSeries_Append2(QBoxPlotSeries* self, const libqt_list /* of QBoxSet* */ boxes);
 bool QBoxPlotSeries_Insert(QBoxPlotSeries* self, int index, QBoxSet* box);
 int QBoxPlotSeries_Count(const QBoxPlotSeries* self);
 libqt_list /* of QBoxSet* */ QBoxPlotSeries_BoxSets(const QBoxPlotSeries* self);

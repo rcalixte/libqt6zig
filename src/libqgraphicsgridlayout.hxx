@@ -19,7 +19,7 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
 
     // Virtual class public types (including callbacks)
     using QGraphicsGridLayout_Count_Callback = int (*)();
-    using QGraphicsGridLayout_ItemAtWithIndex_Callback = QGraphicsLayoutItem* (*)(const QGraphicsGridLayout*, int);
+    using QGraphicsGridLayout_ItemAt2_Callback = QGraphicsLayoutItem* (*)(const QGraphicsGridLayout*, int);
     using QGraphicsGridLayout_RemoveAt_Callback = void (*)(QGraphicsGridLayout*, int);
     using QGraphicsGridLayout_Invalidate_Callback = void (*)();
     using QGraphicsGridLayout_SetGeometry_Callback = void (*)(QGraphicsGridLayout*, QRectF*);
@@ -35,7 +35,7 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
   protected:
     // Instance callback storage
     QGraphicsGridLayout_Count_Callback qgraphicsgridlayout_count_callback = nullptr;
-    QGraphicsGridLayout_ItemAtWithIndex_Callback qgraphicsgridlayout_itematwithindex_callback = nullptr;
+    QGraphicsGridLayout_ItemAt2_Callback qgraphicsgridlayout_itemat2_callback = nullptr;
     QGraphicsGridLayout_RemoveAt_Callback qgraphicsgridlayout_removeat_callback = nullptr;
     QGraphicsGridLayout_Invalidate_Callback qgraphicsgridlayout_invalidate_callback = nullptr;
     QGraphicsGridLayout_SetGeometry_Callback qgraphicsgridlayout_setgeometry_callback = nullptr;
@@ -50,7 +50,7 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
 
     // Instance base flags
     mutable bool qgraphicsgridlayout_count_isbase = false;
-    mutable bool qgraphicsgridlayout_itematwithindex_isbase = false;
+    mutable bool qgraphicsgridlayout_itemat2_isbase = false;
     mutable bool qgraphicsgridlayout_removeat_isbase = false;
     mutable bool qgraphicsgridlayout_invalidate_isbase = false;
     mutable bool qgraphicsgridlayout_setgeometry_isbase = false;
@@ -69,7 +69,7 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
 
     ~VirtualQGraphicsGridLayout() {
         qgraphicsgridlayout_count_callback = nullptr;
-        qgraphicsgridlayout_itematwithindex_callback = nullptr;
+        qgraphicsgridlayout_itemat2_callback = nullptr;
         qgraphicsgridlayout_removeat_callback = nullptr;
         qgraphicsgridlayout_invalidate_callback = nullptr;
         qgraphicsgridlayout_setgeometry_callback = nullptr;
@@ -85,7 +85,7 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
 
     // Callback setters
     inline void setQGraphicsGridLayout_Count_Callback(QGraphicsGridLayout_Count_Callback cb) { qgraphicsgridlayout_count_callback = cb; }
-    inline void setQGraphicsGridLayout_ItemAtWithIndex_Callback(QGraphicsGridLayout_ItemAtWithIndex_Callback cb) { qgraphicsgridlayout_itematwithindex_callback = cb; }
+    inline void setQGraphicsGridLayout_ItemAt2_Callback(QGraphicsGridLayout_ItemAt2_Callback cb) { qgraphicsgridlayout_itemat2_callback = cb; }
     inline void setQGraphicsGridLayout_RemoveAt_Callback(QGraphicsGridLayout_RemoveAt_Callback cb) { qgraphicsgridlayout_removeat_callback = cb; }
     inline void setQGraphicsGridLayout_Invalidate_Callback(QGraphicsGridLayout_Invalidate_Callback cb) { qgraphicsgridlayout_invalidate_callback = cb; }
     inline void setQGraphicsGridLayout_SetGeometry_Callback(QGraphicsGridLayout_SetGeometry_Callback cb) { qgraphicsgridlayout_setgeometry_callback = cb; }
@@ -100,7 +100,7 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
 
     // Base flag setters
     inline void setQGraphicsGridLayout_Count_IsBase(bool value) const { qgraphicsgridlayout_count_isbase = value; }
-    inline void setQGraphicsGridLayout_ItemAtWithIndex_IsBase(bool value) const { qgraphicsgridlayout_itematwithindex_isbase = value; }
+    inline void setQGraphicsGridLayout_ItemAt2_IsBase(bool value) const { qgraphicsgridlayout_itemat2_isbase = value; }
     inline void setQGraphicsGridLayout_RemoveAt_IsBase(bool value) const { qgraphicsgridlayout_removeat_isbase = value; }
     inline void setQGraphicsGridLayout_Invalidate_IsBase(bool value) const { qgraphicsgridlayout_invalidate_isbase = value; }
     inline void setQGraphicsGridLayout_SetGeometry_IsBase(bool value) const { qgraphicsgridlayout_setgeometry_isbase = value; }
@@ -128,13 +128,13 @@ class VirtualQGraphicsGridLayout final : public QGraphicsGridLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual QGraphicsLayoutItem* itemAt(int index) const override {
-        if (qgraphicsgridlayout_itematwithindex_isbase) {
-            qgraphicsgridlayout_itematwithindex_isbase = false;
+        if (qgraphicsgridlayout_itemat2_isbase) {
+            qgraphicsgridlayout_itemat2_isbase = false;
             return QGraphicsGridLayout::itemAt(index);
-        } else if (qgraphicsgridlayout_itematwithindex_callback != nullptr) {
+        } else if (qgraphicsgridlayout_itemat2_callback != nullptr) {
             int cbval1 = index;
 
-            QGraphicsLayoutItem* callback_ret = qgraphicsgridlayout_itematwithindex_callback(this, cbval1);
+            QGraphicsLayoutItem* callback_ret = qgraphicsgridlayout_itemat2_callback(this, cbval1);
             return callback_ret;
         } else {
             return QGraphicsGridLayout::itemAt(index);

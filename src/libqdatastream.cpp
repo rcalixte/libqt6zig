@@ -71,51 +71,51 @@ void QDataStream_OperatorShiftRight(QDataStream* self, char* i) {
     self->operator>>(static_cast<char&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQint8(QDataStream* self, signed char* i) {
+void QDataStream_OperatorShiftRight2(QDataStream* self, signed char* i) {
     self->operator>>(static_cast<qint8&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQuint8(QDataStream* self, unsigned char* i) {
+void QDataStream_OperatorShiftRight3(QDataStream* self, unsigned char* i) {
     self->operator>>(static_cast<quint8&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQint16(QDataStream* self, int16_t* i) {
+void QDataStream_OperatorShiftRight4(QDataStream* self, int16_t* i) {
     self->operator>>(static_cast<qint16&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQuint16(QDataStream* self, uint16_t* i) {
+void QDataStream_OperatorShiftRight5(QDataStream* self, uint16_t* i) {
     self->operator>>(static_cast<quint16&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQint32(QDataStream* self, int* i) {
+void QDataStream_OperatorShiftRight6(QDataStream* self, int* i) {
     self->operator>>(static_cast<qint32&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQuint32(QDataStream* self, unsigned int* i) {
+void QDataStream_OperatorShiftRight7(QDataStream* self, unsigned int* i) {
     self->operator>>(static_cast<quint32&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQint64(QDataStream* self, long long* i) {
+void QDataStream_OperatorShiftRight8(QDataStream* self, long long* i) {
     self->operator>>(static_cast<qint64&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithQuint64(QDataStream* self, unsigned long long* i) {
+void QDataStream_OperatorShiftRight9(QDataStream* self, unsigned long long* i) {
     self->operator>>(static_cast<quint64&>(*i));
 }
 
-void QDataStream_OperatorShiftRightWithBool(QDataStream* self, bool* i) {
+void QDataStream_OperatorShiftRight11(QDataStream* self, bool* i) {
     self->operator>>(*i);
 }
 
-void QDataStream_OperatorShiftRightWithFloat(QDataStream* self, float* f) {
+void QDataStream_OperatorShiftRight12(QDataStream* self, float* f) {
     self->operator>>(static_cast<float&>(*f));
 }
 
-void QDataStream_OperatorShiftRightWithDouble(QDataStream* self, double* f) {
+void QDataStream_OperatorShiftRight13(QDataStream* self, double* f) {
     self->operator>>(static_cast<double&>(*f));
 }
 
-void QDataStream_OperatorShiftRightWithStr(QDataStream* self, char* str) {
+void QDataStream_OperatorShiftRight14(QDataStream* self, char* str) {
     self->operator>>(str);
 }
 
@@ -123,47 +123,47 @@ void QDataStream_OperatorShiftLeft(QDataStream* self, char i) {
     self->operator<<(static_cast<char>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQint8(QDataStream* self, signed char i) {
+void QDataStream_OperatorShiftLeft2(QDataStream* self, signed char i) {
     self->operator<<(static_cast<qint8>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQuint8(QDataStream* self, unsigned char i) {
+void QDataStream_OperatorShiftLeft3(QDataStream* self, unsigned char i) {
     self->operator<<(static_cast<quint8>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQint16(QDataStream* self, int16_t i) {
+void QDataStream_OperatorShiftLeft4(QDataStream* self, int16_t i) {
     self->operator<<(static_cast<qint16>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQuint16(QDataStream* self, uint16_t i) {
+void QDataStream_OperatorShiftLeft5(QDataStream* self, uint16_t i) {
     self->operator<<(static_cast<quint16>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQint32(QDataStream* self, int i) {
+void QDataStream_OperatorShiftLeft6(QDataStream* self, int i) {
     self->operator<<(static_cast<qint32>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQuint32(QDataStream* self, unsigned int i) {
+void QDataStream_OperatorShiftLeft7(QDataStream* self, unsigned int i) {
     self->operator<<(static_cast<quint32>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQint64(QDataStream* self, long long i) {
+void QDataStream_OperatorShiftLeft8(QDataStream* self, long long i) {
     self->operator<<(static_cast<qint64>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithQuint64(QDataStream* self, unsigned long long i) {
+void QDataStream_OperatorShiftLeft9(QDataStream* self, unsigned long long i) {
     self->operator<<(static_cast<quint64>(i));
 }
 
-void QDataStream_OperatorShiftLeftWithFloat(QDataStream* self, float f) {
+void QDataStream_OperatorShiftLeft11(QDataStream* self, float f) {
     self->operator<<(static_cast<float>(f));
 }
 
-void QDataStream_OperatorShiftLeftWithDouble(QDataStream* self, double f) {
+void QDataStream_OperatorShiftLeft12(QDataStream* self, double f) {
     self->operator<<(static_cast<double>(f));
 }
 
-void QDataStream_OperatorShiftLeftWithStr(QDataStream* self, const char* str) {
+void QDataStream_OperatorShiftLeft13(QDataStream* self, const char* str) {
     self->operator<<(str);
 }
 

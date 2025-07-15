@@ -49,11 +49,11 @@ void QXYSeries_Append(QXYSeries* self, double x, double y) {
     self->append(static_cast<qreal>(x), static_cast<qreal>(y));
 }
 
-void QXYSeries_AppendWithPoint(QXYSeries* self, const QPointF* point) {
+void QXYSeries_Append2(QXYSeries* self, const QPointF* point) {
     self->append(*point);
 }
 
-void QXYSeries_AppendWithPoints(QXYSeries* self, const libqt_list /* of QPointF* */ points) {
+void QXYSeries_Append3(QXYSeries* self, const libqt_list /* of QPointF* */ points) {
     QList<QPointF> points_QList;
     points_QList.reserve(points.len);
     QPointF** points_arr = static_cast<QPointF**>(points.data);
@@ -83,11 +83,11 @@ void QXYSeries_Remove(QXYSeries* self, double x, double y) {
     self->remove(static_cast<qreal>(x), static_cast<qreal>(y));
 }
 
-void QXYSeries_RemoveWithPoint(QXYSeries* self, const QPointF* point) {
+void QXYSeries_Remove2(QXYSeries* self, const QPointF* point) {
     self->remove(*point);
 }
 
-void QXYSeries_RemoveWithIndex(QXYSeries* self, int index) {
+void QXYSeries_Remove3(QXYSeries* self, int index) {
     self->remove(static_cast<int>(index));
 }
 
@@ -145,7 +145,7 @@ QXYSeries* QXYSeries_OperatorShiftLeft(QXYSeries* self, const QPointF* point) {
     return &_ret;
 }
 
-QXYSeries* QXYSeries_OperatorShiftLeftWithPoints(QXYSeries* self, const libqt_list /* of QPointF* */ points) {
+QXYSeries* QXYSeries_OperatorShiftLeft2(QXYSeries* self, const libqt_list /* of QPointF* */ points) {
     QList<QPointF> points_QList;
     points_QList.reserve(points.len);
     QPointF** points_arr = static_cast<QPointF**>(points.data);
@@ -246,7 +246,7 @@ bool QXYSeries_PointLabelsClipping(const QXYSeries* self) {
     return self->pointLabelsClipping();
 }
 
-void QXYSeries_ReplaceWithPoints(QXYSeries* self, const libqt_list /* of QPointF* */ points) {
+void QXYSeries_Replace5(QXYSeries* self, const libqt_list /* of QPointF* */ points) {
     QList<QPointF> points_QList;
     points_QList.reserve(points.len);
     QPointF** points_arr = static_cast<QPointF**>(points.data);
@@ -400,7 +400,7 @@ void QXYSeries_ClearPointsConfiguration(QXYSeries* self) {
     self->clearPointsConfiguration();
 }
 
-void QXYSeries_ClearPointsConfigurationWithKey(QXYSeries* self, const int key) {
+void QXYSeries_ClearPointsConfiguration2(QXYSeries* self, const int key) {
     self->clearPointsConfiguration(static_cast<const QXYSeries::PointConfiguration>(key));
 }
 

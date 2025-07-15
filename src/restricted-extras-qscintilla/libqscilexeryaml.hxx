@@ -39,10 +39,10 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     using QsciLexerYAML_DefaultStyle_Callback = int (*)();
     using QsciLexerYAML_Description_Callback = libqt_string (*)(const QsciLexerYAML*, int);
     using QsciLexerYAML_Paper_Callback = QColor* (*)(const QsciLexerYAML*, int);
-    using QsciLexerYAML_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerYAML*, int);
+    using QsciLexerYAML_DefaultColor2_Callback = QColor* (*)(const QsciLexerYAML*, int);
     using QsciLexerYAML_DefaultEolFill_Callback = bool (*)(const QsciLexerYAML*, int);
-    using QsciLexerYAML_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerYAML*, int);
-    using QsciLexerYAML_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerYAML*, int);
+    using QsciLexerYAML_DefaultFont2_Callback = QFont* (*)(const QsciLexerYAML*, int);
+    using QsciLexerYAML_DefaultPaper2_Callback = QColor* (*)(const QsciLexerYAML*, int);
     using QsciLexerYAML_SetEditor_Callback = void (*)(QsciLexerYAML*, QsciScintilla*);
     using QsciLexerYAML_RefreshProperties_Callback = void (*)();
     using QsciLexerYAML_StyleBitsNeeded_Callback = int (*)();
@@ -91,10 +91,10 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     QsciLexerYAML_DefaultStyle_Callback qscilexeryaml_defaultstyle_callback = nullptr;
     QsciLexerYAML_Description_Callback qscilexeryaml_description_callback = nullptr;
     QsciLexerYAML_Paper_Callback qscilexeryaml_paper_callback = nullptr;
-    QsciLexerYAML_DefaultColorWithStyle_Callback qscilexeryaml_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerYAML_DefaultColor2_Callback qscilexeryaml_defaultcolor2_callback = nullptr;
     QsciLexerYAML_DefaultEolFill_Callback qscilexeryaml_defaulteolfill_callback = nullptr;
-    QsciLexerYAML_DefaultFontWithStyle_Callback qscilexeryaml_defaultfontwithstyle_callback = nullptr;
-    QsciLexerYAML_DefaultPaperWithStyle_Callback qscilexeryaml_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerYAML_DefaultFont2_Callback qscilexeryaml_defaultfont2_callback = nullptr;
+    QsciLexerYAML_DefaultPaper2_Callback qscilexeryaml_defaultpaper2_callback = nullptr;
     QsciLexerYAML_SetEditor_Callback qscilexeryaml_seteditor_callback = nullptr;
     QsciLexerYAML_RefreshProperties_Callback qscilexeryaml_refreshproperties_callback = nullptr;
     QsciLexerYAML_StyleBitsNeeded_Callback qscilexeryaml_stylebitsneeded_callback = nullptr;
@@ -142,10 +142,10 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     mutable bool qscilexeryaml_defaultstyle_isbase = false;
     mutable bool qscilexeryaml_description_isbase = false;
     mutable bool qscilexeryaml_paper_isbase = false;
-    mutable bool qscilexeryaml_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexeryaml_defaultcolor2_isbase = false;
     mutable bool qscilexeryaml_defaulteolfill_isbase = false;
-    mutable bool qscilexeryaml_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexeryaml_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexeryaml_defaultfont2_isbase = false;
+    mutable bool qscilexeryaml_defaultpaper2_isbase = false;
     mutable bool qscilexeryaml_seteditor_isbase = false;
     mutable bool qscilexeryaml_refreshproperties_isbase = false;
     mutable bool qscilexeryaml_stylebitsneeded_isbase = false;
@@ -197,10 +197,10 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
         qscilexeryaml_defaultstyle_callback = nullptr;
         qscilexeryaml_description_callback = nullptr;
         qscilexeryaml_paper_callback = nullptr;
-        qscilexeryaml_defaultcolorwithstyle_callback = nullptr;
+        qscilexeryaml_defaultcolor2_callback = nullptr;
         qscilexeryaml_defaulteolfill_callback = nullptr;
-        qscilexeryaml_defaultfontwithstyle_callback = nullptr;
-        qscilexeryaml_defaultpaperwithstyle_callback = nullptr;
+        qscilexeryaml_defaultfont2_callback = nullptr;
+        qscilexeryaml_defaultpaper2_callback = nullptr;
         qscilexeryaml_seteditor_callback = nullptr;
         qscilexeryaml_refreshproperties_callback = nullptr;
         qscilexeryaml_stylebitsneeded_callback = nullptr;
@@ -249,10 +249,10 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     inline void setQsciLexerYAML_DefaultStyle_Callback(QsciLexerYAML_DefaultStyle_Callback cb) { qscilexeryaml_defaultstyle_callback = cb; }
     inline void setQsciLexerYAML_Description_Callback(QsciLexerYAML_Description_Callback cb) { qscilexeryaml_description_callback = cb; }
     inline void setQsciLexerYAML_Paper_Callback(QsciLexerYAML_Paper_Callback cb) { qscilexeryaml_paper_callback = cb; }
-    inline void setQsciLexerYAML_DefaultColorWithStyle_Callback(QsciLexerYAML_DefaultColorWithStyle_Callback cb) { qscilexeryaml_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerYAML_DefaultColor2_Callback(QsciLexerYAML_DefaultColor2_Callback cb) { qscilexeryaml_defaultcolor2_callback = cb; }
     inline void setQsciLexerYAML_DefaultEolFill_Callback(QsciLexerYAML_DefaultEolFill_Callback cb) { qscilexeryaml_defaulteolfill_callback = cb; }
-    inline void setQsciLexerYAML_DefaultFontWithStyle_Callback(QsciLexerYAML_DefaultFontWithStyle_Callback cb) { qscilexeryaml_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerYAML_DefaultPaperWithStyle_Callback(QsciLexerYAML_DefaultPaperWithStyle_Callback cb) { qscilexeryaml_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerYAML_DefaultFont2_Callback(QsciLexerYAML_DefaultFont2_Callback cb) { qscilexeryaml_defaultfont2_callback = cb; }
+    inline void setQsciLexerYAML_DefaultPaper2_Callback(QsciLexerYAML_DefaultPaper2_Callback cb) { qscilexeryaml_defaultpaper2_callback = cb; }
     inline void setQsciLexerYAML_SetEditor_Callback(QsciLexerYAML_SetEditor_Callback cb) { qscilexeryaml_seteditor_callback = cb; }
     inline void setQsciLexerYAML_RefreshProperties_Callback(QsciLexerYAML_RefreshProperties_Callback cb) { qscilexeryaml_refreshproperties_callback = cb; }
     inline void setQsciLexerYAML_StyleBitsNeeded_Callback(QsciLexerYAML_StyleBitsNeeded_Callback cb) { qscilexeryaml_stylebitsneeded_callback = cb; }
@@ -300,10 +300,10 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
     inline void setQsciLexerYAML_DefaultStyle_IsBase(bool value) const { qscilexeryaml_defaultstyle_isbase = value; }
     inline void setQsciLexerYAML_Description_IsBase(bool value) const { qscilexeryaml_description_isbase = value; }
     inline void setQsciLexerYAML_Paper_IsBase(bool value) const { qscilexeryaml_paper_isbase = value; }
-    inline void setQsciLexerYAML_DefaultColorWithStyle_IsBase(bool value) const { qscilexeryaml_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerYAML_DefaultColor2_IsBase(bool value) const { qscilexeryaml_defaultcolor2_isbase = value; }
     inline void setQsciLexerYAML_DefaultEolFill_IsBase(bool value) const { qscilexeryaml_defaulteolfill_isbase = value; }
-    inline void setQsciLexerYAML_DefaultFontWithStyle_IsBase(bool value) const { qscilexeryaml_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerYAML_DefaultPaperWithStyle_IsBase(bool value) const { qscilexeryaml_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerYAML_DefaultFont2_IsBase(bool value) const { qscilexeryaml_defaultfont2_isbase = value; }
+    inline void setQsciLexerYAML_DefaultPaper2_IsBase(bool value) const { qscilexeryaml_defaultpaper2_isbase = value; }
     inline void setQsciLexerYAML_SetEditor_IsBase(bool value) const { qscilexeryaml_seteditor_isbase = value; }
     inline void setQsciLexerYAML_RefreshProperties_IsBase(bool value) const { qscilexeryaml_refreshproperties_isbase = value; }
     inline void setQsciLexerYAML_StyleBitsNeeded_IsBase(bool value) const { qscilexeryaml_stylebitsneeded_isbase = value; }
@@ -629,13 +629,13 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexeryaml_defaultcolorwithstyle_isbase) {
-            qscilexeryaml_defaultcolorwithstyle_isbase = false;
+        if (qscilexeryaml_defaultcolor2_isbase) {
+            qscilexeryaml_defaultcolor2_isbase = false;
             return QsciLexerYAML::defaultColor(style);
-        } else if (qscilexeryaml_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexeryaml_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexeryaml_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexeryaml_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerYAML::defaultColor(style);
@@ -659,13 +659,13 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexeryaml_defaultfontwithstyle_isbase) {
-            qscilexeryaml_defaultfontwithstyle_isbase = false;
+        if (qscilexeryaml_defaultfont2_isbase) {
+            qscilexeryaml_defaultfont2_isbase = false;
             return QsciLexerYAML::defaultFont(style);
-        } else if (qscilexeryaml_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexeryaml_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexeryaml_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexeryaml_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerYAML::defaultFont(style);
@@ -674,13 +674,13 @@ class VirtualQsciLexerYAML final : public QsciLexerYAML {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexeryaml_defaultpaperwithstyle_isbase) {
-            qscilexeryaml_defaultpaperwithstyle_isbase = false;
+        if (qscilexeryaml_defaultpaper2_isbase) {
+            qscilexeryaml_defaultpaper2_isbase = false;
             return QsciLexerYAML::defaultPaper(style);
-        } else if (qscilexeryaml_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexeryaml_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexeryaml_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexeryaml_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerYAML::defaultPaper(style);

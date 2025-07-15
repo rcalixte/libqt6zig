@@ -60,7 +60,7 @@ void QThread_Terminate(QThread* self);
 void QThread_Exit(QThread* self);
 void QThread_Quit(QThread* self);
 bool QThread_Wait(QThread* self);
-bool QThread_WaitWithTime(QThread* self, unsigned long time);
+bool QThread_Wait2(QThread* self, unsigned long time);
 void QThread_Sleep(unsigned long param1);
 void QThread_Msleep(unsigned long param1);
 void QThread_Usleep(unsigned long param1);

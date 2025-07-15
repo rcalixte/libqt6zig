@@ -154,8 +154,8 @@ pub const qcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#pos)
     ///
     /// ``` screen: QtC.QScreen ```
-    pub fn PosWithScreen(screen: ?*anyopaque) QtC.QPoint {
-        return qtc.QCursor_PosWithScreen(@ptrCast(screen));
+    pub fn Pos2(screen: ?*anyopaque) QtC.QPoint {
+        return qtc.QCursor_Pos2(@ptrCast(screen));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setPos)
@@ -175,15 +175,15 @@ pub const qcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setPos)
     ///
     /// ``` p: QtC.QPoint ```
-    pub fn SetPosWithQPoint(p: ?*anyopaque) void {
-        qtc.QCursor_SetPosWithQPoint(@ptrCast(p));
+    pub fn SetPos3(p: ?*anyopaque) void {
+        qtc.QCursor_SetPos3(@ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setPos)
     ///
     /// ``` screen: QtC.QScreen, p: QtC.QPoint ```
-    pub fn SetPos3(screen: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QCursor_SetPos3(@ptrCast(screen), @ptrCast(p));
+    pub fn SetPos4(screen: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.QCursor_SetPos4(@ptrCast(screen), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#dtor.QCursor)

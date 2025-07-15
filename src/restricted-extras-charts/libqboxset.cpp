@@ -95,7 +95,7 @@ void QBoxSet_Append(QBoxSet* self, const double value) {
     self->append(static_cast<const qreal>(value));
 }
 
-void QBoxSet_AppendWithValues(QBoxSet* self, const libqt_list /* of double */ values) {
+void QBoxSet_Append2(QBoxSet* self, const libqt_list /* of double */ values) {
     QList<double> values_QList;
     values_QList.reserve(values.len);
     double* values_arr = static_cast<double*>(values.data);

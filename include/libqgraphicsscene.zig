@@ -185,10 +185,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, pos: QtC.QPointF, allocator: std.mem.Allocator ```
-    pub fn ItemsWithPos(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_ItemsWithPos(@ptrCast(self), @ptrCast(pos));
+    pub fn Items2(self: ?*anyopaque, pos: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items2(@ptrCast(self), @ptrCast(pos));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.ItemsWithPos: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items2: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -197,10 +197,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, rect: QtC.QRectF, allocator: std.mem.Allocator ```
-    pub fn ItemsWithRect(self: ?*anyopaque, rect: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_ItemsWithRect(@ptrCast(self), @ptrCast(rect));
+    pub fn Items3(self: ?*anyopaque, rect: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items3(@ptrCast(self), @ptrCast(rect));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.ItemsWithRect: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items3: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -209,10 +209,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, allocator: std.mem.Allocator ```
-    pub fn ItemsWithPath(self: ?*anyopaque, path: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_ItemsWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn Items5(self: ?*anyopaque, path: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items5(@ptrCast(self), @ptrCast(path));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.ItemsWithPath: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items5: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -221,10 +221,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, x: f64, y: f64, w: f64, h: f64, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items2(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(mode), @intCast(order));
+    pub fn Items6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items2: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items6: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -285,8 +285,8 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setSelectionArea)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath ```
-    pub fn SetSelectionAreaWithPath(self: ?*anyopaque, path: ?*anyopaque) void {
-        qtc.QGraphicsScene_SetSelectionAreaWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn SetSelectionArea2(self: ?*anyopaque, path: ?*anyopaque) void {
+        qtc.QGraphicsScene_SetSelectionArea2(@ptrCast(self), @ptrCast(path));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#createItemGroup)
@@ -1347,10 +1347,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, pos: QtC.QPointF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items3(self: ?*anyopaque, pos: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items3(@ptrCast(self), @ptrCast(pos), @intCast(mode), @intCast(order));
+    pub fn Items32(self: ?*anyopaque, pos: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items32(@ptrCast(self), @ptrCast(pos), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items3: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items32: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1359,10 +1359,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, pos: QtC.QPointF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, deviceTransform: QtC.QTransform, allocator: std.mem.Allocator ```
-    pub fn Items4(self: ?*anyopaque, pos: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items4(@ptrCast(self), @ptrCast(pos), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
+    pub fn Items42(self: ?*anyopaque, pos: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items42(@ptrCast(self), @ptrCast(pos), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items4: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items42: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1383,10 +1383,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, rect: QtC.QRectF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items32(self: ?*anyopaque, rect: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items32(@ptrCast(self), @ptrCast(rect), @intCast(mode), @intCast(order));
+    pub fn Items33(self: ?*anyopaque, rect: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items33(@ptrCast(self), @ptrCast(rect), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items32: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items33: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1395,10 +1395,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, rect: QtC.QRectF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, deviceTransform: QtC.QTransform, allocator: std.mem.Allocator ```
-    pub fn Items42(self: ?*anyopaque, rect: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items42(@ptrCast(self), @ptrCast(rect), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
+    pub fn Items43(self: ?*anyopaque, rect: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items43(@ptrCast(self), @ptrCast(rect), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items42: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items43: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1419,10 +1419,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items34(self: ?*anyopaque, path: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items34(@ptrCast(self), @ptrCast(path), @intCast(mode), @intCast(order));
+    pub fn Items35(self: ?*anyopaque, path: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items35(@ptrCast(self), @ptrCast(path), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items34: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items35: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1431,10 +1431,10 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, deviceTransform: QtC.QTransform, allocator: std.mem.Allocator ```
-    pub fn Items44(self: ?*anyopaque, path: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items44(@ptrCast(self), @ptrCast(path), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
+    pub fn Items45(self: ?*anyopaque, path: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+        const _arr: qtc.struct_libqt_list = qtc.QGraphicsScene_Items45(@ptrCast(self), @ptrCast(path), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items44: Memory allocation failed");
+        const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items45: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1467,8 +1467,8 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setSelectionArea)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, selectionOperation: qnamespace_enums.ItemSelectionOperation ```
-    pub fn SetSelectionArea2(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i64) void {
-        qtc.QGraphicsScene_SetSelectionArea2(@ptrCast(self), @ptrCast(path), @intCast(selectionOperation));
+    pub fn SetSelectionArea22(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i64) void {
+        qtc.QGraphicsScene_SetSelectionArea22(@ptrCast(self), @ptrCast(path), @intCast(selectionOperation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setSelectionArea)
@@ -1752,8 +1752,8 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsScene, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1831,8 +1831,8 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1975,8 +1975,8 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsScene, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

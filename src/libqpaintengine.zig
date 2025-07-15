@@ -338,8 +338,8 @@ pub const qpaintengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRect ```
-    pub fn DrawEllipseWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QPaintEngine_DrawEllipseWithQRect(@ptrCast(self), @ptrCast(r));
+    pub fn DrawEllipse2(self: ?*anyopaque, r: ?*anyopaque) void {
+        qtc.QPaintEngine_DrawEllipse2(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
@@ -347,8 +347,8 @@ pub const qpaintengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, r: QtC.QRect) callconv(.c) void ```
-    pub fn OnDrawEllipseWithQRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawEllipseWithQRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnDrawEllipse2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawEllipse2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
@@ -356,8 +356,8 @@ pub const qpaintengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPaintEngine, r: QtC.QRect ```
-    pub fn QBaseDrawEllipseWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QPaintEngine_QBaseDrawEllipseWithQRect(@ptrCast(self), @ptrCast(r));
+    pub fn QBaseDrawEllipse2(self: ?*anyopaque, r: ?*anyopaque) void {
+        qtc.QPaintEngine_QBaseDrawEllipse2(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)

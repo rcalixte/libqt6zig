@@ -297,7 +297,7 @@ bool QTextEdit_Find(QTextEdit* self, const libqt_string exp) {
     return self->find(exp_QString);
 }
 
-bool QTextEdit_FindWithExp(QTextEdit* self, const QRegularExpression* exp) {
+bool QTextEdit_Find2(QTextEdit* self, const QRegularExpression* exp) {
     return self->find(*exp);
 }
 
@@ -345,7 +345,7 @@ QMenu* QTextEdit_CreateStandardContextMenu(QTextEdit* self) {
     return self->createStandardContextMenu();
 }
 
-QMenu* QTextEdit_CreateStandardContextMenuWithPosition(QTextEdit* self, const QPoint* position) {
+QMenu* QTextEdit_CreateStandardContextMenu2(QTextEdit* self, const QPoint* position) {
     return self->createStandardContextMenu(*position);
 }
 
@@ -664,12 +664,12 @@ libqt_string QTextEdit_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-bool QTextEdit_Find2(QTextEdit* self, const libqt_string exp, int options) {
+bool QTextEdit_Find22(QTextEdit* self, const libqt_string exp, int options) {
     QString exp_QString = QString::fromUtf8(exp.data, exp.len);
     return self->find(exp_QString, static_cast<QTextDocument::FindFlags>(options));
 }
 
-bool QTextEdit_Find22(QTextEdit* self, const QRegularExpression* exp, int options) {
+bool QTextEdit_Find23(QTextEdit* self, const QRegularExpression* exp, int options) {
     return self->find(*exp, static_cast<QTextDocument::FindFlags>(options));
 }
 

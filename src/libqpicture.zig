@@ -117,12 +117,12 @@ pub const qpicture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#load)
     ///
     /// ``` self: QtC.QPicture, fileName: []const u8 ```
-    pub fn LoadWithFileName(self: ?*anyopaque, fileName: []const u8) bool {
+    pub fn Load2(self: ?*anyopaque, fileName: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QPicture_LoadWithFileName(@ptrCast(self), fileName_str);
+        return qtc.QPicture_Load2(@ptrCast(self), fileName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#save)
@@ -135,12 +135,12 @@ pub const qpicture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#save)
     ///
     /// ``` self: QtC.QPicture, fileName: []const u8 ```
-    pub fn SaveWithFileName(self: ?*anyopaque, fileName: []const u8) bool {
+    pub fn Save2(self: ?*anyopaque, fileName: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QPicture_SaveWithFileName(@ptrCast(self), fileName_str);
+        return qtc.QPicture_Save2(@ptrCast(self), fileName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#boundingRect)

@@ -27,15 +27,15 @@ pub const qwaitcondition = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
     /// ``` self: QtC.QWaitCondition, lockedReadWriteLock: QtC.QReadWriteLock ```
-    pub fn WaitWithLockedReadWriteLock(self: ?*anyopaque, lockedReadWriteLock: ?*anyopaque) bool {
-        return qtc.QWaitCondition_WaitWithLockedReadWriteLock(@ptrCast(self), @ptrCast(lockedReadWriteLock));
+    pub fn Wait3(self: ?*anyopaque, lockedReadWriteLock: ?*anyopaque) bool {
+        return qtc.QWaitCondition_Wait3(@ptrCast(self), @ptrCast(lockedReadWriteLock));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwaitcondition.html#wait)
     ///
     /// ``` self: QtC.QWaitCondition, lockedReadWriteLock: QtC.QReadWriteLock, time: u64 ```
-    pub fn Wait3(self: ?*anyopaque, lockedReadWriteLock: ?*anyopaque, time: u64) bool {
-        return qtc.QWaitCondition_Wait3(@ptrCast(self), @ptrCast(lockedReadWriteLock), @intCast(time));
+    pub fn Wait4(self: ?*anyopaque, lockedReadWriteLock: ?*anyopaque, time: u64) bool {
+        return qtc.QWaitCondition_Wait4(@ptrCast(self), @ptrCast(lockedReadWriteLock), @intCast(time));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwaitcondition.html#wakeOne)

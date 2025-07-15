@@ -119,7 +119,7 @@ void QBrush_SetColor(QBrush* self, const QColor* color) {
     self->setColor(*color);
 }
 
-void QBrush_SetColorWithColor(QBrush* self, int color) {
+void QBrush_SetColor2(QBrush* self, int color) {
     self->setColor(static_cast<Qt::GlobalColor>(color));
 }
 

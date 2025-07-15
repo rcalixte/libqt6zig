@@ -49,7 +49,7 @@ bool QAbstractEventDispatcher_UnregisterTimer(QAbstractEventDispatcher* self, in
 bool QAbstractEventDispatcher_UnregisterTimers(QAbstractEventDispatcher* self, QObject* object);
 libqt_list /* of QAbstractEventDispatcher__TimerInfo* */ QAbstractEventDispatcher_RegisteredTimers(const QAbstractEventDispatcher* self, QObject* object);
 int QAbstractEventDispatcher_RemainingTime(QAbstractEventDispatcher* self, int timerId);
-bool QAbstractEventDispatcher_UnregisterTimerWithTimerId(QAbstractEventDispatcher* self, int timerId);
+bool QAbstractEventDispatcher_UnregisterTimer2(QAbstractEventDispatcher* self, int timerId);
 libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatcher_TimersForObject(const QAbstractEventDispatcher* self, QObject* object);
 void QAbstractEventDispatcher_WakeUp(QAbstractEventDispatcher* self);
 void QAbstractEventDispatcher_Interrupt(QAbstractEventDispatcher* self);

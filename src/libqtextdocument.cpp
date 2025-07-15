@@ -250,11 +250,11 @@ QTextCursor* QTextDocument_Find2(const QTextDocument* self, const libqt_string s
     return new QTextCursor(self->find(subString_QString, *cursor));
 }
 
-QTextCursor* QTextDocument_FindWithExpr(const QTextDocument* self, const QRegularExpression* expr) {
+QTextCursor* QTextDocument_Find3(const QTextDocument* self, const QRegularExpression* expr) {
     return new QTextCursor(self->find(*expr));
 }
 
-QTextCursor* QTextDocument_Find3(const QTextDocument* self, const QRegularExpression* expr, const QTextCursor* cursor) {
+QTextCursor* QTextDocument_Find4(const QTextDocument* self, const QRegularExpression* expr, const QTextCursor* cursor) {
     return new QTextCursor(self->find(*expr, *cursor));
 }
 

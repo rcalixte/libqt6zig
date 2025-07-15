@@ -147,7 +147,7 @@ bool QCborStreamReader_IsInvalid(const QCborStreamReader* self) {
     return self->isInvalid();
 }
 
-bool QCborStreamReader_IsSimpleTypeWithSt(const QCborStreamReader* self, uint8_t st) {
+bool QCborStreamReader_IsSimpleType2(const QCborStreamReader* self, uint8_t st) {
     return self->isSimpleType(static_cast<QCborSimpleType>(st));
 }
 

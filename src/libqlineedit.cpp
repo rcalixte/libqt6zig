@@ -351,7 +351,7 @@ void QLineEdit_SetTextMargins(QLineEdit* self, int left, int top, int right, int
     self->setTextMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
 }
 
-void QLineEdit_SetTextMarginsWithMargins(QLineEdit* self, const QMargins* margins) {
+void QLineEdit_SetTextMargins2(QLineEdit* self, const QMargins* margins) {
     self->setTextMargins(*margins);
 }
 

@@ -121,7 +121,7 @@ bool QLCDNumber_CheckOverflow(const QLCDNumber* self, double num) {
     return self->checkOverflow(static_cast<double>(num));
 }
 
-bool QLCDNumber_CheckOverflowWithNum(const QLCDNumber* self, int num) {
+bool QLCDNumber_CheckOverflow2(const QLCDNumber* self, int num) {
     return self->checkOverflow(static_cast<int>(num));
 }
 
@@ -154,11 +154,11 @@ void QLCDNumber_Display(QLCDNumber* self, const libqt_string str) {
     self->display(str_QString);
 }
 
-void QLCDNumber_DisplayWithNum(QLCDNumber* self, int num) {
+void QLCDNumber_Display2(QLCDNumber* self, int num) {
     self->display(static_cast<int>(num));
 }
 
-void QLCDNumber_Display2(QLCDNumber* self, double num) {
+void QLCDNumber_Display3(QLCDNumber* self, double num) {
     self->display(static_cast<double>(num));
 }
 

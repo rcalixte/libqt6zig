@@ -1674,8 +1674,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#itemDelegate)
     ///
     /// ``` self: QtC.QTableView, index: QtC.QModelIndex ```
-    pub fn ItemDelegateWithIndex(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
-        return qtc.QAbstractItemView_ItemDelegateWithIndex(@ptrCast(self), @ptrCast(index));
+    pub fn ItemDelegate2(self: ?*anyopaque, index: ?*anyopaque) QtC.QAbstractItemDelegate {
+        return qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self), @ptrCast(index));
     }
 
     /// Inherited from QAbstractItemView
@@ -2624,8 +2624,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QPoint ```
-    pub fn MapToGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -2642,8 +2642,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QPoint ```
-    pub fn MapFromGlobalWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromGlobalWithQPoint(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromGlobal2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromGlobal2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -2660,8 +2660,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QPoint ```
-    pub fn MapToParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapToParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    pub fn MapToParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapToParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -2678,8 +2678,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#mapFromParent)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QPoint ```
-    pub fn MapFromParentWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
-        return qtc.QWidget_MapFromParentWithQPoint(@ptrCast(self), @ptrCast(param1));
+    pub fn MapFromParent2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QPoint {
+        return qtc.QWidget_MapFromParent2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -2921,8 +2921,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setMask)
     ///
     /// ``` self: QtC.QTableView, mask: QtC.QRegion ```
-    pub fn SetMaskWithMask(self: ?*anyopaque, mask: ?*anyopaque) void {
-        qtc.QWidget_SetMaskWithMask(@ptrCast(self), @ptrCast(mask));
+    pub fn SetMask2(self: ?*anyopaque, mask: ?*anyopaque) void {
+        qtc.QWidget_SetMask2(@ptrCast(self), @ptrCast(mask));
     }
 
     /// Inherited from QWidget
@@ -2957,8 +2957,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableView, painter: QtC.QPainter ```
-    pub fn RenderWithPainter(self: ?*anyopaque, painter: ?*anyopaque) void {
-        qtc.QWidget_RenderWithPainter(@ptrCast(self), @ptrCast(painter));
+    pub fn Render2(self: ?*anyopaque, painter: ?*anyopaque) void {
+        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(painter));
     }
 
     /// Inherited from QWidget
@@ -3442,8 +3442,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTableView, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocusWithReason(self: ?*anyopaque, reason: i64) void {
-        qtc.QWidget_SetFocusWithReason(@ptrCast(self), @intCast(reason));
+    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+        qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
     /// Inherited from QWidget
@@ -3532,8 +3532,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabMouse)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QCursor ```
-    pub fn GrabMouseWithQCursor(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_GrabMouseWithQCursor(@ptrCast(self), @ptrCast(param1));
+    pub fn GrabMouse2(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWidget_GrabMouse2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3667,8 +3667,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QRect ```
-    pub fn UpdateWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_UpdateWithQRect(@ptrCast(self), @ptrCast(param1));
+    pub fn Update3(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWidget_Update3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3676,8 +3676,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#update)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QRegion ```
-    pub fn UpdateWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_UpdateWithQRegion(@ptrCast(self), @ptrCast(param1));
+    pub fn Update4(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWidget_Update4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3694,8 +3694,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QRect ```
-    pub fn RepaintWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_RepaintWithQRect(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint3(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWidget_Repaint3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3703,8 +3703,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#repaint)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QRegion ```
-    pub fn RepaintWithQRegion(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_RepaintWithQRegion(@ptrCast(self), @ptrCast(param1));
+    pub fn Repaint4(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWidget_Repaint4(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3820,8 +3820,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#move)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QPoint ```
-    pub fn MoveWithQPoint(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_MoveWithQPoint(@ptrCast(self), @ptrCast(param1));
+    pub fn Move2(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWidget_Move2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3838,8 +3838,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#resize)
     ///
     /// ``` self: QtC.QTableView, param1: QtC.QSize ```
-    pub fn ResizeWithQSize(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QWidget_ResizeWithQSize(@ptrCast(self), @ptrCast(param1));
+    pub fn Resize2(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QWidget_Resize2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QWidget
@@ -3856,8 +3856,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setGeometry)
     ///
     /// ``` self: QtC.QTableView, geometry: QtC.QRect ```
-    pub fn SetGeometryWithGeometry(self: ?*anyopaque, geometry: ?*anyopaque) void {
-        qtc.QWidget_SetGeometryWithGeometry(@ptrCast(self), @ptrCast(geometry));
+    pub fn SetGeometry2(self: ?*anyopaque, geometry: ?*anyopaque) void {
+        qtc.QWidget_SetGeometry2(@ptrCast(self), @ptrCast(geometry));
     }
 
     /// Inherited from QWidget
@@ -4026,8 +4026,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContentsMargins)
     ///
     /// ``` self: QtC.QTableView, margins: QtC.QMargins ```
-    pub fn SetContentsMarginsWithMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QWidget_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
+        qtc.QWidget_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QWidget
@@ -4228,12 +4228,12 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableView, text: []const u8 ```
-    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddActionWithText(@ptrCast(self), text_str);
+        return qtc.QWidget_AddAction2(@ptrCast(self), text_str);
     }
 
     /// Inherited from QWidget
@@ -4241,12 +4241,12 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableView, icon: QtC.QIcon, text: []const u8 ```
-    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
+        return qtc.QWidget_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
     }
 
     /// Inherited from QWidget
@@ -4254,12 +4254,12 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableView, text: []const u8, shortcut: QtC.QKeySequence ```
-    pub fn AddAction3(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction3(@ptrCast(self), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction4(@ptrCast(self), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
@@ -4267,12 +4267,12 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#addAction)
     ///
     /// ``` self: QtC.QTableView, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
-    pub fn AddAction4(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
+    pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QWidget_AddAction4(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
+        return qtc.QWidget_AddAction5(@ptrCast(self), @ptrCast(icon), text_str, @ptrCast(shortcut));
     }
 
     /// Inherited from QWidget
@@ -4352,8 +4352,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTableView, p: QtC.QPoint ```
-    pub fn ChildAtWithQPoint(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAtWithQPoint(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt2(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAt2(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
@@ -4361,8 +4361,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#childAt)
     ///
     /// ``` self: QtC.QTableView, p: QtC.QPointF ```
-    pub fn ChildAtWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
-        return qtc.QWidget_ChildAtWithQPointF(@ptrCast(self), @ptrCast(p));
+    pub fn ChildAt3(self: ?*anyopaque, p: ?*anyopaque) QtC.QWidget {
+        return qtc.QWidget_ChildAt3(@ptrCast(self), @ptrCast(p));
     }
 
     /// Inherited from QWidget
@@ -4567,8 +4567,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint ```
-    pub fn Render2(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render2(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
+    pub fn Render22(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque) void {
+        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
@@ -4594,8 +4594,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
     /// ``` self: QtC.QTableView, painter: QtC.QPainter, targetOffset: QtC.QPoint ```
-    pub fn Render22(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
-        qtc.QWidget_Render22(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
+    pub fn Render23(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque) void {
+        qtc.QWidget_Render23(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset));
     }
 
     /// Inherited from QWidget
@@ -4809,8 +4809,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTableView, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -4879,8 +4879,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -5023,8 +5023,8 @@ pub const qtableview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTableView, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

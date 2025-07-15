@@ -86,11 +86,11 @@ void QPainter_SetPen(QPainter* self, const QColor* color) {
     self->setPen(*color);
 }
 
-void QPainter_SetPenWithPen(QPainter* self, const QPen* pen) {
+void QPainter_SetPen2(QPainter* self, const QPen* pen) {
     self->setPen(*pen);
 }
 
-void QPainter_SetPenWithStyle(QPainter* self, int style) {
+void QPainter_SetPen3(QPainter* self, int style) {
     self->setPen(static_cast<Qt::PenStyle>(style));
 }
 
@@ -104,7 +104,7 @@ void QPainter_SetBrush(QPainter* self, const QBrush* brush) {
     self->setBrush(*brush);
 }
 
-void QPainter_SetBrushWithStyle(QPainter* self, int style) {
+void QPainter_SetBrush2(QPainter* self, int style) {
     self->setBrush(static_cast<Qt::BrushStyle>(style));
 }
 
@@ -130,11 +130,11 @@ void QPainter_SetBrushOrigin(QPainter* self, int x, int y) {
     self->setBrushOrigin(static_cast<int>(x), static_cast<int>(y));
 }
 
-void QPainter_SetBrushOriginWithBrushOrigin(QPainter* self, const QPoint* brushOrigin) {
+void QPainter_SetBrushOrigin2(QPainter* self, const QPoint* brushOrigin) {
     self->setBrushOrigin(*brushOrigin);
 }
 
-void QPainter_SetBrushOrigin2(QPainter* self, const QPointF* brushOrigin) {
+void QPainter_SetBrushOrigin3(QPainter* self, const QPointF* brushOrigin) {
     self->setBrushOrigin(*brushOrigin);
 }
 
@@ -168,11 +168,11 @@ void QPainter_SetClipRect(QPainter* self, const QRectF* param1) {
     self->setClipRect(*param1);
 }
 
-void QPainter_SetClipRectWithQRect(QPainter* self, const QRect* param1) {
+void QPainter_SetClipRect2(QPainter* self, const QRect* param1) {
     self->setClipRect(*param1);
 }
 
-void QPainter_SetClipRect2(QPainter* self, int x, int y, int w, int h) {
+void QPainter_SetClipRect3(QPainter* self, int x, int y, int w, int h) {
     self->setClipRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
@@ -262,11 +262,11 @@ void QPainter_Translate(QPainter* self, const QPointF* offset) {
     self->translate(*offset);
 }
 
-void QPainter_TranslateWithOffset(QPainter* self, const QPoint* offset) {
+void QPainter_Translate2(QPainter* self, const QPoint* offset) {
     self->translate(*offset);
 }
 
-void QPainter_Translate2(QPainter* self, double dx, double dy) {
+void QPainter_Translate3(QPainter* self, double dx, double dy) {
     self->translate(static_cast<qreal>(dx), static_cast<qreal>(dy));
 }
 
@@ -318,11 +318,11 @@ void QPainter_DrawPoint(QPainter* self, const QPointF* pt) {
     self->drawPoint(*pt);
 }
 
-void QPainter_DrawPointWithQPoint(QPainter* self, const QPoint* p) {
+void QPainter_DrawPoint2(QPainter* self, const QPoint* p) {
     self->drawPoint(*p);
 }
 
-void QPainter_DrawPoint2(QPainter* self, int x, int y) {
+void QPainter_DrawPoint3(QPainter* self, int x, int y) {
     self->drawPoint(static_cast<int>(x), static_cast<int>(y));
 }
 
@@ -330,7 +330,7 @@ void QPainter_DrawPoints(QPainter* self, const QPointF* points, int pointCount) 
     self->drawPoints(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawPoints2(QPainter* self, const QPoint* points, int pointCount) {
+void QPainter_DrawPoints3(QPainter* self, const QPoint* points, int pointCount) {
     self->drawPoints(points, static_cast<int>(pointCount));
 }
 
@@ -338,19 +338,19 @@ void QPainter_DrawLine(QPainter* self, const QLineF* line) {
     self->drawLine(*line);
 }
 
-void QPainter_DrawLineWithLine(QPainter* self, const QLine* line) {
+void QPainter_DrawLine2(QPainter* self, const QLine* line) {
     self->drawLine(*line);
 }
 
-void QPainter_DrawLine2(QPainter* self, int x1, int y1, int x2, int y2) {
+void QPainter_DrawLine3(QPainter* self, int x1, int y1, int x2, int y2) {
     self->drawLine(static_cast<int>(x1), static_cast<int>(y1), static_cast<int>(x2), static_cast<int>(y2));
 }
 
-void QPainter_DrawLine3(QPainter* self, const QPoint* p1, const QPoint* p2) {
+void QPainter_DrawLine4(QPainter* self, const QPoint* p1, const QPoint* p2) {
     self->drawLine(*p1, *p2);
 }
 
-void QPainter_DrawLine4(QPainter* self, const QPointF* p1, const QPointF* p2) {
+void QPainter_DrawLine5(QPainter* self, const QPointF* p1, const QPointF* p2) {
     self->drawLine(*p1, *p2);
 }
 
@@ -358,7 +358,7 @@ void QPainter_DrawLines(QPainter* self, const QLineF* lines, int lineCount) {
     self->drawLines(lines, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLinesWithLines(QPainter* self, const libqt_list /* of QLineF* */ lines) {
+void QPainter_DrawLines2(QPainter* self, const libqt_list /* of QLineF* */ lines) {
     QList<QLineF> lines_QList;
     lines_QList.reserve(lines.len);
     QLineF** lines_arr = static_cast<QLineF**>(lines.data);
@@ -368,11 +368,11 @@ void QPainter_DrawLinesWithLines(QPainter* self, const libqt_list /* of QLineF* 
     self->drawLines(lines_QList);
 }
 
-void QPainter_DrawLines2(QPainter* self, const QPointF* pointPairs, int lineCount) {
+void QPainter_DrawLines3(QPainter* self, const QPointF* pointPairs, int lineCount) {
     self->drawLines(pointPairs, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLinesWithPointPairs(QPainter* self, const libqt_list /* of QPointF* */ pointPairs) {
+void QPainter_DrawLines4(QPainter* self, const libqt_list /* of QPointF* */ pointPairs) {
     QList<QPointF> pointPairs_QList;
     pointPairs_QList.reserve(pointPairs.len);
     QPointF** pointPairs_arr = static_cast<QPointF**>(pointPairs.data);
@@ -382,11 +382,11 @@ void QPainter_DrawLinesWithPointPairs(QPainter* self, const libqt_list /* of QPo
     self->drawLines(pointPairs_QList);
 }
 
-void QPainter_DrawLines3(QPainter* self, const QLine* lines, int lineCount) {
+void QPainter_DrawLines5(QPainter* self, const QLine* lines, int lineCount) {
     self->drawLines(lines, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLines4(QPainter* self, const libqt_list /* of QLine* */ lines) {
+void QPainter_DrawLines6(QPainter* self, const libqt_list /* of QLine* */ lines) {
     QList<QLine> lines_QList;
     lines_QList.reserve(lines.len);
     QLine** lines_arr = static_cast<QLine**>(lines.data);
@@ -396,11 +396,11 @@ void QPainter_DrawLines4(QPainter* self, const libqt_list /* of QLine* */ lines)
     self->drawLines(lines_QList);
 }
 
-void QPainter_DrawLines5(QPainter* self, const QPoint* pointPairs, int lineCount) {
+void QPainter_DrawLines7(QPainter* self, const QPoint* pointPairs, int lineCount) {
     self->drawLines(pointPairs, static_cast<int>(lineCount));
 }
 
-void QPainter_DrawLines6(QPainter* self, const libqt_list /* of QPoint* */ pointPairs) {
+void QPainter_DrawLines8(QPainter* self, const libqt_list /* of QPoint* */ pointPairs) {
     QList<QPoint> pointPairs_QList;
     pointPairs_QList.reserve(pointPairs.len);
     QPoint** pointPairs_arr = static_cast<QPoint**>(pointPairs.data);
@@ -418,7 +418,7 @@ void QPainter_DrawRect2(QPainter* self, int x1, int y1, int w, int h) {
     self->drawRect(static_cast<int>(x1), static_cast<int>(y1), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QPainter_DrawRectWithRect(QPainter* self, const QRect* rect) {
+void QPainter_DrawRect3(QPainter* self, const QRect* rect) {
     self->drawRect(*rect);
 }
 
@@ -426,7 +426,7 @@ void QPainter_DrawRects(QPainter* self, const QRectF* rects, int rectCount) {
     self->drawRects(rects, static_cast<int>(rectCount));
 }
 
-void QPainter_DrawRectsWithRectangles(QPainter* self, const libqt_list /* of QRectF* */ rectangles) {
+void QPainter_DrawRects2(QPainter* self, const libqt_list /* of QRectF* */ rectangles) {
     QList<QRectF> rectangles_QList;
     rectangles_QList.reserve(rectangles.len);
     QRectF** rectangles_arr = static_cast<QRectF**>(rectangles.data);
@@ -436,11 +436,11 @@ void QPainter_DrawRectsWithRectangles(QPainter* self, const libqt_list /* of QRe
     self->drawRects(rectangles_QList);
 }
 
-void QPainter_DrawRects2(QPainter* self, const QRect* rects, int rectCount) {
+void QPainter_DrawRects3(QPainter* self, const QRect* rects, int rectCount) {
     self->drawRects(rects, static_cast<int>(rectCount));
 }
 
-void QPainter_DrawRects3(QPainter* self, const libqt_list /* of QRect* */ rectangles) {
+void QPainter_DrawRects4(QPainter* self, const libqt_list /* of QRect* */ rectangles) {
     QList<QRect> rectangles_QList;
     rectangles_QList.reserve(rectangles.len);
     QRect** rectangles_arr = static_cast<QRect**>(rectangles.data);
@@ -454,19 +454,19 @@ void QPainter_DrawEllipse(QPainter* self, const QRectF* r) {
     self->drawEllipse(*r);
 }
 
-void QPainter_DrawEllipseWithQRect(QPainter* self, const QRect* r) {
+void QPainter_DrawEllipse2(QPainter* self, const QRect* r) {
     self->drawEllipse(*r);
 }
 
-void QPainter_DrawEllipse2(QPainter* self, int x, int y, int w, int h) {
+void QPainter_DrawEllipse3(QPainter* self, int x, int y, int w, int h) {
     self->drawEllipse(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QPainter_DrawEllipse3(QPainter* self, const QPointF* center, double rx, double ry) {
+void QPainter_DrawEllipse4(QPainter* self, const QPointF* center, double rx, double ry) {
     self->drawEllipse(*center, static_cast<qreal>(rx), static_cast<qreal>(ry));
 }
 
-void QPainter_DrawEllipse4(QPainter* self, const QPoint* center, int rx, int ry) {
+void QPainter_DrawEllipse5(QPainter* self, const QPoint* center, int rx, int ry) {
     self->drawEllipse(*center, static_cast<int>(rx), static_cast<int>(ry));
 }
 
@@ -474,7 +474,7 @@ void QPainter_DrawPolyline(QPainter* self, const QPointF* points, int pointCount
     self->drawPolyline(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawPolyline2(QPainter* self, const QPoint* points, int pointCount) {
+void QPainter_DrawPolyline3(QPainter* self, const QPoint* points, int pointCount) {
     self->drawPolyline(points, static_cast<int>(pointCount));
 }
 
@@ -482,7 +482,7 @@ void QPainter_DrawPolygon(QPainter* self, const QPointF* points, int pointCount)
     self->drawPolygon(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawPolygon2(QPainter* self, const QPoint* points, int pointCount) {
+void QPainter_DrawPolygon3(QPainter* self, const QPoint* points, int pointCount) {
     self->drawPolygon(points, static_cast<int>(pointCount));
 }
 
@@ -490,7 +490,7 @@ void QPainter_DrawConvexPolygon(QPainter* self, const QPointF* points, int point
     self->drawConvexPolygon(points, static_cast<int>(pointCount));
 }
 
-void QPainter_DrawConvexPolygon2(QPainter* self, const QPoint* points, int pointCount) {
+void QPainter_DrawConvexPolygon3(QPainter* self, const QPoint* points, int pointCount) {
     self->drawConvexPolygon(points, static_cast<int>(pointCount));
 }
 
@@ -814,7 +814,7 @@ void QPainter_EraseRect2(QPainter* self, int x, int y, int w, int h) {
     self->eraseRect(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QPainter_EraseRectWithQRect(QPainter* self, const QRect* param1) {
+void QPainter_EraseRect3(QPainter* self, const QRect* param1) {
     self->eraseRect(*param1);
 }
 

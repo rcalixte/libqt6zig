@@ -83,19 +83,19 @@ pub const qcbormap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#value)
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
-    pub fn Value2(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
+    pub fn Value3(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.QCborMap_Value2(@ptrCast(self), key_str);
+        return qtc.QCborMap_Value3(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#value)
     ///
     /// ``` self: QtC.QCborMap, key: QtC.QCborValue ```
-    pub fn Value3(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValue {
-        return qtc.QCborMap_Value3(@ptrCast(self), @ptrCast(key));
+    pub fn Value4(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValue {
+        return qtc.QCborMap_Value4(@ptrCast(self), @ptrCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#operator[])
@@ -108,44 +108,44 @@ pub const qcbormap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#operator[])
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
-    pub fn OperatorSubscript2(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
+    pub fn OperatorSubscript3(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.QCborMap_OperatorSubscript2(@ptrCast(self), key_str);
+        return qtc.QCborMap_OperatorSubscript3(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#operator[])
     ///
     /// ``` self: QtC.QCborMap, key: QtC.QCborValue ```
-    pub fn OperatorSubscript3(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValue {
-        return qtc.QCborMap_OperatorSubscript3(@ptrCast(self), @ptrCast(key));
+    pub fn OperatorSubscript4(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValue {
+        return qtc.QCborMap_OperatorSubscript4(@ptrCast(self), @ptrCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#operator[])
     ///
     /// ``` self: QtC.QCborMap, key: i64 ```
-    pub fn OperatorSubscript4(self: ?*anyopaque, key: i64) QtC.QCborValueRef {
-        return qtc.QCborMap_OperatorSubscript4(@ptrCast(self), @intCast(key));
+    pub fn OperatorSubscript5(self: ?*anyopaque, key: i64) QtC.QCborValueRef {
+        return qtc.QCborMap_OperatorSubscript5(@ptrCast(self), @intCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#operator[])
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
-    pub fn OperatorSubscript6(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
+    pub fn OperatorSubscript7(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.QCborMap_OperatorSubscript6(@ptrCast(self), key_str);
+        return qtc.QCborMap_OperatorSubscript7(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#operator[])
     ///
     /// ``` self: QtC.QCborMap, key: QtC.QCborValue ```
-    pub fn OperatorSubscript7(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValueRef {
-        return qtc.QCborMap_OperatorSubscript7(@ptrCast(self), @ptrCast(key));
+    pub fn OperatorSubscript8(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValueRef {
+        return qtc.QCborMap_OperatorSubscript8(@ptrCast(self), @ptrCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#take)
@@ -158,19 +158,19 @@ pub const qcbormap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#take)
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
-    pub fn Take2(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
+    pub fn Take3(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.QCborMap_Take2(@ptrCast(self), key_str);
+        return qtc.QCborMap_Take3(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#take)
     ///
     /// ``` self: QtC.QCborMap, key: QtC.QCborValue ```
-    pub fn Take3(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValue {
-        return qtc.QCborMap_Take3(@ptrCast(self), @ptrCast(key));
+    pub fn Take4(self: ?*anyopaque, key: ?*anyopaque) QtC.QCborValue {
+        return qtc.QCborMap_Take4(@ptrCast(self), @ptrCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#remove)
@@ -183,19 +183,19 @@ pub const qcbormap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#remove)
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
-    pub fn Remove2(self: ?*anyopaque, key: []const u8) void {
+    pub fn Remove3(self: ?*anyopaque, key: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.QCborMap_Remove2(@ptrCast(self), key_str);
+        qtc.QCborMap_Remove3(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#remove)
     ///
     /// ``` self: QtC.QCborMap, key: QtC.QCborValue ```
-    pub fn Remove3(self: ?*anyopaque, key: ?*anyopaque) void {
-        qtc.QCborMap_Remove3(@ptrCast(self), @ptrCast(key));
+    pub fn Remove4(self: ?*anyopaque, key: ?*anyopaque) void {
+        qtc.QCborMap_Remove4(@ptrCast(self), @ptrCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#contains)
@@ -208,19 +208,19 @@ pub const qcbormap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#contains)
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
-    pub fn Contains2(self: ?*anyopaque, key: []const u8) bool {
+    pub fn Contains3(self: ?*anyopaque, key: []const u8) bool {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.QCborMap_Contains2(@ptrCast(self), key_str);
+        return qtc.QCborMap_Contains3(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#contains)
     ///
     /// ``` self: QtC.QCborMap, key: QtC.QCborValue ```
-    pub fn Contains3(self: ?*anyopaque, key: ?*anyopaque) bool {
-        return qtc.QCborMap_Contains3(@ptrCast(self), @ptrCast(key));
+    pub fn Contains4(self: ?*anyopaque, key: ?*anyopaque) bool {
+        return qtc.QCborMap_Contains4(@ptrCast(self), @ptrCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap.html#compare)

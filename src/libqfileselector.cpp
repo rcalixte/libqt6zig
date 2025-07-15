@@ -83,7 +83,7 @@ libqt_string QFileSelector_Select(const QFileSelector* self, const libqt_string 
     return _str;
 }
 
-QUrl* QFileSelector_SelectWithFilePath(const QFileSelector* self, const QUrl* filePath) {
+QUrl* QFileSelector_Select2(const QFileSelector* self, const QUrl* filePath) {
     return new QUrl(self->select(*filePath));
 }
 

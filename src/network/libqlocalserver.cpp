@@ -105,7 +105,7 @@ bool QLocalServer_Listen(QLocalServer* self, const libqt_string name) {
     return self->listen(name_QString);
 }
 
-bool QLocalServer_ListenWithSocketDescriptor(QLocalServer* self, intptr_t socketDescriptor) {
+bool QLocalServer_Listen2(QLocalServer* self, intptr_t socketDescriptor) {
     return self->listen((qintptr)(socketDescriptor));
 }
 

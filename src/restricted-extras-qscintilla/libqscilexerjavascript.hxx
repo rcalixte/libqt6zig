@@ -43,10 +43,10 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     using QsciLexerJavaScript_DefaultStyle_Callback = int (*)();
     using QsciLexerJavaScript_Description_Callback = libqt_string (*)(const QsciLexerJavaScript*, int);
     using QsciLexerJavaScript_Paper_Callback = QColor* (*)(const QsciLexerJavaScript*, int);
-    using QsciLexerJavaScript_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerJavaScript*, int);
+    using QsciLexerJavaScript_DefaultColor2_Callback = QColor* (*)(const QsciLexerJavaScript*, int);
     using QsciLexerJavaScript_DefaultEolFill_Callback = bool (*)(const QsciLexerJavaScript*, int);
-    using QsciLexerJavaScript_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerJavaScript*, int);
-    using QsciLexerJavaScript_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerJavaScript*, int);
+    using QsciLexerJavaScript_DefaultFont2_Callback = QFont* (*)(const QsciLexerJavaScript*, int);
+    using QsciLexerJavaScript_DefaultPaper2_Callback = QColor* (*)(const QsciLexerJavaScript*, int);
     using QsciLexerJavaScript_SetEditor_Callback = void (*)(QsciLexerJavaScript*, QsciScintilla*);
     using QsciLexerJavaScript_RefreshProperties_Callback = void (*)();
     using QsciLexerJavaScript_StyleBitsNeeded_Callback = int (*)();
@@ -99,10 +99,10 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     QsciLexerJavaScript_DefaultStyle_Callback qscilexerjavascript_defaultstyle_callback = nullptr;
     QsciLexerJavaScript_Description_Callback qscilexerjavascript_description_callback = nullptr;
     QsciLexerJavaScript_Paper_Callback qscilexerjavascript_paper_callback = nullptr;
-    QsciLexerJavaScript_DefaultColorWithStyle_Callback qscilexerjavascript_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerJavaScript_DefaultColor2_Callback qscilexerjavascript_defaultcolor2_callback = nullptr;
     QsciLexerJavaScript_DefaultEolFill_Callback qscilexerjavascript_defaulteolfill_callback = nullptr;
-    QsciLexerJavaScript_DefaultFontWithStyle_Callback qscilexerjavascript_defaultfontwithstyle_callback = nullptr;
-    QsciLexerJavaScript_DefaultPaperWithStyle_Callback qscilexerjavascript_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerJavaScript_DefaultFont2_Callback qscilexerjavascript_defaultfont2_callback = nullptr;
+    QsciLexerJavaScript_DefaultPaper2_Callback qscilexerjavascript_defaultpaper2_callback = nullptr;
     QsciLexerJavaScript_SetEditor_Callback qscilexerjavascript_seteditor_callback = nullptr;
     QsciLexerJavaScript_RefreshProperties_Callback qscilexerjavascript_refreshproperties_callback = nullptr;
     QsciLexerJavaScript_StyleBitsNeeded_Callback qscilexerjavascript_stylebitsneeded_callback = nullptr;
@@ -154,10 +154,10 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     mutable bool qscilexerjavascript_defaultstyle_isbase = false;
     mutable bool qscilexerjavascript_description_isbase = false;
     mutable bool qscilexerjavascript_paper_isbase = false;
-    mutable bool qscilexerjavascript_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerjavascript_defaultcolor2_isbase = false;
     mutable bool qscilexerjavascript_defaulteolfill_isbase = false;
-    mutable bool qscilexerjavascript_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerjavascript_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerjavascript_defaultfont2_isbase = false;
+    mutable bool qscilexerjavascript_defaultpaper2_isbase = false;
     mutable bool qscilexerjavascript_seteditor_isbase = false;
     mutable bool qscilexerjavascript_refreshproperties_isbase = false;
     mutable bool qscilexerjavascript_stylebitsneeded_isbase = false;
@@ -213,10 +213,10 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
         qscilexerjavascript_defaultstyle_callback = nullptr;
         qscilexerjavascript_description_callback = nullptr;
         qscilexerjavascript_paper_callback = nullptr;
-        qscilexerjavascript_defaultcolorwithstyle_callback = nullptr;
+        qscilexerjavascript_defaultcolor2_callback = nullptr;
         qscilexerjavascript_defaulteolfill_callback = nullptr;
-        qscilexerjavascript_defaultfontwithstyle_callback = nullptr;
-        qscilexerjavascript_defaultpaperwithstyle_callback = nullptr;
+        qscilexerjavascript_defaultfont2_callback = nullptr;
+        qscilexerjavascript_defaultpaper2_callback = nullptr;
         qscilexerjavascript_seteditor_callback = nullptr;
         qscilexerjavascript_refreshproperties_callback = nullptr;
         qscilexerjavascript_stylebitsneeded_callback = nullptr;
@@ -269,10 +269,10 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     inline void setQsciLexerJavaScript_DefaultStyle_Callback(QsciLexerJavaScript_DefaultStyle_Callback cb) { qscilexerjavascript_defaultstyle_callback = cb; }
     inline void setQsciLexerJavaScript_Description_Callback(QsciLexerJavaScript_Description_Callback cb) { qscilexerjavascript_description_callback = cb; }
     inline void setQsciLexerJavaScript_Paper_Callback(QsciLexerJavaScript_Paper_Callback cb) { qscilexerjavascript_paper_callback = cb; }
-    inline void setQsciLexerJavaScript_DefaultColorWithStyle_Callback(QsciLexerJavaScript_DefaultColorWithStyle_Callback cb) { qscilexerjavascript_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerJavaScript_DefaultColor2_Callback(QsciLexerJavaScript_DefaultColor2_Callback cb) { qscilexerjavascript_defaultcolor2_callback = cb; }
     inline void setQsciLexerJavaScript_DefaultEolFill_Callback(QsciLexerJavaScript_DefaultEolFill_Callback cb) { qscilexerjavascript_defaulteolfill_callback = cb; }
-    inline void setQsciLexerJavaScript_DefaultFontWithStyle_Callback(QsciLexerJavaScript_DefaultFontWithStyle_Callback cb) { qscilexerjavascript_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerJavaScript_DefaultPaperWithStyle_Callback(QsciLexerJavaScript_DefaultPaperWithStyle_Callback cb) { qscilexerjavascript_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerJavaScript_DefaultFont2_Callback(QsciLexerJavaScript_DefaultFont2_Callback cb) { qscilexerjavascript_defaultfont2_callback = cb; }
+    inline void setQsciLexerJavaScript_DefaultPaper2_Callback(QsciLexerJavaScript_DefaultPaper2_Callback cb) { qscilexerjavascript_defaultpaper2_callback = cb; }
     inline void setQsciLexerJavaScript_SetEditor_Callback(QsciLexerJavaScript_SetEditor_Callback cb) { qscilexerjavascript_seteditor_callback = cb; }
     inline void setQsciLexerJavaScript_RefreshProperties_Callback(QsciLexerJavaScript_RefreshProperties_Callback cb) { qscilexerjavascript_refreshproperties_callback = cb; }
     inline void setQsciLexerJavaScript_StyleBitsNeeded_Callback(QsciLexerJavaScript_StyleBitsNeeded_Callback cb) { qscilexerjavascript_stylebitsneeded_callback = cb; }
@@ -324,10 +324,10 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
     inline void setQsciLexerJavaScript_DefaultStyle_IsBase(bool value) const { qscilexerjavascript_defaultstyle_isbase = value; }
     inline void setQsciLexerJavaScript_Description_IsBase(bool value) const { qscilexerjavascript_description_isbase = value; }
     inline void setQsciLexerJavaScript_Paper_IsBase(bool value) const { qscilexerjavascript_paper_isbase = value; }
-    inline void setQsciLexerJavaScript_DefaultColorWithStyle_IsBase(bool value) const { qscilexerjavascript_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerJavaScript_DefaultColor2_IsBase(bool value) const { qscilexerjavascript_defaultcolor2_isbase = value; }
     inline void setQsciLexerJavaScript_DefaultEolFill_IsBase(bool value) const { qscilexerjavascript_defaulteolfill_isbase = value; }
-    inline void setQsciLexerJavaScript_DefaultFontWithStyle_IsBase(bool value) const { qscilexerjavascript_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerJavaScript_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerjavascript_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerJavaScript_DefaultFont2_IsBase(bool value) const { qscilexerjavascript_defaultfont2_isbase = value; }
+    inline void setQsciLexerJavaScript_DefaultPaper2_IsBase(bool value) const { qscilexerjavascript_defaultpaper2_isbase = value; }
     inline void setQsciLexerJavaScript_SetEditor_IsBase(bool value) const { qscilexerjavascript_seteditor_isbase = value; }
     inline void setQsciLexerJavaScript_RefreshProperties_IsBase(bool value) const { qscilexerjavascript_refreshproperties_isbase = value; }
     inline void setQsciLexerJavaScript_StyleBitsNeeded_IsBase(bool value) const { qscilexerjavascript_stylebitsneeded_isbase = value; }
@@ -709,13 +709,13 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerjavascript_defaultcolorwithstyle_isbase) {
-            qscilexerjavascript_defaultcolorwithstyle_isbase = false;
+        if (qscilexerjavascript_defaultcolor2_isbase) {
+            qscilexerjavascript_defaultcolor2_isbase = false;
             return QsciLexerJavaScript::defaultColor(style);
-        } else if (qscilexerjavascript_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerjavascript_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerjavascript_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerjavascript_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerJavaScript::defaultColor(style);
@@ -739,13 +739,13 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerjavascript_defaultfontwithstyle_isbase) {
-            qscilexerjavascript_defaultfontwithstyle_isbase = false;
+        if (qscilexerjavascript_defaultfont2_isbase) {
+            qscilexerjavascript_defaultfont2_isbase = false;
             return QsciLexerJavaScript::defaultFont(style);
-        } else if (qscilexerjavascript_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerjavascript_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerjavascript_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerjavascript_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerJavaScript::defaultFont(style);
@@ -754,13 +754,13 @@ class VirtualQsciLexerJavaScript final : public QsciLexerJavaScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerjavascript_defaultpaperwithstyle_isbase) {
-            qscilexerjavascript_defaultpaperwithstyle_isbase = false;
+        if (qscilexerjavascript_defaultpaper2_isbase) {
+            qscilexerjavascript_defaultpaper2_isbase = false;
             return QsciLexerJavaScript::defaultPaper(style);
-        } else if (qscilexerjavascript_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerjavascript_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerjavascript_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerjavascript_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerJavaScript::defaultPaper(style);

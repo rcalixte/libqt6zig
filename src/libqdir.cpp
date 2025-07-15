@@ -327,7 +327,7 @@ libqt_list /* of libqt_string */ QDir_EntryList(const QDir* self) {
     return _out;
 }
 
-libqt_list /* of libqt_string */ QDir_EntryListWithNameFilters(const QDir* self, const libqt_list /* of libqt_string */ nameFilters) {
+libqt_list /* of libqt_string */ QDir_EntryList2(const QDir* self, const libqt_list /* of libqt_string */ nameFilters) {
     QList<QString> nameFilters_QList;
     nameFilters_QList.reserve(nameFilters.len);
     libqt_string* nameFilters_arr = static_cast<libqt_string*>(nameFilters.data);
@@ -368,7 +368,7 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList(const QDir* self) {
     return _out;
 }
 
-libqt_list /* of QFileInfo* */ QDir_EntryInfoListWithNameFilters(const QDir* self, const libqt_list /* of libqt_string */ nameFilters) {
+libqt_list /* of QFileInfo* */ QDir_EntryInfoList2(const QDir* self, const libqt_list /* of libqt_string */ nameFilters) {
     QList<QString> nameFilters_QList;
     nameFilters_QList.reserve(nameFilters.len);
     libqt_string* nameFilters_arr = static_cast<libqt_string*>(nameFilters.data);
@@ -462,7 +462,7 @@ bool QDir_Rename(QDir* self, const libqt_string oldName, const libqt_string newN
     return self->rename(oldName_QString, newName_QString);
 }
 
-bool QDir_ExistsWithName(const QDir* self, const libqt_string name) {
+bool QDir_Exists2(const QDir* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return self->exists(name_QString);
 }
@@ -621,7 +621,7 @@ libqt_list /* of libqt_string */ QDir_EntryList1(const QDir* self, int filters) 
     return _out;
 }
 
-libqt_list /* of libqt_string */ QDir_EntryList2(const QDir* self, int filters, int sort) {
+libqt_list /* of libqt_string */ QDir_EntryList22(const QDir* self, int filters, int sort) {
     QList<QString> _ret = self->entryList(static_cast<QDir::Filters>(filters), static_cast<QDir::SortFlags>(sort));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
@@ -642,7 +642,7 @@ libqt_list /* of libqt_string */ QDir_EntryList2(const QDir* self, int filters, 
     return _out;
 }
 
-libqt_list /* of libqt_string */ QDir_EntryList22(const QDir* self, const libqt_list /* of libqt_string */ nameFilters, int filters) {
+libqt_list /* of libqt_string */ QDir_EntryList23(const QDir* self, const libqt_list /* of libqt_string */ nameFilters, int filters) {
     QList<QString> nameFilters_QList;
     nameFilters_QList.reserve(nameFilters.len);
     libqt_string* nameFilters_arr = static_cast<libqt_string*>(nameFilters.data);
@@ -711,7 +711,7 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList1(const QDir* self, int filters
     return _out;
 }
 
-libqt_list /* of QFileInfo* */ QDir_EntryInfoList2(const QDir* self, int filters, int sort) {
+libqt_list /* of QFileInfo* */ QDir_EntryInfoList22(const QDir* self, int filters, int sort) {
     QList<QFileInfo> _ret = self->entryInfoList(static_cast<QDir::Filters>(filters), static_cast<QDir::SortFlags>(sort));
     // Convert QList<> from C++ memory to manually-managed C memory
     QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
@@ -724,7 +724,7 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList2(const QDir* self, int filters
     return _out;
 }
 
-libqt_list /* of QFileInfo* */ QDir_EntryInfoList22(const QDir* self, const libqt_list /* of libqt_string */ nameFilters, int filters) {
+libqt_list /* of QFileInfo* */ QDir_EntryInfoList23(const QDir* self, const libqt_list /* of libqt_string */ nameFilters, int filters) {
     QList<QString> nameFilters_QList;
     nameFilters_QList.reserve(nameFilters.len);
     libqt_string* nameFilters_arr = static_cast<libqt_string*>(nameFilters.data);

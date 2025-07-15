@@ -41,10 +41,10 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     using QsciLexerSQL_DefaultStyle_Callback = int (*)();
     using QsciLexerSQL_Description_Callback = libqt_string (*)(const QsciLexerSQL*, int);
     using QsciLexerSQL_Paper_Callback = QColor* (*)(const QsciLexerSQL*, int);
-    using QsciLexerSQL_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerSQL*, int);
+    using QsciLexerSQL_DefaultColor2_Callback = QColor* (*)(const QsciLexerSQL*, int);
     using QsciLexerSQL_DefaultEolFill_Callback = bool (*)(const QsciLexerSQL*, int);
-    using QsciLexerSQL_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerSQL*, int);
-    using QsciLexerSQL_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerSQL*, int);
+    using QsciLexerSQL_DefaultFont2_Callback = QFont* (*)(const QsciLexerSQL*, int);
+    using QsciLexerSQL_DefaultPaper2_Callback = QColor* (*)(const QsciLexerSQL*, int);
     using QsciLexerSQL_SetEditor_Callback = void (*)(QsciLexerSQL*, QsciScintilla*);
     using QsciLexerSQL_RefreshProperties_Callback = void (*)();
     using QsciLexerSQL_StyleBitsNeeded_Callback = int (*)();
@@ -95,10 +95,10 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     QsciLexerSQL_DefaultStyle_Callback qscilexersql_defaultstyle_callback = nullptr;
     QsciLexerSQL_Description_Callback qscilexersql_description_callback = nullptr;
     QsciLexerSQL_Paper_Callback qscilexersql_paper_callback = nullptr;
-    QsciLexerSQL_DefaultColorWithStyle_Callback qscilexersql_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerSQL_DefaultColor2_Callback qscilexersql_defaultcolor2_callback = nullptr;
     QsciLexerSQL_DefaultEolFill_Callback qscilexersql_defaulteolfill_callback = nullptr;
-    QsciLexerSQL_DefaultFontWithStyle_Callback qscilexersql_defaultfontwithstyle_callback = nullptr;
-    QsciLexerSQL_DefaultPaperWithStyle_Callback qscilexersql_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerSQL_DefaultFont2_Callback qscilexersql_defaultfont2_callback = nullptr;
+    QsciLexerSQL_DefaultPaper2_Callback qscilexersql_defaultpaper2_callback = nullptr;
     QsciLexerSQL_SetEditor_Callback qscilexersql_seteditor_callback = nullptr;
     QsciLexerSQL_RefreshProperties_Callback qscilexersql_refreshproperties_callback = nullptr;
     QsciLexerSQL_StyleBitsNeeded_Callback qscilexersql_stylebitsneeded_callback = nullptr;
@@ -148,10 +148,10 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     mutable bool qscilexersql_defaultstyle_isbase = false;
     mutable bool qscilexersql_description_isbase = false;
     mutable bool qscilexersql_paper_isbase = false;
-    mutable bool qscilexersql_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexersql_defaultcolor2_isbase = false;
     mutable bool qscilexersql_defaulteolfill_isbase = false;
-    mutable bool qscilexersql_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexersql_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexersql_defaultfont2_isbase = false;
+    mutable bool qscilexersql_defaultpaper2_isbase = false;
     mutable bool qscilexersql_seteditor_isbase = false;
     mutable bool qscilexersql_refreshproperties_isbase = false;
     mutable bool qscilexersql_stylebitsneeded_isbase = false;
@@ -205,10 +205,10 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
         qscilexersql_defaultstyle_callback = nullptr;
         qscilexersql_description_callback = nullptr;
         qscilexersql_paper_callback = nullptr;
-        qscilexersql_defaultcolorwithstyle_callback = nullptr;
+        qscilexersql_defaultcolor2_callback = nullptr;
         qscilexersql_defaulteolfill_callback = nullptr;
-        qscilexersql_defaultfontwithstyle_callback = nullptr;
-        qscilexersql_defaultpaperwithstyle_callback = nullptr;
+        qscilexersql_defaultfont2_callback = nullptr;
+        qscilexersql_defaultpaper2_callback = nullptr;
         qscilexersql_seteditor_callback = nullptr;
         qscilexersql_refreshproperties_callback = nullptr;
         qscilexersql_stylebitsneeded_callback = nullptr;
@@ -259,10 +259,10 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     inline void setQsciLexerSQL_DefaultStyle_Callback(QsciLexerSQL_DefaultStyle_Callback cb) { qscilexersql_defaultstyle_callback = cb; }
     inline void setQsciLexerSQL_Description_Callback(QsciLexerSQL_Description_Callback cb) { qscilexersql_description_callback = cb; }
     inline void setQsciLexerSQL_Paper_Callback(QsciLexerSQL_Paper_Callback cb) { qscilexersql_paper_callback = cb; }
-    inline void setQsciLexerSQL_DefaultColorWithStyle_Callback(QsciLexerSQL_DefaultColorWithStyle_Callback cb) { qscilexersql_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerSQL_DefaultColor2_Callback(QsciLexerSQL_DefaultColor2_Callback cb) { qscilexersql_defaultcolor2_callback = cb; }
     inline void setQsciLexerSQL_DefaultEolFill_Callback(QsciLexerSQL_DefaultEolFill_Callback cb) { qscilexersql_defaulteolfill_callback = cb; }
-    inline void setQsciLexerSQL_DefaultFontWithStyle_Callback(QsciLexerSQL_DefaultFontWithStyle_Callback cb) { qscilexersql_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerSQL_DefaultPaperWithStyle_Callback(QsciLexerSQL_DefaultPaperWithStyle_Callback cb) { qscilexersql_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerSQL_DefaultFont2_Callback(QsciLexerSQL_DefaultFont2_Callback cb) { qscilexersql_defaultfont2_callback = cb; }
+    inline void setQsciLexerSQL_DefaultPaper2_Callback(QsciLexerSQL_DefaultPaper2_Callback cb) { qscilexersql_defaultpaper2_callback = cb; }
     inline void setQsciLexerSQL_SetEditor_Callback(QsciLexerSQL_SetEditor_Callback cb) { qscilexersql_seteditor_callback = cb; }
     inline void setQsciLexerSQL_RefreshProperties_Callback(QsciLexerSQL_RefreshProperties_Callback cb) { qscilexersql_refreshproperties_callback = cb; }
     inline void setQsciLexerSQL_StyleBitsNeeded_Callback(QsciLexerSQL_StyleBitsNeeded_Callback cb) { qscilexersql_stylebitsneeded_callback = cb; }
@@ -312,10 +312,10 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
     inline void setQsciLexerSQL_DefaultStyle_IsBase(bool value) const { qscilexersql_defaultstyle_isbase = value; }
     inline void setQsciLexerSQL_Description_IsBase(bool value) const { qscilexersql_description_isbase = value; }
     inline void setQsciLexerSQL_Paper_IsBase(bool value) const { qscilexersql_paper_isbase = value; }
-    inline void setQsciLexerSQL_DefaultColorWithStyle_IsBase(bool value) const { qscilexersql_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerSQL_DefaultColor2_IsBase(bool value) const { qscilexersql_defaultcolor2_isbase = value; }
     inline void setQsciLexerSQL_DefaultEolFill_IsBase(bool value) const { qscilexersql_defaulteolfill_isbase = value; }
-    inline void setQsciLexerSQL_DefaultFontWithStyle_IsBase(bool value) const { qscilexersql_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerSQL_DefaultPaperWithStyle_IsBase(bool value) const { qscilexersql_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerSQL_DefaultFont2_IsBase(bool value) const { qscilexersql_defaultfont2_isbase = value; }
+    inline void setQsciLexerSQL_DefaultPaper2_IsBase(bool value) const { qscilexersql_defaultpaper2_isbase = value; }
     inline void setQsciLexerSQL_SetEditor_IsBase(bool value) const { qscilexersql_seteditor_isbase = value; }
     inline void setQsciLexerSQL_RefreshProperties_IsBase(bool value) const { qscilexersql_refreshproperties_isbase = value; }
     inline void setQsciLexerSQL_StyleBitsNeeded_IsBase(bool value) const { qscilexersql_stylebitsneeded_isbase = value; }
@@ -669,13 +669,13 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexersql_defaultcolorwithstyle_isbase) {
-            qscilexersql_defaultcolorwithstyle_isbase = false;
+        if (qscilexersql_defaultcolor2_isbase) {
+            qscilexersql_defaultcolor2_isbase = false;
             return QsciLexerSQL::defaultColor(style);
-        } else if (qscilexersql_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexersql_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexersql_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexersql_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerSQL::defaultColor(style);
@@ -699,13 +699,13 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexersql_defaultfontwithstyle_isbase) {
-            qscilexersql_defaultfontwithstyle_isbase = false;
+        if (qscilexersql_defaultfont2_isbase) {
+            qscilexersql_defaultfont2_isbase = false;
             return QsciLexerSQL::defaultFont(style);
-        } else if (qscilexersql_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexersql_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexersql_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexersql_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerSQL::defaultFont(style);
@@ -714,13 +714,13 @@ class VirtualQsciLexerSQL final : public QsciLexerSQL {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexersql_defaultpaperwithstyle_isbase) {
-            qscilexersql_defaultpaperwithstyle_isbase = false;
+        if (qscilexersql_defaultpaper2_isbase) {
+            qscilexersql_defaultpaper2_isbase = false;
             return QsciLexerSQL::defaultPaper(style);
-        } else if (qscilexersql_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexersql_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexersql_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexersql_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerSQL::defaultPaper(style);

@@ -75,12 +75,12 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#connectToServer)
     ///
     /// ``` self: QtC.QLocalSocket, name: []const u8 ```
-    pub fn ConnectToServerWithName(self: ?*anyopaque, name: []const u8) void {
+    pub fn ConnectToServer2(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QLocalSocket_ConnectToServerWithName(@ptrCast(self), name_str);
+        qtc.QLocalSocket_ConnectToServer2(@ptrCast(self), name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#disconnectFromServer)
@@ -612,12 +612,12 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#connectToServer)
     ///
     /// ``` self: QtC.QLocalSocket, name: []const u8, openMode: i32 ```
-    pub fn ConnectToServer2(self: ?*anyopaque, name: []const u8, openMode: i64) void {
+    pub fn ConnectToServer22(self: ?*anyopaque, name: []const u8, openMode: i64) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QLocalSocket_ConnectToServer2(@ptrCast(self), name_str, @intCast(openMode));
+        qtc.QLocalSocket_ConnectToServer22(@ptrCast(self), name_str, @intCast(openMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalsocket.html#setSocketDescriptor)
@@ -771,10 +771,10 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QLocalSocket, maxlen: i64, allocator: std.mem.Allocator ```
-    pub fn ReadWithMaxlen(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadWithMaxlen(@ptrCast(self), @intCast(maxlen));
+    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlocalsocket.ReadWithMaxlen: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlocalsocket.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -866,9 +866,9 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QLocalSocket, data: []const u8 ```
-    pub fn WriteWithData(self: ?*anyopaque, data: []const u8) i64 {
+    pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_WriteWithData(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -876,12 +876,12 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QLocalSocket, data: []u8 ```
-    pub fn Write2(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write2(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
     }
 
     /// Inherited from QIODevice
@@ -899,10 +899,10 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QLocalSocket, maxlen: i64, allocator: std.mem.Allocator ```
-    pub fn PeekWithMaxlen(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_PeekWithMaxlen(@ptrCast(self), @intCast(maxlen));
+    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlocalsocket.PeekWithMaxlen: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlocalsocket.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1190,8 +1190,8 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QLocalSocket, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1269,8 +1269,8 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1413,8 +1413,8 @@ pub const qlocalsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QLocalSocket, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

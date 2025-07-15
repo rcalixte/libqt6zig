@@ -760,7 +760,7 @@ void QsciLexerMakefile_OnPaper(const QsciLexerMakefile* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerMakefile_DefaultColorWithStyle(const QsciLexerMakefile* self, int style) {
+QColor* QsciLexerMakefile_DefaultColor2(const QsciLexerMakefile* self, int style) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
         return new QColor(vqscilexermakefile->defaultColor(static_cast<int>(style)));
@@ -770,10 +770,10 @@ QColor* QsciLexerMakefile_DefaultColorWithStyle(const QsciLexerMakefile* self, i
 }
 
 // Base class handler implementation
-QColor* QsciLexerMakefile_QBaseDefaultColorWithStyle(const QsciLexerMakefile* self, int style) {
+QColor* QsciLexerMakefile_QBaseDefaultColor2(const QsciLexerMakefile* self, int style) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultColorWithStyle_IsBase(true);
+        vqscilexermakefile->setQsciLexerMakefile_DefaultColor2_IsBase(true);
         return new QColor(vqscilexermakefile->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerMakefile*)self)->defaultColor(static_cast<int>(style)));
@@ -781,10 +781,10 @@ QColor* QsciLexerMakefile_QBaseDefaultColorWithStyle(const QsciLexerMakefile* se
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnDefaultColorWithStyle(const QsciLexerMakefile* self, intptr_t slot) {
+void QsciLexerMakefile_OnDefaultColor2(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultColorWithStyle_Callback>(slot));
+        vqscilexermakefile->setQsciLexerMakefile_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -818,7 +818,7 @@ void QsciLexerMakefile_OnDefaultEolFill(const QsciLexerMakefile* self, intptr_t 
 }
 
 // Derived class handler implementation
-QFont* QsciLexerMakefile_DefaultFontWithStyle(const QsciLexerMakefile* self, int style) {
+QFont* QsciLexerMakefile_DefaultFont2(const QsciLexerMakefile* self, int style) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
         return new QFont(vqscilexermakefile->defaultFont(static_cast<int>(style)));
@@ -828,10 +828,10 @@ QFont* QsciLexerMakefile_DefaultFontWithStyle(const QsciLexerMakefile* self, int
 }
 
 // Base class handler implementation
-QFont* QsciLexerMakefile_QBaseDefaultFontWithStyle(const QsciLexerMakefile* self, int style) {
+QFont* QsciLexerMakefile_QBaseDefaultFont2(const QsciLexerMakefile* self, int style) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultFontWithStyle_IsBase(true);
+        vqscilexermakefile->setQsciLexerMakefile_DefaultFont2_IsBase(true);
         return new QFont(vqscilexermakefile->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerMakefile*)self)->defaultFont(static_cast<int>(style)));
@@ -839,15 +839,15 @@ QFont* QsciLexerMakefile_QBaseDefaultFontWithStyle(const QsciLexerMakefile* self
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnDefaultFontWithStyle(const QsciLexerMakefile* self, intptr_t slot) {
+void QsciLexerMakefile_OnDefaultFont2(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultFontWithStyle_Callback>(slot));
+        vqscilexermakefile->setQsciLexerMakefile_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerMakefile_DefaultPaperWithStyle(const QsciLexerMakefile* self, int style) {
+QColor* QsciLexerMakefile_DefaultPaper2(const QsciLexerMakefile* self, int style) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
         return new QColor(vqscilexermakefile->defaultPaper(static_cast<int>(style)));
@@ -857,10 +857,10 @@ QColor* QsciLexerMakefile_DefaultPaperWithStyle(const QsciLexerMakefile* self, i
 }
 
 // Base class handler implementation
-QColor* QsciLexerMakefile_QBaseDefaultPaperWithStyle(const QsciLexerMakefile* self, int style) {
+QColor* QsciLexerMakefile_QBaseDefaultPaper2(const QsciLexerMakefile* self, int style) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultPaperWithStyle_IsBase(true);
+        vqscilexermakefile->setQsciLexerMakefile_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexermakefile->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerMakefile*)self)->defaultPaper(static_cast<int>(style)));
@@ -868,10 +868,10 @@ QColor* QsciLexerMakefile_QBaseDefaultPaperWithStyle(const QsciLexerMakefile* se
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerMakefile_OnDefaultPaperWithStyle(const QsciLexerMakefile* self, intptr_t slot) {
+void QsciLexerMakefile_OnDefaultPaper2(const QsciLexerMakefile* self, intptr_t slot) {
     auto* vqscilexermakefile = const_cast<VirtualQsciLexerMakefile*>(dynamic_cast<const VirtualQsciLexerMakefile*>(self));
     if (vqscilexermakefile && vqscilexermakefile->isVirtualQsciLexerMakefile) {
-        vqscilexermakefile->setQsciLexerMakefile_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexermakefile->setQsciLexerMakefile_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerMakefile::QsciLexerMakefile_DefaultPaper2_Callback>(slot));
     }
 }
 

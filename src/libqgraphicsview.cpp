@@ -276,7 +276,7 @@ void QGraphicsView_CenterOn2(QGraphicsView* self, double x, double y) {
     self->centerOn(static_cast<qreal>(x), static_cast<qreal>(y));
 }
 
-void QGraphicsView_CenterOnWithItem(QGraphicsView* self, const QGraphicsItem* item) {
+void QGraphicsView_CenterOn3(QGraphicsView* self, const QGraphicsItem* item) {
     self->centerOn(item);
 }
 
@@ -288,7 +288,7 @@ void QGraphicsView_EnsureVisible2(QGraphicsView* self, double x, double y, doubl
     self->ensureVisible(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h));
 }
 
-void QGraphicsView_EnsureVisibleWithItem(QGraphicsView* self, const QGraphicsItem* item) {
+void QGraphicsView_EnsureVisible3(QGraphicsView* self, const QGraphicsItem* item) {
     self->ensureVisible(item);
 }
 
@@ -300,7 +300,7 @@ void QGraphicsView_FitInView2(QGraphicsView* self, double x, double y, double w,
     self->fitInView(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal>(w), static_cast<qreal>(h));
 }
 
-void QGraphicsView_FitInViewWithItem(QGraphicsView* self, const QGraphicsItem* item) {
+void QGraphicsView_FitInView3(QGraphicsView* self, const QGraphicsItem* item) {
     self->fitInView(item);
 }
 
@@ -321,7 +321,7 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_Items(const QGraphicsView* self
     return _out;
 }
 
-libqt_list /* of QGraphicsItem* */ QGraphicsView_ItemsWithPos(const QGraphicsView* self, const QPoint* pos) {
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items2(const QGraphicsView* self, const QPoint* pos) {
     QList<QGraphicsItem*> _ret = self->items(*pos);
     // Convert QList<> from C++ memory to manually-managed C memory
     QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
@@ -334,7 +334,7 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_ItemsWithPos(const QGraphicsVie
     return _out;
 }
 
-libqt_list /* of QGraphicsItem* */ QGraphicsView_Items2(const QGraphicsView* self, int x, int y) {
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items3(const QGraphicsView* self, int x, int y) {
     QList<QGraphicsItem*> _ret = self->items(static_cast<int>(x), static_cast<int>(y));
     // Convert QList<> from C++ memory to manually-managed C memory
     QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
@@ -347,7 +347,7 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_Items2(const QGraphicsView* sel
     return _out;
 }
 
-libqt_list /* of QGraphicsItem* */ QGraphicsView_ItemsWithRect(const QGraphicsView* self, const QRect* rect) {
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items4(const QGraphicsView* self, const QRect* rect) {
     QList<QGraphicsItem*> _ret = self->items(*rect);
     // Convert QList<> from C++ memory to manually-managed C memory
     QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
@@ -360,7 +360,7 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_ItemsWithRect(const QGraphicsVi
     return _out;
 }
 
-libqt_list /* of QGraphicsItem* */ QGraphicsView_Items3(const QGraphicsView* self, int x, int y, int w, int h) {
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items5(const QGraphicsView* self, int x, int y, int w, int h) {
     QList<QGraphicsItem*> _ret = self->items(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
     // Convert QList<> from C++ memory to manually-managed C memory
     QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
@@ -373,7 +373,7 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_Items3(const QGraphicsView* sel
     return _out;
 }
 
-libqt_list /* of QGraphicsItem* */ QGraphicsView_ItemsWithPath(const QGraphicsView* self, const QPainterPath* path) {
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items7(const QGraphicsView* self, const QPainterPath* path) {
     QList<QGraphicsItem*> _ret = self->items(*path);
     // Convert QList<> from C++ memory to manually-managed C memory
     QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));
@@ -398,7 +398,7 @@ QPointF* QGraphicsView_MapToScene(const QGraphicsView* self, const QPoint* point
     return new QPointF(self->mapToScene(*point));
 }
 
-QPainterPath* QGraphicsView_MapToSceneWithPath(const QGraphicsView* self, const QPainterPath* path) {
+QPainterPath* QGraphicsView_MapToScene4(const QGraphicsView* self, const QPainterPath* path) {
     return new QPainterPath(self->mapToScene(*path));
 }
 
@@ -406,15 +406,15 @@ QPoint* QGraphicsView_MapFromScene(const QGraphicsView* self, const QPointF* poi
     return new QPoint(self->mapFromScene(*point));
 }
 
-QPainterPath* QGraphicsView_MapFromSceneWithPath(const QGraphicsView* self, const QPainterPath* path) {
+QPainterPath* QGraphicsView_MapFromScene4(const QGraphicsView* self, const QPainterPath* path) {
     return new QPainterPath(self->mapFromScene(*path));
 }
 
-QPointF* QGraphicsView_MapToScene2(const QGraphicsView* self, int x, int y) {
+QPointF* QGraphicsView_MapToScene5(const QGraphicsView* self, int x, int y) {
     return new QPointF(self->mapToScene(static_cast<int>(x), static_cast<int>(y)));
 }
 
-QPoint* QGraphicsView_MapFromScene2(const QGraphicsView* self, double x, double y) {
+QPoint* QGraphicsView_MapFromScene5(const QGraphicsView* self, double x, double y) {
     return new QPoint(self->mapFromScene(static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 
@@ -506,7 +506,7 @@ void QGraphicsView_EnsureVisible22(QGraphicsView* self, const QRectF* rect, int 
     self->ensureVisible(*rect, static_cast<int>(xmargin));
 }
 
-void QGraphicsView_EnsureVisible3(QGraphicsView* self, const QRectF* rect, int xmargin, int ymargin) {
+void QGraphicsView_EnsureVisible32(QGraphicsView* self, const QRectF* rect, int xmargin, int ymargin) {
     self->ensureVisible(*rect, static_cast<int>(xmargin), static_cast<int>(ymargin));
 }
 
@@ -522,7 +522,7 @@ void QGraphicsView_EnsureVisible23(QGraphicsView* self, const QGraphicsItem* ite
     self->ensureVisible(item, static_cast<int>(xmargin));
 }
 
-void QGraphicsView_EnsureVisible32(QGraphicsView* self, const QGraphicsItem* item, int xmargin, int ymargin) {
+void QGraphicsView_EnsureVisible33(QGraphicsView* self, const QGraphicsItem* item, int xmargin, int ymargin) {
     self->ensureVisible(item, static_cast<int>(xmargin), static_cast<int>(ymargin));
 }
 
@@ -563,7 +563,7 @@ libqt_list /* of QGraphicsItem* */ QGraphicsView_Items22(const QGraphicsView* se
     return _out;
 }
 
-libqt_list /* of QGraphicsItem* */ QGraphicsView_Items5(const QGraphicsView* self, int x, int y, int w, int h, int mode) {
+libqt_list /* of QGraphicsItem* */ QGraphicsView_Items52(const QGraphicsView* self, int x, int y, int w, int h, int mode) {
     QList<QGraphicsItem*> _ret = self->items(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<Qt::ItemSelectionMode>(mode));
     // Convert QList<> from C++ memory to manually-managed C memory
     QGraphicsItem** _arr = static_cast<QGraphicsItem**>(malloc(sizeof(QGraphicsItem*) * _ret.size()));

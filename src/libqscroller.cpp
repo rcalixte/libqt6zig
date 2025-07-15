@@ -45,7 +45,7 @@ QScroller* QScroller_Scroller(QObject* target) {
     return QScroller::scroller(target);
 }
 
-QScroller* QScroller_ScrollerWithTarget(const QObject* target) {
+QScroller* QScroller_Scroller2(const QObject* target) {
     return (QScroller*)QScroller::scroller(target);
 }
 

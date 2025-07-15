@@ -34,7 +34,7 @@ ptrdiff_t QStringMatcher_IndexIn2(const QStringMatcher* self, const QChar* str, 
 libqt_string QStringMatcher_Pattern(const QStringMatcher* self);
 int QStringMatcher_CaseSensitivity(const QStringMatcher* self);
 ptrdiff_t QStringMatcher_IndexIn22(const QStringMatcher* self, const libqt_string str, ptrdiff_t from);
-ptrdiff_t QStringMatcher_IndexIn3(const QStringMatcher* self, const QChar* str, ptrdiff_t length, ptrdiff_t from);
+ptrdiff_t QStringMatcher_IndexIn32(const QStringMatcher* self, const QChar* str, ptrdiff_t length, ptrdiff_t from);
 void QStringMatcher_Delete(QStringMatcher* self);
 
 #ifdef __cplusplus

@@ -564,7 +564,7 @@ void QXmlStreamWriter_WriteAttribute2(QXmlStreamWriter* self, libqt_string names
     self->writeAttribute(QAnyStringView(namespaceUri_QString), QAnyStringView(name_QString), QAnyStringView(value_QString));
 }
 
-void QXmlStreamWriter_WriteAttributeWithAttribute(QXmlStreamWriter* self, const QXmlStreamAttribute* attribute) {
+void QXmlStreamWriter_WriteAttribute3(QXmlStreamWriter* self, const QXmlStreamAttribute* attribute) {
     self->writeAttribute(*attribute);
 }
 
@@ -648,12 +648,12 @@ void QXmlStreamWriter_WriteStartDocument(QXmlStreamWriter* self) {
     self->writeStartDocument();
 }
 
-void QXmlStreamWriter_WriteStartDocumentWithVersion(QXmlStreamWriter* self, libqt_string version) {
+void QXmlStreamWriter_WriteStartDocument2(QXmlStreamWriter* self, libqt_string version) {
     QString version_QString = QString::fromUtf8(version.data, version.len);
     self->writeStartDocument(QAnyStringView(version_QString));
 }
 
-void QXmlStreamWriter_WriteStartDocument2(QXmlStreamWriter* self, libqt_string version, bool standalone) {
+void QXmlStreamWriter_WriteStartDocument3(QXmlStreamWriter* self, libqt_string version, bool standalone) {
     QString version_QString = QString::fromUtf8(version.data, version.len);
     self->writeStartDocument(QAnyStringView(version_QString), standalone);
 }

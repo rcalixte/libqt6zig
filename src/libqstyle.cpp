@@ -220,7 +220,7 @@ void QStyle_OnUnpolish(QStyle* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QStyle_PolishWithApplication(QStyle* self, QApplication* application) {
+void QStyle_Polish2(QStyle* self, QApplication* application) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->polish(application);
@@ -230,10 +230,10 @@ void QStyle_PolishWithApplication(QStyle* self, QApplication* application) {
 }
 
 // Base class handler implementation
-void QStyle_QBasePolishWithApplication(QStyle* self, QApplication* application) {
+void QStyle_QBasePolish2(QStyle* self, QApplication* application) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
-        vqstyle->setQStyle_PolishWithApplication_IsBase(true);
+        vqstyle->setQStyle_Polish2_IsBase(true);
         vqstyle->polish(application);
     } else {
         self->QStyle::polish(application);
@@ -241,15 +241,15 @@ void QStyle_QBasePolishWithApplication(QStyle* self, QApplication* application) 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyle_OnPolishWithApplication(QStyle* self, intptr_t slot) {
+void QStyle_OnPolish2(QStyle* self, intptr_t slot) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
-        vqstyle->setQStyle_PolishWithApplication_Callback(reinterpret_cast<VirtualQStyle::QStyle_PolishWithApplication_Callback>(slot));
+        vqstyle->setQStyle_Polish2_Callback(reinterpret_cast<VirtualQStyle::QStyle_Polish2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QStyle_UnpolishWithApplication(QStyle* self, QApplication* application) {
+void QStyle_Unpolish2(QStyle* self, QApplication* application) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->unpolish(application);
@@ -259,10 +259,10 @@ void QStyle_UnpolishWithApplication(QStyle* self, QApplication* application) {
 }
 
 // Base class handler implementation
-void QStyle_QBaseUnpolishWithApplication(QStyle* self, QApplication* application) {
+void QStyle_QBaseUnpolish2(QStyle* self, QApplication* application) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
-        vqstyle->setQStyle_UnpolishWithApplication_IsBase(true);
+        vqstyle->setQStyle_Unpolish2_IsBase(true);
         vqstyle->unpolish(application);
     } else {
         self->QStyle::unpolish(application);
@@ -270,15 +270,15 @@ void QStyle_QBaseUnpolishWithApplication(QStyle* self, QApplication* application
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyle_OnUnpolishWithApplication(QStyle* self, intptr_t slot) {
+void QStyle_OnUnpolish2(QStyle* self, intptr_t slot) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
-        vqstyle->setQStyle_UnpolishWithApplication_Callback(reinterpret_cast<VirtualQStyle::QStyle_UnpolishWithApplication_Callback>(slot));
+        vqstyle->setQStyle_Unpolish2_Callback(reinterpret_cast<VirtualQStyle::QStyle_Unpolish2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QStyle_PolishWithPalette(QStyle* self, QPalette* palette) {
+void QStyle_Polish3(QStyle* self, QPalette* palette) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
         vqstyle->polish(*palette);
@@ -288,10 +288,10 @@ void QStyle_PolishWithPalette(QStyle* self, QPalette* palette) {
 }
 
 // Base class handler implementation
-void QStyle_QBasePolishWithPalette(QStyle* self, QPalette* palette) {
+void QStyle_QBasePolish3(QStyle* self, QPalette* palette) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
-        vqstyle->setQStyle_PolishWithPalette_IsBase(true);
+        vqstyle->setQStyle_Polish3_IsBase(true);
         vqstyle->polish(*palette);
     } else {
         self->QStyle::polish(*palette);
@@ -299,10 +299,10 @@ void QStyle_QBasePolishWithPalette(QStyle* self, QPalette* palette) {
 }
 
 // Auxiliary method to allow providing re-implementation
-void QStyle_OnPolishWithPalette(QStyle* self, intptr_t slot) {
+void QStyle_OnPolish3(QStyle* self, intptr_t slot) {
     auto* vqstyle = dynamic_cast<VirtualQStyle*>(self);
     if (vqstyle && vqstyle->isVirtualQStyle) {
-        vqstyle->setQStyle_PolishWithPalette_Callback(reinterpret_cast<VirtualQStyle::QStyle_PolishWithPalette_Callback>(slot));
+        vqstyle->setQStyle_Polish3_Callback(reinterpret_cast<VirtualQStyle::QStyle_Polish3_Callback>(slot));
     }
 }
 

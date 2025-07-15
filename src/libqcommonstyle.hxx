@@ -33,10 +33,10 @@ class VirtualQCommonStyle final : public QCommonStyle {
     using QCommonStyle_GeneratedIconPixmap_Callback = QPixmap* (*)(const QCommonStyle*, int, QPixmap*, QStyleOption*);
     using QCommonStyle_LayoutSpacing_Callback = int (*)(const QCommonStyle*, int, int, int, QStyleOption*, QWidget*);
     using QCommonStyle_Polish_Callback = void (*)(QCommonStyle*, QPalette*);
-    using QCommonStyle_PolishWithApp_Callback = void (*)(QCommonStyle*, QApplication*);
-    using QCommonStyle_PolishWithWidget_Callback = void (*)(QCommonStyle*, QWidget*);
+    using QCommonStyle_Polish2_Callback = void (*)(QCommonStyle*, QApplication*);
+    using QCommonStyle_Polish3_Callback = void (*)(QCommonStyle*, QWidget*);
     using QCommonStyle_Unpolish_Callback = void (*)(QCommonStyle*, QWidget*);
-    using QCommonStyle_UnpolishWithApplication_Callback = void (*)(QCommonStyle*, QApplication*);
+    using QCommonStyle_Unpolish2_Callback = void (*)(QCommonStyle*, QApplication*);
     using QCommonStyle_ItemTextRect_Callback = QRect* (*)(const QCommonStyle*, QFontMetrics*, QRect*, int, bool, libqt_string);
     using QCommonStyle_ItemPixmapRect_Callback = QRect* (*)(const QCommonStyle*, QRect*, int, QPixmap*);
     using QCommonStyle_DrawItemText_Callback = void (*)(const QCommonStyle*, QPainter*, QRect*, int, QPalette*, bool, libqt_string, int);
@@ -71,10 +71,10 @@ class VirtualQCommonStyle final : public QCommonStyle {
     QCommonStyle_GeneratedIconPixmap_Callback qcommonstyle_generatediconpixmap_callback = nullptr;
     QCommonStyle_LayoutSpacing_Callback qcommonstyle_layoutspacing_callback = nullptr;
     QCommonStyle_Polish_Callback qcommonstyle_polish_callback = nullptr;
-    QCommonStyle_PolishWithApp_Callback qcommonstyle_polishwithapp_callback = nullptr;
-    QCommonStyle_PolishWithWidget_Callback qcommonstyle_polishwithwidget_callback = nullptr;
+    QCommonStyle_Polish2_Callback qcommonstyle_polish2_callback = nullptr;
+    QCommonStyle_Polish3_Callback qcommonstyle_polish3_callback = nullptr;
     QCommonStyle_Unpolish_Callback qcommonstyle_unpolish_callback = nullptr;
-    QCommonStyle_UnpolishWithApplication_Callback qcommonstyle_unpolishwithapplication_callback = nullptr;
+    QCommonStyle_Unpolish2_Callback qcommonstyle_unpolish2_callback = nullptr;
     QCommonStyle_ItemTextRect_Callback qcommonstyle_itemtextrect_callback = nullptr;
     QCommonStyle_ItemPixmapRect_Callback qcommonstyle_itempixmaprect_callback = nullptr;
     QCommonStyle_DrawItemText_Callback qcommonstyle_drawitemtext_callback = nullptr;
@@ -108,10 +108,10 @@ class VirtualQCommonStyle final : public QCommonStyle {
     mutable bool qcommonstyle_generatediconpixmap_isbase = false;
     mutable bool qcommonstyle_layoutspacing_isbase = false;
     mutable bool qcommonstyle_polish_isbase = false;
-    mutable bool qcommonstyle_polishwithapp_isbase = false;
-    mutable bool qcommonstyle_polishwithwidget_isbase = false;
+    mutable bool qcommonstyle_polish2_isbase = false;
+    mutable bool qcommonstyle_polish3_isbase = false;
     mutable bool qcommonstyle_unpolish_isbase = false;
-    mutable bool qcommonstyle_unpolishwithapplication_isbase = false;
+    mutable bool qcommonstyle_unpolish2_isbase = false;
     mutable bool qcommonstyle_itemtextrect_isbase = false;
     mutable bool qcommonstyle_itempixmaprect_isbase = false;
     mutable bool qcommonstyle_drawitemtext_isbase = false;
@@ -148,10 +148,10 @@ class VirtualQCommonStyle final : public QCommonStyle {
         qcommonstyle_generatediconpixmap_callback = nullptr;
         qcommonstyle_layoutspacing_callback = nullptr;
         qcommonstyle_polish_callback = nullptr;
-        qcommonstyle_polishwithapp_callback = nullptr;
-        qcommonstyle_polishwithwidget_callback = nullptr;
+        qcommonstyle_polish2_callback = nullptr;
+        qcommonstyle_polish3_callback = nullptr;
         qcommonstyle_unpolish_callback = nullptr;
-        qcommonstyle_unpolishwithapplication_callback = nullptr;
+        qcommonstyle_unpolish2_callback = nullptr;
         qcommonstyle_itemtextrect_callback = nullptr;
         qcommonstyle_itempixmaprect_callback = nullptr;
         qcommonstyle_drawitemtext_callback = nullptr;
@@ -186,10 +186,10 @@ class VirtualQCommonStyle final : public QCommonStyle {
     inline void setQCommonStyle_GeneratedIconPixmap_Callback(QCommonStyle_GeneratedIconPixmap_Callback cb) { qcommonstyle_generatediconpixmap_callback = cb; }
     inline void setQCommonStyle_LayoutSpacing_Callback(QCommonStyle_LayoutSpacing_Callback cb) { qcommonstyle_layoutspacing_callback = cb; }
     inline void setQCommonStyle_Polish_Callback(QCommonStyle_Polish_Callback cb) { qcommonstyle_polish_callback = cb; }
-    inline void setQCommonStyle_PolishWithApp_Callback(QCommonStyle_PolishWithApp_Callback cb) { qcommonstyle_polishwithapp_callback = cb; }
-    inline void setQCommonStyle_PolishWithWidget_Callback(QCommonStyle_PolishWithWidget_Callback cb) { qcommonstyle_polishwithwidget_callback = cb; }
+    inline void setQCommonStyle_Polish2_Callback(QCommonStyle_Polish2_Callback cb) { qcommonstyle_polish2_callback = cb; }
+    inline void setQCommonStyle_Polish3_Callback(QCommonStyle_Polish3_Callback cb) { qcommonstyle_polish3_callback = cb; }
     inline void setQCommonStyle_Unpolish_Callback(QCommonStyle_Unpolish_Callback cb) { qcommonstyle_unpolish_callback = cb; }
-    inline void setQCommonStyle_UnpolishWithApplication_Callback(QCommonStyle_UnpolishWithApplication_Callback cb) { qcommonstyle_unpolishwithapplication_callback = cb; }
+    inline void setQCommonStyle_Unpolish2_Callback(QCommonStyle_Unpolish2_Callback cb) { qcommonstyle_unpolish2_callback = cb; }
     inline void setQCommonStyle_ItemTextRect_Callback(QCommonStyle_ItemTextRect_Callback cb) { qcommonstyle_itemtextrect_callback = cb; }
     inline void setQCommonStyle_ItemPixmapRect_Callback(QCommonStyle_ItemPixmapRect_Callback cb) { qcommonstyle_itempixmaprect_callback = cb; }
     inline void setQCommonStyle_DrawItemText_Callback(QCommonStyle_DrawItemText_Callback cb) { qcommonstyle_drawitemtext_callback = cb; }
@@ -223,10 +223,10 @@ class VirtualQCommonStyle final : public QCommonStyle {
     inline void setQCommonStyle_GeneratedIconPixmap_IsBase(bool value) const { qcommonstyle_generatediconpixmap_isbase = value; }
     inline void setQCommonStyle_LayoutSpacing_IsBase(bool value) const { qcommonstyle_layoutspacing_isbase = value; }
     inline void setQCommonStyle_Polish_IsBase(bool value) const { qcommonstyle_polish_isbase = value; }
-    inline void setQCommonStyle_PolishWithApp_IsBase(bool value) const { qcommonstyle_polishwithapp_isbase = value; }
-    inline void setQCommonStyle_PolishWithWidget_IsBase(bool value) const { qcommonstyle_polishwithwidget_isbase = value; }
+    inline void setQCommonStyle_Polish2_IsBase(bool value) const { qcommonstyle_polish2_isbase = value; }
+    inline void setQCommonStyle_Polish3_IsBase(bool value) const { qcommonstyle_polish3_isbase = value; }
     inline void setQCommonStyle_Unpolish_IsBase(bool value) const { qcommonstyle_unpolish_isbase = value; }
-    inline void setQCommonStyle_UnpolishWithApplication_IsBase(bool value) const { qcommonstyle_unpolishwithapplication_isbase = value; }
+    inline void setQCommonStyle_Unpolish2_IsBase(bool value) const { qcommonstyle_unpolish2_isbase = value; }
     inline void setQCommonStyle_ItemTextRect_IsBase(bool value) const { qcommonstyle_itemtextrect_isbase = value; }
     inline void setQCommonStyle_ItemPixmapRect_IsBase(bool value) const { qcommonstyle_itempixmaprect_isbase = value; }
     inline void setQCommonStyle_DrawItemText_IsBase(bool value) const { qcommonstyle_drawitemtext_isbase = value; }
@@ -512,13 +512,13 @@ class VirtualQCommonStyle final : public QCommonStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QApplication* app) override {
-        if (qcommonstyle_polishwithapp_isbase) {
-            qcommonstyle_polishwithapp_isbase = false;
+        if (qcommonstyle_polish2_isbase) {
+            qcommonstyle_polish2_isbase = false;
             QCommonStyle::polish(app);
-        } else if (qcommonstyle_polishwithapp_callback != nullptr) {
+        } else if (qcommonstyle_polish2_callback != nullptr) {
             QApplication* cbval1 = app;
 
-            qcommonstyle_polishwithapp_callback(this, cbval1);
+            qcommonstyle_polish2_callback(this, cbval1);
         } else {
             QCommonStyle::polish(app);
         }
@@ -526,13 +526,13 @@ class VirtualQCommonStyle final : public QCommonStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void polish(QWidget* widget) override {
-        if (qcommonstyle_polishwithwidget_isbase) {
-            qcommonstyle_polishwithwidget_isbase = false;
+        if (qcommonstyle_polish3_isbase) {
+            qcommonstyle_polish3_isbase = false;
             QCommonStyle::polish(widget);
-        } else if (qcommonstyle_polishwithwidget_callback != nullptr) {
+        } else if (qcommonstyle_polish3_callback != nullptr) {
             QWidget* cbval1 = widget;
 
-            qcommonstyle_polishwithwidget_callback(this, cbval1);
+            qcommonstyle_polish3_callback(this, cbval1);
         } else {
             QCommonStyle::polish(widget);
         }
@@ -554,13 +554,13 @@ class VirtualQCommonStyle final : public QCommonStyle {
 
     // Virtual method for C ABI access and custom callback
     virtual void unpolish(QApplication* application) override {
-        if (qcommonstyle_unpolishwithapplication_isbase) {
-            qcommonstyle_unpolishwithapplication_isbase = false;
+        if (qcommonstyle_unpolish2_isbase) {
+            qcommonstyle_unpolish2_isbase = false;
             QCommonStyle::unpolish(application);
-        } else if (qcommonstyle_unpolishwithapplication_callback != nullptr) {
+        } else if (qcommonstyle_unpolish2_callback != nullptr) {
             QApplication* cbval1 = application;
 
-            qcommonstyle_unpolishwithapplication_callback(this, cbval1);
+            qcommonstyle_unpolish2_callback(this, cbval1);
         } else {
             QCommonStyle::unpolish(application);
         }

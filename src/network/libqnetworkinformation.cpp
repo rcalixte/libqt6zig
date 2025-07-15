@@ -78,7 +78,7 @@ bool QNetworkInformation_LoadBackendByFeatures(int features) {
     return QNetworkInformation::loadBackendByFeatures(static_cast<QNetworkInformation::Features>(features));
 }
 
-bool QNetworkInformation_LoadWithFeatures(int features) {
+bool QNetworkInformation_Load2(int features) {
     return QNetworkInformation::load(static_cast<QNetworkInformation::Features>(features));
 }
 

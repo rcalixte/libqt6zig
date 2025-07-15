@@ -215,14 +215,14 @@ pub const qjsonvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toString)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: []const u8, allocator: std.mem.Allocator ```
-    pub fn ToStringWithDefaultValue(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString2(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
         const defaultValue_str = qtc.struct_libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _str = qtc.QJsonValue_ToStringWithDefaultValue(@ptrCast(self), defaultValue_str);
+        const _str = qtc.QJsonValue_ToString2(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalue.ToStringWithDefaultValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalue.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -237,8 +237,8 @@ pub const qjsonvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toArray)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: QtC.QJsonArray ```
-    pub fn ToArrayWithDefaultValue(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QJsonArray {
-        return qtc.QJsonValue_ToArrayWithDefaultValue(@ptrCast(self), @ptrCast(defaultValue));
+    pub fn ToArray2(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QJsonArray {
+        return qtc.QJsonValue_ToArray2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
@@ -251,8 +251,8 @@ pub const qjsonvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toObject)
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: QtC.QJsonObject ```
-    pub fn ToObjectWithDefaultValue(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QJsonObject {
-        return qtc.QJsonValue_ToObjectWithDefaultValue(@ptrCast(self), @ptrCast(defaultValue));
+    pub fn ToObject2(self: ?*anyopaque, defaultValue: ?*anyopaque) QtC.QJsonObject {
+        return qtc.QJsonValue_ToObject2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator[])
@@ -269,8 +269,8 @@ pub const qjsonvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator[])
     ///
     /// ``` self: QtC.QJsonValue, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonValue_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+        return qtc.QJsonValue_OperatorSubscript4(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#toBool)
@@ -453,8 +453,8 @@ pub const qjsonvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator[])
     ///
     /// ``` self: QtC.QJsonValueConstRef, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonValueConstRef_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+        return qtc.QJsonValueConstRef_OperatorSubscript3(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#toBool)
@@ -550,8 +550,8 @@ pub const qjsonvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator=)
     ///
     /// ``` self: QtC.QJsonValueRef, val: QtC.QJsonValueRef ```
-    pub fn OperatorAssignWithVal(self: ?*anyopaque, val: ?*anyopaque) void {
-        qtc.QJsonValueRef_OperatorAssignWithVal(@ptrCast(self), @ptrCast(val));
+    pub fn OperatorAssign2(self: ?*anyopaque, val: ?*anyopaque) void {
+        qtc.QJsonValueRef_OperatorAssign2(@ptrCast(self), @ptrCast(val));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator QJsonValue)
@@ -680,8 +680,8 @@ pub const qjsonvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator[])
     ///
     /// ``` self: QtC.QJsonValueRef, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonValueRef_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+        return qtc.QJsonValueRef_OperatorSubscript3(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#toBool)

@@ -95,7 +95,7 @@ void QCalendarWidget_SetHeaderTextFormat(QCalendarWidget* self, const QTextCharF
 QTextCharFormat* QCalendarWidget_WeekdayTextFormat(const QCalendarWidget* self, int dayOfWeek);
 void QCalendarWidget_SetWeekdayTextFormat(QCalendarWidget* self, int dayOfWeek, const QTextCharFormat* format);
 libqt_map /* of QDate* to QTextCharFormat* */ QCalendarWidget_DateTextFormat(const QCalendarWidget* self);
-QTextCharFormat* QCalendarWidget_DateTextFormatWithDate(const QCalendarWidget* self, QDate* date);
+QTextCharFormat* QCalendarWidget_DateTextFormat2(const QCalendarWidget* self, QDate* date);
 void QCalendarWidget_SetDateTextFormat(QCalendarWidget* self, QDate* date, const QTextCharFormat* format);
 bool QCalendarWidget_IsDateEditEnabled(const QCalendarWidget* self);
 void QCalendarWidget_SetDateEditEnabled(QCalendarWidget* self, bool enable);

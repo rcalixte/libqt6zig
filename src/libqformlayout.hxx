@@ -22,7 +22,7 @@ class VirtualQFormLayout final : public QFormLayout {
     using QFormLayout_Spacing_Callback = int (*)();
     using QFormLayout_SetSpacing_Callback = void (*)(QFormLayout*, int);
     using QFormLayout_AddItem_Callback = void (*)(QFormLayout*, QLayoutItem*);
-    using QFormLayout_ItemAtWithIndex_Callback = QLayoutItem* (*)(const QFormLayout*, int);
+    using QFormLayout_ItemAt2_Callback = QLayoutItem* (*)(const QFormLayout*, int);
     using QFormLayout_TakeAt_Callback = QLayoutItem* (*)(QFormLayout*, int);
     using QFormLayout_SetGeometry_Callback = void (*)(QFormLayout*, QRect*);
     using QFormLayout_MinimumSize_Callback = QSize* (*)();
@@ -65,7 +65,7 @@ class VirtualQFormLayout final : public QFormLayout {
     QFormLayout_Spacing_Callback qformlayout_spacing_callback = nullptr;
     QFormLayout_SetSpacing_Callback qformlayout_setspacing_callback = nullptr;
     QFormLayout_AddItem_Callback qformlayout_additem_callback = nullptr;
-    QFormLayout_ItemAtWithIndex_Callback qformlayout_itematwithindex_callback = nullptr;
+    QFormLayout_ItemAt2_Callback qformlayout_itemat2_callback = nullptr;
     QFormLayout_TakeAt_Callback qformlayout_takeat_callback = nullptr;
     QFormLayout_SetGeometry_Callback qformlayout_setgeometry_callback = nullptr;
     QFormLayout_MinimumSize_Callback qformlayout_minimumsize_callback = nullptr;
@@ -107,7 +107,7 @@ class VirtualQFormLayout final : public QFormLayout {
     mutable bool qformlayout_spacing_isbase = false;
     mutable bool qformlayout_setspacing_isbase = false;
     mutable bool qformlayout_additem_isbase = false;
-    mutable bool qformlayout_itematwithindex_isbase = false;
+    mutable bool qformlayout_itemat2_isbase = false;
     mutable bool qformlayout_takeat_isbase = false;
     mutable bool qformlayout_setgeometry_isbase = false;
     mutable bool qformlayout_minimumsize_isbase = false;
@@ -153,7 +153,7 @@ class VirtualQFormLayout final : public QFormLayout {
         qformlayout_spacing_callback = nullptr;
         qformlayout_setspacing_callback = nullptr;
         qformlayout_additem_callback = nullptr;
-        qformlayout_itematwithindex_callback = nullptr;
+        qformlayout_itemat2_callback = nullptr;
         qformlayout_takeat_callback = nullptr;
         qformlayout_setgeometry_callback = nullptr;
         qformlayout_minimumsize_callback = nullptr;
@@ -196,7 +196,7 @@ class VirtualQFormLayout final : public QFormLayout {
     inline void setQFormLayout_Spacing_Callback(QFormLayout_Spacing_Callback cb) { qformlayout_spacing_callback = cb; }
     inline void setQFormLayout_SetSpacing_Callback(QFormLayout_SetSpacing_Callback cb) { qformlayout_setspacing_callback = cb; }
     inline void setQFormLayout_AddItem_Callback(QFormLayout_AddItem_Callback cb) { qformlayout_additem_callback = cb; }
-    inline void setQFormLayout_ItemAtWithIndex_Callback(QFormLayout_ItemAtWithIndex_Callback cb) { qformlayout_itematwithindex_callback = cb; }
+    inline void setQFormLayout_ItemAt2_Callback(QFormLayout_ItemAt2_Callback cb) { qformlayout_itemat2_callback = cb; }
     inline void setQFormLayout_TakeAt_Callback(QFormLayout_TakeAt_Callback cb) { qformlayout_takeat_callback = cb; }
     inline void setQFormLayout_SetGeometry_Callback(QFormLayout_SetGeometry_Callback cb) { qformlayout_setgeometry_callback = cb; }
     inline void setQFormLayout_MinimumSize_Callback(QFormLayout_MinimumSize_Callback cb) { qformlayout_minimumsize_callback = cb; }
@@ -238,7 +238,7 @@ class VirtualQFormLayout final : public QFormLayout {
     inline void setQFormLayout_Spacing_IsBase(bool value) const { qformlayout_spacing_isbase = value; }
     inline void setQFormLayout_SetSpacing_IsBase(bool value) const { qformlayout_setspacing_isbase = value; }
     inline void setQFormLayout_AddItem_IsBase(bool value) const { qformlayout_additem_isbase = value; }
-    inline void setQFormLayout_ItemAtWithIndex_IsBase(bool value) const { qformlayout_itematwithindex_isbase = value; }
+    inline void setQFormLayout_ItemAt2_IsBase(bool value) const { qformlayout_itemat2_isbase = value; }
     inline void setQFormLayout_TakeAt_IsBase(bool value) const { qformlayout_takeat_isbase = value; }
     inline void setQFormLayout_SetGeometry_IsBase(bool value) const { qformlayout_setgeometry_isbase = value; }
     inline void setQFormLayout_MinimumSize_IsBase(bool value) const { qformlayout_minimumsize_isbase = value; }
@@ -335,13 +335,13 @@ class VirtualQFormLayout final : public QFormLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual QLayoutItem* itemAt(int index) const override {
-        if (qformlayout_itematwithindex_isbase) {
-            qformlayout_itematwithindex_isbase = false;
+        if (qformlayout_itemat2_isbase) {
+            qformlayout_itemat2_isbase = false;
             return QFormLayout::itemAt(index);
-        } else if (qformlayout_itematwithindex_callback != nullptr) {
+        } else if (qformlayout_itemat2_callback != nullptr) {
             int cbval1 = index;
 
-            QLayoutItem* callback_ret = qformlayout_itematwithindex_callback(this, cbval1);
+            QLayoutItem* callback_ret = qformlayout_itemat2_callback(this, cbval1);
             return callback_ret;
         } else {
             return QFormLayout::itemAt(index);

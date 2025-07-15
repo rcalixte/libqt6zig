@@ -158,7 +158,7 @@ bool QThread_Wait(QThread* self) {
     return self->wait();
 }
 
-bool QThread_WaitWithTime(QThread* self, unsigned long time) {
+bool QThread_Wait2(QThread* self, unsigned long time) {
     return self->wait(static_cast<unsigned long>(time));
 }
 

@@ -752,7 +752,7 @@ void QsciLexerDiff_OnPaper(const QsciLexerDiff* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerDiff_DefaultColorWithStyle(const QsciLexerDiff* self, int style) {
+QColor* QsciLexerDiff_DefaultColor2(const QsciLexerDiff* self, int style) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
         return new QColor(vqscilexerdiff->defaultColor(static_cast<int>(style)));
@@ -762,10 +762,10 @@ QColor* QsciLexerDiff_DefaultColorWithStyle(const QsciLexerDiff* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerDiff_QBaseDefaultColorWithStyle(const QsciLexerDiff* self, int style) {
+QColor* QsciLexerDiff_QBaseDefaultColor2(const QsciLexerDiff* self, int style) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultColorWithStyle_IsBase(true);
+        vqscilexerdiff->setQsciLexerDiff_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerdiff->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerDiff*)self)->defaultColor(static_cast<int>(style)));
@@ -773,10 +773,10 @@ QColor* QsciLexerDiff_QBaseDefaultColorWithStyle(const QsciLexerDiff* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultColorWithStyle(const QsciLexerDiff* self, intptr_t slot) {
+void QsciLexerDiff_OnDefaultColor2(const QsciLexerDiff* self, intptr_t slot) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerdiff->setQsciLexerDiff_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -810,7 +810,7 @@ void QsciLexerDiff_OnDefaultEolFill(const QsciLexerDiff* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerDiff_DefaultFontWithStyle(const QsciLexerDiff* self, int style) {
+QFont* QsciLexerDiff_DefaultFont2(const QsciLexerDiff* self, int style) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
         return new QFont(vqscilexerdiff->defaultFont(static_cast<int>(style)));
@@ -820,10 +820,10 @@ QFont* QsciLexerDiff_DefaultFontWithStyle(const QsciLexerDiff* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerDiff_QBaseDefaultFontWithStyle(const QsciLexerDiff* self, int style) {
+QFont* QsciLexerDiff_QBaseDefaultFont2(const QsciLexerDiff* self, int style) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultFontWithStyle_IsBase(true);
+        vqscilexerdiff->setQsciLexerDiff_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerdiff->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerDiff*)self)->defaultFont(static_cast<int>(style)));
@@ -831,15 +831,15 @@ QFont* QsciLexerDiff_QBaseDefaultFontWithStyle(const QsciLexerDiff* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultFontWithStyle(const QsciLexerDiff* self, intptr_t slot) {
+void QsciLexerDiff_OnDefaultFont2(const QsciLexerDiff* self, intptr_t slot) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerdiff->setQsciLexerDiff_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerDiff_DefaultPaperWithStyle(const QsciLexerDiff* self, int style) {
+QColor* QsciLexerDiff_DefaultPaper2(const QsciLexerDiff* self, int style) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
         return new QColor(vqscilexerdiff->defaultPaper(static_cast<int>(style)));
@@ -849,10 +849,10 @@ QColor* QsciLexerDiff_DefaultPaperWithStyle(const QsciLexerDiff* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerDiff_QBaseDefaultPaperWithStyle(const QsciLexerDiff* self, int style) {
+QColor* QsciLexerDiff_QBaseDefaultPaper2(const QsciLexerDiff* self, int style) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerdiff->setQsciLexerDiff_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerdiff->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerDiff*)self)->defaultPaper(static_cast<int>(style)));
@@ -860,10 +860,10 @@ QColor* QsciLexerDiff_QBaseDefaultPaperWithStyle(const QsciLexerDiff* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerDiff_OnDefaultPaperWithStyle(const QsciLexerDiff* self, intptr_t slot) {
+void QsciLexerDiff_OnDefaultPaper2(const QsciLexerDiff* self, intptr_t slot) {
     auto* vqscilexerdiff = const_cast<VirtualQsciLexerDiff*>(dynamic_cast<const VirtualQsciLexerDiff*>(self));
     if (vqscilexerdiff && vqscilexerdiff->isVirtualQsciLexerDiff) {
-        vqscilexerdiff->setQsciLexerDiff_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerdiff->setQsciLexerDiff_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerDiff::QsciLexerDiff_DefaultPaper2_Callback>(slot));
     }
 }
 

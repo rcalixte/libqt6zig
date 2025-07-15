@@ -470,7 +470,7 @@ double QTextLine_CursorToX(const QTextLine* self, int* cursorPos) {
     return static_cast<double>(self->cursorToX(static_cast<int*>(cursorPos)));
 }
 
-double QTextLine_CursorToXWithCursorPos(const QTextLine* self, int cursorPos) {
+double QTextLine_CursorToX2(const QTextLine* self, int cursorPos) {
     return static_cast<double>(self->cursorToX(static_cast<int>(cursorPos)));
 }
 
@@ -540,11 +540,11 @@ libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns2(const QTextLine* self) {
     return _out;
 }
 
-double QTextLine_CursorToX2(const QTextLine* self, int* cursorPos, int edge) {
+double QTextLine_CursorToX22(const QTextLine* self, int* cursorPos, int edge) {
     return static_cast<double>(self->cursorToX(static_cast<int*>(cursorPos), static_cast<QTextLine::Edge>(edge)));
 }
 
-double QTextLine_CursorToX22(const QTextLine* self, int cursorPos, int edge) {
+double QTextLine_CursorToX23(const QTextLine* self, int cursorPos, int edge) {
     return static_cast<double>(self->cursorToX(static_cast<int>(cursorPos), static_cast<QTextLine::Edge>(edge)));
 }
 

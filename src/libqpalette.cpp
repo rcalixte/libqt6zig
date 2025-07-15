@@ -94,13 +94,13 @@ bool QPalette_IsEqual(const QPalette* self, int cr1, int cr2) {
     return self->isEqual(static_cast<QPalette::ColorGroup>(cr1), static_cast<QPalette::ColorGroup>(cr2));
 }
 
-QColor* QPalette_ColorWithCr(const QPalette* self, int cr) {
+QColor* QPalette_Color2(const QPalette* self, int cr) {
     const QColor& _ret = self->color(static_cast<QPalette::ColorRole>(cr));
     // Cast returned reference into pointer
     return const_cast<QColor*>(&_ret);
 }
 
-QBrush* QPalette_BrushWithCr(const QPalette* self, int cr) {
+QBrush* QPalette_Brush2(const QPalette* self, int cr) {
     const QBrush& _ret = self->brush(static_cast<QPalette::ColorRole>(cr));
     // Cast returned reference into pointer
     return const_cast<QBrush*>(&_ret);

@@ -230,8 +230,8 @@ pub const qmetaobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#cast)
     ///
     /// ``` self: QtC.QMetaObject, obj: QtC.QObject ```
-    pub fn CastWithObj(self: ?*anyopaque, obj: ?*anyopaque) QtC.QObject {
-        return qtc.QMetaObject_CastWithObj(@ptrCast(self), @ptrCast(obj));
+    pub fn Cast2(self: ?*anyopaque, obj: ?*anyopaque) QtC.QObject {
+        return qtc.QMetaObject_Cast2(@ptrCast(self), @ptrCast(obj));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

@@ -42,10 +42,10 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     using QsciLexerPostScript_DefaultStyle_Callback = int (*)();
     using QsciLexerPostScript_Description_Callback = libqt_string (*)(const QsciLexerPostScript*, int);
     using QsciLexerPostScript_Paper_Callback = QColor* (*)(const QsciLexerPostScript*, int);
-    using QsciLexerPostScript_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerPostScript*, int);
+    using QsciLexerPostScript_DefaultColor2_Callback = QColor* (*)(const QsciLexerPostScript*, int);
     using QsciLexerPostScript_DefaultEolFill_Callback = bool (*)(const QsciLexerPostScript*, int);
-    using QsciLexerPostScript_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerPostScript*, int);
-    using QsciLexerPostScript_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerPostScript*, int);
+    using QsciLexerPostScript_DefaultFont2_Callback = QFont* (*)(const QsciLexerPostScript*, int);
+    using QsciLexerPostScript_DefaultPaper2_Callback = QColor* (*)(const QsciLexerPostScript*, int);
     using QsciLexerPostScript_SetEditor_Callback = void (*)(QsciLexerPostScript*, QsciScintilla*);
     using QsciLexerPostScript_RefreshProperties_Callback = void (*)();
     using QsciLexerPostScript_StyleBitsNeeded_Callback = int (*)();
@@ -97,10 +97,10 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     QsciLexerPostScript_DefaultStyle_Callback qscilexerpostscript_defaultstyle_callback = nullptr;
     QsciLexerPostScript_Description_Callback qscilexerpostscript_description_callback = nullptr;
     QsciLexerPostScript_Paper_Callback qscilexerpostscript_paper_callback = nullptr;
-    QsciLexerPostScript_DefaultColorWithStyle_Callback qscilexerpostscript_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerPostScript_DefaultColor2_Callback qscilexerpostscript_defaultcolor2_callback = nullptr;
     QsciLexerPostScript_DefaultEolFill_Callback qscilexerpostscript_defaulteolfill_callback = nullptr;
-    QsciLexerPostScript_DefaultFontWithStyle_Callback qscilexerpostscript_defaultfontwithstyle_callback = nullptr;
-    QsciLexerPostScript_DefaultPaperWithStyle_Callback qscilexerpostscript_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerPostScript_DefaultFont2_Callback qscilexerpostscript_defaultfont2_callback = nullptr;
+    QsciLexerPostScript_DefaultPaper2_Callback qscilexerpostscript_defaultpaper2_callback = nullptr;
     QsciLexerPostScript_SetEditor_Callback qscilexerpostscript_seteditor_callback = nullptr;
     QsciLexerPostScript_RefreshProperties_Callback qscilexerpostscript_refreshproperties_callback = nullptr;
     QsciLexerPostScript_StyleBitsNeeded_Callback qscilexerpostscript_stylebitsneeded_callback = nullptr;
@@ -151,10 +151,10 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     mutable bool qscilexerpostscript_defaultstyle_isbase = false;
     mutable bool qscilexerpostscript_description_isbase = false;
     mutable bool qscilexerpostscript_paper_isbase = false;
-    mutable bool qscilexerpostscript_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerpostscript_defaultcolor2_isbase = false;
     mutable bool qscilexerpostscript_defaulteolfill_isbase = false;
-    mutable bool qscilexerpostscript_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerpostscript_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerpostscript_defaultfont2_isbase = false;
+    mutable bool qscilexerpostscript_defaultpaper2_isbase = false;
     mutable bool qscilexerpostscript_seteditor_isbase = false;
     mutable bool qscilexerpostscript_refreshproperties_isbase = false;
     mutable bool qscilexerpostscript_stylebitsneeded_isbase = false;
@@ -209,10 +209,10 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
         qscilexerpostscript_defaultstyle_callback = nullptr;
         qscilexerpostscript_description_callback = nullptr;
         qscilexerpostscript_paper_callback = nullptr;
-        qscilexerpostscript_defaultcolorwithstyle_callback = nullptr;
+        qscilexerpostscript_defaultcolor2_callback = nullptr;
         qscilexerpostscript_defaulteolfill_callback = nullptr;
-        qscilexerpostscript_defaultfontwithstyle_callback = nullptr;
-        qscilexerpostscript_defaultpaperwithstyle_callback = nullptr;
+        qscilexerpostscript_defaultfont2_callback = nullptr;
+        qscilexerpostscript_defaultpaper2_callback = nullptr;
         qscilexerpostscript_seteditor_callback = nullptr;
         qscilexerpostscript_refreshproperties_callback = nullptr;
         qscilexerpostscript_stylebitsneeded_callback = nullptr;
@@ -264,10 +264,10 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     inline void setQsciLexerPostScript_DefaultStyle_Callback(QsciLexerPostScript_DefaultStyle_Callback cb) { qscilexerpostscript_defaultstyle_callback = cb; }
     inline void setQsciLexerPostScript_Description_Callback(QsciLexerPostScript_Description_Callback cb) { qscilexerpostscript_description_callback = cb; }
     inline void setQsciLexerPostScript_Paper_Callback(QsciLexerPostScript_Paper_Callback cb) { qscilexerpostscript_paper_callback = cb; }
-    inline void setQsciLexerPostScript_DefaultColorWithStyle_Callback(QsciLexerPostScript_DefaultColorWithStyle_Callback cb) { qscilexerpostscript_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerPostScript_DefaultColor2_Callback(QsciLexerPostScript_DefaultColor2_Callback cb) { qscilexerpostscript_defaultcolor2_callback = cb; }
     inline void setQsciLexerPostScript_DefaultEolFill_Callback(QsciLexerPostScript_DefaultEolFill_Callback cb) { qscilexerpostscript_defaulteolfill_callback = cb; }
-    inline void setQsciLexerPostScript_DefaultFontWithStyle_Callback(QsciLexerPostScript_DefaultFontWithStyle_Callback cb) { qscilexerpostscript_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerPostScript_DefaultPaperWithStyle_Callback(QsciLexerPostScript_DefaultPaperWithStyle_Callback cb) { qscilexerpostscript_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerPostScript_DefaultFont2_Callback(QsciLexerPostScript_DefaultFont2_Callback cb) { qscilexerpostscript_defaultfont2_callback = cb; }
+    inline void setQsciLexerPostScript_DefaultPaper2_Callback(QsciLexerPostScript_DefaultPaper2_Callback cb) { qscilexerpostscript_defaultpaper2_callback = cb; }
     inline void setQsciLexerPostScript_SetEditor_Callback(QsciLexerPostScript_SetEditor_Callback cb) { qscilexerpostscript_seteditor_callback = cb; }
     inline void setQsciLexerPostScript_RefreshProperties_Callback(QsciLexerPostScript_RefreshProperties_Callback cb) { qscilexerpostscript_refreshproperties_callback = cb; }
     inline void setQsciLexerPostScript_StyleBitsNeeded_Callback(QsciLexerPostScript_StyleBitsNeeded_Callback cb) { qscilexerpostscript_stylebitsneeded_callback = cb; }
@@ -318,10 +318,10 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
     inline void setQsciLexerPostScript_DefaultStyle_IsBase(bool value) const { qscilexerpostscript_defaultstyle_isbase = value; }
     inline void setQsciLexerPostScript_Description_IsBase(bool value) const { qscilexerpostscript_description_isbase = value; }
     inline void setQsciLexerPostScript_Paper_IsBase(bool value) const { qscilexerpostscript_paper_isbase = value; }
-    inline void setQsciLexerPostScript_DefaultColorWithStyle_IsBase(bool value) const { qscilexerpostscript_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerPostScript_DefaultColor2_IsBase(bool value) const { qscilexerpostscript_defaultcolor2_isbase = value; }
     inline void setQsciLexerPostScript_DefaultEolFill_IsBase(bool value) const { qscilexerpostscript_defaulteolfill_isbase = value; }
-    inline void setQsciLexerPostScript_DefaultFontWithStyle_IsBase(bool value) const { qscilexerpostscript_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerPostScript_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerpostscript_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerPostScript_DefaultFont2_IsBase(bool value) const { qscilexerpostscript_defaultfont2_isbase = value; }
+    inline void setQsciLexerPostScript_DefaultPaper2_IsBase(bool value) const { qscilexerpostscript_defaultpaper2_isbase = value; }
     inline void setQsciLexerPostScript_SetEditor_IsBase(bool value) const { qscilexerpostscript_seteditor_isbase = value; }
     inline void setQsciLexerPostScript_RefreshProperties_IsBase(bool value) const { qscilexerpostscript_refreshproperties_isbase = value; }
     inline void setQsciLexerPostScript_StyleBitsNeeded_IsBase(bool value) const { qscilexerpostscript_stylebitsneeded_isbase = value; }
@@ -689,13 +689,13 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerpostscript_defaultcolorwithstyle_isbase) {
-            qscilexerpostscript_defaultcolorwithstyle_isbase = false;
+        if (qscilexerpostscript_defaultcolor2_isbase) {
+            qscilexerpostscript_defaultcolor2_isbase = false;
             return QsciLexerPostScript::defaultColor(style);
-        } else if (qscilexerpostscript_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerpostscript_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerpostscript_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerpostscript_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPostScript::defaultColor(style);
@@ -719,13 +719,13 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerpostscript_defaultfontwithstyle_isbase) {
-            qscilexerpostscript_defaultfontwithstyle_isbase = false;
+        if (qscilexerpostscript_defaultfont2_isbase) {
+            qscilexerpostscript_defaultfont2_isbase = false;
             return QsciLexerPostScript::defaultFont(style);
-        } else if (qscilexerpostscript_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerpostscript_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerpostscript_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerpostscript_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPostScript::defaultFont(style);
@@ -734,13 +734,13 @@ class VirtualQsciLexerPostScript final : public QsciLexerPostScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerpostscript_defaultpaperwithstyle_isbase) {
-            qscilexerpostscript_defaultpaperwithstyle_isbase = false;
+        if (qscilexerpostscript_defaultpaper2_isbase) {
+            qscilexerpostscript_defaultpaper2_isbase = false;
             return QsciLexerPostScript::defaultPaper(style);
-        } else if (qscilexerpostscript_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerpostscript_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerpostscript_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerpostscript_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPostScript::defaultPaper(style);

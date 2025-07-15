@@ -71,8 +71,8 @@ pub const qmessagelogger = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#debug)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
-    pub fn DebugWithCat(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
-        return qtc.QMessageLogger_DebugWithCat(@ptrCast(self), @ptrCast(cat));
+    pub fn Debug2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
+        return qtc.QMessageLogger_Debug2(@ptrCast(self), @ptrCast(cat));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#info)
@@ -85,8 +85,8 @@ pub const qmessagelogger = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#info)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
-    pub fn InfoWithCat(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
-        return qtc.QMessageLogger_InfoWithCat(@ptrCast(self), @ptrCast(cat));
+    pub fn Info2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
+        return qtc.QMessageLogger_Info2(@ptrCast(self), @ptrCast(cat));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
@@ -99,8 +99,8 @@ pub const qmessagelogger = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#warning)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
-    pub fn WarningWithCat(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
-        return qtc.QMessageLogger_WarningWithCat(@ptrCast(self), @ptrCast(cat));
+    pub fn Warning2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
+        return qtc.QMessageLogger_Warning2(@ptrCast(self), @ptrCast(cat));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
@@ -113,8 +113,8 @@ pub const qmessagelogger = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#critical)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
-    pub fn CriticalWithCat(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
-        return qtc.QMessageLogger_CriticalWithCat(@ptrCast(self), @ptrCast(cat));
+    pub fn Critical2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
+        return qtc.QMessageLogger_Critical2(@ptrCast(self), @ptrCast(cat));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
@@ -127,8 +127,8 @@ pub const qmessagelogger = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#fatal)
     ///
     /// ``` self: QtC.QMessageLogger, cat: QtC.QLoggingCategory ```
-    pub fn FatalWithCat(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
-        return qtc.QMessageLogger_FatalWithCat(@ptrCast(self), @ptrCast(cat));
+    pub fn Fatal2(self: ?*anyopaque, cat: ?*anyopaque) QtC.QDebug {
+        return qtc.QMessageLogger_Fatal2(@ptrCast(self), @ptrCast(cat));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagelogger.html#noDebug)

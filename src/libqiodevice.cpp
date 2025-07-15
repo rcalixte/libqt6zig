@@ -122,7 +122,7 @@ long long QIODevice_Read(QIODevice* self, char* data, long long maxlen) {
     return static_cast<long long>(self->read(data, static_cast<qint64>(maxlen)));
 }
 
-libqt_string QIODevice_ReadWithMaxlen(QIODevice* self, long long maxlen) {
+libqt_string QIODevice_Read2(QIODevice* self, long long maxlen) {
     QByteArray _qb = self->read(static_cast<qint64>(maxlen));
     libqt_string _str;
     _str.len = _qb.length();
@@ -176,11 +176,11 @@ long long QIODevice_Write(QIODevice* self, const char* data, long long lenVal) {
     return static_cast<long long>(self->write(data, static_cast<qint64>(lenVal)));
 }
 
-long long QIODevice_WriteWithData(QIODevice* self, const char* data) {
+long long QIODevice_Write2(QIODevice* self, const char* data) {
     return static_cast<long long>(self->write(data));
 }
 
-long long QIODevice_Write2(QIODevice* self, const libqt_string data) {
+long long QIODevice_Write3(QIODevice* self, const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
     return static_cast<long long>(self->write(data_QByteArray));
 }
@@ -189,7 +189,7 @@ long long QIODevice_Peek(QIODevice* self, char* data, long long maxlen) {
     return static_cast<long long>(self->peek(data, static_cast<qint64>(maxlen)));
 }
 
-libqt_string QIODevice_PeekWithMaxlen(QIODevice* self, long long maxlen) {
+libqt_string QIODevice_Peek2(QIODevice* self, long long maxlen) {
     QByteArray _qb = self->peek(static_cast<qint64>(maxlen));
     libqt_string _str;
     _str.len = _qb.length();

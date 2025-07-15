@@ -119,8 +119,8 @@ pub const qtextdocumentwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentwriter.html#write)
     ///
     /// ``` self: QtC.QTextDocumentWriter, fragment: QtC.QTextDocumentFragment ```
-    pub fn WriteWithFragment(self: ?*anyopaque, fragment: ?*anyopaque) bool {
-        return qtc.QTextDocumentWriter_WriteWithFragment(@ptrCast(self), @ptrCast(fragment));
+    pub fn Write2(self: ?*anyopaque, fragment: ?*anyopaque) bool {
+        return qtc.QTextDocumentWriter_Write2(@ptrCast(self), @ptrCast(fragment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentwriter.html#supportedDocumentFormats)

@@ -46,7 +46,7 @@ int QMetaType_Type(const char* typeName) {
     return QMetaType::type(typeName);
 }
 
-int QMetaType_TypeWithTypeName(const libqt_string typeName) {
+int QMetaType_Type2(const libqt_string typeName) {
     QByteArray typeName_QByteArray(typeName.data, typeName.len);
     return QMetaType::type(typeName_QByteArray);
 }
@@ -127,15 +127,15 @@ void* QMetaType_Create2(const QMetaType* self) {
     return self->create();
 }
 
-void QMetaType_DestroyWithData(const QMetaType* self, void* data) {
+void QMetaType_Destroy2(const QMetaType* self, void* data) {
     self->destroy(data);
 }
 
-void* QMetaType_ConstructWithWhere(const QMetaType* self, void* where) {
+void* QMetaType_Construct2(const QMetaType* self, void* where) {
     return self->construct(where);
 }
 
-void QMetaType_DestructWithData(const QMetaType* self, void* data) {
+void QMetaType_Destruct2(const QMetaType* self, void* data) {
     self->destruct(data);
 }
 
@@ -211,7 +211,7 @@ bool QMetaType_DebugStream2(QDebug* dbg, const void* rhs, int typeId) {
     return QMetaType::debugStream(*dbg, rhs, static_cast<int>(typeId));
 }
 
-bool QMetaType_HasRegisteredDebugStreamOperatorWithTypeId(int typeId) {
+bool QMetaType_HasRegisteredDebugStreamOperator2(int typeId) {
     return QMetaType::hasRegisteredDebugStreamOperator(static_cast<int>(typeId));
 }
 
@@ -275,7 +275,7 @@ void* QMetaType_Create1(const QMetaType* self, const void* copyVal) {
     return self->create(copyVal);
 }
 
-void* QMetaType_Construct2(const QMetaType* self, void* where, const void* copyVal) {
+void* QMetaType_Construct22(const QMetaType* self, void* where, const void* copyVal) {
     return self->construct(where, copyVal);
 }
 

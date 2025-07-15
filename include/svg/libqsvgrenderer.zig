@@ -164,8 +164,8 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setViewBox)
     ///
     /// ``` self: QtC.QSvgRenderer, viewbox: QtC.QRectF ```
-    pub fn SetViewBoxWithViewbox(self: ?*anyopaque, viewbox: ?*anyopaque) void {
-        qtc.QSvgRenderer_SetViewBoxWithViewbox(@ptrCast(self), @ptrCast(viewbox));
+    pub fn SetViewBox2(self: ?*anyopaque, viewbox: ?*anyopaque) void {
+        qtc.QSvgRenderer_SetViewBox2(@ptrCast(self), @ptrCast(viewbox));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#aspectRatioMode)
@@ -306,19 +306,19 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#load)
     ///
     /// ``` self: QtC.QSvgRenderer, contents: []u8 ```
-    pub fn LoadWithContents(self: ?*anyopaque, contents: []u8) bool {
+    pub fn Load2(self: ?*anyopaque, contents: []u8) bool {
         const contents_str = qtc.struct_libqt_string{
             .len = contents.len,
             .data = contents.ptr,
         };
-        return qtc.QSvgRenderer_LoadWithContents(@ptrCast(self), contents_str);
+        return qtc.QSvgRenderer_Load2(@ptrCast(self), contents_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#load)
     ///
     /// ``` self: QtC.QSvgRenderer, contents: QtC.QXmlStreamReader ```
-    pub fn Load2(self: ?*anyopaque, contents: ?*anyopaque) bool {
-        return qtc.QSvgRenderer_Load2(@ptrCast(self), @ptrCast(contents));
+    pub fn Load3(self: ?*anyopaque, contents: ?*anyopaque) bool {
+        return qtc.QSvgRenderer_Load3(@ptrCast(self), @ptrCast(contents));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#render)
@@ -509,8 +509,8 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSvgRenderer, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -588,8 +588,8 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -732,8 +732,8 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSvgRenderer, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

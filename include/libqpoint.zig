@@ -125,15 +125,15 @@ pub const qpoint = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator*=)
     ///
     /// ``` self: QtC.QPoint, factor: f64 ```
-    pub fn OperatorMultiplyAssignWithFactor(self: ?*anyopaque, factor: f64) QtC.QPoint {
-        return qtc.QPoint_OperatorMultiplyAssignWithFactor(@ptrCast(self), @floatCast(factor));
+    pub fn OperatorMultiplyAssign2(self: ?*anyopaque, factor: f64) QtC.QPoint {
+        return qtc.QPoint_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(factor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator*=)
     ///
     /// ``` self: QtC.QPoint, factor: i32 ```
-    pub fn OperatorMultiplyAssign2(self: ?*anyopaque, factor: i32) QtC.QPoint {
-        return qtc.QPoint_OperatorMultiplyAssign2(@ptrCast(self), @intCast(factor));
+    pub fn OperatorMultiplyAssign3(self: ?*anyopaque, factor: i32) QtC.QPoint {
+        return qtc.QPoint_OperatorMultiplyAssign3(@ptrCast(self), @intCast(factor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator/=)

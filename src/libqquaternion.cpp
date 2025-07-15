@@ -148,7 +148,7 @@ QQuaternion* QQuaternion_OperatorMultiplyAssign(QQuaternion* self, float factor)
     return &_ret;
 }
 
-QQuaternion* QQuaternion_OperatorMultiplyAssignWithQuaternion(QQuaternion* self, const QQuaternion* quaternion) {
+QQuaternion* QQuaternion_OperatorMultiplyAssign2(QQuaternion* self, const QQuaternion* quaternion) {
     QQuaternion& _ret = self->operator*=(*quaternion);
     // Cast returned reference into pointer
     return &_ret;

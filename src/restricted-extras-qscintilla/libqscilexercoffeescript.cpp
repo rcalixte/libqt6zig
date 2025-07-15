@@ -804,7 +804,7 @@ void QsciLexerCoffeeScript_OnPaper(const QsciLexerCoffeeScript* self, intptr_t s
 }
 
 // Derived class handler implementation
-QColor* QsciLexerCoffeeScript_DefaultColorWithStyle(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_DefaultColor2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         return new QColor(vqscilexercoffeescript->defaultColor(static_cast<int>(style)));
@@ -814,10 +814,10 @@ QColor* QsciLexerCoffeeScript_DefaultColorWithStyle(const QsciLexerCoffeeScript*
 }
 
 // Base class handler implementation
-QColor* QsciLexerCoffeeScript_QBaseDefaultColorWithStyle(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_QBaseDefaultColor2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
-        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultColorWithStyle_IsBase(true);
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultColor2_IsBase(true);
         return new QColor(vqscilexercoffeescript->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerCoffeeScript*)self)->defaultColor(static_cast<int>(style)));
@@ -825,10 +825,10 @@ QColor* QsciLexerCoffeeScript_QBaseDefaultColorWithStyle(const QsciLexerCoffeeSc
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerCoffeeScript_OnDefaultColorWithStyle(const QsciLexerCoffeeScript* self, intptr_t slot) {
+void QsciLexerCoffeeScript_OnDefaultColor2(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
-        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultColorWithStyle_Callback>(slot));
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -862,7 +862,7 @@ void QsciLexerCoffeeScript_OnDefaultEolFill(const QsciLexerCoffeeScript* self, i
 }
 
 // Derived class handler implementation
-QFont* QsciLexerCoffeeScript_DefaultFontWithStyle(const QsciLexerCoffeeScript* self, int style) {
+QFont* QsciLexerCoffeeScript_DefaultFont2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         return new QFont(vqscilexercoffeescript->defaultFont(static_cast<int>(style)));
@@ -872,10 +872,10 @@ QFont* QsciLexerCoffeeScript_DefaultFontWithStyle(const QsciLexerCoffeeScript* s
 }
 
 // Base class handler implementation
-QFont* QsciLexerCoffeeScript_QBaseDefaultFontWithStyle(const QsciLexerCoffeeScript* self, int style) {
+QFont* QsciLexerCoffeeScript_QBaseDefaultFont2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
-        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultFontWithStyle_IsBase(true);
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultFont2_IsBase(true);
         return new QFont(vqscilexercoffeescript->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerCoffeeScript*)self)->defaultFont(static_cast<int>(style)));
@@ -883,15 +883,15 @@ QFont* QsciLexerCoffeeScript_QBaseDefaultFontWithStyle(const QsciLexerCoffeeScri
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerCoffeeScript_OnDefaultFontWithStyle(const QsciLexerCoffeeScript* self, intptr_t slot) {
+void QsciLexerCoffeeScript_OnDefaultFont2(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
-        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultFontWithStyle_Callback>(slot));
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerCoffeeScript_DefaultPaperWithStyle(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_DefaultPaper2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
         return new QColor(vqscilexercoffeescript->defaultPaper(static_cast<int>(style)));
@@ -901,10 +901,10 @@ QColor* QsciLexerCoffeeScript_DefaultPaperWithStyle(const QsciLexerCoffeeScript*
 }
 
 // Base class handler implementation
-QColor* QsciLexerCoffeeScript_QBaseDefaultPaperWithStyle(const QsciLexerCoffeeScript* self, int style) {
+QColor* QsciLexerCoffeeScript_QBaseDefaultPaper2(const QsciLexerCoffeeScript* self, int style) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
-        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultPaperWithStyle_IsBase(true);
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexercoffeescript->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerCoffeeScript*)self)->defaultPaper(static_cast<int>(style)));
@@ -912,10 +912,10 @@ QColor* QsciLexerCoffeeScript_QBaseDefaultPaperWithStyle(const QsciLexerCoffeeSc
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerCoffeeScript_OnDefaultPaperWithStyle(const QsciLexerCoffeeScript* self, intptr_t slot) {
+void QsciLexerCoffeeScript_OnDefaultPaper2(const QsciLexerCoffeeScript* self, intptr_t slot) {
     auto* vqscilexercoffeescript = const_cast<VirtualQsciLexerCoffeeScript*>(dynamic_cast<const VirtualQsciLexerCoffeeScript*>(self));
     if (vqscilexercoffeescript && vqscilexercoffeescript->isVirtualQsciLexerCoffeeScript) {
-        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexercoffeescript->setQsciLexerCoffeeScript_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerCoffeeScript::QsciLexerCoffeeScript_DefaultPaper2_Callback>(slot));
     }
 }
 

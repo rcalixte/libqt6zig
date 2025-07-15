@@ -83,22 +83,22 @@ pub const qicon = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ``` self: QtC.QIcon, extent: i32 ```
-    pub fn PixmapWithExtent(self: ?*anyopaque, extent: i32) QtC.QPixmap {
-        return qtc.QIcon_PixmapWithExtent(@ptrCast(self), @intCast(extent));
+    pub fn Pixmap3(self: ?*anyopaque, extent: i32) QtC.QPixmap {
+        return qtc.QIcon_Pixmap3(@ptrCast(self), @intCast(extent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ``` self: QtC.QIcon, size: QtC.QSize, devicePixelRatio: f64 ```
-    pub fn Pixmap3(self: ?*anyopaque, size: ?*anyopaque, devicePixelRatio: f64) QtC.QPixmap {
-        return qtc.QIcon_Pixmap3(@ptrCast(self), @ptrCast(size), @floatCast(devicePixelRatio));
+    pub fn Pixmap4(self: ?*anyopaque, size: ?*anyopaque, devicePixelRatio: f64) QtC.QPixmap {
+        return qtc.QIcon_Pixmap4(@ptrCast(self), @ptrCast(size), @floatCast(devicePixelRatio));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#pixmap)
     ///
     /// ``` self: QtC.QIcon, window: QtC.QWindow, size: QtC.QSize ```
-    pub fn Pixmap4(self: ?*anyopaque, window: ?*anyopaque, size: ?*anyopaque) QtC.QPixmap {
-        return qtc.QIcon_Pixmap4(@ptrCast(self), @ptrCast(window), @ptrCast(size));
+    pub fn Pixmap5(self: ?*anyopaque, window: ?*anyopaque, size: ?*anyopaque) QtC.QPixmap {
+        return qtc.QIcon_Pixmap5(@ptrCast(self), @ptrCast(window), @ptrCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#actualSize)
@@ -248,22 +248,22 @@ pub const qicon = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#fromTheme)
     ///
     /// ``` icon: qicon_enums.ThemeIcon ```
-    pub fn FromThemeWithIcon(icon: i64) QtC.QIcon {
-        return qtc.QIcon_FromThemeWithIcon(@intCast(icon));
+    pub fn FromTheme3(icon: i64) QtC.QIcon {
+        return qtc.QIcon_FromTheme3(@intCast(icon));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#fromTheme)
     ///
     /// ``` icon: qicon_enums.ThemeIcon, fallback: QtC.QIcon ```
-    pub fn FromTheme3(icon: i64, fallback: ?*anyopaque) QtC.QIcon {
-        return qtc.QIcon_FromTheme3(@intCast(icon), @ptrCast(fallback));
+    pub fn FromTheme4(icon: i64, fallback: ?*anyopaque) QtC.QIcon {
+        return qtc.QIcon_FromTheme4(@intCast(icon), @ptrCast(fallback));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#hasThemeIcon)
     ///
     /// ``` icon: qicon_enums.ThemeIcon ```
-    pub fn HasThemeIconWithIcon(icon: i64) bool {
-        return qtc.QIcon_HasThemeIconWithIcon(@intCast(icon));
+    pub fn HasThemeIcon2(icon: i64) bool {
+        return qtc.QIcon_HasThemeIcon2(@intCast(icon));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#themeSearchPaths)

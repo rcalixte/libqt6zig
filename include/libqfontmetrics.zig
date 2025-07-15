@@ -170,8 +170,8 @@ pub const qfontmetrics = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#horizontalAdvance)
     ///
     /// ``` self: QtC.QFontMetrics, param1: QtC.QChar ```
-    pub fn HorizontalAdvanceWithQChar(self: ?*anyopaque, param1: QtC.QChar) i32 {
-        return qtc.QFontMetrics_HorizontalAdvanceWithQChar(@ptrCast(self), @ptrCast(param1));
+    pub fn HorizontalAdvance3(self: ?*anyopaque, param1: QtC.QChar) i32 {
+        return qtc.QFontMetrics_HorizontalAdvance3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -184,45 +184,45 @@ pub const qfontmetrics = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8 ```
-    pub fn BoundingRectWithText(self: ?*anyopaque, text: []const u8) QtC.QRect {
+    pub fn BoundingRect2(self: ?*anyopaque, text: []const u8) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRectWithText(@ptrCast(self), text_str);
+        return qtc.QFontMetrics_BoundingRect2(@ptrCast(self), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8, textOption: QtC.QTextOption ```
-    pub fn BoundingRect2(self: ?*anyopaque, text: []const u8, textOption: ?*anyopaque) QtC.QRect {
+    pub fn BoundingRect3(self: ?*anyopaque, text: []const u8, textOption: ?*anyopaque) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect2(@ptrCast(self), text_str, @ptrCast(textOption));
+        return qtc.QFontMetrics_BoundingRect3(@ptrCast(self), text_str, @ptrCast(textOption));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetrics, r: QtC.QRect, flags: i32, text: []const u8 ```
-    pub fn BoundingRect3(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) QtC.QRect {
+    pub fn BoundingRect4(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect3(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str);
+        return qtc.QFontMetrics_BoundingRect4(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8 ```
-    pub fn BoundingRect4(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QtC.QRect {
+    pub fn BoundingRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect4(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str);
+        return qtc.QFontMetrics_BoundingRect5(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#size)
@@ -347,12 +347,12 @@ pub const qfontmetrics = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetrics, r: QtC.QRect, flags: i32, text: []const u8, tabstops: i32, tabarray: ?*i32 ```
-    pub fn BoundingRect5(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, tabstops: i32, tabarray: ?*anyopaque) QtC.QRect {
+    pub fn BoundingRect52(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, tabstops: i32, tabarray: ?*anyopaque) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect5(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @intCast(tabstops), @intCast(tabarray));
+        return qtc.QFontMetrics_BoundingRect52(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @intCast(tabstops), @intCast(tabarray));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -464,8 +464,8 @@ pub const qfontmetricsf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator=)
     ///
     /// ``` self: QtC.QFontMetricsF, param1: QtC.QFontMetrics ```
-    pub fn OperatorAssignWithQFontMetrics(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QFontMetricsF_OperatorAssignWithQFontMetrics(@ptrCast(self), @ptrCast(param1));
+    pub fn OperatorAssign2(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QFontMetricsF_OperatorAssign2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#swap)
@@ -594,19 +594,19 @@ pub const qfontmetricsf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#horizontalAdvance)
     ///
     /// ``` self: QtC.QFontMetricsF, param1: QtC.QChar ```
-    pub fn HorizontalAdvanceWithQChar(self: ?*anyopaque, param1: QtC.QChar) f64 {
-        return qtc.QFontMetricsF_HorizontalAdvanceWithQChar(@ptrCast(self), @ptrCast(param1));
+    pub fn HorizontalAdvance2(self: ?*anyopaque, param1: QtC.QChar) f64 {
+        return qtc.QFontMetricsF_HorizontalAdvance2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#horizontalAdvance)
     ///
     /// ``` self: QtC.QFontMetricsF, stringVal: []const u8, textOption: QtC.QTextOption ```
-    pub fn HorizontalAdvance2(self: ?*anyopaque, stringVal: []const u8, textOption: ?*anyopaque) f64 {
+    pub fn HorizontalAdvance3(self: ?*anyopaque, stringVal: []const u8, textOption: ?*anyopaque) f64 {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_HorizontalAdvance2(@ptrCast(self), stringVal_str, @ptrCast(textOption));
+        return qtc.QFontMetricsF_HorizontalAdvance3(@ptrCast(self), stringVal_str, @ptrCast(textOption));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
@@ -634,19 +634,19 @@ pub const qfontmetricsf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetricsF, param1: QtC.QChar ```
-    pub fn BoundingRectWithQChar(self: ?*anyopaque, param1: QtC.QChar) QtC.QRectF {
-        return qtc.QFontMetricsF_BoundingRectWithQChar(@ptrCast(self), @ptrCast(param1));
+    pub fn BoundingRect3(self: ?*anyopaque, param1: QtC.QChar) QtC.QRectF {
+        return qtc.QFontMetricsF_BoundingRect3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetricsF, r: QtC.QRectF, flags: i32, stringVal: []const u8 ```
-    pub fn BoundingRect3(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8) QtC.QRectF {
+    pub fn BoundingRect4(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8) QtC.QRectF {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_BoundingRect3(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str);
+        return qtc.QFontMetricsF_BoundingRect4(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
@@ -760,12 +760,12 @@ pub const qfontmetricsf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
     /// ``` self: QtC.QFontMetricsF, r: QtC.QRectF, flags: i32, stringVal: []const u8, tabstops: i32 ```
-    pub fn BoundingRect4(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8, tabstops: i32) QtC.QRectF {
+    pub fn BoundingRect42(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8, tabstops: i32) QtC.QRectF {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_BoundingRect4(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str, @intCast(tabstops));
+        return qtc.QFontMetricsF_BoundingRect42(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str, @intCast(tabstops));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)

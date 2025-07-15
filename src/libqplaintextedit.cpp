@@ -269,7 +269,7 @@ bool QPlainTextEdit_Find(QPlainTextEdit* self, const libqt_string exp) {
     return self->find(exp_QString);
 }
 
-bool QPlainTextEdit_FindWithExp(QPlainTextEdit* self, const QRegularExpression* exp) {
+bool QPlainTextEdit_Find2(QPlainTextEdit* self, const QRegularExpression* exp) {
     return self->find(*exp);
 }
 
@@ -293,7 +293,7 @@ QMenu* QPlainTextEdit_CreateStandardContextMenu(QPlainTextEdit* self) {
     return self->createStandardContextMenu();
 }
 
-QMenu* QPlainTextEdit_CreateStandardContextMenuWithPosition(QPlainTextEdit* self, const QPoint* position) {
+QMenu* QPlainTextEdit_CreateStandardContextMenu2(QPlainTextEdit* self, const QPoint* position) {
     return self->createStandardContextMenu(*position);
 }
 
@@ -580,12 +580,12 @@ libqt_string QPlainTextEdit_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-bool QPlainTextEdit_Find2(QPlainTextEdit* self, const libqt_string exp, int options) {
+bool QPlainTextEdit_Find22(QPlainTextEdit* self, const libqt_string exp, int options) {
     QString exp_QString = QString::fromUtf8(exp.data, exp.len);
     return self->find(exp_QString, static_cast<QTextDocument::FindFlags>(options));
 }
 
-bool QPlainTextEdit_Find22(QPlainTextEdit* self, const QRegularExpression* exp, int options) {
+bool QPlainTextEdit_Find23(QPlainTextEdit* self, const QRegularExpression* exp, int options) {
     return self->find(*exp, static_cast<QTextDocument::FindFlags>(options));
 }
 

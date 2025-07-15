@@ -38,10 +38,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     using QsciLexerMatlab_DefaultStyle_Callback = int (*)();
     using QsciLexerMatlab_Description_Callback = libqt_string (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_Paper_Callback = QColor* (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_DefaultColor2_Callback = QColor* (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_DefaultEolFill_Callback = bool (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerMatlab*, int);
-    using QsciLexerMatlab_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_DefaultFont2_Callback = QFont* (*)(const QsciLexerMatlab*, int);
+    using QsciLexerMatlab_DefaultPaper2_Callback = QColor* (*)(const QsciLexerMatlab*, int);
     using QsciLexerMatlab_SetEditor_Callback = void (*)(QsciLexerMatlab*, QsciScintilla*);
     using QsciLexerMatlab_RefreshProperties_Callback = void (*)();
     using QsciLexerMatlab_StyleBitsNeeded_Callback = int (*)();
@@ -89,10 +89,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     QsciLexerMatlab_DefaultStyle_Callback qscilexermatlab_defaultstyle_callback = nullptr;
     QsciLexerMatlab_Description_Callback qscilexermatlab_description_callback = nullptr;
     QsciLexerMatlab_Paper_Callback qscilexermatlab_paper_callback = nullptr;
-    QsciLexerMatlab_DefaultColorWithStyle_Callback qscilexermatlab_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerMatlab_DefaultColor2_Callback qscilexermatlab_defaultcolor2_callback = nullptr;
     QsciLexerMatlab_DefaultEolFill_Callback qscilexermatlab_defaulteolfill_callback = nullptr;
-    QsciLexerMatlab_DefaultFontWithStyle_Callback qscilexermatlab_defaultfontwithstyle_callback = nullptr;
-    QsciLexerMatlab_DefaultPaperWithStyle_Callback qscilexermatlab_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerMatlab_DefaultFont2_Callback qscilexermatlab_defaultfont2_callback = nullptr;
+    QsciLexerMatlab_DefaultPaper2_Callback qscilexermatlab_defaultpaper2_callback = nullptr;
     QsciLexerMatlab_SetEditor_Callback qscilexermatlab_seteditor_callback = nullptr;
     QsciLexerMatlab_RefreshProperties_Callback qscilexermatlab_refreshproperties_callback = nullptr;
     QsciLexerMatlab_StyleBitsNeeded_Callback qscilexermatlab_stylebitsneeded_callback = nullptr;
@@ -139,10 +139,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     mutable bool qscilexermatlab_defaultstyle_isbase = false;
     mutable bool qscilexermatlab_description_isbase = false;
     mutable bool qscilexermatlab_paper_isbase = false;
-    mutable bool qscilexermatlab_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexermatlab_defaultcolor2_isbase = false;
     mutable bool qscilexermatlab_defaulteolfill_isbase = false;
-    mutable bool qscilexermatlab_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexermatlab_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexermatlab_defaultfont2_isbase = false;
+    mutable bool qscilexermatlab_defaultpaper2_isbase = false;
     mutable bool qscilexermatlab_seteditor_isbase = false;
     mutable bool qscilexermatlab_refreshproperties_isbase = false;
     mutable bool qscilexermatlab_stylebitsneeded_isbase = false;
@@ -193,10 +193,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
         qscilexermatlab_defaultstyle_callback = nullptr;
         qscilexermatlab_description_callback = nullptr;
         qscilexermatlab_paper_callback = nullptr;
-        qscilexermatlab_defaultcolorwithstyle_callback = nullptr;
+        qscilexermatlab_defaultcolor2_callback = nullptr;
         qscilexermatlab_defaulteolfill_callback = nullptr;
-        qscilexermatlab_defaultfontwithstyle_callback = nullptr;
-        qscilexermatlab_defaultpaperwithstyle_callback = nullptr;
+        qscilexermatlab_defaultfont2_callback = nullptr;
+        qscilexermatlab_defaultpaper2_callback = nullptr;
         qscilexermatlab_seteditor_callback = nullptr;
         qscilexermatlab_refreshproperties_callback = nullptr;
         qscilexermatlab_stylebitsneeded_callback = nullptr;
@@ -244,10 +244,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     inline void setQsciLexerMatlab_DefaultStyle_Callback(QsciLexerMatlab_DefaultStyle_Callback cb) { qscilexermatlab_defaultstyle_callback = cb; }
     inline void setQsciLexerMatlab_Description_Callback(QsciLexerMatlab_Description_Callback cb) { qscilexermatlab_description_callback = cb; }
     inline void setQsciLexerMatlab_Paper_Callback(QsciLexerMatlab_Paper_Callback cb) { qscilexermatlab_paper_callback = cb; }
-    inline void setQsciLexerMatlab_DefaultColorWithStyle_Callback(QsciLexerMatlab_DefaultColorWithStyle_Callback cb) { qscilexermatlab_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultColor2_Callback(QsciLexerMatlab_DefaultColor2_Callback cb) { qscilexermatlab_defaultcolor2_callback = cb; }
     inline void setQsciLexerMatlab_DefaultEolFill_Callback(QsciLexerMatlab_DefaultEolFill_Callback cb) { qscilexermatlab_defaulteolfill_callback = cb; }
-    inline void setQsciLexerMatlab_DefaultFontWithStyle_Callback(QsciLexerMatlab_DefaultFontWithStyle_Callback cb) { qscilexermatlab_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerMatlab_DefaultPaperWithStyle_Callback(QsciLexerMatlab_DefaultPaperWithStyle_Callback cb) { qscilexermatlab_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultFont2_Callback(QsciLexerMatlab_DefaultFont2_Callback cb) { qscilexermatlab_defaultfont2_callback = cb; }
+    inline void setQsciLexerMatlab_DefaultPaper2_Callback(QsciLexerMatlab_DefaultPaper2_Callback cb) { qscilexermatlab_defaultpaper2_callback = cb; }
     inline void setQsciLexerMatlab_SetEditor_Callback(QsciLexerMatlab_SetEditor_Callback cb) { qscilexermatlab_seteditor_callback = cb; }
     inline void setQsciLexerMatlab_RefreshProperties_Callback(QsciLexerMatlab_RefreshProperties_Callback cb) { qscilexermatlab_refreshproperties_callback = cb; }
     inline void setQsciLexerMatlab_StyleBitsNeeded_Callback(QsciLexerMatlab_StyleBitsNeeded_Callback cb) { qscilexermatlab_stylebitsneeded_callback = cb; }
@@ -294,10 +294,10 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
     inline void setQsciLexerMatlab_DefaultStyle_IsBase(bool value) const { qscilexermatlab_defaultstyle_isbase = value; }
     inline void setQsciLexerMatlab_Description_IsBase(bool value) const { qscilexermatlab_description_isbase = value; }
     inline void setQsciLexerMatlab_Paper_IsBase(bool value) const { qscilexermatlab_paper_isbase = value; }
-    inline void setQsciLexerMatlab_DefaultColorWithStyle_IsBase(bool value) const { qscilexermatlab_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultColor2_IsBase(bool value) const { qscilexermatlab_defaultcolor2_isbase = value; }
     inline void setQsciLexerMatlab_DefaultEolFill_IsBase(bool value) const { qscilexermatlab_defaulteolfill_isbase = value; }
-    inline void setQsciLexerMatlab_DefaultFontWithStyle_IsBase(bool value) const { qscilexermatlab_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerMatlab_DefaultPaperWithStyle_IsBase(bool value) const { qscilexermatlab_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultFont2_IsBase(bool value) const { qscilexermatlab_defaultfont2_isbase = value; }
+    inline void setQsciLexerMatlab_DefaultPaper2_IsBase(bool value) const { qscilexermatlab_defaultpaper2_isbase = value; }
     inline void setQsciLexerMatlab_SetEditor_IsBase(bool value) const { qscilexermatlab_seteditor_isbase = value; }
     inline void setQsciLexerMatlab_RefreshProperties_IsBase(bool value) const { qscilexermatlab_refreshproperties_isbase = value; }
     inline void setQsciLexerMatlab_StyleBitsNeeded_IsBase(bool value) const { qscilexermatlab_stylebitsneeded_isbase = value; }
@@ -609,13 +609,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexermatlab_defaultcolorwithstyle_isbase) {
-            qscilexermatlab_defaultcolorwithstyle_isbase = false;
+        if (qscilexermatlab_defaultcolor2_isbase) {
+            qscilexermatlab_defaultcolor2_isbase = false;
             return QsciLexerMatlab::defaultColor(style);
-        } else if (qscilexermatlab_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexermatlab_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermatlab_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexermatlab_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerMatlab::defaultColor(style);
@@ -639,13 +639,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexermatlab_defaultfontwithstyle_isbase) {
-            qscilexermatlab_defaultfontwithstyle_isbase = false;
+        if (qscilexermatlab_defaultfont2_isbase) {
+            qscilexermatlab_defaultfont2_isbase = false;
             return QsciLexerMatlab::defaultFont(style);
-        } else if (qscilexermatlab_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexermatlab_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexermatlab_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexermatlab_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerMatlab::defaultFont(style);
@@ -654,13 +654,13 @@ class VirtualQsciLexerMatlab final : public QsciLexerMatlab {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexermatlab_defaultpaperwithstyle_isbase) {
-            qscilexermatlab_defaultpaperwithstyle_isbase = false;
+        if (qscilexermatlab_defaultpaper2_isbase) {
+            qscilexermatlab_defaultpaper2_isbase = false;
             return QsciLexerMatlab::defaultPaper(style);
-        } else if (qscilexermatlab_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexermatlab_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexermatlab_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexermatlab_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerMatlab::defaultPaper(style);

@@ -88,7 +88,7 @@ int QHeaderView_SectionSizeHint(const QHeaderView* self, int logicalIndex);
 int QHeaderView_VisualIndexAt(const QHeaderView* self, int position);
 int QHeaderView_LogicalIndexAt(const QHeaderView* self, int position);
 int QHeaderView_LogicalIndexAt2(const QHeaderView* self, int x, int y);
-int QHeaderView_LogicalIndexAtWithPos(const QHeaderView* self, const QPoint* pos);
+int QHeaderView_LogicalIndexAt3(const QHeaderView* self, const QPoint* pos);
 int QHeaderView_SectionSize(const QHeaderView* self, int logicalIndex);
 int QHeaderView_SectionPosition(const QHeaderView* self, int logicalIndex);
 int QHeaderView_SectionViewportPosition(const QHeaderView* self, int logicalIndex);

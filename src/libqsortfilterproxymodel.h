@@ -80,7 +80,7 @@ void QSortFilterProxyModel_SetRecursiveFilteringEnabled(QSortFilterProxyModel* s
 bool QSortFilterProxyModel_AutoAcceptChildRows(const QSortFilterProxyModel* self);
 void QSortFilterProxyModel_SetAutoAcceptChildRows(QSortFilterProxyModel* self, bool accept);
 void QSortFilterProxyModel_SetFilterRegularExpression(QSortFilterProxyModel* self, const libqt_string pattern);
-void QSortFilterProxyModel_SetFilterRegularExpressionWithRegularExpression(QSortFilterProxyModel* self, const QRegularExpression* regularExpression);
+void QSortFilterProxyModel_SetFilterRegularExpression2(QSortFilterProxyModel* self, const QRegularExpression* regularExpression);
 void QSortFilterProxyModel_SetFilterWildcard(QSortFilterProxyModel* self, const libqt_string pattern);
 void QSortFilterProxyModel_SetFilterFixedString(QSortFilterProxyModel* self, const libqt_string pattern);
 void QSortFilterProxyModel_Invalidate(QSortFilterProxyModel* self);

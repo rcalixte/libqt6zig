@@ -104,7 +104,7 @@ unsigned char* QVideoFrame_Bits(QVideoFrame* self, int plane) {
     return static_cast<unsigned char*>(self->bits(static_cast<int>(plane)));
 }
 
-const unsigned char* QVideoFrame_BitsWithPlane(const QVideoFrame* self, int plane) {
+const unsigned char* QVideoFrame_Bits2(const QVideoFrame* self, int plane) {
     return static_cast<const unsigned char*>(self->bits(static_cast<int>(plane)));
 }
 

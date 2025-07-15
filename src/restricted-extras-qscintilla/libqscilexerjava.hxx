@@ -43,10 +43,10 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     using QsciLexerJava_DefaultStyle_Callback = int (*)();
     using QsciLexerJava_Description_Callback = libqt_string (*)(const QsciLexerJava*, int);
     using QsciLexerJava_Paper_Callback = QColor* (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_DefaultColor2_Callback = QColor* (*)(const QsciLexerJava*, int);
     using QsciLexerJava_DefaultEolFill_Callback = bool (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerJava*, int);
-    using QsciLexerJava_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_DefaultFont2_Callback = QFont* (*)(const QsciLexerJava*, int);
+    using QsciLexerJava_DefaultPaper2_Callback = QColor* (*)(const QsciLexerJava*, int);
     using QsciLexerJava_SetEditor_Callback = void (*)(QsciLexerJava*, QsciScintilla*);
     using QsciLexerJava_RefreshProperties_Callback = void (*)();
     using QsciLexerJava_StyleBitsNeeded_Callback = int (*)();
@@ -99,10 +99,10 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     QsciLexerJava_DefaultStyle_Callback qscilexerjava_defaultstyle_callback = nullptr;
     QsciLexerJava_Description_Callback qscilexerjava_description_callback = nullptr;
     QsciLexerJava_Paper_Callback qscilexerjava_paper_callback = nullptr;
-    QsciLexerJava_DefaultColorWithStyle_Callback qscilexerjava_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerJava_DefaultColor2_Callback qscilexerjava_defaultcolor2_callback = nullptr;
     QsciLexerJava_DefaultEolFill_Callback qscilexerjava_defaulteolfill_callback = nullptr;
-    QsciLexerJava_DefaultFontWithStyle_Callback qscilexerjava_defaultfontwithstyle_callback = nullptr;
-    QsciLexerJava_DefaultPaperWithStyle_Callback qscilexerjava_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerJava_DefaultFont2_Callback qscilexerjava_defaultfont2_callback = nullptr;
+    QsciLexerJava_DefaultPaper2_Callback qscilexerjava_defaultpaper2_callback = nullptr;
     QsciLexerJava_SetEditor_Callback qscilexerjava_seteditor_callback = nullptr;
     QsciLexerJava_RefreshProperties_Callback qscilexerjava_refreshproperties_callback = nullptr;
     QsciLexerJava_StyleBitsNeeded_Callback qscilexerjava_stylebitsneeded_callback = nullptr;
@@ -154,10 +154,10 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     mutable bool qscilexerjava_defaultstyle_isbase = false;
     mutable bool qscilexerjava_description_isbase = false;
     mutable bool qscilexerjava_paper_isbase = false;
-    mutable bool qscilexerjava_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerjava_defaultcolor2_isbase = false;
     mutable bool qscilexerjava_defaulteolfill_isbase = false;
-    mutable bool qscilexerjava_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerjava_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerjava_defaultfont2_isbase = false;
+    mutable bool qscilexerjava_defaultpaper2_isbase = false;
     mutable bool qscilexerjava_seteditor_isbase = false;
     mutable bool qscilexerjava_refreshproperties_isbase = false;
     mutable bool qscilexerjava_stylebitsneeded_isbase = false;
@@ -213,10 +213,10 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
         qscilexerjava_defaultstyle_callback = nullptr;
         qscilexerjava_description_callback = nullptr;
         qscilexerjava_paper_callback = nullptr;
-        qscilexerjava_defaultcolorwithstyle_callback = nullptr;
+        qscilexerjava_defaultcolor2_callback = nullptr;
         qscilexerjava_defaulteolfill_callback = nullptr;
-        qscilexerjava_defaultfontwithstyle_callback = nullptr;
-        qscilexerjava_defaultpaperwithstyle_callback = nullptr;
+        qscilexerjava_defaultfont2_callback = nullptr;
+        qscilexerjava_defaultpaper2_callback = nullptr;
         qscilexerjava_seteditor_callback = nullptr;
         qscilexerjava_refreshproperties_callback = nullptr;
         qscilexerjava_stylebitsneeded_callback = nullptr;
@@ -269,10 +269,10 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     inline void setQsciLexerJava_DefaultStyle_Callback(QsciLexerJava_DefaultStyle_Callback cb) { qscilexerjava_defaultstyle_callback = cb; }
     inline void setQsciLexerJava_Description_Callback(QsciLexerJava_Description_Callback cb) { qscilexerjava_description_callback = cb; }
     inline void setQsciLexerJava_Paper_Callback(QsciLexerJava_Paper_Callback cb) { qscilexerjava_paper_callback = cb; }
-    inline void setQsciLexerJava_DefaultColorWithStyle_Callback(QsciLexerJava_DefaultColorWithStyle_Callback cb) { qscilexerjava_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerJava_DefaultColor2_Callback(QsciLexerJava_DefaultColor2_Callback cb) { qscilexerjava_defaultcolor2_callback = cb; }
     inline void setQsciLexerJava_DefaultEolFill_Callback(QsciLexerJava_DefaultEolFill_Callback cb) { qscilexerjava_defaulteolfill_callback = cb; }
-    inline void setQsciLexerJava_DefaultFontWithStyle_Callback(QsciLexerJava_DefaultFontWithStyle_Callback cb) { qscilexerjava_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerJava_DefaultPaperWithStyle_Callback(QsciLexerJava_DefaultPaperWithStyle_Callback cb) { qscilexerjava_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerJava_DefaultFont2_Callback(QsciLexerJava_DefaultFont2_Callback cb) { qscilexerjava_defaultfont2_callback = cb; }
+    inline void setQsciLexerJava_DefaultPaper2_Callback(QsciLexerJava_DefaultPaper2_Callback cb) { qscilexerjava_defaultpaper2_callback = cb; }
     inline void setQsciLexerJava_SetEditor_Callback(QsciLexerJava_SetEditor_Callback cb) { qscilexerjava_seteditor_callback = cb; }
     inline void setQsciLexerJava_RefreshProperties_Callback(QsciLexerJava_RefreshProperties_Callback cb) { qscilexerjava_refreshproperties_callback = cb; }
     inline void setQsciLexerJava_StyleBitsNeeded_Callback(QsciLexerJava_StyleBitsNeeded_Callback cb) { qscilexerjava_stylebitsneeded_callback = cb; }
@@ -324,10 +324,10 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
     inline void setQsciLexerJava_DefaultStyle_IsBase(bool value) const { qscilexerjava_defaultstyle_isbase = value; }
     inline void setQsciLexerJava_Description_IsBase(bool value) const { qscilexerjava_description_isbase = value; }
     inline void setQsciLexerJava_Paper_IsBase(bool value) const { qscilexerjava_paper_isbase = value; }
-    inline void setQsciLexerJava_DefaultColorWithStyle_IsBase(bool value) const { qscilexerjava_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerJava_DefaultColor2_IsBase(bool value) const { qscilexerjava_defaultcolor2_isbase = value; }
     inline void setQsciLexerJava_DefaultEolFill_IsBase(bool value) const { qscilexerjava_defaulteolfill_isbase = value; }
-    inline void setQsciLexerJava_DefaultFontWithStyle_IsBase(bool value) const { qscilexerjava_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerJava_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerjava_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerJava_DefaultFont2_IsBase(bool value) const { qscilexerjava_defaultfont2_isbase = value; }
+    inline void setQsciLexerJava_DefaultPaper2_IsBase(bool value) const { qscilexerjava_defaultpaper2_isbase = value; }
     inline void setQsciLexerJava_SetEditor_IsBase(bool value) const { qscilexerjava_seteditor_isbase = value; }
     inline void setQsciLexerJava_RefreshProperties_IsBase(bool value) const { qscilexerjava_refreshproperties_isbase = value; }
     inline void setQsciLexerJava_StyleBitsNeeded_IsBase(bool value) const { qscilexerjava_stylebitsneeded_isbase = value; }
@@ -709,13 +709,13 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerjava_defaultcolorwithstyle_isbase) {
-            qscilexerjava_defaultcolorwithstyle_isbase = false;
+        if (qscilexerjava_defaultcolor2_isbase) {
+            qscilexerjava_defaultcolor2_isbase = false;
             return QsciLexerJava::defaultColor(style);
-        } else if (qscilexerjava_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerjava_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerjava_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerjava_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerJava::defaultColor(style);
@@ -739,13 +739,13 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerjava_defaultfontwithstyle_isbase) {
-            qscilexerjava_defaultfontwithstyle_isbase = false;
+        if (qscilexerjava_defaultfont2_isbase) {
+            qscilexerjava_defaultfont2_isbase = false;
             return QsciLexerJava::defaultFont(style);
-        } else if (qscilexerjava_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerjava_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerjava_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerjava_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerJava::defaultFont(style);
@@ -754,13 +754,13 @@ class VirtualQsciLexerJava final : public QsciLexerJava {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerjava_defaultpaperwithstyle_isbase) {
-            qscilexerjava_defaultpaperwithstyle_isbase = false;
+        if (qscilexerjava_defaultpaper2_isbase) {
+            qscilexerjava_defaultpaper2_isbase = false;
             return QsciLexerJava::defaultPaper(style);
-        } else if (qscilexerjava_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerjava_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerjava_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerjava_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerJava::defaultPaper(style);

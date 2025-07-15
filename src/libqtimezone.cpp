@@ -137,7 +137,7 @@ libqt_string QTimeZone_DisplayName(const QTimeZone* self, const QDateTime* atDat
     return _str;
 }
 
-libqt_string QTimeZone_DisplayNameWithTimeType(const QTimeZone* self, int timeType) {
+libqt_string QTimeZone_DisplayName2(const QTimeZone* self, int timeType) {
     QString _ret = self->displayName(static_cast<QTimeZone::TimeType>(timeType));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -252,7 +252,7 @@ libqt_list /* of libqt_string */ QTimeZone_AvailableTimeZoneIds() {
     return _out;
 }
 
-libqt_list /* of libqt_string */ QTimeZone_AvailableTimeZoneIdsWithTerritory(uint16_t territory) {
+libqt_list /* of libqt_string */ QTimeZone_AvailableTimeZoneIds2(uint16_t territory) {
     QList<QByteArray> _ret = QTimeZone::availableTimeZoneIds(static_cast<QLocale::Territory>(territory));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
@@ -271,7 +271,7 @@ libqt_list /* of libqt_string */ QTimeZone_AvailableTimeZoneIdsWithTerritory(uin
     return _out;
 }
 
-libqt_list /* of libqt_string */ QTimeZone_AvailableTimeZoneIdsWithOffsetSeconds(int offsetSeconds) {
+libqt_list /* of libqt_string */ QTimeZone_AvailableTimeZoneIds3(int offsetSeconds) {
     QList<QByteArray> _ret = QTimeZone::availableTimeZoneIds(static_cast<int>(offsetSeconds));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
@@ -363,7 +363,7 @@ libqt_list /* of libqt_string */ QTimeZone_WindowsIdToIanaIds2(const libqt_strin
     return _out;
 }
 
-libqt_string QTimeZone_DisplayName2(const QTimeZone* self, const QDateTime* atDateTime, int nameType) {
+libqt_string QTimeZone_DisplayName22(const QTimeZone* self, const QDateTime* atDateTime, int nameType) {
     QString _ret = self->displayName(*atDateTime, static_cast<QTimeZone::NameType>(nameType));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -387,7 +387,7 @@ libqt_string QTimeZone_DisplayName3(const QTimeZone* self, const QDateTime* atDa
     return _str;
 }
 
-libqt_string QTimeZone_DisplayName22(const QTimeZone* self, int timeType, int nameType) {
+libqt_string QTimeZone_DisplayName23(const QTimeZone* self, int timeType, int nameType) {
     QString _ret = self->displayName(static_cast<QTimeZone::TimeType>(timeType), static_cast<QTimeZone::NameType>(nameType));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();

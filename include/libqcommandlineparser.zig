@@ -136,8 +136,8 @@ pub const qcommandlineparser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineparser.html#process)
     ///
     /// ``` self: QtC.QCommandLineParser, app: QtC.QCoreApplication ```
-    pub fn ProcessWithApp(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QCommandLineParser_ProcessWithApp(@ptrCast(self), @ptrCast(app));
+    pub fn Process2(self: ?*anyopaque, app: ?*anyopaque) void {
+        qtc.QCommandLineParser_Process2(@ptrCast(self), @ptrCast(app));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineparser.html#parse)
@@ -225,17 +225,17 @@ pub const qcommandlineparser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineparser.html#isSet)
     ///
     /// ``` self: QtC.QCommandLineParser, option: QtC.QCommandLineOption ```
-    pub fn IsSetWithOption(self: ?*anyopaque, option: ?*anyopaque) bool {
-        return qtc.QCommandLineParser_IsSetWithOption(@ptrCast(self), @ptrCast(option));
+    pub fn IsSet2(self: ?*anyopaque, option: ?*anyopaque) bool {
+        return qtc.QCommandLineParser_IsSet2(@ptrCast(self), @ptrCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineparser.html#value)
     ///
     /// ``` self: QtC.QCommandLineParser, option: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
-    pub fn ValueWithOption(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QCommandLineParser_ValueWithOption(@ptrCast(self), @ptrCast(option));
+    pub fn Value2(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QCommandLineParser_Value2(@ptrCast(self), @ptrCast(option));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.ValueWithOption: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Value2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -243,8 +243,8 @@ pub const qcommandlineparser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineparser.html#values)
     ///
     /// ``` self: QtC.QCommandLineParser, option: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
-    pub fn ValuesWithOption(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QCommandLineParser_ValuesWithOption(@ptrCast(self), @ptrCast(option));
+    pub fn Values2(self: ?*anyopaque, option: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QCommandLineParser_Values2(@ptrCast(self), @ptrCast(option));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -252,10 +252,10 @@ pub const qcommandlineparser = struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.ValuesWithOption: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.Values2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineparser.ValuesWithOption: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineparser.Values2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

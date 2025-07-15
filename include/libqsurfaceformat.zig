@@ -296,8 +296,8 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
     ///
     /// ``` self: QtC.QSurfaceFormat, colorSpace: qsurfaceformat_enums.ColorSpace ```
-    pub fn SetColorSpaceWithColorSpace(self: ?*anyopaque, colorSpace: i64) void {
-        qtc.QSurfaceFormat_SetColorSpaceWithColorSpace(@ptrCast(self), @intCast(colorSpace));
+    pub fn SetColorSpace2(self: ?*anyopaque, colorSpace: i64) void {
+        qtc.QSurfaceFormat_SetColorSpace2(@ptrCast(self), @intCast(colorSpace));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setDefaultFormat)

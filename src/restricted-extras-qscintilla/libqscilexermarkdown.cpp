@@ -760,7 +760,7 @@ void QsciLexerMarkdown_OnPaper(const QsciLexerMarkdown* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerMarkdown_DefaultColorWithStyle(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_DefaultColor2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         return new QColor(vqscilexermarkdown->defaultColor(static_cast<int>(style)));
@@ -770,10 +770,10 @@ QColor* QsciLexerMarkdown_DefaultColorWithStyle(const QsciLexerMarkdown* self, i
 }
 
 // Base class handler implementation
-QColor* QsciLexerMarkdown_QBaseDefaultColorWithStyle(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_QBaseDefaultColor2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
-        vqscilexermarkdown->setQsciLexerMarkdown_DefaultColorWithStyle_IsBase(true);
+        vqscilexermarkdown->setQsciLexerMarkdown_DefaultColor2_IsBase(true);
         return new QColor(vqscilexermarkdown->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerMarkdown*)self)->defaultColor(static_cast<int>(style)));
@@ -781,10 +781,10 @@ QColor* QsciLexerMarkdown_QBaseDefaultColorWithStyle(const QsciLexerMarkdown* se
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerMarkdown_OnDefaultColorWithStyle(const QsciLexerMarkdown* self, intptr_t slot) {
+void QsciLexerMarkdown_OnDefaultColor2(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
-        vqscilexermarkdown->setQsciLexerMarkdown_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultColorWithStyle_Callback>(slot));
+        vqscilexermarkdown->setQsciLexerMarkdown_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -818,7 +818,7 @@ void QsciLexerMarkdown_OnDefaultEolFill(const QsciLexerMarkdown* self, intptr_t 
 }
 
 // Derived class handler implementation
-QFont* QsciLexerMarkdown_DefaultFontWithStyle(const QsciLexerMarkdown* self, int style) {
+QFont* QsciLexerMarkdown_DefaultFont2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         return new QFont(vqscilexermarkdown->defaultFont(static_cast<int>(style)));
@@ -828,10 +828,10 @@ QFont* QsciLexerMarkdown_DefaultFontWithStyle(const QsciLexerMarkdown* self, int
 }
 
 // Base class handler implementation
-QFont* QsciLexerMarkdown_QBaseDefaultFontWithStyle(const QsciLexerMarkdown* self, int style) {
+QFont* QsciLexerMarkdown_QBaseDefaultFont2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
-        vqscilexermarkdown->setQsciLexerMarkdown_DefaultFontWithStyle_IsBase(true);
+        vqscilexermarkdown->setQsciLexerMarkdown_DefaultFont2_IsBase(true);
         return new QFont(vqscilexermarkdown->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerMarkdown*)self)->defaultFont(static_cast<int>(style)));
@@ -839,15 +839,15 @@ QFont* QsciLexerMarkdown_QBaseDefaultFontWithStyle(const QsciLexerMarkdown* self
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerMarkdown_OnDefaultFontWithStyle(const QsciLexerMarkdown* self, intptr_t slot) {
+void QsciLexerMarkdown_OnDefaultFont2(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
-        vqscilexermarkdown->setQsciLexerMarkdown_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultFontWithStyle_Callback>(slot));
+        vqscilexermarkdown->setQsciLexerMarkdown_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerMarkdown_DefaultPaperWithStyle(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_DefaultPaper2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
         return new QColor(vqscilexermarkdown->defaultPaper(static_cast<int>(style)));
@@ -857,10 +857,10 @@ QColor* QsciLexerMarkdown_DefaultPaperWithStyle(const QsciLexerMarkdown* self, i
 }
 
 // Base class handler implementation
-QColor* QsciLexerMarkdown_QBaseDefaultPaperWithStyle(const QsciLexerMarkdown* self, int style) {
+QColor* QsciLexerMarkdown_QBaseDefaultPaper2(const QsciLexerMarkdown* self, int style) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
-        vqscilexermarkdown->setQsciLexerMarkdown_DefaultPaperWithStyle_IsBase(true);
+        vqscilexermarkdown->setQsciLexerMarkdown_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexermarkdown->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerMarkdown*)self)->defaultPaper(static_cast<int>(style)));
@@ -868,10 +868,10 @@ QColor* QsciLexerMarkdown_QBaseDefaultPaperWithStyle(const QsciLexerMarkdown* se
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerMarkdown_OnDefaultPaperWithStyle(const QsciLexerMarkdown* self, intptr_t slot) {
+void QsciLexerMarkdown_OnDefaultPaper2(const QsciLexerMarkdown* self, intptr_t slot) {
     auto* vqscilexermarkdown = const_cast<VirtualQsciLexerMarkdown*>(dynamic_cast<const VirtualQsciLexerMarkdown*>(self));
     if (vqscilexermarkdown && vqscilexermarkdown->isVirtualQsciLexerMarkdown) {
-        vqscilexermarkdown->setQsciLexerMarkdown_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexermarkdown->setQsciLexerMarkdown_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerMarkdown::QsciLexerMarkdown_DefaultPaper2_Callback>(slot));
     }
 }
 

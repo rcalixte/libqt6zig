@@ -69,7 +69,7 @@ QSize* QSvgWidget_QBaseSizeHint(const QSvgWidget* self);
 int QSvgWidget_Options(const QSvgWidget* self);
 void QSvgWidget_SetOptions(QSvgWidget* self, int options);
 void QSvgWidget_Load(QSvgWidget* self, const libqt_string file);
-void QSvgWidget_LoadWithContents(QSvgWidget* self, const libqt_string contents);
+void QSvgWidget_Load2(QSvgWidget* self, const libqt_string contents);
 void QSvgWidget_PaintEvent(QSvgWidget* self, QPaintEvent* event);
 void QSvgWidget_OnPaintEvent(QSvgWidget* self, intptr_t slot);
 void QSvgWidget_QBasePaintEvent(QSvgWidget* self, QPaintEvent* event);

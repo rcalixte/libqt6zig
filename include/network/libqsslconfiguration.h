@@ -50,13 +50,13 @@ QSslKey* QSslConfiguration_PrivateKey(const QSslConfiguration* self);
 void QSslConfiguration_SetPrivateKey(QSslConfiguration* self, const QSslKey* key);
 libqt_list /* of QSslCipher* */ QSslConfiguration_Ciphers(const QSslConfiguration* self);
 void QSslConfiguration_SetCiphers(QSslConfiguration* self, const libqt_list /* of QSslCipher* */ ciphers);
-void QSslConfiguration_SetCiphersWithCiphers(QSslConfiguration* self, const libqt_string ciphers);
+void QSslConfiguration_SetCiphers2(QSslConfiguration* self, const libqt_string ciphers);
 libqt_list /* of QSslCipher* */ QSslConfiguration_SupportedCiphers();
 libqt_list /* of QSslCertificate* */ QSslConfiguration_CaCertificates(const QSslConfiguration* self);
 void QSslConfiguration_SetCaCertificates(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ certificates);
 bool QSslConfiguration_AddCaCertificates(QSslConfiguration* self, const libqt_string path);
 void QSslConfiguration_AddCaCertificate(QSslConfiguration* self, const QSslCertificate* certificate);
-void QSslConfiguration_AddCaCertificatesWithCertificates(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ certificates);
+void QSslConfiguration_AddCaCertificates2(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ certificates);
 libqt_list /* of QSslCertificate* */ QSslConfiguration_SystemCaCertificates();
 void QSslConfiguration_SetSslOption(QSslConfiguration* self, int option, bool on);
 bool QSslConfiguration_TestSslOption(const QSslConfiguration* self, int option);
@@ -89,7 +89,7 @@ void QSslConfiguration_SetAllowedNextProtocols(QSslConfiguration* self, const li
 libqt_list /* of libqt_string */ QSslConfiguration_AllowedNextProtocols(const QSslConfiguration* self);
 libqt_string QSslConfiguration_NextNegotiatedProtocol(const QSslConfiguration* self);
 int QSslConfiguration_NextProtocolNegotiationStatus(const QSslConfiguration* self);
-bool QSslConfiguration_AddCaCertificates2(QSslConfiguration* self, const libqt_string path, int format);
+bool QSslConfiguration_AddCaCertificates22(QSslConfiguration* self, const libqt_string path, int format);
 bool QSslConfiguration_AddCaCertificates3(QSslConfiguration* self, const libqt_string path, int format, int syntax);
 void QSslConfiguration_Delete(QSslConfiguration* self);
 

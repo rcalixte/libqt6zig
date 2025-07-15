@@ -119,47 +119,47 @@ QLatin1Char* QLatin1String_Back(const QLatin1String* self) {
     return new QLatin1Char(self->back());
 }
 
-int QLatin1String_CompareWithQChar(const QLatin1String* self, QChar* c) {
+int QLatin1String_Compare4(const QLatin1String* self, QChar* c) {
     return self->compare(*c);
 }
 
-int QLatin1String_Compare3(const QLatin1String* self, QChar* c, int cs) {
+int QLatin1String_Compare5(const QLatin1String* self, QChar* c, int cs) {
     return self->compare(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-bool QLatin1String_StartsWithWithQChar(const QLatin1String* self, QChar* c) {
+bool QLatin1String_StartsWith3(const QLatin1String* self, QChar* c) {
     return self->startsWith(*c);
 }
 
-bool QLatin1String_StartsWith2(const QLatin1String* self, QChar* c, int cs) {
+bool QLatin1String_StartsWith4(const QLatin1String* self, QChar* c, int cs) {
     return self->startsWith(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-bool QLatin1String_EndsWithWithQChar(const QLatin1String* self, QChar* c) {
+bool QLatin1String_EndsWith3(const QLatin1String* self, QChar* c) {
     return self->endsWith(*c);
 }
 
-bool QLatin1String_EndsWith2(const QLatin1String* self, QChar* c, int cs) {
+bool QLatin1String_EndsWith4(const QLatin1String* self, QChar* c, int cs) {
     return self->endsWith(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-ptrdiff_t QLatin1String_IndexOfWithQChar(const QLatin1String* self, QChar* c) {
+ptrdiff_t QLatin1String_IndexOf3(const QLatin1String* self, QChar* c) {
     return static_cast<ptrdiff_t>(self->indexOf(*c));
 }
 
-bool QLatin1String_ContainsWithQChar(const QLatin1String* self, QChar* c) {
+bool QLatin1String_Contains3(const QLatin1String* self, QChar* c) {
     return self->contains(*c);
 }
 
-ptrdiff_t QLatin1String_LastIndexOfWithQChar(const QLatin1String* self, QChar* c) {
+ptrdiff_t QLatin1String_LastIndexOf5(const QLatin1String* self, QChar* c) {
     return static_cast<ptrdiff_t>(self->lastIndexOf(*c));
 }
 
-ptrdiff_t QLatin1String_LastIndexOf4(const QLatin1String* self, QChar* c, ptrdiff_t from) {
+ptrdiff_t QLatin1String_LastIndexOf6(const QLatin1String* self, QChar* c, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->lastIndexOf(*c, (qsizetype)(from)));
 }
 
-ptrdiff_t QLatin1String_CountWithCh(const QLatin1String* self, QChar* ch) {
+ptrdiff_t QLatin1String_Count3(const QLatin1String* self, QChar* ch) {
     return static_cast<ptrdiff_t>(self->count(*ch));
 }
 
@@ -239,15 +239,15 @@ void QLatin1String_Truncate(QLatin1String* self, ptrdiff_t n) {
     self->truncate((qsizetype)(n));
 }
 
-ptrdiff_t QLatin1String_IndexOf23(const QLatin1String* self, QChar* c, ptrdiff_t from) {
+ptrdiff_t QLatin1String_IndexOf24(const QLatin1String* self, QChar* c, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexOf(*c, (qsizetype)(from)));
 }
 
-ptrdiff_t QLatin1String_IndexOf33(const QLatin1String* self, QChar* c, ptrdiff_t from, int cs) {
+ptrdiff_t QLatin1String_IndexOf34(const QLatin1String* self, QChar* c, ptrdiff_t from, int cs) {
     return static_cast<ptrdiff_t>(self->indexOf(*c, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
 }
 
-bool QLatin1String_Contains23(const QLatin1String* self, QChar* c, int cs) {
+bool QLatin1String_Contains24(const QLatin1String* self, QChar* c, int cs) {
     return self->contains(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
@@ -259,7 +259,7 @@ ptrdiff_t QLatin1String_LastIndexOf34(const QLatin1String* self, QChar* c, ptrdi
     return static_cast<ptrdiff_t>(self->lastIndexOf(*c, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
 }
 
-ptrdiff_t QLatin1String_Count23(const QLatin1String* self, QChar* ch, int cs) {
+ptrdiff_t QLatin1String_Count24(const QLatin1String* self, QChar* ch, int cs) {
     return static_cast<ptrdiff_t>(self->count(*ch, static_cast<Qt::CaseSensitivity>(cs)));
 }
 

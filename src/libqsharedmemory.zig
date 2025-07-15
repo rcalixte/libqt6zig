@@ -136,12 +136,12 @@ pub const qsharedmemory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#setNativeKey)
     ///
     /// ``` self: QtC.QSharedMemory, key: []const u8 ```
-    pub fn SetNativeKeyWithKey(self: ?*anyopaque, key: []const u8) void {
+    pub fn SetNativeKey2(self: ?*anyopaque, key: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.QSharedMemory_SetNativeKeyWithKey(@ptrCast(self), key_str);
+        qtc.QSharedMemory_SetNativeKey2(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#nativeKey)
@@ -308,12 +308,12 @@ pub const qsharedmemory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#setNativeKey)
     ///
     /// ``` self: QtC.QSharedMemory, key: []const u8, typeVal: qtipccommon_enums.Type ```
-    pub fn SetNativeKey2(self: ?*anyopaque, key: []const u8, typeVal: i64) void {
+    pub fn SetNativeKey22(self: ?*anyopaque, key: []const u8, typeVal: i64) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.QSharedMemory_SetNativeKey2(@ptrCast(self), key_str, @intCast(typeVal));
+        qtc.QSharedMemory_SetNativeKey22(@ptrCast(self), key_str, @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsharedmemory.html#create)
@@ -464,8 +464,8 @@ pub const qsharedmemory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSharedMemory, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -543,8 +543,8 @@ pub const qsharedmemory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -687,8 +687,8 @@ pub const qsharedmemory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSharedMemory, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

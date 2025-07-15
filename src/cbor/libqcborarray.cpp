@@ -66,7 +66,7 @@ QCborValueRef* QCborArray_Last2(QCborArray* self) {
     return new QCborValueRef(self->last());
 }
 
-QCborValueRef* QCborArray_OperatorSubscriptWithQsizetype(QCborArray* self, ptrdiff_t i) {
+QCborValueRef* QCborArray_OperatorSubscript2(QCborArray* self, ptrdiff_t i) {
     return new QCborValueRef(self->operator[]((qsizetype)(i)));
 }
 

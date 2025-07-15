@@ -38,10 +38,10 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     using QsciLexerVerilog_DefaultStyle_Callback = int (*)();
     using QsciLexerVerilog_Description_Callback = libqt_string (*)(const QsciLexerVerilog*, int);
     using QsciLexerVerilog_Paper_Callback = QColor* (*)(const QsciLexerVerilog*, int);
-    using QsciLexerVerilog_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerVerilog*, int);
+    using QsciLexerVerilog_DefaultColor2_Callback = QColor* (*)(const QsciLexerVerilog*, int);
     using QsciLexerVerilog_DefaultEolFill_Callback = bool (*)(const QsciLexerVerilog*, int);
-    using QsciLexerVerilog_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerVerilog*, int);
-    using QsciLexerVerilog_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerVerilog*, int);
+    using QsciLexerVerilog_DefaultFont2_Callback = QFont* (*)(const QsciLexerVerilog*, int);
+    using QsciLexerVerilog_DefaultPaper2_Callback = QColor* (*)(const QsciLexerVerilog*, int);
     using QsciLexerVerilog_SetEditor_Callback = void (*)(QsciLexerVerilog*, QsciScintilla*);
     using QsciLexerVerilog_RefreshProperties_Callback = void (*)();
     using QsciLexerVerilog_StyleBitsNeeded_Callback = int (*)();
@@ -89,10 +89,10 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     QsciLexerVerilog_DefaultStyle_Callback qscilexerverilog_defaultstyle_callback = nullptr;
     QsciLexerVerilog_Description_Callback qscilexerverilog_description_callback = nullptr;
     QsciLexerVerilog_Paper_Callback qscilexerverilog_paper_callback = nullptr;
-    QsciLexerVerilog_DefaultColorWithStyle_Callback qscilexerverilog_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerVerilog_DefaultColor2_Callback qscilexerverilog_defaultcolor2_callback = nullptr;
     QsciLexerVerilog_DefaultEolFill_Callback qscilexerverilog_defaulteolfill_callback = nullptr;
-    QsciLexerVerilog_DefaultFontWithStyle_Callback qscilexerverilog_defaultfontwithstyle_callback = nullptr;
-    QsciLexerVerilog_DefaultPaperWithStyle_Callback qscilexerverilog_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerVerilog_DefaultFont2_Callback qscilexerverilog_defaultfont2_callback = nullptr;
+    QsciLexerVerilog_DefaultPaper2_Callback qscilexerverilog_defaultpaper2_callback = nullptr;
     QsciLexerVerilog_SetEditor_Callback qscilexerverilog_seteditor_callback = nullptr;
     QsciLexerVerilog_RefreshProperties_Callback qscilexerverilog_refreshproperties_callback = nullptr;
     QsciLexerVerilog_StyleBitsNeeded_Callback qscilexerverilog_stylebitsneeded_callback = nullptr;
@@ -139,10 +139,10 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     mutable bool qscilexerverilog_defaultstyle_isbase = false;
     mutable bool qscilexerverilog_description_isbase = false;
     mutable bool qscilexerverilog_paper_isbase = false;
-    mutable bool qscilexerverilog_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerverilog_defaultcolor2_isbase = false;
     mutable bool qscilexerverilog_defaulteolfill_isbase = false;
-    mutable bool qscilexerverilog_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerverilog_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerverilog_defaultfont2_isbase = false;
+    mutable bool qscilexerverilog_defaultpaper2_isbase = false;
     mutable bool qscilexerverilog_seteditor_isbase = false;
     mutable bool qscilexerverilog_refreshproperties_isbase = false;
     mutable bool qscilexerverilog_stylebitsneeded_isbase = false;
@@ -193,10 +193,10 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
         qscilexerverilog_defaultstyle_callback = nullptr;
         qscilexerverilog_description_callback = nullptr;
         qscilexerverilog_paper_callback = nullptr;
-        qscilexerverilog_defaultcolorwithstyle_callback = nullptr;
+        qscilexerverilog_defaultcolor2_callback = nullptr;
         qscilexerverilog_defaulteolfill_callback = nullptr;
-        qscilexerverilog_defaultfontwithstyle_callback = nullptr;
-        qscilexerverilog_defaultpaperwithstyle_callback = nullptr;
+        qscilexerverilog_defaultfont2_callback = nullptr;
+        qscilexerverilog_defaultpaper2_callback = nullptr;
         qscilexerverilog_seteditor_callback = nullptr;
         qscilexerverilog_refreshproperties_callback = nullptr;
         qscilexerverilog_stylebitsneeded_callback = nullptr;
@@ -244,10 +244,10 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     inline void setQsciLexerVerilog_DefaultStyle_Callback(QsciLexerVerilog_DefaultStyle_Callback cb) { qscilexerverilog_defaultstyle_callback = cb; }
     inline void setQsciLexerVerilog_Description_Callback(QsciLexerVerilog_Description_Callback cb) { qscilexerverilog_description_callback = cb; }
     inline void setQsciLexerVerilog_Paper_Callback(QsciLexerVerilog_Paper_Callback cb) { qscilexerverilog_paper_callback = cb; }
-    inline void setQsciLexerVerilog_DefaultColorWithStyle_Callback(QsciLexerVerilog_DefaultColorWithStyle_Callback cb) { qscilexerverilog_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerVerilog_DefaultColor2_Callback(QsciLexerVerilog_DefaultColor2_Callback cb) { qscilexerverilog_defaultcolor2_callback = cb; }
     inline void setQsciLexerVerilog_DefaultEolFill_Callback(QsciLexerVerilog_DefaultEolFill_Callback cb) { qscilexerverilog_defaulteolfill_callback = cb; }
-    inline void setQsciLexerVerilog_DefaultFontWithStyle_Callback(QsciLexerVerilog_DefaultFontWithStyle_Callback cb) { qscilexerverilog_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerVerilog_DefaultPaperWithStyle_Callback(QsciLexerVerilog_DefaultPaperWithStyle_Callback cb) { qscilexerverilog_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerVerilog_DefaultFont2_Callback(QsciLexerVerilog_DefaultFont2_Callback cb) { qscilexerverilog_defaultfont2_callback = cb; }
+    inline void setQsciLexerVerilog_DefaultPaper2_Callback(QsciLexerVerilog_DefaultPaper2_Callback cb) { qscilexerverilog_defaultpaper2_callback = cb; }
     inline void setQsciLexerVerilog_SetEditor_Callback(QsciLexerVerilog_SetEditor_Callback cb) { qscilexerverilog_seteditor_callback = cb; }
     inline void setQsciLexerVerilog_RefreshProperties_Callback(QsciLexerVerilog_RefreshProperties_Callback cb) { qscilexerverilog_refreshproperties_callback = cb; }
     inline void setQsciLexerVerilog_StyleBitsNeeded_Callback(QsciLexerVerilog_StyleBitsNeeded_Callback cb) { qscilexerverilog_stylebitsneeded_callback = cb; }
@@ -294,10 +294,10 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     inline void setQsciLexerVerilog_DefaultStyle_IsBase(bool value) const { qscilexerverilog_defaultstyle_isbase = value; }
     inline void setQsciLexerVerilog_Description_IsBase(bool value) const { qscilexerverilog_description_isbase = value; }
     inline void setQsciLexerVerilog_Paper_IsBase(bool value) const { qscilexerverilog_paper_isbase = value; }
-    inline void setQsciLexerVerilog_DefaultColorWithStyle_IsBase(bool value) const { qscilexerverilog_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerVerilog_DefaultColor2_IsBase(bool value) const { qscilexerverilog_defaultcolor2_isbase = value; }
     inline void setQsciLexerVerilog_DefaultEolFill_IsBase(bool value) const { qscilexerverilog_defaulteolfill_isbase = value; }
-    inline void setQsciLexerVerilog_DefaultFontWithStyle_IsBase(bool value) const { qscilexerverilog_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerVerilog_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerverilog_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerVerilog_DefaultFont2_IsBase(bool value) const { qscilexerverilog_defaultfont2_isbase = value; }
+    inline void setQsciLexerVerilog_DefaultPaper2_IsBase(bool value) const { qscilexerverilog_defaultpaper2_isbase = value; }
     inline void setQsciLexerVerilog_SetEditor_IsBase(bool value) const { qscilexerverilog_seteditor_isbase = value; }
     inline void setQsciLexerVerilog_RefreshProperties_IsBase(bool value) const { qscilexerverilog_refreshproperties_isbase = value; }
     inline void setQsciLexerVerilog_StyleBitsNeeded_IsBase(bool value) const { qscilexerverilog_stylebitsneeded_isbase = value; }
@@ -609,13 +609,13 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerverilog_defaultcolorwithstyle_isbase) {
-            qscilexerverilog_defaultcolorwithstyle_isbase = false;
+        if (qscilexerverilog_defaultcolor2_isbase) {
+            qscilexerverilog_defaultcolor2_isbase = false;
             return QsciLexerVerilog::defaultColor(style);
-        } else if (qscilexerverilog_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerverilog_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerverilog_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerverilog_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerVerilog::defaultColor(style);
@@ -639,13 +639,13 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerverilog_defaultfontwithstyle_isbase) {
-            qscilexerverilog_defaultfontwithstyle_isbase = false;
+        if (qscilexerverilog_defaultfont2_isbase) {
+            qscilexerverilog_defaultfont2_isbase = false;
             return QsciLexerVerilog::defaultFont(style);
-        } else if (qscilexerverilog_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerverilog_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerverilog_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerverilog_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerVerilog::defaultFont(style);
@@ -654,13 +654,13 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerverilog_defaultpaperwithstyle_isbase) {
-            qscilexerverilog_defaultpaperwithstyle_isbase = false;
+        if (qscilexerverilog_defaultpaper2_isbase) {
+            qscilexerverilog_defaultpaper2_isbase = false;
             return QsciLexerVerilog::defaultPaper(style);
-        } else if (qscilexerverilog_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerverilog_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerverilog_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerverilog_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerVerilog::defaultPaper(style);

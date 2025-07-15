@@ -33,7 +33,7 @@ void QMediaTimeRange_Detach(QMediaTimeRange* self) {
     self->detach();
 }
 
-void QMediaTimeRange_OperatorAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
+void QMediaTimeRange_OperatorAssign2(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
     self->operator=(*param1);
 }
 
@@ -74,7 +74,7 @@ void QMediaTimeRange_AddInterval(QMediaTimeRange* self, long long start, long lo
     self->addInterval(static_cast<qint64>(start), static_cast<qint64>(end));
 }
 
-void QMediaTimeRange_AddIntervalWithInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* interval) {
+void QMediaTimeRange_AddInterval2(QMediaTimeRange* self, const QMediaTimeRange__Interval* interval) {
     self->addInterval(*interval);
 }
 
@@ -86,7 +86,7 @@ void QMediaTimeRange_RemoveInterval(QMediaTimeRange* self, long long start, long
     self->removeInterval(static_cast<qint64>(start), static_cast<qint64>(end));
 }
 
-void QMediaTimeRange_RemoveIntervalWithInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* interval) {
+void QMediaTimeRange_RemoveInterval2(QMediaTimeRange* self, const QMediaTimeRange__Interval* interval) {
     self->removeInterval(*interval);
 }
 
@@ -100,7 +100,7 @@ QMediaTimeRange* QMediaTimeRange_OperatorPlusAssign(QMediaTimeRange* self, const
     return &_ret;
 }
 
-QMediaTimeRange* QMediaTimeRange_OperatorPlusAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
+QMediaTimeRange* QMediaTimeRange_OperatorPlusAssign2(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
     QMediaTimeRange& _ret = self->operator+=(*param1);
     // Cast returned reference into pointer
     return &_ret;
@@ -112,7 +112,7 @@ QMediaTimeRange* QMediaTimeRange_OperatorMinusAssign(QMediaTimeRange* self, cons
     return &_ret;
 }
 
-QMediaTimeRange* QMediaTimeRange_OperatorMinusAssignWithQMediaTimeRangeInterval(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
+QMediaTimeRange* QMediaTimeRange_OperatorMinusAssign2(QMediaTimeRange* self, const QMediaTimeRange__Interval* param1) {
     QMediaTimeRange& _ret = self->operator-=(*param1);
     // Cast returned reference into pointer
     return &_ret;

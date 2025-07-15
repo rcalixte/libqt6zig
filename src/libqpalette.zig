@@ -155,15 +155,15 @@ pub const qpalette = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#color)
     ///
     /// ``` self: QtC.QPalette, cr: qpalette_enums.ColorRole ```
-    pub fn ColorWithCr(self: ?*anyopaque, cr: i64) QtC.QColor {
-        return qtc.QPalette_ColorWithCr(@ptrCast(self), @intCast(cr));
+    pub fn Color2(self: ?*anyopaque, cr: i64) QtC.QColor {
+        return qtc.QPalette_Color2(@ptrCast(self), @intCast(cr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#brush)
     ///
     /// ``` self: QtC.QPalette, cr: qpalette_enums.ColorRole ```
-    pub fn BrushWithCr(self: ?*anyopaque, cr: i64) QtC.QBrush {
-        return qtc.QPalette_BrushWithCr(@ptrCast(self), @intCast(cr));
+    pub fn Brush2(self: ?*anyopaque, cr: i64) QtC.QBrush {
+        return qtc.QPalette_Brush2(@ptrCast(self), @intCast(cr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#windowText)

@@ -26,7 +26,7 @@ class VirtualQPaintEngine final : public QPaintEngine {
     using QPaintEngine_DrawLines_Callback = void (*)(QPaintEngine*, QLine*, int);
     using QPaintEngine_DrawLines2_Callback = void (*)(QPaintEngine*, QLineF*, int);
     using QPaintEngine_DrawEllipse_Callback = void (*)(QPaintEngine*, QRectF*);
-    using QPaintEngine_DrawEllipseWithQRect_Callback = void (*)(QPaintEngine*, QRect*);
+    using QPaintEngine_DrawEllipse2_Callback = void (*)(QPaintEngine*, QRect*);
     using QPaintEngine_DrawPath_Callback = void (*)(QPaintEngine*, QPainterPath*);
     using QPaintEngine_DrawPoints_Callback = void (*)(QPaintEngine*, QPointF*, int);
     using QPaintEngine_DrawPoints2_Callback = void (*)(QPaintEngine*, QPoint*, int);
@@ -51,7 +51,7 @@ class VirtualQPaintEngine final : public QPaintEngine {
     QPaintEngine_DrawLines_Callback qpaintengine_drawlines_callback = nullptr;
     QPaintEngine_DrawLines2_Callback qpaintengine_drawlines2_callback = nullptr;
     QPaintEngine_DrawEllipse_Callback qpaintengine_drawellipse_callback = nullptr;
-    QPaintEngine_DrawEllipseWithQRect_Callback qpaintengine_drawellipsewithqrect_callback = nullptr;
+    QPaintEngine_DrawEllipse2_Callback qpaintengine_drawellipse2_callback = nullptr;
     QPaintEngine_DrawPath_Callback qpaintengine_drawpath_callback = nullptr;
     QPaintEngine_DrawPoints_Callback qpaintengine_drawpoints_callback = nullptr;
     QPaintEngine_DrawPoints2_Callback qpaintengine_drawpoints2_callback = nullptr;
@@ -75,7 +75,7 @@ class VirtualQPaintEngine final : public QPaintEngine {
     mutable bool qpaintengine_drawlines_isbase = false;
     mutable bool qpaintengine_drawlines2_isbase = false;
     mutable bool qpaintengine_drawellipse_isbase = false;
-    mutable bool qpaintengine_drawellipsewithqrect_isbase = false;
+    mutable bool qpaintengine_drawellipse2_isbase = false;
     mutable bool qpaintengine_drawpath_isbase = false;
     mutable bool qpaintengine_drawpoints_isbase = false;
     mutable bool qpaintengine_drawpoints2_isbase = false;
@@ -103,7 +103,7 @@ class VirtualQPaintEngine final : public QPaintEngine {
         qpaintengine_drawlines_callback = nullptr;
         qpaintengine_drawlines2_callback = nullptr;
         qpaintengine_drawellipse_callback = nullptr;
-        qpaintengine_drawellipsewithqrect_callback = nullptr;
+        qpaintengine_drawellipse2_callback = nullptr;
         qpaintengine_drawpath_callback = nullptr;
         qpaintengine_drawpoints_callback = nullptr;
         qpaintengine_drawpoints2_callback = nullptr;
@@ -128,7 +128,7 @@ class VirtualQPaintEngine final : public QPaintEngine {
     inline void setQPaintEngine_DrawLines_Callback(QPaintEngine_DrawLines_Callback cb) { qpaintengine_drawlines_callback = cb; }
     inline void setQPaintEngine_DrawLines2_Callback(QPaintEngine_DrawLines2_Callback cb) { qpaintengine_drawlines2_callback = cb; }
     inline void setQPaintEngine_DrawEllipse_Callback(QPaintEngine_DrawEllipse_Callback cb) { qpaintengine_drawellipse_callback = cb; }
-    inline void setQPaintEngine_DrawEllipseWithQRect_Callback(QPaintEngine_DrawEllipseWithQRect_Callback cb) { qpaintengine_drawellipsewithqrect_callback = cb; }
+    inline void setQPaintEngine_DrawEllipse2_Callback(QPaintEngine_DrawEllipse2_Callback cb) { qpaintengine_drawellipse2_callback = cb; }
     inline void setQPaintEngine_DrawPath_Callback(QPaintEngine_DrawPath_Callback cb) { qpaintengine_drawpath_callback = cb; }
     inline void setQPaintEngine_DrawPoints_Callback(QPaintEngine_DrawPoints_Callback cb) { qpaintengine_drawpoints_callback = cb; }
     inline void setQPaintEngine_DrawPoints2_Callback(QPaintEngine_DrawPoints2_Callback cb) { qpaintengine_drawpoints2_callback = cb; }
@@ -152,7 +152,7 @@ class VirtualQPaintEngine final : public QPaintEngine {
     inline void setQPaintEngine_DrawLines_IsBase(bool value) const { qpaintengine_drawlines_isbase = value; }
     inline void setQPaintEngine_DrawLines2_IsBase(bool value) const { qpaintengine_drawlines2_isbase = value; }
     inline void setQPaintEngine_DrawEllipse_IsBase(bool value) const { qpaintengine_drawellipse_isbase = value; }
-    inline void setQPaintEngine_DrawEllipseWithQRect_IsBase(bool value) const { qpaintengine_drawellipsewithqrect_isbase = value; }
+    inline void setQPaintEngine_DrawEllipse2_IsBase(bool value) const { qpaintengine_drawellipse2_isbase = value; }
     inline void setQPaintEngine_DrawPath_IsBase(bool value) const { qpaintengine_drawpath_isbase = value; }
     inline void setQPaintEngine_DrawPoints_IsBase(bool value) const { qpaintengine_drawpoints_isbase = value; }
     inline void setQPaintEngine_DrawPoints2_IsBase(bool value) const { qpaintengine_drawpoints2_isbase = value; }
@@ -278,15 +278,15 @@ class VirtualQPaintEngine final : public QPaintEngine {
 
     // Virtual method for C ABI access and custom callback
     virtual void drawEllipse(const QRect& r) override {
-        if (qpaintengine_drawellipsewithqrect_isbase) {
-            qpaintengine_drawellipsewithqrect_isbase = false;
+        if (qpaintengine_drawellipse2_isbase) {
+            qpaintengine_drawellipse2_isbase = false;
             QPaintEngine::drawEllipse(r);
-        } else if (qpaintengine_drawellipsewithqrect_callback != nullptr) {
+        } else if (qpaintengine_drawellipse2_callback != nullptr) {
             const QRect& r_ret = r;
             // Cast returned reference into pointer
             QRect* cbval1 = const_cast<QRect*>(&r_ret);
 
-            qpaintengine_drawellipsewithqrect_callback(this, cbval1);
+            qpaintengine_drawellipse2_callback(this, cbval1);
         } else {
             QPaintEngine::drawEllipse(r);
         }

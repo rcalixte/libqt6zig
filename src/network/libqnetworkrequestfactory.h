@@ -35,9 +35,9 @@ void QNetworkRequestFactory_SetBaseUrl(QNetworkRequestFactory* self, const QUrl*
 QSslConfiguration* QNetworkRequestFactory_SslConfiguration(const QNetworkRequestFactory* self);
 void QNetworkRequestFactory_SetSslConfiguration(QNetworkRequestFactory* self, const QSslConfiguration* configuration);
 QNetworkRequest* QNetworkRequestFactory_CreateRequest(const QNetworkRequestFactory* self);
-QNetworkRequest* QNetworkRequestFactory_CreateRequestWithQuery(const QNetworkRequestFactory* self, const QUrlQuery* query);
-QNetworkRequest* QNetworkRequestFactory_CreateRequestWithPath(const QNetworkRequestFactory* self, const libqt_string path);
-QNetworkRequest* QNetworkRequestFactory_CreateRequest2(const QNetworkRequestFactory* self, const libqt_string path, const QUrlQuery* query);
+QNetworkRequest* QNetworkRequestFactory_CreateRequest2(const QNetworkRequestFactory* self, const QUrlQuery* query);
+QNetworkRequest* QNetworkRequestFactory_CreateRequest3(const QNetworkRequestFactory* self, const libqt_string path);
+QNetworkRequest* QNetworkRequestFactory_CreateRequest4(const QNetworkRequestFactory* self, const libqt_string path, const QUrlQuery* query);
 void QNetworkRequestFactory_SetCommonHeaders(QNetworkRequestFactory* self, const QHttpHeaders* headers);
 QHttpHeaders* QNetworkRequestFactory_CommonHeaders(const QNetworkRequestFactory* self);
 void QNetworkRequestFactory_ClearCommonHeaders(QNetworkRequestFactory* self);

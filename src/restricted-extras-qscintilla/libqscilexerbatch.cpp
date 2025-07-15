@@ -760,7 +760,7 @@ void QsciLexerBatch_OnPaper(const QsciLexerBatch* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerBatch_DefaultColorWithStyle(const QsciLexerBatch* self, int style) {
+QColor* QsciLexerBatch_DefaultColor2(const QsciLexerBatch* self, int style) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
         return new QColor(vqscilexerbatch->defaultColor(static_cast<int>(style)));
@@ -770,10 +770,10 @@ QColor* QsciLexerBatch_DefaultColorWithStyle(const QsciLexerBatch* self, int sty
 }
 
 // Base class handler implementation
-QColor* QsciLexerBatch_QBaseDefaultColorWithStyle(const QsciLexerBatch* self, int style) {
+QColor* QsciLexerBatch_QBaseDefaultColor2(const QsciLexerBatch* self, int style) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
-        vqscilexerbatch->setQsciLexerBatch_DefaultColorWithStyle_IsBase(true);
+        vqscilexerbatch->setQsciLexerBatch_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerbatch->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerBatch*)self)->defaultColor(static_cast<int>(style)));
@@ -781,10 +781,10 @@ QColor* QsciLexerBatch_QBaseDefaultColorWithStyle(const QsciLexerBatch* self, in
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerBatch_OnDefaultColorWithStyle(const QsciLexerBatch* self, intptr_t slot) {
+void QsciLexerBatch_OnDefaultColor2(const QsciLexerBatch* self, intptr_t slot) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
-        vqscilexerbatch->setQsciLexerBatch_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerbatch->setQsciLexerBatch_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -818,7 +818,7 @@ void QsciLexerBatch_OnDefaultEolFill(const QsciLexerBatch* self, intptr_t slot) 
 }
 
 // Derived class handler implementation
-QFont* QsciLexerBatch_DefaultFontWithStyle(const QsciLexerBatch* self, int style) {
+QFont* QsciLexerBatch_DefaultFont2(const QsciLexerBatch* self, int style) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
         return new QFont(vqscilexerbatch->defaultFont(static_cast<int>(style)));
@@ -828,10 +828,10 @@ QFont* QsciLexerBatch_DefaultFontWithStyle(const QsciLexerBatch* self, int style
 }
 
 // Base class handler implementation
-QFont* QsciLexerBatch_QBaseDefaultFontWithStyle(const QsciLexerBatch* self, int style) {
+QFont* QsciLexerBatch_QBaseDefaultFont2(const QsciLexerBatch* self, int style) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
-        vqscilexerbatch->setQsciLexerBatch_DefaultFontWithStyle_IsBase(true);
+        vqscilexerbatch->setQsciLexerBatch_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerbatch->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerBatch*)self)->defaultFont(static_cast<int>(style)));
@@ -839,15 +839,15 @@ QFont* QsciLexerBatch_QBaseDefaultFontWithStyle(const QsciLexerBatch* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerBatch_OnDefaultFontWithStyle(const QsciLexerBatch* self, intptr_t slot) {
+void QsciLexerBatch_OnDefaultFont2(const QsciLexerBatch* self, intptr_t slot) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
-        vqscilexerbatch->setQsciLexerBatch_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerbatch->setQsciLexerBatch_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerBatch_DefaultPaperWithStyle(const QsciLexerBatch* self, int style) {
+QColor* QsciLexerBatch_DefaultPaper2(const QsciLexerBatch* self, int style) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
         return new QColor(vqscilexerbatch->defaultPaper(static_cast<int>(style)));
@@ -857,10 +857,10 @@ QColor* QsciLexerBatch_DefaultPaperWithStyle(const QsciLexerBatch* self, int sty
 }
 
 // Base class handler implementation
-QColor* QsciLexerBatch_QBaseDefaultPaperWithStyle(const QsciLexerBatch* self, int style) {
+QColor* QsciLexerBatch_QBaseDefaultPaper2(const QsciLexerBatch* self, int style) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
-        vqscilexerbatch->setQsciLexerBatch_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerbatch->setQsciLexerBatch_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerbatch->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerBatch*)self)->defaultPaper(static_cast<int>(style)));
@@ -868,10 +868,10 @@ QColor* QsciLexerBatch_QBaseDefaultPaperWithStyle(const QsciLexerBatch* self, in
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerBatch_OnDefaultPaperWithStyle(const QsciLexerBatch* self, intptr_t slot) {
+void QsciLexerBatch_OnDefaultPaper2(const QsciLexerBatch* self, intptr_t slot) {
     auto* vqscilexerbatch = const_cast<VirtualQsciLexerBatch*>(dynamic_cast<const VirtualQsciLexerBatch*>(self));
     if (vqscilexerbatch && vqscilexerbatch->isVirtualQsciLexerBatch) {
-        vqscilexerbatch->setQsciLexerBatch_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerbatch->setQsciLexerBatch_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerBatch::QsciLexerBatch_DefaultPaper2_Callback>(slot));
     }
 }
 

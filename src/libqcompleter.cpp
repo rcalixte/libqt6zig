@@ -250,7 +250,7 @@ void QCompleter_Activated(QCompleter* self, const libqt_string text) {
     self->activated(text_QString);
 }
 
-void QCompleter_ActivatedWithIndex(QCompleter* self, const QModelIndex* index) {
+void QCompleter_Activated2(QCompleter* self, const QModelIndex* index) {
     self->activated(*index);
 }
 
@@ -259,7 +259,7 @@ void QCompleter_Highlighted(QCompleter* self, const libqt_string text) {
     self->highlighted(text_QString);
 }
 
-void QCompleter_HighlightedWithIndex(QCompleter* self, const QModelIndex* index) {
+void QCompleter_Highlighted2(QCompleter* self, const QModelIndex* index) {
     self->highlighted(*index);
 }
 

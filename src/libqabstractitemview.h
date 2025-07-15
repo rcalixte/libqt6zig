@@ -145,7 +145,7 @@ void QAbstractItemView_SetItemDelegateForRow(QAbstractItemView* self, int row, Q
 QAbstractItemDelegate* QAbstractItemView_ItemDelegateForRow(const QAbstractItemView* self, int row);
 void QAbstractItemView_SetItemDelegateForColumn(QAbstractItemView* self, int column, QAbstractItemDelegate* delegate);
 QAbstractItemDelegate* QAbstractItemView_ItemDelegateForColumn(const QAbstractItemView* self, int column);
-QAbstractItemDelegate* QAbstractItemView_ItemDelegateWithIndex(const QAbstractItemView* self, const QModelIndex* index);
+QAbstractItemDelegate* QAbstractItemView_ItemDelegate2(const QAbstractItemView* self, const QModelIndex* index);
 QAbstractItemDelegate* QAbstractItemView_ItemDelegateForIndex(const QAbstractItemView* self, const QModelIndex* index);
 void QAbstractItemView_OnItemDelegateForIndex(const QAbstractItemView* self, intptr_t slot);
 QAbstractItemDelegate* QAbstractItemView_QBaseItemDelegateForIndex(const QAbstractItemView* self, const QModelIndex* index);

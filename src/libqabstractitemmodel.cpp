@@ -232,7 +232,7 @@ void QPersistentModelIndex_Swap(QPersistentModelIndex* self, QPersistentModelInd
     self->swap(*other);
 }
 
-void QPersistentModelIndex_OperatorAssignWithOther(QPersistentModelIndex* self, const QModelIndex* other) {
+void QPersistentModelIndex_OperatorAssign2(QPersistentModelIndex* self, const QModelIndex* other) {
     self->operator=(*other);
 }
 

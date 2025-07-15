@@ -31,7 +31,7 @@ int QScroller_Metacall(QScroller* self, int param1, int param2, void** param3);
 libqt_string QScroller_Tr(const char* s);
 bool QScroller_HasScroller(QObject* target);
 QScroller* QScroller_Scroller(QObject* target);
-QScroller* QScroller_ScrollerWithTarget(const QObject* target);
+QScroller* QScroller_Scroller2(const QObject* target);
 int QScroller_GrabGesture(QObject* target);
 int QScroller_GrabbedGesture(QObject* target);
 void QScroller_UngrabGesture(QObject* target);

@@ -351,8 +351,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#scanLine)
     ///
     /// ``` self: QtC.QImage, param1: i32 ```
-    pub fn ScanLineWithInt(self: ?*anyopaque, param1: i32) ?*const u8 {
-        return @ptrCast(qtc.QImage_ScanLineWithInt(@ptrCast(self), @intCast(param1)));
+    pub fn ScanLine2(self: ?*anyopaque, param1: i32) ?*const u8 {
+        return @ptrCast(qtc.QImage_ScanLine2(@ptrCast(self), @intCast(param1)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#constScanLine)
@@ -379,8 +379,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#valid)
     ///
     /// ``` self: QtC.QImage, pt: QtC.QPoint ```
-    pub fn ValidWithPt(self: ?*anyopaque, pt: ?*anyopaque) bool {
-        return qtc.QImage_ValidWithPt(@ptrCast(self), @ptrCast(pt));
+    pub fn Valid2(self: ?*anyopaque, pt: ?*anyopaque) bool {
+        return qtc.QImage_Valid2(@ptrCast(self), @ptrCast(pt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#pixelIndex)
@@ -393,8 +393,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#pixelIndex)
     ///
     /// ``` self: QtC.QImage, pt: QtC.QPoint ```
-    pub fn PixelIndexWithPt(self: ?*anyopaque, pt: ?*anyopaque) i32 {
-        return qtc.QImage_PixelIndexWithPt(@ptrCast(self), @ptrCast(pt));
+    pub fn PixelIndex2(self: ?*anyopaque, pt: ?*anyopaque) i32 {
+        return qtc.QImage_PixelIndex2(@ptrCast(self), @ptrCast(pt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#pixel)
@@ -407,8 +407,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#pixel)
     ///
     /// ``` self: QtC.QImage, pt: QtC.QPoint ```
-    pub fn PixelWithPt(self: ?*anyopaque, pt: ?*anyopaque) u32 {
-        return qtc.QImage_PixelWithPt(@ptrCast(self), @ptrCast(pt));
+    pub fn Pixel2(self: ?*anyopaque, pt: ?*anyopaque) u32 {
+        return qtc.QImage_Pixel2(@ptrCast(self), @ptrCast(pt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#setPixel)
@@ -435,8 +435,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#pixelColor)
     ///
     /// ``` self: QtC.QImage, pt: QtC.QPoint ```
-    pub fn PixelColorWithPt(self: ?*anyopaque, pt: ?*anyopaque) QtC.QColor {
-        return qtc.QImage_PixelColorWithPt(@ptrCast(self), @ptrCast(pt));
+    pub fn PixelColor2(self: ?*anyopaque, pt: ?*anyopaque) QtC.QColor {
+        return qtc.QImage_PixelColor2(@ptrCast(self), @ptrCast(pt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#setPixelColor)
@@ -507,15 +507,15 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fill)
     ///
     /// ``` self: QtC.QImage, color: QtC.QColor ```
-    pub fn FillWithColor(self: ?*anyopaque, color: ?*anyopaque) void {
-        qtc.QImage_FillWithColor(@ptrCast(self), @ptrCast(color));
+    pub fn Fill2(self: ?*anyopaque, color: ?*anyopaque) void {
+        qtc.QImage_Fill2(@ptrCast(self), @ptrCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fill)
     ///
     /// ``` self: QtC.QImage, color: qnamespace_enums.GlobalColor ```
-    pub fn Fill2(self: ?*anyopaque, color: i64) void {
-        qtc.QImage_Fill2(@ptrCast(self), @intCast(color));
+    pub fn Fill3(self: ?*anyopaque, color: i64) void {
+        qtc.QImage_Fill3(@ptrCast(self), @intCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#hasAlphaChannel)
@@ -563,8 +563,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#scaled)
     ///
     /// ``` self: QtC.QImage, s: QtC.QSize ```
-    pub fn ScaledWithQSize(self: ?*anyopaque, s: ?*anyopaque) QtC.QImage {
-        return qtc.QImage_ScaledWithQSize(@ptrCast(self), @ptrCast(s));
+    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque) QtC.QImage {
+        return qtc.QImage_Scaled2(@ptrCast(self), @ptrCast(s));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#scaledToWidth)
@@ -711,12 +711,12 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#load)
     ///
     /// ``` self: QtC.QImage, fileName: []const u8 ```
-    pub fn LoadWithFileName(self: ?*anyopaque, fileName: []const u8) bool {
+    pub fn Load2(self: ?*anyopaque, fileName: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QImage_LoadWithFileName(@ptrCast(self), fileName_str);
+        return qtc.QImage_Load2(@ptrCast(self), fileName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -736,12 +736,12 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
     ///
     /// ``` self: QtC.QImage, data: []u8 ```
-    pub fn LoadFromDataWithData(self: ?*anyopaque, data: []u8) bool {
+    pub fn LoadFromData3(self: ?*anyopaque, data: []u8) bool {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QImage_LoadFromDataWithData(@ptrCast(self), data_str);
+        return qtc.QImage_LoadFromData3(@ptrCast(self), data_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#save)
@@ -758,8 +758,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#save)
     ///
     /// ``` self: QtC.QImage, device: QtC.QIODevice ```
-    pub fn SaveWithDevice(self: ?*anyopaque, device: ?*anyopaque) bool {
-        return qtc.QImage_SaveWithDevice(@ptrCast(self), @ptrCast(device));
+    pub fn Save2(self: ?*anyopaque, device: ?*anyopaque) bool {
+        return qtc.QImage_Save2(@ptrCast(self), @ptrCast(device));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
@@ -779,12 +779,12 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
     ///
     /// ``` data: []u8 ```
-    pub fn FromDataWithData(data: []u8) QtC.QImage {
+    pub fn FromData3(data: []u8) QtC.QImage {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QImage_FromDataWithData(data_str);
+        return qtc.QImage_FromData3(data_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#cacheKey)
@@ -1232,8 +1232,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#scaled)
     ///
     /// ``` self: QtC.QImage, s: QtC.QSize, aspectMode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i64) QtC.QImage {
-        return qtc.QImage_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(aspectMode));
+    pub fn Scaled22(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i64) QtC.QImage {
+        return qtc.QImage_Scaled22(@ptrCast(self), @ptrCast(s), @intCast(aspectMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#scaled)
@@ -1330,13 +1330,13 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#load)
     ///
     /// ``` self: QtC.QImage, fileName: []const u8, format: []const u8 ```
-    pub fn Load2(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
+    pub fn Load22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
-        return qtc.QImage_Load2(@ptrCast(self), fileName_str, format_Cstring);
+        return qtc.QImage_Load22(@ptrCast(self), fileName_str, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -1350,9 +1350,9 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
     ///
     /// ``` self: QtC.QImage, buf: ?*u8, lenVal: i32, format: []const u8 ```
-    pub fn LoadFromData3(self: ?*anyopaque, buf: ?*anyopaque, lenVal: i32, format: []const u8) bool {
+    pub fn LoadFromData32(self: ?*anyopaque, buf: ?*anyopaque, lenVal: i32, format: []const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QImage_LoadFromData3(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring);
+        return qtc.QImage_LoadFromData32(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -1370,13 +1370,13 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#save)
     ///
     /// ``` self: QtC.QImage, fileName: []const u8, format: []const u8 ```
-    pub fn Save2(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
+    pub fn Save22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
-        return qtc.QImage_Save2(@ptrCast(self), fileName_str, format_Cstring);
+        return qtc.QImage_Save22(@ptrCast(self), fileName_str, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#save)
@@ -1394,9 +1394,9 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#save)
     ///
     /// ``` self: QtC.QImage, device: QtC.QIODevice, format: []const u8 ```
-    pub fn Save22(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
+    pub fn Save23(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QImage_Save22(@ptrCast(self), @ptrCast(device), format_Cstring);
+        return qtc.QImage_Save23(@ptrCast(self), @ptrCast(device), format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#save)
@@ -1418,9 +1418,9 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
     ///
     /// ``` data: ?*u8, size: i32, format: []const u8 ```
-    pub fn FromData3(data: ?*anyopaque, size: i32, format: []const u8) QtC.QImage {
+    pub fn FromData32(data: ?*anyopaque, size: i32, format: []const u8) QtC.QImage {
         const format_Cstring = format.ptr;
-        return qtc.QImage_FromData3(@intCast(data), @intCast(size), format_Cstring);
+        return qtc.QImage_FromData32(@intCast(data), @intCast(size), format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)

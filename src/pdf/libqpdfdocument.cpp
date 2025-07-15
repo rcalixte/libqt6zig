@@ -86,7 +86,7 @@ int QPdfDocument_Status(const QPdfDocument* self) {
     return static_cast<int>(self->status());
 }
 
-void QPdfDocument_LoadWithDevice(QPdfDocument* self, QIODevice* device) {
+void QPdfDocument_Load2(QPdfDocument* self, QIODevice* device) {
     self->load(device);
 }
 

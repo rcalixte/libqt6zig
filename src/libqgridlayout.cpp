@@ -637,7 +637,7 @@ void QGridLayout_OnSetGeometry(QGridLayout* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QGridLayout_AddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* param1) {
+void QGridLayout_AddItem2(QGridLayout* self, QLayoutItem* param1) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
         vqgridlayout->addItem(param1);
@@ -647,10 +647,10 @@ void QGridLayout_AddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* param1) 
 }
 
 // Base class handler implementation
-void QGridLayout_QBaseAddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* param1) {
+void QGridLayout_QBaseAddItem2(QGridLayout* self, QLayoutItem* param1) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AddItemWithQLayoutItem_IsBase(true);
+        vqgridlayout->setQGridLayout_AddItem2_IsBase(true);
         vqgridlayout->addItem(param1);
     } else {
         ((VirtualQGridLayout*)self)->addItem(param1);
@@ -658,10 +658,10 @@ void QGridLayout_QBaseAddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* par
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGridLayout_OnAddItemWithQLayoutItem(QGridLayout* self, intptr_t slot) {
+void QGridLayout_OnAddItem2(QGridLayout* self, intptr_t slot) {
     auto* vqgridlayout = dynamic_cast<VirtualQGridLayout*>(self);
     if (vqgridlayout && vqgridlayout->isVirtualQGridLayout) {
-        vqgridlayout->setQGridLayout_AddItemWithQLayoutItem_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AddItemWithQLayoutItem_Callback>(slot));
+        vqgridlayout->setQGridLayout_AddItem2_Callback(reinterpret_cast<VirtualQGridLayout::QGridLayout_AddItem2_Callback>(slot));
     }
 }
 

@@ -53,12 +53,12 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator=)
     ///
     /// ``` self: QtC.QUrl, url: []const u8 ```
-    pub fn OperatorAssignWithUrl(self: ?*anyopaque, url: []const u8) void {
+    pub fn OperatorAssign2(self: ?*anyopaque, url: []const u8) void {
         const url_str = qtc.struct_libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
-        qtc.QUrl_OperatorAssignWithUrl(@ptrCast(self), url_str);
+        qtc.QUrl_OperatorAssign2(@ptrCast(self), url_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#swap)
@@ -373,8 +373,8 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setQuery)
     ///
     /// ``` self: QtC.QUrl, query: QtC.QUrlQuery ```
-    pub fn SetQueryWithQuery(self: ?*anyopaque, query: ?*anyopaque) void {
-        qtc.QUrl_SetQueryWithQuery(@ptrCast(self), @ptrCast(query));
+    pub fn SetQuery2(self: ?*anyopaque, query: ?*anyopaque) void {
+        qtc.QUrl_SetQuery2(@ptrCast(self), @ptrCast(query));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#query)
@@ -833,12 +833,12 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setQuery)
     ///
     /// ``` self: QtC.QUrl, query: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetQuery2(self: ?*anyopaque, query: []const u8, mode: i64) void {
+    pub fn SetQuery22(self: ?*anyopaque, query: []const u8, mode: i64) void {
         const query_str = qtc.struct_libqt_string{
             .len = query.len,
             .data = query.ptr,
         };
-        qtc.QUrl_SetQuery2(@ptrCast(self), query_str, @intCast(mode));
+        qtc.QUrl_SetQuery22(@ptrCast(self), query_str, @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#query)

@@ -125,8 +125,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QLayout, margins: QtC.QMargins ```
-    pub fn SetContentsMarginsWithMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QLayout_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
+        qtc.QLayout_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#unsetContentsMargins)
@@ -494,8 +494,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// ``` self: QtC.QLayout, param1: QtC.QLayoutItem ```
-    pub fn IndexOfWithQLayoutItem(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QLayout_IndexOfWithQLayoutItem(@ptrCast(self), @ptrCast(param1));
+    pub fn IndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QLayout_IndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
@@ -503,8 +503,8 @@ pub const qlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
-    pub fn OnIndexOfWithQLayoutItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOfWithQLayoutItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
@@ -512,8 +512,8 @@ pub const qlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QLayout, param1: QtC.QLayoutItem ```
-    pub fn QBaseIndexOfWithQLayoutItem(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseIndexOfWithQLayoutItem(@ptrCast(self), @ptrCast(param1));
+    pub fn QBaseIndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QLayout_QBaseIndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#count)
@@ -985,8 +985,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QLayout, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1064,8 +1064,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1208,8 +1208,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

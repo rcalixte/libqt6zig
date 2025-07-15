@@ -50,7 +50,7 @@ void QSystemSemaphore_SetNativeKey(QSystemSemaphore* self, const QNativeIpcKey* 
     self->setNativeKey(*key);
 }
 
-void QSystemSemaphore_SetNativeKeyWithKey(QSystemSemaphore* self, const libqt_string key) {
+void QSystemSemaphore_SetNativeKey2(QSystemSemaphore* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setNativeKey(key_QString);
 }
@@ -138,7 +138,7 @@ libqt_string QSystemSemaphore_Tr3(const char* sourceText, const char* disambigua
     return _str;
 }
 
-void QSystemSemaphore_SetNativeKey2(QSystemSemaphore* self, const QNativeIpcKey* key, int initialValue) {
+void QSystemSemaphore_SetNativeKey22(QSystemSemaphore* self, const QNativeIpcKey* key, int initialValue) {
     self->setNativeKey(*key, static_cast<int>(initialValue));
 }
 
@@ -146,7 +146,7 @@ void QSystemSemaphore_SetNativeKey3(QSystemSemaphore* self, const QNativeIpcKey*
     self->setNativeKey(*key, static_cast<int>(initialValue), static_cast<QSystemSemaphore::AccessMode>(param3));
 }
 
-void QSystemSemaphore_SetNativeKey22(QSystemSemaphore* self, const libqt_string key, int initialValue) {
+void QSystemSemaphore_SetNativeKey23(QSystemSemaphore* self, const libqt_string key, int initialValue) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setNativeKey(key_QString, static_cast<int>(initialValue));
 }

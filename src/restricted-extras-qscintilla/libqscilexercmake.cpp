@@ -793,7 +793,7 @@ void QsciLexerCMake_OnPaper(const QsciLexerCMake* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerCMake_DefaultColorWithStyle(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_DefaultColor2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         return new QColor(vqscilexercmake->defaultColor(static_cast<int>(style)));
@@ -803,10 +803,10 @@ QColor* QsciLexerCMake_DefaultColorWithStyle(const QsciLexerCMake* self, int sty
 }
 
 // Base class handler implementation
-QColor* QsciLexerCMake_QBaseDefaultColorWithStyle(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_QBaseDefaultColor2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_DefaultColorWithStyle_IsBase(true);
+        vqscilexercmake->setQsciLexerCMake_DefaultColor2_IsBase(true);
         return new QColor(vqscilexercmake->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerCMake*)self)->defaultColor(static_cast<int>(style)));
@@ -814,10 +814,10 @@ QColor* QsciLexerCMake_QBaseDefaultColorWithStyle(const QsciLexerCMake* self, in
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnDefaultColorWithStyle(const QsciLexerCMake* self, intptr_t slot) {
+void QsciLexerCMake_OnDefaultColor2(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultColorWithStyle_Callback>(slot));
+        vqscilexercmake->setQsciLexerCMake_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -851,7 +851,7 @@ void QsciLexerCMake_OnDefaultEolFill(const QsciLexerCMake* self, intptr_t slot) 
 }
 
 // Derived class handler implementation
-QFont* QsciLexerCMake_DefaultFontWithStyle(const QsciLexerCMake* self, int style) {
+QFont* QsciLexerCMake_DefaultFont2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         return new QFont(vqscilexercmake->defaultFont(static_cast<int>(style)));
@@ -861,10 +861,10 @@ QFont* QsciLexerCMake_DefaultFontWithStyle(const QsciLexerCMake* self, int style
 }
 
 // Base class handler implementation
-QFont* QsciLexerCMake_QBaseDefaultFontWithStyle(const QsciLexerCMake* self, int style) {
+QFont* QsciLexerCMake_QBaseDefaultFont2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_DefaultFontWithStyle_IsBase(true);
+        vqscilexercmake->setQsciLexerCMake_DefaultFont2_IsBase(true);
         return new QFont(vqscilexercmake->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerCMake*)self)->defaultFont(static_cast<int>(style)));
@@ -872,15 +872,15 @@ QFont* QsciLexerCMake_QBaseDefaultFontWithStyle(const QsciLexerCMake* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnDefaultFontWithStyle(const QsciLexerCMake* self, intptr_t slot) {
+void QsciLexerCMake_OnDefaultFont2(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultFontWithStyle_Callback>(slot));
+        vqscilexercmake->setQsciLexerCMake_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerCMake_DefaultPaperWithStyle(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_DefaultPaper2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
         return new QColor(vqscilexercmake->defaultPaper(static_cast<int>(style)));
@@ -890,10 +890,10 @@ QColor* QsciLexerCMake_DefaultPaperWithStyle(const QsciLexerCMake* self, int sty
 }
 
 // Base class handler implementation
-QColor* QsciLexerCMake_QBaseDefaultPaperWithStyle(const QsciLexerCMake* self, int style) {
+QColor* QsciLexerCMake_QBaseDefaultPaper2(const QsciLexerCMake* self, int style) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_DefaultPaperWithStyle_IsBase(true);
+        vqscilexercmake->setQsciLexerCMake_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexercmake->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerCMake*)self)->defaultPaper(static_cast<int>(style)));
@@ -901,10 +901,10 @@ QColor* QsciLexerCMake_QBaseDefaultPaperWithStyle(const QsciLexerCMake* self, in
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerCMake_OnDefaultPaperWithStyle(const QsciLexerCMake* self, intptr_t slot) {
+void QsciLexerCMake_OnDefaultPaper2(const QsciLexerCMake* self, intptr_t slot) {
     auto* vqscilexercmake = const_cast<VirtualQsciLexerCMake*>(dynamic_cast<const VirtualQsciLexerCMake*>(self));
     if (vqscilexercmake && vqscilexercmake->isVirtualQsciLexerCMake) {
-        vqscilexercmake->setQsciLexerCMake_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexercmake->setQsciLexerCMake_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerCMake::QsciLexerCMake_DefaultPaper2_Callback>(slot));
     }
 }
 

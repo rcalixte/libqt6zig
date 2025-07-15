@@ -209,12 +209,12 @@ pub const qsslconfiguration = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#setCiphers)
     ///
     /// ``` self: QtC.QSslConfiguration, ciphers: []const u8 ```
-    pub fn SetCiphersWithCiphers(self: ?*anyopaque, ciphers: []const u8) void {
+    pub fn SetCiphers2(self: ?*anyopaque, ciphers: []const u8) void {
         const ciphers_str = qtc.struct_libqt_string{
             .len = ciphers.len,
             .data = ciphers.ptr,
         };
-        qtc.QSslConfiguration_SetCiphersWithCiphers(@ptrCast(self), ciphers_str);
+        qtc.QSslConfiguration_SetCiphers2(@ptrCast(self), ciphers_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#supportedCiphers)
@@ -273,12 +273,12 @@ pub const qsslconfiguration = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ``` self: QtC.QSslConfiguration, certificates: []QtC.QSslCertificate ```
-    pub fn AddCaCertificatesWithCertificates(self: ?*anyopaque, certificates: []QtC.QSslCertificate) void {
+    pub fn AddCaCertificates2(self: ?*anyopaque, certificates: []QtC.QSslCertificate) void {
         const certificates_list = qtc.struct_libqt_list{
             .len = certificates.len,
             .data = @ptrCast(certificates.ptr),
         };
-        qtc.QSslConfiguration_AddCaCertificatesWithCertificates(@ptrCast(self), certificates_list);
+        qtc.QSslConfiguration_AddCaCertificates2(@ptrCast(self), certificates_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#systemCaCertificates)
@@ -578,12 +578,12 @@ pub const qsslconfiguration = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ``` self: QtC.QSslConfiguration, path: []const u8, format: qssl_enums.EncodingFormat ```
-    pub fn AddCaCertificates2(self: ?*anyopaque, path: []const u8, format: i64) bool {
+    pub fn AddCaCertificates22(self: ?*anyopaque, path: []const u8, format: i64) bool {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QSslConfiguration_AddCaCertificates2(@ptrCast(self), path_str, @intCast(format));
+        return qtc.QSslConfiguration_AddCaCertificates22(@ptrCast(self), path_str, @intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)

@@ -55,8 +55,8 @@ pub const qssldiffiehellmanparameters = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
     /// ``` device: QtC.QIODevice ```
-    pub fn FromEncodedWithDevice(device: ?*anyopaque) QtC.QSslDiffieHellmanParameters {
-        return qtc.QSslDiffieHellmanParameters_FromEncodedWithDevice(@ptrCast(device));
+    pub fn FromEncoded2(device: ?*anyopaque) QtC.QSslDiffieHellmanParameters {
+        return qtc.QSslDiffieHellmanParameters_FromEncoded2(@ptrCast(device));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#isEmpty)
@@ -94,19 +94,19 @@ pub const qssldiffiehellmanparameters = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
     /// ``` encoded: []u8, format: qssl_enums.EncodingFormat ```
-    pub fn FromEncoded2(encoded: []u8, format: i64) QtC.QSslDiffieHellmanParameters {
+    pub fn FromEncoded22(encoded: []u8, format: i64) QtC.QSslDiffieHellmanParameters {
         const encoded_str = qtc.struct_libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
         };
-        return qtc.QSslDiffieHellmanParameters_FromEncoded2(encoded_str, @intCast(format));
+        return qtc.QSslDiffieHellmanParameters_FromEncoded22(encoded_str, @intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
     /// ``` device: QtC.QIODevice, format: qssl_enums.EncodingFormat ```
-    pub fn FromEncoded22(device: ?*anyopaque, format: i64) QtC.QSslDiffieHellmanParameters {
-        return qtc.QSslDiffieHellmanParameters_FromEncoded22(@ptrCast(device), @intCast(format));
+    pub fn FromEncoded23(device: ?*anyopaque, format: i64) QtC.QSslDiffieHellmanParameters {
+        return qtc.QSslDiffieHellmanParameters_FromEncoded23(@ptrCast(device), @intCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#dtor.QSslDiffieHellmanParameters)

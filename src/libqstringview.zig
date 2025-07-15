@@ -134,43 +134,43 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#compare)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar ```
-    pub fn CompareWithQChar(self: ?*anyopaque, c: QtC.QChar) i32 {
-        return qtc.QStringView_CompareWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn Compare4(self: ?*anyopaque, c: QtC.QChar) i32 {
+        return qtc.QStringView_Compare4(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#compare)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Compare3(self: ?*anyopaque, c: QtC.QChar, cs: i64) i32 {
-        return qtc.QStringView_Compare3(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn Compare5(self: ?*anyopaque, c: QtC.QChar, cs: i64) i32 {
+        return qtc.QStringView_Compare5(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#startsWith)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar ```
-    pub fn StartsWithWithQChar(self: ?*anyopaque, c: QtC.QChar) bool {
-        return qtc.QStringView_StartsWithWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn StartsWith3(self: ?*anyopaque, c: QtC.QChar) bool {
+        return qtc.QStringView_StartsWith3(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#startsWith)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn StartsWith2(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
-        return qtc.QStringView_StartsWith2(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn StartsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+        return qtc.QStringView_StartsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#endsWith)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar ```
-    pub fn EndsWithWithQChar(self: ?*anyopaque, c: QtC.QChar) bool {
-        return qtc.QStringView_EndsWithWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn EndsWith3(self: ?*anyopaque, c: QtC.QChar) bool {
+        return qtc.QStringView_EndsWith3(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#endsWith)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn EndsWith2(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
-        return qtc.QStringView_EndsWith2(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn EndsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+        return qtc.QStringView_EndsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)
@@ -211,29 +211,29 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)
     ///
     /// ``` self: QtC.QStringView, re: QtC.QRegularExpression ```
-    pub fn IndexOfWithRe(self: ?*anyopaque, re: ?*anyopaque) i64 {
-        return qtc.QStringView_IndexOfWithRe(@ptrCast(self), @ptrCast(re));
+    pub fn IndexOf4(self: ?*anyopaque, re: ?*anyopaque) i64 {
+        return qtc.QStringView_IndexOf4(@ptrCast(self), @ptrCast(re));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QStringView, re: QtC.QRegularExpression, from: i64 ```
-    pub fn LastIndexOf5(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
-        return qtc.QStringView_LastIndexOf5(@ptrCast(self), @ptrCast(re), @intCast(from));
+    pub fn LastIndexOf7(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
+        return qtc.QStringView_LastIndexOf7(@ptrCast(self), @ptrCast(re), @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#contains)
     ///
     /// ``` self: QtC.QStringView, re: QtC.QRegularExpression ```
-    pub fn ContainsWithRe(self: ?*anyopaque, re: ?*anyopaque) bool {
-        return qtc.QStringView_ContainsWithRe(@ptrCast(self), @ptrCast(re));
+    pub fn Contains4(self: ?*anyopaque, re: ?*anyopaque) bool {
+        return qtc.QStringView_Contains4(@ptrCast(self), @ptrCast(re));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#count)
     ///
     /// ``` self: QtC.QStringView, re: QtC.QRegularExpression ```
-    pub fn CountWithRe(self: ?*anyopaque, re: ?*anyopaque) i64 {
-        return qtc.QStringView_CountWithRe(@ptrCast(self), @ptrCast(re));
+    pub fn Count4(self: ?*anyopaque, re: ?*anyopaque) i64 {
+        return qtc.QStringView_Count4(@ptrCast(self), @ptrCast(re));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#isRightToLeft)
@@ -449,29 +449,29 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, from: i64 ```
-    pub fn IndexOf2(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
-        return qtc.QStringView_IndexOf2(@ptrCast(self), @ptrCast(c), @intCast(from));
+    pub fn IndexOf22(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
+        return qtc.QStringView_IndexOf22(@ptrCast(self), @ptrCast(c), @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, from: i64, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn IndexOf3(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i64) i64 {
-        return qtc.QStringView_IndexOf3(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
+    pub fn IndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i64) i64 {
+        return qtc.QStringView_IndexOf32(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#contains)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Contains2(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
-        return qtc.QStringView_Contains2(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn Contains22(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+        return qtc.QStringView_Contains22(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#count)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Count2(self: ?*anyopaque, c: QtC.QChar, cs: i64) i64 {
-        return qtc.QStringView_Count2(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn Count22(self: ?*anyopaque, c: QtC.QChar, cs: i64) i64 {
+        return qtc.QStringView_Count22(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
@@ -491,15 +491,15 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)
     ///
     /// ``` self: QtC.QStringView, re: QtC.QRegularExpression, from: i64 ```
-    pub fn IndexOf24(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
-        return qtc.QStringView_IndexOf24(@ptrCast(self), @ptrCast(re), @intCast(from));
+    pub fn IndexOf25(self: ?*anyopaque, re: ?*anyopaque, from: i64) i64 {
+        return qtc.QStringView_IndexOf25(@ptrCast(self), @ptrCast(re), @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)
     ///
     /// ``` self: QtC.QStringView, re: QtC.QRegularExpression, from: i64, rmatch: QtC.QRegularExpressionMatch ```
-    pub fn IndexOf34(self: ?*anyopaque, re: ?*anyopaque, from: i64, rmatch: ?*anyopaque) i64 {
-        return qtc.QStringView_IndexOf34(@ptrCast(self), @ptrCast(re), @intCast(from), @ptrCast(rmatch));
+    pub fn IndexOf35(self: ?*anyopaque, re: ?*anyopaque, from: i64, rmatch: ?*anyopaque) i64 {
+        return qtc.QStringView_IndexOf35(@ptrCast(self), @ptrCast(re), @intCast(from), @ptrCast(rmatch));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
@@ -512,8 +512,8 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#contains)
     ///
     /// ``` self: QtC.QStringView, re: QtC.QRegularExpression, rmatch: QtC.QRegularExpressionMatch ```
-    pub fn Contains24(self: ?*anyopaque, re: ?*anyopaque, rmatch: ?*anyopaque) bool {
-        return qtc.QStringView_Contains24(@ptrCast(self), @ptrCast(re), @ptrCast(rmatch));
+    pub fn Contains25(self: ?*anyopaque, re: ?*anyopaque, rmatch: ?*anyopaque) bool {
+        return qtc.QStringView_Contains25(@ptrCast(self), @ptrCast(re), @ptrCast(rmatch));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toShort)

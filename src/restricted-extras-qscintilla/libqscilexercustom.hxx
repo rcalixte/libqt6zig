@@ -41,10 +41,10 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
     using QsciLexerCustom_DefaultStyle_Callback = int (*)();
     using QsciLexerCustom_Description_Callback = libqt_string (*)(const QsciLexerCustom*, int);
     using QsciLexerCustom_Paper_Callback = QColor* (*)(const QsciLexerCustom*, int);
-    using QsciLexerCustom_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerCustom*, int);
+    using QsciLexerCustom_DefaultColor2_Callback = QColor* (*)(const QsciLexerCustom*, int);
     using QsciLexerCustom_DefaultEolFill_Callback = bool (*)(const QsciLexerCustom*, int);
-    using QsciLexerCustom_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerCustom*, int);
-    using QsciLexerCustom_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerCustom*, int);
+    using QsciLexerCustom_DefaultFont2_Callback = QFont* (*)(const QsciLexerCustom*, int);
+    using QsciLexerCustom_DefaultPaper2_Callback = QColor* (*)(const QsciLexerCustom*, int);
     using QsciLexerCustom_RefreshProperties_Callback = void (*)();
     using QsciLexerCustom_WordCharacters_Callback = const char* (*)();
     using QsciLexerCustom_SetAutoIndentStyle_Callback = void (*)(QsciLexerCustom*, int);
@@ -93,10 +93,10 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
     QsciLexerCustom_DefaultStyle_Callback qscilexercustom_defaultstyle_callback = nullptr;
     QsciLexerCustom_Description_Callback qscilexercustom_description_callback = nullptr;
     QsciLexerCustom_Paper_Callback qscilexercustom_paper_callback = nullptr;
-    QsciLexerCustom_DefaultColorWithStyle_Callback qscilexercustom_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerCustom_DefaultColor2_Callback qscilexercustom_defaultcolor2_callback = nullptr;
     QsciLexerCustom_DefaultEolFill_Callback qscilexercustom_defaulteolfill_callback = nullptr;
-    QsciLexerCustom_DefaultFontWithStyle_Callback qscilexercustom_defaultfontwithstyle_callback = nullptr;
-    QsciLexerCustom_DefaultPaperWithStyle_Callback qscilexercustom_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerCustom_DefaultFont2_Callback qscilexercustom_defaultfont2_callback = nullptr;
+    QsciLexerCustom_DefaultPaper2_Callback qscilexercustom_defaultpaper2_callback = nullptr;
     QsciLexerCustom_RefreshProperties_Callback qscilexercustom_refreshproperties_callback = nullptr;
     QsciLexerCustom_WordCharacters_Callback qscilexercustom_wordcharacters_callback = nullptr;
     QsciLexerCustom_SetAutoIndentStyle_Callback qscilexercustom_setautoindentstyle_callback = nullptr;
@@ -144,10 +144,10 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
     mutable bool qscilexercustom_defaultstyle_isbase = false;
     mutable bool qscilexercustom_description_isbase = false;
     mutable bool qscilexercustom_paper_isbase = false;
-    mutable bool qscilexercustom_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexercustom_defaultcolor2_isbase = false;
     mutable bool qscilexercustom_defaulteolfill_isbase = false;
-    mutable bool qscilexercustom_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexercustom_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexercustom_defaultfont2_isbase = false;
+    mutable bool qscilexercustom_defaultpaper2_isbase = false;
     mutable bool qscilexercustom_refreshproperties_isbase = false;
     mutable bool qscilexercustom_wordcharacters_isbase = false;
     mutable bool qscilexercustom_setautoindentstyle_isbase = false;
@@ -199,10 +199,10 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
         qscilexercustom_defaultstyle_callback = nullptr;
         qscilexercustom_description_callback = nullptr;
         qscilexercustom_paper_callback = nullptr;
-        qscilexercustom_defaultcolorwithstyle_callback = nullptr;
+        qscilexercustom_defaultcolor2_callback = nullptr;
         qscilexercustom_defaulteolfill_callback = nullptr;
-        qscilexercustom_defaultfontwithstyle_callback = nullptr;
-        qscilexercustom_defaultpaperwithstyle_callback = nullptr;
+        qscilexercustom_defaultfont2_callback = nullptr;
+        qscilexercustom_defaultpaper2_callback = nullptr;
         qscilexercustom_refreshproperties_callback = nullptr;
         qscilexercustom_wordcharacters_callback = nullptr;
         qscilexercustom_setautoindentstyle_callback = nullptr;
@@ -251,10 +251,10 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
     inline void setQsciLexerCustom_DefaultStyle_Callback(QsciLexerCustom_DefaultStyle_Callback cb) { qscilexercustom_defaultstyle_callback = cb; }
     inline void setQsciLexerCustom_Description_Callback(QsciLexerCustom_Description_Callback cb) { qscilexercustom_description_callback = cb; }
     inline void setQsciLexerCustom_Paper_Callback(QsciLexerCustom_Paper_Callback cb) { qscilexercustom_paper_callback = cb; }
-    inline void setQsciLexerCustom_DefaultColorWithStyle_Callback(QsciLexerCustom_DefaultColorWithStyle_Callback cb) { qscilexercustom_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerCustom_DefaultColor2_Callback(QsciLexerCustom_DefaultColor2_Callback cb) { qscilexercustom_defaultcolor2_callback = cb; }
     inline void setQsciLexerCustom_DefaultEolFill_Callback(QsciLexerCustom_DefaultEolFill_Callback cb) { qscilexercustom_defaulteolfill_callback = cb; }
-    inline void setQsciLexerCustom_DefaultFontWithStyle_Callback(QsciLexerCustom_DefaultFontWithStyle_Callback cb) { qscilexercustom_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerCustom_DefaultPaperWithStyle_Callback(QsciLexerCustom_DefaultPaperWithStyle_Callback cb) { qscilexercustom_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerCustom_DefaultFont2_Callback(QsciLexerCustom_DefaultFont2_Callback cb) { qscilexercustom_defaultfont2_callback = cb; }
+    inline void setQsciLexerCustom_DefaultPaper2_Callback(QsciLexerCustom_DefaultPaper2_Callback cb) { qscilexercustom_defaultpaper2_callback = cb; }
     inline void setQsciLexerCustom_RefreshProperties_Callback(QsciLexerCustom_RefreshProperties_Callback cb) { qscilexercustom_refreshproperties_callback = cb; }
     inline void setQsciLexerCustom_WordCharacters_Callback(QsciLexerCustom_WordCharacters_Callback cb) { qscilexercustom_wordcharacters_callback = cb; }
     inline void setQsciLexerCustom_SetAutoIndentStyle_Callback(QsciLexerCustom_SetAutoIndentStyle_Callback cb) { qscilexercustom_setautoindentstyle_callback = cb; }
@@ -302,10 +302,10 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
     inline void setQsciLexerCustom_DefaultStyle_IsBase(bool value) const { qscilexercustom_defaultstyle_isbase = value; }
     inline void setQsciLexerCustom_Description_IsBase(bool value) const { qscilexercustom_description_isbase = value; }
     inline void setQsciLexerCustom_Paper_IsBase(bool value) const { qscilexercustom_paper_isbase = value; }
-    inline void setQsciLexerCustom_DefaultColorWithStyle_IsBase(bool value) const { qscilexercustom_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerCustom_DefaultColor2_IsBase(bool value) const { qscilexercustom_defaultcolor2_isbase = value; }
     inline void setQsciLexerCustom_DefaultEolFill_IsBase(bool value) const { qscilexercustom_defaulteolfill_isbase = value; }
-    inline void setQsciLexerCustom_DefaultFontWithStyle_IsBase(bool value) const { qscilexercustom_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerCustom_DefaultPaperWithStyle_IsBase(bool value) const { qscilexercustom_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerCustom_DefaultFont2_IsBase(bool value) const { qscilexercustom_defaultfont2_isbase = value; }
+    inline void setQsciLexerCustom_DefaultPaper2_IsBase(bool value) const { qscilexercustom_defaultpaper2_isbase = value; }
     inline void setQsciLexerCustom_RefreshProperties_IsBase(bool value) const { qscilexercustom_refreshproperties_isbase = value; }
     inline void setQsciLexerCustom_WordCharacters_IsBase(bool value) const { qscilexercustom_wordcharacters_isbase = value; }
     inline void setQsciLexerCustom_SetAutoIndentStyle_IsBase(bool value) const { qscilexercustom_setautoindentstyle_isbase = value; }
@@ -652,13 +652,13 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexercustom_defaultcolorwithstyle_isbase) {
-            qscilexercustom_defaultcolorwithstyle_isbase = false;
+        if (qscilexercustom_defaultcolor2_isbase) {
+            qscilexercustom_defaultcolor2_isbase = false;
             return QsciLexerCustom::defaultColor(style);
-        } else if (qscilexercustom_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexercustom_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexercustom_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexercustom_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerCustom::defaultColor(style);
@@ -682,13 +682,13 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexercustom_defaultfontwithstyle_isbase) {
-            qscilexercustom_defaultfontwithstyle_isbase = false;
+        if (qscilexercustom_defaultfont2_isbase) {
+            qscilexercustom_defaultfont2_isbase = false;
             return QsciLexerCustom::defaultFont(style);
-        } else if (qscilexercustom_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexercustom_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexercustom_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexercustom_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerCustom::defaultFont(style);
@@ -697,13 +697,13 @@ class VirtualQsciLexerCustom final : public QsciLexerCustom {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexercustom_defaultpaperwithstyle_isbase) {
-            qscilexercustom_defaultpaperwithstyle_isbase = false;
+        if (qscilexercustom_defaultpaper2_isbase) {
+            qscilexercustom_defaultpaper2_isbase = false;
             return QsciLexerCustom::defaultPaper(style);
-        } else if (qscilexercustom_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexercustom_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexercustom_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexercustom_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerCustom::defaultPaper(style);

@@ -104,32 +104,32 @@ bool QResource_UnregisterResource(const libqt_string rccFilename) {
     return QResource::unregisterResource(rccFilename_QString);
 }
 
-bool QResource_RegisterResourceWithRccData(const unsigned char* rccData) {
+bool QResource_RegisterResource2(const unsigned char* rccData) {
     return QResource::registerResource(static_cast<const uchar*>(rccData));
 }
 
-bool QResource_UnregisterResourceWithRccData(const unsigned char* rccData) {
+bool QResource_UnregisterResource2(const unsigned char* rccData) {
     return QResource::unregisterResource(static_cast<const uchar*>(rccData));
 }
 
-bool QResource_RegisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot) {
+bool QResource_RegisterResource22(const libqt_string rccFilename, const libqt_string resourceRoot) {
     QString rccFilename_QString = QString::fromUtf8(rccFilename.data, rccFilename.len);
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::registerResource(rccFilename_QString, resourceRoot_QString);
 }
 
-bool QResource_UnregisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot) {
+bool QResource_UnregisterResource22(const libqt_string rccFilename, const libqt_string resourceRoot) {
     QString rccFilename_QString = QString::fromUtf8(rccFilename.data, rccFilename.len);
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::unregisterResource(rccFilename_QString, resourceRoot_QString);
 }
 
-bool QResource_RegisterResource22(const unsigned char* rccData, const libqt_string resourceRoot) {
+bool QResource_RegisterResource23(const unsigned char* rccData, const libqt_string resourceRoot) {
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::registerResource(static_cast<const uchar*>(rccData), resourceRoot_QString);
 }
 
-bool QResource_UnregisterResource22(const unsigned char* rccData, const libqt_string resourceRoot) {
+bool QResource_UnregisterResource23(const unsigned char* rccData, const libqt_string resourceRoot) {
     QString resourceRoot_QString = QString::fromUtf8(resourceRoot.data, resourceRoot.len);
     return QResource::unregisterResource(static_cast<const uchar*>(rccData), resourceRoot_QString);
 }

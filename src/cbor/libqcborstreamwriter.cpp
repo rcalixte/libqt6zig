@@ -21,36 +21,36 @@ void QCborStreamWriter_Append(QCborStreamWriter* self, unsigned long long u) {
     self->append(static_cast<quint64>(u));
 }
 
-void QCborStreamWriter_AppendWithQint64(QCborStreamWriter* self, long long i) {
+void QCborStreamWriter_Append2(QCborStreamWriter* self, long long i) {
     self->append(static_cast<qint64>(i));
 }
 
-void QCborStreamWriter_AppendWithQCborNegativeInteger(QCborStreamWriter* self, uint64_t n) {
+void QCborStreamWriter_Append3(QCborStreamWriter* self, uint64_t n) {
     self->append(static_cast<QCborNegativeInteger>(n));
 }
 
-void QCborStreamWriter_AppendWithBa(QCborStreamWriter* self, const libqt_string ba) {
+void QCborStreamWriter_Append4(QCborStreamWriter* self, const libqt_string ba) {
     QByteArray ba_QByteArray(ba.data, ba.len);
     self->append(ba_QByteArray);
 }
 
-void QCborStreamWriter_AppendWithTag(QCborStreamWriter* self, uint64_t tag) {
+void QCborStreamWriter_Append7(QCborStreamWriter* self, uint64_t tag) {
     self->append(static_cast<QCborTag>(tag));
 }
 
-void QCborStreamWriter_Append3(QCborStreamWriter* self, int tag) {
+void QCborStreamWriter_Append8(QCborStreamWriter* self, int tag) {
     self->append(static_cast<QCborKnownTags>(tag));
 }
 
-void QCborStreamWriter_AppendWithSt(QCborStreamWriter* self, uint8_t st) {
+void QCborStreamWriter_Append9(QCborStreamWriter* self, uint8_t st) {
     self->append(static_cast<QCborSimpleType>(st));
 }
 
-void QCborStreamWriter_AppendWithFloat(QCborStreamWriter* self, float f) {
+void QCborStreamWriter_Append12(QCborStreamWriter* self, float f) {
     self->append(static_cast<float>(f));
 }
 
-void QCborStreamWriter_AppendWithDouble(QCborStreamWriter* self, double d) {
+void QCborStreamWriter_Append13(QCborStreamWriter* self, double d) {
     self->append(static_cast<double>(d));
 }
 
@@ -62,7 +62,7 @@ void QCborStreamWriter_AppendTextString(QCborStreamWriter* self, const char* utf
     self->appendTextString(utf8, (qsizetype)(lenVal));
 }
 
-void QCborStreamWriter_AppendWithBool(QCborStreamWriter* self, bool b) {
+void QCborStreamWriter_Append14(QCborStreamWriter* self, bool b) {
     self->append(b);
 }
 
@@ -74,15 +74,15 @@ void QCborStreamWriter_AppendUndefined(QCborStreamWriter* self) {
     self->appendUndefined();
 }
 
-void QCborStreamWriter_AppendWithInt(QCborStreamWriter* self, int i) {
+void QCborStreamWriter_Append15(QCborStreamWriter* self, int i) {
     self->append(static_cast<int>(i));
 }
 
-void QCborStreamWriter_AppendWithUint(QCborStreamWriter* self, unsigned int u) {
+void QCborStreamWriter_Append16(QCborStreamWriter* self, unsigned int u) {
     self->append(static_cast<uint>(u));
 }
 
-void QCborStreamWriter_Append4(QCborStreamWriter* self, const char* str) {
+void QCborStreamWriter_Append17(QCborStreamWriter* self, const char* str) {
     self->append(str);
 }
 
@@ -90,7 +90,7 @@ void QCborStreamWriter_StartArray(QCborStreamWriter* self) {
     self->startArray();
 }
 
-void QCborStreamWriter_StartArrayWithCount(QCborStreamWriter* self, unsigned long long count) {
+void QCborStreamWriter_StartArray2(QCborStreamWriter* self, unsigned long long count) {
     self->startArray(static_cast<quint64>(count));
 }
 
@@ -102,7 +102,7 @@ void QCborStreamWriter_StartMap(QCborStreamWriter* self) {
     self->startMap();
 }
 
-void QCborStreamWriter_StartMapWithCount(QCborStreamWriter* self, unsigned long long count) {
+void QCborStreamWriter_StartMap2(QCborStreamWriter* self, unsigned long long count) {
     self->startMap(static_cast<quint64>(count));
 }
 

@@ -55,7 +55,7 @@ bool QCborStreamReader_IsFloat16(const QCborStreamReader* self);
 bool QCborStreamReader_IsFloat(const QCborStreamReader* self);
 bool QCborStreamReader_IsDouble(const QCborStreamReader* self);
 bool QCborStreamReader_IsInvalid(const QCborStreamReader* self);
-bool QCborStreamReader_IsSimpleTypeWithSt(const QCborStreamReader* self, uint8_t st);
+bool QCborStreamReader_IsSimpleType2(const QCborStreamReader* self, uint8_t st);
 bool QCborStreamReader_IsFalse(const QCborStreamReader* self);
 bool QCborStreamReader_IsTrue(const QCborStreamReader* self);
 bool QCborStreamReader_IsBool(const QCborStreamReader* self);

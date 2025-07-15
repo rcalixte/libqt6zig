@@ -100,7 +100,7 @@ QMarginsF* QPageLayout_Margins(const QPageLayout* self) {
     return new QMarginsF(self->margins());
 }
 
-QMarginsF* QPageLayout_MarginsWithUnits(const QPageLayout* self, int units) {
+QMarginsF* QPageLayout_Margins2(const QPageLayout* self, int units) {
     return new QMarginsF(self->margins(static_cast<QPageLayout::Unit>(units)));
 }
 
@@ -128,7 +128,7 @@ QRectF* QPageLayout_FullRect(const QPageLayout* self) {
     return new QRectF(self->fullRect());
 }
 
-QRectF* QPageLayout_FullRectWithUnits(const QPageLayout* self, int units) {
+QRectF* QPageLayout_FullRect2(const QPageLayout* self, int units) {
     return new QRectF(self->fullRect(static_cast<QPageLayout::Unit>(units)));
 }
 
@@ -144,7 +144,7 @@ QRectF* QPageLayout_PaintRect(const QPageLayout* self) {
     return new QRectF(self->paintRect());
 }
 
-QRectF* QPageLayout_PaintRectWithUnits(const QPageLayout* self, int units) {
+QRectF* QPageLayout_PaintRect2(const QPageLayout* self, int units) {
     return new QRectF(self->paintRect(static_cast<QPageLayout::Unit>(units)));
 }
 

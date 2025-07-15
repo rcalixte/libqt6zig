@@ -41,10 +41,10 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_DefaultStyle_Callback = int (*)();
     using QsciLexerPython_Description_Callback = libqt_string (*)(const QsciLexerPython*, int);
     using QsciLexerPython_Paper_Callback = QColor* (*)(const QsciLexerPython*, int);
-    using QsciLexerPython_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerPython*, int);
+    using QsciLexerPython_DefaultColor2_Callback = QColor* (*)(const QsciLexerPython*, int);
     using QsciLexerPython_DefaultEolFill_Callback = bool (*)(const QsciLexerPython*, int);
-    using QsciLexerPython_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerPython*, int);
-    using QsciLexerPython_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerPython*, int);
+    using QsciLexerPython_DefaultFont2_Callback = QFont* (*)(const QsciLexerPython*, int);
+    using QsciLexerPython_DefaultPaper2_Callback = QColor* (*)(const QsciLexerPython*, int);
     using QsciLexerPython_SetEditor_Callback = void (*)(QsciLexerPython*, QsciScintilla*);
     using QsciLexerPython_RefreshProperties_Callback = void (*)();
     using QsciLexerPython_StyleBitsNeeded_Callback = int (*)();
@@ -95,10 +95,10 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     QsciLexerPython_DefaultStyle_Callback qscilexerpython_defaultstyle_callback = nullptr;
     QsciLexerPython_Description_Callback qscilexerpython_description_callback = nullptr;
     QsciLexerPython_Paper_Callback qscilexerpython_paper_callback = nullptr;
-    QsciLexerPython_DefaultColorWithStyle_Callback qscilexerpython_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerPython_DefaultColor2_Callback qscilexerpython_defaultcolor2_callback = nullptr;
     QsciLexerPython_DefaultEolFill_Callback qscilexerpython_defaulteolfill_callback = nullptr;
-    QsciLexerPython_DefaultFontWithStyle_Callback qscilexerpython_defaultfontwithstyle_callback = nullptr;
-    QsciLexerPython_DefaultPaperWithStyle_Callback qscilexerpython_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerPython_DefaultFont2_Callback qscilexerpython_defaultfont2_callback = nullptr;
+    QsciLexerPython_DefaultPaper2_Callback qscilexerpython_defaultpaper2_callback = nullptr;
     QsciLexerPython_SetEditor_Callback qscilexerpython_seteditor_callback = nullptr;
     QsciLexerPython_RefreshProperties_Callback qscilexerpython_refreshproperties_callback = nullptr;
     QsciLexerPython_StyleBitsNeeded_Callback qscilexerpython_stylebitsneeded_callback = nullptr;
@@ -148,10 +148,10 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     mutable bool qscilexerpython_defaultstyle_isbase = false;
     mutable bool qscilexerpython_description_isbase = false;
     mutable bool qscilexerpython_paper_isbase = false;
-    mutable bool qscilexerpython_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerpython_defaultcolor2_isbase = false;
     mutable bool qscilexerpython_defaulteolfill_isbase = false;
-    mutable bool qscilexerpython_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerpython_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerpython_defaultfont2_isbase = false;
+    mutable bool qscilexerpython_defaultpaper2_isbase = false;
     mutable bool qscilexerpython_seteditor_isbase = false;
     mutable bool qscilexerpython_refreshproperties_isbase = false;
     mutable bool qscilexerpython_stylebitsneeded_isbase = false;
@@ -205,10 +205,10 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
         qscilexerpython_defaultstyle_callback = nullptr;
         qscilexerpython_description_callback = nullptr;
         qscilexerpython_paper_callback = nullptr;
-        qscilexerpython_defaultcolorwithstyle_callback = nullptr;
+        qscilexerpython_defaultcolor2_callback = nullptr;
         qscilexerpython_defaulteolfill_callback = nullptr;
-        qscilexerpython_defaultfontwithstyle_callback = nullptr;
-        qscilexerpython_defaultpaperwithstyle_callback = nullptr;
+        qscilexerpython_defaultfont2_callback = nullptr;
+        qscilexerpython_defaultpaper2_callback = nullptr;
         qscilexerpython_seteditor_callback = nullptr;
         qscilexerpython_refreshproperties_callback = nullptr;
         qscilexerpython_stylebitsneeded_callback = nullptr;
@@ -259,10 +259,10 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     inline void setQsciLexerPython_DefaultStyle_Callback(QsciLexerPython_DefaultStyle_Callback cb) { qscilexerpython_defaultstyle_callback = cb; }
     inline void setQsciLexerPython_Description_Callback(QsciLexerPython_Description_Callback cb) { qscilexerpython_description_callback = cb; }
     inline void setQsciLexerPython_Paper_Callback(QsciLexerPython_Paper_Callback cb) { qscilexerpython_paper_callback = cb; }
-    inline void setQsciLexerPython_DefaultColorWithStyle_Callback(QsciLexerPython_DefaultColorWithStyle_Callback cb) { qscilexerpython_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerPython_DefaultColor2_Callback(QsciLexerPython_DefaultColor2_Callback cb) { qscilexerpython_defaultcolor2_callback = cb; }
     inline void setQsciLexerPython_DefaultEolFill_Callback(QsciLexerPython_DefaultEolFill_Callback cb) { qscilexerpython_defaulteolfill_callback = cb; }
-    inline void setQsciLexerPython_DefaultFontWithStyle_Callback(QsciLexerPython_DefaultFontWithStyle_Callback cb) { qscilexerpython_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerPython_DefaultPaperWithStyle_Callback(QsciLexerPython_DefaultPaperWithStyle_Callback cb) { qscilexerpython_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerPython_DefaultFont2_Callback(QsciLexerPython_DefaultFont2_Callback cb) { qscilexerpython_defaultfont2_callback = cb; }
+    inline void setQsciLexerPython_DefaultPaper2_Callback(QsciLexerPython_DefaultPaper2_Callback cb) { qscilexerpython_defaultpaper2_callback = cb; }
     inline void setQsciLexerPython_SetEditor_Callback(QsciLexerPython_SetEditor_Callback cb) { qscilexerpython_seteditor_callback = cb; }
     inline void setQsciLexerPython_RefreshProperties_Callback(QsciLexerPython_RefreshProperties_Callback cb) { qscilexerpython_refreshproperties_callback = cb; }
     inline void setQsciLexerPython_StyleBitsNeeded_Callback(QsciLexerPython_StyleBitsNeeded_Callback cb) { qscilexerpython_stylebitsneeded_callback = cb; }
@@ -312,10 +312,10 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     inline void setQsciLexerPython_DefaultStyle_IsBase(bool value) const { qscilexerpython_defaultstyle_isbase = value; }
     inline void setQsciLexerPython_Description_IsBase(bool value) const { qscilexerpython_description_isbase = value; }
     inline void setQsciLexerPython_Paper_IsBase(bool value) const { qscilexerpython_paper_isbase = value; }
-    inline void setQsciLexerPython_DefaultColorWithStyle_IsBase(bool value) const { qscilexerpython_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerPython_DefaultColor2_IsBase(bool value) const { qscilexerpython_defaultcolor2_isbase = value; }
     inline void setQsciLexerPython_DefaultEolFill_IsBase(bool value) const { qscilexerpython_defaulteolfill_isbase = value; }
-    inline void setQsciLexerPython_DefaultFontWithStyle_IsBase(bool value) const { qscilexerpython_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerPython_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerpython_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerPython_DefaultFont2_IsBase(bool value) const { qscilexerpython_defaultfont2_isbase = value; }
+    inline void setQsciLexerPython_DefaultPaper2_IsBase(bool value) const { qscilexerpython_defaultpaper2_isbase = value; }
     inline void setQsciLexerPython_SetEditor_IsBase(bool value) const { qscilexerpython_seteditor_isbase = value; }
     inline void setQsciLexerPython_RefreshProperties_IsBase(bool value) const { qscilexerpython_refreshproperties_isbase = value; }
     inline void setQsciLexerPython_StyleBitsNeeded_IsBase(bool value) const { qscilexerpython_stylebitsneeded_isbase = value; }
@@ -669,13 +669,13 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerpython_defaultcolorwithstyle_isbase) {
-            qscilexerpython_defaultcolorwithstyle_isbase = false;
+        if (qscilexerpython_defaultcolor2_isbase) {
+            qscilexerpython_defaultcolor2_isbase = false;
             return QsciLexerPython::defaultColor(style);
-        } else if (qscilexerpython_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerpython_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerpython_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerpython_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPython::defaultColor(style);
@@ -699,13 +699,13 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerpython_defaultfontwithstyle_isbase) {
-            qscilexerpython_defaultfontwithstyle_isbase = false;
+        if (qscilexerpython_defaultfont2_isbase) {
+            qscilexerpython_defaultfont2_isbase = false;
             return QsciLexerPython::defaultFont(style);
-        } else if (qscilexerpython_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerpython_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerpython_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerpython_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPython::defaultFont(style);
@@ -714,13 +714,13 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerpython_defaultpaperwithstyle_isbase) {
-            qscilexerpython_defaultpaperwithstyle_isbase = false;
+        if (qscilexerpython_defaultpaper2_isbase) {
+            qscilexerpython_defaultpaper2_isbase = false;
             return QsciLexerPython::defaultPaper(style);
-        } else if (qscilexerpython_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerpython_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerpython_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerpython_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPython::defaultPaper(style);

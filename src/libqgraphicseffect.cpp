@@ -2218,7 +2218,7 @@ void QGraphicsDropShadowEffect_SetOffset2(QGraphicsDropShadowEffect* self, doubl
     self->setOffset(static_cast<qreal>(dx), static_cast<qreal>(dy));
 }
 
-void QGraphicsDropShadowEffect_SetOffsetWithQreal(QGraphicsDropShadowEffect* self, double d) {
+void QGraphicsDropShadowEffect_SetOffset3(QGraphicsDropShadowEffect* self, double d) {
     self->setOffset(static_cast<qreal>(d));
 }
 

@@ -379,8 +379,8 @@ pub const qcolor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#setRgb)
     ///
     /// ``` self: QtC.QColor, rgb: u32 ```
-    pub fn SetRgbWithRgb(self: ?*anyopaque, rgb: u32) void {
-        qtc.QColor_SetRgbWithRgb(@ptrCast(self), @intCast(rgb));
+    pub fn SetRgb2(self: ?*anyopaque, rgb: u32) void {
+        qtc.QColor_SetRgb2(@ptrCast(self), @intCast(rgb));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#hue)
@@ -715,8 +715,8 @@ pub const qcolor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#fromRgba64)
     ///
     /// ``` rgba: QtC.QRgba64 ```
-    pub fn FromRgba64WithRgba(rgba: QtC.QRgba64) QtC.QColor {
-        return qtc.QColor_FromRgba64WithRgba(@ptrCast(rgba));
+    pub fn FromRgba642(rgba: QtC.QRgba64) QtC.QColor {
+        return qtc.QColor_FromRgba642(@ptrCast(rgba));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#fromHsv)

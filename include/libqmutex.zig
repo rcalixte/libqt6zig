@@ -67,15 +67,15 @@ pub const qmutex = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmutex.html#tryLock)
     ///
     /// ``` self: QtC.QMutex, timeout: i32 ```
-    pub fn TryLockWithTimeout(self: ?*anyopaque, timeout: i32) bool {
-        return qtc.QMutex_TryLockWithTimeout(@ptrCast(self), @intCast(timeout));
+    pub fn TryLock2(self: ?*anyopaque, timeout: i32) bool {
+        return qtc.QMutex_TryLock2(@ptrCast(self), @intCast(timeout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmutex.html#tryLock)
     ///
     /// ``` self: QtC.QMutex, timeout: QtC.QDeadlineTimer ```
-    pub fn TryLock2(self: ?*anyopaque, timeout: QtC.QDeadlineTimer) bool {
-        return qtc.QMutex_TryLock2(@ptrCast(self), @ptrCast(timeout));
+    pub fn TryLock3(self: ?*anyopaque, timeout: QtC.QDeadlineTimer) bool {
+        return qtc.QMutex_TryLock3(@ptrCast(self), @ptrCast(timeout));
     }
 
     /// Inherited from QBasicMutex

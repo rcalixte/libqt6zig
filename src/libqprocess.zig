@@ -162,8 +162,8 @@ pub const qprocessenvironment = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#insert)
     ///
     /// ``` self: QtC.QProcessEnvironment, e: QtC.QProcessEnvironment ```
-    pub fn InsertWithQProcessEnvironment(self: ?*anyopaque, e: ?*anyopaque) void {
-        qtc.QProcessEnvironment_InsertWithQProcessEnvironment(@ptrCast(self), @ptrCast(e));
+    pub fn Insert2(self: ?*anyopaque, e: ?*anyopaque) void {
+        qtc.QProcessEnvironment_Insert2(@ptrCast(self), @ptrCast(e));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#systemEnvironment)
@@ -507,8 +507,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
     ///
     /// ``` self: QtC.QProcess, flagsOnly: u32 ```
-    pub fn SetUnixProcessParametersWithFlagsOnly(self: ?*anyopaque, flagsOnly: i64) void {
-        qtc.QProcess_SetUnixProcessParametersWithFlagsOnly(@ptrCast(self), @intCast(flagsOnly));
+    pub fn SetUnixProcessParameters2(self: ?*anyopaque, flagsOnly: i64) void {
+        qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self), @intCast(flagsOnly));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#workingDirectory)
@@ -798,12 +798,12 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` program: []const u8 ```
-    pub fn StartDetachedWithProgram(program: []const u8) bool {
+    pub fn StartDetached2(program: []const u8) bool {
         const program_str = qtc.struct_libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        return qtc.QProcess_StartDetachedWithProgram(program_str);
+        return qtc.QProcess_StartDetached2(program_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#systemEnvironment)
@@ -1127,12 +1127,12 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
     /// ``` program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator ```
-    pub fn StartDetached2(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) bool {
+    pub fn StartDetached22(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) bool {
         const program_str = qtc.struct_libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.StartDetached2: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.StartDetached22: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -1144,7 +1144,7 @@ pub const qprocess = struct {
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
-        return qtc.QProcess_StartDetached2(program_str, arguments_list);
+        return qtc.QProcess_StartDetached22(program_str, arguments_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
@@ -1338,10 +1338,10 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
-    pub fn ReadWithMaxlen(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadWithMaxlen(@ptrCast(self), @intCast(maxlen));
+    pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.ReadWithMaxlen: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1433,9 +1433,9 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QProcess, data: []const u8 ```
-    pub fn WriteWithData(self: ?*anyopaque, data: []const u8) i64 {
+    pub fn Write2(self: ?*anyopaque, data: []const u8) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_WriteWithData(@ptrCast(self), data_Cstring);
+        return qtc.QIODevice_Write2(@ptrCast(self), data_Cstring);
     }
 
     /// Inherited from QIODevice
@@ -1443,12 +1443,12 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#write)
     ///
     /// ``` self: QtC.QProcess, data: []u8 ```
-    pub fn Write2(self: ?*anyopaque, data: []u8) i64 {
+    pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QIODevice_Write2(@ptrCast(self), data_str);
+        return qtc.QIODevice_Write3(@ptrCast(self), data_str);
     }
 
     /// Inherited from QIODevice
@@ -1466,10 +1466,10 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
-    pub fn PeekWithMaxlen(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_PeekWithMaxlen(@ptrCast(self), @intCast(maxlen));
+    pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.PeekWithMaxlen: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1757,8 +1757,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QProcess, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1836,8 +1836,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1980,8 +1980,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QProcess, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

@@ -143,7 +143,7 @@ void QObject_KillTimer(QObject* self, int id) {
     self->killTimer(static_cast<int>(id));
 }
 
-void QObject_KillTimerWithId(QObject* self, int id) {
+void QObject_KillTimer2(QObject* self, int id) {
     self->killTimer(static_cast<Qt::TimerId>(id));
 }
 
@@ -184,7 +184,7 @@ bool QObject_Disconnect(const QObject* sender, const QMetaMethod* signal, const 
     return QObject::disconnect(sender, *signal, receiver, *member);
 }
 
-bool QObject_DisconnectWithQMetaObjectConnection(const QMetaObject__Connection* param1) {
+bool QObject_Disconnect2(const QMetaObject__Connection* param1) {
     return QObject::disconnect(*param1);
 }
 
@@ -282,7 +282,7 @@ bool QObject_MoveToThread2(QObject* self, QThread* thread, Disambiguated_t* para
     return self->moveToThread(thread, *param2);
 }
 
-int QObject_StartTimer2(QObject* self, int interval, int timerType) {
+int QObject_StartTimer22(QObject* self, int interval, int timerType) {
     return self->startTimer(static_cast<int>(interval), static_cast<Qt::TimerType>(timerType));
 }
 

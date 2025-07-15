@@ -28,7 +28,7 @@ void QBitArray_OperatorAssign(QBitArray* self, const QBitArray* other);
 void QBitArray_Swap(QBitArray* self, QBitArray* other);
 ptrdiff_t QBitArray_Size(const QBitArray* self);
 ptrdiff_t QBitArray_Count(const QBitArray* self);
-ptrdiff_t QBitArray_CountWithOn(const QBitArray* self, bool on);
+ptrdiff_t QBitArray_Count2(const QBitArray* self, bool on);
 bool QBitArray_IsEmpty(const QBitArray* self);
 bool QBitArray_IsNull(const QBitArray* self);
 void QBitArray_Resize(QBitArray* self, ptrdiff_t size);
@@ -42,7 +42,7 @@ void QBitArray_ClearBit(QBitArray* self, ptrdiff_t i);
 bool QBitArray_ToggleBit(QBitArray* self, ptrdiff_t i);
 bool QBitArray_At(const QBitArray* self, ptrdiff_t i);
 QBitRef* QBitArray_OperatorSubscript(QBitArray* self, ptrdiff_t i);
-bool QBitArray_OperatorSubscriptWithQsizetype(const QBitArray* self, ptrdiff_t i);
+bool QBitArray_OperatorSubscript2(const QBitArray* self, ptrdiff_t i);
 void QBitArray_OperatorBitwiseAndAssign(QBitArray* self, const QBitArray* param1);
 void QBitArray_OperatorBitwiseOrAssign(QBitArray* self, const QBitArray* param1);
 void QBitArray_OperatorBitwiseNotAssign(QBitArray* self, const QBitArray* param1);
@@ -61,7 +61,7 @@ QBitRef* QBitRef_new2(const QBitRef* param1);
 bool QBitRef_ToBool(const QBitRef* self);
 bool QBitRef_OperatorNot(const QBitRef* self);
 void QBitRef_OperatorAssign(QBitRef* self, const QBitRef* val);
-void QBitRef_OperatorAssignWithVal(QBitRef* self, bool val);
+void QBitRef_OperatorAssign2(QBitRef* self, bool val);
 void QBitRef_Delete(QBitRef* self);
 
 #ifdef __cplusplus

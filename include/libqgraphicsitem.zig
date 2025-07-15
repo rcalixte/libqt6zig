@@ -1109,15 +1109,15 @@ pub const qgraphicsitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromItem)
@@ -1172,15 +1172,15 @@ pub const qgraphicsitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToItem)
@@ -1193,15 +1193,15 @@ pub const qgraphicsitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectToItem)
@@ -1235,15 +1235,15 @@ pub const qgraphicsitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapRectFromItem)
@@ -2630,8 +2630,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsObject, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -2709,8 +2709,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -2853,8 +2853,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsObject, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -3998,8 +3998,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsObject, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -4007,8 +4007,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsObject, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -4079,8 +4079,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsObject, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -4088,8 +4088,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsObject, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -4106,8 +4106,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsObject, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4115,8 +4115,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsObject, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4160,8 +4160,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsObject, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -4169,8 +4169,8 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsObject, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -7216,8 +7216,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -7225,8 +7225,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -7297,8 +7297,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -7306,8 +7306,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -7324,8 +7324,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -7333,8 +7333,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -7378,8 +7378,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -7387,8 +7387,8 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -10294,8 +10294,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsPathItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -10303,8 +10303,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsPathItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -10375,8 +10375,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsPathItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -10384,8 +10384,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsPathItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -10402,8 +10402,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsPathItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -10411,8 +10411,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsPathItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -10456,8 +10456,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsPathItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -10465,8 +10465,8 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsPathItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -13129,8 +13129,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsRectItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -13138,8 +13138,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsRectItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -13210,8 +13210,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsRectItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -13219,8 +13219,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsRectItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -13237,8 +13237,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsRectItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -13246,8 +13246,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsRectItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -13291,8 +13291,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsRectItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -13300,8 +13300,8 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsRectItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -15992,8 +15992,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -16001,8 +16001,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -16073,8 +16073,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -16082,8 +16082,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -16100,8 +16100,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16109,8 +16109,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16154,8 +16154,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -16163,8 +16163,8 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -18792,8 +18792,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -18801,8 +18801,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -18873,8 +18873,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -18882,8 +18882,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -18900,8 +18900,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -18909,8 +18909,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -18954,8 +18954,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -18963,8 +18963,8 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -21605,8 +21605,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsLineItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -21614,8 +21614,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsLineItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -21686,8 +21686,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsLineItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -21695,8 +21695,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsLineItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -21713,8 +21713,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsLineItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -21722,8 +21722,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsLineItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -21767,8 +21767,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsLineItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -21776,8 +21776,8 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsLineItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -24432,8 +24432,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -24441,8 +24441,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -24513,8 +24513,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -24522,8 +24522,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -24540,8 +24540,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -24549,8 +24549,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -24594,8 +24594,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -24603,8 +24603,8 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -27202,8 +27202,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsTextItem, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -27281,8 +27281,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -27425,8 +27425,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsTextItem, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -28570,8 +28570,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsTextItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -28579,8 +28579,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsTextItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -28651,8 +28651,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsTextItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -28660,8 +28660,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsTextItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -28678,8 +28678,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsTextItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -28687,8 +28687,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsTextItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -28732,8 +28732,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsTextItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -28741,8 +28741,8 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsTextItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -31165,8 +31165,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -31174,8 +31174,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -31246,8 +31246,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -31255,8 +31255,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -31273,8 +31273,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -31282,8 +31282,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -31327,8 +31327,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -31336,8 +31336,8 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33804,8 +33804,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, path: QtC.QPainterPath ```
-    pub fn MapToParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -33813,8 +33813,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, path: QtC.QPainterPath ```
-    pub fn MapToSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapToSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapToScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapToScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -33885,8 +33885,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, path: QtC.QPainterPath ```
-    pub fn MapFromParentWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromParentWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromParent4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromParent4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -33894,8 +33894,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, path: QtC.QPainterPath ```
-    pub fn MapFromSceneWithPath(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QGraphicsItem_MapFromSceneWithPath(@ptrCast(self), @ptrCast(path));
+    pub fn MapFromScene4(self: ?*anyopaque, path: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QGraphicsItem_MapFromScene4(@ptrCast(self), @ptrCast(path));
     }
 
     /// Inherited from QGraphicsItem
@@ -33912,8 +33912,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToParent)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, x: f64, y: f64 ```
-    pub fn MapToParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33921,8 +33921,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapToScene)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, x: f64, y: f64 ```
-    pub fn MapToScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapToScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapToScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapToScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33966,8 +33966,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromParent)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, x: f64, y: f64 ```
-    pub fn MapFromParent2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromParent2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromParent5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromParent5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem
@@ -33975,8 +33975,8 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mapFromScene)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, x: f64, y: f64 ```
-    pub fn MapFromScene2(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
-        return qtc.QGraphicsItem_MapFromScene2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn MapFromScene5(self: ?*anyopaque, x: f64, y: f64) QtC.QPointF {
+        return qtc.QGraphicsItem_MapFromScene5(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// Inherited from QGraphicsItem

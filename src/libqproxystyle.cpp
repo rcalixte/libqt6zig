@@ -676,7 +676,7 @@ void QProxyStyle_OnPolish(QProxyStyle* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QProxyStyle_PolishWithPal(QProxyStyle* self, QPalette* pal) {
+void QProxyStyle_Polish2(QProxyStyle* self, QPalette* pal) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
         vqproxystyle->polish(*pal);
@@ -686,10 +686,10 @@ void QProxyStyle_PolishWithPal(QProxyStyle* self, QPalette* pal) {
 }
 
 // Base class handler implementation
-void QProxyStyle_QBasePolishWithPal(QProxyStyle* self, QPalette* pal) {
+void QProxyStyle_QBasePolish2(QProxyStyle* self, QPalette* pal) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_PolishWithPal_IsBase(true);
+        vqproxystyle->setQProxyStyle_Polish2_IsBase(true);
         vqproxystyle->polish(*pal);
     } else {
         self->QProxyStyle::polish(*pal);
@@ -697,15 +697,15 @@ void QProxyStyle_QBasePolishWithPal(QProxyStyle* self, QPalette* pal) {
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnPolishWithPal(QProxyStyle* self, intptr_t slot) {
+void QProxyStyle_OnPolish2(QProxyStyle* self, intptr_t slot) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_PolishWithPal_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_PolishWithPal_Callback>(slot));
+        vqproxystyle->setQProxyStyle_Polish2_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QProxyStyle_PolishWithApp(QProxyStyle* self, QApplication* app) {
+void QProxyStyle_Polish3(QProxyStyle* self, QApplication* app) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
         vqproxystyle->polish(app);
@@ -715,10 +715,10 @@ void QProxyStyle_PolishWithApp(QProxyStyle* self, QApplication* app) {
 }
 
 // Base class handler implementation
-void QProxyStyle_QBasePolishWithApp(QProxyStyle* self, QApplication* app) {
+void QProxyStyle_QBasePolish3(QProxyStyle* self, QApplication* app) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_PolishWithApp_IsBase(true);
+        vqproxystyle->setQProxyStyle_Polish3_IsBase(true);
         vqproxystyle->polish(app);
     } else {
         self->QProxyStyle::polish(app);
@@ -726,10 +726,10 @@ void QProxyStyle_QBasePolishWithApp(QProxyStyle* self, QApplication* app) {
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnPolishWithApp(QProxyStyle* self, intptr_t slot) {
+void QProxyStyle_OnPolish3(QProxyStyle* self, intptr_t slot) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_PolishWithApp_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_PolishWithApp_Callback>(slot));
+        vqproxystyle->setQProxyStyle_Polish3_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Polish3_Callback>(slot));
     }
 }
 
@@ -763,7 +763,7 @@ void QProxyStyle_OnUnpolish(QProxyStyle* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QProxyStyle_UnpolishWithApp(QProxyStyle* self, QApplication* app) {
+void QProxyStyle_Unpolish2(QProxyStyle* self, QApplication* app) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
         vqproxystyle->unpolish(app);
@@ -773,10 +773,10 @@ void QProxyStyle_UnpolishWithApp(QProxyStyle* self, QApplication* app) {
 }
 
 // Base class handler implementation
-void QProxyStyle_QBaseUnpolishWithApp(QProxyStyle* self, QApplication* app) {
+void QProxyStyle_QBaseUnpolish2(QProxyStyle* self, QApplication* app) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_UnpolishWithApp_IsBase(true);
+        vqproxystyle->setQProxyStyle_Unpolish2_IsBase(true);
         vqproxystyle->unpolish(app);
     } else {
         self->QProxyStyle::unpolish(app);
@@ -784,10 +784,10 @@ void QProxyStyle_QBaseUnpolishWithApp(QProxyStyle* self, QApplication* app) {
 }
 
 // Auxiliary method to allow providing re-implementation
-void QProxyStyle_OnUnpolishWithApp(QProxyStyle* self, intptr_t slot) {
+void QProxyStyle_OnUnpolish2(QProxyStyle* self, intptr_t slot) {
     auto* vqproxystyle = dynamic_cast<VirtualQProxyStyle*>(self);
     if (vqproxystyle && vqproxystyle->isVirtualQProxyStyle) {
-        vqproxystyle->setQProxyStyle_UnpolishWithApp_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_UnpolishWithApp_Callback>(slot));
+        vqproxystyle->setQProxyStyle_Unpolish2_Callback(reinterpret_cast<VirtualQProxyStyle::QProxyStyle_Unpolish2_Callback>(slot));
     }
 }
 

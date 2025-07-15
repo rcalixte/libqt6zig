@@ -104,12 +104,12 @@ QAction* QMenuBar_AddMenu(QMenuBar* self, QMenu* menu) {
     return self->addMenu(menu);
 }
 
-QMenu* QMenuBar_AddMenuWithTitle(QMenuBar* self, const libqt_string title) {
+QMenu* QMenuBar_AddMenu2(QMenuBar* self, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return self->addMenu(title_QString);
 }
 
-QMenu* QMenuBar_AddMenu2(QMenuBar* self, const QIcon* icon, const libqt_string title) {
+QMenu* QMenuBar_AddMenu3(QMenuBar* self, const QIcon* icon, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return self->addMenu(*icon, title_QString);
 }

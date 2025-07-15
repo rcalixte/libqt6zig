@@ -125,8 +125,8 @@ pub const qstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// ``` self: QtC.QStyle, application: QtC.QApplication ```
-    pub fn PolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QStyle_PolishWithApplication(@ptrCast(self), @ptrCast(application));
+    pub fn Polish2(self: ?*anyopaque, application: ?*anyopaque) void {
+        qtc.QStyle_Polish2(@ptrCast(self), @ptrCast(application));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
@@ -134,8 +134,8 @@ pub const qstyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStyle, slot: fn (self: QtC.QStyle, application: QtC.QApplication) callconv(.c) void ```
-    pub fn OnPolishWithApplication(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStyle_OnPolishWithApplication(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnPolish2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QStyle_OnPolish2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
@@ -143,15 +143,15 @@ pub const qstyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStyle, application: QtC.QApplication ```
-    pub fn QBasePolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QStyle_QBasePolishWithApplication(@ptrCast(self), @ptrCast(application));
+    pub fn QBasePolish2(self: ?*anyopaque, application: ?*anyopaque) void {
+        qtc.QStyle_QBasePolish2(@ptrCast(self), @ptrCast(application));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
     ///
     /// ``` self: QtC.QStyle, application: QtC.QApplication ```
-    pub fn UnpolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QStyle_UnpolishWithApplication(@ptrCast(self), @ptrCast(application));
+    pub fn Unpolish2(self: ?*anyopaque, application: ?*anyopaque) void {
+        qtc.QStyle_Unpolish2(@ptrCast(self), @ptrCast(application));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
@@ -159,8 +159,8 @@ pub const qstyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStyle, slot: fn (self: QtC.QStyle, application: QtC.QApplication) callconv(.c) void ```
-    pub fn OnUnpolishWithApplication(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStyle_OnUnpolishWithApplication(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnUnpolish2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QStyle_OnUnpolish2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#unpolish)
@@ -168,15 +168,15 @@ pub const qstyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStyle, application: QtC.QApplication ```
-    pub fn QBaseUnpolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QStyle_QBaseUnpolishWithApplication(@ptrCast(self), @ptrCast(application));
+    pub fn QBaseUnpolish2(self: ?*anyopaque, application: ?*anyopaque) void {
+        qtc.QStyle_QBaseUnpolish2(@ptrCast(self), @ptrCast(application));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
     ///
     /// ``` self: QtC.QStyle, palette: QtC.QPalette ```
-    pub fn PolishWithPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QStyle_PolishWithPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn Polish3(self: ?*anyopaque, palette: ?*anyopaque) void {
+        qtc.QStyle_Polish3(@ptrCast(self), @ptrCast(palette));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
@@ -184,8 +184,8 @@ pub const qstyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStyle, slot: fn (self: QtC.QStyle, palette: QtC.QPalette) callconv(.c) void ```
-    pub fn OnPolishWithPalette(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStyle_OnPolishWithPalette(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnPolish3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QStyle_OnPolish3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
@@ -193,8 +193,8 @@ pub const qstyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStyle, palette: QtC.QPalette ```
-    pub fn QBasePolishWithPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QStyle_QBasePolishWithPalette(@ptrCast(self), @ptrCast(palette));
+    pub fn QBasePolish3(self: ?*anyopaque, palette: ?*anyopaque) void {
+        qtc.QStyle_QBasePolish3(@ptrCast(self), @ptrCast(palette));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#itemTextRect)
@@ -885,8 +885,8 @@ pub const qstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QStyle, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -964,8 +964,8 @@ pub const qstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1108,8 +1108,8 @@ pub const qstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QStyle, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

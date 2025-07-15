@@ -267,8 +267,8 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotate)
     ///
     /// ``` self: QtC.QTransform, a: f64 ```
-    pub fn RotateWithQreal(self: ?*anyopaque, a: f64) QtC.QTransform {
-        return qtc.QTransform_RotateWithQreal(@ptrCast(self), @floatCast(a));
+    pub fn Rotate2(self: ?*anyopaque, a: f64) QtC.QTransform {
+        return qtc.QTransform_Rotate2(@ptrCast(self), @floatCast(a));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
@@ -281,8 +281,8 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
     ///
     /// ``` self: QtC.QTransform, a: f64 ```
-    pub fn RotateRadiansWithQreal(self: ?*anyopaque, a: f64) QtC.QTransform {
-        return qtc.QTransform_RotateRadiansWithQreal(@ptrCast(self), @floatCast(a));
+    pub fn RotateRadians2(self: ?*anyopaque, a: f64) QtC.QTransform {
+        return qtc.QTransform_RotateRadians2(@ptrCast(self), @floatCast(a));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator==)
@@ -337,36 +337,36 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
     /// ``` self: QtC.QTransform, p: QtC.QPointF ```
-    pub fn MapWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QPointF {
-        return qtc.QTransform_MapWithQPointF(@ptrCast(self), @ptrCast(p));
+    pub fn Map2(self: ?*anyopaque, p: ?*anyopaque) QtC.QPointF {
+        return qtc.QTransform_Map2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
     /// ``` self: QtC.QTransform, l: QtC.QLine ```
-    pub fn MapWithQLine(self: ?*anyopaque, l: ?*anyopaque) QtC.QLine {
-        return qtc.QTransform_MapWithQLine(@ptrCast(self), @ptrCast(l));
+    pub fn Map3(self: ?*anyopaque, l: ?*anyopaque) QtC.QLine {
+        return qtc.QTransform_Map3(@ptrCast(self), @ptrCast(l));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
     /// ``` self: QtC.QTransform, l: QtC.QLineF ```
-    pub fn MapWithQLineF(self: ?*anyopaque, l: ?*anyopaque) QtC.QLineF {
-        return qtc.QTransform_MapWithQLineF(@ptrCast(self), @ptrCast(l));
+    pub fn Map4(self: ?*anyopaque, l: ?*anyopaque) QtC.QLineF {
+        return qtc.QTransform_Map4(@ptrCast(self), @ptrCast(l));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
     /// ``` self: QtC.QTransform, r: QtC.QRegion ```
-    pub fn MapWithQRegion(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
-        return qtc.QTransform_MapWithQRegion(@ptrCast(self), @ptrCast(r));
+    pub fn Map7(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
+        return qtc.QTransform_Map7(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
     /// ``` self: QtC.QTransform, p: QtC.QPainterPath ```
-    pub fn MapWithQPainterPath(self: ?*anyopaque, p: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QTransform_MapWithQPainterPath(@ptrCast(self), @ptrCast(p));
+    pub fn Map8(self: ?*anyopaque, p: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QTransform_Map8(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#mapRect)
@@ -379,29 +379,29 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#mapRect)
     ///
     /// ``` self: QtC.QTransform, param1: QtC.QRectF ```
-    pub fn MapRectWithQRectF(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRectF {
-        return qtc.QTransform_MapRectWithQRectF(@ptrCast(self), @ptrCast(param1));
+    pub fn MapRect2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QRectF {
+        return qtc.QTransform_MapRect2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
     /// ``` self: QtC.QTransform, x: i32, y: i32, tx: ?*i32, ty: ?*i32 ```
-    pub fn Map2(self: ?*anyopaque, x: i32, y: i32, tx: ?*anyopaque, ty: ?*anyopaque) void {
-        qtc.QTransform_Map2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(tx), @intCast(ty));
+    pub fn Map9(self: ?*anyopaque, x: i32, y: i32, tx: ?*anyopaque, ty: ?*anyopaque) void {
+        qtc.QTransform_Map9(@ptrCast(self), @intCast(x), @intCast(y), @intCast(tx), @intCast(ty));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
     /// ``` self: QtC.QTransform, x: f64, y: f64, tx: ?*f64, ty: ?*f64 ```
-    pub fn Map3(self: ?*anyopaque, x: f64, y: f64, tx: ?*anyopaque, ty: ?*anyopaque) void {
-        qtc.QTransform_Map3(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(tx), @floatCast(ty));
+    pub fn Map10(self: ?*anyopaque, x: f64, y: f64, tx: ?*anyopaque, ty: ?*anyopaque) void {
+        qtc.QTransform_Map10(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(tx), @floatCast(ty));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator*=)
     ///
     /// ``` self: QtC.QTransform, div: f64 ```
-    pub fn OperatorMultiplyAssignWithDiv(self: ?*anyopaque, div: f64) QtC.QTransform {
-        return qtc.QTransform_OperatorMultiplyAssignWithDiv(@ptrCast(self), @floatCast(div));
+    pub fn OperatorMultiplyAssign2(self: ?*anyopaque, div: f64) QtC.QTransform {
+        return qtc.QTransform_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(div));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator/=)
@@ -449,15 +449,15 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotate)
     ///
     /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis ```
-    pub fn Rotate2(self: ?*anyopaque, a: f64, axis: i64) QtC.QTransform {
-        return qtc.QTransform_Rotate2(@ptrCast(self), @floatCast(a), @intCast(axis));
+    pub fn Rotate22(self: ?*anyopaque, a: f64, axis: i64) QtC.QTransform {
+        return qtc.QTransform_Rotate22(@ptrCast(self), @floatCast(a), @intCast(axis));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
     ///
     /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis ```
-    pub fn RotateRadians2(self: ?*anyopaque, a: f64, axis: i64) QtC.QTransform {
-        return qtc.QTransform_RotateRadians2(@ptrCast(self), @floatCast(a), @intCast(axis));
+    pub fn RotateRadians22(self: ?*anyopaque, a: f64, axis: i64) QtC.QTransform {
+        return qtc.QTransform_RotateRadians22(@ptrCast(self), @floatCast(a), @intCast(axis));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#dtor.QTransform)

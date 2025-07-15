@@ -30,10 +30,10 @@ QByteArrayMatcher* QByteArrayMatcher_new6(const char* pattern, ptrdiff_t length)
 void QByteArrayMatcher_OperatorAssign(QByteArrayMatcher* self, const QByteArrayMatcher* other);
 void QByteArrayMatcher_SetPattern(QByteArrayMatcher* self, const libqt_string pattern);
 ptrdiff_t QByteArrayMatcher_IndexIn(const QByteArrayMatcher* self, const char* str, ptrdiff_t lenVal);
-ptrdiff_t QByteArrayMatcher_IndexInWithData(const QByteArrayMatcher* self, QByteArrayView* data);
+ptrdiff_t QByteArrayMatcher_IndexIn2(const QByteArrayMatcher* self, QByteArrayView* data);
 libqt_string QByteArrayMatcher_Pattern(const QByteArrayMatcher* self);
 ptrdiff_t QByteArrayMatcher_IndexIn3(const QByteArrayMatcher* self, const char* str, ptrdiff_t lenVal, ptrdiff_t from);
-ptrdiff_t QByteArrayMatcher_IndexIn2(const QByteArrayMatcher* self, QByteArrayView* data, ptrdiff_t from);
+ptrdiff_t QByteArrayMatcher_IndexIn22(const QByteArrayMatcher* self, QByteArrayView* data, ptrdiff_t from);
 void QByteArrayMatcher_Delete(QByteArrayMatcher* self);
 
 QStaticByteArrayMatcherBase* QStaticByteArrayMatcherBase_new(const QStaticByteArrayMatcherBase* other);

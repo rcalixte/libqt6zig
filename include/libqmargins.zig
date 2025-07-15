@@ -132,15 +132,15 @@ pub const qmargins = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmargins.html#operator+=)
     ///
     /// ``` self: QtC.QMargins, param1: i32 ```
-    pub fn OperatorPlusAssignWithInt(self: ?*anyopaque, param1: i32) QtC.QMargins {
-        return qtc.QMargins_OperatorPlusAssignWithInt(@ptrCast(self), @intCast(param1));
+    pub fn OperatorPlusAssign2(self: ?*anyopaque, param1: i32) QtC.QMargins {
+        return qtc.QMargins_OperatorPlusAssign2(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmargins.html#operator-=)
     ///
     /// ``` self: QtC.QMargins, param1: i32 ```
-    pub fn OperatorMinusAssignWithInt(self: ?*anyopaque, param1: i32) QtC.QMargins {
-        return qtc.QMargins_OperatorMinusAssignWithInt(@ptrCast(self), @intCast(param1));
+    pub fn OperatorMinusAssign2(self: ?*anyopaque, param1: i32) QtC.QMargins {
+        return qtc.QMargins_OperatorMinusAssign2(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmargins.html#operator*=)
@@ -160,15 +160,15 @@ pub const qmargins = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmargins.html#operator*=)
     ///
     /// ``` self: QtC.QMargins, param1: f64 ```
-    pub fn OperatorMultiplyAssignWithDouble(self: ?*anyopaque, param1: f64) QtC.QMargins {
-        return qtc.QMargins_OperatorMultiplyAssignWithDouble(@ptrCast(self), @floatCast(param1));
+    pub fn OperatorMultiplyAssign2(self: ?*anyopaque, param1: f64) QtC.QMargins {
+        return qtc.QMargins_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmargins.html#operator/=)
     ///
     /// ``` self: QtC.QMargins, param1: f64 ```
-    pub fn OperatorDivideAssignWithDouble(self: ?*anyopaque, param1: f64) QtC.QMargins {
-        return qtc.QMargins_OperatorDivideAssignWithDouble(@ptrCast(self), @floatCast(param1));
+    pub fn OperatorDivideAssign2(self: ?*anyopaque, param1: f64) QtC.QMargins {
+        return qtc.QMargins_OperatorDivideAssign2(@ptrCast(self), @floatCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmargins.html#toMarginsF)
@@ -326,15 +326,15 @@ pub const qmarginsf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmarginsf.html#operator+=)
     ///
     /// ``` self: QtC.QMarginsF, addend: f64 ```
-    pub fn OperatorPlusAssignWithAddend(self: ?*anyopaque, addend: f64) QtC.QMarginsF {
-        return qtc.QMarginsF_OperatorPlusAssignWithAddend(@ptrCast(self), @floatCast(addend));
+    pub fn OperatorPlusAssign2(self: ?*anyopaque, addend: f64) QtC.QMarginsF {
+        return qtc.QMarginsF_OperatorPlusAssign2(@ptrCast(self), @floatCast(addend));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmarginsf.html#operator-=)
     ///
     /// ``` self: QtC.QMarginsF, subtrahend: f64 ```
-    pub fn OperatorMinusAssignWithSubtrahend(self: ?*anyopaque, subtrahend: f64) QtC.QMarginsF {
-        return qtc.QMarginsF_OperatorMinusAssignWithSubtrahend(@ptrCast(self), @floatCast(subtrahend));
+    pub fn OperatorMinusAssign2(self: ?*anyopaque, subtrahend: f64) QtC.QMarginsF {
+        return qtc.QMarginsF_OperatorMinusAssign2(@ptrCast(self), @floatCast(subtrahend));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmarginsf.html#operator*=)

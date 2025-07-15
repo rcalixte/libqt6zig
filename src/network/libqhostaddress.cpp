@@ -57,7 +57,7 @@ void QHostAddress_OperatorAssign(QHostAddress* self, const QHostAddress* other) 
     self->operator=(*other);
 }
 
-void QHostAddress_OperatorAssignWithAddress(QHostAddress* self, int address) {
+void QHostAddress_OperatorAssign2(QHostAddress* self, int address) {
     self->operator=(static_cast<QHostAddress::SpecialAddress>(address));
 }
 
@@ -69,20 +69,20 @@ void QHostAddress_SetAddress(QHostAddress* self, unsigned int ip4Addr) {
     self->setAddress(static_cast<quint32>(ip4Addr));
 }
 
-void QHostAddress_SetAddressWithIp6Addr(QHostAddress* self, const unsigned char* ip6Addr) {
+void QHostAddress_SetAddress2(QHostAddress* self, const unsigned char* ip6Addr) {
     self->setAddress(static_cast<const quint8*>(ip6Addr));
 }
 
-void QHostAddress_SetAddress2(QHostAddress* self, const QIPv6Address* ip6Addr) {
+void QHostAddress_SetAddress3(QHostAddress* self, const QIPv6Address* ip6Addr) {
     self->setAddress(*ip6Addr);
 }
 
-bool QHostAddress_SetAddress3(QHostAddress* self, const libqt_string address) {
+bool QHostAddress_SetAddress5(QHostAddress* self, const libqt_string address) {
     QString address_QString = QString::fromUtf8(address.data, address.len);
     return self->setAddress(address_QString);
 }
 
-void QHostAddress_SetAddress4(QHostAddress* self, int address) {
+void QHostAddress_SetAddress6(QHostAddress* self, int address) {
     self->setAddress(static_cast<QHostAddress::SpecialAddress>(address));
 }
 
@@ -135,7 +135,7 @@ bool QHostAddress_OperatorEqual(const QHostAddress* self, const QHostAddress* ad
     return (*self == *address);
 }
 
-bool QHostAddress_OperatorEqualWithAddress(const QHostAddress* self, int address) {
+bool QHostAddress_OperatorEqual2(const QHostAddress* self, int address) {
     return (*self == static_cast<QHostAddress::SpecialAddress>(address));
 }
 
@@ -143,7 +143,7 @@ bool QHostAddress_OperatorNotEqual(const QHostAddress* self, const QHostAddress*
     return (*self != *address);
 }
 
-bool QHostAddress_OperatorNotEqualWithAddress(const QHostAddress* self, int address) {
+bool QHostAddress_OperatorNotEqual2(const QHostAddress* self, int address) {
     return (*self != static_cast<QHostAddress::SpecialAddress>(address));
 }
 

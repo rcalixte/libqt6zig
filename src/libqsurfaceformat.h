@@ -61,7 +61,7 @@ int QSurfaceFormat_SwapInterval(const QSurfaceFormat* self);
 void QSurfaceFormat_SetSwapInterval(QSurfaceFormat* self, int interval);
 QColorSpace* QSurfaceFormat_ColorSpace(const QSurfaceFormat* self);
 void QSurfaceFormat_SetColorSpace(QSurfaceFormat* self, const QColorSpace* colorSpace);
-void QSurfaceFormat_SetColorSpaceWithColorSpace(QSurfaceFormat* self, int colorSpace);
+void QSurfaceFormat_SetColorSpace2(QSurfaceFormat* self, int colorSpace);
 void QSurfaceFormat_SetDefaultFormat(const QSurfaceFormat* format);
 QSurfaceFormat* QSurfaceFormat_DefaultFormat();
 void QSurfaceFormat_SetOption2(QSurfaceFormat* self, int option, bool on);

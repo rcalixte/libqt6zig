@@ -108,7 +108,7 @@ void QSharedMemory_SetNativeKey(QSharedMemory* self, const QNativeIpcKey* key) {
     self->setNativeKey(*key);
 }
 
-void QSharedMemory_SetNativeKeyWithKey(QSharedMemory* self, const libqt_string key) {
+void QSharedMemory_SetNativeKey2(QSharedMemory* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setNativeKey(key_QString);
 }
@@ -223,7 +223,7 @@ libqt_string QSharedMemory_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-void QSharedMemory_SetNativeKey2(QSharedMemory* self, const libqt_string key, uint16_t typeVal) {
+void QSharedMemory_SetNativeKey22(QSharedMemory* self, const libqt_string key, uint16_t typeVal) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setNativeKey(key_QString, static_cast<QNativeIpcKey::Type>(typeVal));
 }

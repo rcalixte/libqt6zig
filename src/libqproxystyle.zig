@@ -588,8 +588,8 @@ pub const qproxystyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#polish)
     ///
     /// ``` self: QtC.QProxyStyle, pal: QtC.QPalette ```
-    pub fn PolishWithPal(self: ?*anyopaque, pal: ?*anyopaque) void {
-        qtc.QProxyStyle_PolishWithPal(@ptrCast(self), @ptrCast(pal));
+    pub fn Polish2(self: ?*anyopaque, pal: ?*anyopaque) void {
+        qtc.QProxyStyle_Polish2(@ptrCast(self), @ptrCast(pal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#polish)
@@ -597,8 +597,8 @@ pub const qproxystyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, pal: QtC.QPalette) callconv(.c) void ```
-    pub fn OnPolishWithPal(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnPolishWithPal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnPolish2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QProxyStyle_OnPolish2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#polish)
@@ -606,15 +606,15 @@ pub const qproxystyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QProxyStyle, pal: QtC.QPalette ```
-    pub fn QBasePolishWithPal(self: ?*anyopaque, pal: ?*anyopaque) void {
-        qtc.QProxyStyle_QBasePolishWithPal(@ptrCast(self), @ptrCast(pal));
+    pub fn QBasePolish2(self: ?*anyopaque, pal: ?*anyopaque) void {
+        qtc.QProxyStyle_QBasePolish2(@ptrCast(self), @ptrCast(pal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#polish)
     ///
     /// ``` self: QtC.QProxyStyle, app: QtC.QApplication ```
-    pub fn PolishWithApp(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_PolishWithApp(@ptrCast(self), @ptrCast(app));
+    pub fn Polish3(self: ?*anyopaque, app: ?*anyopaque) void {
+        qtc.QProxyStyle_Polish3(@ptrCast(self), @ptrCast(app));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#polish)
@@ -622,8 +622,8 @@ pub const qproxystyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, app: QtC.QApplication) callconv(.c) void ```
-    pub fn OnPolishWithApp(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnPolishWithApp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnPolish3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QProxyStyle_OnPolish3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#polish)
@@ -631,8 +631,8 @@ pub const qproxystyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QProxyStyle, app: QtC.QApplication ```
-    pub fn QBasePolishWithApp(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_QBasePolishWithApp(@ptrCast(self), @ptrCast(app));
+    pub fn QBasePolish3(self: ?*anyopaque, app: ?*anyopaque) void {
+        qtc.QProxyStyle_QBasePolish3(@ptrCast(self), @ptrCast(app));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
@@ -663,8 +663,8 @@ pub const qproxystyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
     ///
     /// ``` self: QtC.QProxyStyle, app: QtC.QApplication ```
-    pub fn UnpolishWithApp(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_UnpolishWithApp(@ptrCast(self), @ptrCast(app));
+    pub fn Unpolish2(self: ?*anyopaque, app: ?*anyopaque) void {
+        qtc.QProxyStyle_Unpolish2(@ptrCast(self), @ptrCast(app));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
@@ -672,8 +672,8 @@ pub const qproxystyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, app: QtC.QApplication) callconv(.c) void ```
-    pub fn OnUnpolishWithApp(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QProxyStyle_OnUnpolishWithApp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnUnpolish2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QProxyStyle_OnUnpolish2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#unpolish)
@@ -681,8 +681,8 @@ pub const qproxystyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QProxyStyle, app: QtC.QApplication ```
-    pub fn QBaseUnpolishWithApp(self: ?*anyopaque, app: ?*anyopaque) void {
-        qtc.QProxyStyle_QBaseUnpolishWithApp(@ptrCast(self), @ptrCast(app));
+    pub fn QBaseUnpolish2(self: ?*anyopaque, app: ?*anyopaque) void {
+        qtc.QProxyStyle_QBaseUnpolish2(@ptrCast(self), @ptrCast(app));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qproxystyle.html#event)
@@ -736,68 +736,6 @@ pub const qproxystyle = struct {
         return _ret;
     }
 
-    /// Inherited from QCommonStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
-    ///
-    /// ``` self: QtC.QProxyStyle, widget: QtC.QWidget ```
-    pub fn PolishWithWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QCommonStyle_PolishWithWidget(@ptrCast(self), @ptrCast(widget));
-    }
-
-    /// Inherited from QCommonStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QCommonStyle, slot: fn (self: QtC.QCommonStyle, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPolishWithWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnPolishWithWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QCommonStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#polish)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QProxyStyle, widget: QtC.QWidget ```
-    pub fn QBasePolishWithWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QCommonStyle_QBasePolishWithWidget(@ptrCast(self), @ptrCast(widget));
-    }
-
-    /// Inherited from QCommonStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
-    ///
-    /// ``` self: QtC.QProxyStyle, application: QtC.QApplication ```
-    pub fn UnpolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QCommonStyle_UnpolishWithApplication(@ptrCast(self), @ptrCast(application));
-    }
-
-    /// Inherited from QCommonStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QCommonStyle, slot: fn (self: QtC.QCommonStyle, application: QtC.QApplication) callconv(.c) void ```
-    pub fn OnUnpolishWithApplication(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCommonStyle_OnUnpolishWithApplication(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QCommonStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#unpolish)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QProxyStyle, application: QtC.QApplication ```
-    pub fn QBaseUnpolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QCommonStyle_QBaseUnpolishWithApplication(@ptrCast(self), @ptrCast(application));
-    }
-
     /// Inherited from QStyle
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#name)
@@ -809,68 +747,6 @@ pub const qproxystyle = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qproxystyle.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// Inherited from QStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
-    ///
-    /// ``` self: QtC.QProxyStyle, application: QtC.QApplication ```
-    pub fn PolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QStyle_PolishWithApplication(@ptrCast(self), @ptrCast(application));
-    }
-
-    /// Inherited from QStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QStyle, slot: fn (self: QtC.QStyle, application: QtC.QApplication) callconv(.c) void ```
-    pub fn OnPolishWithApplication(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStyle_OnPolishWithApplication(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QProxyStyle, application: QtC.QApplication ```
-    pub fn QBasePolishWithApplication(self: ?*anyopaque, application: ?*anyopaque) void {
-        qtc.QStyle_QBasePolishWithApplication(@ptrCast(self), @ptrCast(application));
-    }
-
-    /// Inherited from QStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
-    ///
-    /// ``` self: QtC.QProxyStyle, palette: QtC.QPalette ```
-    pub fn PolishWithPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QStyle_PolishWithPalette(@ptrCast(self), @ptrCast(palette));
-    }
-
-    /// Inherited from QStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QStyle, slot: fn (self: QtC.QStyle, palette: QtC.QPalette) callconv(.c) void ```
-    pub fn OnPolishWithPalette(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QStyle_OnPolishWithPalette(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
-    }
-
-    /// Inherited from QStyle
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#polish)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QProxyStyle, palette: QtC.QPalette ```
-    pub fn QBasePolishWithPalette(self: ?*anyopaque, palette: ?*anyopaque) void {
-        qtc.QStyle_QBasePolishWithPalette(@ptrCast(self), @ptrCast(palette));
     }
 
     /// Inherited from QStyle
@@ -1093,8 +969,8 @@ pub const qproxystyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QProxyStyle, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1172,8 +1048,8 @@ pub const qproxystyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1316,8 +1192,8 @@ pub const qproxystyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QProxyStyle, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

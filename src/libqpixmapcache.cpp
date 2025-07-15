@@ -46,7 +46,7 @@ bool QPixmapCache_Insert(const libqt_string key, const QPixmap* pixmap) {
     return QPixmapCache::insert(key_QString, *pixmap);
 }
 
-QPixmapCache__Key* QPixmapCache_InsertWithPixmap(const QPixmap* pixmap) {
+QPixmapCache__Key* QPixmapCache_Insert2(const QPixmap* pixmap) {
     return new QPixmapCache::Key(QPixmapCache::insert(*pixmap));
 }
 
@@ -59,7 +59,7 @@ void QPixmapCache_Remove(const libqt_string key) {
     QPixmapCache::remove(key_QString);
 }
 
-void QPixmapCache_RemoveWithKey(const QPixmapCache__Key* key) {
+void QPixmapCache_Remove2(const QPixmapCache__Key* key) {
     QPixmapCache::remove(*key);
 }
 

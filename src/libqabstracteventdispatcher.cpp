@@ -91,7 +91,7 @@ int QAbstractEventDispatcher_RemainingTime(QAbstractEventDispatcher* self, int t
     return self->remainingTime(static_cast<int>(timerId));
 }
 
-bool QAbstractEventDispatcher_UnregisterTimerWithTimerId(QAbstractEventDispatcher* self, int timerId) {
+bool QAbstractEventDispatcher_UnregisterTimer2(QAbstractEventDispatcher* self, int timerId) {
     return self->unregisterTimer(static_cast<Qt::TimerId>(timerId));
 }
 

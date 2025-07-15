@@ -32,7 +32,7 @@ QImageIOHandler* QImageIOHandler_new();
 void QImageIOHandler_SetDevice(QImageIOHandler* self, QIODevice* device);
 QIODevice* QImageIOHandler_Device(const QImageIOHandler* self);
 void QImageIOHandler_SetFormat(QImageIOHandler* self, const libqt_string format);
-void QImageIOHandler_SetFormatWithFormat(const QImageIOHandler* self, const libqt_string format);
+void QImageIOHandler_SetFormat2(const QImageIOHandler* self, const libqt_string format);
 libqt_string QImageIOHandler_Format(const QImageIOHandler* self);
 bool QImageIOHandler_CanRead(const QImageIOHandler* self);
 void QImageIOHandler_OnCanRead(const QImageIOHandler* self, intptr_t slot);

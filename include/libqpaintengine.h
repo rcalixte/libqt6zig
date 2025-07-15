@@ -80,9 +80,9 @@ void QPaintEngine_QBaseDrawLines2(QPaintEngine* self, const QLineF* lines, int l
 void QPaintEngine_DrawEllipse(QPaintEngine* self, const QRectF* r);
 void QPaintEngine_OnDrawEllipse(QPaintEngine* self, intptr_t slot);
 void QPaintEngine_QBaseDrawEllipse(QPaintEngine* self, const QRectF* r);
-void QPaintEngine_DrawEllipseWithQRect(QPaintEngine* self, const QRect* r);
-void QPaintEngine_OnDrawEllipseWithQRect(QPaintEngine* self, intptr_t slot);
-void QPaintEngine_QBaseDrawEllipseWithQRect(QPaintEngine* self, const QRect* r);
+void QPaintEngine_DrawEllipse2(QPaintEngine* self, const QRect* r);
+void QPaintEngine_OnDrawEllipse2(QPaintEngine* self, intptr_t slot);
+void QPaintEngine_QBaseDrawEllipse2(QPaintEngine* self, const QRect* r);
 void QPaintEngine_DrawPath(QPaintEngine* self, const QPainterPath* path);
 void QPaintEngine_OnDrawPath(QPaintEngine* self, intptr_t slot);
 void QPaintEngine_QBaseDrawPath(QPaintEngine* self, const QPainterPath* path);

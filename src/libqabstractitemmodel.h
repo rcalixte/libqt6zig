@@ -88,7 +88,7 @@ QPersistentModelIndex* QPersistentModelIndex_new2(const QModelIndex* index);
 QPersistentModelIndex* QPersistentModelIndex_new3(const QPersistentModelIndex* other);
 void QPersistentModelIndex_OperatorAssign(QPersistentModelIndex* self, const QPersistentModelIndex* other);
 void QPersistentModelIndex_Swap(QPersistentModelIndex* self, QPersistentModelIndex* other);
-void QPersistentModelIndex_OperatorAssignWithOther(QPersistentModelIndex* self, const QModelIndex* other);
+void QPersistentModelIndex_OperatorAssign2(QPersistentModelIndex* self, const QModelIndex* other);
 QModelIndex* QPersistentModelIndex_ToQModelIndex(const QPersistentModelIndex* self);
 int QPersistentModelIndex_Row(const QPersistentModelIndex* self);
 int QPersistentModelIndex_Column(const QPersistentModelIndex* self);

@@ -214,12 +214,12 @@ pub const qjsonobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject.html#operator[])
     ///
     /// ``` self: QtC.QJsonObject, key: []const u8 ```
-    pub fn OperatorSubscriptWithKey(self: ?*anyopaque, key: []const u8) QtC.QJsonValueRef {
+    pub fn OperatorSubscript2(self: ?*anyopaque, key: []const u8) QtC.QJsonValueRef {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        return qtc.QJsonObject_OperatorSubscriptWithKey(@ptrCast(self), key_str);
+        return qtc.QJsonObject_OperatorSubscript2(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject.html#remove)

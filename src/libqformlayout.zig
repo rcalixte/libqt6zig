@@ -239,15 +239,15 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
-    pub fn AddRowWithWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QFormLayout_AddRowWithWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn AddRow5(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QFormLayout_AddRow5(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addRow)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
-    pub fn AddRowWithLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QFormLayout_AddRowWithLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn AddRow6(self: ?*anyopaque, layout: ?*anyopaque) void {
+        qtc.QFormLayout_AddRow6(@ptrCast(self), @ptrCast(layout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#insertRow)
@@ -310,15 +310,15 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
-    pub fn RemoveRowWithWidget(self: ?*anyopaque, widget: ?*anyopaque) void {
-        qtc.QFormLayout_RemoveRowWithWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn RemoveRow2(self: ?*anyopaque, widget: ?*anyopaque) void {
+        qtc.QFormLayout_RemoveRow2(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#removeRow)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
-    pub fn RemoveRowWithLayout(self: ?*anyopaque, layout: ?*anyopaque) void {
-        qtc.QFormLayout_RemoveRowWithLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn RemoveRow3(self: ?*anyopaque, layout: ?*anyopaque) void {
+        qtc.QFormLayout_RemoveRow3(@ptrCast(self), @ptrCast(layout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
@@ -331,15 +331,15 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
-    pub fn TakeRowWithWidget(self: ?*anyopaque, widget: ?*anyopaque) QtC.QFormLayout__TakeRowResult {
-        return qtc.QFormLayout_TakeRowWithWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn TakeRow2(self: ?*anyopaque, widget: ?*anyopaque) QtC.QFormLayout__TakeRowResult {
+        return qtc.QFormLayout_TakeRow2(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeRow)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
-    pub fn TakeRowWithLayout(self: ?*anyopaque, layout: ?*anyopaque) QtC.QFormLayout__TakeRowResult {
-        return qtc.QFormLayout_TakeRowWithLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn TakeRow3(self: ?*anyopaque, layout: ?*anyopaque) QtC.QFormLayout__TakeRowResult {
+        return qtc.QFormLayout_TakeRow3(@ptrCast(self), @ptrCast(layout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setItem)
@@ -394,15 +394,15 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, widget: QtC.QWidget ```
-    pub fn IsRowVisibleWithWidget(self: ?*anyopaque, widget: ?*anyopaque) bool {
-        return qtc.QFormLayout_IsRowVisibleWithWidget(@ptrCast(self), @ptrCast(widget));
+    pub fn IsRowVisible2(self: ?*anyopaque, widget: ?*anyopaque) bool {
+        return qtc.QFormLayout_IsRowVisible2(@ptrCast(self), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#isRowVisible)
     ///
     /// ``` self: QtC.QFormLayout, layout: QtC.QLayout ```
-    pub fn IsRowVisibleWithLayout(self: ?*anyopaque, layout: ?*anyopaque) bool {
-        return qtc.QFormLayout_IsRowVisibleWithLayout(@ptrCast(self), @ptrCast(layout));
+    pub fn IsRowVisible3(self: ?*anyopaque, layout: ?*anyopaque) bool {
+        return qtc.QFormLayout_IsRowVisible3(@ptrCast(self), @ptrCast(layout));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
@@ -422,8 +422,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#labelForField)
     ///
     /// ``` self: QtC.QFormLayout, field: QtC.QLayout ```
-    pub fn LabelForFieldWithField(self: ?*anyopaque, field: ?*anyopaque) QtC.QWidget {
-        return qtc.QFormLayout_LabelForFieldWithField(@ptrCast(self), @ptrCast(field));
+    pub fn LabelForField2(self: ?*anyopaque, field: ?*anyopaque) QtC.QWidget {
+        return qtc.QFormLayout_LabelForField2(@ptrCast(self), @ptrCast(field));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#addItem)
@@ -454,8 +454,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// ``` self: QtC.QFormLayout, index: i32 ```
-    pub fn ItemAtWithIndex(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_ItemAtWithIndex(@ptrCast(self), @intCast(index));
+    pub fn ItemAt2(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
+        return qtc.QFormLayout_ItemAt2(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
@@ -463,8 +463,8 @@ pub const qformlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QFormLayout, slot: fn (self: QtC.QFormLayout, index: i32) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnItemAtWithIndex(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QFormLayout_OnItemAtWithIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnItemAt2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QFormLayout_OnItemAt2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
@@ -472,8 +472,8 @@ pub const qformlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFormLayout, index: i32 ```
-    pub fn QBaseItemAtWithIndex(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
-        return qtc.QFormLayout_QBaseItemAtWithIndex(@ptrCast(self), @intCast(index));
+    pub fn QBaseItemAt2(self: ?*anyopaque, index: i32) QtC.QLayoutItem {
+        return qtc.QFormLayout_QBaseItemAt2(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#takeAt)
@@ -748,8 +748,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setContentsMargins)
     ///
     /// ``` self: QtC.QFormLayout, margins: QtC.QMargins ```
-    pub fn SetContentsMarginsWithMargins(self: ?*anyopaque, margins: ?*anyopaque) void {
-        qtc.QLayout_SetContentsMarginsWithMargins(@ptrCast(self), @ptrCast(margins));
+    pub fn SetContentsMargins2(self: ?*anyopaque, margins: ?*anyopaque) void {
+        qtc.QLayout_SetContentsMargins2(@ptrCast(self), @ptrCast(margins));
     }
 
     /// Inherited from QLayout
@@ -901,8 +901,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#indexOf)
     ///
     /// ``` self: QtC.QFormLayout, param1: QtC.QLayoutItem ```
-    pub fn IndexOfWithQLayoutItem(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QLayout_IndexOfWithQLayoutItem(@ptrCast(self), @ptrCast(param1));
+    pub fn IndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QLayout_IndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
@@ -912,8 +912,8 @@ pub const qformlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
-    pub fn OnIndexOfWithQLayoutItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOfWithQLayoutItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QLayout
@@ -923,8 +923,8 @@ pub const qformlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFormLayout, param1: QtC.QLayoutItem ```
-    pub fn QBaseIndexOfWithQLayoutItem(self: ?*anyopaque, param1: ?*anyopaque) i32 {
-        return qtc.QLayout_QBaseIndexOfWithQLayoutItem(@ptrCast(self), @ptrCast(param1));
+    pub fn QBaseIndexOf2(self: ?*anyopaque, param1: ?*anyopaque) i32 {
+        return qtc.QLayout_QBaseIndexOf2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// Inherited from QLayout
@@ -1111,8 +1111,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFormLayout, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1190,8 +1190,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1334,8 +1334,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFormLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

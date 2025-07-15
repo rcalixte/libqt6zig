@@ -68,23 +68,23 @@ pub const qactiongroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qactiongroup.html#addAction)
     ///
     /// ``` self: QtC.QActionGroup, text: []const u8 ```
-    pub fn AddActionWithText(self: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QActionGroup_AddActionWithText(@ptrCast(self), text_str);
+        return qtc.QActionGroup_AddAction2(@ptrCast(self), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qactiongroup.html#addAction)
     ///
     /// ``` self: QtC.QActionGroup, icon: QtC.QIcon, text: []const u8 ```
-    pub fn AddAction2(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
+    pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QActionGroup_AddAction2(@ptrCast(self), @ptrCast(icon), text_str);
+        return qtc.QActionGroup_AddAction3(@ptrCast(self), @ptrCast(icon), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qactiongroup.html#removeAction)
@@ -342,8 +342,8 @@ pub const qactiongroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QActionGroup, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -421,8 +421,8 @@ pub const qactiongroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -565,8 +565,8 @@ pub const qactiongroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QActionGroup, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

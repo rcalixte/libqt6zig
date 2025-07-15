@@ -130,7 +130,7 @@ QRect* QPageSize_RectPixels(const QPageSize* self, int resolution) {
     return new QRect(self->rectPixels(static_cast<int>(resolution)));
 }
 
-libqt_string QPageSize_KeyWithPageSizeId(int pageSizeId) {
+libqt_string QPageSize_Key2(int pageSizeId) {
     QString _ret = QPageSize::key(static_cast<QPageSize::PageSizeId>(pageSizeId));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -142,7 +142,7 @@ libqt_string QPageSize_KeyWithPageSizeId(int pageSizeId) {
     return _str;
 }
 
-libqt_string QPageSize_NameWithPageSizeId(int pageSizeId) {
+libqt_string QPageSize_Name2(int pageSizeId) {
     QString _ret = QPageSize::name(static_cast<QPageSize::PageSizeId>(pageSizeId));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -154,27 +154,27 @@ libqt_string QPageSize_NameWithPageSizeId(int pageSizeId) {
     return _str;
 }
 
-int QPageSize_IdWithPointSize(const QSize* pointSize) {
+int QPageSize_Id2(const QSize* pointSize) {
     return static_cast<int>(QPageSize::id(*pointSize));
 }
 
-int QPageSize_Id2(const QSizeF* size, int units) {
+int QPageSize_Id3(const QSizeF* size, int units) {
     return static_cast<int>(QPageSize::id(*size, static_cast<QPageSize::Unit>(units)));
 }
 
-int QPageSize_IdWithWindowsId(int windowsId) {
+int QPageSize_Id4(int windowsId) {
     return static_cast<int>(QPageSize::id(static_cast<int>(windowsId)));
 }
 
-int QPageSize_WindowsIdWithPageSizeId(int pageSizeId) {
+int QPageSize_WindowsId2(int pageSizeId) {
     return QPageSize::windowsId(static_cast<QPageSize::PageSizeId>(pageSizeId));
 }
 
-QSizeF* QPageSize_DefinitionSizeWithPageSizeId(int pageSizeId) {
+QSizeF* QPageSize_DefinitionSize2(int pageSizeId) {
     return new QSizeF(QPageSize::definitionSize(static_cast<QPageSize::PageSizeId>(pageSizeId)));
 }
 
-int QPageSize_DefinitionUnitsWithPageSizeId(int pageSizeId) {
+int QPageSize_DefinitionUnits2(int pageSizeId) {
     return static_cast<int>(QPageSize::definitionUnits(static_cast<QPageSize::PageSizeId>(pageSizeId)));
 }
 
@@ -182,7 +182,7 @@ QSizeF* QPageSize_Size2(int pageSizeId, int units) {
     return new QSizeF(QPageSize::size(static_cast<QPageSize::PageSizeId>(pageSizeId), static_cast<QPageSize::Unit>(units)));
 }
 
-QSize* QPageSize_SizePointsWithPageSizeId(int pageSizeId) {
+QSize* QPageSize_SizePoints2(int pageSizeId) {
     return new QSize(QPageSize::sizePoints(static_cast<QPageSize::PageSizeId>(pageSizeId)));
 }
 
@@ -194,7 +194,7 @@ int QPageSize_Id22(const QSize* pointSize, int matchPolicy) {
     return static_cast<int>(QPageSize::id(*pointSize, static_cast<QPageSize::SizeMatchPolicy>(matchPolicy)));
 }
 
-int QPageSize_Id3(const QSizeF* size, int units, int matchPolicy) {
+int QPageSize_Id32(const QSizeF* size, int units, int matchPolicy) {
     return static_cast<int>(QPageSize::id(*size, static_cast<QPageSize::Unit>(units), static_cast<QPageSize::SizeMatchPolicy>(matchPolicy)));
 }
 

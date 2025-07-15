@@ -82,7 +82,7 @@ bool QCandlestickSeries_Remove(QCandlestickSeries* self, QCandlestickSet* set) {
     return self->remove(set);
 }
 
-bool QCandlestickSeries_AppendWithSets(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets) {
+bool QCandlestickSeries_Append2(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets) {
     QList<QCandlestickSet*> sets_QList;
     sets_QList.reserve(sets.len);
     QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(sets.data);
@@ -92,7 +92,7 @@ bool QCandlestickSeries_AppendWithSets(QCandlestickSeries* self, const libqt_lis
     return self->append(sets_QList);
 }
 
-bool QCandlestickSeries_RemoveWithSets(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets) {
+bool QCandlestickSeries_Remove2(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets) {
     QList<QCandlestickSet*> sets_QList;
     sets_QList.reserve(sets.len);
     QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(sets.data);

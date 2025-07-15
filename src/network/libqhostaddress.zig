@@ -104,8 +104,8 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator=)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn OperatorAssignWithAddress(self: ?*anyopaque, address: i64) void {
-        qtc.QHostAddress_OperatorAssignWithAddress(@ptrCast(self), @intCast(address));
+    pub fn OperatorAssign2(self: ?*anyopaque, address: i64) void {
+        qtc.QHostAddress_OperatorAssign2(@ptrCast(self), @intCast(address));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#swap)
@@ -125,33 +125,33 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
     /// ``` self: QtC.QHostAddress, ip6Addr: ?*u8 ```
-    pub fn SetAddressWithIp6Addr(self: ?*anyopaque, ip6Addr: ?*anyopaque) void {
-        qtc.QHostAddress_SetAddressWithIp6Addr(@ptrCast(self), @intCast(ip6Addr));
+    pub fn SetAddress2(self: ?*anyopaque, ip6Addr: ?*anyopaque) void {
+        qtc.QHostAddress_SetAddress2(@ptrCast(self), @intCast(ip6Addr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
     /// ``` self: QtC.QHostAddress, ip6Addr: QtC.QIPv6Address ```
-    pub fn SetAddress2(self: ?*anyopaque, ip6Addr: ?*anyopaque) void {
-        qtc.QHostAddress_SetAddress2(@ptrCast(self), @ptrCast(ip6Addr));
+    pub fn SetAddress3(self: ?*anyopaque, ip6Addr: ?*anyopaque) void {
+        qtc.QHostAddress_SetAddress3(@ptrCast(self), @ptrCast(ip6Addr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
     /// ``` self: QtC.QHostAddress, address: []const u8 ```
-    pub fn SetAddress3(self: ?*anyopaque, address: []const u8) bool {
+    pub fn SetAddress5(self: ?*anyopaque, address: []const u8) bool {
         const address_str = qtc.struct_libqt_string{
             .len = address.len,
             .data = address.ptr,
         };
-        return qtc.QHostAddress_SetAddress3(@ptrCast(self), address_str);
+        return qtc.QHostAddress_SetAddress5(@ptrCast(self), address_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn SetAddress4(self: ?*anyopaque, address: i64) void {
-        qtc.QHostAddress_SetAddress4(@ptrCast(self), @intCast(address));
+    pub fn SetAddress6(self: ?*anyopaque, address: i64) void {
+        qtc.QHostAddress_SetAddress6(@ptrCast(self), @intCast(address));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#protocol)
@@ -225,8 +225,8 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator==)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn OperatorEqualWithAddress(self: ?*anyopaque, address: i64) bool {
-        return qtc.QHostAddress_OperatorEqualWithAddress(@ptrCast(self), @intCast(address));
+    pub fn OperatorEqual2(self: ?*anyopaque, address: i64) bool {
+        return qtc.QHostAddress_OperatorEqual2(@ptrCast(self), @intCast(address));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator!=)
@@ -239,8 +239,8 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator!=)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn OperatorNotEqualWithAddress(self: ?*anyopaque, address: i64) bool {
-        return qtc.QHostAddress_OperatorNotEqualWithAddress(@ptrCast(self), @intCast(address));
+    pub fn OperatorNotEqual2(self: ?*anyopaque, address: i64) bool {
+        return qtc.QHostAddress_OperatorNotEqual2(@ptrCast(self), @intCast(address));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#isNull)

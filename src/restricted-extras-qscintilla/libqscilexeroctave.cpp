@@ -748,7 +748,7 @@ void QsciLexerOctave_OnPaper(const QsciLexerOctave* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerOctave_DefaultColorWithStyle(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_DefaultColor2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         return new QColor(vqscilexeroctave->defaultColor(static_cast<int>(style)));
@@ -758,10 +758,10 @@ QColor* QsciLexerOctave_DefaultColorWithStyle(const QsciLexerOctave* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerOctave_QBaseDefaultColorWithStyle(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_QBaseDefaultColor2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultColorWithStyle_IsBase(true);
+        vqscilexeroctave->setQsciLexerOctave_DefaultColor2_IsBase(true);
         return new QColor(vqscilexeroctave->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerOctave*)self)->defaultColor(static_cast<int>(style)));
@@ -769,10 +769,10 @@ QColor* QsciLexerOctave_QBaseDefaultColorWithStyle(const QsciLexerOctave* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultColorWithStyle(const QsciLexerOctave* self, intptr_t slot) {
+void QsciLexerOctave_OnDefaultColor2(const QsciLexerOctave* self, intptr_t slot) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultColorWithStyle_Callback>(slot));
+        vqscilexeroctave->setQsciLexerOctave_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -806,7 +806,7 @@ void QsciLexerOctave_OnDefaultEolFill(const QsciLexerOctave* self, intptr_t slot
 }
 
 // Derived class handler implementation
-QFont* QsciLexerOctave_DefaultFontWithStyle(const QsciLexerOctave* self, int style) {
+QFont* QsciLexerOctave_DefaultFont2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         return new QFont(vqscilexeroctave->defaultFont(static_cast<int>(style)));
@@ -816,10 +816,10 @@ QFont* QsciLexerOctave_DefaultFontWithStyle(const QsciLexerOctave* self, int sty
 }
 
 // Base class handler implementation
-QFont* QsciLexerOctave_QBaseDefaultFontWithStyle(const QsciLexerOctave* self, int style) {
+QFont* QsciLexerOctave_QBaseDefaultFont2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultFontWithStyle_IsBase(true);
+        vqscilexeroctave->setQsciLexerOctave_DefaultFont2_IsBase(true);
         return new QFont(vqscilexeroctave->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerOctave*)self)->defaultFont(static_cast<int>(style)));
@@ -827,15 +827,15 @@ QFont* QsciLexerOctave_QBaseDefaultFontWithStyle(const QsciLexerOctave* self, in
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultFontWithStyle(const QsciLexerOctave* self, intptr_t slot) {
+void QsciLexerOctave_OnDefaultFont2(const QsciLexerOctave* self, intptr_t slot) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultFontWithStyle_Callback>(slot));
+        vqscilexeroctave->setQsciLexerOctave_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerOctave_DefaultPaperWithStyle(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_DefaultPaper2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
         return new QColor(vqscilexeroctave->defaultPaper(static_cast<int>(style)));
@@ -845,10 +845,10 @@ QColor* QsciLexerOctave_DefaultPaperWithStyle(const QsciLexerOctave* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerOctave_QBaseDefaultPaperWithStyle(const QsciLexerOctave* self, int style) {
+QColor* QsciLexerOctave_QBaseDefaultPaper2(const QsciLexerOctave* self, int style) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultPaperWithStyle_IsBase(true);
+        vqscilexeroctave->setQsciLexerOctave_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexeroctave->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerOctave*)self)->defaultPaper(static_cast<int>(style)));
@@ -856,10 +856,10 @@ QColor* QsciLexerOctave_QBaseDefaultPaperWithStyle(const QsciLexerOctave* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerOctave_OnDefaultPaperWithStyle(const QsciLexerOctave* self, intptr_t slot) {
+void QsciLexerOctave_OnDefaultPaper2(const QsciLexerOctave* self, intptr_t slot) {
     auto* vqscilexeroctave = const_cast<VirtualQsciLexerOctave*>(dynamic_cast<const VirtualQsciLexerOctave*>(self));
     if (vqscilexeroctave && vqscilexeroctave->isVirtualQsciLexerOctave) {
-        vqscilexeroctave->setQsciLexerOctave_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexeroctave->setQsciLexerOctave_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerOctave::QsciLexerOctave_DefaultPaper2_Callback>(slot));
     }
 }
 

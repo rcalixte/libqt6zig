@@ -35,7 +35,7 @@ QDebug* QMessageLogger_Debug(const QMessageLogger* self) {
     return new QDebug(self->debug());
 }
 
-QDebug* QMessageLogger_DebugWithCat(const QMessageLogger* self, const QLoggingCategory* cat) {
+QDebug* QMessageLogger_Debug2(const QMessageLogger* self, const QLoggingCategory* cat) {
     return new QDebug(self->debug(*cat));
 }
 
@@ -43,7 +43,7 @@ QDebug* QMessageLogger_Info(const QMessageLogger* self) {
     return new QDebug(self->info());
 }
 
-QDebug* QMessageLogger_InfoWithCat(const QMessageLogger* self, const QLoggingCategory* cat) {
+QDebug* QMessageLogger_Info2(const QMessageLogger* self, const QLoggingCategory* cat) {
     return new QDebug(self->info(*cat));
 }
 
@@ -51,7 +51,7 @@ QDebug* QMessageLogger_Warning(const QMessageLogger* self) {
     return new QDebug(self->warning());
 }
 
-QDebug* QMessageLogger_WarningWithCat(const QMessageLogger* self, const QLoggingCategory* cat) {
+QDebug* QMessageLogger_Warning2(const QMessageLogger* self, const QLoggingCategory* cat) {
     return new QDebug(self->warning(*cat));
 }
 
@@ -59,7 +59,7 @@ QDebug* QMessageLogger_Critical(const QMessageLogger* self) {
     return new QDebug(self->critical());
 }
 
-QDebug* QMessageLogger_CriticalWithCat(const QMessageLogger* self, const QLoggingCategory* cat) {
+QDebug* QMessageLogger_Critical2(const QMessageLogger* self, const QLoggingCategory* cat) {
     return new QDebug(self->critical(*cat));
 }
 
@@ -67,7 +67,7 @@ QDebug* QMessageLogger_Fatal(const QMessageLogger* self) {
     return new QDebug(self->fatal());
 }
 
-QDebug* QMessageLogger_FatalWithCat(const QMessageLogger* self, const QLoggingCategory* cat) {
+QDebug* QMessageLogger_Fatal2(const QMessageLogger* self, const QLoggingCategory* cat) {
     return new QDebug(self->fatal(*cat));
 }
 

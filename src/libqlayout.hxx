@@ -31,7 +31,7 @@ class VirtualQLayout final : public QLayout {
     using QLayout_ItemAt_Callback = QLayoutItem* (*)(const QLayout*, int);
     using QLayout_TakeAt_Callback = QLayoutItem* (*)(QLayout*, int);
     using QLayout_IndexOf_Callback = int (*)(const QLayout*, QWidget*);
-    using QLayout_IndexOfWithQLayoutItem_Callback = int (*)(const QLayout*, QLayoutItem*);
+    using QLayout_IndexOf2_Callback = int (*)(const QLayout*, QLayoutItem*);
     using QLayout_Count_Callback = int (*)();
     using QLayout_IsEmpty_Callback = bool (*)();
     using QLayout_ControlTypes_Callback = int (*)();
@@ -75,7 +75,7 @@ class VirtualQLayout final : public QLayout {
     QLayout_ItemAt_Callback qlayout_itemat_callback = nullptr;
     QLayout_TakeAt_Callback qlayout_takeat_callback = nullptr;
     QLayout_IndexOf_Callback qlayout_indexof_callback = nullptr;
-    QLayout_IndexOfWithQLayoutItem_Callback qlayout_indexofwithqlayoutitem_callback = nullptr;
+    QLayout_IndexOf2_Callback qlayout_indexof2_callback = nullptr;
     QLayout_Count_Callback qlayout_count_callback = nullptr;
     QLayout_IsEmpty_Callback qlayout_isempty_callback = nullptr;
     QLayout_ControlTypes_Callback qlayout_controltypes_callback = nullptr;
@@ -118,7 +118,7 @@ class VirtualQLayout final : public QLayout {
     mutable bool qlayout_itemat_isbase = false;
     mutable bool qlayout_takeat_isbase = false;
     mutable bool qlayout_indexof_isbase = false;
-    mutable bool qlayout_indexofwithqlayoutitem_isbase = false;
+    mutable bool qlayout_indexof2_isbase = false;
     mutable bool qlayout_count_isbase = false;
     mutable bool qlayout_isempty_isbase = false;
     mutable bool qlayout_controltypes_isbase = false;
@@ -165,7 +165,7 @@ class VirtualQLayout final : public QLayout {
         qlayout_itemat_callback = nullptr;
         qlayout_takeat_callback = nullptr;
         qlayout_indexof_callback = nullptr;
-        qlayout_indexofwithqlayoutitem_callback = nullptr;
+        qlayout_indexof2_callback = nullptr;
         qlayout_count_callback = nullptr;
         qlayout_isempty_callback = nullptr;
         qlayout_controltypes_callback = nullptr;
@@ -209,7 +209,7 @@ class VirtualQLayout final : public QLayout {
     inline void setQLayout_ItemAt_Callback(QLayout_ItemAt_Callback cb) { qlayout_itemat_callback = cb; }
     inline void setQLayout_TakeAt_Callback(QLayout_TakeAt_Callback cb) { qlayout_takeat_callback = cb; }
     inline void setQLayout_IndexOf_Callback(QLayout_IndexOf_Callback cb) { qlayout_indexof_callback = cb; }
-    inline void setQLayout_IndexOfWithQLayoutItem_Callback(QLayout_IndexOfWithQLayoutItem_Callback cb) { qlayout_indexofwithqlayoutitem_callback = cb; }
+    inline void setQLayout_IndexOf2_Callback(QLayout_IndexOf2_Callback cb) { qlayout_indexof2_callback = cb; }
     inline void setQLayout_Count_Callback(QLayout_Count_Callback cb) { qlayout_count_callback = cb; }
     inline void setQLayout_IsEmpty_Callback(QLayout_IsEmpty_Callback cb) { qlayout_isempty_callback = cb; }
     inline void setQLayout_ControlTypes_Callback(QLayout_ControlTypes_Callback cb) { qlayout_controltypes_callback = cb; }
@@ -252,7 +252,7 @@ class VirtualQLayout final : public QLayout {
     inline void setQLayout_ItemAt_IsBase(bool value) const { qlayout_itemat_isbase = value; }
     inline void setQLayout_TakeAt_IsBase(bool value) const { qlayout_takeat_isbase = value; }
     inline void setQLayout_IndexOf_IsBase(bool value) const { qlayout_indexof_isbase = value; }
-    inline void setQLayout_IndexOfWithQLayoutItem_IsBase(bool value) const { qlayout_indexofwithqlayoutitem_isbase = value; }
+    inline void setQLayout_IndexOf2_IsBase(bool value) const { qlayout_indexof2_isbase = value; }
     inline void setQLayout_Count_IsBase(bool value) const { qlayout_count_isbase = value; }
     inline void setQLayout_IsEmpty_IsBase(bool value) const { qlayout_isempty_isbase = value; }
     inline void setQLayout_ControlTypes_IsBase(bool value) const { qlayout_controltypes_isbase = value; }
@@ -455,13 +455,13 @@ class VirtualQLayout final : public QLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual int indexOf(const QLayoutItem* param1) const override {
-        if (qlayout_indexofwithqlayoutitem_isbase) {
-            qlayout_indexofwithqlayoutitem_isbase = false;
+        if (qlayout_indexof2_isbase) {
+            qlayout_indexof2_isbase = false;
             return QLayout::indexOf(param1);
-        } else if (qlayout_indexofwithqlayoutitem_callback != nullptr) {
+        } else if (qlayout_indexof2_callback != nullptr) {
             QLayoutItem* cbval1 = (QLayoutItem*)param1;
 
-            int callback_ret = qlayout_indexofwithqlayoutitem_callback(this, cbval1);
+            int callback_ret = qlayout_indexof2_callback(this, cbval1);
             return static_cast<int>(callback_ret);
         } else {
             return QLayout::indexOf(param1);

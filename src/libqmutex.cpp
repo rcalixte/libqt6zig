@@ -38,11 +38,11 @@ bool QMutex_TryLock(QMutex* self) {
     return self->try_lock();
 }
 
-bool QMutex_TryLockWithTimeout(QMutex* self, int timeout) {
+bool QMutex_TryLock2(QMutex* self, int timeout) {
     return self->tryLock(static_cast<int>(timeout));
 }
 
-bool QMutex_TryLock2(QMutex* self, QDeadlineTimer* timeout) {
+bool QMutex_TryLock3(QMutex* self, QDeadlineTimer* timeout) {
     return self->tryLock(*timeout);
 }
 

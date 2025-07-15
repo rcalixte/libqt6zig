@@ -81,7 +81,7 @@ void QBarCategoryAxis_Append(QBarCategoryAxis* self, const libqt_list /* of libq
     self->append(categories_QList);
 }
 
-void QBarCategoryAxis_AppendWithCategory(QBarCategoryAxis* self, const libqt_string category) {
+void QBarCategoryAxis_Append2(QBarCategoryAxis* self, const libqt_string category) {
     QString category_QString = QString::fromUtf8(category.data, category.len);
     self->append(category_QString);
 }

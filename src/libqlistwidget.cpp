@@ -225,11 +225,11 @@ void QListWidgetItem_SetTextAlignment(QListWidgetItem* self, int alignment) {
     self->setTextAlignment(static_cast<int>(alignment));
 }
 
-void QListWidgetItem_SetTextAlignmentWithAlignment(QListWidgetItem* self, int alignment) {
+void QListWidgetItem_SetTextAlignment2(QListWidgetItem* self, int alignment) {
     self->setTextAlignment(static_cast<Qt::AlignmentFlag>(alignment));
 }
 
-void QListWidgetItem_SetTextAlignment2(QListWidgetItem* self, int alignment) {
+void QListWidgetItem_SetTextAlignment3(QListWidgetItem* self, int alignment) {
     self->setTextAlignment(static_cast<Qt::Alignment>(alignment));
 }
 
@@ -540,7 +540,7 @@ void QListWidget_AddItem(QListWidget* self, const libqt_string label) {
     self->addItem(label_QString);
 }
 
-void QListWidget_AddItemWithItem(QListWidget* self, QListWidgetItem* item) {
+void QListWidget_AddItem2(QListWidget* self, QListWidgetItem* item) {
     self->addItem(item);
 }
 

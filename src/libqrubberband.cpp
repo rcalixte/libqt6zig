@@ -113,7 +113,7 @@ void QRubberBand_Move(QRubberBand* self, int x, int y) {
     self->move(static_cast<int>(x), static_cast<int>(y));
 }
 
-void QRubberBand_MoveWithQPoint(QRubberBand* self, const QPoint* p) {
+void QRubberBand_Move2(QRubberBand* self, const QPoint* p) {
     self->move(*p);
 }
 
@@ -121,7 +121,7 @@ void QRubberBand_Resize(QRubberBand* self, int w, int h) {
     self->resize(static_cast<int>(w), static_cast<int>(h));
 }
 
-void QRubberBand_ResizeWithQSize(QRubberBand* self, const QSize* s) {
+void QRubberBand_Resize2(QRubberBand* self, const QSize* s) {
     self->resize(*s);
 }
 

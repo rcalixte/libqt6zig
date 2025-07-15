@@ -37,7 +37,7 @@ ptrdiff_t QJsonObject_Length(const QJsonObject* self);
 bool QJsonObject_IsEmpty(const QJsonObject* self);
 QJsonValue* QJsonObject_Value(const QJsonObject* self, const libqt_string key);
 QJsonValue* QJsonObject_OperatorSubscript(const QJsonObject* self, const libqt_string key);
-QJsonValueRef* QJsonObject_OperatorSubscriptWithKey(QJsonObject* self, const libqt_string key);
+QJsonValueRef* QJsonObject_OperatorSubscript2(QJsonObject* self, const libqt_string key);
 void QJsonObject_Remove(QJsonObject* self, const libqt_string key);
 QJsonValue* QJsonObject_Take(QJsonObject* self, const libqt_string key);
 bool QJsonObject_Contains(const QJsonObject* self, const libqt_string key);

@@ -89,12 +89,12 @@ void QGraphicsWidget_QBaseSetGeometry(QGraphicsWidget* self, const QRectF* rect)
 void QGraphicsWidget_SetGeometry2(QGraphicsWidget* self, double x, double y, double w, double h);
 QRectF* QGraphicsWidget_Rect(const QGraphicsWidget* self);
 void QGraphicsWidget_SetContentsMargins(QGraphicsWidget* self, double left, double top, double right, double bottom);
-void QGraphicsWidget_SetContentsMarginsWithMargins(QGraphicsWidget* self, QMarginsF* margins);
+void QGraphicsWidget_SetContentsMargins2(QGraphicsWidget* self, QMarginsF* margins);
 void QGraphicsWidget_GetContentsMargins(const QGraphicsWidget* self, double* left, double* top, double* right, double* bottom);
 void QGraphicsWidget_OnGetContentsMargins(const QGraphicsWidget* self, intptr_t slot);
 void QGraphicsWidget_QBaseGetContentsMargins(const QGraphicsWidget* self, double* left, double* top, double* right, double* bottom);
 void QGraphicsWidget_SetWindowFrameMargins(QGraphicsWidget* self, double left, double top, double right, double bottom);
-void QGraphicsWidget_SetWindowFrameMarginsWithMargins(QGraphicsWidget* self, QMarginsF* margins);
+void QGraphicsWidget_SetWindowFrameMargins2(QGraphicsWidget* self, QMarginsF* margins);
 void QGraphicsWidget_GetWindowFrameMargins(const QGraphicsWidget* self, double* left, double* top, double* right, double* bottom);
 void QGraphicsWidget_UnsetWindowFrameMargins(QGraphicsWidget* self);
 QRectF* QGraphicsWidget_WindowFrameGeometry(const QGraphicsWidget* self);

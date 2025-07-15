@@ -261,8 +261,8 @@ pub const qpainterpath = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#contains)
     ///
     /// ``` self: QtC.QPainterPath, rect: QtC.QRectF ```
-    pub fn ContainsWithRect(self: ?*anyopaque, rect: ?*anyopaque) bool {
-        return qtc.QPainterPath_ContainsWithRect(@ptrCast(self), @ptrCast(rect));
+    pub fn Contains2(self: ?*anyopaque, rect: ?*anyopaque) bool {
+        return qtc.QPainterPath_Contains2(@ptrCast(self), @ptrCast(rect));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#intersects)
@@ -282,8 +282,8 @@ pub const qpainterpath = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#translate)
     ///
     /// ``` self: QtC.QPainterPath, offset: QtC.QPointF ```
-    pub fn TranslateWithOffset(self: ?*anyopaque, offset: ?*anyopaque) void {
-        qtc.QPainterPath_TranslateWithOffset(@ptrCast(self), @ptrCast(offset));
+    pub fn Translate2(self: ?*anyopaque, offset: ?*anyopaque) void {
+        qtc.QPainterPath_Translate2(@ptrCast(self), @ptrCast(offset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#translated)
@@ -296,8 +296,8 @@ pub const qpainterpath = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#translated)
     ///
     /// ``` self: QtC.QPainterPath, offset: QtC.QPointF ```
-    pub fn TranslatedWithOffset(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPainterPath {
-        return qtc.QPainterPath_TranslatedWithOffset(@ptrCast(self), @ptrCast(offset));
+    pub fn Translated2(self: ?*anyopaque, offset: ?*anyopaque) QtC.QPainterPath {
+        return qtc.QPainterPath_Translated2(@ptrCast(self), @ptrCast(offset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#boundingRect)
@@ -401,15 +401,15 @@ pub const qpainterpath = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#intersects)
     ///
     /// ``` self: QtC.QPainterPath, p: QtC.QPainterPath ```
-    pub fn IntersectsWithQPainterPath(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QPainterPath_IntersectsWithQPainterPath(@ptrCast(self), @ptrCast(p));
+    pub fn Intersects2(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.QPainterPath_Intersects2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#contains)
     ///
     /// ``` self: QtC.QPainterPath, p: QtC.QPainterPath ```
-    pub fn ContainsWithQPainterPath(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QPainterPath_ContainsWithQPainterPath(@ptrCast(self), @ptrCast(p));
+    pub fn Contains3(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.QPainterPath_Contains3(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#united)
@@ -630,12 +630,12 @@ pub const qpainterpathstroker = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpathstroker.html#setDashPattern)
     ///
     /// ``` self: QtC.QPainterPathStroker, dashPattern: []f64 ```
-    pub fn SetDashPatternWithDashPattern(self: ?*anyopaque, dashPattern: []f64) void {
+    pub fn SetDashPattern2(self: ?*anyopaque, dashPattern: []f64) void {
         const dashPattern_list = qtc.struct_libqt_list{
             .len = dashPattern.len,
             .data = dashPattern.ptr,
         };
-        qtc.QPainterPathStroker_SetDashPatternWithDashPattern(@ptrCast(self), dashPattern_list);
+        qtc.QPainterPathStroker_SetDashPattern2(@ptrCast(self), dashPattern_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpathstroker.html#dashPattern)

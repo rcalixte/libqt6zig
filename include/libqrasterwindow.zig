@@ -182,8 +182,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
     /// ``` self: QtC.QRasterWindow, region: QtC.QRegion ```
-    pub fn UpdateWithRegion(self: ?*anyopaque, region: ?*anyopaque) void {
-        qtc.QPaintDeviceWindow_UpdateWithRegion(@ptrCast(self), @ptrCast(region));
+    pub fn Update2(self: ?*anyopaque, region: ?*anyopaque) void {
+        qtc.QPaintDeviceWindow_Update2(@ptrCast(self), @ptrCast(region));
     }
 
     /// Inherited from QPaintDeviceWindow
@@ -191,8 +191,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevicewindow.html#update)
     ///
     /// ``` self: QtC.QRasterWindow ```
-    pub fn Update2(self: ?*anyopaque) void {
-        qtc.QPaintDeviceWindow_Update2(@ptrCast(self));
+    pub fn Update3(self: ?*anyopaque) void {
+        qtc.QPaintDeviceWindow_Update3(@ptrCast(self));
     }
 
     /// Inherited from QWindow
@@ -860,8 +860,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
     ///
     /// ``` self: QtC.QRasterWindow, pos: QtC.QPoint ```
-    pub fn MapToGlobalWithPos(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
-        return qtc.QWindow_MapToGlobalWithPos(@ptrCast(self), @ptrCast(pos));
+    pub fn MapToGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
+        return qtc.QWindow_MapToGlobal2(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWindow
@@ -869,8 +869,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QRasterWindow, pos: QtC.QPoint ```
-    pub fn MapFromGlobalWithPos(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
-        return qtc.QWindow_MapFromGlobalWithPos(@ptrCast(self), @ptrCast(pos));
+    pub fn MapFromGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
+        return qtc.QWindow_MapFromGlobal2(@ptrCast(self), @ptrCast(pos));
     }
 
     /// Inherited from QWindow
@@ -1089,8 +1089,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
     ///
     /// ``` self: QtC.QRasterWindow, rect: QtC.QRect ```
-    pub fn SetGeometryWithRect(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QWindow_SetGeometryWithRect(@ptrCast(self), @ptrCast(rect));
+    pub fn SetGeometry2(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QWindow_SetGeometry2(@ptrCast(self), @ptrCast(rect));
     }
 
     /// Inherited from QWindow
@@ -1632,8 +1632,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QRasterWindow, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1702,8 +1702,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1837,8 +1837,8 @@ pub const qrasterwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QRasterWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

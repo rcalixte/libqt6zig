@@ -70,7 +70,7 @@ void QFileDialog_OnMetacall(QFileDialog* self, intptr_t slot);
 int QFileDialog_QBaseMetacall(QFileDialog* self, int param1, int param2, void** param3);
 libqt_string QFileDialog_Tr(const char* s);
 void QFileDialog_SetDirectory(QFileDialog* self, const libqt_string directory);
-void QFileDialog_SetDirectoryWithDirectory(QFileDialog* self, const QDir* directory);
+void QFileDialog_SetDirectory2(QFileDialog* self, const QDir* directory);
 QDir* QFileDialog_Directory(const QFileDialog* self);
 void QFileDialog_SetDirectoryUrl(QFileDialog* self, const QUrl* directory);
 QUrl* QFileDialog_DirectoryUrl(const QFileDialog* self);

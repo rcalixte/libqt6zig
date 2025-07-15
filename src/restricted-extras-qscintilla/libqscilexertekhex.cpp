@@ -748,7 +748,7 @@ void QsciLexerTekHex_OnPaper(const QsciLexerTekHex* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerTekHex_DefaultColorWithStyle(const QsciLexerTekHex* self, int style) {
+QColor* QsciLexerTekHex_DefaultColor2(const QsciLexerTekHex* self, int style) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
         return new QColor(vqscilexertekhex->defaultColor(static_cast<int>(style)));
@@ -758,10 +758,10 @@ QColor* QsciLexerTekHex_DefaultColorWithStyle(const QsciLexerTekHex* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerTekHex_QBaseDefaultColorWithStyle(const QsciLexerTekHex* self, int style) {
+QColor* QsciLexerTekHex_QBaseDefaultColor2(const QsciLexerTekHex* self, int style) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_DefaultColorWithStyle_IsBase(true);
+        vqscilexertekhex->setQsciLexerTekHex_DefaultColor2_IsBase(true);
         return new QColor(vqscilexertekhex->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerTekHex*)self)->defaultColor(static_cast<int>(style)));
@@ -769,10 +769,10 @@ QColor* QsciLexerTekHex_QBaseDefaultColorWithStyle(const QsciLexerTekHex* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerTekHex_OnDefaultColorWithStyle(const QsciLexerTekHex* self, intptr_t slot) {
+void QsciLexerTekHex_OnDefaultColor2(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultColorWithStyle_Callback>(slot));
+        vqscilexertekhex->setQsciLexerTekHex_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -806,7 +806,7 @@ void QsciLexerTekHex_OnDefaultEolFill(const QsciLexerTekHex* self, intptr_t slot
 }
 
 // Derived class handler implementation
-QFont* QsciLexerTekHex_DefaultFontWithStyle(const QsciLexerTekHex* self, int style) {
+QFont* QsciLexerTekHex_DefaultFont2(const QsciLexerTekHex* self, int style) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
         return new QFont(vqscilexertekhex->defaultFont(static_cast<int>(style)));
@@ -816,10 +816,10 @@ QFont* QsciLexerTekHex_DefaultFontWithStyle(const QsciLexerTekHex* self, int sty
 }
 
 // Base class handler implementation
-QFont* QsciLexerTekHex_QBaseDefaultFontWithStyle(const QsciLexerTekHex* self, int style) {
+QFont* QsciLexerTekHex_QBaseDefaultFont2(const QsciLexerTekHex* self, int style) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_DefaultFontWithStyle_IsBase(true);
+        vqscilexertekhex->setQsciLexerTekHex_DefaultFont2_IsBase(true);
         return new QFont(vqscilexertekhex->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerTekHex*)self)->defaultFont(static_cast<int>(style)));
@@ -827,15 +827,15 @@ QFont* QsciLexerTekHex_QBaseDefaultFontWithStyle(const QsciLexerTekHex* self, in
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerTekHex_OnDefaultFontWithStyle(const QsciLexerTekHex* self, intptr_t slot) {
+void QsciLexerTekHex_OnDefaultFont2(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultFontWithStyle_Callback>(slot));
+        vqscilexertekhex->setQsciLexerTekHex_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerTekHex_DefaultPaperWithStyle(const QsciLexerTekHex* self, int style) {
+QColor* QsciLexerTekHex_DefaultPaper2(const QsciLexerTekHex* self, int style) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
         return new QColor(vqscilexertekhex->defaultPaper(static_cast<int>(style)));
@@ -845,10 +845,10 @@ QColor* QsciLexerTekHex_DefaultPaperWithStyle(const QsciLexerTekHex* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerTekHex_QBaseDefaultPaperWithStyle(const QsciLexerTekHex* self, int style) {
+QColor* QsciLexerTekHex_QBaseDefaultPaper2(const QsciLexerTekHex* self, int style) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_DefaultPaperWithStyle_IsBase(true);
+        vqscilexertekhex->setQsciLexerTekHex_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexertekhex->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerTekHex*)self)->defaultPaper(static_cast<int>(style)));
@@ -856,10 +856,10 @@ QColor* QsciLexerTekHex_QBaseDefaultPaperWithStyle(const QsciLexerTekHex* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerTekHex_OnDefaultPaperWithStyle(const QsciLexerTekHex* self, intptr_t slot) {
+void QsciLexerTekHex_OnDefaultPaper2(const QsciLexerTekHex* self, intptr_t slot) {
     auto* vqscilexertekhex = const_cast<VirtualQsciLexerTekHex*>(dynamic_cast<const VirtualQsciLexerTekHex*>(self));
     if (vqscilexertekhex && vqscilexertekhex->isVirtualQsciLexerTekHex) {
-        vqscilexertekhex->setQsciLexerTekHex_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexertekhex->setQsciLexerTekHex_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerTekHex::QsciLexerTekHex_DefaultPaper2_Callback>(slot));
     }
 }
 

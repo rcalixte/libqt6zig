@@ -18,11 +18,11 @@ bool QWaitCondition_Wait2(QWaitCondition* self, QMutex* lockedMutex, unsigned lo
     return self->wait(lockedMutex, static_cast<unsigned long>(time));
 }
 
-bool QWaitCondition_WaitWithLockedReadWriteLock(QWaitCondition* self, QReadWriteLock* lockedReadWriteLock) {
+bool QWaitCondition_Wait3(QWaitCondition* self, QReadWriteLock* lockedReadWriteLock) {
     return self->wait(lockedReadWriteLock);
 }
 
-bool QWaitCondition_Wait3(QWaitCondition* self, QReadWriteLock* lockedReadWriteLock, unsigned long time) {
+bool QWaitCondition_Wait4(QWaitCondition* self, QReadWriteLock* lockedReadWriteLock, unsigned long time) {
     return self->wait(lockedReadWriteLock, static_cast<unsigned long>(time));
 }
 

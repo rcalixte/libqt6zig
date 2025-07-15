@@ -27,11 +27,11 @@ void QCryptographicHash_AddData(QCryptographicHash* self, const char* data, ptrd
     self->addData(data, (qsizetype)(length));
 }
 
-void QCryptographicHash_AddDataWithData(QCryptographicHash* self, QByteArrayView* data) {
+void QCryptographicHash_AddData2(QCryptographicHash* self, QByteArrayView* data) {
     self->addData(*data);
 }
 
-bool QCryptographicHash_AddDataWithDevice(QCryptographicHash* self, QIODevice* device) {
+bool QCryptographicHash_AddData3(QCryptographicHash* self, QIODevice* device) {
     return self->addData(device);
 }
 

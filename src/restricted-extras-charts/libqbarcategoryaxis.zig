@@ -112,12 +112,12 @@ pub const qbarcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarcategoryaxis-qtcharts.html#append)
     ///
     /// ``` self: QtC.QBarCategoryAxis, category: []const u8 ```
-    pub fn AppendWithCategory(self: ?*anyopaque, category: []const u8) void {
+    pub fn Append2(self: ?*anyopaque, category: []const u8) void {
         const category_str = qtc.struct_libqt_string{
             .len = category.len,
             .data = category.ptr,
         };
-        qtc.QBarCategoryAxis_AppendWithCategory(@ptrCast(self), category_str);
+        qtc.QBarCategoryAxis_Append2(@ptrCast(self), category_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarcategoryaxis-qtcharts.html#remove)
@@ -1643,8 +1643,8 @@ pub const qbarcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBarCategoryAxis, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1722,8 +1722,8 @@ pub const qbarcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1866,8 +1866,8 @@ pub const qbarcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBarCategoryAxis, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

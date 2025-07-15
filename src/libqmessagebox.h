@@ -73,7 +73,7 @@ int QMessageBox_QBaseMetacall(QMessageBox* self, int param1, int param2, void** 
 libqt_string QMessageBox_Tr(const char* s);
 void QMessageBox_AddButton(QMessageBox* self, QAbstractButton* button, int role);
 QPushButton* QMessageBox_AddButton2(QMessageBox* self, const libqt_string text, int role);
-QPushButton* QMessageBox_AddButtonWithButton(QMessageBox* self, int button);
+QPushButton* QMessageBox_AddButton3(QMessageBox* self, int button);
 void QMessageBox_RemoveButton(QMessageBox* self, QAbstractButton* button);
 libqt_list /* of QAbstractButton* */ QMessageBox_Buttons(const QMessageBox* self);
 int QMessageBox_ButtonRole(const QMessageBox* self, QAbstractButton* button);
@@ -83,10 +83,10 @@ int QMessageBox_StandardButton(const QMessageBox* self, QAbstractButton* button)
 QAbstractButton* QMessageBox_Button(const QMessageBox* self, int which);
 QPushButton* QMessageBox_DefaultButton(const QMessageBox* self);
 void QMessageBox_SetDefaultButton(QMessageBox* self, QPushButton* button);
-void QMessageBox_SetDefaultButtonWithButton(QMessageBox* self, int button);
+void QMessageBox_SetDefaultButton2(QMessageBox* self, int button);
 QAbstractButton* QMessageBox_EscapeButton(const QMessageBox* self);
 void QMessageBox_SetEscapeButton(QMessageBox* self, QAbstractButton* button);
-void QMessageBox_SetEscapeButtonWithButton(QMessageBox* self, int button);
+void QMessageBox_SetEscapeButton2(QMessageBox* self, int button);
 QAbstractButton* QMessageBox_ClickedButton(const QMessageBox* self);
 libqt_string QMessageBox_Text(const QMessageBox* self);
 void QMessageBox_SetText(QMessageBox* self, const libqt_string text);

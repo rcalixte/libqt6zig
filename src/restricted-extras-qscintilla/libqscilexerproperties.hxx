@@ -39,10 +39,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
     using QsciLexerProperties_DefaultStyle_Callback = int (*)();
     using QsciLexerProperties_Description_Callback = libqt_string (*)(const QsciLexerProperties*, int);
     using QsciLexerProperties_Paper_Callback = QColor* (*)(const QsciLexerProperties*, int);
-    using QsciLexerProperties_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerProperties*, int);
+    using QsciLexerProperties_DefaultColor2_Callback = QColor* (*)(const QsciLexerProperties*, int);
     using QsciLexerProperties_DefaultEolFill_Callback = bool (*)(const QsciLexerProperties*, int);
-    using QsciLexerProperties_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerProperties*, int);
-    using QsciLexerProperties_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerProperties*, int);
+    using QsciLexerProperties_DefaultFont2_Callback = QFont* (*)(const QsciLexerProperties*, int);
+    using QsciLexerProperties_DefaultPaper2_Callback = QColor* (*)(const QsciLexerProperties*, int);
     using QsciLexerProperties_SetEditor_Callback = void (*)(QsciLexerProperties*, QsciScintilla*);
     using QsciLexerProperties_RefreshProperties_Callback = void (*)();
     using QsciLexerProperties_StyleBitsNeeded_Callback = int (*)();
@@ -91,10 +91,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
     QsciLexerProperties_DefaultStyle_Callback qscilexerproperties_defaultstyle_callback = nullptr;
     QsciLexerProperties_Description_Callback qscilexerproperties_description_callback = nullptr;
     QsciLexerProperties_Paper_Callback qscilexerproperties_paper_callback = nullptr;
-    QsciLexerProperties_DefaultColorWithStyle_Callback qscilexerproperties_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerProperties_DefaultColor2_Callback qscilexerproperties_defaultcolor2_callback = nullptr;
     QsciLexerProperties_DefaultEolFill_Callback qscilexerproperties_defaulteolfill_callback = nullptr;
-    QsciLexerProperties_DefaultFontWithStyle_Callback qscilexerproperties_defaultfontwithstyle_callback = nullptr;
-    QsciLexerProperties_DefaultPaperWithStyle_Callback qscilexerproperties_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerProperties_DefaultFont2_Callback qscilexerproperties_defaultfont2_callback = nullptr;
+    QsciLexerProperties_DefaultPaper2_Callback qscilexerproperties_defaultpaper2_callback = nullptr;
     QsciLexerProperties_SetEditor_Callback qscilexerproperties_seteditor_callback = nullptr;
     QsciLexerProperties_RefreshProperties_Callback qscilexerproperties_refreshproperties_callback = nullptr;
     QsciLexerProperties_StyleBitsNeeded_Callback qscilexerproperties_stylebitsneeded_callback = nullptr;
@@ -142,10 +142,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
     mutable bool qscilexerproperties_defaultstyle_isbase = false;
     mutable bool qscilexerproperties_description_isbase = false;
     mutable bool qscilexerproperties_paper_isbase = false;
-    mutable bool qscilexerproperties_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerproperties_defaultcolor2_isbase = false;
     mutable bool qscilexerproperties_defaulteolfill_isbase = false;
-    mutable bool qscilexerproperties_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerproperties_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerproperties_defaultfont2_isbase = false;
+    mutable bool qscilexerproperties_defaultpaper2_isbase = false;
     mutable bool qscilexerproperties_seteditor_isbase = false;
     mutable bool qscilexerproperties_refreshproperties_isbase = false;
     mutable bool qscilexerproperties_stylebitsneeded_isbase = false;
@@ -197,10 +197,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
         qscilexerproperties_defaultstyle_callback = nullptr;
         qscilexerproperties_description_callback = nullptr;
         qscilexerproperties_paper_callback = nullptr;
-        qscilexerproperties_defaultcolorwithstyle_callback = nullptr;
+        qscilexerproperties_defaultcolor2_callback = nullptr;
         qscilexerproperties_defaulteolfill_callback = nullptr;
-        qscilexerproperties_defaultfontwithstyle_callback = nullptr;
-        qscilexerproperties_defaultpaperwithstyle_callback = nullptr;
+        qscilexerproperties_defaultfont2_callback = nullptr;
+        qscilexerproperties_defaultpaper2_callback = nullptr;
         qscilexerproperties_seteditor_callback = nullptr;
         qscilexerproperties_refreshproperties_callback = nullptr;
         qscilexerproperties_stylebitsneeded_callback = nullptr;
@@ -249,10 +249,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
     inline void setQsciLexerProperties_DefaultStyle_Callback(QsciLexerProperties_DefaultStyle_Callback cb) { qscilexerproperties_defaultstyle_callback = cb; }
     inline void setQsciLexerProperties_Description_Callback(QsciLexerProperties_Description_Callback cb) { qscilexerproperties_description_callback = cb; }
     inline void setQsciLexerProperties_Paper_Callback(QsciLexerProperties_Paper_Callback cb) { qscilexerproperties_paper_callback = cb; }
-    inline void setQsciLexerProperties_DefaultColorWithStyle_Callback(QsciLexerProperties_DefaultColorWithStyle_Callback cb) { qscilexerproperties_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerProperties_DefaultColor2_Callback(QsciLexerProperties_DefaultColor2_Callback cb) { qscilexerproperties_defaultcolor2_callback = cb; }
     inline void setQsciLexerProperties_DefaultEolFill_Callback(QsciLexerProperties_DefaultEolFill_Callback cb) { qscilexerproperties_defaulteolfill_callback = cb; }
-    inline void setQsciLexerProperties_DefaultFontWithStyle_Callback(QsciLexerProperties_DefaultFontWithStyle_Callback cb) { qscilexerproperties_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerProperties_DefaultPaperWithStyle_Callback(QsciLexerProperties_DefaultPaperWithStyle_Callback cb) { qscilexerproperties_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerProperties_DefaultFont2_Callback(QsciLexerProperties_DefaultFont2_Callback cb) { qscilexerproperties_defaultfont2_callback = cb; }
+    inline void setQsciLexerProperties_DefaultPaper2_Callback(QsciLexerProperties_DefaultPaper2_Callback cb) { qscilexerproperties_defaultpaper2_callback = cb; }
     inline void setQsciLexerProperties_SetEditor_Callback(QsciLexerProperties_SetEditor_Callback cb) { qscilexerproperties_seteditor_callback = cb; }
     inline void setQsciLexerProperties_RefreshProperties_Callback(QsciLexerProperties_RefreshProperties_Callback cb) { qscilexerproperties_refreshproperties_callback = cb; }
     inline void setQsciLexerProperties_StyleBitsNeeded_Callback(QsciLexerProperties_StyleBitsNeeded_Callback cb) { qscilexerproperties_stylebitsneeded_callback = cb; }
@@ -300,10 +300,10 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
     inline void setQsciLexerProperties_DefaultStyle_IsBase(bool value) const { qscilexerproperties_defaultstyle_isbase = value; }
     inline void setQsciLexerProperties_Description_IsBase(bool value) const { qscilexerproperties_description_isbase = value; }
     inline void setQsciLexerProperties_Paper_IsBase(bool value) const { qscilexerproperties_paper_isbase = value; }
-    inline void setQsciLexerProperties_DefaultColorWithStyle_IsBase(bool value) const { qscilexerproperties_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerProperties_DefaultColor2_IsBase(bool value) const { qscilexerproperties_defaultcolor2_isbase = value; }
     inline void setQsciLexerProperties_DefaultEolFill_IsBase(bool value) const { qscilexerproperties_defaulteolfill_isbase = value; }
-    inline void setQsciLexerProperties_DefaultFontWithStyle_IsBase(bool value) const { qscilexerproperties_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerProperties_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerproperties_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerProperties_DefaultFont2_IsBase(bool value) const { qscilexerproperties_defaultfont2_isbase = value; }
+    inline void setQsciLexerProperties_DefaultPaper2_IsBase(bool value) const { qscilexerproperties_defaultpaper2_isbase = value; }
     inline void setQsciLexerProperties_SetEditor_IsBase(bool value) const { qscilexerproperties_seteditor_isbase = value; }
     inline void setQsciLexerProperties_RefreshProperties_IsBase(bool value) const { qscilexerproperties_refreshproperties_isbase = value; }
     inline void setQsciLexerProperties_StyleBitsNeeded_IsBase(bool value) const { qscilexerproperties_stylebitsneeded_isbase = value; }
@@ -629,13 +629,13 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerproperties_defaultcolorwithstyle_isbase) {
-            qscilexerproperties_defaultcolorwithstyle_isbase = false;
+        if (qscilexerproperties_defaultcolor2_isbase) {
+            qscilexerproperties_defaultcolor2_isbase = false;
             return QsciLexerProperties::defaultColor(style);
-        } else if (qscilexerproperties_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerproperties_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerproperties_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerproperties_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerProperties::defaultColor(style);
@@ -659,13 +659,13 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerproperties_defaultfontwithstyle_isbase) {
-            qscilexerproperties_defaultfontwithstyle_isbase = false;
+        if (qscilexerproperties_defaultfont2_isbase) {
+            qscilexerproperties_defaultfont2_isbase = false;
             return QsciLexerProperties::defaultFont(style);
-        } else if (qscilexerproperties_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerproperties_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerproperties_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerproperties_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerProperties::defaultFont(style);
@@ -674,13 +674,13 @@ class VirtualQsciLexerProperties final : public QsciLexerProperties {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerproperties_defaultpaperwithstyle_isbase) {
-            qscilexerproperties_defaultpaperwithstyle_isbase = false;
+        if (qscilexerproperties_defaultpaper2_isbase) {
+            qscilexerproperties_defaultpaper2_isbase = false;
             return QsciLexerProperties::defaultPaper(style);
-        } else if (qscilexerproperties_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerproperties_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerproperties_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerproperties_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerProperties::defaultPaper(style);

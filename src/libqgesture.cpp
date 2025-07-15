@@ -2700,15 +2700,15 @@ void QGestureEvent_SetAccepted2(QGestureEvent* self, int param1, bool param2) {
     self->setAccepted(static_cast<Qt::GestureType>(param1), param2);
 }
 
-void QGestureEvent_AcceptWithQtGestureType(QGestureEvent* self, int param1) {
+void QGestureEvent_Accept2(QGestureEvent* self, int param1) {
     self->accept(static_cast<Qt::GestureType>(param1));
 }
 
-void QGestureEvent_IgnoreWithQtGestureType(QGestureEvent* self, int param1) {
+void QGestureEvent_Ignore2(QGestureEvent* self, int param1) {
     self->ignore(static_cast<Qt::GestureType>(param1));
 }
 
-bool QGestureEvent_IsAcceptedWithQtGestureType(const QGestureEvent* self, int param1) {
+bool QGestureEvent_IsAccepted2(const QGestureEvent* self, int param1) {
     return self->isAccepted(static_cast<Qt::GestureType>(param1));
 }
 

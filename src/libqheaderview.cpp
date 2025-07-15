@@ -137,7 +137,7 @@ int QHeaderView_LogicalIndexAt2(const QHeaderView* self, int x, int y) {
     return self->logicalIndexAt(static_cast<int>(x), static_cast<int>(y));
 }
 
-int QHeaderView_LogicalIndexAtWithPos(const QHeaderView* self, const QPoint* pos) {
+int QHeaderView_LogicalIndexAt3(const QHeaderView* self, const QPoint* pos) {
     return self->logicalIndexAt(*pos);
 }
 

@@ -800,7 +800,7 @@ void QsciLexerVerilog_OnPaper(const QsciLexerVerilog* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerVerilog_DefaultColorWithStyle(const QsciLexerVerilog* self, int style) {
+QColor* QsciLexerVerilog_DefaultColor2(const QsciLexerVerilog* self, int style) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
         return new QColor(vqscilexerverilog->defaultColor(static_cast<int>(style)));
@@ -810,10 +810,10 @@ QColor* QsciLexerVerilog_DefaultColorWithStyle(const QsciLexerVerilog* self, int
 }
 
 // Base class handler implementation
-QColor* QsciLexerVerilog_QBaseDefaultColorWithStyle(const QsciLexerVerilog* self, int style) {
+QColor* QsciLexerVerilog_QBaseDefaultColor2(const QsciLexerVerilog* self, int style) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultColorWithStyle_IsBase(true);
+        vqscilexerverilog->setQsciLexerVerilog_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerverilog->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerVerilog*)self)->defaultColor(static_cast<int>(style)));
@@ -821,10 +821,10 @@ QColor* QsciLexerVerilog_QBaseDefaultColorWithStyle(const QsciLexerVerilog* self
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnDefaultColorWithStyle(const QsciLexerVerilog* self, intptr_t slot) {
+void QsciLexerVerilog_OnDefaultColor2(const QsciLexerVerilog* self, intptr_t slot) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerverilog->setQsciLexerVerilog_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -858,7 +858,7 @@ void QsciLexerVerilog_OnDefaultEolFill(const QsciLexerVerilog* self, intptr_t sl
 }
 
 // Derived class handler implementation
-QFont* QsciLexerVerilog_DefaultFontWithStyle(const QsciLexerVerilog* self, int style) {
+QFont* QsciLexerVerilog_DefaultFont2(const QsciLexerVerilog* self, int style) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
         return new QFont(vqscilexerverilog->defaultFont(static_cast<int>(style)));
@@ -868,10 +868,10 @@ QFont* QsciLexerVerilog_DefaultFontWithStyle(const QsciLexerVerilog* self, int s
 }
 
 // Base class handler implementation
-QFont* QsciLexerVerilog_QBaseDefaultFontWithStyle(const QsciLexerVerilog* self, int style) {
+QFont* QsciLexerVerilog_QBaseDefaultFont2(const QsciLexerVerilog* self, int style) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultFontWithStyle_IsBase(true);
+        vqscilexerverilog->setQsciLexerVerilog_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerverilog->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerVerilog*)self)->defaultFont(static_cast<int>(style)));
@@ -879,15 +879,15 @@ QFont* QsciLexerVerilog_QBaseDefaultFontWithStyle(const QsciLexerVerilog* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnDefaultFontWithStyle(const QsciLexerVerilog* self, intptr_t slot) {
+void QsciLexerVerilog_OnDefaultFont2(const QsciLexerVerilog* self, intptr_t slot) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerverilog->setQsciLexerVerilog_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerVerilog_DefaultPaperWithStyle(const QsciLexerVerilog* self, int style) {
+QColor* QsciLexerVerilog_DefaultPaper2(const QsciLexerVerilog* self, int style) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
         return new QColor(vqscilexerverilog->defaultPaper(static_cast<int>(style)));
@@ -897,10 +897,10 @@ QColor* QsciLexerVerilog_DefaultPaperWithStyle(const QsciLexerVerilog* self, int
 }
 
 // Base class handler implementation
-QColor* QsciLexerVerilog_QBaseDefaultPaperWithStyle(const QsciLexerVerilog* self, int style) {
+QColor* QsciLexerVerilog_QBaseDefaultPaper2(const QsciLexerVerilog* self, int style) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerverilog->setQsciLexerVerilog_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerverilog->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerVerilog*)self)->defaultPaper(static_cast<int>(style)));
@@ -908,10 +908,10 @@ QColor* QsciLexerVerilog_QBaseDefaultPaperWithStyle(const QsciLexerVerilog* self
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerVerilog_OnDefaultPaperWithStyle(const QsciLexerVerilog* self, intptr_t slot) {
+void QsciLexerVerilog_OnDefaultPaper2(const QsciLexerVerilog* self, intptr_t slot) {
     auto* vqscilexerverilog = const_cast<VirtualQsciLexerVerilog*>(dynamic_cast<const VirtualQsciLexerVerilog*>(self));
     if (vqscilexerverilog && vqscilexerverilog->isVirtualQsciLexerVerilog) {
-        vqscilexerverilog->setQsciLexerVerilog_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerverilog->setQsciLexerVerilog_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerVerilog::QsciLexerVerilog_DefaultPaper2_Callback>(slot));
     }
 }
 

@@ -38,7 +38,7 @@ void QWebEngineScriptCollection_Insert(QWebEngineScriptCollection* self, const Q
     self->insert(*param1);
 }
 
-void QWebEngineScriptCollection_InsertWithList(QWebEngineScriptCollection* self, const libqt_list /* of QWebEngineScript* */ list) {
+void QWebEngineScriptCollection_Insert2(QWebEngineScriptCollection* self, const libqt_list /* of QWebEngineScript* */ list) {
     QList<QWebEngineScript> list_QList;
     list_QList.reserve(list.len);
     QWebEngineScript** list_arr = static_cast<QWebEngineScript**>(list.data);

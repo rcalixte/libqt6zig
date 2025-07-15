@@ -68,9 +68,9 @@ QGraphicsLayoutItem* QGraphicsGridLayout_ItemAt(const QGraphicsGridLayout* self,
 int QGraphicsGridLayout_Count(const QGraphicsGridLayout* self);
 void QGraphicsGridLayout_OnCount(const QGraphicsGridLayout* self, intptr_t slot);
 int QGraphicsGridLayout_QBaseCount(const QGraphicsGridLayout* self);
-QGraphicsLayoutItem* QGraphicsGridLayout_ItemAtWithIndex(const QGraphicsGridLayout* self, int index);
-void QGraphicsGridLayout_OnItemAtWithIndex(const QGraphicsGridLayout* self, intptr_t slot);
-QGraphicsLayoutItem* QGraphicsGridLayout_QBaseItemAtWithIndex(const QGraphicsGridLayout* self, int index);
+QGraphicsLayoutItem* QGraphicsGridLayout_ItemAt2(const QGraphicsGridLayout* self, int index);
+void QGraphicsGridLayout_OnItemAt2(const QGraphicsGridLayout* self, intptr_t slot);
+QGraphicsLayoutItem* QGraphicsGridLayout_QBaseItemAt2(const QGraphicsGridLayout* self, int index);
 void QGraphicsGridLayout_RemoveAt(QGraphicsGridLayout* self, int index);
 void QGraphicsGridLayout_OnRemoveAt(QGraphicsGridLayout* self, intptr_t slot);
 void QGraphicsGridLayout_QBaseRemoveAt(QGraphicsGridLayout* self, int index);

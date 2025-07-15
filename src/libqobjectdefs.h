@@ -70,7 +70,7 @@ const char* QMetaObject_ClassName(const QMetaObject* self);
 QMetaObject* QMetaObject_SuperClass(const QMetaObject* self);
 bool QMetaObject_Inherits(const QMetaObject* self, const QMetaObject* metaObject);
 QObject* QMetaObject_Cast(const QMetaObject* self, QObject* obj);
-QObject* QMetaObject_CastWithObj(const QMetaObject* self, const QObject* obj);
+QObject* QMetaObject_Cast2(const QMetaObject* self, const QObject* obj);
 libqt_string QMetaObject_Tr(const QMetaObject* self, const char* s, const char* c);
 QMetaType* QMetaObject_MetaType(const QMetaObject* self);
 int QMetaObject_MethodOffset(const QMetaObject* self);

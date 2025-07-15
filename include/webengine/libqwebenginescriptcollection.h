@@ -25,7 +25,7 @@ int QWebEngineScriptCollection_Count(const QWebEngineScriptCollection* self);
 bool QWebEngineScriptCollection_Contains(const QWebEngineScriptCollection* self, const QWebEngineScript* value);
 libqt_list /* of QWebEngineScript* */ QWebEngineScriptCollection_Find(const QWebEngineScriptCollection* self, const libqt_string name);
 void QWebEngineScriptCollection_Insert(QWebEngineScriptCollection* self, const QWebEngineScript* param1);
-void QWebEngineScriptCollection_InsertWithList(QWebEngineScriptCollection* self, const libqt_list /* of QWebEngineScript* */ list);
+void QWebEngineScriptCollection_Insert2(QWebEngineScriptCollection* self, const libqt_list /* of QWebEngineScript* */ list);
 bool QWebEngineScriptCollection_Remove(QWebEngineScriptCollection* self, const QWebEngineScript* param1);
 void QWebEngineScriptCollection_Clear(QWebEngineScriptCollection* self);
 libqt_list /* of QWebEngineScript* */ QWebEngineScriptCollection_ToList(const QWebEngineScriptCollection* self);

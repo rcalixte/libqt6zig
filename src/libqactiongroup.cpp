@@ -71,12 +71,12 @@ QAction* QActionGroup_AddAction(QActionGroup* self, QAction* a) {
     return self->addAction(a);
 }
 
-QAction* QActionGroup_AddActionWithText(QActionGroup* self, const libqt_string text) {
+QAction* QActionGroup_AddAction2(QActionGroup* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->addAction(text_QString);
 }
 
-QAction* QActionGroup_AddAction2(QActionGroup* self, const QIcon* icon, const libqt_string text) {
+QAction* QActionGroup_AddAction3(QActionGroup* self, const QIcon* icon, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->addAction(*icon, text_QString);
 }

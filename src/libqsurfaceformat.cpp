@@ -180,7 +180,7 @@ void QSurfaceFormat_SetColorSpace(QSurfaceFormat* self, const QColorSpace* color
     self->setColorSpace(*colorSpace);
 }
 
-void QSurfaceFormat_SetColorSpaceWithColorSpace(QSurfaceFormat* self, int colorSpace) {
+void QSurfaceFormat_SetColorSpace2(QSurfaceFormat* self, int colorSpace) {
     self->setColorSpace(static_cast<QSurfaceFormat::ColorSpace>(colorSpace));
 }
 

@@ -111,7 +111,7 @@ libqt_string QFile_DecodeName(const libqt_string localFileName) {
     return _str;
 }
 
-libqt_string QFile_DecodeNameWithLocalFileName(const char* localFileName) {
+libqt_string QFile_DecodeName2(const char* localFileName) {
     QString _ret = QFile::decodeName(localFileName);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -127,7 +127,7 @@ bool QFile_Exists(const QFile* self) {
     return self->exists();
 }
 
-bool QFile_ExistsWithFileName(const libqt_string fileName) {
+bool QFile_Exists2(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return QFile::exists(fileName_QString);
 }
@@ -144,7 +144,7 @@ libqt_string QFile_SymLinkTarget(const QFile* self) {
     return _str;
 }
 
-libqt_string QFile_SymLinkTargetWithFileName(const libqt_string fileName) {
+libqt_string QFile_SymLinkTarget2(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QString _ret = QFile::symLinkTarget(fileName_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -161,7 +161,7 @@ bool QFile_Remove(QFile* self) {
     return self->remove();
 }
 
-bool QFile_RemoveWithFileName(const libqt_string fileName) {
+bool QFile_Remove2(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return QFile::remove(fileName_QString);
 }
@@ -170,7 +170,7 @@ bool QFile_MoveToTrash(QFile* self) {
     return self->moveToTrash();
 }
 
-bool QFile_MoveToTrashWithFileName(const libqt_string fileName) {
+bool QFile_MoveToTrash2(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return QFile::moveToTrash(fileName_QString);
 }
@@ -221,7 +221,7 @@ bool QFile_Resize2(const libqt_string filename, long long sz) {
     return QFile::resize(filename_QString, static_cast<qint64>(sz));
 }
 
-int QFile_PermissionsWithFilename(const libqt_string filename) {
+int QFile_Permissions2(const libqt_string filename) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return static_cast<int>(QFile::permissions(filename_QString));
 }

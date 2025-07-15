@@ -73,7 +73,7 @@ QBitmap* QBitmap_Transformed(const QBitmap* self, const QTransform* matrix) {
     return new QBitmap(self->transformed(*matrix));
 }
 
-void QBitmap_OperatorAssignWithQBitmap(QBitmap* self, const QBitmap* param1) {
+void QBitmap_OperatorAssign2(QBitmap* self, const QBitmap* param1) {
     self->operator=(*param1);
 }
 

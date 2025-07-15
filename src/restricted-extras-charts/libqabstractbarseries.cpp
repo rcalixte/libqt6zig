@@ -56,7 +56,7 @@ bool QAbstractBarSeries_Take(QAbstractBarSeries* self, QBarSet* set) {
     return self->take(set);
 }
 
-bool QAbstractBarSeries_AppendWithSets(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets) {
+bool QAbstractBarSeries_Append2(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets) {
     QList<QBarSet*> sets_QList;
     sets_QList.reserve(sets.len);
     QBarSet** sets_arr = static_cast<QBarSet**>(sets.data);

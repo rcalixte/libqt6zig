@@ -390,7 +390,7 @@ void QPaintEngine_OnDrawEllipse(QPaintEngine* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QPaintEngine_DrawEllipseWithQRect(QPaintEngine* self, const QRect* r) {
+void QPaintEngine_DrawEllipse2(QPaintEngine* self, const QRect* r) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
     if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
         vqpaintengine->drawEllipse(*r);
@@ -400,10 +400,10 @@ void QPaintEngine_DrawEllipseWithQRect(QPaintEngine* self, const QRect* r) {
 }
 
 // Base class handler implementation
-void QPaintEngine_QBaseDrawEllipseWithQRect(QPaintEngine* self, const QRect* r) {
+void QPaintEngine_QBaseDrawEllipse2(QPaintEngine* self, const QRect* r) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
     if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        vqpaintengine->setQPaintEngine_DrawEllipseWithQRect_IsBase(true);
+        vqpaintengine->setQPaintEngine_DrawEllipse2_IsBase(true);
         vqpaintengine->drawEllipse(*r);
     } else {
         self->QPaintEngine::drawEllipse(*r);
@@ -411,10 +411,10 @@ void QPaintEngine_QBaseDrawEllipseWithQRect(QPaintEngine* self, const QRect* r) 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QPaintEngine_OnDrawEllipseWithQRect(QPaintEngine* self, intptr_t slot) {
+void QPaintEngine_OnDrawEllipse2(QPaintEngine* self, intptr_t slot) {
     auto* vqpaintengine = dynamic_cast<VirtualQPaintEngine*>(self);
     if (vqpaintengine && vqpaintengine->isVirtualQPaintEngine) {
-        vqpaintengine->setQPaintEngine_DrawEllipseWithQRect_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawEllipseWithQRect_Callback>(slot));
+        vqpaintengine->setQPaintEngine_DrawEllipse2_Callback(reinterpret_cast<VirtualQPaintEngine::QPaintEngine_DrawEllipse2_Callback>(slot));
     }
 }
 

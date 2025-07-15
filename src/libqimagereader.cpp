@@ -240,7 +240,7 @@ QImage* QImageReader_Read(QImageReader* self) {
     return new QImage(self->read());
 }
 
-bool QImageReader_ReadWithImage(QImageReader* self, QImage* image) {
+bool QImageReader_Read2(QImageReader* self, QImage* image) {
     return self->read(image);
 }
 
@@ -292,7 +292,7 @@ bool QImageReader_SupportsOption(const QImageReader* self, int option) {
     return self->supportsOption(static_cast<QImageIOHandler::ImageOption>(option));
 }
 
-libqt_string QImageReader_ImageFormatWithFileName(const libqt_string fileName) {
+libqt_string QImageReader_ImageFormat2(const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     QByteArray _qb = QImageReader::imageFormat(fileName_QString);
     libqt_string _str;
@@ -303,7 +303,7 @@ libqt_string QImageReader_ImageFormatWithFileName(const libqt_string fileName) {
     return _str;
 }
 
-libqt_string QImageReader_ImageFormatWithDevice(QIODevice* device) {
+libqt_string QImageReader_ImageFormat3(QIODevice* device) {
     QByteArray _qb = QImageReader::imageFormat(device);
     libqt_string _str;
     _str.len = _qb.length();

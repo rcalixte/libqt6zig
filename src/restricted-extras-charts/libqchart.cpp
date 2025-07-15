@@ -287,7 +287,7 @@ void QChart_ZoomOut(QChart* self) {
     self->zoomOut();
 }
 
-void QChart_ZoomInWithRect(QChart* self, const QRectF* rect) {
+void QChart_ZoomIn2(QChart* self, const QRectF* rect) {
     self->zoomIn(*rect);
 }
 

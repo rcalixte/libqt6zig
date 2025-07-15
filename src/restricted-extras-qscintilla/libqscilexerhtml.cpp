@@ -891,7 +891,7 @@ void QsciLexerHTML_OnPaper(const QsciLexerHTML* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerHTML_DefaultColorWithStyle(const QsciLexerHTML* self, int style) {
+QColor* QsciLexerHTML_DefaultColor2(const QsciLexerHTML* self, int style) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
         return new QColor(vqscilexerhtml->defaultColor(static_cast<int>(style)));
@@ -901,10 +901,10 @@ QColor* QsciLexerHTML_DefaultColorWithStyle(const QsciLexerHTML* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerHTML_QBaseDefaultColorWithStyle(const QsciLexerHTML* self, int style) {
+QColor* QsciLexerHTML_QBaseDefaultColor2(const QsciLexerHTML* self, int style) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultColorWithStyle_IsBase(true);
+        vqscilexerhtml->setQsciLexerHTML_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerhtml->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerHTML*)self)->defaultColor(static_cast<int>(style)));
@@ -912,10 +912,10 @@ QColor* QsciLexerHTML_QBaseDefaultColorWithStyle(const QsciLexerHTML* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnDefaultColorWithStyle(const QsciLexerHTML* self, intptr_t slot) {
+void QsciLexerHTML_OnDefaultColor2(const QsciLexerHTML* self, intptr_t slot) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerhtml->setQsciLexerHTML_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -949,7 +949,7 @@ void QsciLexerHTML_OnDefaultEolFill(const QsciLexerHTML* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerHTML_DefaultFontWithStyle(const QsciLexerHTML* self, int style) {
+QFont* QsciLexerHTML_DefaultFont2(const QsciLexerHTML* self, int style) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
         return new QFont(vqscilexerhtml->defaultFont(static_cast<int>(style)));
@@ -959,10 +959,10 @@ QFont* QsciLexerHTML_DefaultFontWithStyle(const QsciLexerHTML* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerHTML_QBaseDefaultFontWithStyle(const QsciLexerHTML* self, int style) {
+QFont* QsciLexerHTML_QBaseDefaultFont2(const QsciLexerHTML* self, int style) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultFontWithStyle_IsBase(true);
+        vqscilexerhtml->setQsciLexerHTML_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerhtml->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerHTML*)self)->defaultFont(static_cast<int>(style)));
@@ -970,15 +970,15 @@ QFont* QsciLexerHTML_QBaseDefaultFontWithStyle(const QsciLexerHTML* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnDefaultFontWithStyle(const QsciLexerHTML* self, intptr_t slot) {
+void QsciLexerHTML_OnDefaultFont2(const QsciLexerHTML* self, intptr_t slot) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerhtml->setQsciLexerHTML_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerHTML_DefaultPaperWithStyle(const QsciLexerHTML* self, int style) {
+QColor* QsciLexerHTML_DefaultPaper2(const QsciLexerHTML* self, int style) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
         return new QColor(vqscilexerhtml->defaultPaper(static_cast<int>(style)));
@@ -988,10 +988,10 @@ QColor* QsciLexerHTML_DefaultPaperWithStyle(const QsciLexerHTML* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerHTML_QBaseDefaultPaperWithStyle(const QsciLexerHTML* self, int style) {
+QColor* QsciLexerHTML_QBaseDefaultPaper2(const QsciLexerHTML* self, int style) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerhtml->setQsciLexerHTML_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerhtml->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerHTML*)self)->defaultPaper(static_cast<int>(style)));
@@ -999,10 +999,10 @@ QColor* QsciLexerHTML_QBaseDefaultPaperWithStyle(const QsciLexerHTML* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerHTML_OnDefaultPaperWithStyle(const QsciLexerHTML* self, intptr_t slot) {
+void QsciLexerHTML_OnDefaultPaper2(const QsciLexerHTML* self, intptr_t slot) {
     auto* vqscilexerhtml = const_cast<VirtualQsciLexerHTML*>(dynamic_cast<const VirtualQsciLexerHTML*>(self));
     if (vqscilexerhtml && vqscilexerhtml->isVirtualQsciLexerHTML) {
-        vqscilexerhtml->setQsciLexerHTML_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerhtml->setQsciLexerHTML_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerHTML::QsciLexerHTML_DefaultPaper2_Callback>(slot));
     }
 }
 

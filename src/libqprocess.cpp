@@ -121,7 +121,7 @@ libqt_list /* of libqt_string */ QProcessEnvironment_Keys(const QProcessEnvironm
     return _out;
 }
 
-void QProcessEnvironment_InsertWithQProcessEnvironment(QProcessEnvironment* self, const QProcessEnvironment* e) {
+void QProcessEnvironment_Insert2(QProcessEnvironment* self, const QProcessEnvironment* e) {
     self->insert(*e);
 }
 
@@ -333,7 +333,7 @@ void QProcess_SetUnixProcessParameters(QProcess* self, const QProcess__UnixProce
     self->setUnixProcessParameters(*params);
 }
 
-void QProcess_SetUnixProcessParametersWithFlagsOnly(QProcess* self, int flagsOnly) {
+void QProcess_SetUnixProcessParameters2(QProcess* self, int flagsOnly) {
     self->setUnixProcessParameters(static_cast<QProcess::UnixProcessFlags>(flagsOnly));
 }
 
@@ -447,7 +447,7 @@ int QProcess_Execute(const libqt_string program) {
     return QProcess::execute(program_QString);
 }
 
-bool QProcess_StartDetachedWithProgram(const libqt_string program) {
+bool QProcess_StartDetached2(const libqt_string program) {
     QString program_QString = QString::fromUtf8(program.data, program.len);
     return QProcess::startDetached(program_QString);
 }
@@ -612,7 +612,7 @@ int QProcess_Execute2(const libqt_string program, const libqt_list /* of libqt_s
     return QProcess::execute(program_QString, arguments_QList);
 }
 
-bool QProcess_StartDetached2(const libqt_string program, const libqt_list /* of libqt_string */ arguments) {
+bool QProcess_StartDetached22(const libqt_string program, const libqt_list /* of libqt_string */ arguments) {
     QString program_QString = QString::fromUtf8(program.data, program.len);
     QList<QString> arguments_QList;
     arguments_QList.reserve(arguments.len);

@@ -784,7 +784,7 @@ void QsciLexerJSON_OnPaper(const QsciLexerJSON* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerJSON_DefaultColorWithStyle(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_DefaultColor2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         return new QColor(vqscilexerjson->defaultColor(static_cast<int>(style)));
@@ -794,10 +794,10 @@ QColor* QsciLexerJSON_DefaultColorWithStyle(const QsciLexerJSON* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerJSON_QBaseDefaultColorWithStyle(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_QBaseDefaultColor2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultColorWithStyle_IsBase(true);
+        vqscilexerjson->setQsciLexerJSON_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerjson->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerJSON*)self)->defaultColor(static_cast<int>(style)));
@@ -805,10 +805,10 @@ QColor* QsciLexerJSON_QBaseDefaultColorWithStyle(const QsciLexerJSON* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnDefaultColorWithStyle(const QsciLexerJSON* self, intptr_t slot) {
+void QsciLexerJSON_OnDefaultColor2(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerjson->setQsciLexerJSON_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -842,7 +842,7 @@ void QsciLexerJSON_OnDefaultEolFill(const QsciLexerJSON* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerJSON_DefaultFontWithStyle(const QsciLexerJSON* self, int style) {
+QFont* QsciLexerJSON_DefaultFont2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         return new QFont(vqscilexerjson->defaultFont(static_cast<int>(style)));
@@ -852,10 +852,10 @@ QFont* QsciLexerJSON_DefaultFontWithStyle(const QsciLexerJSON* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerJSON_QBaseDefaultFontWithStyle(const QsciLexerJSON* self, int style) {
+QFont* QsciLexerJSON_QBaseDefaultFont2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultFontWithStyle_IsBase(true);
+        vqscilexerjson->setQsciLexerJSON_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerjson->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerJSON*)self)->defaultFont(static_cast<int>(style)));
@@ -863,15 +863,15 @@ QFont* QsciLexerJSON_QBaseDefaultFontWithStyle(const QsciLexerJSON* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnDefaultFontWithStyle(const QsciLexerJSON* self, intptr_t slot) {
+void QsciLexerJSON_OnDefaultFont2(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerjson->setQsciLexerJSON_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerJSON_DefaultPaperWithStyle(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_DefaultPaper2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
         return new QColor(vqscilexerjson->defaultPaper(static_cast<int>(style)));
@@ -881,10 +881,10 @@ QColor* QsciLexerJSON_DefaultPaperWithStyle(const QsciLexerJSON* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerJSON_QBaseDefaultPaperWithStyle(const QsciLexerJSON* self, int style) {
+QColor* QsciLexerJSON_QBaseDefaultPaper2(const QsciLexerJSON* self, int style) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerjson->setQsciLexerJSON_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerjson->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerJSON*)self)->defaultPaper(static_cast<int>(style)));
@@ -892,10 +892,10 @@ QColor* QsciLexerJSON_QBaseDefaultPaperWithStyle(const QsciLexerJSON* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJSON_OnDefaultPaperWithStyle(const QsciLexerJSON* self, intptr_t slot) {
+void QsciLexerJSON_OnDefaultPaper2(const QsciLexerJSON* self, intptr_t slot) {
     auto* vqscilexerjson = const_cast<VirtualQsciLexerJSON*>(dynamic_cast<const VirtualQsciLexerJSON*>(self));
     if (vqscilexerjson && vqscilexerjson->isVirtualQsciLexerJSON) {
-        vqscilexerjson->setQsciLexerJSON_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerjson->setQsciLexerJSON_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerJSON::QsciLexerJSON_DefaultPaper2_Callback>(slot));
     }
 }
 

@@ -144,7 +144,7 @@ void QColorSpace_SetTransferFunction(QColorSpace* self, int transferFunction) {
     self->setTransferFunction(static_cast<QColorSpace::TransferFunction>(transferFunction));
 }
 
-void QColorSpace_SetTransferFunctionWithTransferFunctionTable(QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable) {
+void QColorSpace_SetTransferFunction2(QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable) {
     QList<uint16_t> transferFunctionTable_QList;
     transferFunctionTable_QList.reserve(transferFunctionTable.len);
     uint16_t* transferFunctionTable_arr = static_cast<uint16_t*>(transferFunctionTable.data);
@@ -180,7 +180,7 @@ QColorSpace* QColorSpace_WithTransferFunction(const QColorSpace* self, int trans
     return new QColorSpace(self->withTransferFunction(static_cast<QColorSpace::TransferFunction>(transferFunction)));
 }
 
-QColorSpace* QColorSpace_WithTransferFunctionWithTransferFunctionTable(const QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable) {
+QColorSpace* QColorSpace_WithTransferFunction2(const QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable) {
     QList<uint16_t> transferFunctionTable_QList;
     transferFunctionTable_QList.reserve(transferFunctionTable.len);
     uint16_t* transferFunctionTable_arr = static_cast<uint16_t*>(transferFunctionTable.data);
@@ -271,11 +271,11 @@ QVariant* QColorSpace_ToQVariant(const QColorSpace* self) {
     return new QVariant(self->operator QVariant());
 }
 
-void QColorSpace_SetTransferFunction2(QColorSpace* self, int transferFunction, float gamma) {
+void QColorSpace_SetTransferFunction22(QColorSpace* self, int transferFunction, float gamma) {
     self->setTransferFunction(static_cast<QColorSpace::TransferFunction>(transferFunction), static_cast<float>(gamma));
 }
 
-QColorSpace* QColorSpace_WithTransferFunction2(const QColorSpace* self, int transferFunction, float gamma) {
+QColorSpace* QColorSpace_WithTransferFunction22(const QColorSpace* self, int transferFunction, float gamma) {
     return new QColorSpace(self->withTransferFunction(static_cast<QColorSpace::TransferFunction>(transferFunction), static_cast<float>(gamma)));
 }
 

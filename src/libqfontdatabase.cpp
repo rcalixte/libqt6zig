@@ -56,7 +56,7 @@ libqt_list /* of int */ QFontDatabase_WritingSystems() {
     return _out;
 }
 
-libqt_list /* of int */ QFontDatabase_WritingSystemsWithFamily(const libqt_string family) {
+libqt_list /* of int */ QFontDatabase_WritingSystems2(const libqt_string family) {
     QString family_QString = QString::fromUtf8(family.data, family.len);
     QList<QFontDatabase::WritingSystem> _ret = QFontDatabase::writingSystems(family_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -154,7 +154,7 @@ libqt_string QFontDatabase_StyleString(const QFont* font) {
     return _str;
 }
 
-libqt_string QFontDatabase_StyleStringWithFontInfo(const QFontInfo* fontInfo) {
+libqt_string QFontDatabase_StyleString2(const QFontInfo* fontInfo) {
     QString _ret = QFontDatabase::styleString(*fontInfo);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();

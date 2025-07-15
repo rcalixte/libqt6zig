@@ -77,8 +77,8 @@ pub const qpixmapcache = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache.html#insert)
     ///
     /// ``` pixmap: QtC.QPixmap ```
-    pub fn InsertWithPixmap(pixmap: ?*anyopaque) QtC.QPixmapCache__Key {
-        return qtc.QPixmapCache_InsertWithPixmap(@ptrCast(pixmap));
+    pub fn Insert2(pixmap: ?*anyopaque) QtC.QPixmapCache__Key {
+        return qtc.QPixmapCache_Insert2(@ptrCast(pixmap));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache.html#replace)
@@ -102,8 +102,8 @@ pub const qpixmapcache = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache.html#remove)
     ///
     /// ``` key: QtC.QPixmapCache__Key ```
-    pub fn RemoveWithKey(key: ?*anyopaque) void {
-        qtc.QPixmapCache_RemoveWithKey(@ptrCast(key));
+    pub fn Remove2(key: ?*anyopaque) void {
+        qtc.QPixmapCache_Remove2(@ptrCast(key));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache.html#clear)

@@ -717,15 +717,15 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapToGlobal)
     ///
     /// ``` self: QtC.QWindow, pos: QtC.QPoint ```
-    pub fn MapToGlobalWithPos(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
-        return qtc.QWindow_MapToGlobalWithPos(@ptrCast(self), @ptrCast(pos));
+    pub fn MapToGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
+        return qtc.QWindow_MapToGlobal2(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mapFromGlobal)
     ///
     /// ``` self: QtC.QWindow, pos: QtC.QPoint ```
-    pub fn MapFromGlobalWithPos(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
-        return qtc.QWindow_MapFromGlobalWithPos(@ptrCast(self), @ptrCast(pos));
+    pub fn MapFromGlobal2(self: ?*anyopaque, pos: ?*anyopaque) QtC.QPoint {
+        return qtc.QWindow_MapFromGlobal2(@ptrCast(self), @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#cursor)
@@ -923,8 +923,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setGeometry)
     ///
     /// ``` self: QtC.QWindow, rect: QtC.QRect ```
-    pub fn SetGeometryWithRect(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QWindow_SetGeometryWithRect(@ptrCast(self), @ptrCast(rect));
+    pub fn SetGeometry2(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QWindow_SetGeometry2(@ptrCast(self), @ptrCast(rect));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setMinimumWidth)
@@ -1906,8 +1906,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWindow, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1976,8 +1976,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -2111,8 +2111,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

@@ -341,15 +341,15 @@ pub const qvariant = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#canConvert)
     ///
     /// ``` self: QtC.QVariant, targetTypeId: i32 ```
-    pub fn CanConvertWithTargetTypeId(self: ?*anyopaque, targetTypeId: i32) bool {
-        return qtc.QVariant_CanConvertWithTargetTypeId(@ptrCast(self), @intCast(targetTypeId));
+    pub fn CanConvert2(self: ?*anyopaque, targetTypeId: i32) bool {
+        return qtc.QVariant_CanConvert2(@ptrCast(self), @intCast(targetTypeId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#convert)
     ///
     /// ``` self: QtC.QVariant, targetTypeId: i32 ```
-    pub fn ConvertWithTargetTypeId(self: ?*anyopaque, targetTypeId: i32) bool {
-        return qtc.QVariant_ConvertWithTargetTypeId(@ptrCast(self), @intCast(targetTypeId));
+    pub fn Convert2(self: ?*anyopaque, targetTypeId: i32) bool {
+        return qtc.QVariant_Convert2(@ptrCast(self), @intCast(targetTypeId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#isValid)

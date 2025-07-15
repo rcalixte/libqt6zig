@@ -822,7 +822,7 @@ void QsciLexerPO_OnPaper(const QsciLexerPO* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerPO_DefaultColorWithStyle(const QsciLexerPO* self, int style) {
+QColor* QsciLexerPO_DefaultColor2(const QsciLexerPO* self, int style) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
         return new QColor(vqscilexerpo->defaultColor(static_cast<int>(style)));
@@ -832,10 +832,10 @@ QColor* QsciLexerPO_DefaultColorWithStyle(const QsciLexerPO* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerPO_QBaseDefaultColorWithStyle(const QsciLexerPO* self, int style) {
+QColor* QsciLexerPO_QBaseDefaultColor2(const QsciLexerPO* self, int style) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_DefaultColorWithStyle_IsBase(true);
+        vqscilexerpo->setQsciLexerPO_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerpo->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerPO*)self)->defaultColor(static_cast<int>(style)));
@@ -843,10 +843,10 @@ QColor* QsciLexerPO_QBaseDefaultColorWithStyle(const QsciLexerPO* self, int styl
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPO_OnDefaultColorWithStyle(const QsciLexerPO* self, intptr_t slot) {
+void QsciLexerPO_OnDefaultColor2(const QsciLexerPO* self, intptr_t slot) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerpo->setQsciLexerPO_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -880,7 +880,7 @@ void QsciLexerPO_OnDefaultEolFill(const QsciLexerPO* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerPO_DefaultFontWithStyle(const QsciLexerPO* self, int style) {
+QFont* QsciLexerPO_DefaultFont2(const QsciLexerPO* self, int style) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
         return new QFont(vqscilexerpo->defaultFont(static_cast<int>(style)));
@@ -890,10 +890,10 @@ QFont* QsciLexerPO_DefaultFontWithStyle(const QsciLexerPO* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerPO_QBaseDefaultFontWithStyle(const QsciLexerPO* self, int style) {
+QFont* QsciLexerPO_QBaseDefaultFont2(const QsciLexerPO* self, int style) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_DefaultFontWithStyle_IsBase(true);
+        vqscilexerpo->setQsciLexerPO_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerpo->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerPO*)self)->defaultFont(static_cast<int>(style)));
@@ -901,15 +901,15 @@ QFont* QsciLexerPO_QBaseDefaultFontWithStyle(const QsciLexerPO* self, int style)
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPO_OnDefaultFontWithStyle(const QsciLexerPO* self, intptr_t slot) {
+void QsciLexerPO_OnDefaultFont2(const QsciLexerPO* self, intptr_t slot) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerpo->setQsciLexerPO_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerPO_DefaultPaperWithStyle(const QsciLexerPO* self, int style) {
+QColor* QsciLexerPO_DefaultPaper2(const QsciLexerPO* self, int style) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
         return new QColor(vqscilexerpo->defaultPaper(static_cast<int>(style)));
@@ -919,10 +919,10 @@ QColor* QsciLexerPO_DefaultPaperWithStyle(const QsciLexerPO* self, int style) {
 }
 
 // Base class handler implementation
-QColor* QsciLexerPO_QBaseDefaultPaperWithStyle(const QsciLexerPO* self, int style) {
+QColor* QsciLexerPO_QBaseDefaultPaper2(const QsciLexerPO* self, int style) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerpo->setQsciLexerPO_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerpo->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerPO*)self)->defaultPaper(static_cast<int>(style)));
@@ -930,10 +930,10 @@ QColor* QsciLexerPO_QBaseDefaultPaperWithStyle(const QsciLexerPO* self, int styl
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPO_OnDefaultPaperWithStyle(const QsciLexerPO* self, intptr_t slot) {
+void QsciLexerPO_OnDefaultPaper2(const QsciLexerPO* self, intptr_t slot) {
     auto* vqscilexerpo = const_cast<VirtualQsciLexerPO*>(dynamic_cast<const VirtualQsciLexerPO*>(self));
     if (vqscilexerpo && vqscilexerpo->isVirtualQsciLexerPO) {
-        vqscilexerpo->setQsciLexerPO_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerpo->setQsciLexerPO_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerPO::QsciLexerPO_DefaultPaper2_Callback>(slot));
     }
 }
 

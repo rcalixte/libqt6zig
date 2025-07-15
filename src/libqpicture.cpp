@@ -44,7 +44,7 @@ bool QPicture_Load(QPicture* self, QIODevice* dev) {
     return self->load(dev);
 }
 
-bool QPicture_LoadWithFileName(QPicture* self, const libqt_string fileName) {
+bool QPicture_Load2(QPicture* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return self->load(fileName_QString);
 }
@@ -53,7 +53,7 @@ bool QPicture_Save(QPicture* self, QIODevice* dev) {
     return self->save(dev);
 }
 
-bool QPicture_SaveWithFileName(QPicture* self, const libqt_string fileName) {
+bool QPicture_Save2(QPicture* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return self->save(fileName_QString);
 }

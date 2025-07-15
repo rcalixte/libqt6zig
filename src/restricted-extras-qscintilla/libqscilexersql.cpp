@@ -899,7 +899,7 @@ void QsciLexerSQL_OnPaper(const QsciLexerSQL* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerSQL_DefaultColorWithStyle(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_DefaultColor2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         return new QColor(vqscilexersql->defaultColor(static_cast<int>(style)));
@@ -909,10 +909,10 @@ QColor* QsciLexerSQL_DefaultColorWithStyle(const QsciLexerSQL* self, int style) 
 }
 
 // Base class handler implementation
-QColor* QsciLexerSQL_QBaseDefaultColorWithStyle(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_QBaseDefaultColor2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultColorWithStyle_IsBase(true);
+        vqscilexersql->setQsciLexerSQL_DefaultColor2_IsBase(true);
         return new QColor(vqscilexersql->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerSQL*)self)->defaultColor(static_cast<int>(style)));
@@ -920,10 +920,10 @@ QColor* QsciLexerSQL_QBaseDefaultColorWithStyle(const QsciLexerSQL* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnDefaultColorWithStyle(const QsciLexerSQL* self, intptr_t slot) {
+void QsciLexerSQL_OnDefaultColor2(const QsciLexerSQL* self, intptr_t slot) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultColorWithStyle_Callback>(slot));
+        vqscilexersql->setQsciLexerSQL_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -957,7 +957,7 @@ void QsciLexerSQL_OnDefaultEolFill(const QsciLexerSQL* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerSQL_DefaultFontWithStyle(const QsciLexerSQL* self, int style) {
+QFont* QsciLexerSQL_DefaultFont2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         return new QFont(vqscilexersql->defaultFont(static_cast<int>(style)));
@@ -967,10 +967,10 @@ QFont* QsciLexerSQL_DefaultFontWithStyle(const QsciLexerSQL* self, int style) {
 }
 
 // Base class handler implementation
-QFont* QsciLexerSQL_QBaseDefaultFontWithStyle(const QsciLexerSQL* self, int style) {
+QFont* QsciLexerSQL_QBaseDefaultFont2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultFontWithStyle_IsBase(true);
+        vqscilexersql->setQsciLexerSQL_DefaultFont2_IsBase(true);
         return new QFont(vqscilexersql->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerSQL*)self)->defaultFont(static_cast<int>(style)));
@@ -978,15 +978,15 @@ QFont* QsciLexerSQL_QBaseDefaultFontWithStyle(const QsciLexerSQL* self, int styl
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnDefaultFontWithStyle(const QsciLexerSQL* self, intptr_t slot) {
+void QsciLexerSQL_OnDefaultFont2(const QsciLexerSQL* self, intptr_t slot) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultFontWithStyle_Callback>(slot));
+        vqscilexersql->setQsciLexerSQL_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerSQL_DefaultPaperWithStyle(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_DefaultPaper2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
         return new QColor(vqscilexersql->defaultPaper(static_cast<int>(style)));
@@ -996,10 +996,10 @@ QColor* QsciLexerSQL_DefaultPaperWithStyle(const QsciLexerSQL* self, int style) 
 }
 
 // Base class handler implementation
-QColor* QsciLexerSQL_QBaseDefaultPaperWithStyle(const QsciLexerSQL* self, int style) {
+QColor* QsciLexerSQL_QBaseDefaultPaper2(const QsciLexerSQL* self, int style) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultPaperWithStyle_IsBase(true);
+        vqscilexersql->setQsciLexerSQL_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexersql->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerSQL*)self)->defaultPaper(static_cast<int>(style)));
@@ -1007,10 +1007,10 @@ QColor* QsciLexerSQL_QBaseDefaultPaperWithStyle(const QsciLexerSQL* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerSQL_OnDefaultPaperWithStyle(const QsciLexerSQL* self, intptr_t slot) {
+void QsciLexerSQL_OnDefaultPaper2(const QsciLexerSQL* self, intptr_t slot) {
     auto* vqscilexersql = const_cast<VirtualQsciLexerSQL*>(dynamic_cast<const VirtualQsciLexerSQL*>(self));
     if (vqscilexersql && vqscilexersql->isVirtualQsciLexerSQL) {
-        vqscilexersql->setQsciLexerSQL_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexersql->setQsciLexerSQL_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerSQL::QsciLexerSQL_DefaultPaper2_Callback>(slot));
     }
 }
 

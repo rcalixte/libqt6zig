@@ -72,7 +72,7 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     using QAbstractScrollArea_ConnectNotify_Callback = void (*)(QAbstractScrollArea*, QMetaMethod*);
     using QAbstractScrollArea_DisconnectNotify_Callback = void (*)(QAbstractScrollArea*, QMetaMethod*);
     using QAbstractScrollArea_SetViewportMargins_Callback = void (*)(QAbstractScrollArea*, int, int, int, int);
-    using QAbstractScrollArea_SetViewportMarginsWithMargins_Callback = void (*)(QAbstractScrollArea*, QMargins*);
+    using QAbstractScrollArea_SetViewportMargins2_Callback = void (*)(QAbstractScrollArea*, QMargins*);
     using QAbstractScrollArea_ViewportMargins_Callback = QMargins* (*)();
     using QAbstractScrollArea_DrawFrame_Callback = void (*)(QAbstractScrollArea*, QPainter*);
     using QAbstractScrollArea_UpdateMicroFocus_Callback = void (*)();
@@ -142,7 +142,7 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     QAbstractScrollArea_ConnectNotify_Callback qabstractscrollarea_connectnotify_callback = nullptr;
     QAbstractScrollArea_DisconnectNotify_Callback qabstractscrollarea_disconnectnotify_callback = nullptr;
     QAbstractScrollArea_SetViewportMargins_Callback qabstractscrollarea_setviewportmargins_callback = nullptr;
-    QAbstractScrollArea_SetViewportMarginsWithMargins_Callback qabstractscrollarea_setviewportmarginswithmargins_callback = nullptr;
+    QAbstractScrollArea_SetViewportMargins2_Callback qabstractscrollarea_setviewportmargins2_callback = nullptr;
     QAbstractScrollArea_ViewportMargins_Callback qabstractscrollarea_viewportmargins_callback = nullptr;
     QAbstractScrollArea_DrawFrame_Callback qabstractscrollarea_drawframe_callback = nullptr;
     QAbstractScrollArea_UpdateMicroFocus_Callback qabstractscrollarea_updatemicrofocus_callback = nullptr;
@@ -211,7 +211,7 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     mutable bool qabstractscrollarea_connectnotify_isbase = false;
     mutable bool qabstractscrollarea_disconnectnotify_isbase = false;
     mutable bool qabstractscrollarea_setviewportmargins_isbase = false;
-    mutable bool qabstractscrollarea_setviewportmarginswithmargins_isbase = false;
+    mutable bool qabstractscrollarea_setviewportmargins2_isbase = false;
     mutable bool qabstractscrollarea_viewportmargins_isbase = false;
     mutable bool qabstractscrollarea_drawframe_isbase = false;
     mutable bool qabstractscrollarea_updatemicrofocus_isbase = false;
@@ -284,7 +284,7 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
         qabstractscrollarea_connectnotify_callback = nullptr;
         qabstractscrollarea_disconnectnotify_callback = nullptr;
         qabstractscrollarea_setviewportmargins_callback = nullptr;
-        qabstractscrollarea_setviewportmarginswithmargins_callback = nullptr;
+        qabstractscrollarea_setviewportmargins2_callback = nullptr;
         qabstractscrollarea_viewportmargins_callback = nullptr;
         qabstractscrollarea_drawframe_callback = nullptr;
         qabstractscrollarea_updatemicrofocus_callback = nullptr;
@@ -354,7 +354,7 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     inline void setQAbstractScrollArea_ConnectNotify_Callback(QAbstractScrollArea_ConnectNotify_Callback cb) { qabstractscrollarea_connectnotify_callback = cb; }
     inline void setQAbstractScrollArea_DisconnectNotify_Callback(QAbstractScrollArea_DisconnectNotify_Callback cb) { qabstractscrollarea_disconnectnotify_callback = cb; }
     inline void setQAbstractScrollArea_SetViewportMargins_Callback(QAbstractScrollArea_SetViewportMargins_Callback cb) { qabstractscrollarea_setviewportmargins_callback = cb; }
-    inline void setQAbstractScrollArea_SetViewportMarginsWithMargins_Callback(QAbstractScrollArea_SetViewportMarginsWithMargins_Callback cb) { qabstractscrollarea_setviewportmarginswithmargins_callback = cb; }
+    inline void setQAbstractScrollArea_SetViewportMargins2_Callback(QAbstractScrollArea_SetViewportMargins2_Callback cb) { qabstractscrollarea_setviewportmargins2_callback = cb; }
     inline void setQAbstractScrollArea_ViewportMargins_Callback(QAbstractScrollArea_ViewportMargins_Callback cb) { qabstractscrollarea_viewportmargins_callback = cb; }
     inline void setQAbstractScrollArea_DrawFrame_Callback(QAbstractScrollArea_DrawFrame_Callback cb) { qabstractscrollarea_drawframe_callback = cb; }
     inline void setQAbstractScrollArea_UpdateMicroFocus_Callback(QAbstractScrollArea_UpdateMicroFocus_Callback cb) { qabstractscrollarea_updatemicrofocus_callback = cb; }
@@ -423,7 +423,7 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     inline void setQAbstractScrollArea_ConnectNotify_IsBase(bool value) const { qabstractscrollarea_connectnotify_isbase = value; }
     inline void setQAbstractScrollArea_DisconnectNotify_IsBase(bool value) const { qabstractscrollarea_disconnectnotify_isbase = value; }
     inline void setQAbstractScrollArea_SetViewportMargins_IsBase(bool value) const { qabstractscrollarea_setviewportmargins_isbase = value; }
-    inline void setQAbstractScrollArea_SetViewportMarginsWithMargins_IsBase(bool value) const { qabstractscrollarea_setviewportmarginswithmargins_isbase = value; }
+    inline void setQAbstractScrollArea_SetViewportMargins2_IsBase(bool value) const { qabstractscrollarea_setviewportmargins2_isbase = value; }
     inline void setQAbstractScrollArea_ViewportMargins_IsBase(bool value) const { qabstractscrollarea_viewportmargins_isbase = value; }
     inline void setQAbstractScrollArea_DrawFrame_IsBase(bool value) const { qabstractscrollarea_drawframe_isbase = value; }
     inline void setQAbstractScrollArea_UpdateMicroFocus_IsBase(bool value) const { qabstractscrollarea_updatemicrofocus_isbase = value; }
@@ -1218,15 +1218,15 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
 
     // Virtual method for C ABI access and custom callback
     void setViewportMargins(const QMargins& margins) {
-        if (qabstractscrollarea_setviewportmarginswithmargins_isbase) {
-            qabstractscrollarea_setviewportmarginswithmargins_isbase = false;
+        if (qabstractscrollarea_setviewportmargins2_isbase) {
+            qabstractscrollarea_setviewportmargins2_isbase = false;
             QAbstractScrollArea::setViewportMargins(margins);
-        } else if (qabstractscrollarea_setviewportmarginswithmargins_callback != nullptr) {
+        } else if (qabstractscrollarea_setviewportmargins2_callback != nullptr) {
             const QMargins& margins_ret = margins;
             // Cast returned reference into pointer
             QMargins* cbval1 = const_cast<QMargins*>(&margins_ret);
 
-            qabstractscrollarea_setviewportmarginswithmargins_callback(this, cbval1);
+            qabstractscrollarea_setviewportmargins2_callback(this, cbval1);
         } else {
             QAbstractScrollArea::setViewportMargins(margins);
         }
@@ -1484,8 +1484,8 @@ class VirtualQAbstractScrollArea final : public QAbstractScrollArea {
     friend void QAbstractScrollArea_QBaseDisconnectNotify(QAbstractScrollArea* self, const QMetaMethod* signal);
     friend void QAbstractScrollArea_SetViewportMargins(QAbstractScrollArea* self, int left, int top, int right, int bottom);
     friend void QAbstractScrollArea_QBaseSetViewportMargins(QAbstractScrollArea* self, int left, int top, int right, int bottom);
-    friend void QAbstractScrollArea_SetViewportMarginsWithMargins(QAbstractScrollArea* self, const QMargins* margins);
-    friend void QAbstractScrollArea_QBaseSetViewportMarginsWithMargins(QAbstractScrollArea* self, const QMargins* margins);
+    friend void QAbstractScrollArea_SetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins);
+    friend void QAbstractScrollArea_QBaseSetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins);
     friend QMargins* QAbstractScrollArea_ViewportMargins(const QAbstractScrollArea* self);
     friend QMargins* QAbstractScrollArea_QBaseViewportMargins(const QAbstractScrollArea* self);
     friend void QAbstractScrollArea_DrawFrame(QAbstractScrollArea* self, QPainter* param1);

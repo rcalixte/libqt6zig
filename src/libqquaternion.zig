@@ -245,8 +245,8 @@ pub const qquaternion = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator*=)
     ///
     /// ``` self: QtC.QQuaternion, quaternion: QtC.QQuaternion ```
-    pub fn OperatorMultiplyAssignWithQuaternion(self: ?*anyopaque, quaternion: ?*anyopaque) QtC.QQuaternion {
-        return qtc.QQuaternion_OperatorMultiplyAssignWithQuaternion(@ptrCast(self), @ptrCast(quaternion));
+    pub fn OperatorMultiplyAssign2(self: ?*anyopaque, quaternion: ?*anyopaque) QtC.QQuaternion {
+        return qtc.QQuaternion_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(quaternion));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator/=)

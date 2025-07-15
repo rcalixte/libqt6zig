@@ -581,11 +581,11 @@ QPainterPath* QGraphicsItem_MapToItem4(const QGraphicsItem* self, const QGraphic
     return new QPainterPath(self->mapToItem(item, *path));
 }
 
-QPainterPath* QGraphicsItem_MapToParentWithPath(const QGraphicsItem* self, const QPainterPath* path) {
+QPainterPath* QGraphicsItem_MapToParent4(const QGraphicsItem* self, const QPainterPath* path) {
     return new QPainterPath(self->mapToParent(*path));
 }
 
-QPainterPath* QGraphicsItem_MapToSceneWithPath(const QGraphicsItem* self, const QPainterPath* path) {
+QPainterPath* QGraphicsItem_MapToScene4(const QGraphicsItem* self, const QPainterPath* path) {
     return new QPainterPath(self->mapToScene(*path));
 }
 
@@ -617,11 +617,11 @@ QPainterPath* QGraphicsItem_MapFromItem4(const QGraphicsItem* self, const QGraph
     return new QPainterPath(self->mapFromItem(item, *path));
 }
 
-QPainterPath* QGraphicsItem_MapFromParentWithPath(const QGraphicsItem* self, const QPainterPath* path) {
+QPainterPath* QGraphicsItem_MapFromParent4(const QGraphicsItem* self, const QPainterPath* path) {
     return new QPainterPath(self->mapFromParent(*path));
 }
 
-QPainterPath* QGraphicsItem_MapFromSceneWithPath(const QGraphicsItem* self, const QPainterPath* path) {
+QPainterPath* QGraphicsItem_MapFromScene4(const QGraphicsItem* self, const QPainterPath* path) {
     return new QPainterPath(self->mapFromScene(*path));
 }
 
@@ -629,11 +629,11 @@ QPointF* QGraphicsItem_MapToItem5(const QGraphicsItem* self, const QGraphicsItem
     return new QPointF(self->mapToItem(item, static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 
-QPointF* QGraphicsItem_MapToParent2(const QGraphicsItem* self, double x, double y) {
+QPointF* QGraphicsItem_MapToParent5(const QGraphicsItem* self, double x, double y) {
     return new QPointF(self->mapToParent(static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 
-QPointF* QGraphicsItem_MapToScene2(const QGraphicsItem* self, double x, double y) {
+QPointF* QGraphicsItem_MapToScene5(const QGraphicsItem* self, double x, double y) {
     return new QPointF(self->mapToScene(static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 
@@ -653,11 +653,11 @@ QPointF* QGraphicsItem_MapFromItem5(const QGraphicsItem* self, const QGraphicsIt
     return new QPointF(self->mapFromItem(item, static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 
-QPointF* QGraphicsItem_MapFromParent2(const QGraphicsItem* self, double x, double y) {
+QPointF* QGraphicsItem_MapFromParent5(const QGraphicsItem* self, double x, double y) {
     return new QPointF(self->mapFromParent(static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 
-QPointF* QGraphicsItem_MapFromScene2(const QGraphicsItem* self, double x, double y) {
+QPointF* QGraphicsItem_MapFromScene5(const QGraphicsItem* self, double x, double y) {
     return new QPointF(self->mapFromScene(static_cast<qreal>(x), static_cast<qreal>(y)));
 }
 

@@ -38,10 +38,10 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     using QsciLexerCoffeeScript_DefaultStyle_Callback = int (*)();
     using QsciLexerCoffeeScript_Description_Callback = libqt_string (*)(const QsciLexerCoffeeScript*, int);
     using QsciLexerCoffeeScript_Paper_Callback = QColor* (*)(const QsciLexerCoffeeScript*, int);
-    using QsciLexerCoffeeScript_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerCoffeeScript*, int);
+    using QsciLexerCoffeeScript_DefaultColor2_Callback = QColor* (*)(const QsciLexerCoffeeScript*, int);
     using QsciLexerCoffeeScript_DefaultEolFill_Callback = bool (*)(const QsciLexerCoffeeScript*, int);
-    using QsciLexerCoffeeScript_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerCoffeeScript*, int);
-    using QsciLexerCoffeeScript_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerCoffeeScript*, int);
+    using QsciLexerCoffeeScript_DefaultFont2_Callback = QFont* (*)(const QsciLexerCoffeeScript*, int);
+    using QsciLexerCoffeeScript_DefaultPaper2_Callback = QColor* (*)(const QsciLexerCoffeeScript*, int);
     using QsciLexerCoffeeScript_SetEditor_Callback = void (*)(QsciLexerCoffeeScript*, QsciScintilla*);
     using QsciLexerCoffeeScript_RefreshProperties_Callback = void (*)();
     using QsciLexerCoffeeScript_StyleBitsNeeded_Callback = int (*)();
@@ -89,10 +89,10 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     QsciLexerCoffeeScript_DefaultStyle_Callback qscilexercoffeescript_defaultstyle_callback = nullptr;
     QsciLexerCoffeeScript_Description_Callback qscilexercoffeescript_description_callback = nullptr;
     QsciLexerCoffeeScript_Paper_Callback qscilexercoffeescript_paper_callback = nullptr;
-    QsciLexerCoffeeScript_DefaultColorWithStyle_Callback qscilexercoffeescript_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerCoffeeScript_DefaultColor2_Callback qscilexercoffeescript_defaultcolor2_callback = nullptr;
     QsciLexerCoffeeScript_DefaultEolFill_Callback qscilexercoffeescript_defaulteolfill_callback = nullptr;
-    QsciLexerCoffeeScript_DefaultFontWithStyle_Callback qscilexercoffeescript_defaultfontwithstyle_callback = nullptr;
-    QsciLexerCoffeeScript_DefaultPaperWithStyle_Callback qscilexercoffeescript_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerCoffeeScript_DefaultFont2_Callback qscilexercoffeescript_defaultfont2_callback = nullptr;
+    QsciLexerCoffeeScript_DefaultPaper2_Callback qscilexercoffeescript_defaultpaper2_callback = nullptr;
     QsciLexerCoffeeScript_SetEditor_Callback qscilexercoffeescript_seteditor_callback = nullptr;
     QsciLexerCoffeeScript_RefreshProperties_Callback qscilexercoffeescript_refreshproperties_callback = nullptr;
     QsciLexerCoffeeScript_StyleBitsNeeded_Callback qscilexercoffeescript_stylebitsneeded_callback = nullptr;
@@ -139,10 +139,10 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     mutable bool qscilexercoffeescript_defaultstyle_isbase = false;
     mutable bool qscilexercoffeescript_description_isbase = false;
     mutable bool qscilexercoffeescript_paper_isbase = false;
-    mutable bool qscilexercoffeescript_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexercoffeescript_defaultcolor2_isbase = false;
     mutable bool qscilexercoffeescript_defaulteolfill_isbase = false;
-    mutable bool qscilexercoffeescript_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexercoffeescript_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexercoffeescript_defaultfont2_isbase = false;
+    mutable bool qscilexercoffeescript_defaultpaper2_isbase = false;
     mutable bool qscilexercoffeescript_seteditor_isbase = false;
     mutable bool qscilexercoffeescript_refreshproperties_isbase = false;
     mutable bool qscilexercoffeescript_stylebitsneeded_isbase = false;
@@ -193,10 +193,10 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
         qscilexercoffeescript_defaultstyle_callback = nullptr;
         qscilexercoffeescript_description_callback = nullptr;
         qscilexercoffeescript_paper_callback = nullptr;
-        qscilexercoffeescript_defaultcolorwithstyle_callback = nullptr;
+        qscilexercoffeescript_defaultcolor2_callback = nullptr;
         qscilexercoffeescript_defaulteolfill_callback = nullptr;
-        qscilexercoffeescript_defaultfontwithstyle_callback = nullptr;
-        qscilexercoffeescript_defaultpaperwithstyle_callback = nullptr;
+        qscilexercoffeescript_defaultfont2_callback = nullptr;
+        qscilexercoffeescript_defaultpaper2_callback = nullptr;
         qscilexercoffeescript_seteditor_callback = nullptr;
         qscilexercoffeescript_refreshproperties_callback = nullptr;
         qscilexercoffeescript_stylebitsneeded_callback = nullptr;
@@ -244,10 +244,10 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     inline void setQsciLexerCoffeeScript_DefaultStyle_Callback(QsciLexerCoffeeScript_DefaultStyle_Callback cb) { qscilexercoffeescript_defaultstyle_callback = cb; }
     inline void setQsciLexerCoffeeScript_Description_Callback(QsciLexerCoffeeScript_Description_Callback cb) { qscilexercoffeescript_description_callback = cb; }
     inline void setQsciLexerCoffeeScript_Paper_Callback(QsciLexerCoffeeScript_Paper_Callback cb) { qscilexercoffeescript_paper_callback = cb; }
-    inline void setQsciLexerCoffeeScript_DefaultColorWithStyle_Callback(QsciLexerCoffeeScript_DefaultColorWithStyle_Callback cb) { qscilexercoffeescript_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerCoffeeScript_DefaultColor2_Callback(QsciLexerCoffeeScript_DefaultColor2_Callback cb) { qscilexercoffeescript_defaultcolor2_callback = cb; }
     inline void setQsciLexerCoffeeScript_DefaultEolFill_Callback(QsciLexerCoffeeScript_DefaultEolFill_Callback cb) { qscilexercoffeescript_defaulteolfill_callback = cb; }
-    inline void setQsciLexerCoffeeScript_DefaultFontWithStyle_Callback(QsciLexerCoffeeScript_DefaultFontWithStyle_Callback cb) { qscilexercoffeescript_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerCoffeeScript_DefaultPaperWithStyle_Callback(QsciLexerCoffeeScript_DefaultPaperWithStyle_Callback cb) { qscilexercoffeescript_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerCoffeeScript_DefaultFont2_Callback(QsciLexerCoffeeScript_DefaultFont2_Callback cb) { qscilexercoffeescript_defaultfont2_callback = cb; }
+    inline void setQsciLexerCoffeeScript_DefaultPaper2_Callback(QsciLexerCoffeeScript_DefaultPaper2_Callback cb) { qscilexercoffeescript_defaultpaper2_callback = cb; }
     inline void setQsciLexerCoffeeScript_SetEditor_Callback(QsciLexerCoffeeScript_SetEditor_Callback cb) { qscilexercoffeescript_seteditor_callback = cb; }
     inline void setQsciLexerCoffeeScript_RefreshProperties_Callback(QsciLexerCoffeeScript_RefreshProperties_Callback cb) { qscilexercoffeescript_refreshproperties_callback = cb; }
     inline void setQsciLexerCoffeeScript_StyleBitsNeeded_Callback(QsciLexerCoffeeScript_StyleBitsNeeded_Callback cb) { qscilexercoffeescript_stylebitsneeded_callback = cb; }
@@ -294,10 +294,10 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     inline void setQsciLexerCoffeeScript_DefaultStyle_IsBase(bool value) const { qscilexercoffeescript_defaultstyle_isbase = value; }
     inline void setQsciLexerCoffeeScript_Description_IsBase(bool value) const { qscilexercoffeescript_description_isbase = value; }
     inline void setQsciLexerCoffeeScript_Paper_IsBase(bool value) const { qscilexercoffeescript_paper_isbase = value; }
-    inline void setQsciLexerCoffeeScript_DefaultColorWithStyle_IsBase(bool value) const { qscilexercoffeescript_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerCoffeeScript_DefaultColor2_IsBase(bool value) const { qscilexercoffeescript_defaultcolor2_isbase = value; }
     inline void setQsciLexerCoffeeScript_DefaultEolFill_IsBase(bool value) const { qscilexercoffeescript_defaulteolfill_isbase = value; }
-    inline void setQsciLexerCoffeeScript_DefaultFontWithStyle_IsBase(bool value) const { qscilexercoffeescript_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerCoffeeScript_DefaultPaperWithStyle_IsBase(bool value) const { qscilexercoffeescript_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerCoffeeScript_DefaultFont2_IsBase(bool value) const { qscilexercoffeescript_defaultfont2_isbase = value; }
+    inline void setQsciLexerCoffeeScript_DefaultPaper2_IsBase(bool value) const { qscilexercoffeescript_defaultpaper2_isbase = value; }
     inline void setQsciLexerCoffeeScript_SetEditor_IsBase(bool value) const { qscilexercoffeescript_seteditor_isbase = value; }
     inline void setQsciLexerCoffeeScript_RefreshProperties_IsBase(bool value) const { qscilexercoffeescript_refreshproperties_isbase = value; }
     inline void setQsciLexerCoffeeScript_StyleBitsNeeded_IsBase(bool value) const { qscilexercoffeescript_stylebitsneeded_isbase = value; }
@@ -609,13 +609,13 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexercoffeescript_defaultcolorwithstyle_isbase) {
-            qscilexercoffeescript_defaultcolorwithstyle_isbase = false;
+        if (qscilexercoffeescript_defaultcolor2_isbase) {
+            qscilexercoffeescript_defaultcolor2_isbase = false;
             return QsciLexerCoffeeScript::defaultColor(style);
-        } else if (qscilexercoffeescript_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexercoffeescript_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexercoffeescript_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexercoffeescript_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerCoffeeScript::defaultColor(style);
@@ -639,13 +639,13 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexercoffeescript_defaultfontwithstyle_isbase) {
-            qscilexercoffeescript_defaultfontwithstyle_isbase = false;
+        if (qscilexercoffeescript_defaultfont2_isbase) {
+            qscilexercoffeescript_defaultfont2_isbase = false;
             return QsciLexerCoffeeScript::defaultFont(style);
-        } else if (qscilexercoffeescript_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexercoffeescript_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexercoffeescript_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexercoffeescript_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerCoffeeScript::defaultFont(style);
@@ -654,13 +654,13 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexercoffeescript_defaultpaperwithstyle_isbase) {
-            qscilexercoffeescript_defaultpaperwithstyle_isbase = false;
+        if (qscilexercoffeescript_defaultpaper2_isbase) {
+            qscilexercoffeescript_defaultpaper2_isbase = false;
             return QsciLexerCoffeeScript::defaultPaper(style);
-        } else if (qscilexercoffeescript_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexercoffeescript_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexercoffeescript_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexercoffeescript_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerCoffeeScript::defaultPaper(style);

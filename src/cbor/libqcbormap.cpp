@@ -62,12 +62,12 @@ QCborValue* QCborMap_Value(const QCborMap* self, long long key) {
     return new QCborValue(self->value(static_cast<qint64>(key)));
 }
 
-QCborValue* QCborMap_Value2(const QCborMap* self, const libqt_string key) {
+QCborValue* QCborMap_Value3(const QCborMap* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QCborValue(self->value(key_QString));
 }
 
-QCborValue* QCborMap_Value3(const QCborMap* self, const QCborValue* key) {
+QCborValue* QCborMap_Value4(const QCborMap* self, const QCborValue* key) {
     return new QCborValue(self->value(*key));
 }
 
@@ -75,25 +75,25 @@ QCborValue* QCborMap_OperatorSubscript(const QCborMap* self, long long key) {
     return new QCborValue(self->operator[](static_cast<qint64>(key)));
 }
 
-QCborValue* QCborMap_OperatorSubscript2(const QCborMap* self, const libqt_string key) {
+QCborValue* QCborMap_OperatorSubscript3(const QCborMap* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QCborValue(self->operator[](key_QString));
 }
 
-QCborValue* QCborMap_OperatorSubscript3(const QCborMap* self, const QCborValue* key) {
+QCborValue* QCborMap_OperatorSubscript4(const QCborMap* self, const QCborValue* key) {
     return new QCborValue(self->operator[](*key));
 }
 
-QCborValueRef* QCborMap_OperatorSubscript4(QCborMap* self, long long key) {
+QCborValueRef* QCborMap_OperatorSubscript5(QCborMap* self, long long key) {
     return new QCborValueRef(self->operator[](static_cast<qint64>(key)));
 }
 
-QCborValueRef* QCborMap_OperatorSubscript6(QCborMap* self, const libqt_string key) {
+QCborValueRef* QCborMap_OperatorSubscript7(QCborMap* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QCborValueRef(self->operator[](key_QString));
 }
 
-QCborValueRef* QCborMap_OperatorSubscript7(QCborMap* self, const QCborValue* key) {
+QCborValueRef* QCborMap_OperatorSubscript8(QCborMap* self, const QCborValue* key) {
     return new QCborValueRef(self->operator[](*key));
 }
 
@@ -101,12 +101,12 @@ QCborValue* QCborMap_Take(QCborMap* self, long long key) {
     return new QCborValue(self->take(static_cast<qint64>(key)));
 }
 
-QCborValue* QCborMap_Take2(QCborMap* self, const libqt_string key) {
+QCborValue* QCborMap_Take3(QCborMap* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QCborValue(self->take(key_QString));
 }
 
-QCborValue* QCborMap_Take3(QCborMap* self, const QCborValue* key) {
+QCborValue* QCborMap_Take4(QCborMap* self, const QCborValue* key) {
     return new QCborValue(self->take(*key));
 }
 
@@ -114,12 +114,12 @@ void QCborMap_Remove(QCborMap* self, long long key) {
     self->remove(static_cast<qint64>(key));
 }
 
-void QCborMap_Remove2(QCborMap* self, const libqt_string key) {
+void QCborMap_Remove3(QCborMap* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->remove(key_QString);
 }
 
-void QCborMap_Remove3(QCborMap* self, const QCborValue* key) {
+void QCborMap_Remove4(QCborMap* self, const QCborValue* key) {
     self->remove(*key);
 }
 
@@ -127,12 +127,12 @@ bool QCborMap_Contains(const QCborMap* self, long long key) {
     return self->contains(static_cast<qint64>(key));
 }
 
-bool QCborMap_Contains2(const QCborMap* self, const libqt_string key) {
+bool QCborMap_Contains3(const QCborMap* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->contains(key_QString);
 }
 
-bool QCborMap_Contains3(const QCborMap* self, const QCborValue* key) {
+bool QCborMap_Contains4(const QCborMap* self, const QCborValue* key) {
     return self->contains(*key);
 }
 

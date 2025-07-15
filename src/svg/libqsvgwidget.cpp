@@ -123,7 +123,7 @@ void QSvgWidget_Load(QSvgWidget* self, const libqt_string file) {
     self->load(file_QString);
 }
 
-void QSvgWidget_LoadWithContents(QSvgWidget* self, const libqt_string contents) {
+void QSvgWidget_Load2(QSvgWidget* self, const libqt_string contents) {
     QByteArray contents_QByteArray(contents.data, contents.len);
     self->load(contents_QByteArray);
 }

@@ -64,7 +64,7 @@ bool QAction_IsSeparator(const QAction* self);
 void QAction_SetShortcut(QAction* self, const QKeySequence* shortcut);
 QKeySequence* QAction_Shortcut(const QAction* self);
 void QAction_SetShortcuts(QAction* self, const libqt_list /* of QKeySequence* */ shortcuts);
-void QAction_SetShortcutsWithShortcuts(QAction* self, int shortcuts);
+void QAction_SetShortcuts2(QAction* self, int shortcuts);
 libqt_list /* of QKeySequence* */ QAction_Shortcuts(const QAction* self);
 void QAction_SetShortcutContext(QAction* self, int context);
 int QAction_ShortcutContext(const QAction* self);

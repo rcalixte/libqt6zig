@@ -193,8 +193,8 @@ pub const qcalendar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
     ///
     /// ``` self: QtC.QCalendar, parts: QtC.QCalendar__YearMonthDay ```
-    pub fn DateFromPartsWithParts(self: ?*anyopaque, parts: ?*anyopaque) QtC.QDate {
-        return qtc.QCalendar_DateFromPartsWithParts(@ptrCast(self), @ptrCast(parts));
+    pub fn DateFromParts2(self: ?*anyopaque, parts: ?*anyopaque) QtC.QDate {
+        return qtc.QCalendar_DateFromParts2(@ptrCast(self), @ptrCast(parts));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#matchCenturyToWeekday)

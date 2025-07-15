@@ -139,129 +139,129 @@ pub const qdebug = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: bool ```
-    pub fn OperatorShiftLeftWithBool(self: ?*anyopaque, t: bool) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithBool(@ptrCast(self), t);
+    pub fn OperatorShiftLeft2(self: ?*anyopaque, t: bool) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft2(@ptrCast(self), t);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: i8 ```
-    pub fn OperatorShiftLeftWithChar(self: ?*anyopaque, t: i8) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithChar(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft3(self: ?*anyopaque, t: i8) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft3(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: i16 ```
-    pub fn OperatorShiftLeftWithShort(self: ?*anyopaque, t: i16) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithShort(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft4(self: ?*anyopaque, t: i16) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft4(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: u16 ```
-    pub fn OperatorShiftLeftWithUnsignedshort(self: ?*anyopaque, t: u16) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithUnsignedshort(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft5(self: ?*anyopaque, t: u16) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft5(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: i32 ```
-    pub fn OperatorShiftLeftWithInt(self: ?*anyopaque, t: i32) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithInt(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft8(self: ?*anyopaque, t: i32) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft8(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: u32 ```
-    pub fn OperatorShiftLeftWithUnsignedint(self: ?*anyopaque, t: u32) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithUnsignedint(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft9(self: ?*anyopaque, t: u32) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft9(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: i64 ```
-    pub fn OperatorShiftLeftWithLong(self: ?*anyopaque, t: i64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithLong(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft10(self: ?*anyopaque, t: i64) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft10(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: u64 ```
-    pub fn OperatorShiftLeftWithUnsignedlong(self: ?*anyopaque, t: u64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithUnsignedlong(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft11(self: ?*anyopaque, t: u64) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft11(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: i64 ```
-    pub fn OperatorShiftLeftWithQint64(self: ?*anyopaque, t: i64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithQint64(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft12(self: ?*anyopaque, t: i64) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft12(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: u64 ```
-    pub fn OperatorShiftLeftWithQuint64(self: ?*anyopaque, t: u64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithQuint64(@ptrCast(self), @intCast(t));
+    pub fn OperatorShiftLeft13(self: ?*anyopaque, t: u64) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft13(@ptrCast(self), @intCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: f32 ```
-    pub fn OperatorShiftLeftWithFloat(self: ?*anyopaque, t: f32) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithFloat(@ptrCast(self), @floatCast(t));
+    pub fn OperatorShiftLeft15(self: ?*anyopaque, t: f32) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft15(@ptrCast(self), @floatCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: f64 ```
-    pub fn OperatorShiftLeftWithDouble(self: ?*anyopaque, t: f64) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithDouble(@ptrCast(self), @floatCast(t));
+    pub fn OperatorShiftLeft16(self: ?*anyopaque, t: f64) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft16(@ptrCast(self), @floatCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: []const u8 ```
-    pub fn OperatorShiftLeft2(self: ?*anyopaque, t: []const u8) QtC.QDebug {
+    pub fn OperatorShiftLeft17(self: ?*anyopaque, t: []const u8) QtC.QDebug {
         const t_Cstring = t.ptr;
-        return qtc.QDebug_OperatorShiftLeft2(@ptrCast(self), t_Cstring);
+        return qtc.QDebug_OperatorShiftLeft17(@ptrCast(self), t_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: []const u8 ```
-    pub fn OperatorShiftLeftWithQString(self: ?*anyopaque, t: []const u8) QtC.QDebug {
+    pub fn OperatorShiftLeft19(self: ?*anyopaque, t: []const u8) QtC.QDebug {
         const t_str = qtc.struct_libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
-        return qtc.QDebug_OperatorShiftLeftWithQString(@ptrCast(self), t_str);
+        return qtc.QDebug_OperatorShiftLeft19(@ptrCast(self), t_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: []u8 ```
-    pub fn OperatorShiftLeftWithQByteArray(self: ?*anyopaque, t: []u8) QtC.QDebug {
+    pub fn OperatorShiftLeft23(self: ?*anyopaque, t: []u8) QtC.QDebug {
         const t_str = qtc.struct_libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
-        return qtc.QDebug_OperatorShiftLeftWithQByteArray(@ptrCast(self), t_str);
+        return qtc.QDebug_OperatorShiftLeft23(@ptrCast(self), t_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: []const u8 ```
-    pub fn OperatorShiftLeftWithQByteArrayView(self: ?*anyopaque, t: []const u8) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithQByteArrayView(@ptrCast(self), t.ptr);
+    pub fn OperatorShiftLeft24(self: ?*anyopaque, t: []const u8) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft24(@ptrCast(self), t.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator<<)
     ///
     /// ``` self: QtC.QDebug, t: ?*anyopaque ```
-    pub fn OperatorShiftLeftWithVoid(self: ?*anyopaque, t: ?*anyopaque) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeftWithVoid(@ptrCast(self), t);
+    pub fn OperatorShiftLeft25(self: ?*anyopaque, t: ?*anyopaque) QtC.QDebug {
+        return qtc.QDebug_OperatorShiftLeft25(@ptrCast(self), t);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#maybeQuote)

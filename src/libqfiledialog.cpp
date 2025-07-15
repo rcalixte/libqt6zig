@@ -129,7 +129,7 @@ void QFileDialog_SetDirectory(QFileDialog* self, const libqt_string directory) {
     self->setDirectory(directory_QString);
 }
 
-void QFileDialog_SetDirectoryWithDirectory(QFileDialog* self, const QDir* directory) {
+void QFileDialog_SetDirectory2(QFileDialog* self, const QDir* directory) {
     self->setDirectory(*directory);
 }
 

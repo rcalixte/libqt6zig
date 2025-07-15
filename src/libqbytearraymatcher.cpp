@@ -44,7 +44,7 @@ ptrdiff_t QByteArrayMatcher_IndexIn(const QByteArrayMatcher* self, const char* s
     return static_cast<ptrdiff_t>(self->indexIn(str, (qsizetype)(lenVal)));
 }
 
-ptrdiff_t QByteArrayMatcher_IndexInWithData(const QByteArrayMatcher* self, QByteArrayView* data) {
+ptrdiff_t QByteArrayMatcher_IndexIn2(const QByteArrayMatcher* self, QByteArrayView* data) {
     return static_cast<ptrdiff_t>(self->indexIn(*data));
 }
 
@@ -62,7 +62,7 @@ ptrdiff_t QByteArrayMatcher_IndexIn3(const QByteArrayMatcher* self, const char* 
     return static_cast<ptrdiff_t>(self->indexIn(str, (qsizetype)(lenVal), (qsizetype)(from)));
 }
 
-ptrdiff_t QByteArrayMatcher_IndexIn2(const QByteArrayMatcher* self, QByteArrayView* data, ptrdiff_t from) {
+ptrdiff_t QByteArrayMatcher_IndexIn22(const QByteArrayMatcher* self, QByteArrayView* data, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexIn(*data, (qsizetype)(from)));
 }
 

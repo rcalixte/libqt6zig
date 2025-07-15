@@ -156,7 +156,7 @@ bool QPainterPath_Contains(const QPainterPath* self, const QPointF* pt) {
     return self->contains(*pt);
 }
 
-bool QPainterPath_ContainsWithRect(const QPainterPath* self, const QRectF* rect) {
+bool QPainterPath_Contains2(const QPainterPath* self, const QRectF* rect) {
     return self->contains(*rect);
 }
 
@@ -168,7 +168,7 @@ void QPainterPath_Translate(QPainterPath* self, double dx, double dy) {
     self->translate(static_cast<qreal>(dx), static_cast<qreal>(dy));
 }
 
-void QPainterPath_TranslateWithOffset(QPainterPath* self, const QPointF* offset) {
+void QPainterPath_Translate2(QPainterPath* self, const QPointF* offset) {
     self->translate(*offset);
 }
 
@@ -176,7 +176,7 @@ QPainterPath* QPainterPath_Translated(const QPainterPath* self, double dx, doubl
     return new QPainterPath(self->translated(static_cast<qreal>(dx), static_cast<qreal>(dy)));
 }
 
-QPainterPath* QPainterPath_TranslatedWithOffset(const QPainterPath* self, const QPointF* offset) {
+QPainterPath* QPainterPath_Translated2(const QPainterPath* self, const QPointF* offset) {
     return new QPainterPath(self->translated(*offset));
 }
 
@@ -236,11 +236,11 @@ double QPainterPath_SlopeAtPercent(const QPainterPath* self, double t) {
     return static_cast<double>(self->slopeAtPercent(static_cast<qreal>(t)));
 }
 
-bool QPainterPath_IntersectsWithQPainterPath(const QPainterPath* self, const QPainterPath* p) {
+bool QPainterPath_Intersects2(const QPainterPath* self, const QPainterPath* p) {
     return self->intersects(*p);
 }
 
-bool QPainterPath_ContainsWithQPainterPath(const QPainterPath* self, const QPainterPath* p) {
+bool QPainterPath_Contains3(const QPainterPath* self, const QPainterPath* p) {
     return self->contains(*p);
 }
 
@@ -368,7 +368,7 @@ void QPainterPathStroker_SetDashPattern(QPainterPathStroker* self, int dashPatte
     self->setDashPattern(static_cast<Qt::PenStyle>(dashPattern));
 }
 
-void QPainterPathStroker_SetDashPatternWithDashPattern(QPainterPathStroker* self, const libqt_list /* of double */ dashPattern) {
+void QPainterPathStroker_SetDashPattern2(QPainterPathStroker* self, const libqt_list /* of double */ dashPattern) {
     QList<double> dashPattern_QList;
     dashPattern_QList.reserve(dashPattern.len);
     double* dashPattern_arr = static_cast<double*>(dashPattern.data);

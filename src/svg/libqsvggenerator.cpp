@@ -76,7 +76,7 @@ void QSvgGenerator_SetViewBox(QSvgGenerator* self, const QRect* viewBox) {
     self->setViewBox(*viewBox);
 }
 
-void QSvgGenerator_SetViewBoxWithViewBox(QSvgGenerator* self, const QRectF* viewBox) {
+void QSvgGenerator_SetViewBox2(QSvgGenerator* self, const QRectF* viewBox) {
     self->setViewBox(*viewBox);
 }
 

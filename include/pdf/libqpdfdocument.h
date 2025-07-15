@@ -44,7 +44,7 @@ int QPdfDocument_QBaseMetacall(QPdfDocument* self, int param1, int param2, void*
 libqt_string QPdfDocument_Tr(const char* s);
 int QPdfDocument_Load(QPdfDocument* self, const libqt_string fileName);
 int QPdfDocument_Status(const QPdfDocument* self);
-void QPdfDocument_LoadWithDevice(QPdfDocument* self, QIODevice* device);
+void QPdfDocument_Load2(QPdfDocument* self, QIODevice* device);
 void QPdfDocument_SetPassword(QPdfDocument* self, const libqt_string password);
 libqt_string QPdfDocument_Password(const QPdfDocument* self);
 QVariant* QPdfDocument_MetaData(const QPdfDocument* self, int field);

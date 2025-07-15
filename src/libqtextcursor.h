@@ -80,12 +80,12 @@ bool QTextCursor_AtBlockEnd(const QTextCursor* self);
 bool QTextCursor_AtStart(const QTextCursor* self);
 bool QTextCursor_AtEnd(const QTextCursor* self);
 void QTextCursor_InsertBlock(QTextCursor* self);
-void QTextCursor_InsertBlockWithFormat(QTextCursor* self, const QTextBlockFormat* format);
-void QTextCursor_InsertBlock2(QTextCursor* self, const QTextBlockFormat* format, const QTextCharFormat* charFormat);
+void QTextCursor_InsertBlock2(QTextCursor* self, const QTextBlockFormat* format);
+void QTextCursor_InsertBlock3(QTextCursor* self, const QTextBlockFormat* format, const QTextCharFormat* charFormat);
 QTextList* QTextCursor_InsertList(QTextCursor* self, const QTextListFormat* format);
-QTextList* QTextCursor_InsertListWithStyle(QTextCursor* self, int style);
+QTextList* QTextCursor_InsertList2(QTextCursor* self, int style);
 QTextList* QTextCursor_CreateList(QTextCursor* self, const QTextListFormat* format);
-QTextList* QTextCursor_CreateListWithStyle(QTextCursor* self, int style);
+QTextList* QTextCursor_CreateList2(QTextCursor* self, int style);
 QTextList* QTextCursor_CurrentList(const QTextCursor* self);
 QTextTable* QTextCursor_InsertTable(QTextCursor* self, int rows, int cols, const QTextTableFormat* format);
 QTextTable* QTextCursor_InsertTable2(QTextCursor* self, int rows, int cols);
@@ -96,9 +96,9 @@ void QTextCursor_InsertFragment(QTextCursor* self, const QTextDocumentFragment* 
 void QTextCursor_InsertHtml(QTextCursor* self, const libqt_string html);
 void QTextCursor_InsertMarkdown(QTextCursor* self, const libqt_string markdown);
 void QTextCursor_InsertImage(QTextCursor* self, const QTextImageFormat* format, int alignment);
-void QTextCursor_InsertImageWithFormat(QTextCursor* self, const QTextImageFormat* format);
-void QTextCursor_InsertImageWithName(QTextCursor* self, const libqt_string name);
-void QTextCursor_InsertImageWithImage(QTextCursor* self, const QImage* image);
+void QTextCursor_InsertImage2(QTextCursor* self, const QTextImageFormat* format);
+void QTextCursor_InsertImage3(QTextCursor* self, const libqt_string name);
+void QTextCursor_InsertImage4(QTextCursor* self, const QImage* image);
 void QTextCursor_BeginEditBlock(QTextCursor* self);
 void QTextCursor_JoinPreviousEditBlock(QTextCursor* self);
 void QTextCursor_EndEditBlock(QTextCursor* self);
@@ -116,7 +116,7 @@ void QTextCursor_SetPosition2(QTextCursor* self, int pos, int mode);
 bool QTextCursor_MovePosition2(QTextCursor* self, int op, int param2);
 bool QTextCursor_MovePosition3(QTextCursor* self, int op, int param2, int n);
 void QTextCursor_InsertMarkdown2(QTextCursor* self, const libqt_string markdown, int features);
-void QTextCursor_InsertImage2(QTextCursor* self, const QImage* image, const libqt_string name);
+void QTextCursor_InsertImage22(QTextCursor* self, const QImage* image, const libqt_string name);
 void QTextCursor_Delete(QTextCursor* self);
 
 #ifdef __cplusplus

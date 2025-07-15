@@ -168,7 +168,7 @@ void QFileSystemModel_Connect_DirectoryLoaded(QFileSystemModel* self, intptr_t s
     });
 }
 
-QModelIndex* QFileSystemModel_IndexWithPath(const QFileSystemModel* self, const libqt_string path) {
+QModelIndex* QFileSystemModel_Index2(const QFileSystemModel* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return new QModelIndex(self->index(path_QString));
 }
@@ -387,7 +387,7 @@ libqt_string QFileSystemModel_Tr3(const char* s, const char* c, int n) {
     return _str;
 }
 
-QModelIndex* QFileSystemModel_Index2(const QFileSystemModel* self, const libqt_string path, int column) {
+QModelIndex* QFileSystemModel_Index22(const QFileSystemModel* self, const libqt_string path, int column) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return new QModelIndex(self->index(path_QString, static_cast<int>(column)));
 }

@@ -41,7 +41,7 @@ void QJsonArray_Insert(QJsonArray* self, ptrdiff_t i, const QJsonValue* value);
 void QJsonArray_Replace(QJsonArray* self, ptrdiff_t i, const QJsonValue* value);
 bool QJsonArray_Contains(const QJsonArray* self, const QJsonValue* element);
 QJsonValueRef* QJsonArray_OperatorSubscript(QJsonArray* self, ptrdiff_t i);
-QJsonValue* QJsonArray_OperatorSubscriptWithQsizetype(const QJsonArray* self, ptrdiff_t i);
+QJsonValue* QJsonArray_OperatorSubscript2(const QJsonArray* self, ptrdiff_t i);
 void QJsonArray_Swap(QJsonArray* self, QJsonArray* other);
 QJsonArray* QJsonArray_OperatorPlus(const QJsonArray* self, const QJsonValue* v);
 QJsonArray* QJsonArray_OperatorPlusAssign(QJsonArray* self, const QJsonValue* v);

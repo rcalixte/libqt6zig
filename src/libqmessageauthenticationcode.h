@@ -27,8 +27,8 @@ void QMessageAuthenticationCode_Swap(QMessageAuthenticationCode* self, QMessageA
 void QMessageAuthenticationCode_Reset(QMessageAuthenticationCode* self);
 void QMessageAuthenticationCode_SetKey(QMessageAuthenticationCode* self, QByteArrayView* key);
 void QMessageAuthenticationCode_AddData(QMessageAuthenticationCode* self, const char* data, ptrdiff_t length);
-void QMessageAuthenticationCode_AddDataWithData(QMessageAuthenticationCode* self, QByteArrayView* data);
-bool QMessageAuthenticationCode_AddDataWithDevice(QMessageAuthenticationCode* self, QIODevice* device);
+void QMessageAuthenticationCode_AddData2(QMessageAuthenticationCode* self, QByteArrayView* data);
+bool QMessageAuthenticationCode_AddData3(QMessageAuthenticationCode* self, QIODevice* device);
 QByteArrayView* QMessageAuthenticationCode_ResultView(const QMessageAuthenticationCode* self);
 libqt_string QMessageAuthenticationCode_Result(const QMessageAuthenticationCode* self);
 libqt_string QMessageAuthenticationCode_Hash(QByteArrayView* message, QByteArrayView* key, int method);

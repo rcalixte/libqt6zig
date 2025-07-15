@@ -32,7 +32,7 @@ void QUrl_OperatorAssign(QUrl* self, const QUrl* copyVal) {
     self->operator=(*copyVal);
 }
 
-void QUrl_OperatorAssignWithUrl(QUrl* self, const libqt_string url) {
+void QUrl_OperatorAssign2(QUrl* self, const libqt_string url) {
     QString url_QString = QString::fromUtf8(url.data, url.len);
     self->operator=(url_QString);
 }
@@ -273,7 +273,7 @@ void QUrl_SetQuery(QUrl* self, const libqt_string query) {
     self->setQuery(query_QString);
 }
 
-void QUrl_SetQueryWithQuery(QUrl* self, const QUrlQuery* query) {
+void QUrl_SetQuery2(QUrl* self, const QUrlQuery* query) {
     self->setQuery(*query);
 }
 
@@ -617,7 +617,7 @@ libqt_string QUrl_FileName1(const QUrl* self, int options) {
     return _str;
 }
 
-void QUrl_SetQuery2(QUrl* self, const libqt_string query, int mode) {
+void QUrl_SetQuery22(QUrl* self, const libqt_string query, int mode) {
     QString query_QString = QString::fromUtf8(query.data, query.len);
     self->setQuery(query_QString, static_cast<QUrl::ParsingMode>(mode));
 }

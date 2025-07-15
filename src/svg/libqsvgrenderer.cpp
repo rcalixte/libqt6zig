@@ -123,7 +123,7 @@ void QSvgRenderer_SetViewBox(QSvgRenderer* self, const QRect* viewbox) {
     self->setViewBox(*viewbox);
 }
 
-void QSvgRenderer_SetViewBoxWithViewbox(QSvgRenderer* self, const QRectF* viewbox) {
+void QSvgRenderer_SetViewBox2(QSvgRenderer* self, const QRectF* viewbox) {
     self->setViewBox(*viewbox);
 }
 
@@ -199,12 +199,12 @@ bool QSvgRenderer_Load(QSvgRenderer* self, const libqt_string filename) {
     return self->load(filename_QString);
 }
 
-bool QSvgRenderer_LoadWithContents(QSvgRenderer* self, const libqt_string contents) {
+bool QSvgRenderer_Load2(QSvgRenderer* self, const libqt_string contents) {
     QByteArray contents_QByteArray(contents.data, contents.len);
     return self->load(contents_QByteArray);
 }
 
-bool QSvgRenderer_Load2(QSvgRenderer* self, QXmlStreamReader* contents) {
+bool QSvgRenderer_Load3(QSvgRenderer* self, QXmlStreamReader* contents) {
     return self->load(contents);
 }
 

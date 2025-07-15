@@ -905,7 +905,7 @@ void QsciLexerJavaScript_OnPaper(const QsciLexerJavaScript* self, intptr_t slot)
 }
 
 // Derived class handler implementation
-QColor* QsciLexerJavaScript_DefaultColorWithStyle(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_DefaultColor2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         return new QColor(vqscilexerjavascript->defaultColor(static_cast<int>(style)));
@@ -915,10 +915,10 @@ QColor* QsciLexerJavaScript_DefaultColorWithStyle(const QsciLexerJavaScript* sel
 }
 
 // Base class handler implementation
-QColor* QsciLexerJavaScript_QBaseDefaultColorWithStyle(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_QBaseDefaultColor2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultColorWithStyle_IsBase(true);
+        vqscilexerjavascript->setQsciLexerJavaScript_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerjavascript->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerJavaScript*)self)->defaultColor(static_cast<int>(style)));
@@ -926,10 +926,10 @@ QColor* QsciLexerJavaScript_QBaseDefaultColorWithStyle(const QsciLexerJavaScript
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJavaScript_OnDefaultColorWithStyle(const QsciLexerJavaScript* self, intptr_t slot) {
+void QsciLexerJavaScript_OnDefaultColor2(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerjavascript->setQsciLexerJavaScript_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -963,7 +963,7 @@ void QsciLexerJavaScript_OnDefaultEolFill(const QsciLexerJavaScript* self, intpt
 }
 
 // Derived class handler implementation
-QFont* QsciLexerJavaScript_DefaultFontWithStyle(const QsciLexerJavaScript* self, int style) {
+QFont* QsciLexerJavaScript_DefaultFont2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         return new QFont(vqscilexerjavascript->defaultFont(static_cast<int>(style)));
@@ -973,10 +973,10 @@ QFont* QsciLexerJavaScript_DefaultFontWithStyle(const QsciLexerJavaScript* self,
 }
 
 // Base class handler implementation
-QFont* QsciLexerJavaScript_QBaseDefaultFontWithStyle(const QsciLexerJavaScript* self, int style) {
+QFont* QsciLexerJavaScript_QBaseDefaultFont2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultFontWithStyle_IsBase(true);
+        vqscilexerjavascript->setQsciLexerJavaScript_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerjavascript->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerJavaScript*)self)->defaultFont(static_cast<int>(style)));
@@ -984,15 +984,15 @@ QFont* QsciLexerJavaScript_QBaseDefaultFontWithStyle(const QsciLexerJavaScript* 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJavaScript_OnDefaultFontWithStyle(const QsciLexerJavaScript* self, intptr_t slot) {
+void QsciLexerJavaScript_OnDefaultFont2(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerjavascript->setQsciLexerJavaScript_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerJavaScript_DefaultPaperWithStyle(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_DefaultPaper2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
         return new QColor(vqscilexerjavascript->defaultPaper(static_cast<int>(style)));
@@ -1002,10 +1002,10 @@ QColor* QsciLexerJavaScript_DefaultPaperWithStyle(const QsciLexerJavaScript* sel
 }
 
 // Base class handler implementation
-QColor* QsciLexerJavaScript_QBaseDefaultPaperWithStyle(const QsciLexerJavaScript* self, int style) {
+QColor* QsciLexerJavaScript_QBaseDefaultPaper2(const QsciLexerJavaScript* self, int style) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerjavascript->setQsciLexerJavaScript_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerjavascript->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerJavaScript*)self)->defaultPaper(static_cast<int>(style)));
@@ -1013,10 +1013,10 @@ QColor* QsciLexerJavaScript_QBaseDefaultPaperWithStyle(const QsciLexerJavaScript
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJavaScript_OnDefaultPaperWithStyle(const QsciLexerJavaScript* self, intptr_t slot) {
+void QsciLexerJavaScript_OnDefaultPaper2(const QsciLexerJavaScript* self, intptr_t slot) {
     auto* vqscilexerjavascript = const_cast<VirtualQsciLexerJavaScript*>(dynamic_cast<const VirtualQsciLexerJavaScript*>(self));
     if (vqscilexerjavascript && vqscilexerjavascript->isVirtualQsciLexerJavaScript) {
-        vqscilexerjavascript->setQsciLexerJavaScript_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerjavascript->setQsciLexerJavaScript_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerJavaScript::QsciLexerJavaScript_DefaultPaper2_Callback>(slot));
     }
 }
 

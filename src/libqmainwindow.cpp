@@ -221,11 +221,11 @@ void QMainWindow_AddToolBar(QMainWindow* self, int area, QToolBar* toolbar) {
     self->addToolBar(static_cast<Qt::ToolBarArea>(area), toolbar);
 }
 
-void QMainWindow_AddToolBarWithToolbar(QMainWindow* self, QToolBar* toolbar) {
+void QMainWindow_AddToolBar2(QMainWindow* self, QToolBar* toolbar) {
     self->addToolBar(toolbar);
 }
 
-QToolBar* QMainWindow_AddToolBarWithTitle(QMainWindow* self, const libqt_string title) {
+QToolBar* QMainWindow_AddToolBar3(QMainWindow* self, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return self->addToolBar(title_QString);
 }

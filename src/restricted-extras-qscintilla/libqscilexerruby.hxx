@@ -38,10 +38,10 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     using QsciLexerRuby_DefaultStyle_Callback = int (*)();
     using QsciLexerRuby_Description_Callback = libqt_string (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_Paper_Callback = QColor* (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_DefaultColor2_Callback = QColor* (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_DefaultEolFill_Callback = bool (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerRuby*, int);
-    using QsciLexerRuby_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_DefaultFont2_Callback = QFont* (*)(const QsciLexerRuby*, int);
+    using QsciLexerRuby_DefaultPaper2_Callback = QColor* (*)(const QsciLexerRuby*, int);
     using QsciLexerRuby_SetEditor_Callback = void (*)(QsciLexerRuby*, QsciScintilla*);
     using QsciLexerRuby_RefreshProperties_Callback = void (*)();
     using QsciLexerRuby_StyleBitsNeeded_Callback = int (*)();
@@ -89,10 +89,10 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     QsciLexerRuby_DefaultStyle_Callback qscilexerruby_defaultstyle_callback = nullptr;
     QsciLexerRuby_Description_Callback qscilexerruby_description_callback = nullptr;
     QsciLexerRuby_Paper_Callback qscilexerruby_paper_callback = nullptr;
-    QsciLexerRuby_DefaultColorWithStyle_Callback qscilexerruby_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerRuby_DefaultColor2_Callback qscilexerruby_defaultcolor2_callback = nullptr;
     QsciLexerRuby_DefaultEolFill_Callback qscilexerruby_defaulteolfill_callback = nullptr;
-    QsciLexerRuby_DefaultFontWithStyle_Callback qscilexerruby_defaultfontwithstyle_callback = nullptr;
-    QsciLexerRuby_DefaultPaperWithStyle_Callback qscilexerruby_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerRuby_DefaultFont2_Callback qscilexerruby_defaultfont2_callback = nullptr;
+    QsciLexerRuby_DefaultPaper2_Callback qscilexerruby_defaultpaper2_callback = nullptr;
     QsciLexerRuby_SetEditor_Callback qscilexerruby_seteditor_callback = nullptr;
     QsciLexerRuby_RefreshProperties_Callback qscilexerruby_refreshproperties_callback = nullptr;
     QsciLexerRuby_StyleBitsNeeded_Callback qscilexerruby_stylebitsneeded_callback = nullptr;
@@ -139,10 +139,10 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     mutable bool qscilexerruby_defaultstyle_isbase = false;
     mutable bool qscilexerruby_description_isbase = false;
     mutable bool qscilexerruby_paper_isbase = false;
-    mutable bool qscilexerruby_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerruby_defaultcolor2_isbase = false;
     mutable bool qscilexerruby_defaulteolfill_isbase = false;
-    mutable bool qscilexerruby_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerruby_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerruby_defaultfont2_isbase = false;
+    mutable bool qscilexerruby_defaultpaper2_isbase = false;
     mutable bool qscilexerruby_seteditor_isbase = false;
     mutable bool qscilexerruby_refreshproperties_isbase = false;
     mutable bool qscilexerruby_stylebitsneeded_isbase = false;
@@ -193,10 +193,10 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
         qscilexerruby_defaultstyle_callback = nullptr;
         qscilexerruby_description_callback = nullptr;
         qscilexerruby_paper_callback = nullptr;
-        qscilexerruby_defaultcolorwithstyle_callback = nullptr;
+        qscilexerruby_defaultcolor2_callback = nullptr;
         qscilexerruby_defaulteolfill_callback = nullptr;
-        qscilexerruby_defaultfontwithstyle_callback = nullptr;
-        qscilexerruby_defaultpaperwithstyle_callback = nullptr;
+        qscilexerruby_defaultfont2_callback = nullptr;
+        qscilexerruby_defaultpaper2_callback = nullptr;
         qscilexerruby_seteditor_callback = nullptr;
         qscilexerruby_refreshproperties_callback = nullptr;
         qscilexerruby_stylebitsneeded_callback = nullptr;
@@ -244,10 +244,10 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     inline void setQsciLexerRuby_DefaultStyle_Callback(QsciLexerRuby_DefaultStyle_Callback cb) { qscilexerruby_defaultstyle_callback = cb; }
     inline void setQsciLexerRuby_Description_Callback(QsciLexerRuby_Description_Callback cb) { qscilexerruby_description_callback = cb; }
     inline void setQsciLexerRuby_Paper_Callback(QsciLexerRuby_Paper_Callback cb) { qscilexerruby_paper_callback = cb; }
-    inline void setQsciLexerRuby_DefaultColorWithStyle_Callback(QsciLexerRuby_DefaultColorWithStyle_Callback cb) { qscilexerruby_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerRuby_DefaultColor2_Callback(QsciLexerRuby_DefaultColor2_Callback cb) { qscilexerruby_defaultcolor2_callback = cb; }
     inline void setQsciLexerRuby_DefaultEolFill_Callback(QsciLexerRuby_DefaultEolFill_Callback cb) { qscilexerruby_defaulteolfill_callback = cb; }
-    inline void setQsciLexerRuby_DefaultFontWithStyle_Callback(QsciLexerRuby_DefaultFontWithStyle_Callback cb) { qscilexerruby_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerRuby_DefaultPaperWithStyle_Callback(QsciLexerRuby_DefaultPaperWithStyle_Callback cb) { qscilexerruby_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerRuby_DefaultFont2_Callback(QsciLexerRuby_DefaultFont2_Callback cb) { qscilexerruby_defaultfont2_callback = cb; }
+    inline void setQsciLexerRuby_DefaultPaper2_Callback(QsciLexerRuby_DefaultPaper2_Callback cb) { qscilexerruby_defaultpaper2_callback = cb; }
     inline void setQsciLexerRuby_SetEditor_Callback(QsciLexerRuby_SetEditor_Callback cb) { qscilexerruby_seteditor_callback = cb; }
     inline void setQsciLexerRuby_RefreshProperties_Callback(QsciLexerRuby_RefreshProperties_Callback cb) { qscilexerruby_refreshproperties_callback = cb; }
     inline void setQsciLexerRuby_StyleBitsNeeded_Callback(QsciLexerRuby_StyleBitsNeeded_Callback cb) { qscilexerruby_stylebitsneeded_callback = cb; }
@@ -294,10 +294,10 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
     inline void setQsciLexerRuby_DefaultStyle_IsBase(bool value) const { qscilexerruby_defaultstyle_isbase = value; }
     inline void setQsciLexerRuby_Description_IsBase(bool value) const { qscilexerruby_description_isbase = value; }
     inline void setQsciLexerRuby_Paper_IsBase(bool value) const { qscilexerruby_paper_isbase = value; }
-    inline void setQsciLexerRuby_DefaultColorWithStyle_IsBase(bool value) const { qscilexerruby_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerRuby_DefaultColor2_IsBase(bool value) const { qscilexerruby_defaultcolor2_isbase = value; }
     inline void setQsciLexerRuby_DefaultEolFill_IsBase(bool value) const { qscilexerruby_defaulteolfill_isbase = value; }
-    inline void setQsciLexerRuby_DefaultFontWithStyle_IsBase(bool value) const { qscilexerruby_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerRuby_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerruby_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerRuby_DefaultFont2_IsBase(bool value) const { qscilexerruby_defaultfont2_isbase = value; }
+    inline void setQsciLexerRuby_DefaultPaper2_IsBase(bool value) const { qscilexerruby_defaultpaper2_isbase = value; }
     inline void setQsciLexerRuby_SetEditor_IsBase(bool value) const { qscilexerruby_seteditor_isbase = value; }
     inline void setQsciLexerRuby_RefreshProperties_IsBase(bool value) const { qscilexerruby_refreshproperties_isbase = value; }
     inline void setQsciLexerRuby_StyleBitsNeeded_IsBase(bool value) const { qscilexerruby_stylebitsneeded_isbase = value; }
@@ -609,13 +609,13 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerruby_defaultcolorwithstyle_isbase) {
-            qscilexerruby_defaultcolorwithstyle_isbase = false;
+        if (qscilexerruby_defaultcolor2_isbase) {
+            qscilexerruby_defaultcolor2_isbase = false;
             return QsciLexerRuby::defaultColor(style);
-        } else if (qscilexerruby_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerruby_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerruby_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerruby_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerRuby::defaultColor(style);
@@ -639,13 +639,13 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerruby_defaultfontwithstyle_isbase) {
-            qscilexerruby_defaultfontwithstyle_isbase = false;
+        if (qscilexerruby_defaultfont2_isbase) {
+            qscilexerruby_defaultfont2_isbase = false;
             return QsciLexerRuby::defaultFont(style);
-        } else if (qscilexerruby_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerruby_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerruby_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerruby_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerRuby::defaultFont(style);
@@ -654,13 +654,13 @@ class VirtualQsciLexerRuby final : public QsciLexerRuby {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerruby_defaultpaperwithstyle_isbase) {
-            qscilexerruby_defaultpaperwithstyle_isbase = false;
+        if (qscilexerruby_defaultpaper2_isbase) {
+            qscilexerruby_defaultpaper2_isbase = false;
             return QsciLexerRuby::defaultPaper(style);
-        } else if (qscilexerruby_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerruby_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerruby_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerruby_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerRuby::defaultPaper(style);

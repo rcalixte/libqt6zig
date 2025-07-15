@@ -40,7 +40,7 @@ void QBoxSet_OnMetacall(QBoxSet* self, intptr_t slot);
 int QBoxSet_QBaseMetacall(QBoxSet* self, int param1, int param2, void** param3);
 libqt_string QBoxSet_Tr(const char* s);
 void QBoxSet_Append(QBoxSet* self, const double value);
-void QBoxSet_AppendWithValues(QBoxSet* self, const libqt_list /* of double */ values);
+void QBoxSet_Append2(QBoxSet* self, const libqt_list /* of double */ values);
 void QBoxSet_Clear(QBoxSet* self);
 void QBoxSet_SetLabel(QBoxSet* self, const libqt_string label);
 libqt_string QBoxSet_Label(const QBoxSet* self);

@@ -87,12 +87,12 @@ pub const qapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplication.html#setStyle)
     ///
     /// ``` style: []const u8 ```
-    pub fn SetStyleWithStyle(style: []const u8) QtC.QStyle {
+    pub fn SetStyle2(style: []const u8) QtC.QStyle {
         const style_str = qtc.struct_libqt_string{
             .len = style.len,
             .data = style.ptr,
         };
-        return qtc.QApplication_SetStyleWithStyle(style_str);
+        return qtc.QApplication_SetStyle2(style_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplication.html#palette)
@@ -105,9 +105,9 @@ pub const qapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplication.html#palette)
     ///
     /// ``` className: []const u8 ```
-    pub fn PaletteWithClassName(className: []const u8) QtC.QPalette {
+    pub fn Palette2(className: []const u8) QtC.QPalette {
         const className_Cstring = className.ptr;
-        return qtc.QApplication_PaletteWithClassName(className_Cstring);
+        return qtc.QApplication_Palette2(className_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplication.html#setPalette)
@@ -127,16 +127,16 @@ pub const qapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplication.html#font)
     ///
     /// ``` param1: QtC.QWidget ```
-    pub fn FontWithQWidget(param1: ?*anyopaque) QtC.QFont {
-        return qtc.QApplication_FontWithQWidget(@ptrCast(param1));
+    pub fn Font2(param1: ?*anyopaque) QtC.QFont {
+        return qtc.QApplication_Font2(@ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplication.html#font)
     ///
     /// ``` className: []const u8 ```
-    pub fn FontWithClassName(className: []const u8) QtC.QFont {
+    pub fn Font3(className: []const u8) QtC.QFont {
         const className_Cstring = className.ptr;
-        return qtc.QApplication_FontWithClassName(className_Cstring);
+        return qtc.QApplication_Font3(className_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplication.html#setFont)
@@ -2009,8 +2009,8 @@ pub const qapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QApplication, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -2088,8 +2088,8 @@ pub const qapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -2232,8 +2232,8 @@ pub const qapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QApplication, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

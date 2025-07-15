@@ -80,7 +80,7 @@ void QWebEnginePage_OnEvent(QWebEnginePage* self, intptr_t slot);
 bool QWebEnginePage_QBaseEvent(QWebEnginePage* self, QEvent* param1);
 bool QWebEnginePage_IsLoading(const QWebEnginePage* self);
 void QWebEnginePage_Load(QWebEnginePage* self, const QUrl* url);
-void QWebEnginePage_LoadWithRequest(QWebEnginePage* self, const QWebEngineHttpRequest* request);
+void QWebEnginePage_Load2(QWebEnginePage* self, const QWebEngineHttpRequest* request);
 void QWebEnginePage_Download(QWebEnginePage* self, const QUrl* url);
 void QWebEnginePage_SetHtml(QWebEnginePage* self, const libqt_string html);
 void QWebEnginePage_SetContent(QWebEnginePage* self, const libqt_string data);

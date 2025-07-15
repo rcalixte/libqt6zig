@@ -106,19 +106,19 @@ pub const qsignalmapper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsignalmapper.html#mapping)
     ///
     /// ``` self: QtC.QSignalMapper, text: []const u8 ```
-    pub fn MappingWithText(self: ?*anyopaque, text: []const u8) QtC.QObject {
+    pub fn Mapping2(self: ?*anyopaque, text: []const u8) QtC.QObject {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QSignalMapper_MappingWithText(@ptrCast(self), text_str);
+        return qtc.QSignalMapper_Mapping2(@ptrCast(self), text_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsignalmapper.html#mapping)
     ///
     /// ``` self: QtC.QSignalMapper, object: QtC.QObject ```
-    pub fn MappingWithObject(self: ?*anyopaque, object: ?*anyopaque) QtC.QObject {
-        return qtc.QSignalMapper_MappingWithObject(@ptrCast(self), @ptrCast(object));
+    pub fn Mapping3(self: ?*anyopaque, object: ?*anyopaque) QtC.QObject {
+        return qtc.QSignalMapper_Mapping3(@ptrCast(self), @ptrCast(object));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsignalmapper.html#mappedInt)
@@ -177,8 +177,8 @@ pub const qsignalmapper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsignalmapper.html#map)
     ///
     /// ``` self: QtC.QSignalMapper, sender: QtC.QObject ```
-    pub fn MapWithSender(self: ?*anyopaque, sender: ?*anyopaque) void {
-        qtc.QSignalMapper_MapWithSender(@ptrCast(self), @ptrCast(sender));
+    pub fn Map2(self: ?*anyopaque, sender: ?*anyopaque) void {
+        qtc.QSignalMapper_Map2(@ptrCast(self), @ptrCast(sender));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -319,8 +319,8 @@ pub const qsignalmapper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSignalMapper, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -398,8 +398,8 @@ pub const qsignalmapper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -542,8 +542,8 @@ pub const qsignalmapper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSignalMapper, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

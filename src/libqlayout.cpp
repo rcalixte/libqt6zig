@@ -78,7 +78,7 @@ void QLayout_SetContentsMargins(QLayout* self, int left, int top, int right, int
     self->setContentsMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
 }
 
-void QLayout_SetContentsMarginsWithMargins(QLayout* self, const QMargins* margins) {
+void QLayout_SetContentsMargins2(QLayout* self, const QMargins* margins) {
     self->setContentsMargins(*margins);
 }
 
@@ -551,7 +551,7 @@ void QLayout_OnIndexOf(const QLayout* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-int QLayout_IndexOfWithQLayoutItem(const QLayout* self, const QLayoutItem* param1) {
+int QLayout_IndexOf2(const QLayout* self, const QLayoutItem* param1) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
         return vqlayout->indexOf(param1);
@@ -561,10 +561,10 @@ int QLayout_IndexOfWithQLayoutItem(const QLayout* self, const QLayoutItem* param
 }
 
 // Base class handler implementation
-int QLayout_QBaseIndexOfWithQLayoutItem(const QLayout* self, const QLayoutItem* param1) {
+int QLayout_QBaseIndexOf2(const QLayout* self, const QLayoutItem* param1) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_IndexOfWithQLayoutItem_IsBase(true);
+        vqlayout->setQLayout_IndexOf2_IsBase(true);
         return vqlayout->indexOf(param1);
     } else {
         return self->QLayout::indexOf(param1);
@@ -572,10 +572,10 @@ int QLayout_QBaseIndexOfWithQLayoutItem(const QLayout* self, const QLayoutItem* 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QLayout_OnIndexOfWithQLayoutItem(const QLayout* self, intptr_t slot) {
+void QLayout_OnIndexOf2(const QLayout* self, intptr_t slot) {
     auto* vqlayout = const_cast<VirtualQLayout*>(dynamic_cast<const VirtualQLayout*>(self));
     if (vqlayout && vqlayout->isVirtualQLayout) {
-        vqlayout->setQLayout_IndexOfWithQLayoutItem_Callback(reinterpret_cast<VirtualQLayout::QLayout_IndexOfWithQLayoutItem_Callback>(slot));
+        vqlayout->setQLayout_IndexOf2_Callback(reinterpret_cast<VirtualQLayout::QLayout_IndexOf2_Callback>(slot));
     }
 }
 

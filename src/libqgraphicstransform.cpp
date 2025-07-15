@@ -1105,7 +1105,7 @@ void QGraphicsRotation_SetAxis(QGraphicsRotation* self, const QVector3D* axis) {
     self->setAxis(*axis);
 }
 
-void QGraphicsRotation_SetAxisWithAxis(QGraphicsRotation* self, int axis) {
+void QGraphicsRotation_SetAxis2(QGraphicsRotation* self, int axis) {
     self->setAxis(static_cast<Qt::Axis>(axis));
 }
 

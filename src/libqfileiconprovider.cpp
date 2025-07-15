@@ -43,7 +43,7 @@ void QFileIconProvider_OnIcon(const QFileIconProvider* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QIcon* QFileIconProvider_IconWithInfo(const QFileIconProvider* self, const QFileInfo* info) {
+QIcon* QFileIconProvider_Icon2(const QFileIconProvider* self, const QFileInfo* info) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
     if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
         return new QIcon(vqfileiconprovider->icon(*info));
@@ -53,10 +53,10 @@ QIcon* QFileIconProvider_IconWithInfo(const QFileIconProvider* self, const QFile
 }
 
 // Base class handler implementation
-QIcon* QFileIconProvider_QBaseIconWithInfo(const QFileIconProvider* self, const QFileInfo* info) {
+QIcon* QFileIconProvider_QBaseIcon2(const QFileIconProvider* self, const QFileInfo* info) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
     if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
-        vqfileiconprovider->setQFileIconProvider_IconWithInfo_IsBase(true);
+        vqfileiconprovider->setQFileIconProvider_Icon2_IsBase(true);
         return new QIcon(vqfileiconprovider->icon(*info));
     } else {
         return new QIcon(((VirtualQFileIconProvider*)self)->icon(*info));
@@ -64,10 +64,10 @@ QIcon* QFileIconProvider_QBaseIconWithInfo(const QFileIconProvider* self, const 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFileIconProvider_OnIconWithInfo(const QFileIconProvider* self, intptr_t slot) {
+void QFileIconProvider_OnIcon2(const QFileIconProvider* self, intptr_t slot) {
     auto* vqfileiconprovider = const_cast<VirtualQFileIconProvider*>(dynamic_cast<const VirtualQFileIconProvider*>(self));
     if (vqfileiconprovider && vqfileiconprovider->isVirtualQFileIconProvider) {
-        vqfileiconprovider->setQFileIconProvider_IconWithInfo_Callback(reinterpret_cast<VirtualQFileIconProvider::QFileIconProvider_IconWithInfo_Callback>(slot));
+        vqfileiconprovider->setQFileIconProvider_Icon2_Callback(reinterpret_cast<VirtualQFileIconProvider::QFileIconProvider_Icon2_Callback>(slot));
     }
 }
 

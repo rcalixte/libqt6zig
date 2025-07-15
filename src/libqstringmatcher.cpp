@@ -76,7 +76,7 @@ ptrdiff_t QStringMatcher_IndexIn22(const QStringMatcher* self, const libqt_strin
     return static_cast<ptrdiff_t>(self->indexIn(str_QString, (qsizetype)(from)));
 }
 
-ptrdiff_t QStringMatcher_IndexIn3(const QStringMatcher* self, const QChar* str, ptrdiff_t length, ptrdiff_t from) {
+ptrdiff_t QStringMatcher_IndexIn32(const QStringMatcher* self, const QChar* str, ptrdiff_t length, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexIn(str, (qsizetype)(length), (qsizetype)(from)));
 }
 

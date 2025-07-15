@@ -36,7 +36,7 @@ ptrdiff_t QBitArray_Count(const QBitArray* self) {
     return static_cast<ptrdiff_t>(self->count());
 }
 
-ptrdiff_t QBitArray_CountWithOn(const QBitArray* self, bool on) {
+ptrdiff_t QBitArray_Count2(const QBitArray* self, bool on) {
     return static_cast<ptrdiff_t>(self->count(on));
 }
 
@@ -92,7 +92,7 @@ QBitRef* QBitArray_OperatorSubscript(QBitArray* self, ptrdiff_t i) {
     return new QBitRef(self->operator[]((qsizetype)(i)));
 }
 
-bool QBitArray_OperatorSubscriptWithQsizetype(const QBitArray* self, ptrdiff_t i) {
+bool QBitArray_OperatorSubscript2(const QBitArray* self, ptrdiff_t i) {
     return self->operator[]((qsizetype)(i));
 }
 
@@ -164,7 +164,7 @@ void QBitRef_OperatorAssign(QBitRef* self, const QBitRef* val) {
     self->operator=(*val);
 }
 
-void QBitRef_OperatorAssignWithVal(QBitRef* self, bool val) {
+void QBitRef_OperatorAssign2(QBitRef* self, bool val) {
     self->operator=(val);
 }
 

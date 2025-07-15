@@ -268,7 +268,7 @@ void QLabel_SetNum(QLabel* self, int num) {
     self->setNum(static_cast<int>(num));
 }
 
-void QLabel_SetNumWithNum(QLabel* self, double num) {
+void QLabel_SetNum2(QLabel* self, double num) {
     self->setNum(static_cast<double>(num));
 }
 

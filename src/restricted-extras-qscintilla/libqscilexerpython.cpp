@@ -911,7 +911,7 @@ void QsciLexerPython_OnPaper(const QsciLexerPython* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerPython_DefaultColorWithStyle(const QsciLexerPython* self, int style) {
+QColor* QsciLexerPython_DefaultColor2(const QsciLexerPython* self, int style) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
         return new QColor(vqscilexerpython->defaultColor(static_cast<int>(style)));
@@ -921,10 +921,10 @@ QColor* QsciLexerPython_DefaultColorWithStyle(const QsciLexerPython* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerPython_QBaseDefaultColorWithStyle(const QsciLexerPython* self, int style) {
+QColor* QsciLexerPython_QBaseDefaultColor2(const QsciLexerPython* self, int style) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_DefaultColorWithStyle_IsBase(true);
+        vqscilexerpython->setQsciLexerPython_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerpython->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerPython*)self)->defaultColor(static_cast<int>(style)));
@@ -932,10 +932,10 @@ QColor* QsciLexerPython_QBaseDefaultColorWithStyle(const QsciLexerPython* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPython_OnDefaultColorWithStyle(const QsciLexerPython* self, intptr_t slot) {
+void QsciLexerPython_OnDefaultColor2(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerpython->setQsciLexerPython_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -969,7 +969,7 @@ void QsciLexerPython_OnDefaultEolFill(const QsciLexerPython* self, intptr_t slot
 }
 
 // Derived class handler implementation
-QFont* QsciLexerPython_DefaultFontWithStyle(const QsciLexerPython* self, int style) {
+QFont* QsciLexerPython_DefaultFont2(const QsciLexerPython* self, int style) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
         return new QFont(vqscilexerpython->defaultFont(static_cast<int>(style)));
@@ -979,10 +979,10 @@ QFont* QsciLexerPython_DefaultFontWithStyle(const QsciLexerPython* self, int sty
 }
 
 // Base class handler implementation
-QFont* QsciLexerPython_QBaseDefaultFontWithStyle(const QsciLexerPython* self, int style) {
+QFont* QsciLexerPython_QBaseDefaultFont2(const QsciLexerPython* self, int style) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_DefaultFontWithStyle_IsBase(true);
+        vqscilexerpython->setQsciLexerPython_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerpython->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerPython*)self)->defaultFont(static_cast<int>(style)));
@@ -990,15 +990,15 @@ QFont* QsciLexerPython_QBaseDefaultFontWithStyle(const QsciLexerPython* self, in
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPython_OnDefaultFontWithStyle(const QsciLexerPython* self, intptr_t slot) {
+void QsciLexerPython_OnDefaultFont2(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerpython->setQsciLexerPython_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerPython_DefaultPaperWithStyle(const QsciLexerPython* self, int style) {
+QColor* QsciLexerPython_DefaultPaper2(const QsciLexerPython* self, int style) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
         return new QColor(vqscilexerpython->defaultPaper(static_cast<int>(style)));
@@ -1008,10 +1008,10 @@ QColor* QsciLexerPython_DefaultPaperWithStyle(const QsciLexerPython* self, int s
 }
 
 // Base class handler implementation
-QColor* QsciLexerPython_QBaseDefaultPaperWithStyle(const QsciLexerPython* self, int style) {
+QColor* QsciLexerPython_QBaseDefaultPaper2(const QsciLexerPython* self, int style) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerpython->setQsciLexerPython_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerpython->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerPython*)self)->defaultPaper(static_cast<int>(style)));
@@ -1019,10 +1019,10 @@ QColor* QsciLexerPython_QBaseDefaultPaperWithStyle(const QsciLexerPython* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPython_OnDefaultPaperWithStyle(const QsciLexerPython* self, intptr_t slot) {
+void QsciLexerPython_OnDefaultPaper2(const QsciLexerPython* self, intptr_t slot) {
     auto* vqscilexerpython = const_cast<VirtualQsciLexerPython*>(dynamic_cast<const VirtualQsciLexerPython*>(self));
     if (vqscilexerpython && vqscilexerpython->isVirtualQsciLexerPython) {
-        vqscilexerpython->setQsciLexerPython_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerpython->setQsciLexerPython_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerPython::QsciLexerPython_DefaultPaper2_Callback>(slot));
     }
 }
 

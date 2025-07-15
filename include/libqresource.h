@@ -38,12 +38,12 @@ libqt_string QResource_UncompressedData(const QResource* self);
 QDateTime* QResource_LastModified(const QResource* self);
 bool QResource_RegisterResource(const libqt_string rccFilename);
 bool QResource_UnregisterResource(const libqt_string rccFilename);
-bool QResource_RegisterResourceWithRccData(const unsigned char* rccData);
-bool QResource_UnregisterResourceWithRccData(const unsigned char* rccData);
-bool QResource_RegisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot);
-bool QResource_UnregisterResource2(const libqt_string rccFilename, const libqt_string resourceRoot);
-bool QResource_RegisterResource22(const unsigned char* rccData, const libqt_string resourceRoot);
-bool QResource_UnregisterResource22(const unsigned char* rccData, const libqt_string resourceRoot);
+bool QResource_RegisterResource2(const unsigned char* rccData);
+bool QResource_UnregisterResource2(const unsigned char* rccData);
+bool QResource_RegisterResource22(const libqt_string rccFilename, const libqt_string resourceRoot);
+bool QResource_UnregisterResource22(const libqt_string rccFilename, const libqt_string resourceRoot);
+bool QResource_RegisterResource23(const unsigned char* rccData, const libqt_string resourceRoot);
+bool QResource_UnregisterResource23(const unsigned char* rccData, const libqt_string resourceRoot);
 void QResource_Delete(QResource* self);
 
 #ifdef __cplusplus

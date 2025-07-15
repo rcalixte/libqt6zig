@@ -33,10 +33,10 @@ void QPixmapCache_SetCacheLimit(int cacheLimit);
 bool QPixmapCache_Find(const libqt_string key, QPixmap* pixmap);
 bool QPixmapCache_Find2(const QPixmapCache__Key* key, QPixmap* pixmap);
 bool QPixmapCache_Insert(const libqt_string key, const QPixmap* pixmap);
-QPixmapCache__Key* QPixmapCache_InsertWithPixmap(const QPixmap* pixmap);
+QPixmapCache__Key* QPixmapCache_Insert2(const QPixmap* pixmap);
 bool QPixmapCache_Replace(const QPixmapCache__Key* key, const QPixmap* pixmap);
 void QPixmapCache_Remove(const libqt_string key);
-void QPixmapCache_RemoveWithKey(const QPixmapCache__Key* key);
+void QPixmapCache_Remove2(const QPixmapCache__Key* key);
 void QPixmapCache_Clear();
 void QPixmapCache_Delete(QPixmapCache* self);
 

@@ -141,11 +141,11 @@ void QFormLayout_AddRow4(QFormLayout* self, const libqt_string labelText, QLayou
     self->addRow(labelText_QString, field);
 }
 
-void QFormLayout_AddRowWithWidget(QFormLayout* self, QWidget* widget) {
+void QFormLayout_AddRow5(QFormLayout* self, QWidget* widget) {
     self->addRow(widget);
 }
 
-void QFormLayout_AddRowWithLayout(QFormLayout* self, QLayout* layout) {
+void QFormLayout_AddRow6(QFormLayout* self, QLayout* layout) {
     self->addRow(layout);
 }
 
@@ -179,11 +179,11 @@ void QFormLayout_RemoveRow(QFormLayout* self, int row) {
     self->removeRow(static_cast<int>(row));
 }
 
-void QFormLayout_RemoveRowWithWidget(QFormLayout* self, QWidget* widget) {
+void QFormLayout_RemoveRow2(QFormLayout* self, QWidget* widget) {
     self->removeRow(widget);
 }
 
-void QFormLayout_RemoveRowWithLayout(QFormLayout* self, QLayout* layout) {
+void QFormLayout_RemoveRow3(QFormLayout* self, QLayout* layout) {
     self->removeRow(layout);
 }
 
@@ -191,11 +191,11 @@ QFormLayout__TakeRowResult* QFormLayout_TakeRow(QFormLayout* self, int row) {
     return new QFormLayout::TakeRowResult(self->takeRow(static_cast<int>(row)));
 }
 
-QFormLayout__TakeRowResult* QFormLayout_TakeRowWithWidget(QFormLayout* self, QWidget* widget) {
+QFormLayout__TakeRowResult* QFormLayout_TakeRow2(QFormLayout* self, QWidget* widget) {
     return new QFormLayout::TakeRowResult(self->takeRow(widget));
 }
 
-QFormLayout__TakeRowResult* QFormLayout_TakeRowWithLayout(QFormLayout* self, QLayout* layout) {
+QFormLayout__TakeRowResult* QFormLayout_TakeRow3(QFormLayout* self, QLayout* layout) {
     return new QFormLayout::TakeRowResult(self->takeRow(layout));
 }
 
@@ -227,11 +227,11 @@ bool QFormLayout_IsRowVisible(const QFormLayout* self, int row) {
     return self->isRowVisible(static_cast<int>(row));
 }
 
-bool QFormLayout_IsRowVisibleWithWidget(const QFormLayout* self, QWidget* widget) {
+bool QFormLayout_IsRowVisible2(const QFormLayout* self, QWidget* widget) {
     return self->isRowVisible(widget);
 }
 
-bool QFormLayout_IsRowVisibleWithLayout(const QFormLayout* self, QLayout* layout) {
+bool QFormLayout_IsRowVisible3(const QFormLayout* self, QLayout* layout) {
     return self->isRowVisible(layout);
 }
 
@@ -243,7 +243,7 @@ QWidget* QFormLayout_LabelForField(const QFormLayout* self, QWidget* field) {
     return self->labelForField(field);
 }
 
-QWidget* QFormLayout_LabelForFieldWithField(const QFormLayout* self, QLayout* field) {
+QWidget* QFormLayout_LabelForField2(const QFormLayout* self, QLayout* field) {
     return self->labelForField(field);
 }
 
@@ -363,7 +363,7 @@ void QFormLayout_OnAddItem(QFormLayout* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QLayoutItem* QFormLayout_ItemAtWithIndex(const QFormLayout* self, int index) {
+QLayoutItem* QFormLayout_ItemAt2(const QFormLayout* self, int index) {
     auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
     if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
         return vqformlayout->itemAt(static_cast<int>(index));
@@ -373,10 +373,10 @@ QLayoutItem* QFormLayout_ItemAtWithIndex(const QFormLayout* self, int index) {
 }
 
 // Base class handler implementation
-QLayoutItem* QFormLayout_QBaseItemAtWithIndex(const QFormLayout* self, int index) {
+QLayoutItem* QFormLayout_QBaseItemAt2(const QFormLayout* self, int index) {
     auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
     if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ItemAtWithIndex_IsBase(true);
+        vqformlayout->setQFormLayout_ItemAt2_IsBase(true);
         return vqformlayout->itemAt(static_cast<int>(index));
     } else {
         return self->QFormLayout::itemAt(static_cast<int>(index));
@@ -384,10 +384,10 @@ QLayoutItem* QFormLayout_QBaseItemAtWithIndex(const QFormLayout* self, int index
 }
 
 // Auxiliary method to allow providing re-implementation
-void QFormLayout_OnItemAtWithIndex(const QFormLayout* self, intptr_t slot) {
+void QFormLayout_OnItemAt2(const QFormLayout* self, intptr_t slot) {
     auto* vqformlayout = const_cast<VirtualQFormLayout*>(dynamic_cast<const VirtualQFormLayout*>(self));
     if (vqformlayout && vqformlayout->isVirtualQFormLayout) {
-        vqformlayout->setQFormLayout_ItemAtWithIndex_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ItemAtWithIndex_Callback>(slot));
+        vqformlayout->setQFormLayout_ItemAt2_Callback(reinterpret_cast<VirtualQFormLayout::QFormLayout_ItemAt2_Callback>(slot));
     }
 }
 

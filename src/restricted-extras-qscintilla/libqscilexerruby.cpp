@@ -788,7 +788,7 @@ void QsciLexerRuby_OnPaper(const QsciLexerRuby* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerRuby_DefaultColorWithStyle(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_DefaultColor2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         return new QColor(vqscilexerruby->defaultColor(static_cast<int>(style)));
@@ -798,10 +798,10 @@ QColor* QsciLexerRuby_DefaultColorWithStyle(const QsciLexerRuby* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerRuby_QBaseDefaultColorWithStyle(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_QBaseDefaultColor2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultColorWithStyle_IsBase(true);
+        vqscilexerruby->setQsciLexerRuby_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerruby->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerRuby*)self)->defaultColor(static_cast<int>(style)));
@@ -809,10 +809,10 @@ QColor* QsciLexerRuby_QBaseDefaultColorWithStyle(const QsciLexerRuby* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnDefaultColorWithStyle(const QsciLexerRuby* self, intptr_t slot) {
+void QsciLexerRuby_OnDefaultColor2(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerruby->setQsciLexerRuby_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -846,7 +846,7 @@ void QsciLexerRuby_OnDefaultEolFill(const QsciLexerRuby* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerRuby_DefaultFontWithStyle(const QsciLexerRuby* self, int style) {
+QFont* QsciLexerRuby_DefaultFont2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         return new QFont(vqscilexerruby->defaultFont(static_cast<int>(style)));
@@ -856,10 +856,10 @@ QFont* QsciLexerRuby_DefaultFontWithStyle(const QsciLexerRuby* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerRuby_QBaseDefaultFontWithStyle(const QsciLexerRuby* self, int style) {
+QFont* QsciLexerRuby_QBaseDefaultFont2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultFontWithStyle_IsBase(true);
+        vqscilexerruby->setQsciLexerRuby_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerruby->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerRuby*)self)->defaultFont(static_cast<int>(style)));
@@ -867,15 +867,15 @@ QFont* QsciLexerRuby_QBaseDefaultFontWithStyle(const QsciLexerRuby* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnDefaultFontWithStyle(const QsciLexerRuby* self, intptr_t slot) {
+void QsciLexerRuby_OnDefaultFont2(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerruby->setQsciLexerRuby_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerRuby_DefaultPaperWithStyle(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_DefaultPaper2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
         return new QColor(vqscilexerruby->defaultPaper(static_cast<int>(style)));
@@ -885,10 +885,10 @@ QColor* QsciLexerRuby_DefaultPaperWithStyle(const QsciLexerRuby* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerRuby_QBaseDefaultPaperWithStyle(const QsciLexerRuby* self, int style) {
+QColor* QsciLexerRuby_QBaseDefaultPaper2(const QsciLexerRuby* self, int style) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerruby->setQsciLexerRuby_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerruby->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerRuby*)self)->defaultPaper(static_cast<int>(style)));
@@ -896,10 +896,10 @@ QColor* QsciLexerRuby_QBaseDefaultPaperWithStyle(const QsciLexerRuby* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerRuby_OnDefaultPaperWithStyle(const QsciLexerRuby* self, intptr_t slot) {
+void QsciLexerRuby_OnDefaultPaper2(const QsciLexerRuby* self, intptr_t slot) {
     auto* vqscilexerruby = const_cast<VirtualQsciLexerRuby*>(dynamic_cast<const VirtualQsciLexerRuby*>(self));
     if (vqscilexerruby && vqscilexerruby->isVirtualQsciLexerRuby) {
-        vqscilexerruby->setQsciLexerRuby_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerruby->setQsciLexerRuby_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerRuby::QsciLexerRuby_DefaultPaper2_Callback>(slot));
     }
 }
 

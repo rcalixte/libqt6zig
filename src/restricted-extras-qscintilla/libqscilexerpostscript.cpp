@@ -892,7 +892,7 @@ void QsciLexerPostScript_OnPaper(const QsciLexerPostScript* self, intptr_t slot)
 }
 
 // Derived class handler implementation
-QColor* QsciLexerPostScript_DefaultColorWithStyle(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_DefaultColor2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         return new QColor(vqscilexerpostscript->defaultColor(static_cast<int>(style)));
@@ -902,10 +902,10 @@ QColor* QsciLexerPostScript_DefaultColorWithStyle(const QsciLexerPostScript* sel
 }
 
 // Base class handler implementation
-QColor* QsciLexerPostScript_QBaseDefaultColorWithStyle(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_QBaseDefaultColor2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_DefaultColorWithStyle_IsBase(true);
+        vqscilexerpostscript->setQsciLexerPostScript_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerpostscript->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerPostScript*)self)->defaultColor(static_cast<int>(style)));
@@ -913,10 +913,10 @@ QColor* QsciLexerPostScript_QBaseDefaultColorWithStyle(const QsciLexerPostScript
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPostScript_OnDefaultColorWithStyle(const QsciLexerPostScript* self, intptr_t slot) {
+void QsciLexerPostScript_OnDefaultColor2(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerpostscript->setQsciLexerPostScript_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -950,7 +950,7 @@ void QsciLexerPostScript_OnDefaultEolFill(const QsciLexerPostScript* self, intpt
 }
 
 // Derived class handler implementation
-QFont* QsciLexerPostScript_DefaultFontWithStyle(const QsciLexerPostScript* self, int style) {
+QFont* QsciLexerPostScript_DefaultFont2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         return new QFont(vqscilexerpostscript->defaultFont(static_cast<int>(style)));
@@ -960,10 +960,10 @@ QFont* QsciLexerPostScript_DefaultFontWithStyle(const QsciLexerPostScript* self,
 }
 
 // Base class handler implementation
-QFont* QsciLexerPostScript_QBaseDefaultFontWithStyle(const QsciLexerPostScript* self, int style) {
+QFont* QsciLexerPostScript_QBaseDefaultFont2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_DefaultFontWithStyle_IsBase(true);
+        vqscilexerpostscript->setQsciLexerPostScript_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerpostscript->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerPostScript*)self)->defaultFont(static_cast<int>(style)));
@@ -971,15 +971,15 @@ QFont* QsciLexerPostScript_QBaseDefaultFontWithStyle(const QsciLexerPostScript* 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPostScript_OnDefaultFontWithStyle(const QsciLexerPostScript* self, intptr_t slot) {
+void QsciLexerPostScript_OnDefaultFont2(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerpostscript->setQsciLexerPostScript_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerPostScript_DefaultPaperWithStyle(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_DefaultPaper2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
         return new QColor(vqscilexerpostscript->defaultPaper(static_cast<int>(style)));
@@ -989,10 +989,10 @@ QColor* QsciLexerPostScript_DefaultPaperWithStyle(const QsciLexerPostScript* sel
 }
 
 // Base class handler implementation
-QColor* QsciLexerPostScript_QBaseDefaultPaperWithStyle(const QsciLexerPostScript* self, int style) {
+QColor* QsciLexerPostScript_QBaseDefaultPaper2(const QsciLexerPostScript* self, int style) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerpostscript->setQsciLexerPostScript_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerpostscript->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerPostScript*)self)->defaultPaper(static_cast<int>(style)));
@@ -1000,10 +1000,10 @@ QColor* QsciLexerPostScript_QBaseDefaultPaperWithStyle(const QsciLexerPostScript
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerPostScript_OnDefaultPaperWithStyle(const QsciLexerPostScript* self, intptr_t slot) {
+void QsciLexerPostScript_OnDefaultPaper2(const QsciLexerPostScript* self, intptr_t slot) {
     auto* vqscilexerpostscript = const_cast<VirtualQsciLexerPostScript*>(dynamic_cast<const VirtualQsciLexerPostScript*>(self));
     if (vqscilexerpostscript && vqscilexerpostscript->isVirtualQsciLexerPostScript) {
-        vqscilexerpostscript->setQsciLexerPostScript_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerpostscript->setQsciLexerPostScript_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerPostScript::QsciLexerPostScript_DefaultPaper2_Callback>(slot));
     }
 }
 

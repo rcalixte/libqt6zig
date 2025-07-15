@@ -793,7 +793,7 @@ void QsciLexerFortran77_OnPaper(const QsciLexerFortran77* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerFortran77_DefaultColorWithStyle(const QsciLexerFortran77* self, int style) {
+QColor* QsciLexerFortran77_DefaultColor2(const QsciLexerFortran77* self, int style) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
         return new QColor(vqscilexerfortran77->defaultColor(static_cast<int>(style)));
@@ -803,10 +803,10 @@ QColor* QsciLexerFortran77_DefaultColorWithStyle(const QsciLexerFortran77* self,
 }
 
 // Base class handler implementation
-QColor* QsciLexerFortran77_QBaseDefaultColorWithStyle(const QsciLexerFortran77* self, int style) {
+QColor* QsciLexerFortran77_QBaseDefaultColor2(const QsciLexerFortran77* self, int style) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultColorWithStyle_IsBase(true);
+        vqscilexerfortran77->setQsciLexerFortran77_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerfortran77->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerFortran77*)self)->defaultColor(static_cast<int>(style)));
@@ -814,10 +814,10 @@ QColor* QsciLexerFortran77_QBaseDefaultColorWithStyle(const QsciLexerFortran77* 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnDefaultColorWithStyle(const QsciLexerFortran77* self, intptr_t slot) {
+void QsciLexerFortran77_OnDefaultColor2(const QsciLexerFortran77* self, intptr_t slot) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerfortran77->setQsciLexerFortran77_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -851,7 +851,7 @@ void QsciLexerFortran77_OnDefaultEolFill(const QsciLexerFortran77* self, intptr_
 }
 
 // Derived class handler implementation
-QFont* QsciLexerFortran77_DefaultFontWithStyle(const QsciLexerFortran77* self, int style) {
+QFont* QsciLexerFortran77_DefaultFont2(const QsciLexerFortran77* self, int style) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
         return new QFont(vqscilexerfortran77->defaultFont(static_cast<int>(style)));
@@ -861,10 +861,10 @@ QFont* QsciLexerFortran77_DefaultFontWithStyle(const QsciLexerFortran77* self, i
 }
 
 // Base class handler implementation
-QFont* QsciLexerFortran77_QBaseDefaultFontWithStyle(const QsciLexerFortran77* self, int style) {
+QFont* QsciLexerFortran77_QBaseDefaultFont2(const QsciLexerFortran77* self, int style) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultFontWithStyle_IsBase(true);
+        vqscilexerfortran77->setQsciLexerFortran77_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerfortran77->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerFortran77*)self)->defaultFont(static_cast<int>(style)));
@@ -872,15 +872,15 @@ QFont* QsciLexerFortran77_QBaseDefaultFontWithStyle(const QsciLexerFortran77* se
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnDefaultFontWithStyle(const QsciLexerFortran77* self, intptr_t slot) {
+void QsciLexerFortran77_OnDefaultFont2(const QsciLexerFortran77* self, intptr_t slot) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerfortran77->setQsciLexerFortran77_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerFortran77_DefaultPaperWithStyle(const QsciLexerFortran77* self, int style) {
+QColor* QsciLexerFortran77_DefaultPaper2(const QsciLexerFortran77* self, int style) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
         return new QColor(vqscilexerfortran77->defaultPaper(static_cast<int>(style)));
@@ -890,10 +890,10 @@ QColor* QsciLexerFortran77_DefaultPaperWithStyle(const QsciLexerFortran77* self,
 }
 
 // Base class handler implementation
-QColor* QsciLexerFortran77_QBaseDefaultPaperWithStyle(const QsciLexerFortran77* self, int style) {
+QColor* QsciLexerFortran77_QBaseDefaultPaper2(const QsciLexerFortran77* self, int style) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerfortran77->setQsciLexerFortran77_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerfortran77->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerFortran77*)self)->defaultPaper(static_cast<int>(style)));
@@ -901,10 +901,10 @@ QColor* QsciLexerFortran77_QBaseDefaultPaperWithStyle(const QsciLexerFortran77* 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerFortran77_OnDefaultPaperWithStyle(const QsciLexerFortran77* self, intptr_t slot) {
+void QsciLexerFortran77_OnDefaultPaper2(const QsciLexerFortran77* self, intptr_t slot) {
     auto* vqscilexerfortran77 = const_cast<VirtualQsciLexerFortran77*>(dynamic_cast<const VirtualQsciLexerFortran77*>(self));
     if (vqscilexerfortran77 && vqscilexerfortran77->isVirtualQsciLexerFortran77) {
-        vqscilexerfortran77->setQsciLexerFortran77_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerfortran77->setQsciLexerFortran77_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerFortran77::QsciLexerFortran77_DefaultPaper2_Callback>(slot));
     }
 }
 

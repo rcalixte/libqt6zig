@@ -168,8 +168,8 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#margins)
     ///
     /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
-    pub fn MarginsWithUnits(self: ?*anyopaque, units: i64) QtC.QMarginsF {
-        return qtc.QPageLayout_MarginsWithUnits(@ptrCast(self), @intCast(units));
+    pub fn Margins2(self: ?*anyopaque, units: i64) QtC.QMarginsF {
+        return qtc.QPageLayout_Margins2(@ptrCast(self), @intCast(units));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#marginsPoints)
@@ -217,8 +217,8 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#fullRect)
     ///
     /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
-    pub fn FullRectWithUnits(self: ?*anyopaque, units: i64) QtC.QRectF {
-        return qtc.QPageLayout_FullRectWithUnits(@ptrCast(self), @intCast(units));
+    pub fn FullRect2(self: ?*anyopaque, units: i64) QtC.QRectF {
+        return qtc.QPageLayout_FullRect2(@ptrCast(self), @intCast(units));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#fullRectPoints)
@@ -245,8 +245,8 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#paintRect)
     ///
     /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
-    pub fn PaintRectWithUnits(self: ?*anyopaque, units: i64) QtC.QRectF {
-        return qtc.QPageLayout_PaintRectWithUnits(@ptrCast(self), @intCast(units));
+    pub fn PaintRect2(self: ?*anyopaque, units: i64) QtC.QRectF {
+        return qtc.QPageLayout_PaintRect2(@ptrCast(self), @intCast(units));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#paintRectPoints)

@@ -51,15 +51,15 @@ pub const qmessageauthenticationcode = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, data: []const u8 ```
-    pub fn AddDataWithData(self: ?*anyopaque, data: []const u8) void {
-        qtc.QMessageAuthenticationCode_AddDataWithData(@ptrCast(self), data.ptr);
+    pub fn AddData2(self: ?*anyopaque, data: []const u8) void {
+        qtc.QMessageAuthenticationCode_AddData2(@ptrCast(self), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#addData)
     ///
     /// ``` self: QtC.QMessageAuthenticationCode, device: QtC.QIODevice ```
-    pub fn AddDataWithDevice(self: ?*anyopaque, device: ?*anyopaque) bool {
-        return qtc.QMessageAuthenticationCode_AddDataWithDevice(@ptrCast(self), @ptrCast(device));
+    pub fn AddData3(self: ?*anyopaque, device: ?*anyopaque) bool {
+        return qtc.QMessageAuthenticationCode_AddData3(@ptrCast(self), @ptrCast(device));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#resultView)

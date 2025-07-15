@@ -4302,8 +4302,8 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
     /// ``` self: QtC.QTextFrameFormat, length: QtC.QTextLength ```
-    pub fn SetWidthWithLength(self: ?*anyopaque, length: ?*anyopaque) void {
-        qtc.QTextFrameFormat_SetWidthWithLength(@ptrCast(self), @ptrCast(length));
+    pub fn SetWidth2(self: ?*anyopaque, length: ?*anyopaque) void {
+        qtc.QTextFrameFormat_SetWidth2(@ptrCast(self), @ptrCast(length));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#width)
@@ -4323,8 +4323,8 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
     ///
     /// ``` self: QtC.QTextFrameFormat, height: QtC.QTextLength ```
-    pub fn SetHeightWithHeight(self: ?*anyopaque, height: ?*anyopaque) void {
-        qtc.QTextFrameFormat_SetHeightWithHeight(@ptrCast(self), @ptrCast(height));
+    pub fn SetHeight2(self: ?*anyopaque, height: ?*anyopaque) void {
+        qtc.QTextFrameFormat_SetHeight2(@ptrCast(self), @ptrCast(height));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#height)
@@ -5159,8 +5159,8 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setWidth)
     ///
     /// ``` self: QtC.QTextTableFormat, length: QtC.QTextLength ```
-    pub fn SetWidthWithLength(self: ?*anyopaque, length: ?*anyopaque) void {
-        qtc.QTextFrameFormat_SetWidthWithLength(@ptrCast(self), @ptrCast(length));
+    pub fn SetWidth2(self: ?*anyopaque, length: ?*anyopaque) void {
+        qtc.QTextFrameFormat_SetWidth2(@ptrCast(self), @ptrCast(length));
     }
 
     /// Inherited from QTextFrameFormat
@@ -5186,8 +5186,8 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setHeight)
     ///
     /// ``` self: QtC.QTextTableFormat, height: QtC.QTextLength ```
-    pub fn SetHeightWithHeight(self: ?*anyopaque, height: ?*anyopaque) void {
-        qtc.QTextFrameFormat_SetHeightWithHeight(@ptrCast(self), @ptrCast(height));
+    pub fn SetHeight2(self: ?*anyopaque, height: ?*anyopaque) void {
+        qtc.QTextFrameFormat_SetHeight2(@ptrCast(self), @ptrCast(height));
     }
 
     /// Inherited from QTextFrameFormat

@@ -7943,15 +7943,15 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdragmoveevent.html#accept)
     ///
     /// ``` self: QtC.QDragMoveEvent, r: QtC.QRect ```
-    pub fn AcceptWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QDragMoveEvent_AcceptWithQRect(@ptrCast(self), @ptrCast(r));
+    pub fn Accept2(self: ?*anyopaque, r: ?*anyopaque) void {
+        qtc.QDragMoveEvent_Accept2(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdragmoveevent.html#ignore)
     ///
     /// ``` self: QtC.QDragMoveEvent, r: QtC.QRect ```
-    pub fn IgnoreWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QDragMoveEvent_IgnoreWithQRect(@ptrCast(self), @ptrCast(r));
+    pub fn Ignore2(self: ?*anyopaque, r: ?*anyopaque) void {
+        qtc.QDragMoveEvent_Ignore2(@ptrCast(self), @ptrCast(r));
     }
 
     /// Inherited from QDropEvent
@@ -8261,8 +8261,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdragmoveevent.html#accept)
     ///
     /// ``` self: QtC.QDragEnterEvent, r: QtC.QRect ```
-    pub fn AcceptWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QDragMoveEvent_AcceptWithQRect(@ptrCast(self), @ptrCast(r));
+    pub fn Accept2(self: ?*anyopaque, r: ?*anyopaque) void {
+        qtc.QDragMoveEvent_Accept2(@ptrCast(self), @ptrCast(r));
     }
 
     /// Inherited from QDragMoveEvent
@@ -8270,8 +8270,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdragmoveevent.html#ignore)
     ///
     /// ``` self: QtC.QDragEnterEvent, r: QtC.QRect ```
-    pub fn IgnoreWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QDragMoveEvent_IgnoreWithQRect(@ptrCast(self), @ptrCast(r));
+    pub fn Ignore2(self: ?*anyopaque, r: ?*anyopaque) void {
+        qtc.QDragMoveEvent_Ignore2(@ptrCast(self), @ptrCast(r));
     }
 
     /// Inherited from QDropEvent

@@ -139,7 +139,7 @@ QPushButton* QDialogButtonBox_AddButton2(QDialogButtonBox* self, const libqt_str
     return self->addButton(text_QString, static_cast<QDialogButtonBox::ButtonRole>(role));
 }
 
-QPushButton* QDialogButtonBox_AddButtonWithButton(QDialogButtonBox* self, int button) {
+QPushButton* QDialogButtonBox_AddButton3(QDialogButtonBox* self, int button) {
     return self->addButton(static_cast<QDialogButtonBox::StandardButton>(button));
 }
 

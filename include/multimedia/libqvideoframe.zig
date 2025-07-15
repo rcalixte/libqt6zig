@@ -171,8 +171,8 @@ pub const qvideoframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#bits)
     ///
     /// ``` self: QtC.QVideoFrame, plane: i32 ```
-    pub fn BitsWithPlane(self: ?*anyopaque, plane: i32) ?*const u8 {
-        return @ptrCast(qtc.QVideoFrame_BitsWithPlane(@ptrCast(self), @intCast(plane)));
+    pub fn Bits2(self: ?*anyopaque, plane: i32) ?*const u8 {
+        return @ptrCast(qtc.QVideoFrame_Bits2(@ptrCast(self), @intCast(plane)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#mappedBytes)

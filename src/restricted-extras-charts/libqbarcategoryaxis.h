@@ -38,7 +38,7 @@ int QBarCategoryAxis_Type(const QBarCategoryAxis* self);
 void QBarCategoryAxis_OnType(const QBarCategoryAxis* self, intptr_t slot);
 int QBarCategoryAxis_QBaseType(const QBarCategoryAxis* self);
 void QBarCategoryAxis_Append(QBarCategoryAxis* self, const libqt_list /* of libqt_string */ categories);
-void QBarCategoryAxis_AppendWithCategory(QBarCategoryAxis* self, const libqt_string category);
+void QBarCategoryAxis_Append2(QBarCategoryAxis* self, const libqt_string category);
 void QBarCategoryAxis_Remove(QBarCategoryAxis* self, const libqt_string category);
 void QBarCategoryAxis_Insert(QBarCategoryAxis* self, int index, const libqt_string category);
 void QBarCategoryAxis_Replace(QBarCategoryAxis* self, const libqt_string oldCategory, const libqt_string newCategory);

@@ -45,11 +45,11 @@ void QPaintDeviceWindow_Update(QPaintDeviceWindow* self, const QRect* rect) {
     self->update(*rect);
 }
 
-void QPaintDeviceWindow_UpdateWithRegion(QPaintDeviceWindow* self, const QRegion* region) {
+void QPaintDeviceWindow_Update2(QPaintDeviceWindow* self, const QRegion* region) {
     self->update(*region);
 }
 
-void QPaintDeviceWindow_Update2(QPaintDeviceWindow* self) {
+void QPaintDeviceWindow_Update3(QPaintDeviceWindow* self) {
     self->update();
 }
 

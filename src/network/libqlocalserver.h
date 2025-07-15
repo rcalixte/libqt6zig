@@ -43,7 +43,7 @@ void QLocalServer_OnHasPendingConnections(const QLocalServer* self, intptr_t slo
 bool QLocalServer_QBaseHasPendingConnections(const QLocalServer* self);
 bool QLocalServer_IsListening(const QLocalServer* self);
 bool QLocalServer_Listen(QLocalServer* self, const libqt_string name);
-bool QLocalServer_ListenWithSocketDescriptor(QLocalServer* self, intptr_t socketDescriptor);
+bool QLocalServer_Listen2(QLocalServer* self, intptr_t socketDescriptor);
 int QLocalServer_MaxPendingConnections(const QLocalServer* self);
 QLocalSocket* QLocalServer_NextPendingConnection(QLocalServer* self);
 void QLocalServer_OnNextPendingConnection(QLocalServer* self, intptr_t slot);

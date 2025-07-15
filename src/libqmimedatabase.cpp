@@ -26,7 +26,7 @@ QMimeType* QMimeDatabase_MimeTypeForFile(const QMimeDatabase* self, const libqt_
     return new QMimeType(self->mimeTypeForFile(fileName_QString));
 }
 
-QMimeType* QMimeDatabase_MimeTypeForFileWithFileInfo(const QMimeDatabase* self, const QFileInfo* fileInfo) {
+QMimeType* QMimeDatabase_MimeTypeForFile2(const QMimeDatabase* self, const QFileInfo* fileInfo) {
     return new QMimeType(self->mimeTypeForFile(*fileInfo));
 }
 
@@ -49,7 +49,7 @@ QMimeType* QMimeDatabase_MimeTypeForData(const QMimeDatabase* self, const libqt_
     return new QMimeType(self->mimeTypeForData(data_QByteArray));
 }
 
-QMimeType* QMimeDatabase_MimeTypeForDataWithDevice(const QMimeDatabase* self, QIODevice* device) {
+QMimeType* QMimeDatabase_MimeTypeForData2(const QMimeDatabase* self, QIODevice* device) {
     return new QMimeType(self->mimeTypeForData(device));
 }
 
@@ -94,12 +94,12 @@ libqt_list /* of QMimeType* */ QMimeDatabase_AllMimeTypes(const QMimeDatabase* s
     return _out;
 }
 
-QMimeType* QMimeDatabase_MimeTypeForFile2(const QMimeDatabase* self, const libqt_string fileName, int mode) {
+QMimeType* QMimeDatabase_MimeTypeForFile22(const QMimeDatabase* self, const libqt_string fileName, int mode) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return new QMimeType(self->mimeTypeForFile(fileName_QString, static_cast<QMimeDatabase::MatchMode>(mode)));
 }
 
-QMimeType* QMimeDatabase_MimeTypeForFile22(const QMimeDatabase* self, const QFileInfo* fileInfo, int mode) {
+QMimeType* QMimeDatabase_MimeTypeForFile23(const QMimeDatabase* self, const QFileInfo* fileInfo, int mode) {
     return new QMimeType(self->mimeTypeForFile(*fileInfo, static_cast<QMimeDatabase::MatchMode>(mode)));
 }
 

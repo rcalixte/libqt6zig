@@ -197,8 +197,8 @@ pub const qjsondocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator[])
     ///
     /// ``` self: QtC.QJsonDocument, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonDocument_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+        return qtc.QJsonDocument_OperatorSubscript4(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#isNull)

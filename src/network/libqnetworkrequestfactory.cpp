@@ -53,16 +53,16 @@ QNetworkRequest* QNetworkRequestFactory_CreateRequest(const QNetworkRequestFacto
     return new QNetworkRequest(self->createRequest());
 }
 
-QNetworkRequest* QNetworkRequestFactory_CreateRequestWithQuery(const QNetworkRequestFactory* self, const QUrlQuery* query) {
+QNetworkRequest* QNetworkRequestFactory_CreateRequest2(const QNetworkRequestFactory* self, const QUrlQuery* query) {
     return new QNetworkRequest(self->createRequest(*query));
 }
 
-QNetworkRequest* QNetworkRequestFactory_CreateRequestWithPath(const QNetworkRequestFactory* self, const libqt_string path) {
+QNetworkRequest* QNetworkRequestFactory_CreateRequest3(const QNetworkRequestFactory* self, const libqt_string path) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return new QNetworkRequest(self->createRequest(path_QString));
 }
 
-QNetworkRequest* QNetworkRequestFactory_CreateRequest2(const QNetworkRequestFactory* self, const libqt_string path, const QUrlQuery* query) {
+QNetworkRequest* QNetworkRequestFactory_CreateRequest4(const QNetworkRequestFactory* self, const libqt_string path, const QUrlQuery* query) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return new QNetworkRequest(self->createRequest(path_QString, *query));
 }

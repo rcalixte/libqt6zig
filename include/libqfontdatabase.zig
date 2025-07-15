@@ -68,14 +68,14 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystems)
     ///
     /// ``` family: []const u8, allocator: std.mem.Allocator ```
-    pub fn WritingSystemsWithFamily(family: []const u8, allocator: std.mem.Allocator) []i64 {
+    pub fn WritingSystems2(family: []const u8, allocator: std.mem.Allocator) []i64 {
         const family_str = qtc.struct_libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QFontDatabase_WritingSystemsWithFamily(family_str);
+        const _arr: qtc.struct_libqt_list = qtc.QFontDatabase_WritingSystems2(family_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qfontdatabase_enums.WritingSystem, _arr.len) catch @panic("qfontdatabase.WritingSystemsWithFamily: Memory allocation failed");
+        const _ret = allocator.alloc(qfontdatabase_enums.WritingSystem, _arr.len) catch @panic("qfontdatabase.WritingSystems2: Memory allocation failed");
         const _data: [*]qfontdatabase_enums.WritingSystem = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -179,10 +179,10 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#styleString)
     ///
     /// ``` fontInfo: QtC.QFontInfo, allocator: std.mem.Allocator ```
-    pub fn StyleStringWithFontInfo(fontInfo: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QFontDatabase_StyleStringWithFontInfo(@ptrCast(fontInfo));
+    pub fn StyleString2(fontInfo: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QFontDatabase_StyleString2(@ptrCast(fontInfo));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.StyleStringWithFontInfo: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.StyleString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

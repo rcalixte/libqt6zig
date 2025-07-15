@@ -108,27 +108,27 @@ void QStringView_Chop(QStringView* self, ptrdiff_t n) {
     self->chop((qsizetype)(n));
 }
 
-int QStringView_CompareWithQChar(const QStringView* self, QChar* c) {
+int QStringView_Compare4(const QStringView* self, QChar* c) {
     return self->compare(*c);
 }
 
-int QStringView_Compare3(const QStringView* self, QChar* c, int cs) {
+int QStringView_Compare5(const QStringView* self, QChar* c, int cs) {
     return self->compare(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-bool QStringView_StartsWithWithQChar(const QStringView* self, QChar* c) {
+bool QStringView_StartsWith3(const QStringView* self, QChar* c) {
     return self->startsWith(*c);
 }
 
-bool QStringView_StartsWith2(const QStringView* self, QChar* c, int cs) {
+bool QStringView_StartsWith4(const QStringView* self, QChar* c, int cs) {
     return self->startsWith(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-bool QStringView_EndsWithWithQChar(const QStringView* self, QChar* c) {
+bool QStringView_EndsWith3(const QStringView* self, QChar* c) {
     return self->endsWith(*c);
 }
 
-bool QStringView_EndsWith2(const QStringView* self, QChar* c, int cs) {
+bool QStringView_EndsWith4(const QStringView* self, QChar* c, int cs) {
     return self->endsWith(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
@@ -152,19 +152,19 @@ ptrdiff_t QStringView_LastIndexOf2(const QStringView* self, QChar* c, ptrdiff_t 
     return static_cast<ptrdiff_t>(self->lastIndexOf(*c, (qsizetype)(from)));
 }
 
-ptrdiff_t QStringView_IndexOfWithRe(const QStringView* self, const QRegularExpression* re) {
+ptrdiff_t QStringView_IndexOf4(const QStringView* self, const QRegularExpression* re) {
     return static_cast<ptrdiff_t>(self->indexOf(*re));
 }
 
-ptrdiff_t QStringView_LastIndexOf5(const QStringView* self, const QRegularExpression* re, ptrdiff_t from) {
+ptrdiff_t QStringView_LastIndexOf7(const QStringView* self, const QRegularExpression* re, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->lastIndexOf(*re, (qsizetype)(from)));
 }
 
-bool QStringView_ContainsWithRe(const QStringView* self, const QRegularExpression* re) {
+bool QStringView_Contains4(const QStringView* self, const QRegularExpression* re) {
     return self->contains(*re);
 }
 
-ptrdiff_t QStringView_CountWithRe(const QStringView* self, const QRegularExpression* re) {
+ptrdiff_t QStringView_Count4(const QStringView* self, const QRegularExpression* re) {
     return static_cast<ptrdiff_t>(self->count(*re));
 }
 
@@ -294,19 +294,19 @@ ptrdiff_t QStringView_MaxSize2() {
     return static_cast<ptrdiff_t>(QStringView::maxSize());
 }
 
-ptrdiff_t QStringView_IndexOf2(const QStringView* self, QChar* c, ptrdiff_t from) {
+ptrdiff_t QStringView_IndexOf22(const QStringView* self, QChar* c, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexOf(*c, (qsizetype)(from)));
 }
 
-ptrdiff_t QStringView_IndexOf3(const QStringView* self, QChar* c, ptrdiff_t from, int cs) {
+ptrdiff_t QStringView_IndexOf32(const QStringView* self, QChar* c, ptrdiff_t from, int cs) {
     return static_cast<ptrdiff_t>(self->indexOf(*c, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
 }
 
-bool QStringView_Contains2(const QStringView* self, QChar* c, int cs) {
+bool QStringView_Contains22(const QStringView* self, QChar* c, int cs) {
     return self->contains(*c, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-ptrdiff_t QStringView_Count2(const QStringView* self, QChar* c, int cs) {
+ptrdiff_t QStringView_Count22(const QStringView* self, QChar* c, int cs) {
     return static_cast<ptrdiff_t>(self->count(*c, static_cast<Qt::CaseSensitivity>(cs)));
 }
 
@@ -318,11 +318,11 @@ ptrdiff_t QStringView_LastIndexOf32(const QStringView* self, QChar* c, ptrdiff_t
     return static_cast<ptrdiff_t>(self->lastIndexOf(*c, (qsizetype)(from), static_cast<Qt::CaseSensitivity>(cs)));
 }
 
-ptrdiff_t QStringView_IndexOf24(const QStringView* self, const QRegularExpression* re, ptrdiff_t from) {
+ptrdiff_t QStringView_IndexOf25(const QStringView* self, const QRegularExpression* re, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexOf(*re, (qsizetype)(from)));
 }
 
-ptrdiff_t QStringView_IndexOf34(const QStringView* self, const QRegularExpression* re, ptrdiff_t from, QRegularExpressionMatch* rmatch) {
+ptrdiff_t QStringView_IndexOf35(const QStringView* self, const QRegularExpression* re, ptrdiff_t from, QRegularExpressionMatch* rmatch) {
     return static_cast<ptrdiff_t>(self->indexOf(*re, (qsizetype)(from), rmatch));
 }
 
@@ -330,7 +330,7 @@ ptrdiff_t QStringView_LastIndexOf35(const QStringView* self, const QRegularExpre
     return static_cast<ptrdiff_t>(self->lastIndexOf(*re, (qsizetype)(from), rmatch));
 }
 
-bool QStringView_Contains24(const QStringView* self, const QRegularExpression* re, QRegularExpressionMatch* rmatch) {
+bool QStringView_Contains25(const QStringView* self, const QRegularExpression* re, QRegularExpressionMatch* rmatch) {
     return self->contains(*re, rmatch);
 }
 

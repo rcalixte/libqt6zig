@@ -110,7 +110,7 @@ void QShortcut_SetKeys(QShortcut* self, int key) {
     self->setKeys(static_cast<QKeySequence::StandardKey>(key));
 }
 
-void QShortcut_SetKeysWithKeys(QShortcut* self, const libqt_list /* of QKeySequence* */ keys) {
+void QShortcut_SetKeys2(QShortcut* self, const libqt_list /* of QKeySequence* */ keys) {
     QList<QKeySequence> keys_QList;
     keys_QList.reserve(keys.len);
     QKeySequence** keys_arr = static_cast<QKeySequence**>(keys.data);

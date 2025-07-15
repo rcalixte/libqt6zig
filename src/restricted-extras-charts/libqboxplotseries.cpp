@@ -85,7 +85,7 @@ bool QBoxPlotSeries_Take(QBoxPlotSeries* self, QBoxSet* box) {
     return self->take(box);
 }
 
-bool QBoxPlotSeries_AppendWithBoxes(QBoxPlotSeries* self, const libqt_list /* of QBoxSet* */ boxes) {
+bool QBoxPlotSeries_Append2(QBoxPlotSeries* self, const libqt_list /* of QBoxSet* */ boxes) {
     QList<QBoxSet*> boxes_QList;
     boxes_QList.reserve(boxes.len);
     QBoxSet** boxes_arr = static_cast<QBoxSet**>(boxes.data);

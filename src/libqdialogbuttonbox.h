@@ -71,7 +71,7 @@ void QDialogButtonBox_SetOrientation(QDialogButtonBox* self, int orientation);
 int QDialogButtonBox_Orientation(const QDialogButtonBox* self);
 void QDialogButtonBox_AddButton(QDialogButtonBox* self, QAbstractButton* button, int role);
 QPushButton* QDialogButtonBox_AddButton2(QDialogButtonBox* self, const libqt_string text, int role);
-QPushButton* QDialogButtonBox_AddButtonWithButton(QDialogButtonBox* self, int button);
+QPushButton* QDialogButtonBox_AddButton3(QDialogButtonBox* self, int button);
 void QDialogButtonBox_RemoveButton(QDialogButtonBox* self, QAbstractButton* button);
 void QDialogButtonBox_Clear(QDialogButtonBox* self);
 libqt_list /* of QAbstractButton* */ QDialogButtonBox_Buttons(const QDialogButtonBox* self);

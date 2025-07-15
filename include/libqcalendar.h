@@ -55,7 +55,7 @@ int QCalendar_MinimumDaysInMonth(const QCalendar* self);
 int QCalendar_MaximumMonthsInYear(const QCalendar* self);
 libqt_string QCalendar_Name(const QCalendar* self);
 QDate* QCalendar_DateFromParts(const QCalendar* self, int year, int month, int day);
-QDate* QCalendar_DateFromPartsWithParts(const QCalendar* self, const QCalendar__YearMonthDay* parts);
+QDate* QCalendar_DateFromParts2(const QCalendar* self, const QCalendar__YearMonthDay* parts);
 QDate* QCalendar_MatchCenturyToWeekday(const QCalendar* self, const QCalendar__YearMonthDay* parts, int dow);
 QCalendar__YearMonthDay* QCalendar_PartsFromDate(const QCalendar* self, QDate* date);
 int QCalendar_DayOfWeek(const QCalendar* self, QDate* date);

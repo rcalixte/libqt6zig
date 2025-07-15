@@ -118,7 +118,7 @@ QMatrix4x4* QMatrix4x4_OperatorMultiplyAssign(QMatrix4x4* self, const QMatrix4x4
     return &_ret;
 }
 
-QMatrix4x4* QMatrix4x4_OperatorMultiplyAssignWithFactor(QMatrix4x4* self, float factor) {
+QMatrix4x4* QMatrix4x4_OperatorMultiplyAssign2(QMatrix4x4* self, float factor) {
     QMatrix4x4& _ret = self->operator*=(static_cast<float>(factor));
     // Cast returned reference into pointer
     return &_ret;
@@ -158,7 +158,7 @@ void QMatrix4x4_Scale3(QMatrix4x4* self, float x, float y, float z) {
     self->scale(static_cast<float>(x), static_cast<float>(y), static_cast<float>(z));
 }
 
-void QMatrix4x4_ScaleWithFactor(QMatrix4x4* self, float factor) {
+void QMatrix4x4_Scale4(QMatrix4x4* self, float factor) {
     self->scale(static_cast<float>(factor));
 }
 
@@ -174,7 +174,7 @@ void QMatrix4x4_Rotate2(QMatrix4x4* self, float angle, float x, float y) {
     self->rotate(static_cast<float>(angle), static_cast<float>(x), static_cast<float>(y));
 }
 
-void QMatrix4x4_RotateWithQuaternion(QMatrix4x4* self, const QQuaternion* quaternion) {
+void QMatrix4x4_Rotate3(QMatrix4x4* self, const QQuaternion* quaternion) {
     self->rotate(*quaternion);
 }
 
@@ -182,11 +182,11 @@ void QMatrix4x4_Ortho(QMatrix4x4* self, const QRect* rect) {
     self->ortho(*rect);
 }
 
-void QMatrix4x4_OrthoWithRect(QMatrix4x4* self, const QRectF* rect) {
+void QMatrix4x4_Ortho2(QMatrix4x4* self, const QRectF* rect) {
     self->ortho(*rect);
 }
 
-void QMatrix4x4_Ortho2(QMatrix4x4* self, float left, float right, float bottom, float top, float nearPlane, float farPlane) {
+void QMatrix4x4_Ortho3(QMatrix4x4* self, float left, float right, float bottom, float top, float nearPlane, float farPlane) {
     self->ortho(static_cast<float>(left), static_cast<float>(right), static_cast<float>(bottom), static_cast<float>(top), static_cast<float>(nearPlane), static_cast<float>(farPlane));
 }
 
@@ -222,7 +222,7 @@ QTransform* QMatrix4x4_ToTransform(const QMatrix4x4* self) {
     return new QTransform(self->toTransform());
 }
 
-QTransform* QMatrix4x4_ToTransformWithDistanceToPlane(const QMatrix4x4* self, float distanceToPlane) {
+QTransform* QMatrix4x4_ToTransform2(const QMatrix4x4* self, float distanceToPlane) {
     return new QTransform(self->toTransform(static_cast<float>(distanceToPlane)));
 }
 
@@ -230,11 +230,11 @@ QPoint* QMatrix4x4_Map(const QMatrix4x4* self, const QPoint* point) {
     return new QPoint(self->map(*point));
 }
 
-QPointF* QMatrix4x4_MapWithPoint(const QMatrix4x4* self, const QPointF* point) {
+QPointF* QMatrix4x4_Map2(const QMatrix4x4* self, const QPointF* point) {
     return new QPointF(self->map(*point));
 }
 
-QVector3D* QMatrix4x4_Map2(const QMatrix4x4* self, const QVector3D* point) {
+QVector3D* QMatrix4x4_Map3(const QMatrix4x4* self, const QVector3D* point) {
     return new QVector3D(self->map(*point));
 }
 
@@ -242,7 +242,7 @@ QVector3D* QMatrix4x4_MapVector(const QMatrix4x4* self, const QVector3D* vector)
     return new QVector3D(self->mapVector(*vector));
 }
 
-QVector4D* QMatrix4x4_Map3(const QMatrix4x4* self, const QVector4D* point) {
+QVector4D* QMatrix4x4_Map4(const QMatrix4x4* self, const QVector4D* point) {
     return new QVector4D(self->map(*point));
 }
 
@@ -250,7 +250,7 @@ QRect* QMatrix4x4_MapRect(const QMatrix4x4* self, const QRect* rect) {
     return new QRect(self->mapRect(*rect));
 }
 
-QRectF* QMatrix4x4_MapRectWithRect(const QMatrix4x4* self, const QRectF* rect) {
+QRectF* QMatrix4x4_MapRect2(const QMatrix4x4* self, const QRectF* rect) {
     return new QRectF(self->mapRect(*rect));
 }
 

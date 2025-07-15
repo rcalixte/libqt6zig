@@ -353,8 +353,8 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#supportsCharacter)
     ///
     /// ``` self: QtC.QRawFont, character: QtC.QChar ```
-    pub fn SupportsCharacterWithCharacter(self: ?*anyopaque, character: QtC.QChar) bool {
-        return qtc.QRawFont_SupportsCharacterWithCharacter(@ptrCast(self), @ptrCast(character));
+    pub fn SupportsCharacter2(self: ?*anyopaque, character: QtC.QChar) bool {
+        return qtc.QRawFont_SupportsCharacter2(@ptrCast(self), @ptrCast(character));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#supportedWritingSystems)
@@ -384,10 +384,10 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#fontTable)
     ///
     /// ``` self: QtC.QRawFont, tag: QtC.QFont__Tag, allocator: std.mem.Allocator ```
-    pub fn FontTableWithTag(self: ?*anyopaque, tag: QtC.QFont__Tag, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QRawFont_FontTableWithTag(@ptrCast(self), @ptrCast(tag));
+    pub fn FontTable2(self: ?*anyopaque, tag: QtC.QFont__Tag, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self), @ptrCast(tag));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTableWithTag: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTable2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

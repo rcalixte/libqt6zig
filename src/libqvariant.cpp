@@ -213,11 +213,11 @@ bool QVariant_CanView(const QVariant* self, QMetaType* targetType) {
     return self->canView(*targetType);
 }
 
-bool QVariant_CanConvertWithTargetTypeId(const QVariant* self, int targetTypeId) {
+bool QVariant_CanConvert2(const QVariant* self, int targetTypeId) {
     return self->canConvert(static_cast<int>(targetTypeId));
 }
 
-bool QVariant_ConvertWithTargetTypeId(QVariant* self, int targetTypeId) {
+bool QVariant_Convert2(QVariant* self, int targetTypeId) {
     return self->convert(static_cast<int>(targetTypeId));
 }
 

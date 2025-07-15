@@ -204,78 +204,78 @@ pub const qlatin1string = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#compare)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar ```
-    pub fn CompareWithQChar(self: ?*anyopaque, c: QtC.QChar) i32 {
-        return qtc.QLatin1String_CompareWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn Compare4(self: ?*anyopaque, c: QtC.QChar) i32 {
+        return qtc.QLatin1String_Compare4(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#compare)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Compare3(self: ?*anyopaque, c: QtC.QChar, cs: i64) i32 {
-        return qtc.QLatin1String_Compare3(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn Compare5(self: ?*anyopaque, c: QtC.QChar, cs: i64) i32 {
+        return qtc.QLatin1String_Compare5(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#startsWith)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar ```
-    pub fn StartsWithWithQChar(self: ?*anyopaque, c: QtC.QChar) bool {
-        return qtc.QLatin1String_StartsWithWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn StartsWith3(self: ?*anyopaque, c: QtC.QChar) bool {
+        return qtc.QLatin1String_StartsWith3(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#startsWith)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn StartsWith2(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
-        return qtc.QLatin1String_StartsWith2(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn StartsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+        return qtc.QLatin1String_StartsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#endsWith)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar ```
-    pub fn EndsWithWithQChar(self: ?*anyopaque, c: QtC.QChar) bool {
-        return qtc.QLatin1String_EndsWithWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn EndsWith3(self: ?*anyopaque, c: QtC.QChar) bool {
+        return qtc.QLatin1String_EndsWith3(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#endsWith)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn EndsWith2(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
-        return qtc.QLatin1String_EndsWith2(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn EndsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+        return qtc.QLatin1String_EndsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#indexOf)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar ```
-    pub fn IndexOfWithQChar(self: ?*anyopaque, c: QtC.QChar) i64 {
-        return qtc.QLatin1String_IndexOfWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn IndexOf3(self: ?*anyopaque, c: QtC.QChar) i64 {
+        return qtc.QLatin1String_IndexOf3(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#contains)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar ```
-    pub fn ContainsWithQChar(self: ?*anyopaque, c: QtC.QChar) bool {
-        return qtc.QLatin1String_ContainsWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn Contains3(self: ?*anyopaque, c: QtC.QChar) bool {
+        return qtc.QLatin1String_Contains3(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar ```
-    pub fn LastIndexOfWithQChar(self: ?*anyopaque, c: QtC.QChar) i64 {
-        return qtc.QLatin1String_LastIndexOfWithQChar(@ptrCast(self), @ptrCast(c));
+    pub fn LastIndexOf5(self: ?*anyopaque, c: QtC.QChar) i64 {
+        return qtc.QLatin1String_LastIndexOf5(@ptrCast(self), @ptrCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar, from: i64 ```
-    pub fn LastIndexOf4(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
-        return qtc.QLatin1String_LastIndexOf4(@ptrCast(self), @ptrCast(c), @intCast(from));
+    pub fn LastIndexOf6(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
+        return qtc.QLatin1String_LastIndexOf6(@ptrCast(self), @ptrCast(c), @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#count)
     ///
     /// ``` self: QtC.QLatin1String, ch: QtC.QChar ```
-    pub fn CountWithCh(self: ?*anyopaque, ch: QtC.QChar) i64 {
-        return qtc.QLatin1String_CountWithCh(@ptrCast(self), @ptrCast(ch));
+    pub fn Count3(self: ?*anyopaque, ch: QtC.QChar) i64 {
+        return qtc.QLatin1String_Count3(@ptrCast(self), @ptrCast(ch));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toShort)
@@ -411,22 +411,22 @@ pub const qlatin1string = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#indexOf)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar, from: i64 ```
-    pub fn IndexOf23(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
-        return qtc.QLatin1String_IndexOf23(@ptrCast(self), @ptrCast(c), @intCast(from));
+    pub fn IndexOf24(self: ?*anyopaque, c: QtC.QChar, from: i64) i64 {
+        return qtc.QLatin1String_IndexOf24(@ptrCast(self), @ptrCast(c), @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#indexOf)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar, from: i64, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn IndexOf33(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i64) i64 {
-        return qtc.QLatin1String_IndexOf33(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
+    pub fn IndexOf34(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i64) i64 {
+        return qtc.QLatin1String_IndexOf34(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#contains)
     ///
     /// ``` self: QtC.QLatin1String, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Contains23(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
-        return qtc.QLatin1String_Contains23(@ptrCast(self), @ptrCast(c), @intCast(cs));
+    pub fn Contains24(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+        return qtc.QLatin1String_Contains24(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#lastIndexOf)
@@ -446,8 +446,8 @@ pub const qlatin1string = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#count)
     ///
     /// ``` self: QtC.QLatin1String, ch: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Count23(self: ?*anyopaque, ch: QtC.QChar, cs: i64) i64 {
-        return qtc.QLatin1String_Count23(@ptrCast(self), @ptrCast(ch), @intCast(cs));
+    pub fn Count24(self: ?*anyopaque, ch: QtC.QChar, cs: i64) i64 {
+        return qtc.QLatin1String_Count24(@ptrCast(self), @ptrCast(ch), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toShort)

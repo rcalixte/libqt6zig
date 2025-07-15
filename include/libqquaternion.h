@@ -56,7 +56,7 @@ QVector3D* QQuaternion_RotatedVector(const QQuaternion* self, const QVector3D* v
 QQuaternion* QQuaternion_OperatorPlusAssign(QQuaternion* self, const QQuaternion* quaternion);
 QQuaternion* QQuaternion_OperatorMinusAssign(QQuaternion* self, const QQuaternion* quaternion);
 QQuaternion* QQuaternion_OperatorMultiplyAssign(QQuaternion* self, float factor);
-QQuaternion* QQuaternion_OperatorMultiplyAssignWithQuaternion(QQuaternion* self, const QQuaternion* quaternion);
+QQuaternion* QQuaternion_OperatorMultiplyAssign2(QQuaternion* self, const QQuaternion* quaternion);
 QQuaternion* QQuaternion_OperatorDivideAssign(QQuaternion* self, float divisor);
 QVector4D* QQuaternion_ToVector4D(const QQuaternion* self);
 QVariant* QQuaternion_ToQVariant(const QQuaternion* self);

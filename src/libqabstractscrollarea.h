@@ -241,9 +241,9 @@ void QAbstractScrollArea_QBaseDisconnectNotify(QAbstractScrollArea* self, const 
 void QAbstractScrollArea_SetViewportMargins(QAbstractScrollArea* self, int left, int top, int right, int bottom);
 void QAbstractScrollArea_OnSetViewportMargins(QAbstractScrollArea* self, intptr_t slot);
 void QAbstractScrollArea_QBaseSetViewportMargins(QAbstractScrollArea* self, int left, int top, int right, int bottom);
-void QAbstractScrollArea_SetViewportMarginsWithMargins(QAbstractScrollArea* self, const QMargins* margins);
-void QAbstractScrollArea_OnSetViewportMarginsWithMargins(QAbstractScrollArea* self, intptr_t slot);
-void QAbstractScrollArea_QBaseSetViewportMarginsWithMargins(QAbstractScrollArea* self, const QMargins* margins);
+void QAbstractScrollArea_SetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins);
+void QAbstractScrollArea_OnSetViewportMargins2(QAbstractScrollArea* self, intptr_t slot);
+void QAbstractScrollArea_QBaseSetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins);
 QMargins* QAbstractScrollArea_ViewportMargins(const QAbstractScrollArea* self);
 void QAbstractScrollArea_OnViewportMargins(const QAbstractScrollArea* self, intptr_t slot);
 QMargins* QAbstractScrollArea_QBaseViewportMargins(const QAbstractScrollArea* self);

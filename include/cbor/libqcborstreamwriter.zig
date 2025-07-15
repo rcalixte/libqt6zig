@@ -35,61 +35,61 @@ pub const qcborstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, i: i64 ```
-    pub fn AppendWithQint64(self: ?*anyopaque, i: i64) void {
-        qtc.QCborStreamWriter_AppendWithQint64(@ptrCast(self), @intCast(i));
+    pub fn Append2(self: ?*anyopaque, i: i64) void {
+        qtc.QCborStreamWriter_Append2(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, n: qcborstreamwriter_enums.QCborNegativeInteger ```
-    pub fn AppendWithQCborNegativeInteger(self: ?*anyopaque, n: i64) void {
-        qtc.QCborStreamWriter_AppendWithQCborNegativeInteger(@ptrCast(self), @intCast(n));
+    pub fn Append3(self: ?*anyopaque, n: i64) void {
+        qtc.QCborStreamWriter_Append3(@ptrCast(self), @intCast(n));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, ba: []u8 ```
-    pub fn AppendWithBa(self: ?*anyopaque, ba: []u8) void {
+    pub fn Append4(self: ?*anyopaque, ba: []u8) void {
         const ba_str = qtc.struct_libqt_string{
             .len = ba.len,
             .data = ba.ptr,
         };
-        qtc.QCborStreamWriter_AppendWithBa(@ptrCast(self), ba_str);
+        qtc.QCborStreamWriter_Append4(@ptrCast(self), ba_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, tag: qcborstreamwriter_enums.QCborTag ```
-    pub fn AppendWithTag(self: ?*anyopaque, tag: i64) void {
-        qtc.QCborStreamWriter_AppendWithTag(@ptrCast(self), @intCast(tag));
+    pub fn Append7(self: ?*anyopaque, tag: i64) void {
+        qtc.QCborStreamWriter_Append7(@ptrCast(self), @intCast(tag));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, tag: qcborstreamwriter_enums.QCborKnownTags ```
-    pub fn Append3(self: ?*anyopaque, tag: i64) void {
-        qtc.QCborStreamWriter_Append3(@ptrCast(self), @intCast(tag));
+    pub fn Append8(self: ?*anyopaque, tag: i64) void {
+        qtc.QCborStreamWriter_Append8(@ptrCast(self), @intCast(tag));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, st: qcborstreamwriter_enums.QCborSimpleType ```
-    pub fn AppendWithSt(self: ?*anyopaque, st: i64) void {
-        qtc.QCborStreamWriter_AppendWithSt(@ptrCast(self), @intCast(st));
+    pub fn Append9(self: ?*anyopaque, st: i64) void {
+        qtc.QCborStreamWriter_Append9(@ptrCast(self), @intCast(st));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, f: f32 ```
-    pub fn AppendWithFloat(self: ?*anyopaque, f: f32) void {
-        qtc.QCborStreamWriter_AppendWithFloat(@ptrCast(self), @floatCast(f));
+    pub fn Append12(self: ?*anyopaque, f: f32) void {
+        qtc.QCborStreamWriter_Append12(@ptrCast(self), @floatCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, d: f64 ```
-    pub fn AppendWithDouble(self: ?*anyopaque, d: f64) void {
-        qtc.QCborStreamWriter_AppendWithDouble(@ptrCast(self), @floatCast(d));
+    pub fn Append13(self: ?*anyopaque, d: f64) void {
+        qtc.QCborStreamWriter_Append13(@ptrCast(self), @floatCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#appendByteString)
@@ -111,8 +111,8 @@ pub const qcborstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, b: bool ```
-    pub fn AppendWithBool(self: ?*anyopaque, b: bool) void {
-        qtc.QCborStreamWriter_AppendWithBool(@ptrCast(self), b);
+    pub fn Append14(self: ?*anyopaque, b: bool) void {
+        qtc.QCborStreamWriter_Append14(@ptrCast(self), b);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#appendNull)
@@ -132,23 +132,23 @@ pub const qcborstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, i: i32 ```
-    pub fn AppendWithInt(self: ?*anyopaque, i: i32) void {
-        qtc.QCborStreamWriter_AppendWithInt(@ptrCast(self), @intCast(i));
+    pub fn Append15(self: ?*anyopaque, i: i32) void {
+        qtc.QCborStreamWriter_Append15(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, u: u32 ```
-    pub fn AppendWithUint(self: ?*anyopaque, u: u32) void {
-        qtc.QCborStreamWriter_AppendWithUint(@ptrCast(self), @intCast(u));
+    pub fn Append16(self: ?*anyopaque, u: u32) void {
+        qtc.QCborStreamWriter_Append16(@ptrCast(self), @intCast(u));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, str: []const u8 ```
-    pub fn Append4(self: ?*anyopaque, str: []const u8) void {
+    pub fn Append17(self: ?*anyopaque, str: []const u8) void {
         const str_Cstring = str.ptr;
-        qtc.QCborStreamWriter_Append4(@ptrCast(self), str_Cstring);
+        qtc.QCborStreamWriter_Append17(@ptrCast(self), str_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#startArray)
@@ -161,8 +161,8 @@ pub const qcborstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#startArray)
     ///
     /// ``` self: QtC.QCborStreamWriter, count: u64 ```
-    pub fn StartArrayWithCount(self: ?*anyopaque, count: u64) void {
-        qtc.QCborStreamWriter_StartArrayWithCount(@ptrCast(self), @intCast(count));
+    pub fn StartArray2(self: ?*anyopaque, count: u64) void {
+        qtc.QCborStreamWriter_StartArray2(@ptrCast(self), @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#endArray)
@@ -182,8 +182,8 @@ pub const qcborstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#startMap)
     ///
     /// ``` self: QtC.QCborStreamWriter, count: u64 ```
-    pub fn StartMapWithCount(self: ?*anyopaque, count: u64) void {
-        qtc.QCborStreamWriter_StartMapWithCount(@ptrCast(self), @intCast(count));
+    pub fn StartMap2(self: ?*anyopaque, count: u64) void {
+        qtc.QCborStreamWriter_StartMap2(@ptrCast(self), @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#endMap)

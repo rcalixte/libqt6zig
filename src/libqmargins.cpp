@@ -80,13 +80,13 @@ QMargins* QMargins_OperatorMinusAssign(QMargins* self, const QMargins* margins) 
     return &_ret;
 }
 
-QMargins* QMargins_OperatorPlusAssignWithInt(QMargins* self, int param1) {
+QMargins* QMargins_OperatorPlusAssign2(QMargins* self, int param1) {
     QMargins& _ret = self->operator+=(static_cast<int>(param1));
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMargins* QMargins_OperatorMinusAssignWithInt(QMargins* self, int param1) {
+QMargins* QMargins_OperatorMinusAssign2(QMargins* self, int param1) {
     QMargins& _ret = self->operator-=(static_cast<int>(param1));
     // Cast returned reference into pointer
     return &_ret;
@@ -104,13 +104,13 @@ QMargins* QMargins_OperatorDivideAssign(QMargins* self, int param1) {
     return &_ret;
 }
 
-QMargins* QMargins_OperatorMultiplyAssignWithDouble(QMargins* self, double param1) {
+QMargins* QMargins_OperatorMultiplyAssign2(QMargins* self, double param1) {
     QMargins& _ret = self->operator*=(static_cast<double>(param1));
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMargins* QMargins_OperatorDivideAssignWithDouble(QMargins* self, double param1) {
+QMargins* QMargins_OperatorDivideAssign2(QMargins* self, double param1) {
     QMargins& _ret = self->operator/=(static_cast<double>(param1));
     // Cast returned reference into pointer
     return &_ret;
@@ -204,13 +204,13 @@ QMarginsF* QMarginsF_OperatorMinusAssign(QMarginsF* self, const QMarginsF* margi
     return &_ret;
 }
 
-QMarginsF* QMarginsF_OperatorPlusAssignWithAddend(QMarginsF* self, double addend) {
+QMarginsF* QMarginsF_OperatorPlusAssign2(QMarginsF* self, double addend) {
     QMarginsF& _ret = self->operator+=(static_cast<qreal>(addend));
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QMarginsF* QMarginsF_OperatorMinusAssignWithSubtrahend(QMarginsF* self, double subtrahend) {
+QMarginsF* QMarginsF_OperatorMinusAssign2(QMarginsF* self, double subtrahend) {
     QMarginsF& _ret = self->operator-=(static_cast<qreal>(subtrahend));
     // Cast returned reference into pointer
     return &_ret;

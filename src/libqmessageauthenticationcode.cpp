@@ -31,11 +31,11 @@ void QMessageAuthenticationCode_AddData(QMessageAuthenticationCode* self, const 
     self->addData(data, (qsizetype)(length));
 }
 
-void QMessageAuthenticationCode_AddDataWithData(QMessageAuthenticationCode* self, QByteArrayView* data) {
+void QMessageAuthenticationCode_AddData2(QMessageAuthenticationCode* self, QByteArrayView* data) {
     self->addData(*data);
 }
 
-bool QMessageAuthenticationCode_AddDataWithDevice(QMessageAuthenticationCode* self, QIODevice* device) {
+bool QMessageAuthenticationCode_AddData3(QMessageAuthenticationCode* self, QIODevice* device) {
     return self->addData(device);
 }
 

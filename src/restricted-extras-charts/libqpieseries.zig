@@ -101,12 +101,12 @@ pub const qpieseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#append)
     ///
     /// ``` self: QtC.QPieSeries, slices: []QtC.QPieSlice ```
-    pub fn AppendWithSlices(self: ?*anyopaque, slices: []?*anyopaque) bool {
+    pub fn Append2(self: ?*anyopaque, slices: []?*anyopaque) bool {
         const slices_list = qtc.struct_libqt_list{
             .len = slices.len,
             .data = @ptrCast(slices.ptr),
         };
-        return qtc.QPieSeries_AppendWithSlices(@ptrCast(self), slices_list);
+        return qtc.QPieSeries_Append2(@ptrCast(self), slices_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#operator<<)
@@ -119,12 +119,12 @@ pub const qpieseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#append)
     ///
     /// ``` self: QtC.QPieSeries, label: []const u8, value: f64 ```
-    pub fn Append2(self: ?*anyopaque, label: []const u8, value: f64) QtC.QPieSlice {
+    pub fn Append3(self: ?*anyopaque, label: []const u8, value: f64) QtC.QPieSlice {
         const label_str = qtc.struct_libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
-        return qtc.QPieSeries_Append2(@ptrCast(self), label_str, @floatCast(value));
+        return qtc.QPieSeries_Append3(@ptrCast(self), label_str, @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#insert)
@@ -794,8 +794,8 @@ pub const qpieseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPieSeries, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -873,8 +873,8 @@ pub const qpieseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1017,8 +1017,8 @@ pub const qpieseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPieSeries, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

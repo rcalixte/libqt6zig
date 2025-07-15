@@ -121,7 +121,7 @@ QTemporaryFile* QTemporaryFile_CreateNativeFile(const libqt_string fileName) {
     return QTemporaryFile::createNativeFile(fileName_QString);
 }
 
-QTemporaryFile* QTemporaryFile_CreateNativeFileWithFile(QFile* file) {
+QTemporaryFile* QTemporaryFile_CreateNativeFile2(QFile* file) {
     return QTemporaryFile::createNativeFile(*file);
 }
 
@@ -211,7 +211,7 @@ void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-bool QTemporaryFile_OpenWithFlags(QTemporaryFile* self, int flags) {
+bool QTemporaryFile_Open2(QTemporaryFile* self, int flags) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
@@ -221,10 +221,10 @@ bool QTemporaryFile_OpenWithFlags(QTemporaryFile* self, int flags) {
 }
 
 // Base class handler implementation
-bool QTemporaryFile_QBaseOpenWithFlags(QTemporaryFile* self, int flags) {
+bool QTemporaryFile_QBaseOpen2(QTemporaryFile* self, int flags) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_OpenWithFlags_IsBase(true);
+        vqtemporaryfile->setQTemporaryFile_Open2_IsBase(true);
         return vqtemporaryfile->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
     } else {
         return ((VirtualQTemporaryFile*)self)->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(flags));
@@ -232,10 +232,10 @@ bool QTemporaryFile_QBaseOpenWithFlags(QTemporaryFile* self, int flags) {
 }
 
 // Auxiliary method to allow providing re-implementation
-void QTemporaryFile_OnOpenWithFlags(QTemporaryFile* self, intptr_t slot) {
+void QTemporaryFile_OnOpen2(QTemporaryFile* self, intptr_t slot) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        vqtemporaryfile->setQTemporaryFile_OpenWithFlags_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_OpenWithFlags_Callback>(slot));
+        vqtemporaryfile->setQTemporaryFile_Open2_Callback(reinterpret_cast<VirtualQTemporaryFile::QTemporaryFile_Open2_Callback>(slot));
     }
 }
 

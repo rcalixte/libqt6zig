@@ -152,7 +152,7 @@ QPushButton* QMessageBox_AddButton2(QMessageBox* self, const libqt_string text, 
     return self->addButton(text_QString, static_cast<QMessageBox::ButtonRole>(role));
 }
 
-QPushButton* QMessageBox_AddButtonWithButton(QMessageBox* self, int button) {
+QPushButton* QMessageBox_AddButton3(QMessageBox* self, int button) {
     return self->addButton(static_cast<QMessageBox::StandardButton>(button));
 }
 
@@ -201,7 +201,7 @@ void QMessageBox_SetDefaultButton(QMessageBox* self, QPushButton* button) {
     self->setDefaultButton(button);
 }
 
-void QMessageBox_SetDefaultButtonWithButton(QMessageBox* self, int button) {
+void QMessageBox_SetDefaultButton2(QMessageBox* self, int button) {
     self->setDefaultButton(static_cast<QMessageBox::StandardButton>(button));
 }
 
@@ -213,7 +213,7 @@ void QMessageBox_SetEscapeButton(QMessageBox* self, QAbstractButton* button) {
     self->setEscapeButton(button);
 }
 
-void QMessageBox_SetEscapeButtonWithButton(QMessageBox* self, int button) {
+void QMessageBox_SetEscapeButton2(QMessageBox* self, int button) {
     self->setEscapeButton(static_cast<QMessageBox::StandardButton>(button));
 }
 

@@ -105,8 +105,8 @@ pub const qcborarray = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator[])
     ///
     /// ``` self: QtC.QCborArray, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QCborValueRef {
-        return qtc.QCborArray_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript2(self: ?*anyopaque, i: i64) QtC.QCborValueRef {
+        return qtc.QCborArray_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#insert)

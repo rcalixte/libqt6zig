@@ -64,8 +64,8 @@ pub const qbitarray = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#count)
     ///
     /// ``` self: QtC.QBitArray, on: bool ```
-    pub fn CountWithOn(self: ?*anyopaque, on: bool) i64 {
-        return qtc.QBitArray_CountWithOn(@ptrCast(self), on);
+    pub fn Count2(self: ?*anyopaque, on: bool) i64 {
+        return qtc.QBitArray_Count2(@ptrCast(self), on);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#isEmpty)
@@ -162,8 +162,8 @@ pub const qbitarray = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator[])
     ///
     /// ``` self: QtC.QBitArray, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) bool {
-        return qtc.QBitArray_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript2(self: ?*anyopaque, i: i64) bool {
+        return qtc.QBitArray_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator&=)
@@ -295,8 +295,8 @@ pub const qbitref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator=)
     ///
     /// ``` self: QtC.QBitRef, val: bool ```
-    pub fn OperatorAssignWithVal(self: ?*anyopaque, val: bool) void {
-        qtc.QBitRef_OperatorAssignWithVal(@ptrCast(self), val);
+    pub fn OperatorAssign2(self: ?*anyopaque, val: bool) void {
+        qtc.QBitRef_OperatorAssign2(@ptrCast(self), val);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#dtor.QBitRef)

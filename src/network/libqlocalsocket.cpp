@@ -74,7 +74,7 @@ void QLocalSocket_ConnectToServer(QLocalSocket* self) {
     self->connectToServer();
 }
 
-void QLocalSocket_ConnectToServerWithName(QLocalSocket* self, const libqt_string name) {
+void QLocalSocket_ConnectToServer2(QLocalSocket* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->connectToServer(name_QString);
 }
@@ -239,7 +239,7 @@ void QLocalSocket_ConnectToServer1(QLocalSocket* self, int openMode) {
     self->connectToServer(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }
 
-void QLocalSocket_ConnectToServer2(QLocalSocket* self, const libqt_string name, int openMode) {
+void QLocalSocket_ConnectToServer22(QLocalSocket* self, const libqt_string name, int openMode) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->connectToServer(name_QString, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(openMode));
 }

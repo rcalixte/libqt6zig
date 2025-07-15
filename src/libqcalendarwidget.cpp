@@ -218,7 +218,7 @@ libqt_map /* of QDate* to QTextCharFormat* */ QCalendarWidget_DateTextFormat(con
     return _out;
 }
 
-QTextCharFormat* QCalendarWidget_DateTextFormatWithDate(const QCalendarWidget* self, QDate* date) {
+QTextCharFormat* QCalendarWidget_DateTextFormat2(const QCalendarWidget* self, QDate* date) {
     return new QTextCharFormat(self->dateTextFormat(*date));
 }
 

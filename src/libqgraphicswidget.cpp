@@ -185,7 +185,7 @@ void QGraphicsWidget_SetContentsMargins(QGraphicsWidget* self, double left, doub
     self->setContentsMargins(static_cast<qreal>(left), static_cast<qreal>(top), static_cast<qreal>(right), static_cast<qreal>(bottom));
 }
 
-void QGraphicsWidget_SetContentsMarginsWithMargins(QGraphicsWidget* self, QMarginsF* margins) {
+void QGraphicsWidget_SetContentsMargins2(QGraphicsWidget* self, QMarginsF* margins) {
     self->setContentsMargins(*margins);
 }
 
@@ -193,7 +193,7 @@ void QGraphicsWidget_SetWindowFrameMargins(QGraphicsWidget* self, double left, d
     self->setWindowFrameMargins(static_cast<qreal>(left), static_cast<qreal>(top), static_cast<qreal>(right), static_cast<qreal>(bottom));
 }
 
-void QGraphicsWidget_SetWindowFrameMarginsWithMargins(QGraphicsWidget* self, QMarginsF* margins) {
+void QGraphicsWidget_SetWindowFrameMargins2(QGraphicsWidget* self, QMarginsF* margins) {
     self->setWindowFrameMargins(*margins);
 }
 

@@ -246,8 +246,8 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QPixmap, s: QtC.QSize ```
-    pub fn ScaledWithQSize(self: ?*anyopaque, s: ?*anyopaque) QtC.QPixmap {
-        return qtc.QPixmap_ScaledWithQSize(@ptrCast(self), @ptrCast(s));
+    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque) QtC.QPixmap {
+        return qtc.QPixmap_Scaled2(@ptrCast(self), @ptrCast(s));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaledToWidth)
@@ -320,12 +320,12 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QPixmap, data: []u8 ```
-    pub fn LoadFromDataWithData(self: ?*anyopaque, data: []u8) bool {
+    pub fn LoadFromData2(self: ?*anyopaque, data: []u8) bool {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        return qtc.QPixmap_LoadFromDataWithData(@ptrCast(self), data_str);
+        return qtc.QPixmap_LoadFromData2(@ptrCast(self), data_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
@@ -342,8 +342,8 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QPixmap, device: QtC.QIODevice ```
-    pub fn SaveWithDevice(self: ?*anyopaque, device: ?*anyopaque) bool {
-        return qtc.QPixmap_SaveWithDevice(@ptrCast(self), @ptrCast(device));
+    pub fn Save2(self: ?*anyopaque, device: ?*anyopaque) bool {
+        return qtc.QPixmap_Save2(@ptrCast(self), @ptrCast(device));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#convertFromImage)
@@ -504,8 +504,8 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QPixmap, s: QtC.QSize, aspectMode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i64) QtC.QPixmap {
-        return qtc.QPixmap_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(aspectMode));
+    pub fn Scaled22(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i64) QtC.QPixmap {
+        return qtc.QPixmap_Scaled22(@ptrCast(self), @ptrCast(s), @intCast(aspectMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
@@ -593,13 +593,13 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
     /// ``` self: QtC.QPixmap, data: []u8, format: []const u8 ```
-    pub fn LoadFromData2(self: ?*anyopaque, data: []u8, format: []const u8) bool {
+    pub fn LoadFromData22(self: ?*anyopaque, data: []u8, format: []const u8) bool {
         const data_str = qtc.struct_libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData2(@ptrCast(self), data_str, format_Cstring);
+        return qtc.QPixmap_LoadFromData22(@ptrCast(self), data_str, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -617,13 +617,13 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QPixmap, fileName: []const u8, format: []const u8 ```
-    pub fn Save2(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
+    pub fn Save22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_Save2(@ptrCast(self), fileName_str, format_Cstring);
+        return qtc.QPixmap_Save22(@ptrCast(self), fileName_str, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
@@ -641,9 +641,9 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)
     ///
     /// ``` self: QtC.QPixmap, device: QtC.QIODevice, format: []const u8 ```
-    pub fn Save22(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
+    pub fn Save23(self: ?*anyopaque, device: ?*anyopaque, format: []const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_Save22(@ptrCast(self), @ptrCast(device), format_Cstring);
+        return qtc.QPixmap_Save23(@ptrCast(self), @ptrCast(device), format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#save)

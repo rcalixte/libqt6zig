@@ -701,8 +701,8 @@ pub const qstandarditem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#appendRow)
     ///
     /// ``` self: QtC.QStandardItem, item: QtC.QStandardItem ```
-    pub fn AppendRowWithItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QStandardItem_AppendRowWithItem(@ptrCast(self), @ptrCast(item));
+    pub fn AppendRow2(self: ?*anyopaque, item: ?*anyopaque) void {
+        qtc.QStandardItem_AppendRow2(@ptrCast(self), @ptrCast(item));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#takeChild)
@@ -1816,8 +1816,8 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#appendRow)
     ///
     /// ``` self: QtC.QStandardItemModel, item: QtC.QStandardItem ```
-    pub fn AppendRowWithItem(self: ?*anyopaque, item: ?*anyopaque) void {
-        qtc.QStandardItemModel_AppendRowWithItem(@ptrCast(self), @ptrCast(item));
+    pub fn AppendRow2(self: ?*anyopaque, item: ?*anyopaque) void {
+        qtc.QStandardItemModel_AppendRow2(@ptrCast(self), @ptrCast(item));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#insertRow)
@@ -1852,15 +1852,15 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#insertRow)
     ///
     /// ``` self: QtC.QStandardItemModel, row: i32 ```
-    pub fn InsertRowWithRow(self: ?*anyopaque, row: i32) bool {
-        return qtc.QStandardItemModel_InsertRowWithRow(@ptrCast(self), @intCast(row));
+    pub fn InsertRow3(self: ?*anyopaque, row: i32) bool {
+        return qtc.QStandardItemModel_InsertRow3(@ptrCast(self), @intCast(row));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QStandardItemModel, column: i32 ```
-    pub fn InsertColumnWithColumn(self: ?*anyopaque, column: i32) bool {
-        return qtc.QStandardItemModel_InsertColumnWithColumn(@ptrCast(self), @intCast(column));
+    pub fn InsertColumn2(self: ?*anyopaque, column: i32) bool {
+        return qtc.QStandardItemModel_InsertColumn2(@ptrCast(self), @intCast(column));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#takeItem)
@@ -2122,8 +2122,8 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#insertColumn)
     ///
     /// ``` self: QtC.QStandardItemModel, column: i32, parent: QtC.QModelIndex ```
-    pub fn InsertColumn2(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
-        return qtc.QStandardItemModel_InsertColumn2(@ptrCast(self), @intCast(column), @ptrCast(parent));
+    pub fn InsertColumn22(self: ?*anyopaque, column: i32, parent: ?*anyopaque) bool {
+        return qtc.QStandardItemModel_InsertColumn22(@ptrCast(self), @intCast(column), @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#takeItem)
@@ -2549,8 +2549,8 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QStandardItemModel, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -2628,8 +2628,8 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -2763,8 +2763,8 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QStandardItemModel, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

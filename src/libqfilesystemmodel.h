@@ -55,7 +55,7 @@ void QFileSystemModel_Connect_DirectoryLoaded(QFileSystemModel* self, intptr_t s
 QModelIndex* QFileSystemModel_Index(const QFileSystemModel* self, int row, int column, const QModelIndex* parent);
 void QFileSystemModel_OnIndex(const QFileSystemModel* self, intptr_t slot);
 QModelIndex* QFileSystemModel_QBaseIndex(const QFileSystemModel* self, int row, int column, const QModelIndex* parent);
-QModelIndex* QFileSystemModel_IndexWithPath(const QFileSystemModel* self, const libqt_string path);
+QModelIndex* QFileSystemModel_Index2(const QFileSystemModel* self, const libqt_string path);
 QModelIndex* QFileSystemModel_Parent(const QFileSystemModel* self, const QModelIndex* child);
 void QFileSystemModel_OnParent(const QFileSystemModel* self, intptr_t slot);
 QModelIndex* QFileSystemModel_QBaseParent(const QFileSystemModel* self, const QModelIndex* child);
@@ -148,7 +148,7 @@ void QFileSystemModel_OnEvent(QFileSystemModel* self, intptr_t slot);
 bool QFileSystemModel_QBaseEvent(QFileSystemModel* self, QEvent* event);
 libqt_string QFileSystemModel_Tr2(const char* s, const char* c);
 libqt_string QFileSystemModel_Tr3(const char* s, const char* c, int n);
-QModelIndex* QFileSystemModel_Index2(const QFileSystemModel* self, const libqt_string path, int column);
+QModelIndex* QFileSystemModel_Index22(const QFileSystemModel* self, const libqt_string path, int column);
 QVariant* QFileSystemModel_MyComputer1(const QFileSystemModel* self, int role);
 void QFileSystemModel_SetOption2(QFileSystemModel* self, int option, bool on);
 bool QFileSystemModel_SetHeaderData(QFileSystemModel* self, int section, int orientation, const QVariant* value, int role);

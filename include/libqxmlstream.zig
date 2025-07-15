@@ -847,8 +847,8 @@ pub const qxmlstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
     ///
     /// ``` self: QtC.QXmlStreamWriter, attribute: QtC.QXmlStreamAttribute ```
-    pub fn WriteAttributeWithAttribute(self: ?*anyopaque, attribute: ?*anyopaque) void {
-        qtc.QXmlStreamWriter_WriteAttributeWithAttribute(@ptrCast(self), @ptrCast(attribute));
+    pub fn WriteAttribute3(self: ?*anyopaque, attribute: ?*anyopaque) void {
+        qtc.QXmlStreamWriter_WriteAttribute3(@ptrCast(self), @ptrCast(attribute));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttributes)
@@ -1030,23 +1030,23 @@ pub const qxmlstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
     ///
     /// ``` self: QtC.QXmlStreamWriter, version: []const u8 ```
-    pub fn WriteStartDocumentWithVersion(self: ?*anyopaque, version: []const u8) void {
+    pub fn WriteStartDocument2(self: ?*anyopaque, version: []const u8) void {
         const version_str = qtc.struct_libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
-        qtc.QXmlStreamWriter_WriteStartDocumentWithVersion(@ptrCast(self), version_str);
+        qtc.QXmlStreamWriter_WriteStartDocument2(@ptrCast(self), version_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
     ///
     /// ``` self: QtC.QXmlStreamWriter, version: []const u8, standalone: bool ```
-    pub fn WriteStartDocument2(self: ?*anyopaque, version: []const u8, standalone: bool) void {
+    pub fn WriteStartDocument3(self: ?*anyopaque, version: []const u8, standalone: bool) void {
         const version_str = qtc.struct_libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
-        qtc.QXmlStreamWriter_WriteStartDocument2(@ptrCast(self), version_str, standalone);
+        qtc.QXmlStreamWriter_WriteStartDocument3(@ptrCast(self), version_str, standalone);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartElement)

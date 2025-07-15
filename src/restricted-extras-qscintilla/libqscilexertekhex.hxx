@@ -38,10 +38,10 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
     using QsciLexerTekHex_DefaultStyle_Callback = int (*)();
     using QsciLexerTekHex_Description_Callback = libqt_string (*)(const QsciLexerTekHex*, int);
     using QsciLexerTekHex_Paper_Callback = QColor* (*)(const QsciLexerTekHex*, int);
-    using QsciLexerTekHex_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerTekHex*, int);
+    using QsciLexerTekHex_DefaultColor2_Callback = QColor* (*)(const QsciLexerTekHex*, int);
     using QsciLexerTekHex_DefaultEolFill_Callback = bool (*)(const QsciLexerTekHex*, int);
-    using QsciLexerTekHex_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerTekHex*, int);
-    using QsciLexerTekHex_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerTekHex*, int);
+    using QsciLexerTekHex_DefaultFont2_Callback = QFont* (*)(const QsciLexerTekHex*, int);
+    using QsciLexerTekHex_DefaultPaper2_Callback = QColor* (*)(const QsciLexerTekHex*, int);
     using QsciLexerTekHex_SetEditor_Callback = void (*)(QsciLexerTekHex*, QsciScintilla*);
     using QsciLexerTekHex_RefreshProperties_Callback = void (*)();
     using QsciLexerTekHex_StyleBitsNeeded_Callback = int (*)();
@@ -89,10 +89,10 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
     QsciLexerTekHex_DefaultStyle_Callback qscilexertekhex_defaultstyle_callback = nullptr;
     QsciLexerTekHex_Description_Callback qscilexertekhex_description_callback = nullptr;
     QsciLexerTekHex_Paper_Callback qscilexertekhex_paper_callback = nullptr;
-    QsciLexerTekHex_DefaultColorWithStyle_Callback qscilexertekhex_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerTekHex_DefaultColor2_Callback qscilexertekhex_defaultcolor2_callback = nullptr;
     QsciLexerTekHex_DefaultEolFill_Callback qscilexertekhex_defaulteolfill_callback = nullptr;
-    QsciLexerTekHex_DefaultFontWithStyle_Callback qscilexertekhex_defaultfontwithstyle_callback = nullptr;
-    QsciLexerTekHex_DefaultPaperWithStyle_Callback qscilexertekhex_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerTekHex_DefaultFont2_Callback qscilexertekhex_defaultfont2_callback = nullptr;
+    QsciLexerTekHex_DefaultPaper2_Callback qscilexertekhex_defaultpaper2_callback = nullptr;
     QsciLexerTekHex_SetEditor_Callback qscilexertekhex_seteditor_callback = nullptr;
     QsciLexerTekHex_RefreshProperties_Callback qscilexertekhex_refreshproperties_callback = nullptr;
     QsciLexerTekHex_StyleBitsNeeded_Callback qscilexertekhex_stylebitsneeded_callback = nullptr;
@@ -139,10 +139,10 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
     mutable bool qscilexertekhex_defaultstyle_isbase = false;
     mutable bool qscilexertekhex_description_isbase = false;
     mutable bool qscilexertekhex_paper_isbase = false;
-    mutable bool qscilexertekhex_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexertekhex_defaultcolor2_isbase = false;
     mutable bool qscilexertekhex_defaulteolfill_isbase = false;
-    mutable bool qscilexertekhex_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexertekhex_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexertekhex_defaultfont2_isbase = false;
+    mutable bool qscilexertekhex_defaultpaper2_isbase = false;
     mutable bool qscilexertekhex_seteditor_isbase = false;
     mutable bool qscilexertekhex_refreshproperties_isbase = false;
     mutable bool qscilexertekhex_stylebitsneeded_isbase = false;
@@ -193,10 +193,10 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
         qscilexertekhex_defaultstyle_callback = nullptr;
         qscilexertekhex_description_callback = nullptr;
         qscilexertekhex_paper_callback = nullptr;
-        qscilexertekhex_defaultcolorwithstyle_callback = nullptr;
+        qscilexertekhex_defaultcolor2_callback = nullptr;
         qscilexertekhex_defaulteolfill_callback = nullptr;
-        qscilexertekhex_defaultfontwithstyle_callback = nullptr;
-        qscilexertekhex_defaultpaperwithstyle_callback = nullptr;
+        qscilexertekhex_defaultfont2_callback = nullptr;
+        qscilexertekhex_defaultpaper2_callback = nullptr;
         qscilexertekhex_seteditor_callback = nullptr;
         qscilexertekhex_refreshproperties_callback = nullptr;
         qscilexertekhex_stylebitsneeded_callback = nullptr;
@@ -244,10 +244,10 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
     inline void setQsciLexerTekHex_DefaultStyle_Callback(QsciLexerTekHex_DefaultStyle_Callback cb) { qscilexertekhex_defaultstyle_callback = cb; }
     inline void setQsciLexerTekHex_Description_Callback(QsciLexerTekHex_Description_Callback cb) { qscilexertekhex_description_callback = cb; }
     inline void setQsciLexerTekHex_Paper_Callback(QsciLexerTekHex_Paper_Callback cb) { qscilexertekhex_paper_callback = cb; }
-    inline void setQsciLexerTekHex_DefaultColorWithStyle_Callback(QsciLexerTekHex_DefaultColorWithStyle_Callback cb) { qscilexertekhex_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerTekHex_DefaultColor2_Callback(QsciLexerTekHex_DefaultColor2_Callback cb) { qscilexertekhex_defaultcolor2_callback = cb; }
     inline void setQsciLexerTekHex_DefaultEolFill_Callback(QsciLexerTekHex_DefaultEolFill_Callback cb) { qscilexertekhex_defaulteolfill_callback = cb; }
-    inline void setQsciLexerTekHex_DefaultFontWithStyle_Callback(QsciLexerTekHex_DefaultFontWithStyle_Callback cb) { qscilexertekhex_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerTekHex_DefaultPaperWithStyle_Callback(QsciLexerTekHex_DefaultPaperWithStyle_Callback cb) { qscilexertekhex_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerTekHex_DefaultFont2_Callback(QsciLexerTekHex_DefaultFont2_Callback cb) { qscilexertekhex_defaultfont2_callback = cb; }
+    inline void setQsciLexerTekHex_DefaultPaper2_Callback(QsciLexerTekHex_DefaultPaper2_Callback cb) { qscilexertekhex_defaultpaper2_callback = cb; }
     inline void setQsciLexerTekHex_SetEditor_Callback(QsciLexerTekHex_SetEditor_Callback cb) { qscilexertekhex_seteditor_callback = cb; }
     inline void setQsciLexerTekHex_RefreshProperties_Callback(QsciLexerTekHex_RefreshProperties_Callback cb) { qscilexertekhex_refreshproperties_callback = cb; }
     inline void setQsciLexerTekHex_StyleBitsNeeded_Callback(QsciLexerTekHex_StyleBitsNeeded_Callback cb) { qscilexertekhex_stylebitsneeded_callback = cb; }
@@ -294,10 +294,10 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
     inline void setQsciLexerTekHex_DefaultStyle_IsBase(bool value) const { qscilexertekhex_defaultstyle_isbase = value; }
     inline void setQsciLexerTekHex_Description_IsBase(bool value) const { qscilexertekhex_description_isbase = value; }
     inline void setQsciLexerTekHex_Paper_IsBase(bool value) const { qscilexertekhex_paper_isbase = value; }
-    inline void setQsciLexerTekHex_DefaultColorWithStyle_IsBase(bool value) const { qscilexertekhex_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerTekHex_DefaultColor2_IsBase(bool value) const { qscilexertekhex_defaultcolor2_isbase = value; }
     inline void setQsciLexerTekHex_DefaultEolFill_IsBase(bool value) const { qscilexertekhex_defaulteolfill_isbase = value; }
-    inline void setQsciLexerTekHex_DefaultFontWithStyle_IsBase(bool value) const { qscilexertekhex_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerTekHex_DefaultPaperWithStyle_IsBase(bool value) const { qscilexertekhex_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerTekHex_DefaultFont2_IsBase(bool value) const { qscilexertekhex_defaultfont2_isbase = value; }
+    inline void setQsciLexerTekHex_DefaultPaper2_IsBase(bool value) const { qscilexertekhex_defaultpaper2_isbase = value; }
     inline void setQsciLexerTekHex_SetEditor_IsBase(bool value) const { qscilexertekhex_seteditor_isbase = value; }
     inline void setQsciLexerTekHex_RefreshProperties_IsBase(bool value) const { qscilexertekhex_refreshproperties_isbase = value; }
     inline void setQsciLexerTekHex_StyleBitsNeeded_IsBase(bool value) const { qscilexertekhex_stylebitsneeded_isbase = value; }
@@ -609,13 +609,13 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexertekhex_defaultcolorwithstyle_isbase) {
-            qscilexertekhex_defaultcolorwithstyle_isbase = false;
+        if (qscilexertekhex_defaultcolor2_isbase) {
+            qscilexertekhex_defaultcolor2_isbase = false;
             return QsciLexerTekHex::defaultColor(style);
-        } else if (qscilexertekhex_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexertekhex_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexertekhex_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexertekhex_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerTekHex::defaultColor(style);
@@ -639,13 +639,13 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexertekhex_defaultfontwithstyle_isbase) {
-            qscilexertekhex_defaultfontwithstyle_isbase = false;
+        if (qscilexertekhex_defaultfont2_isbase) {
+            qscilexertekhex_defaultfont2_isbase = false;
             return QsciLexerTekHex::defaultFont(style);
-        } else if (qscilexertekhex_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexertekhex_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexertekhex_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexertekhex_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerTekHex::defaultFont(style);
@@ -654,13 +654,13 @@ class VirtualQsciLexerTekHex final : public QsciLexerTekHex {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexertekhex_defaultpaperwithstyle_isbase) {
-            qscilexertekhex_defaultpaperwithstyle_isbase = false;
+        if (qscilexertekhex_defaultpaper2_isbase) {
+            qscilexertekhex_defaultpaper2_isbase = false;
             return QsciLexerTekHex::defaultPaper(style);
-        } else if (qscilexertekhex_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexertekhex_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexertekhex_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexertekhex_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerTekHex::defaultPaper(style);

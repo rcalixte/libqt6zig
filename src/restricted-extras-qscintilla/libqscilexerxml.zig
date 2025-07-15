@@ -633,8 +633,8 @@ pub const qscilexerxml = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QsciLexerXML, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -712,8 +712,8 @@ pub const qscilexerxml = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -856,8 +856,8 @@ pub const qscilexerxml = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QsciLexerXML, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -1578,8 +1578,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, style: i32 ```
-    pub fn DefaultColorWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerXML_DefaultColorWithStyle(@ptrCast(self), @intCast(style));
+    pub fn DefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerXML_DefaultColor2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -1589,8 +1589,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, style: i32 ```
-    pub fn QBaseDefaultColorWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerXML_QBaseDefaultColorWithStyle(@ptrCast(self), @intCast(style));
+    pub fn QBaseDefaultColor2(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerXML_QBaseDefaultColor2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -1600,8 +1600,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, slot: fn (self: QtC.QsciLexerXML, style: i32) callconv(.c) QtC.QColor ```
-    pub fn OnDefaultColorWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerXML_OnDefaultColorWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnDefaultColor2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerXML_OnDefaultColor2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
@@ -1611,8 +1611,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, style: i32 ```
-    pub fn DefaultFontWithStyle(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerXML_DefaultFontWithStyle(@ptrCast(self), @intCast(style));
+    pub fn DefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerXML_DefaultFont2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -1622,8 +1622,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, style: i32 ```
-    pub fn QBaseDefaultFontWithStyle(self: ?*anyopaque, style: i32) QtC.QFont {
-        return qtc.QsciLexerXML_QBaseDefaultFontWithStyle(@ptrCast(self), @intCast(style));
+    pub fn QBaseDefaultFont2(self: ?*anyopaque, style: i32) QtC.QFont {
+        return qtc.QsciLexerXML_QBaseDefaultFont2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -1633,8 +1633,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, slot: fn (self: QtC.QsciLexerXML, style: i32) callconv(.c) QtC.QFont ```
-    pub fn OnDefaultFontWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
-        qtc.QsciLexerXML_OnDefaultFontWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnDefaultFont2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
+        qtc.QsciLexerXML_OnDefaultFont2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer
@@ -1644,8 +1644,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, style: i32 ```
-    pub fn DefaultPaperWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerXML_DefaultPaperWithStyle(@ptrCast(self), @intCast(style));
+    pub fn DefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerXML_DefaultPaper2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -1655,8 +1655,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, style: i32 ```
-    pub fn QBaseDefaultPaperWithStyle(self: ?*anyopaque, style: i32) QtC.QColor {
-        return qtc.QsciLexerXML_QBaseDefaultPaperWithStyle(@ptrCast(self), @intCast(style));
+    pub fn QBaseDefaultPaper2(self: ?*anyopaque, style: i32) QtC.QColor {
+        return qtc.QsciLexerXML_QBaseDefaultPaper2(@ptrCast(self), @intCast(style));
     }
 
     /// Inherited from QsciLexer
@@ -1666,8 +1666,8 @@ pub const qscilexerxml = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciLexerXML, slot: fn (self: QtC.QsciLexerXML, style: i32) callconv(.c) QtC.QColor ```
-    pub fn OnDefaultPaperWithStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerXML_OnDefaultPaperWithStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnDefaultPaper2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerXML_OnDefaultPaper2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Inherited from QsciLexer

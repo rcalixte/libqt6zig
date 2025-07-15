@@ -161,21 +161,21 @@ pub const qresource = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
     /// ``` rccData: ?*u8 ```
-    pub fn RegisterResourceWithRccData(rccData: ?*anyopaque) bool {
-        return qtc.QResource_RegisterResourceWithRccData(@intCast(rccData));
+    pub fn RegisterResource2(rccData: ?*anyopaque) bool {
+        return qtc.QResource_RegisterResource2(@intCast(rccData));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
     /// ``` rccData: ?*u8 ```
-    pub fn UnregisterResourceWithRccData(rccData: ?*anyopaque) bool {
-        return qtc.QResource_UnregisterResourceWithRccData(@intCast(rccData));
+    pub fn UnregisterResource2(rccData: ?*anyopaque) bool {
+        return qtc.QResource_UnregisterResource2(@intCast(rccData));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
     /// ``` rccFilename: []const u8, resourceRoot: []const u8 ```
-    pub fn RegisterResource2(rccFilename: []const u8, resourceRoot: []const u8) bool {
+    pub fn RegisterResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
         const rccFilename_str = qtc.struct_libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
@@ -184,13 +184,13 @@ pub const qresource = struct {
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
-        return qtc.QResource_RegisterResource2(rccFilename_str, resourceRoot_str);
+        return qtc.QResource_RegisterResource22(rccFilename_str, resourceRoot_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
     /// ``` rccFilename: []const u8, resourceRoot: []const u8 ```
-    pub fn UnregisterResource2(rccFilename: []const u8, resourceRoot: []const u8) bool {
+    pub fn UnregisterResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
         const rccFilename_str = qtc.struct_libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
@@ -199,29 +199,29 @@ pub const qresource = struct {
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
-        return qtc.QResource_UnregisterResource2(rccFilename_str, resourceRoot_str);
+        return qtc.QResource_UnregisterResource22(rccFilename_str, resourceRoot_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
     /// ``` rccData: ?*u8, resourceRoot: []const u8 ```
-    pub fn RegisterResource22(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
+    pub fn RegisterResource23(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
-        return qtc.QResource_RegisterResource22(@intCast(rccData), resourceRoot_str);
+        return qtc.QResource_RegisterResource23(@intCast(rccData), resourceRoot_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
     /// ``` rccData: ?*u8, resourceRoot: []const u8 ```
-    pub fn UnregisterResource22(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
+    pub fn UnregisterResource23(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
-        return qtc.QResource_UnregisterResource22(@intCast(rccData), resourceRoot_str);
+        return qtc.QResource_UnregisterResource23(@intCast(rccData), resourceRoot_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#dtor.QResource)

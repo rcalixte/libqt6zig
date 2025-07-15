@@ -33,7 +33,7 @@ double QAbstractBarSeries_BarWidth(const QAbstractBarSeries* self);
 bool QAbstractBarSeries_Append(QAbstractBarSeries* self, QBarSet* set);
 bool QAbstractBarSeries_Remove(QAbstractBarSeries* self, QBarSet* set);
 bool QAbstractBarSeries_Take(QAbstractBarSeries* self, QBarSet* set);
-bool QAbstractBarSeries_AppendWithSets(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets);
+bool QAbstractBarSeries_Append2(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets);
 bool QAbstractBarSeries_Insert(QAbstractBarSeries* self, int index, QBarSet* set);
 int QAbstractBarSeries_Count(const QAbstractBarSeries* self);
 libqt_list /* of QBarSet* */ QAbstractBarSeries_BarSets(const QAbstractBarSeries* self);

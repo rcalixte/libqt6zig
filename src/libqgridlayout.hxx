@@ -33,7 +33,7 @@ class VirtualQGridLayout final : public QGridLayout {
     using QGridLayout_TakeAt_Callback = QLayoutItem* (*)(QGridLayout*, int);
     using QGridLayout_Count_Callback = int (*)();
     using QGridLayout_SetGeometry_Callback = void (*)(QGridLayout*, QRect*);
-    using QGridLayout_AddItemWithQLayoutItem_Callback = void (*)(QGridLayout*, QLayoutItem*);
+    using QGridLayout_AddItem2_Callback = void (*)(QGridLayout*, QLayoutItem*);
     using QGridLayout_Geometry_Callback = QRect* (*)();
     using QGridLayout_IndexOf_Callback = int (*)(const QGridLayout*, QWidget*);
     using QGridLayout_IsEmpty_Callback = bool (*)();
@@ -76,7 +76,7 @@ class VirtualQGridLayout final : public QGridLayout {
     QGridLayout_TakeAt_Callback qgridlayout_takeat_callback = nullptr;
     QGridLayout_Count_Callback qgridlayout_count_callback = nullptr;
     QGridLayout_SetGeometry_Callback qgridlayout_setgeometry_callback = nullptr;
-    QGridLayout_AddItemWithQLayoutItem_Callback qgridlayout_additemwithqlayoutitem_callback = nullptr;
+    QGridLayout_AddItem2_Callback qgridlayout_additem2_callback = nullptr;
     QGridLayout_Geometry_Callback qgridlayout_geometry_callback = nullptr;
     QGridLayout_IndexOf_Callback qgridlayout_indexof_callback = nullptr;
     QGridLayout_IsEmpty_Callback qgridlayout_isempty_callback = nullptr;
@@ -118,7 +118,7 @@ class VirtualQGridLayout final : public QGridLayout {
     mutable bool qgridlayout_takeat_isbase = false;
     mutable bool qgridlayout_count_isbase = false;
     mutable bool qgridlayout_setgeometry_isbase = false;
-    mutable bool qgridlayout_additemwithqlayoutitem_isbase = false;
+    mutable bool qgridlayout_additem2_isbase = false;
     mutable bool qgridlayout_geometry_isbase = false;
     mutable bool qgridlayout_indexof_isbase = false;
     mutable bool qgridlayout_isempty_isbase = false;
@@ -164,7 +164,7 @@ class VirtualQGridLayout final : public QGridLayout {
         qgridlayout_takeat_callback = nullptr;
         qgridlayout_count_callback = nullptr;
         qgridlayout_setgeometry_callback = nullptr;
-        qgridlayout_additemwithqlayoutitem_callback = nullptr;
+        qgridlayout_additem2_callback = nullptr;
         qgridlayout_geometry_callback = nullptr;
         qgridlayout_indexof_callback = nullptr;
         qgridlayout_isempty_callback = nullptr;
@@ -207,7 +207,7 @@ class VirtualQGridLayout final : public QGridLayout {
     inline void setQGridLayout_TakeAt_Callback(QGridLayout_TakeAt_Callback cb) { qgridlayout_takeat_callback = cb; }
     inline void setQGridLayout_Count_Callback(QGridLayout_Count_Callback cb) { qgridlayout_count_callback = cb; }
     inline void setQGridLayout_SetGeometry_Callback(QGridLayout_SetGeometry_Callback cb) { qgridlayout_setgeometry_callback = cb; }
-    inline void setQGridLayout_AddItemWithQLayoutItem_Callback(QGridLayout_AddItemWithQLayoutItem_Callback cb) { qgridlayout_additemwithqlayoutitem_callback = cb; }
+    inline void setQGridLayout_AddItem2_Callback(QGridLayout_AddItem2_Callback cb) { qgridlayout_additem2_callback = cb; }
     inline void setQGridLayout_Geometry_Callback(QGridLayout_Geometry_Callback cb) { qgridlayout_geometry_callback = cb; }
     inline void setQGridLayout_IndexOf_Callback(QGridLayout_IndexOf_Callback cb) { qgridlayout_indexof_callback = cb; }
     inline void setQGridLayout_IsEmpty_Callback(QGridLayout_IsEmpty_Callback cb) { qgridlayout_isempty_callback = cb; }
@@ -249,7 +249,7 @@ class VirtualQGridLayout final : public QGridLayout {
     inline void setQGridLayout_TakeAt_IsBase(bool value) const { qgridlayout_takeat_isbase = value; }
     inline void setQGridLayout_Count_IsBase(bool value) const { qgridlayout_count_isbase = value; }
     inline void setQGridLayout_SetGeometry_IsBase(bool value) const { qgridlayout_setgeometry_isbase = value; }
-    inline void setQGridLayout_AddItemWithQLayoutItem_IsBase(bool value) const { qgridlayout_additemwithqlayoutitem_isbase = value; }
+    inline void setQGridLayout_AddItem2_IsBase(bool value) const { qgridlayout_additem2_isbase = value; }
     inline void setQGridLayout_Geometry_IsBase(bool value) const { qgridlayout_geometry_isbase = value; }
     inline void setQGridLayout_IndexOf_IsBase(bool value) const { qgridlayout_indexof_isbase = value; }
     inline void setQGridLayout_IsEmpty_IsBase(bool value) const { qgridlayout_isempty_isbase = value; }
@@ -487,13 +487,13 @@ class VirtualQGridLayout final : public QGridLayout {
 
     // Virtual method for C ABI access and custom callback
     virtual void addItem(QLayoutItem* param1) override {
-        if (qgridlayout_additemwithqlayoutitem_isbase) {
-            qgridlayout_additemwithqlayoutitem_isbase = false;
+        if (qgridlayout_additem2_isbase) {
+            qgridlayout_additem2_isbase = false;
             QGridLayout::addItem(param1);
-        } else if (qgridlayout_additemwithqlayoutitem_callback != nullptr) {
+        } else if (qgridlayout_additem2_callback != nullptr) {
             QLayoutItem* cbval1 = param1;
 
-            qgridlayout_additemwithqlayoutitem_callback(this, cbval1);
+            qgridlayout_additem2_callback(this, cbval1);
         } else {
             QGridLayout::addItem(param1);
         }
@@ -847,8 +847,8 @@ class VirtualQGridLayout final : public QGridLayout {
     }
 
     // Friend functions
-    friend void QGridLayout_AddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* param1);
-    friend void QGridLayout_QBaseAddItemWithQLayoutItem(QGridLayout* self, QLayoutItem* param1);
+    friend void QGridLayout_AddItem2(QGridLayout* self, QLayoutItem* param1);
+    friend void QGridLayout_QBaseAddItem2(QGridLayout* self, QLayoutItem* param1);
     friend void QGridLayout_ChildEvent(QGridLayout* self, QChildEvent* e);
     friend void QGridLayout_QBaseChildEvent(QGridLayout* self, QChildEvent* e);
     friend void QGridLayout_TimerEvent(QGridLayout* self, QTimerEvent* event);

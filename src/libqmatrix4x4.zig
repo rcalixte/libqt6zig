@@ -182,8 +182,8 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator*=)
     ///
     /// ``` self: QtC.QMatrix4x4, factor: f32 ```
-    pub fn OperatorMultiplyAssignWithFactor(self: ?*anyopaque, factor: f32) QtC.QMatrix4x4 {
-        return qtc.QMatrix4x4_OperatorMultiplyAssignWithFactor(@ptrCast(self), @floatCast(factor));
+    pub fn OperatorMultiplyAssign2(self: ?*anyopaque, factor: f32) QtC.QMatrix4x4 {
+        return qtc.QMatrix4x4_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(factor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator/=)
@@ -245,8 +245,8 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#scale)
     ///
     /// ``` self: QtC.QMatrix4x4, factor: f32 ```
-    pub fn ScaleWithFactor(self: ?*anyopaque, factor: f32) void {
-        qtc.QMatrix4x4_ScaleWithFactor(@ptrCast(self), @floatCast(factor));
+    pub fn Scale4(self: ?*anyopaque, factor: f32) void {
+        qtc.QMatrix4x4_Scale4(@ptrCast(self), @floatCast(factor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#translate)
@@ -273,8 +273,8 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#rotate)
     ///
     /// ``` self: QtC.QMatrix4x4, quaternion: QtC.QQuaternion ```
-    pub fn RotateWithQuaternion(self: ?*anyopaque, quaternion: ?*anyopaque) void {
-        qtc.QMatrix4x4_RotateWithQuaternion(@ptrCast(self), @ptrCast(quaternion));
+    pub fn Rotate3(self: ?*anyopaque, quaternion: ?*anyopaque) void {
+        qtc.QMatrix4x4_Rotate3(@ptrCast(self), @ptrCast(quaternion));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#ortho)
@@ -287,15 +287,15 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#ortho)
     ///
     /// ``` self: QtC.QMatrix4x4, rect: QtC.QRectF ```
-    pub fn OrthoWithRect(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QMatrix4x4_OrthoWithRect(@ptrCast(self), @ptrCast(rect));
+    pub fn Ortho2(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QMatrix4x4_Ortho2(@ptrCast(self), @ptrCast(rect));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#ortho)
     ///
     /// ``` self: QtC.QMatrix4x4, left: f32, right: f32, bottom: f32, top: f32, nearPlane: f32, farPlane: f32 ```
-    pub fn Ortho2(self: ?*anyopaque, left: f32, right: f32, bottom: f32, top: f32, nearPlane: f32, farPlane: f32) void {
-        qtc.QMatrix4x4_Ortho2(@ptrCast(self), @floatCast(left), @floatCast(right), @floatCast(bottom), @floatCast(top), @floatCast(nearPlane), @floatCast(farPlane));
+    pub fn Ortho3(self: ?*anyopaque, left: f32, right: f32, bottom: f32, top: f32, nearPlane: f32, farPlane: f32) void {
+        qtc.QMatrix4x4_Ortho3(@ptrCast(self), @floatCast(left), @floatCast(right), @floatCast(bottom), @floatCast(top), @floatCast(nearPlane), @floatCast(farPlane));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#frustum)
@@ -357,8 +357,8 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#toTransform)
     ///
     /// ``` self: QtC.QMatrix4x4, distanceToPlane: f32 ```
-    pub fn ToTransformWithDistanceToPlane(self: ?*anyopaque, distanceToPlane: f32) QtC.QTransform {
-        return qtc.QMatrix4x4_ToTransformWithDistanceToPlane(@ptrCast(self), @floatCast(distanceToPlane));
+    pub fn ToTransform2(self: ?*anyopaque, distanceToPlane: f32) QtC.QTransform {
+        return qtc.QMatrix4x4_ToTransform2(@ptrCast(self), @floatCast(distanceToPlane));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
@@ -371,15 +371,15 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
     ///
     /// ``` self: QtC.QMatrix4x4, point: QtC.QPointF ```
-    pub fn MapWithPoint(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
-        return qtc.QMatrix4x4_MapWithPoint(@ptrCast(self), @ptrCast(point));
+    pub fn Map2(self: ?*anyopaque, point: ?*anyopaque) QtC.QPointF {
+        return qtc.QMatrix4x4_Map2(@ptrCast(self), @ptrCast(point));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
     ///
     /// ``` self: QtC.QMatrix4x4, point: QtC.QVector3D ```
-    pub fn Map2(self: ?*anyopaque, point: ?*anyopaque) QtC.QVector3D {
-        return qtc.QMatrix4x4_Map2(@ptrCast(self), @ptrCast(point));
+    pub fn Map3(self: ?*anyopaque, point: ?*anyopaque) QtC.QVector3D {
+        return qtc.QMatrix4x4_Map3(@ptrCast(self), @ptrCast(point));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#mapVector)
@@ -392,8 +392,8 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#map)
     ///
     /// ``` self: QtC.QMatrix4x4, point: QtC.QVector4D ```
-    pub fn Map3(self: ?*anyopaque, point: ?*anyopaque) QtC.QVector4D {
-        return qtc.QMatrix4x4_Map3(@ptrCast(self), @ptrCast(point));
+    pub fn Map4(self: ?*anyopaque, point: ?*anyopaque) QtC.QVector4D {
+        return qtc.QMatrix4x4_Map4(@ptrCast(self), @ptrCast(point));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#mapRect)
@@ -406,8 +406,8 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#mapRect)
     ///
     /// ``` self: QtC.QMatrix4x4, rect: QtC.QRectF ```
-    pub fn MapRectWithRect(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
-        return qtc.QMatrix4x4_MapRectWithRect(@ptrCast(self), @ptrCast(rect));
+    pub fn MapRect2(self: ?*anyopaque, rect: ?*anyopaque) QtC.QRectF {
+        return qtc.QMatrix4x4_MapRect2(@ptrCast(self), @ptrCast(rect));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#data)

@@ -102,8 +102,8 @@ pub const qsvggenerator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#setViewBox)
     ///
     /// ``` self: QtC.QSvgGenerator, viewBox: QtC.QRectF ```
-    pub fn SetViewBoxWithViewBox(self: ?*anyopaque, viewBox: ?*anyopaque) void {
-        qtc.QSvgGenerator_SetViewBoxWithViewBox(@ptrCast(self), @ptrCast(viewBox));
+    pub fn SetViewBox2(self: ?*anyopaque, viewBox: ?*anyopaque) void {
+        qtc.QSvgGenerator_SetViewBox2(@ptrCast(self), @ptrCast(viewBox));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#fileName)

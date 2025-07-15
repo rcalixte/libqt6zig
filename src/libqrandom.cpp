@@ -44,51 +44,51 @@ double QRandomGenerator_Bounded(QRandomGenerator* self, double highest) {
     return self->bounded(static_cast<double>(highest));
 }
 
-unsigned int QRandomGenerator_BoundedWithHighest(QRandomGenerator* self, unsigned int highest) {
+unsigned int QRandomGenerator_Bounded2(QRandomGenerator* self, unsigned int highest) {
     return static_cast<unsigned int>(self->bounded(static_cast<quint32>(highest)));
 }
 
-unsigned int QRandomGenerator_Bounded2(QRandomGenerator* self, unsigned int lowest, unsigned int highest) {
+unsigned int QRandomGenerator_Bounded3(QRandomGenerator* self, unsigned int lowest, unsigned int highest) {
     return static_cast<unsigned int>(self->bounded(static_cast<quint32>(lowest), static_cast<quint32>(highest)));
 }
 
-int QRandomGenerator_Bounded3(QRandomGenerator* self, int highest) {
+int QRandomGenerator_Bounded4(QRandomGenerator* self, int highest) {
     return self->bounded(static_cast<int>(highest));
 }
 
-int QRandomGenerator_Bounded4(QRandomGenerator* self, int lowest, int highest) {
+int QRandomGenerator_Bounded5(QRandomGenerator* self, int lowest, int highest) {
     return self->bounded(static_cast<int>(lowest), static_cast<int>(highest));
 }
 
-unsigned long long QRandomGenerator_Bounded5(QRandomGenerator* self, unsigned long long highest) {
+unsigned long long QRandomGenerator_Bounded6(QRandomGenerator* self, unsigned long long highest) {
     return static_cast<unsigned long long>(self->bounded(static_cast<quint64>(highest)));
 }
 
-unsigned long long QRandomGenerator_Bounded6(QRandomGenerator* self, unsigned long long lowest, unsigned long long highest) {
+unsigned long long QRandomGenerator_Bounded7(QRandomGenerator* self, unsigned long long lowest, unsigned long long highest) {
     return static_cast<unsigned long long>(self->bounded(static_cast<quint64>(lowest), static_cast<quint64>(highest)));
 }
 
-long long QRandomGenerator_Bounded7(QRandomGenerator* self, long long highest) {
+long long QRandomGenerator_Bounded8(QRandomGenerator* self, long long highest) {
     return static_cast<long long>(self->bounded(static_cast<qint64>(highest)));
 }
 
-long long QRandomGenerator_Bounded8(QRandomGenerator* self, long long lowest, long long highest) {
+long long QRandomGenerator_Bounded9(QRandomGenerator* self, long long lowest, long long highest) {
     return static_cast<long long>(self->bounded(static_cast<qint64>(lowest), static_cast<qint64>(highest)));
 }
 
-long long QRandomGenerator_Bounded9(QRandomGenerator* self, int lowest, long long highest) {
+long long QRandomGenerator_Bounded10(QRandomGenerator* self, int lowest, long long highest) {
     return static_cast<long long>(self->bounded(static_cast<int>(lowest), static_cast<qint64>(highest)));
 }
 
-long long QRandomGenerator_Bounded10(QRandomGenerator* self, long long lowest, int highest) {
+long long QRandomGenerator_Bounded11(QRandomGenerator* self, long long lowest, int highest) {
     return static_cast<long long>(self->bounded(static_cast<qint64>(lowest), static_cast<int>(highest)));
 }
 
-unsigned long long QRandomGenerator_Bounded11(QRandomGenerator* self, unsigned int lowest, unsigned long long highest) {
+unsigned long long QRandomGenerator_Bounded12(QRandomGenerator* self, unsigned int lowest, unsigned long long highest) {
     return static_cast<unsigned long long>(self->bounded(static_cast<unsigned int>(lowest), static_cast<quint64>(highest)));
 }
 
-unsigned long long QRandomGenerator_Bounded12(QRandomGenerator* self, unsigned long long lowest, unsigned int highest) {
+unsigned long long QRandomGenerator_Bounded13(QRandomGenerator* self, unsigned long long lowest, unsigned int highest) {
     return static_cast<unsigned long long>(self->bounded(static_cast<quint64>(lowest), static_cast<unsigned int>(highest)));
 }
 

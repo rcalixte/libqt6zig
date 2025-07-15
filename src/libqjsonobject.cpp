@@ -150,7 +150,7 @@ QJsonValue* QJsonObject_OperatorSubscript(const QJsonObject* self, const libqt_s
     return new QJsonValue(self->operator[](key_QString));
 }
 
-QJsonValueRef* QJsonObject_OperatorSubscriptWithKey(QJsonObject* self, const libqt_string key) {
+QJsonValueRef* QJsonObject_OperatorSubscript2(QJsonObject* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QJsonValueRef(self->operator[](key_QString));
 }

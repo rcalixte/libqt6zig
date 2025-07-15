@@ -186,7 +186,7 @@ void QSslSocket_SetLocalCertificate(QSslSocket* self, const QSslCertificate* cer
     self->setLocalCertificate(*certificate);
 }
 
-void QSslSocket_SetLocalCertificateWithFileName(QSslSocket* self, const libqt_string fileName) {
+void QSslSocket_SetLocalCertificate2(QSslSocket* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     self->setLocalCertificate(fileName_QString);
 }
@@ -237,7 +237,7 @@ void QSslSocket_SetPrivateKey(QSslSocket* self, const QSslKey* key) {
     self->setPrivateKey(*key);
 }
 
-void QSslSocket_SetPrivateKeyWithFileName(QSslSocket* self, const libqt_string fileName) {
+void QSslSocket_SetPrivateKey2(QSslSocket* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     self->setPrivateKey(fileName_QString);
 }
@@ -619,12 +619,12 @@ void QSslSocket_ConnectToHostEncrypted5(QSslSocket* self, const libqt_string hos
     self->connectToHostEncrypted(hostName_QString, static_cast<quint16>(port), sslPeerName_QString, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode), static_cast<QAbstractSocket::NetworkLayerProtocol>(protocol));
 }
 
-void QSslSocket_SetLocalCertificate2(QSslSocket* self, const libqt_string fileName, int format) {
+void QSslSocket_SetLocalCertificate22(QSslSocket* self, const libqt_string fileName, int format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     self->setLocalCertificate(fileName_QString, static_cast<QSsl::EncodingFormat>(format));
 }
 
-void QSslSocket_SetPrivateKey2(QSslSocket* self, const libqt_string fileName, int algorithm) {
+void QSslSocket_SetPrivateKey22(QSslSocket* self, const libqt_string fileName, int algorithm) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     self->setPrivateKey(fileName_QString, static_cast<QSsl::KeyAlgorithm>(algorithm));
 }

@@ -439,15 +439,15 @@ int QsciScintilla_MarkerDefine(QsciScintilla* self, int sym) {
     return self->markerDefine(static_cast<QsciScintilla::MarkerSymbol>(sym));
 }
 
-int QsciScintilla_MarkerDefineWithCh(QsciScintilla* self, char ch) {
+int QsciScintilla_MarkerDefine2(QsciScintilla* self, char ch) {
     return self->markerDefine(static_cast<char>(ch));
 }
 
-int QsciScintilla_MarkerDefineWithPm(QsciScintilla* self, const QPixmap* pm) {
+int QsciScintilla_MarkerDefine3(QsciScintilla* self, const QPixmap* pm) {
     return self->markerDefine(*pm);
 }
 
-int QsciScintilla_MarkerDefineWithIm(QsciScintilla* self, const QImage* im) {
+int QsciScintilla_MarkerDefine4(QsciScintilla* self, const QImage* im) {
     return self->markerDefine(*im);
 }
 
@@ -829,7 +829,7 @@ libqt_string QsciScintilla_Text(const QsciScintilla* self) {
     return _str;
 }
 
-libqt_string QsciScintilla_TextWithLine(const QsciScintilla* self, int line) {
+libqt_string QsciScintilla_Text2(const QsciScintilla* self, int line) {
     QString _ret = self->text(static_cast<int>(line));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -841,7 +841,7 @@ libqt_string QsciScintilla_TextWithLine(const QsciScintilla* self, int line) {
     return _str;
 }
 
-libqt_string QsciScintilla_Text2(const QsciScintilla* self, int start, int end) {
+libqt_string QsciScintilla_Text3(const QsciScintilla* self, int start, int end) {
     QString _ret = self->text(static_cast<int>(start), static_cast<int>(end));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -1096,19 +1096,19 @@ int QsciScintilla_IndicatorDefine2(QsciScintilla* self, int style, int indicator
     return self->indicatorDefine(static_cast<QsciScintilla::IndicatorStyle>(style), static_cast<int>(indicatorNumber));
 }
 
-int QsciScintilla_MarkerDefine2(QsciScintilla* self, int sym, int markerNumber) {
+int QsciScintilla_MarkerDefine22(QsciScintilla* self, int sym, int markerNumber) {
     return self->markerDefine(static_cast<QsciScintilla::MarkerSymbol>(sym), static_cast<int>(markerNumber));
 }
 
-int QsciScintilla_MarkerDefine22(QsciScintilla* self, char ch, int markerNumber) {
+int QsciScintilla_MarkerDefine23(QsciScintilla* self, char ch, int markerNumber) {
     return self->markerDefine(static_cast<char>(ch), static_cast<int>(markerNumber));
 }
 
-int QsciScintilla_MarkerDefine23(QsciScintilla* self, const QPixmap* pm, int markerNumber) {
+int QsciScintilla_MarkerDefine24(QsciScintilla* self, const QPixmap* pm, int markerNumber) {
     return self->markerDefine(*pm, static_cast<int>(markerNumber));
 }
 
-int QsciScintilla_MarkerDefine24(QsciScintilla* self, const QImage* im, int markerNumber) {
+int QsciScintilla_MarkerDefine25(QsciScintilla* self, const QImage* im, int markerNumber) {
     return self->markerDefine(*im, static_cast<int>(markerNumber));
 }
 

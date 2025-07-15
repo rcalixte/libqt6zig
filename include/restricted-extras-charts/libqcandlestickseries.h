@@ -40,8 +40,8 @@ int QCandlestickSeries_QBaseMetacall(QCandlestickSeries* self, int param1, int p
 libqt_string QCandlestickSeries_Tr(const char* s);
 bool QCandlestickSeries_Append(QCandlestickSeries* self, QCandlestickSet* set);
 bool QCandlestickSeries_Remove(QCandlestickSeries* self, QCandlestickSet* set);
-bool QCandlestickSeries_AppendWithSets(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
-bool QCandlestickSeries_RemoveWithSets(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
+bool QCandlestickSeries_Append2(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
+bool QCandlestickSeries_Remove2(QCandlestickSeries* self, const libqt_list /* of QCandlestickSet* */ sets);
 bool QCandlestickSeries_Insert(QCandlestickSeries* self, int index, QCandlestickSet* set);
 bool QCandlestickSeries_Take(QCandlestickSeries* self, QCandlestickSet* set);
 void QCandlestickSeries_Clear(QCandlestickSeries* self);

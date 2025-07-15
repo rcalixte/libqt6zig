@@ -403,11 +403,11 @@ QPointF* QWindow_MapFromGlobal(const QWindow* self, const QPointF* pos) {
     return new QPointF(self->mapFromGlobal(*pos));
 }
 
-QPoint* QWindow_MapToGlobalWithPos(const QWindow* self, const QPoint* pos) {
+QPoint* QWindow_MapToGlobal2(const QWindow* self, const QPoint* pos) {
     return new QPoint(self->mapToGlobal(*pos));
 }
 
-QPoint* QWindow_MapFromGlobalWithPos(const QWindow* self, const QPoint* pos) {
+QPoint* QWindow_MapFromGlobal2(const QWindow* self, const QPoint* pos) {
     return new QPoint(self->mapFromGlobal(*pos));
 }
 
@@ -504,7 +504,7 @@ void QWindow_SetGeometry(QWindow* self, int posx, int posy, int w, int h) {
     self->setGeometry(static_cast<int>(posx), static_cast<int>(posy), static_cast<int>(w), static_cast<int>(h));
 }
 
-void QWindow_SetGeometryWithRect(QWindow* self, const QRect* rect) {
+void QWindow_SetGeometry2(QWindow* self, const QRect* rect) {
     self->setGeometry(*rect);
 }
 

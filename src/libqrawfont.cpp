@@ -238,7 +238,7 @@ bool QRawFont_SupportsCharacter(const QRawFont* self, unsigned int ucs4) {
     return self->supportsCharacter(static_cast<uint>(ucs4));
 }
 
-bool QRawFont_SupportsCharacterWithCharacter(const QRawFont* self, QChar* character) {
+bool QRawFont_SupportsCharacter2(const QRawFont* self, QChar* character) {
     return self->supportsCharacter(*character);
 }
 
@@ -265,7 +265,7 @@ libqt_string QRawFont_FontTable(const QRawFont* self, const char* tagName) {
     return _str;
 }
 
-libqt_string QRawFont_FontTableWithTag(const QRawFont* self, QFont__Tag* tag) {
+libqt_string QRawFont_FontTable2(const QRawFont* self, QFont__Tag* tag) {
     QByteArray _qb = self->fontTable(*tag);
     libqt_string _str;
     _str.len = _qb.length();

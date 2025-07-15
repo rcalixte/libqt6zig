@@ -96,7 +96,7 @@ QJsonValueRef* QJsonArray_OperatorSubscript(QJsonArray* self, ptrdiff_t i) {
     return new QJsonValueRef(self->operator[]((qsizetype)(i)));
 }
 
-QJsonValue* QJsonArray_OperatorSubscriptWithQsizetype(const QJsonArray* self, ptrdiff_t i) {
+QJsonValue* QJsonArray_OperatorSubscript2(const QJsonArray* self, ptrdiff_t i) {
     return new QJsonValue(self->operator[]((qsizetype)(i)));
 }
 

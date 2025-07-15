@@ -78,19 +78,19 @@ pub const qfileinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#setFile)
     ///
     /// ``` self: QtC.QFileInfo, file: QtC.QFileDevice ```
-    pub fn SetFileWithFile(self: ?*anyopaque, file: ?*anyopaque) void {
-        qtc.QFileInfo_SetFileWithFile(@ptrCast(self), @ptrCast(file));
+    pub fn SetFile2(self: ?*anyopaque, file: ?*anyopaque) void {
+        qtc.QFileInfo_SetFile2(@ptrCast(self), @ptrCast(file));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#setFile)
     ///
     /// ``` self: QtC.QFileInfo, dir: QtC.QDir, file: []const u8 ```
-    pub fn SetFile2(self: ?*anyopaque, dir: ?*anyopaque, file: []const u8) void {
+    pub fn SetFile3(self: ?*anyopaque, dir: ?*anyopaque, file: []const u8) void {
         const file_str = qtc.struct_libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        qtc.QFileInfo_SetFile2(@ptrCast(self), @ptrCast(dir), file_str);
+        qtc.QFileInfo_SetFile3(@ptrCast(self), @ptrCast(dir), file_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#exists)
@@ -103,12 +103,12 @@ pub const qfileinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#exists)
     ///
     /// ``` file: []const u8 ```
-    pub fn ExistsWithFile(file: []const u8) bool {
+    pub fn Exists2(file: []const u8) bool {
         const file_str = qtc.struct_libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
-        return qtc.QFileInfo_ExistsWithFile(file_str);
+        return qtc.QFileInfo_Exists2(file_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#refresh)
@@ -511,29 +511,29 @@ pub const qfileinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#birthTime)
     ///
     /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
-    pub fn BirthTimeWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
-        return qtc.QFileInfo_BirthTimeWithTz(@ptrCast(self), @ptrCast(tz));
+    pub fn BirthTime2(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_BirthTime2(@ptrCast(self), @ptrCast(tz));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#metadataChangeTime)
     ///
     /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
-    pub fn MetadataChangeTimeWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
-        return qtc.QFileInfo_MetadataChangeTimeWithTz(@ptrCast(self), @ptrCast(tz));
+    pub fn MetadataChangeTime2(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_MetadataChangeTime2(@ptrCast(self), @ptrCast(tz));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#lastModified)
     ///
     /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
-    pub fn LastModifiedWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
-        return qtc.QFileInfo_LastModifiedWithTz(@ptrCast(self), @ptrCast(tz));
+    pub fn LastModified2(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_LastModified2(@ptrCast(self), @ptrCast(tz));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#lastRead)
     ///
     /// ``` self: QtC.QFileInfo, tz: QtC.QTimeZone ```
-    pub fn LastReadWithTz(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
-        return qtc.QFileInfo_LastReadWithTz(@ptrCast(self), @ptrCast(tz));
+    pub fn LastRead2(self: ?*anyopaque, tz: ?*anyopaque) QtC.QDateTime {
+        return qtc.QFileInfo_LastRead2(@ptrCast(self), @ptrCast(tz));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#fileTime)

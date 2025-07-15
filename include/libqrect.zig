@@ -314,8 +314,8 @@ pub const qrect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#translate)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
-    pub fn TranslateWithQPoint(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QRect_TranslateWithQPoint(@ptrCast(self), @ptrCast(p));
+    pub fn Translate2(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.QRect_Translate2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#translated)
@@ -328,8 +328,8 @@ pub const qrect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#translated)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
-    pub fn TranslatedWithQPoint(self: ?*anyopaque, p: ?*anyopaque) QtC.QRect {
-        return qtc.QRect_TranslatedWithQPoint(@ptrCast(self), @ptrCast(p));
+    pub fn Translated2(self: ?*anyopaque, p: ?*anyopaque) QtC.QRect {
+        return qtc.QRect_Translated2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#transposed)
@@ -349,8 +349,8 @@ pub const qrect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#moveTo)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
-    pub fn MoveToWithQPoint(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QRect_MoveToWithQPoint(@ptrCast(self), @ptrCast(p));
+    pub fn MoveTo2(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.QRect_MoveTo2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setRect)
@@ -475,22 +475,22 @@ pub const qrect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, p: QtC.QPoint ```
-    pub fn ContainsWithQPoint(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QRect_ContainsWithQPoint(@ptrCast(self), @ptrCast(p));
+    pub fn Contains2(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.QRect_Contains2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, x: i32, y: i32 ```
-    pub fn Contains2(self: ?*anyopaque, x: i32, y: i32) bool {
-        return qtc.QRect_Contains2(@ptrCast(self), @intCast(x), @intCast(y));
+    pub fn Contains3(self: ?*anyopaque, x: i32, y: i32) bool {
+        return qtc.QRect_Contains3(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#contains)
     ///
     /// ``` self: QtC.QRect, x: i32, y: i32, proper: bool ```
-    pub fn Contains3(self: ?*anyopaque, x: i32, y: i32, proper: bool) bool {
-        return qtc.QRect_Contains3(@ptrCast(self), @intCast(x), @intCast(y), proper);
+    pub fn Contains4(self: ?*anyopaque, x: i32, y: i32, proper: bool) bool {
+        return qtc.QRect_Contains4(@ptrCast(self), @intCast(x), @intCast(y), proper);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#united)
@@ -900,8 +900,8 @@ pub const qrectf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#translate)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
-    pub fn TranslateWithQPointF(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QRectF_TranslateWithQPointF(@ptrCast(self), @ptrCast(p));
+    pub fn Translate2(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.QRectF_Translate2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#translated)
@@ -914,8 +914,8 @@ pub const qrectf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#translated)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
-    pub fn TranslatedWithQPointF(self: ?*anyopaque, p: ?*anyopaque) QtC.QRectF {
-        return qtc.QRectF_TranslatedWithQPointF(@ptrCast(self), @ptrCast(p));
+    pub fn Translated2(self: ?*anyopaque, p: ?*anyopaque) QtC.QRectF {
+        return qtc.QRectF_Translated2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#transposed)
@@ -935,8 +935,8 @@ pub const qrectf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#moveTo)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
-    pub fn MoveToWithQPointF(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QRectF_MoveToWithQPointF(@ptrCast(self), @ptrCast(p));
+    pub fn MoveTo2(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.QRectF_MoveTo2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setRect)
@@ -1061,15 +1061,15 @@ pub const qrectf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#contains)
     ///
     /// ``` self: QtC.QRectF, p: QtC.QPointF ```
-    pub fn ContainsWithQPointF(self: ?*anyopaque, p: ?*anyopaque) bool {
-        return qtc.QRectF_ContainsWithQPointF(@ptrCast(self), @ptrCast(p));
+    pub fn Contains2(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.QRectF_Contains2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#contains)
     ///
     /// ``` self: QtC.QRectF, x: f64, y: f64 ```
-    pub fn Contains2(self: ?*anyopaque, x: f64, y: f64) bool {
-        return qtc.QRectF_Contains2(@ptrCast(self), @floatCast(x), @floatCast(y));
+    pub fn Contains3(self: ?*anyopaque, x: f64, y: f64) bool {
+        return qtc.QRectF_Contains3(@ptrCast(self), @floatCast(x), @floatCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#united)

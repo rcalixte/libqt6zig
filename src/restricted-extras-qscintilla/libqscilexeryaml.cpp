@@ -793,7 +793,7 @@ void QsciLexerYAML_OnPaper(const QsciLexerYAML* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerYAML_DefaultColorWithStyle(const QsciLexerYAML* self, int style) {
+QColor* QsciLexerYAML_DefaultColor2(const QsciLexerYAML* self, int style) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
         return new QColor(vqscilexeryaml->defaultColor(static_cast<int>(style)));
@@ -803,10 +803,10 @@ QColor* QsciLexerYAML_DefaultColorWithStyle(const QsciLexerYAML* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerYAML_QBaseDefaultColorWithStyle(const QsciLexerYAML* self, int style) {
+QColor* QsciLexerYAML_QBaseDefaultColor2(const QsciLexerYAML* self, int style) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultColorWithStyle_IsBase(true);
+        vqscilexeryaml->setQsciLexerYAML_DefaultColor2_IsBase(true);
         return new QColor(vqscilexeryaml->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerYAML*)self)->defaultColor(static_cast<int>(style)));
@@ -814,10 +814,10 @@ QColor* QsciLexerYAML_QBaseDefaultColorWithStyle(const QsciLexerYAML* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnDefaultColorWithStyle(const QsciLexerYAML* self, intptr_t slot) {
+void QsciLexerYAML_OnDefaultColor2(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultColorWithStyle_Callback>(slot));
+        vqscilexeryaml->setQsciLexerYAML_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -851,7 +851,7 @@ void QsciLexerYAML_OnDefaultEolFill(const QsciLexerYAML* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerYAML_DefaultFontWithStyle(const QsciLexerYAML* self, int style) {
+QFont* QsciLexerYAML_DefaultFont2(const QsciLexerYAML* self, int style) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
         return new QFont(vqscilexeryaml->defaultFont(static_cast<int>(style)));
@@ -861,10 +861,10 @@ QFont* QsciLexerYAML_DefaultFontWithStyle(const QsciLexerYAML* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerYAML_QBaseDefaultFontWithStyle(const QsciLexerYAML* self, int style) {
+QFont* QsciLexerYAML_QBaseDefaultFont2(const QsciLexerYAML* self, int style) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultFontWithStyle_IsBase(true);
+        vqscilexeryaml->setQsciLexerYAML_DefaultFont2_IsBase(true);
         return new QFont(vqscilexeryaml->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerYAML*)self)->defaultFont(static_cast<int>(style)));
@@ -872,15 +872,15 @@ QFont* QsciLexerYAML_QBaseDefaultFontWithStyle(const QsciLexerYAML* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnDefaultFontWithStyle(const QsciLexerYAML* self, intptr_t slot) {
+void QsciLexerYAML_OnDefaultFont2(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultFontWithStyle_Callback>(slot));
+        vqscilexeryaml->setQsciLexerYAML_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerYAML_DefaultPaperWithStyle(const QsciLexerYAML* self, int style) {
+QColor* QsciLexerYAML_DefaultPaper2(const QsciLexerYAML* self, int style) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
         return new QColor(vqscilexeryaml->defaultPaper(static_cast<int>(style)));
@@ -890,10 +890,10 @@ QColor* QsciLexerYAML_DefaultPaperWithStyle(const QsciLexerYAML* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerYAML_QBaseDefaultPaperWithStyle(const QsciLexerYAML* self, int style) {
+QColor* QsciLexerYAML_QBaseDefaultPaper2(const QsciLexerYAML* self, int style) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultPaperWithStyle_IsBase(true);
+        vqscilexeryaml->setQsciLexerYAML_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexeryaml->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerYAML*)self)->defaultPaper(static_cast<int>(style)));
@@ -901,10 +901,10 @@ QColor* QsciLexerYAML_QBaseDefaultPaperWithStyle(const QsciLexerYAML* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerYAML_OnDefaultPaperWithStyle(const QsciLexerYAML* self, intptr_t slot) {
+void QsciLexerYAML_OnDefaultPaper2(const QsciLexerYAML* self, intptr_t slot) {
     auto* vqscilexeryaml = const_cast<VirtualQsciLexerYAML*>(dynamic_cast<const VirtualQsciLexerYAML*>(self));
     if (vqscilexeryaml && vqscilexeryaml->isVirtualQsciLexerYAML) {
-        vqscilexeryaml->setQsciLexerYAML_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexeryaml->setQsciLexerYAML_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerYAML::QsciLexerYAML_DefaultPaper2_Callback>(slot));
     }
 }
 

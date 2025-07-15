@@ -78,13 +78,13 @@ QPoint* QPoint_OperatorMultiplyAssign(QPoint* self, float factor) {
     return &_ret;
 }
 
-QPoint* QPoint_OperatorMultiplyAssignWithFactor(QPoint* self, double factor) {
+QPoint* QPoint_OperatorMultiplyAssign2(QPoint* self, double factor) {
     QPoint& _ret = self->operator*=(static_cast<double>(factor));
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QPoint* QPoint_OperatorMultiplyAssign2(QPoint* self, int factor) {
+QPoint* QPoint_OperatorMultiplyAssign3(QPoint* self, int factor) {
     QPoint& _ret = self->operator*=(static_cast<int>(factor));
     // Cast returned reference into pointer
     return &_ret;

@@ -33,7 +33,7 @@ QIODevice* QTextDocumentWriter_Device(const QTextDocumentWriter* self);
 void QTextDocumentWriter_SetFileName(QTextDocumentWriter* self, const libqt_string fileName);
 libqt_string QTextDocumentWriter_FileName(const QTextDocumentWriter* self);
 bool QTextDocumentWriter_Write(QTextDocumentWriter* self, const QTextDocument* document);
-bool QTextDocumentWriter_WriteWithFragment(QTextDocumentWriter* self, const QTextDocumentFragment* fragment);
+bool QTextDocumentWriter_Write2(QTextDocumentWriter* self, const QTextDocumentFragment* fragment);
 libqt_list /* of libqt_string */ QTextDocumentWriter_SupportedDocumentFormats();
 void QTextDocumentWriter_Delete(QTextDocumentWriter* self);
 

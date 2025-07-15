@@ -78,30 +78,30 @@ pub const qnetworkrequestfactory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#createRequest)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, query: QtC.QUrlQuery ```
-    pub fn CreateRequestWithQuery(self: ?*anyopaque, query: ?*anyopaque) QtC.QNetworkRequest {
-        return qtc.QNetworkRequestFactory_CreateRequestWithQuery(@ptrCast(self), @ptrCast(query));
+    pub fn CreateRequest2(self: ?*anyopaque, query: ?*anyopaque) QtC.QNetworkRequest {
+        return qtc.QNetworkRequestFactory_CreateRequest2(@ptrCast(self), @ptrCast(query));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#createRequest)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, path: []const u8 ```
-    pub fn CreateRequestWithPath(self: ?*anyopaque, path: []const u8) QtC.QNetworkRequest {
+    pub fn CreateRequest3(self: ?*anyopaque, path: []const u8) QtC.QNetworkRequest {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QNetworkRequestFactory_CreateRequestWithPath(@ptrCast(self), path_str);
+        return qtc.QNetworkRequestFactory_CreateRequest3(@ptrCast(self), path_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#createRequest)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, path: []const u8, query: QtC.QUrlQuery ```
-    pub fn CreateRequest2(self: ?*anyopaque, path: []const u8, query: ?*anyopaque) QtC.QNetworkRequest {
+    pub fn CreateRequest4(self: ?*anyopaque, path: []const u8, query: ?*anyopaque) QtC.QNetworkRequest {
         const path_str = qtc.struct_libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        return qtc.QNetworkRequestFactory_CreateRequest2(@ptrCast(self), path_str, @ptrCast(query));
+        return qtc.QNetworkRequestFactory_CreateRequest4(@ptrCast(self), path_str, @ptrCast(query));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#setCommonHeaders)

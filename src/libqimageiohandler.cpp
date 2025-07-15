@@ -33,7 +33,7 @@ void QImageIOHandler_SetFormat(QImageIOHandler* self, const libqt_string format)
     self->setFormat(format_QByteArray);
 }
 
-void QImageIOHandler_SetFormatWithFormat(const QImageIOHandler* self, const libqt_string format) {
+void QImageIOHandler_SetFormat2(const QImageIOHandler* self, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
     self->setFormat(format_QByteArray);
 }

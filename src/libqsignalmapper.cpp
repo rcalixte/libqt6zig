@@ -89,12 +89,12 @@ QObject* QSignalMapper_Mapping(const QSignalMapper* self, int id) {
     return self->mapping(static_cast<int>(id));
 }
 
-QObject* QSignalMapper_MappingWithText(const QSignalMapper* self, const libqt_string text) {
+QObject* QSignalMapper_Mapping2(const QSignalMapper* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     return self->mapping(text_QString);
 }
 
-QObject* QSignalMapper_MappingWithObject(const QSignalMapper* self, QObject* object) {
+QObject* QSignalMapper_Mapping3(const QSignalMapper* self, QObject* object) {
     return self->mapping(object);
 }
 
@@ -147,7 +147,7 @@ void QSignalMapper_Map(QSignalMapper* self) {
     self->map();
 }
 
-void QSignalMapper_MapWithSender(QSignalMapper* self, QObject* sender) {
+void QSignalMapper_Map2(QSignalMapper* self, QObject* sender) {
     self->map(sender);
 }
 

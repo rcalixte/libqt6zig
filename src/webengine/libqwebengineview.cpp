@@ -141,7 +141,7 @@ void QWebEngineView_Load(QWebEngineView* self, const QUrl* url) {
     self->load(*url);
 }
 
-void QWebEngineView_LoadWithRequest(QWebEngineView* self, const QWebEngineHttpRequest* request) {
+void QWebEngineView_Load2(QWebEngineView* self, const QWebEngineHttpRequest* request) {
     self->load(*request);
 }
 

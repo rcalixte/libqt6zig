@@ -221,11 +221,11 @@ void QTextCursor_InsertBlock(QTextCursor* self) {
     self->insertBlock();
 }
 
-void QTextCursor_InsertBlockWithFormat(QTextCursor* self, const QTextBlockFormat* format) {
+void QTextCursor_InsertBlock2(QTextCursor* self, const QTextBlockFormat* format) {
     self->insertBlock(*format);
 }
 
-void QTextCursor_InsertBlock2(QTextCursor* self, const QTextBlockFormat* format, const QTextCharFormat* charFormat) {
+void QTextCursor_InsertBlock3(QTextCursor* self, const QTextBlockFormat* format, const QTextCharFormat* charFormat) {
     self->insertBlock(*format, *charFormat);
 }
 
@@ -233,7 +233,7 @@ QTextList* QTextCursor_InsertList(QTextCursor* self, const QTextListFormat* form
     return self->insertList(*format);
 }
 
-QTextList* QTextCursor_InsertListWithStyle(QTextCursor* self, int style) {
+QTextList* QTextCursor_InsertList2(QTextCursor* self, int style) {
     return self->insertList(static_cast<QTextListFormat::Style>(style));
 }
 
@@ -241,7 +241,7 @@ QTextList* QTextCursor_CreateList(QTextCursor* self, const QTextListFormat* form
     return self->createList(*format);
 }
 
-QTextList* QTextCursor_CreateListWithStyle(QTextCursor* self, int style) {
+QTextList* QTextCursor_CreateList2(QTextCursor* self, int style) {
     return self->createList(static_cast<QTextListFormat::Style>(style));
 }
 
@@ -287,16 +287,16 @@ void QTextCursor_InsertImage(QTextCursor* self, const QTextImageFormat* format, 
     self->insertImage(*format, static_cast<QTextFrameFormat::Position>(alignment));
 }
 
-void QTextCursor_InsertImageWithFormat(QTextCursor* self, const QTextImageFormat* format) {
+void QTextCursor_InsertImage2(QTextCursor* self, const QTextImageFormat* format) {
     self->insertImage(*format);
 }
 
-void QTextCursor_InsertImageWithName(QTextCursor* self, const libqt_string name) {
+void QTextCursor_InsertImage3(QTextCursor* self, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->insertImage(name_QString);
 }
 
-void QTextCursor_InsertImageWithImage(QTextCursor* self, const QImage* image) {
+void QTextCursor_InsertImage4(QTextCursor* self, const QImage* image) {
     self->insertImage(*image);
 }
 
@@ -369,7 +369,7 @@ void QTextCursor_InsertMarkdown2(QTextCursor* self, const libqt_string markdown,
     self->insertMarkdown(markdown_QString, static_cast<QTextDocument::MarkdownFeatures>(features));
 }
 
-void QTextCursor_InsertImage2(QTextCursor* self, const QImage* image, const libqt_string name) {
+void QTextCursor_InsertImage22(QTextCursor* self, const QImage* image, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     self->insertImage(*image, name_QString);
 }

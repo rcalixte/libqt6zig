@@ -35,7 +35,7 @@ void QFileSelector_OnMetacall(QFileSelector* self, intptr_t slot);
 int QFileSelector_QBaseMetacall(QFileSelector* self, int param1, int param2, void** param3);
 libqt_string QFileSelector_Tr(const char* s);
 libqt_string QFileSelector_Select(const QFileSelector* self, const libqt_string filePath);
-QUrl* QFileSelector_SelectWithFilePath(const QFileSelector* self, const QUrl* filePath);
+QUrl* QFileSelector_Select2(const QFileSelector* self, const QUrl* filePath);
 libqt_list /* of libqt_string */ QFileSelector_ExtraSelectors(const QFileSelector* self);
 void QFileSelector_SetExtraSelectors(QFileSelector* self, const libqt_list /* of libqt_string */ list);
 libqt_list /* of libqt_string */ QFileSelector_AllSelectors(const QFileSelector* self);

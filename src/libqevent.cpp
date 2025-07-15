@@ -3287,11 +3287,11 @@ void QDragMoveEvent_Ignore(QDragMoveEvent* self) {
     self->ignore();
 }
 
-void QDragMoveEvent_AcceptWithQRect(QDragMoveEvent* self, const QRect* r) {
+void QDragMoveEvent_Accept2(QDragMoveEvent* self, const QRect* r) {
     self->accept(*r);
 }
 
-void QDragMoveEvent_IgnoreWithQRect(QDragMoveEvent* self, const QRect* r) {
+void QDragMoveEvent_Ignore2(QDragMoveEvent* self, const QRect* r) {
     self->ignore(*r);
 }
 

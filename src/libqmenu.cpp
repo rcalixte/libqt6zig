@@ -114,12 +114,12 @@ QAction* QMenu_AddMenu(QMenu* self, QMenu* menu) {
     return self->addMenu(menu);
 }
 
-QMenu* QMenu_AddMenuWithTitle(QMenu* self, const libqt_string title) {
+QMenu* QMenu_AddMenu2(QMenu* self, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return self->addMenu(title_QString);
 }
 
-QMenu* QMenu_AddMenu2(QMenu* self, const QIcon* icon, const libqt_string title) {
+QMenu* QMenu_AddMenu3(QMenu* self, const QIcon* icon, const libqt_string title) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     return self->addMenu(*icon, title_QString);
 }
@@ -180,7 +180,7 @@ void QMenu_ShowTearOffMenu(QMenu* self) {
     self->showTearOffMenu();
 }
 
-void QMenu_ShowTearOffMenuWithPos(QMenu* self, const QPoint* pos) {
+void QMenu_ShowTearOffMenu2(QMenu* self, const QPoint* pos) {
     self->showTearOffMenu(*pos);
 }
 
@@ -212,11 +212,11 @@ QAction* QMenu_Exec(QMenu* self) {
     return self->exec();
 }
 
-QAction* QMenu_ExecWithPos(QMenu* self, const QPoint* pos) {
+QAction* QMenu_Exec2(QMenu* self, const QPoint* pos) {
     return self->exec(*pos);
 }
 
-QAction* QMenu_Exec2(const libqt_list /* of QAction* */ actions, const QPoint* pos) {
+QAction* QMenu_Exec3(const libqt_list /* of QAction* */ actions, const QPoint* pos) {
     QList<QAction*> actions_QList;
     actions_QList.reserve(actions.len);
     QAction** actions_arr = static_cast<QAction**>(actions.data);
@@ -365,7 +365,7 @@ QAction* QMenu_Exec22(QMenu* self, const QPoint* pos, QAction* at) {
     return self->exec(*pos, at);
 }
 
-QAction* QMenu_Exec3(const libqt_list /* of QAction* */ actions, const QPoint* pos, QAction* at) {
+QAction* QMenu_Exec32(const libqt_list /* of QAction* */ actions, const QPoint* pos, QAction* at) {
     QList<QAction*> actions_QList;
     actions_QList.reserve(actions.len);
     QAction** actions_arr = static_cast<QAction**>(actions.data);

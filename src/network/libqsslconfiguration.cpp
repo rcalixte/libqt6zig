@@ -153,7 +153,7 @@ void QSslConfiguration_SetCiphers(QSslConfiguration* self, const libqt_list /* o
     self->setCiphers(ciphers_QList);
 }
 
-void QSslConfiguration_SetCiphersWithCiphers(QSslConfiguration* self, const libqt_string ciphers) {
+void QSslConfiguration_SetCiphers2(QSslConfiguration* self, const libqt_string ciphers) {
     QString ciphers_QString = QString::fromUtf8(ciphers.data, ciphers.len);
     self->setCiphers(ciphers_QString);
 }
@@ -203,7 +203,7 @@ void QSslConfiguration_AddCaCertificate(QSslConfiguration* self, const QSslCerti
     self->addCaCertificate(*certificate);
 }
 
-void QSslConfiguration_AddCaCertificatesWithCertificates(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ certificates) {
+void QSslConfiguration_AddCaCertificates2(QSslConfiguration* self, const libqt_list /* of QSslCertificate* */ certificates) {
     QList<QSslCertificate> certificates_QList;
     certificates_QList.reserve(certificates.len);
     QSslCertificate** certificates_arr = static_cast<QSslCertificate**>(certificates.data);
@@ -417,7 +417,7 @@ int QSslConfiguration_NextProtocolNegotiationStatus(const QSslConfiguration* sel
     return static_cast<int>(self->nextProtocolNegotiationStatus());
 }
 
-bool QSslConfiguration_AddCaCertificates2(QSslConfiguration* self, const libqt_string path, int format) {
+bool QSslConfiguration_AddCaCertificates22(QSslConfiguration* self, const libqt_string path, int format) {
     QString path_QString = QString::fromUtf8(path.data, path.len);
     return self->addCaCertificates(path_QString, static_cast<QSsl::EncodingFormat>(format));
 }

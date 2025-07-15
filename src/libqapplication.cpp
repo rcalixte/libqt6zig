@@ -85,7 +85,7 @@ void QApplication_SetStyle(QStyle* style) {
     QApplication::setStyle(style);
 }
 
-QStyle* QApplication_SetStyleWithStyle(const libqt_string style) {
+QStyle* QApplication_SetStyle2(const libqt_string style) {
     QString style_QString = QString::fromUtf8(style.data, style.len);
     return QApplication::setStyle(style_QString);
 }
@@ -94,7 +94,7 @@ QPalette* QApplication_Palette(const QWidget* param1) {
     return new QPalette(QApplication::palette(param1));
 }
 
-QPalette* QApplication_PaletteWithClassName(const char* className) {
+QPalette* QApplication_Palette2(const char* className) {
     return new QPalette(QApplication::palette(className));
 }
 
@@ -106,11 +106,11 @@ QFont* QApplication_Font() {
     return new QFont(QApplication::font());
 }
 
-QFont* QApplication_FontWithQWidget(const QWidget* param1) {
+QFont* QApplication_Font2(const QWidget* param1) {
     return new QFont(QApplication::font(param1));
 }
 
-QFont* QApplication_FontWithClassName(const char* className) {
+QFont* QApplication_Font3(const char* className) {
     return new QFont(QApplication::font(className));
 }
 

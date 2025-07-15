@@ -31,8 +31,8 @@ void QBasicMutex_Delete(QBasicMutex* self);
 
 QMutex* QMutex_new();
 bool QMutex_TryLock(QMutex* self);
-bool QMutex_TryLockWithTimeout(QMutex* self, int timeout);
-bool QMutex_TryLock2(QMutex* self, QDeadlineTimer* timeout);
+bool QMutex_TryLock2(QMutex* self, int timeout);
+bool QMutex_TryLock3(QMutex* self, QDeadlineTimer* timeout);
 void QMutex_Delete(QMutex* self);
 
 QRecursiveMutex* QRecursiveMutex_new();

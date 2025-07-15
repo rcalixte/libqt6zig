@@ -509,7 +509,7 @@ void QCommonStyle_OnPolish(QCommonStyle* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QCommonStyle_PolishWithApp(QCommonStyle* self, QApplication* app) {
+void QCommonStyle_Polish2(QCommonStyle* self, QApplication* app) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->polish(app);
@@ -519,10 +519,10 @@ void QCommonStyle_PolishWithApp(QCommonStyle* self, QApplication* app) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBasePolishWithApp(QCommonStyle* self, QApplication* app) {
+void QCommonStyle_QBasePolish2(QCommonStyle* self, QApplication* app) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        vqcommonstyle->setQCommonStyle_PolishWithApp_IsBase(true);
+        vqcommonstyle->setQCommonStyle_Polish2_IsBase(true);
         vqcommonstyle->polish(app);
     } else {
         self->QCommonStyle::polish(app);
@@ -530,15 +530,15 @@ void QCommonStyle_QBasePolishWithApp(QCommonStyle* self, QApplication* app) {
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCommonStyle_OnPolishWithApp(QCommonStyle* self, intptr_t slot) {
+void QCommonStyle_OnPolish2(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        vqcommonstyle->setQCommonStyle_PolishWithApp_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_PolishWithApp_Callback>(slot));
+        vqcommonstyle->setQCommonStyle_Polish2_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Polish2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-void QCommonStyle_PolishWithWidget(QCommonStyle* self, QWidget* widget) {
+void QCommonStyle_Polish3(QCommonStyle* self, QWidget* widget) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->polish(widget);
@@ -548,10 +548,10 @@ void QCommonStyle_PolishWithWidget(QCommonStyle* self, QWidget* widget) {
 }
 
 // Base class handler implementation
-void QCommonStyle_QBasePolishWithWidget(QCommonStyle* self, QWidget* widget) {
+void QCommonStyle_QBasePolish3(QCommonStyle* self, QWidget* widget) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        vqcommonstyle->setQCommonStyle_PolishWithWidget_IsBase(true);
+        vqcommonstyle->setQCommonStyle_Polish3_IsBase(true);
         vqcommonstyle->polish(widget);
     } else {
         self->QCommonStyle::polish(widget);
@@ -559,10 +559,10 @@ void QCommonStyle_QBasePolishWithWidget(QCommonStyle* self, QWidget* widget) {
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCommonStyle_OnPolishWithWidget(QCommonStyle* self, intptr_t slot) {
+void QCommonStyle_OnPolish3(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        vqcommonstyle->setQCommonStyle_PolishWithWidget_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_PolishWithWidget_Callback>(slot));
+        vqcommonstyle->setQCommonStyle_Polish3_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Polish3_Callback>(slot));
     }
 }
 
@@ -596,7 +596,7 @@ void QCommonStyle_OnUnpolish(QCommonStyle* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-void QCommonStyle_UnpolishWithApplication(QCommonStyle* self, QApplication* application) {
+void QCommonStyle_Unpolish2(QCommonStyle* self, QApplication* application) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
         vqcommonstyle->unpolish(application);
@@ -606,10 +606,10 @@ void QCommonStyle_UnpolishWithApplication(QCommonStyle* self, QApplication* appl
 }
 
 // Base class handler implementation
-void QCommonStyle_QBaseUnpolishWithApplication(QCommonStyle* self, QApplication* application) {
+void QCommonStyle_QBaseUnpolish2(QCommonStyle* self, QApplication* application) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        vqcommonstyle->setQCommonStyle_UnpolishWithApplication_IsBase(true);
+        vqcommonstyle->setQCommonStyle_Unpolish2_IsBase(true);
         vqcommonstyle->unpolish(application);
     } else {
         self->QCommonStyle::unpolish(application);
@@ -617,10 +617,10 @@ void QCommonStyle_QBaseUnpolishWithApplication(QCommonStyle* self, QApplication*
 }
 
 // Auxiliary method to allow providing re-implementation
-void QCommonStyle_OnUnpolishWithApplication(QCommonStyle* self, intptr_t slot) {
+void QCommonStyle_OnUnpolish2(QCommonStyle* self, intptr_t slot) {
     auto* vqcommonstyle = dynamic_cast<VirtualQCommonStyle*>(self);
     if (vqcommonstyle && vqcommonstyle->isVirtualQCommonStyle) {
-        vqcommonstyle->setQCommonStyle_UnpolishWithApplication_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_UnpolishWithApplication_Callback>(slot));
+        vqcommonstyle->setQCommonStyle_Unpolish2_Callback(reinterpret_cast<VirtualQCommonStyle::QCommonStyle_Unpolish2_Callback>(slot));
     }
 }
 

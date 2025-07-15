@@ -358,8 +358,8 @@ pub const qimagereader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#read)
     ///
     /// ``` self: QtC.QImageReader, image: QtC.QImage ```
-    pub fn ReadWithImage(self: ?*anyopaque, image: ?*anyopaque) bool {
-        return qtc.QImageReader_ReadWithImage(@ptrCast(self), @ptrCast(image));
+    pub fn Read2(self: ?*anyopaque, image: ?*anyopaque) bool {
+        return qtc.QImageReader_Read2(@ptrCast(self), @ptrCast(image));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#jumpToNextImage)
@@ -439,14 +439,14 @@ pub const qimagereader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
     ///
     /// ``` fileName: []const u8, allocator: std.mem.Allocator ```
-    pub fn ImageFormatWithFileName(fileName: []const u8, allocator: std.mem.Allocator) []u8 {
+    pub fn ImageFormat2(fileName: []const u8, allocator: std.mem.Allocator) []u8 {
         const fileName_str = qtc.struct_libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QImageReader_ImageFormatWithFileName(fileName_str);
+        const _bytearray: qtc.struct_libqt_string = qtc.QImageReader_ImageFormat2(fileName_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.ImageFormatWithFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.ImageFormat2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -454,10 +454,10 @@ pub const qimagereader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#imageFormat)
     ///
     /// ``` device: QtC.QIODevice, allocator: std.mem.Allocator ```
-    pub fn ImageFormatWithDevice(device: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QImageReader_ImageFormatWithDevice(@ptrCast(device));
+    pub fn ImageFormat3(device: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        const _bytearray: qtc.struct_libqt_string = qtc.QImageReader_ImageFormat3(@ptrCast(device));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.ImageFormatWithDevice: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.ImageFormat3: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

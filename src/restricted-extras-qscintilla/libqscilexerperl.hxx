@@ -40,10 +40,10 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
     using QsciLexerPerl_DefaultStyle_Callback = int (*)();
     using QsciLexerPerl_Description_Callback = libqt_string (*)(const QsciLexerPerl*, int);
     using QsciLexerPerl_Paper_Callback = QColor* (*)(const QsciLexerPerl*, int);
-    using QsciLexerPerl_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerPerl*, int);
+    using QsciLexerPerl_DefaultColor2_Callback = QColor* (*)(const QsciLexerPerl*, int);
     using QsciLexerPerl_DefaultEolFill_Callback = bool (*)(const QsciLexerPerl*, int);
-    using QsciLexerPerl_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerPerl*, int);
-    using QsciLexerPerl_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerPerl*, int);
+    using QsciLexerPerl_DefaultFont2_Callback = QFont* (*)(const QsciLexerPerl*, int);
+    using QsciLexerPerl_DefaultPaper2_Callback = QColor* (*)(const QsciLexerPerl*, int);
     using QsciLexerPerl_SetEditor_Callback = void (*)(QsciLexerPerl*, QsciScintilla*);
     using QsciLexerPerl_RefreshProperties_Callback = void (*)();
     using QsciLexerPerl_StyleBitsNeeded_Callback = int (*)();
@@ -93,10 +93,10 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
     QsciLexerPerl_DefaultStyle_Callback qscilexerperl_defaultstyle_callback = nullptr;
     QsciLexerPerl_Description_Callback qscilexerperl_description_callback = nullptr;
     QsciLexerPerl_Paper_Callback qscilexerperl_paper_callback = nullptr;
-    QsciLexerPerl_DefaultColorWithStyle_Callback qscilexerperl_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerPerl_DefaultColor2_Callback qscilexerperl_defaultcolor2_callback = nullptr;
     QsciLexerPerl_DefaultEolFill_Callback qscilexerperl_defaulteolfill_callback = nullptr;
-    QsciLexerPerl_DefaultFontWithStyle_Callback qscilexerperl_defaultfontwithstyle_callback = nullptr;
-    QsciLexerPerl_DefaultPaperWithStyle_Callback qscilexerperl_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerPerl_DefaultFont2_Callback qscilexerperl_defaultfont2_callback = nullptr;
+    QsciLexerPerl_DefaultPaper2_Callback qscilexerperl_defaultpaper2_callback = nullptr;
     QsciLexerPerl_SetEditor_Callback qscilexerperl_seteditor_callback = nullptr;
     QsciLexerPerl_RefreshProperties_Callback qscilexerperl_refreshproperties_callback = nullptr;
     QsciLexerPerl_StyleBitsNeeded_Callback qscilexerperl_stylebitsneeded_callback = nullptr;
@@ -145,10 +145,10 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
     mutable bool qscilexerperl_defaultstyle_isbase = false;
     mutable bool qscilexerperl_description_isbase = false;
     mutable bool qscilexerperl_paper_isbase = false;
-    mutable bool qscilexerperl_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerperl_defaultcolor2_isbase = false;
     mutable bool qscilexerperl_defaulteolfill_isbase = false;
-    mutable bool qscilexerperl_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerperl_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerperl_defaultfont2_isbase = false;
+    mutable bool qscilexerperl_defaultpaper2_isbase = false;
     mutable bool qscilexerperl_seteditor_isbase = false;
     mutable bool qscilexerperl_refreshproperties_isbase = false;
     mutable bool qscilexerperl_stylebitsneeded_isbase = false;
@@ -201,10 +201,10 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
         qscilexerperl_defaultstyle_callback = nullptr;
         qscilexerperl_description_callback = nullptr;
         qscilexerperl_paper_callback = nullptr;
-        qscilexerperl_defaultcolorwithstyle_callback = nullptr;
+        qscilexerperl_defaultcolor2_callback = nullptr;
         qscilexerperl_defaulteolfill_callback = nullptr;
-        qscilexerperl_defaultfontwithstyle_callback = nullptr;
-        qscilexerperl_defaultpaperwithstyle_callback = nullptr;
+        qscilexerperl_defaultfont2_callback = nullptr;
+        qscilexerperl_defaultpaper2_callback = nullptr;
         qscilexerperl_seteditor_callback = nullptr;
         qscilexerperl_refreshproperties_callback = nullptr;
         qscilexerperl_stylebitsneeded_callback = nullptr;
@@ -254,10 +254,10 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
     inline void setQsciLexerPerl_DefaultStyle_Callback(QsciLexerPerl_DefaultStyle_Callback cb) { qscilexerperl_defaultstyle_callback = cb; }
     inline void setQsciLexerPerl_Description_Callback(QsciLexerPerl_Description_Callback cb) { qscilexerperl_description_callback = cb; }
     inline void setQsciLexerPerl_Paper_Callback(QsciLexerPerl_Paper_Callback cb) { qscilexerperl_paper_callback = cb; }
-    inline void setQsciLexerPerl_DefaultColorWithStyle_Callback(QsciLexerPerl_DefaultColorWithStyle_Callback cb) { qscilexerperl_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerPerl_DefaultColor2_Callback(QsciLexerPerl_DefaultColor2_Callback cb) { qscilexerperl_defaultcolor2_callback = cb; }
     inline void setQsciLexerPerl_DefaultEolFill_Callback(QsciLexerPerl_DefaultEolFill_Callback cb) { qscilexerperl_defaulteolfill_callback = cb; }
-    inline void setQsciLexerPerl_DefaultFontWithStyle_Callback(QsciLexerPerl_DefaultFontWithStyle_Callback cb) { qscilexerperl_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerPerl_DefaultPaperWithStyle_Callback(QsciLexerPerl_DefaultPaperWithStyle_Callback cb) { qscilexerperl_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerPerl_DefaultFont2_Callback(QsciLexerPerl_DefaultFont2_Callback cb) { qscilexerperl_defaultfont2_callback = cb; }
+    inline void setQsciLexerPerl_DefaultPaper2_Callback(QsciLexerPerl_DefaultPaper2_Callback cb) { qscilexerperl_defaultpaper2_callback = cb; }
     inline void setQsciLexerPerl_SetEditor_Callback(QsciLexerPerl_SetEditor_Callback cb) { qscilexerperl_seteditor_callback = cb; }
     inline void setQsciLexerPerl_RefreshProperties_Callback(QsciLexerPerl_RefreshProperties_Callback cb) { qscilexerperl_refreshproperties_callback = cb; }
     inline void setQsciLexerPerl_StyleBitsNeeded_Callback(QsciLexerPerl_StyleBitsNeeded_Callback cb) { qscilexerperl_stylebitsneeded_callback = cb; }
@@ -306,10 +306,10 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
     inline void setQsciLexerPerl_DefaultStyle_IsBase(bool value) const { qscilexerperl_defaultstyle_isbase = value; }
     inline void setQsciLexerPerl_Description_IsBase(bool value) const { qscilexerperl_description_isbase = value; }
     inline void setQsciLexerPerl_Paper_IsBase(bool value) const { qscilexerperl_paper_isbase = value; }
-    inline void setQsciLexerPerl_DefaultColorWithStyle_IsBase(bool value) const { qscilexerperl_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerPerl_DefaultColor2_IsBase(bool value) const { qscilexerperl_defaultcolor2_isbase = value; }
     inline void setQsciLexerPerl_DefaultEolFill_IsBase(bool value) const { qscilexerperl_defaulteolfill_isbase = value; }
-    inline void setQsciLexerPerl_DefaultFontWithStyle_IsBase(bool value) const { qscilexerperl_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerPerl_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerperl_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerPerl_DefaultFont2_IsBase(bool value) const { qscilexerperl_defaultfont2_isbase = value; }
+    inline void setQsciLexerPerl_DefaultPaper2_IsBase(bool value) const { qscilexerperl_defaultpaper2_isbase = value; }
     inline void setQsciLexerPerl_SetEditor_IsBase(bool value) const { qscilexerperl_seteditor_isbase = value; }
     inline void setQsciLexerPerl_RefreshProperties_IsBase(bool value) const { qscilexerperl_refreshproperties_isbase = value; }
     inline void setQsciLexerPerl_StyleBitsNeeded_IsBase(bool value) const { qscilexerperl_stylebitsneeded_isbase = value; }
@@ -649,13 +649,13 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerperl_defaultcolorwithstyle_isbase) {
-            qscilexerperl_defaultcolorwithstyle_isbase = false;
+        if (qscilexerperl_defaultcolor2_isbase) {
+            qscilexerperl_defaultcolor2_isbase = false;
             return QsciLexerPerl::defaultColor(style);
-        } else if (qscilexerperl_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerperl_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerperl_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerperl_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPerl::defaultColor(style);
@@ -679,13 +679,13 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerperl_defaultfontwithstyle_isbase) {
-            qscilexerperl_defaultfontwithstyle_isbase = false;
+        if (qscilexerperl_defaultfont2_isbase) {
+            qscilexerperl_defaultfont2_isbase = false;
             return QsciLexerPerl::defaultFont(style);
-        } else if (qscilexerperl_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerperl_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerperl_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerperl_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPerl::defaultFont(style);
@@ -694,13 +694,13 @@ class VirtualQsciLexerPerl final : public QsciLexerPerl {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerperl_defaultpaperwithstyle_isbase) {
-            qscilexerperl_defaultpaperwithstyle_isbase = false;
+        if (qscilexerperl_defaultpaper2_isbase) {
+            qscilexerperl_defaultpaper2_isbase = false;
             return QsciLexerPerl::defaultPaper(style);
-        } else if (qscilexerperl_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerperl_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerperl_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerperl_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerPerl::defaultPaper(style);

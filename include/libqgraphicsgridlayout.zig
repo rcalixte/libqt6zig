@@ -313,8 +313,8 @@ pub const qgraphicsgridlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#itemAt)
     ///
     /// ``` self: QtC.QGraphicsGridLayout, index: i32 ```
-    pub fn ItemAtWithIndex(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsGridLayout_ItemAtWithIndex(@ptrCast(self), @intCast(index));
+    pub fn ItemAt2(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
+        return qtc.QGraphicsGridLayout_ItemAt2(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#itemAt)
@@ -322,8 +322,8 @@ pub const qgraphicsgridlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsGridLayout, slot: fn (self: QtC.QGraphicsGridLayout, index: i32) callconv(.c) QtC.QGraphicsLayoutItem ```
-    pub fn OnItemAtWithIndex(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QGraphicsLayoutItem) void {
-        qtc.QGraphicsGridLayout_OnItemAtWithIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnItemAt2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QGraphicsLayoutItem) void {
+        qtc.QGraphicsGridLayout_OnItemAt2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#itemAt)
@@ -331,8 +331,8 @@ pub const qgraphicsgridlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsGridLayout, index: i32 ```
-    pub fn QBaseItemAtWithIndex(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
-        return qtc.QGraphicsGridLayout_QBaseItemAtWithIndex(@ptrCast(self), @intCast(index));
+    pub fn QBaseItemAt2(self: ?*anyopaque, index: i32) QtC.QGraphicsLayoutItem {
+        return qtc.QGraphicsGridLayout_QBaseItemAt2(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsgridlayout.html#removeAt)

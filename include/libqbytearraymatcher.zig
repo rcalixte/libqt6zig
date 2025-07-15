@@ -84,8 +84,8 @@ pub const qbytearraymatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#indexIn)
     ///
     /// ``` self: QtC.QByteArrayMatcher, data: []const u8 ```
-    pub fn IndexInWithData(self: ?*anyopaque, data: []const u8) i64 {
-        return qtc.QByteArrayMatcher_IndexInWithData(@ptrCast(self), data.ptr);
+    pub fn IndexIn2(self: ?*anyopaque, data: []const u8) i64 {
+        return qtc.QByteArrayMatcher_IndexIn2(@ptrCast(self), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#pattern)
@@ -110,8 +110,8 @@ pub const qbytearraymatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#indexIn)
     ///
     /// ``` self: QtC.QByteArrayMatcher, data: []const u8, from: i64 ```
-    pub fn IndexIn2(self: ?*anyopaque, data: []const u8, from: i64) i64 {
-        return qtc.QByteArrayMatcher_IndexIn2(@ptrCast(self), data.ptr, @intCast(from));
+    pub fn IndexIn22(self: ?*anyopaque, data: []const u8, from: i64) i64 {
+        return qtc.QByteArrayMatcher_IndexIn22(@ptrCast(self), data.ptr, @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#dtor.QByteArrayMatcher)

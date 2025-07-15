@@ -1044,7 +1044,7 @@ void QTextFrameFormat_SetWidth(QTextFrameFormat* self, double width) {
     self->setWidth(static_cast<qreal>(width));
 }
 
-void QTextFrameFormat_SetWidthWithLength(QTextFrameFormat* self, const QTextLength* length) {
+void QTextFrameFormat_SetWidth2(QTextFrameFormat* self, const QTextLength* length) {
     self->setWidth(*length);
 }
 
@@ -1056,7 +1056,7 @@ void QTextFrameFormat_SetHeight(QTextFrameFormat* self, double height) {
     self->setHeight(static_cast<qreal>(height));
 }
 
-void QTextFrameFormat_SetHeightWithHeight(QTextFrameFormat* self, const QTextLength* height) {
+void QTextFrameFormat_SetHeight2(QTextFrameFormat* self, const QTextLength* height) {
     self->setHeight(*height);
 }
 

@@ -423,7 +423,7 @@ void QStandardItem_InsertRow2(QStandardItem* self, int row, QStandardItem* item)
     self->insertRow(static_cast<int>(row), item);
 }
 
-void QStandardItem_AppendRowWithItem(QStandardItem* self, QStandardItem* item) {
+void QStandardItem_AppendRow2(QStandardItem* self, QStandardItem* item) {
     self->appendRow(item);
 }
 
@@ -937,7 +937,7 @@ void QStandardItemModel_AppendColumn(QStandardItemModel* self, const libqt_list 
     self->appendColumn(items_QList);
 }
 
-void QStandardItemModel_AppendRowWithItem(QStandardItemModel* self, QStandardItem* item) {
+void QStandardItemModel_AppendRow2(QStandardItemModel* self, QStandardItem* item) {
     self->appendRow(item);
 }
 
@@ -965,11 +965,11 @@ void QStandardItemModel_InsertRow2(QStandardItemModel* self, int row, QStandardI
     self->insertRow(static_cast<int>(row), item);
 }
 
-bool QStandardItemModel_InsertRowWithRow(QStandardItemModel* self, int row) {
+bool QStandardItemModel_InsertRow3(QStandardItemModel* self, int row) {
     return self->insertRow(static_cast<int>(row));
 }
 
-bool QStandardItemModel_InsertColumnWithColumn(QStandardItemModel* self, int column) {
+bool QStandardItemModel_InsertColumn2(QStandardItemModel* self, int column) {
     return self->insertColumn(static_cast<int>(column));
 }
 
@@ -1085,7 +1085,7 @@ bool QStandardItemModel_InsertRow22(QStandardItemModel* self, int row, const QMo
     return self->insertRow(static_cast<int>(row), *parent);
 }
 
-bool QStandardItemModel_InsertColumn2(QStandardItemModel* self, int column, const QModelIndex* parent) {
+bool QStandardItemModel_InsertColumn22(QStandardItemModel* self, int column, const QModelIndex* parent) {
     return self->insertColumn(static_cast<int>(column), *parent);
 }
 

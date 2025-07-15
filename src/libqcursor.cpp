@@ -92,7 +92,7 @@ QPoint* QCursor_Pos() {
     return new QPoint(QCursor::pos());
 }
 
-QPoint* QCursor_PosWithScreen(const QScreen* screen) {
+QPoint* QCursor_Pos2(const QScreen* screen) {
     return new QPoint(QCursor::pos(screen));
 }
 
@@ -104,11 +104,11 @@ void QCursor_SetPos2(QScreen* screen, int x, int y) {
     QCursor::setPos(screen, static_cast<int>(x), static_cast<int>(y));
 }
 
-void QCursor_SetPosWithQPoint(const QPoint* p) {
+void QCursor_SetPos3(const QPoint* p) {
     QCursor::setPos(*p);
 }
 
-void QCursor_SetPos3(QScreen* screen, const QPoint* p) {
+void QCursor_SetPos4(QScreen* screen, const QPoint* p) {
     QCursor::setPos(screen, *p);
 }
 

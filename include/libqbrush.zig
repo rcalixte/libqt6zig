@@ -185,8 +185,8 @@ pub const qbrush = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#setColor)
     ///
     /// ``` self: QtC.QBrush, color: qnamespace_enums.GlobalColor ```
-    pub fn SetColorWithColor(self: ?*anyopaque, color: i64) void {
-        qtc.QBrush_SetColorWithColor(@ptrCast(self), @intCast(color));
+    pub fn SetColor2(self: ?*anyopaque, color: i64) void {
+        qtc.QBrush_SetColor2(@ptrCast(self), @intCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#gradient)

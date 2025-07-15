@@ -35,7 +35,7 @@ bool QNetworkInformation_Supports(const QNetworkInformation* self, int features)
 int QNetworkInformation_SupportedFeatures(const QNetworkInformation* self);
 bool QNetworkInformation_LoadDefaultBackend();
 bool QNetworkInformation_LoadBackendByFeatures(int features);
-bool QNetworkInformation_LoadWithFeatures(int features);
+bool QNetworkInformation_Load2(int features);
 libqt_list /* of libqt_string */ QNetworkInformation_AvailableBackends();
 QNetworkInformation* QNetworkInformation_Instance();
 void QNetworkInformation_ReachabilityChanged(QNetworkInformation* self, int newReachability);

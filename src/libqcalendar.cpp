@@ -121,7 +121,7 @@ QDate* QCalendar_DateFromParts(const QCalendar* self, int year, int month, int d
     return new QDate(self->dateFromParts(static_cast<int>(year), static_cast<int>(month), static_cast<int>(day)));
 }
 
-QDate* QCalendar_DateFromPartsWithParts(const QCalendar* self, const QCalendar__YearMonthDay* parts) {
+QDate* QCalendar_DateFromParts2(const QCalendar* self, const QCalendar__YearMonthDay* parts) {
     return new QDate(self->dateFromParts(*parts));
 }
 

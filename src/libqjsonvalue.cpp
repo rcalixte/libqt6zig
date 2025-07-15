@@ -132,7 +132,7 @@ libqt_string QJsonValue_ToString(const QJsonValue* self) {
     return _str;
 }
 
-libqt_string QJsonValue_ToStringWithDefaultValue(const QJsonValue* self, const libqt_string defaultValue) {
+libqt_string QJsonValue_ToString2(const QJsonValue* self, const libqt_string defaultValue) {
     QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
     QString _ret = self->toString(defaultValue_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -149,7 +149,7 @@ QJsonArray* QJsonValue_ToArray(const QJsonValue* self) {
     return new QJsonArray(self->toArray());
 }
 
-QJsonArray* QJsonValue_ToArrayWithDefaultValue(const QJsonValue* self, const QJsonArray* defaultValue) {
+QJsonArray* QJsonValue_ToArray2(const QJsonValue* self, const QJsonArray* defaultValue) {
     return new QJsonArray(self->toArray(*defaultValue));
 }
 
@@ -157,7 +157,7 @@ QJsonObject* QJsonValue_ToObject(const QJsonValue* self) {
     return new QJsonObject(self->toObject());
 }
 
-QJsonObject* QJsonValue_ToObjectWithDefaultValue(const QJsonValue* self, const QJsonObject* defaultValue) {
+QJsonObject* QJsonValue_ToObject2(const QJsonValue* self, const QJsonObject* defaultValue) {
     return new QJsonObject(self->toObject(*defaultValue));
 }
 
@@ -166,7 +166,7 @@ QJsonValue* QJsonValue_OperatorSubscript(const QJsonValue* self, const libqt_str
     return new QJsonValue(self->operator[](key_QString));
 }
 
-QJsonValue* QJsonValue_OperatorSubscriptWithQsizetype(const QJsonValue* self, ptrdiff_t i) {
+QJsonValue* QJsonValue_OperatorSubscript4(const QJsonValue* self, ptrdiff_t i) {
     return new QJsonValue(self->operator[]((qsizetype)(i)));
 }
 
@@ -274,7 +274,7 @@ QJsonObject* QJsonValueConstRef_ToObject(const QJsonValueConstRef* self) {
     return new QJsonObject(self->toObject());
 }
 
-QJsonValue* QJsonValueConstRef_OperatorSubscriptWithQsizetype(const QJsonValueConstRef* self, ptrdiff_t i) {
+QJsonValue* QJsonValueConstRef_OperatorSubscript3(const QJsonValueConstRef* self, ptrdiff_t i) {
     return new QJsonValue(self->operator[]((qsizetype)(i)));
 }
 
@@ -331,7 +331,7 @@ void QJsonValueRef_OperatorAssign(QJsonValueRef* self, const QJsonValue* val) {
     self->operator=(*val);
 }
 
-void QJsonValueRef_OperatorAssignWithVal(QJsonValueRef* self, const QJsonValueRef* val) {
+void QJsonValueRef_OperatorAssign2(QJsonValueRef* self, const QJsonValueRef* val) {
     self->operator=(*val);
 }
 
@@ -411,7 +411,7 @@ QJsonObject* QJsonValueRef_ToObject(const QJsonValueRef* self) {
     return new QJsonObject(self->toObject());
 }
 
-QJsonValue* QJsonValueRef_OperatorSubscriptWithQsizetype(const QJsonValueRef* self, ptrdiff_t i) {
+QJsonValue* QJsonValueRef_OperatorSubscript3(const QJsonValueRef* self, ptrdiff_t i) {
     return new QJsonValue(self->operator[]((qsizetype)(i)));
 }
 

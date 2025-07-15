@@ -159,8 +159,8 @@ pub const qjsonarray = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#operator[])
     ///
     /// ``` self: QtC.QJsonArray, i: i64 ```
-    pub fn OperatorSubscriptWithQsizetype(self: ?*anyopaque, i: i64) QtC.QJsonValue {
-        return qtc.QJsonArray_OperatorSubscriptWithQsizetype(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript2(self: ?*anyopaque, i: i64) QtC.QJsonValue {
+        return qtc.QJsonArray_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#swap)

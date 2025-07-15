@@ -20,7 +20,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     // Virtual class public types (including callbacks)
     using QTemporaryFile_Metacall_Callback = int (*)(QTemporaryFile*, int, int, void**);
     using QTemporaryFile_FileName_Callback = libqt_string (*)();
-    using QTemporaryFile_OpenWithFlags_Callback = bool (*)(QTemporaryFile*, int);
+    using QTemporaryFile_Open2_Callback = bool (*)(QTemporaryFile*, int);
     using QTemporaryFile_Size_Callback = long long (*)();
     using QTemporaryFile_Resize_Callback = bool (*)(QTemporaryFile*, long long);
     using QTemporaryFile_Permissions_Callback = int (*)();
@@ -58,7 +58,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     // Instance callback storage
     QTemporaryFile_Metacall_Callback qtemporaryfile_metacall_callback = nullptr;
     QTemporaryFile_FileName_Callback qtemporaryfile_filename_callback = nullptr;
-    QTemporaryFile_OpenWithFlags_Callback qtemporaryfile_openwithflags_callback = nullptr;
+    QTemporaryFile_Open2_Callback qtemporaryfile_open2_callback = nullptr;
     QTemporaryFile_Size_Callback qtemporaryfile_size_callback = nullptr;
     QTemporaryFile_Resize_Callback qtemporaryfile_resize_callback = nullptr;
     QTemporaryFile_Permissions_Callback qtemporaryfile_permissions_callback = nullptr;
@@ -95,7 +95,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     // Instance base flags
     mutable bool qtemporaryfile_metacall_isbase = false;
     mutable bool qtemporaryfile_filename_isbase = false;
-    mutable bool qtemporaryfile_openwithflags_isbase = false;
+    mutable bool qtemporaryfile_open2_isbase = false;
     mutable bool qtemporaryfile_size_isbase = false;
     mutable bool qtemporaryfile_resize_isbase = false;
     mutable bool qtemporaryfile_permissions_isbase = false;
@@ -138,7 +138,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     ~VirtualQTemporaryFile() {
         qtemporaryfile_metacall_callback = nullptr;
         qtemporaryfile_filename_callback = nullptr;
-        qtemporaryfile_openwithflags_callback = nullptr;
+        qtemporaryfile_open2_callback = nullptr;
         qtemporaryfile_size_callback = nullptr;
         qtemporaryfile_resize_callback = nullptr;
         qtemporaryfile_permissions_callback = nullptr;
@@ -176,7 +176,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     // Callback setters
     inline void setQTemporaryFile_Metacall_Callback(QTemporaryFile_Metacall_Callback cb) { qtemporaryfile_metacall_callback = cb; }
     inline void setQTemporaryFile_FileName_Callback(QTemporaryFile_FileName_Callback cb) { qtemporaryfile_filename_callback = cb; }
-    inline void setQTemporaryFile_OpenWithFlags_Callback(QTemporaryFile_OpenWithFlags_Callback cb) { qtemporaryfile_openwithflags_callback = cb; }
+    inline void setQTemporaryFile_Open2_Callback(QTemporaryFile_Open2_Callback cb) { qtemporaryfile_open2_callback = cb; }
     inline void setQTemporaryFile_Size_Callback(QTemporaryFile_Size_Callback cb) { qtemporaryfile_size_callback = cb; }
     inline void setQTemporaryFile_Resize_Callback(QTemporaryFile_Resize_Callback cb) { qtemporaryfile_resize_callback = cb; }
     inline void setQTemporaryFile_Permissions_Callback(QTemporaryFile_Permissions_Callback cb) { qtemporaryfile_permissions_callback = cb; }
@@ -213,7 +213,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     // Base flag setters
     inline void setQTemporaryFile_Metacall_IsBase(bool value) const { qtemporaryfile_metacall_isbase = value; }
     inline void setQTemporaryFile_FileName_IsBase(bool value) const { qtemporaryfile_filename_isbase = value; }
-    inline void setQTemporaryFile_OpenWithFlags_IsBase(bool value) const { qtemporaryfile_openwithflags_isbase = value; }
+    inline void setQTemporaryFile_Open2_IsBase(bool value) const { qtemporaryfile_open2_isbase = value; }
     inline void setQTemporaryFile_Size_IsBase(bool value) const { qtemporaryfile_size_isbase = value; }
     inline void setQTemporaryFile_Resize_IsBase(bool value) const { qtemporaryfile_resize_isbase = value; }
     inline void setQTemporaryFile_Permissions_IsBase(bool value) const { qtemporaryfile_permissions_isbase = value; }
@@ -280,13 +280,13 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
 
     // Virtual method for C ABI access and custom callback
     virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> flags) override {
-        if (qtemporaryfile_openwithflags_isbase) {
-            qtemporaryfile_openwithflags_isbase = false;
+        if (qtemporaryfile_open2_isbase) {
+            qtemporaryfile_open2_isbase = false;
             return QTemporaryFile::open(flags);
-        } else if (qtemporaryfile_openwithflags_callback != nullptr) {
+        } else if (qtemporaryfile_open2_callback != nullptr) {
             int cbval1 = static_cast<int>(flags);
 
-            bool callback_ret = qtemporaryfile_openwithflags_callback(this, cbval1);
+            bool callback_ret = qtemporaryfile_open2_callback(this, cbval1);
             return callback_ret;
         } else {
             return QTemporaryFile::open(flags);
@@ -760,8 +760,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     }
 
     // Friend functions
-    friend bool QTemporaryFile_OpenWithFlags(QTemporaryFile* self, int flags);
-    friend bool QTemporaryFile_QBaseOpenWithFlags(QTemporaryFile* self, int flags);
+    friend bool QTemporaryFile_Open2(QTemporaryFile* self, int flags);
+    friend bool QTemporaryFile_QBaseOpen2(QTemporaryFile* self, int flags);
     friend long long QTemporaryFile_ReadData(QTemporaryFile* self, char* data, long long maxlen);
     friend long long QTemporaryFile_QBaseReadData(QTemporaryFile* self, char* data, long long maxlen);
     friend long long QTemporaryFile_WriteData(QTemporaryFile* self, const char* data, long long lenVal);

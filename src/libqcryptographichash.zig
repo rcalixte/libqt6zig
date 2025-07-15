@@ -44,15 +44,15 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
     ///
     /// ``` self: QtC.QCryptographicHash, data: []const u8 ```
-    pub fn AddDataWithData(self: ?*anyopaque, data: []const u8) void {
-        qtc.QCryptographicHash_AddDataWithData(@ptrCast(self), data.ptr);
+    pub fn AddData2(self: ?*anyopaque, data: []const u8) void {
+        qtc.QCryptographicHash_AddData2(@ptrCast(self), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#addData)
     ///
     /// ``` self: QtC.QCryptographicHash, device: QtC.QIODevice ```
-    pub fn AddDataWithDevice(self: ?*anyopaque, device: ?*anyopaque) bool {
-        return qtc.QCryptographicHash_AddDataWithDevice(@ptrCast(self), @ptrCast(device));
+    pub fn AddData3(self: ?*anyopaque, device: ?*anyopaque) bool {
+        return qtc.QCryptographicHash_AddData3(@ptrCast(self), @ptrCast(device));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#result)

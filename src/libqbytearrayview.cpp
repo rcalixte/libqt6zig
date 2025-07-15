@@ -160,7 +160,7 @@ bool QByteArrayView_StartsWith(const QByteArrayView* self, QByteArrayView* other
     return self->startsWith(*other);
 }
 
-bool QByteArrayView_StartsWithWithChar(const QByteArrayView* self, char c) {
+bool QByteArrayView_StartsWith2(const QByteArrayView* self, char c) {
     return self->startsWith(static_cast<char>(c));
 }
 
@@ -168,7 +168,7 @@ bool QByteArrayView_EndsWith(const QByteArrayView* self, QByteArrayView* other) 
     return self->endsWith(*other);
 }
 
-bool QByteArrayView_EndsWithWithChar(const QByteArrayView* self, char c) {
+bool QByteArrayView_EndsWith2(const QByteArrayView* self, char c) {
     return self->endsWith(static_cast<char>(c));
 }
 
@@ -176,7 +176,7 @@ ptrdiff_t QByteArrayView_IndexOf(const QByteArrayView* self, QByteArrayView* a) 
     return static_cast<ptrdiff_t>(self->indexOf(*a));
 }
 
-ptrdiff_t QByteArrayView_IndexOfWithCh(const QByteArrayView* self, char ch) {
+ptrdiff_t QByteArrayView_IndexOf2(const QByteArrayView* self, char ch) {
     return static_cast<ptrdiff_t>(self->indexOf(static_cast<char>(ch)));
 }
 
@@ -184,7 +184,7 @@ bool QByteArrayView_Contains(const QByteArrayView* self, QByteArrayView* a) {
     return self->contains(*a);
 }
 
-bool QByteArrayView_ContainsWithChar(const QByteArrayView* self, char c) {
+bool QByteArrayView_Contains2(const QByteArrayView* self, char c) {
     return self->contains(static_cast<char>(c));
 }
 
@@ -196,7 +196,7 @@ ptrdiff_t QByteArrayView_LastIndexOf2(const QByteArrayView* self, QByteArrayView
     return static_cast<ptrdiff_t>(self->lastIndexOf(*a, (qsizetype)(from)));
 }
 
-ptrdiff_t QByteArrayView_LastIndexOfWithCh(const QByteArrayView* self, char ch) {
+ptrdiff_t QByteArrayView_LastIndexOf3(const QByteArrayView* self, char ch) {
     return static_cast<ptrdiff_t>(self->lastIndexOf(static_cast<char>(ch)));
 }
 
@@ -204,7 +204,7 @@ ptrdiff_t QByteArrayView_Count(const QByteArrayView* self, QByteArrayView* a) {
     return static_cast<ptrdiff_t>(self->count(*a));
 }
 
-ptrdiff_t QByteArrayView_CountWithCh(const QByteArrayView* self, char ch) {
+ptrdiff_t QByteArrayView_Count2(const QByteArrayView* self, char ch) {
     return static_cast<ptrdiff_t>(self->count(static_cast<char>(ch)));
 }
 
@@ -352,11 +352,11 @@ double QByteArrayView_ToDouble1(const QByteArrayView* self, bool* ok) {
     return self->toDouble(ok);
 }
 
-ptrdiff_t QByteArrayView_IndexOf2(const QByteArrayView* self, QByteArrayView* a, ptrdiff_t from) {
+ptrdiff_t QByteArrayView_IndexOf22(const QByteArrayView* self, QByteArrayView* a, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexOf(*a, (qsizetype)(from)));
 }
 
-ptrdiff_t QByteArrayView_IndexOf22(const QByteArrayView* self, char ch, ptrdiff_t from) {
+ptrdiff_t QByteArrayView_IndexOf23(const QByteArrayView* self, char ch, ptrdiff_t from) {
     return static_cast<ptrdiff_t>(self->indexOf(static_cast<char>(ch), (qsizetype)(from)));
 }
 

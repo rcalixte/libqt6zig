@@ -36,7 +36,7 @@ QCborValue* QCborArray_Last(const QCborArray* self);
 QCborValue* QCborArray_OperatorSubscript(const QCborArray* self, ptrdiff_t i);
 QCborValueRef* QCborArray_First2(QCborArray* self);
 QCborValueRef* QCborArray_Last2(QCborArray* self);
-QCborValueRef* QCborArray_OperatorSubscriptWithQsizetype(QCborArray* self, ptrdiff_t i);
+QCborValueRef* QCborArray_OperatorSubscript2(QCborArray* self, ptrdiff_t i);
 void QCborArray_Insert(QCborArray* self, ptrdiff_t i, const QCborValue* value);
 void QCborArray_Prepend(QCborArray* self, const QCborValue* value);
 void QCborArray_Append(QCborArray* self, const QCborValue* value);

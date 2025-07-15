@@ -355,15 +355,15 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression ```
-    pub fn FindWithExpr(self: ?*anyopaque, expr: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextDocument_FindWithExpr(@ptrCast(self), @ptrCast(expr));
+    pub fn Find3(self: ?*anyopaque, expr: ?*anyopaque) QtC.QTextCursor {
+        return qtc.QTextDocument_Find3(@ptrCast(self), @ptrCast(expr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
     /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression, cursor: QtC.QTextCursor ```
-    pub fn Find3(self: ?*anyopaque, expr: ?*anyopaque, cursor: ?*anyopaque) QtC.QTextCursor {
-        return qtc.QTextDocument_Find3(@ptrCast(self), @ptrCast(expr), @ptrCast(cursor));
+    pub fn Find4(self: ?*anyopaque, expr: ?*anyopaque, cursor: ?*anyopaque) QtC.QTextCursor {
+        return qtc.QTextDocument_Find4(@ptrCast(self), @ptrCast(expr), @ptrCast(cursor));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#frameAt)
@@ -1245,8 +1245,8 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTextDocument, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1324,8 +1324,8 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1468,8 +1468,8 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTextDocument, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

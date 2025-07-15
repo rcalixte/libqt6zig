@@ -48,15 +48,15 @@ pub const qcolortransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolortransform.html#map)
     ///
     /// ``` self: QtC.QColorTransform, rgba64: QtC.QRgba64 ```
-    pub fn MapWithRgba64(self: ?*anyopaque, rgba64: QtC.QRgba64) QtC.QRgba64 {
-        return qtc.QColorTransform_MapWithRgba64(@ptrCast(self), @ptrCast(rgba64));
+    pub fn Map2(self: ?*anyopaque, rgba64: QtC.QRgba64) QtC.QRgba64 {
+        return qtc.QColorTransform_Map2(@ptrCast(self), @ptrCast(rgba64));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolortransform.html#map)
     ///
     /// ``` self: QtC.QColorTransform, color: QtC.QColor ```
-    pub fn MapWithColor(self: ?*anyopaque, color: ?*anyopaque) QtC.QColor {
-        return qtc.QColorTransform_MapWithColor(@ptrCast(self), @ptrCast(color));
+    pub fn Map5(self: ?*anyopaque, color: ?*anyopaque) QtC.QColor {
+        return qtc.QColorTransform_Map5(@ptrCast(self), @ptrCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolortransform.html#dtor.QColorTransform)

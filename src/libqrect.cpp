@@ -186,7 +186,7 @@ void QRect_Translate(QRect* self, int dx, int dy) {
     self->translate(static_cast<int>(dx), static_cast<int>(dy));
 }
 
-void QRect_TranslateWithQPoint(QRect* self, const QPoint* p) {
+void QRect_Translate2(QRect* self, const QPoint* p) {
     self->translate(*p);
 }
 
@@ -194,7 +194,7 @@ QRect* QRect_Translated(const QRect* self, int dx, int dy) {
     return new QRect(self->translated(static_cast<int>(dx), static_cast<int>(dy)));
 }
 
-QRect* QRect_TranslatedWithQPoint(const QRect* self, const QPoint* p) {
+QRect* QRect_Translated2(const QRect* self, const QPoint* p) {
     return new QRect(self->translated(*p));
 }
 
@@ -206,7 +206,7 @@ void QRect_MoveTo(QRect* self, int x, int t) {
     self->moveTo(static_cast<int>(x), static_cast<int>(t));
 }
 
-void QRect_MoveToWithQPoint(QRect* self, const QPoint* p) {
+void QRect_MoveTo2(QRect* self, const QPoint* p) {
     self->moveTo(*p);
 }
 
@@ -278,15 +278,15 @@ bool QRect_Contains(const QRect* self, const QRect* r) {
     return self->contains(*r);
 }
 
-bool QRect_ContainsWithQPoint(const QRect* self, const QPoint* p) {
+bool QRect_Contains2(const QRect* self, const QPoint* p) {
     return self->contains(*p);
 }
 
-bool QRect_Contains2(const QRect* self, int x, int y) {
+bool QRect_Contains3(const QRect* self, int x, int y) {
     return self->contains(static_cast<int>(x), static_cast<int>(y));
 }
 
-bool QRect_Contains3(const QRect* self, int x, int y, bool proper) {
+bool QRect_Contains4(const QRect* self, int x, int y, bool proper) {
     return self->contains(static_cast<int>(x), static_cast<int>(y), proper);
 }
 
@@ -522,7 +522,7 @@ void QRectF_Translate(QRectF* self, double dx, double dy) {
     self->translate(static_cast<qreal>(dx), static_cast<qreal>(dy));
 }
 
-void QRectF_TranslateWithQPointF(QRectF* self, const QPointF* p) {
+void QRectF_Translate2(QRectF* self, const QPointF* p) {
     self->translate(*p);
 }
 
@@ -530,7 +530,7 @@ QRectF* QRectF_Translated(const QRectF* self, double dx, double dy) {
     return new QRectF(self->translated(static_cast<qreal>(dx), static_cast<qreal>(dy)));
 }
 
-QRectF* QRectF_TranslatedWithQPointF(const QRectF* self, const QPointF* p) {
+QRectF* QRectF_Translated2(const QRectF* self, const QPointF* p) {
     return new QRectF(self->translated(*p));
 }
 
@@ -542,7 +542,7 @@ void QRectF_MoveTo(QRectF* self, double x, double y) {
     self->moveTo(static_cast<qreal>(x), static_cast<qreal>(y));
 }
 
-void QRectF_MoveToWithQPointF(QRectF* self, const QPointF* p) {
+void QRectF_MoveTo2(QRectF* self, const QPointF* p) {
     self->moveTo(*p);
 }
 
@@ -614,11 +614,11 @@ bool QRectF_Contains(const QRectF* self, const QRectF* r) {
     return self->contains(*r);
 }
 
-bool QRectF_ContainsWithQPointF(const QRectF* self, const QPointF* p) {
+bool QRectF_Contains2(const QRectF* self, const QPointF* p) {
     return self->contains(*p);
 }
 
-bool QRectF_Contains2(const QRectF* self, double x, double y) {
+bool QRectF_Contains3(const QRectF* self, double x, double y) {
     return self->contains(static_cast<qreal>(x), static_cast<qreal>(y));
 }
 

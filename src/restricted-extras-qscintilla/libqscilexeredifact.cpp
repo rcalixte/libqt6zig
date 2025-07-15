@@ -752,7 +752,7 @@ void QsciLexerEDIFACT_OnPaper(const QsciLexerEDIFACT* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerEDIFACT_DefaultColorWithStyle(const QsciLexerEDIFACT* self, int style) {
+QColor* QsciLexerEDIFACT_DefaultColor2(const QsciLexerEDIFACT* self, int style) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
         return new QColor(vqscilexeredifact->defaultColor(static_cast<int>(style)));
@@ -762,10 +762,10 @@ QColor* QsciLexerEDIFACT_DefaultColorWithStyle(const QsciLexerEDIFACT* self, int
 }
 
 // Base class handler implementation
-QColor* QsciLexerEDIFACT_QBaseDefaultColorWithStyle(const QsciLexerEDIFACT* self, int style) {
+QColor* QsciLexerEDIFACT_QBaseDefaultColor2(const QsciLexerEDIFACT* self, int style) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_DefaultColorWithStyle_IsBase(true);
+        vqscilexeredifact->setQsciLexerEDIFACT_DefaultColor2_IsBase(true);
         return new QColor(vqscilexeredifact->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerEDIFACT*)self)->defaultColor(static_cast<int>(style)));
@@ -773,10 +773,10 @@ QColor* QsciLexerEDIFACT_QBaseDefaultColorWithStyle(const QsciLexerEDIFACT* self
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerEDIFACT_OnDefaultColorWithStyle(const QsciLexerEDIFACT* self, intptr_t slot) {
+void QsciLexerEDIFACT_OnDefaultColor2(const QsciLexerEDIFACT* self, intptr_t slot) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_DefaultColorWithStyle_Callback>(slot));
+        vqscilexeredifact->setQsciLexerEDIFACT_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -810,7 +810,7 @@ void QsciLexerEDIFACT_OnDefaultEolFill(const QsciLexerEDIFACT* self, intptr_t sl
 }
 
 // Derived class handler implementation
-QFont* QsciLexerEDIFACT_DefaultFontWithStyle(const QsciLexerEDIFACT* self, int style) {
+QFont* QsciLexerEDIFACT_DefaultFont2(const QsciLexerEDIFACT* self, int style) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
         return new QFont(vqscilexeredifact->defaultFont(static_cast<int>(style)));
@@ -820,10 +820,10 @@ QFont* QsciLexerEDIFACT_DefaultFontWithStyle(const QsciLexerEDIFACT* self, int s
 }
 
 // Base class handler implementation
-QFont* QsciLexerEDIFACT_QBaseDefaultFontWithStyle(const QsciLexerEDIFACT* self, int style) {
+QFont* QsciLexerEDIFACT_QBaseDefaultFont2(const QsciLexerEDIFACT* self, int style) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_DefaultFontWithStyle_IsBase(true);
+        vqscilexeredifact->setQsciLexerEDIFACT_DefaultFont2_IsBase(true);
         return new QFont(vqscilexeredifact->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerEDIFACT*)self)->defaultFont(static_cast<int>(style)));
@@ -831,15 +831,15 @@ QFont* QsciLexerEDIFACT_QBaseDefaultFontWithStyle(const QsciLexerEDIFACT* self, 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerEDIFACT_OnDefaultFontWithStyle(const QsciLexerEDIFACT* self, intptr_t slot) {
+void QsciLexerEDIFACT_OnDefaultFont2(const QsciLexerEDIFACT* self, intptr_t slot) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_DefaultFontWithStyle_Callback>(slot));
+        vqscilexeredifact->setQsciLexerEDIFACT_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerEDIFACT_DefaultPaperWithStyle(const QsciLexerEDIFACT* self, int style) {
+QColor* QsciLexerEDIFACT_DefaultPaper2(const QsciLexerEDIFACT* self, int style) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
         return new QColor(vqscilexeredifact->defaultPaper(static_cast<int>(style)));
@@ -849,10 +849,10 @@ QColor* QsciLexerEDIFACT_DefaultPaperWithStyle(const QsciLexerEDIFACT* self, int
 }
 
 // Base class handler implementation
-QColor* QsciLexerEDIFACT_QBaseDefaultPaperWithStyle(const QsciLexerEDIFACT* self, int style) {
+QColor* QsciLexerEDIFACT_QBaseDefaultPaper2(const QsciLexerEDIFACT* self, int style) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_DefaultPaperWithStyle_IsBase(true);
+        vqscilexeredifact->setQsciLexerEDIFACT_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexeredifact->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerEDIFACT*)self)->defaultPaper(static_cast<int>(style)));
@@ -860,10 +860,10 @@ QColor* QsciLexerEDIFACT_QBaseDefaultPaperWithStyle(const QsciLexerEDIFACT* self
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerEDIFACT_OnDefaultPaperWithStyle(const QsciLexerEDIFACT* self, intptr_t slot) {
+void QsciLexerEDIFACT_OnDefaultPaper2(const QsciLexerEDIFACT* self, intptr_t slot) {
     auto* vqscilexeredifact = const_cast<VirtualQsciLexerEDIFACT*>(dynamic_cast<const VirtualQsciLexerEDIFACT*>(self));
     if (vqscilexeredifact && vqscilexeredifact->isVirtualQsciLexerEDIFACT) {
-        vqscilexeredifact->setQsciLexerEDIFACT_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexeredifact->setQsciLexerEDIFACT_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerEDIFACT::QsciLexerEDIFACT_DefaultPaper2_Callback>(slot));
     }
 }
 

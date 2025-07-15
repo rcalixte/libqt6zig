@@ -42,7 +42,7 @@ QBitmap* QBitmap_FromImage(const QImage* image);
 QBitmap* QBitmap_FromData(const QSize* size, const unsigned char* bits);
 QBitmap* QBitmap_FromPixmap(const QPixmap* pixmap);
 QBitmap* QBitmap_Transformed(const QBitmap* self, const QTransform* matrix);
-void QBitmap_OperatorAssignWithQBitmap(QBitmap* self, const QBitmap* param1);
+void QBitmap_OperatorAssign2(QBitmap* self, const QBitmap* param1);
 QBitmap* QBitmap_FromImage2(const QImage* image, int flags);
 QBitmap* QBitmap_FromData3(const QSize* size, const unsigned char* bits, int monoFormat);
 int QBitmap_DevType(const QBitmap* self);

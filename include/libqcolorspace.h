@@ -44,10 +44,10 @@ float QColorSpace_Gamma(const QColorSpace* self);
 libqt_string QColorSpace_Description(const QColorSpace* self);
 void QColorSpace_SetDescription(QColorSpace* self, const libqt_string description);
 void QColorSpace_SetTransferFunction(QColorSpace* self, int transferFunction);
-void QColorSpace_SetTransferFunctionWithTransferFunctionTable(QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable);
+void QColorSpace_SetTransferFunction2(QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable);
 void QColorSpace_SetTransferFunctions(QColorSpace* self, const libqt_list /* of uint16_t */ redTransferFunctionTable, const libqt_list /* of uint16_t */ greenTransferFunctionTable, const libqt_list /* of uint16_t */ blueTransferFunctionTable);
 QColorSpace* QColorSpace_WithTransferFunction(const QColorSpace* self, int transferFunction);
-QColorSpace* QColorSpace_WithTransferFunctionWithTransferFunctionTable(const QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable);
+QColorSpace* QColorSpace_WithTransferFunction2(const QColorSpace* self, const libqt_list /* of uint16_t */ transferFunctionTable);
 QColorSpace* QColorSpace_WithTransferFunctions(const QColorSpace* self, const libqt_list /* of uint16_t */ redTransferFunctionTable, const libqt_list /* of uint16_t */ greenTransferFunctionTable, const libqt_list /* of uint16_t */ blueTransferFunctionTable);
 void QColorSpace_SetPrimaries(QColorSpace* self, int primariesId);
 void QColorSpace_SetPrimaries2(QColorSpace* self, const QPointF* whitePoint, const QPointF* redPoint, const QPointF* greenPoint, const QPointF* bluePoint);
@@ -62,8 +62,8 @@ QColorSpace* QColorSpace_FromIccProfile(const libqt_string iccProfile);
 libqt_string QColorSpace_IccProfile(const QColorSpace* self);
 QColorTransform* QColorSpace_TransformationToColorSpace(const QColorSpace* self, const QColorSpace* colorspace);
 QVariant* QColorSpace_ToQVariant(const QColorSpace* self);
-void QColorSpace_SetTransferFunction2(QColorSpace* self, int transferFunction, float gamma);
-QColorSpace* QColorSpace_WithTransferFunction2(const QColorSpace* self, int transferFunction, float gamma);
+void QColorSpace_SetTransferFunction22(QColorSpace* self, int transferFunction, float gamma);
+QColorSpace* QColorSpace_WithTransferFunction22(const QColorSpace* self, int transferFunction, float gamma);
 void QColorSpace_Delete(QColorSpace* self);
 
 #ifdef __cplusplus

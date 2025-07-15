@@ -75,12 +75,12 @@ pub const qmetatype = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#type)
     ///
     /// ``` typeName: []u8 ```
-    pub fn TypeWithTypeName(typeName: []u8) i32 {
+    pub fn Type2(typeName: []u8) i32 {
         const typeName_str = qtc.struct_libqt_string{
             .len = typeName.len,
             .data = typeName.ptr,
         };
-        return qtc.QMetaType_TypeWithTypeName(typeName_str);
+        return qtc.QMetaType_Type2(typeName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#typeName)
@@ -221,22 +221,22 @@ pub const qmetatype = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#destroy)
     ///
     /// ``` self: QtC.QMetaType, data: ?*anyopaque ```
-    pub fn DestroyWithData(self: ?*anyopaque, data: ?*anyopaque) void {
-        qtc.QMetaType_DestroyWithData(@ptrCast(self), data);
+    pub fn Destroy2(self: ?*anyopaque, data: ?*anyopaque) void {
+        qtc.QMetaType_Destroy2(@ptrCast(self), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
     /// ``` self: QtC.QMetaType, where: ?*anyopaque ```
-    pub fn ConstructWithWhere(self: ?*anyopaque, where: ?*anyopaque) ?*anyopaque {
-        return qtc.QMetaType_ConstructWithWhere(@ptrCast(self), where);
+    pub fn Construct2(self: ?*anyopaque, where: ?*anyopaque) ?*anyopaque {
+        return qtc.QMetaType_Construct2(@ptrCast(self), where);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#destruct)
     ///
     /// ``` self: QtC.QMetaType, data: ?*anyopaque ```
-    pub fn DestructWithData(self: ?*anyopaque, data: ?*anyopaque) void {
-        qtc.QMetaType_DestructWithData(@ptrCast(self), data);
+    pub fn Destruct2(self: ?*anyopaque, data: ?*anyopaque) void {
+        qtc.QMetaType_Destruct2(@ptrCast(self), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#compare)
@@ -368,8 +368,8 @@ pub const qmetatype = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredDebugStreamOperator)
     ///
     /// ``` typeId: i32 ```
-    pub fn HasRegisteredDebugStreamOperatorWithTypeId(typeId: i32) bool {
-        return qtc.QMetaType_HasRegisteredDebugStreamOperatorWithTypeId(@intCast(typeId));
+    pub fn HasRegisteredDebugStreamOperator2(typeId: i32) bool {
+        return qtc.QMetaType_HasRegisteredDebugStreamOperator2(@intCast(typeId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#convert)
@@ -480,8 +480,8 @@ pub const qmetatype = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#construct)
     ///
     /// ``` self: QtC.QMetaType, where: ?*anyopaque, copyVal: ?*anyopaque ```
-    pub fn Construct2(self: ?*anyopaque, where: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
-        return qtc.QMetaType_Construct2(@ptrCast(self), where, copyVal);
+    pub fn Construct22(self: ?*anyopaque, where: ?*anyopaque, copyVal: ?*anyopaque) ?*anyopaque {
+        return qtc.QMetaType_Construct22(@ptrCast(self), where, copyVal);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#dtor.QMetaType)

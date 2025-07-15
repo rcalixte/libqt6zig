@@ -72,7 +72,7 @@ libqt_string QClipboard_Text(const QClipboard* self) {
     return _str;
 }
 
-libqt_string QClipboard_TextWithSubtype(const QClipboard* self, libqt_string subtype) {
+libqt_string QClipboard_Text2(const QClipboard* self, libqt_string subtype) {
     QString subtype_QString = QString::fromUtf8(subtype.data, subtype.len);
     QString _ret = self->text(subtype_QString);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -199,7 +199,7 @@ libqt_string QClipboard_Text1(const QClipboard* self, int mode) {
     return _str;
 }
 
-libqt_string QClipboard_Text2(const QClipboard* self, libqt_string subtype, int mode) {
+libqt_string QClipboard_Text22(const QClipboard* self, libqt_string subtype, int mode) {
     QString subtype_QString = QString::fromUtf8(subtype.data, subtype.len);
     QString _ret = self->text(subtype_QString, static_cast<QClipboard::Mode>(mode));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

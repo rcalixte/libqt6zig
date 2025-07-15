@@ -310,8 +310,8 @@ pub const qbytearrayview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#startsWith)
     ///
     /// ``` self: QtC.QByteArrayView, c: i8 ```
-    pub fn StartsWithWithChar(self: ?*anyopaque, c: i8) bool {
-        return qtc.QByteArrayView_StartsWithWithChar(@ptrCast(self), @intCast(c));
+    pub fn StartsWith2(self: ?*anyopaque, c: i8) bool {
+        return qtc.QByteArrayView_StartsWith2(@ptrCast(self), @intCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
@@ -324,8 +324,8 @@ pub const qbytearrayview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
     ///
     /// ``` self: QtC.QByteArrayView, c: i8 ```
-    pub fn EndsWithWithChar(self: ?*anyopaque, c: i8) bool {
-        return qtc.QByteArrayView_EndsWithWithChar(@ptrCast(self), @intCast(c));
+    pub fn EndsWith2(self: ?*anyopaque, c: i8) bool {
+        return qtc.QByteArrayView_EndsWith2(@ptrCast(self), @intCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
@@ -338,8 +338,8 @@ pub const qbytearrayview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
     ///
     /// ``` self: QtC.QByteArrayView, ch: i8 ```
-    pub fn IndexOfWithCh(self: ?*anyopaque, ch: i8) i64 {
-        return qtc.QByteArrayView_IndexOfWithCh(@ptrCast(self), @intCast(ch));
+    pub fn IndexOf2(self: ?*anyopaque, ch: i8) i64 {
+        return qtc.QByteArrayView_IndexOf2(@ptrCast(self), @intCast(ch));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
@@ -352,8 +352,8 @@ pub const qbytearrayview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
     ///
     /// ``` self: QtC.QByteArrayView, c: i8 ```
-    pub fn ContainsWithChar(self: ?*anyopaque, c: i8) bool {
-        return qtc.QByteArrayView_ContainsWithChar(@ptrCast(self), @intCast(c));
+    pub fn Contains2(self: ?*anyopaque, c: i8) bool {
+        return qtc.QByteArrayView_Contains2(@ptrCast(self), @intCast(c));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
@@ -373,8 +373,8 @@ pub const qbytearrayview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QByteArrayView, ch: i8 ```
-    pub fn LastIndexOfWithCh(self: ?*anyopaque, ch: i8) i64 {
-        return qtc.QByteArrayView_LastIndexOfWithCh(@ptrCast(self), @intCast(ch));
+    pub fn LastIndexOf3(self: ?*anyopaque, ch: i8) i64 {
+        return qtc.QByteArrayView_LastIndexOf3(@ptrCast(self), @intCast(ch));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#count)
@@ -387,8 +387,8 @@ pub const qbytearrayview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#count)
     ///
     /// ``` self: QtC.QByteArrayView, ch: i8 ```
-    pub fn CountWithCh(self: ?*anyopaque, ch: i8) i64 {
-        return qtc.QByteArrayView_CountWithCh(@ptrCast(self), @intCast(ch));
+    pub fn Count2(self: ?*anyopaque, ch: i8) i64 {
+        return qtc.QByteArrayView_Count2(@ptrCast(self), @intCast(ch));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#compare)
@@ -647,15 +647,15 @@ pub const qbytearrayview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, from: i64 ```
-    pub fn IndexOf2(self: ?*anyopaque, a: []const u8, from: i64) i64 {
-        return qtc.QByteArrayView_IndexOf2(@ptrCast(self), a.ptr, @intCast(from));
+    pub fn IndexOf22(self: ?*anyopaque, a: []const u8, from: i64) i64 {
+        return qtc.QByteArrayView_IndexOf22(@ptrCast(self), a.ptr, @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
     ///
     /// ``` self: QtC.QByteArrayView, ch: i8, from: i64 ```
-    pub fn IndexOf22(self: ?*anyopaque, ch: i8, from: i64) i64 {
-        return qtc.QByteArrayView_IndexOf22(@ptrCast(self), @intCast(ch), @intCast(from));
+    pub fn IndexOf23(self: ?*anyopaque, ch: i8, from: i64) i64 {
+        return qtc.QByteArrayView_IndexOf23(@ptrCast(self), @intCast(ch), @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)

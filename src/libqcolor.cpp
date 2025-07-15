@@ -230,7 +230,7 @@ unsigned int QColor_Rgb(const QColor* self) {
     return static_cast<unsigned int>(self->rgb());
 }
 
-void QColor_SetRgbWithRgb(QColor* self, unsigned int rgb) {
+void QColor_SetRgb2(QColor* self, unsigned int rgb) {
     self->setRgb(static_cast<QRgb>(rgb));
 }
 
@@ -422,7 +422,7 @@ QColor* QColor_FromRgba64(uint16_t r, uint16_t g, uint16_t b) {
     return new QColor(QColor::fromRgba64(static_cast<ushort>(r), static_cast<ushort>(g), static_cast<ushort>(b)));
 }
 
-QColor* QColor_FromRgba64WithRgba(QRgba64* rgba) {
+QColor* QColor_FromRgba642(QRgba64* rgba) {
     return new QColor(QColor::fromRgba64(*rgba));
 }
 

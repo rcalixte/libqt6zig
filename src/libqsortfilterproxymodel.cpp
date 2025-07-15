@@ -171,7 +171,7 @@ void QSortFilterProxyModel_SetFilterRegularExpression(QSortFilterProxyModel* sel
     self->setFilterRegularExpression(pattern_QString);
 }
 
-void QSortFilterProxyModel_SetFilterRegularExpressionWithRegularExpression(QSortFilterProxyModel* self, const QRegularExpression* regularExpression) {
+void QSortFilterProxyModel_SetFilterRegularExpression2(QSortFilterProxyModel* self, const QRegularExpression* regularExpression) {
     self->setFilterRegularExpression(*regularExpression);
 }
 

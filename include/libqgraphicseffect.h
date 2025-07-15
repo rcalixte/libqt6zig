@@ -295,7 +295,7 @@ double QGraphicsDropShadowEffect_BlurRadius(const QGraphicsDropShadowEffect* sel
 QColor* QGraphicsDropShadowEffect_Color(const QGraphicsDropShadowEffect* self);
 void QGraphicsDropShadowEffect_SetOffset(QGraphicsDropShadowEffect* self, const QPointF* ofs);
 void QGraphicsDropShadowEffect_SetOffset2(QGraphicsDropShadowEffect* self, double dx, double dy);
-void QGraphicsDropShadowEffect_SetOffsetWithQreal(QGraphicsDropShadowEffect* self, double d);
+void QGraphicsDropShadowEffect_SetOffset3(QGraphicsDropShadowEffect* self, double d);
 void QGraphicsDropShadowEffect_SetXOffset(QGraphicsDropShadowEffect* self, double dx);
 void QGraphicsDropShadowEffect_SetYOffset(QGraphicsDropShadowEffect* self, double dy);
 void QGraphicsDropShadowEffect_SetBlurRadius(QGraphicsDropShadowEffect* self, double blurRadius);

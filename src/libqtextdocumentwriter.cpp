@@ -75,7 +75,7 @@ bool QTextDocumentWriter_Write(QTextDocumentWriter* self, const QTextDocument* d
     return self->write(document);
 }
 
-bool QTextDocumentWriter_WriteWithFragment(QTextDocumentWriter* self, const QTextDocumentFragment* fragment) {
+bool QTextDocumentWriter_Write2(QTextDocumentWriter* self, const QTextDocumentFragment* fragment) {
     return self->write(*fragment);
 }
 

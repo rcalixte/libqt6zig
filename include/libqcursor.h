@@ -45,11 +45,11 @@ QBitmap* QCursor_Mask2(const QCursor* self);
 QPixmap* QCursor_Pixmap(const QCursor* self);
 QPoint* QCursor_HotSpot(const QCursor* self);
 QPoint* QCursor_Pos();
-QPoint* QCursor_PosWithScreen(const QScreen* screen);
+QPoint* QCursor_Pos2(const QScreen* screen);
 void QCursor_SetPos(int x, int y);
 void QCursor_SetPos2(QScreen* screen, int x, int y);
-void QCursor_SetPosWithQPoint(const QPoint* p);
-void QCursor_SetPos3(QScreen* screen, const QPoint* p);
+void QCursor_SetPos3(const QPoint* p);
+void QCursor_SetPos4(QScreen* screen, const QPoint* p);
 void QCursor_Delete(QCursor* self);
 
 #ifdef __cplusplus

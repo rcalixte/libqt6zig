@@ -340,8 +340,8 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#append)
     ///
     /// ``` self: QtC.QScatterSeries, point: QtC.QPointF ```
-    pub fn AppendWithPoint(self: ?*anyopaque, point: ?*anyopaque) void {
-        qtc.QXYSeries_AppendWithPoint(@ptrCast(self), @ptrCast(point));
+    pub fn Append2(self: ?*anyopaque, point: ?*anyopaque) void {
+        qtc.QXYSeries_Append2(@ptrCast(self), @ptrCast(point));
     }
 
     /// Inherited from QXYSeries
@@ -349,12 +349,12 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#append)
     ///
     /// ``` self: QtC.QScatterSeries, points: []QtC.QPointF ```
-    pub fn AppendWithPoints(self: ?*anyopaque, points: []QtC.QPointF) void {
+    pub fn Append3(self: ?*anyopaque, points: []QtC.QPointF) void {
         const points_list = qtc.struct_libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
-        qtc.QXYSeries_AppendWithPoints(@ptrCast(self), points_list);
+        qtc.QXYSeries_Append3(@ptrCast(self), points_list);
     }
 
     /// Inherited from QXYSeries
@@ -407,8 +407,8 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#remove)
     ///
     /// ``` self: QtC.QScatterSeries, point: QtC.QPointF ```
-    pub fn RemoveWithPoint(self: ?*anyopaque, point: ?*anyopaque) void {
-        qtc.QXYSeries_RemoveWithPoint(@ptrCast(self), @ptrCast(point));
+    pub fn Remove2(self: ?*anyopaque, point: ?*anyopaque) void {
+        qtc.QXYSeries_Remove2(@ptrCast(self), @ptrCast(point));
     }
 
     /// Inherited from QXYSeries
@@ -416,8 +416,8 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#remove)
     ///
     /// ``` self: QtC.QScatterSeries, index: i32 ```
-    pub fn RemoveWithIndex(self: ?*anyopaque, index: i32) void {
-        qtc.QXYSeries_RemoveWithIndex(@ptrCast(self), @intCast(index));
+    pub fn Remove3(self: ?*anyopaque, index: i32) void {
+        qtc.QXYSeries_Remove3(@ptrCast(self), @intCast(index));
     }
 
     /// Inherited from QXYSeries
@@ -507,12 +507,12 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#operator<<)
     ///
     /// ``` self: QtC.QScatterSeries, points: []QtC.QPointF ```
-    pub fn OperatorShiftLeftWithPoints(self: ?*anyopaque, points: []QtC.QPointF) QtC.QXYSeries {
+    pub fn OperatorShiftLeft2(self: ?*anyopaque, points: []QtC.QPointF) QtC.QXYSeries {
         const points_list = qtc.struct_libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
-        return qtc.QXYSeries_OperatorShiftLeftWithPoints(@ptrCast(self), points_list);
+        return qtc.QXYSeries_OperatorShiftLeft2(@ptrCast(self), points_list);
     }
 
     /// Inherited from QXYSeries
@@ -663,12 +663,12 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#replace)
     ///
     /// ``` self: QtC.QScatterSeries, points: []QtC.QPointF ```
-    pub fn ReplaceWithPoints(self: ?*anyopaque, points: []QtC.QPointF) void {
+    pub fn Replace5(self: ?*anyopaque, points: []QtC.QPointF) void {
         const points_list = qtc.struct_libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
-        qtc.QXYSeries_ReplaceWithPoints(@ptrCast(self), points_list);
+        qtc.QXYSeries_Replace5(@ptrCast(self), points_list);
     }
 
     /// Inherited from QXYSeries
@@ -910,8 +910,8 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clearPointsConfiguration)
     ///
     /// ``` self: QtC.QScatterSeries, key: qxyseries_enums.PointConfiguration ```
-    pub fn ClearPointsConfigurationWithKey(self: ?*anyopaque, key: i64) void {
-        qtc.QXYSeries_ClearPointsConfigurationWithKey(@ptrCast(self), @intCast(key));
+    pub fn ClearPointsConfiguration2(self: ?*anyopaque, key: i64) void {
+        qtc.QXYSeries_ClearPointsConfiguration2(@ptrCast(self), @intCast(key));
     }
 
     /// Inherited from QXYSeries
@@ -1890,8 +1890,8 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QScatterSeries, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1969,8 +1969,8 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -2113,8 +2113,8 @@ pub const qscatterseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QScatterSeries, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

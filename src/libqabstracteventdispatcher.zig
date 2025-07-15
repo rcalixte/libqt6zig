@@ -114,8 +114,8 @@ pub const qabstracteventdispatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, timerId: qnamespace_enums.TimerId ```
-    pub fn UnregisterTimerWithTimerId(self: ?*anyopaque, timerId: i64) bool {
-        return qtc.QAbstractEventDispatcher_UnregisterTimerWithTimerId(@ptrCast(self), @intCast(timerId));
+    pub fn UnregisterTimer2(self: ?*anyopaque, timerId: i64) bool {
+        return qtc.QAbstractEventDispatcher_UnregisterTimer2(@ptrCast(self), @intCast(timerId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#timersForObject)
@@ -374,8 +374,8 @@ pub const qabstracteventdispatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -453,8 +453,8 @@ pub const qabstracteventdispatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -597,8 +597,8 @@ pub const qabstracteventdispatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject
@@ -835,8 +835,8 @@ pub const qabstracteventdispatcherv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#unregisterTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, timerId: qnamespace_enums.TimerId ```
-    pub fn UnregisterTimerWithTimerId(self: ?*anyopaque, timerId: i64) bool {
-        return qtc.QAbstractEventDispatcher_UnregisterTimerWithTimerId(@ptrCast(self), @intCast(timerId));
+    pub fn UnregisterTimer2(self: ?*anyopaque, timerId: i64) bool {
+        return qtc.QAbstractEventDispatcher_UnregisterTimer2(@ptrCast(self), @intCast(timerId));
     }
 
     /// Inherited from QAbstractEventDispatcher
@@ -1081,8 +1081,8 @@ pub const qabstracteventdispatcherv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -1160,8 +1160,8 @@ pub const qabstracteventdispatcherv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -1304,8 +1304,8 @@ pub const qabstracteventdispatcherv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

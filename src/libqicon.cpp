@@ -55,15 +55,15 @@ QPixmap* QIcon_Pixmap2(const QIcon* self, int w, int h) {
     return new QPixmap(self->pixmap(static_cast<int>(w), static_cast<int>(h)));
 }
 
-QPixmap* QIcon_PixmapWithExtent(const QIcon* self, int extent) {
+QPixmap* QIcon_Pixmap3(const QIcon* self, int extent) {
     return new QPixmap(self->pixmap(static_cast<int>(extent)));
 }
 
-QPixmap* QIcon_Pixmap3(const QIcon* self, const QSize* size, double devicePixelRatio) {
+QPixmap* QIcon_Pixmap4(const QIcon* self, const QSize* size, double devicePixelRatio) {
     return new QPixmap(self->pixmap(*size, static_cast<qreal>(devicePixelRatio)));
 }
 
-QPixmap* QIcon_Pixmap4(const QIcon* self, QWindow* window, const QSize* size) {
+QPixmap* QIcon_Pixmap5(const QIcon* self, QWindow* window, const QSize* size) {
     return new QPixmap(self->pixmap(window, *size));
 }
 
@@ -156,15 +156,15 @@ bool QIcon_HasThemeIcon(const libqt_string name) {
     return QIcon::hasThemeIcon(name_QString);
 }
 
-QIcon* QIcon_FromThemeWithIcon(int icon) {
+QIcon* QIcon_FromTheme3(int icon) {
     return new QIcon(QIcon::fromTheme(static_cast<QIcon::ThemeIcon>(icon)));
 }
 
-QIcon* QIcon_FromTheme3(int icon, const QIcon* fallback) {
+QIcon* QIcon_FromTheme4(int icon, const QIcon* fallback) {
     return new QIcon(QIcon::fromTheme(static_cast<QIcon::ThemeIcon>(icon), *fallback));
 }
 
-bool QIcon_HasThemeIconWithIcon(int icon) {
+bool QIcon_HasThemeIcon2(int icon) {
     return QIcon::hasThemeIcon(static_cast<QIcon::ThemeIcon>(icon));
 }
 

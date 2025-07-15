@@ -40,7 +40,7 @@ libqt_string QBarSet_Tr(const char* s);
 void QBarSet_SetLabel(QBarSet* self, const libqt_string label);
 libqt_string QBarSet_Label(const QBarSet* self);
 void QBarSet_Append(QBarSet* self, const double value);
-void QBarSet_AppendWithValues(QBarSet* self, const libqt_list /* of double */ values);
+void QBarSet_Append2(QBarSet* self, const libqt_list /* of double */ values);
 QBarSet* QBarSet_OperatorShiftLeft(QBarSet* self, const double* value);
 void QBarSet_Insert(QBarSet* self, const int index, const double value);
 void QBarSet_Remove(QBarSet* self, const int index);

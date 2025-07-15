@@ -150,7 +150,7 @@ void QWebEnginePage_Load(QWebEnginePage* self, const QUrl* url) {
     self->load(*url);
 }
 
-void QWebEnginePage_LoadWithRequest(QWebEnginePage* self, const QWebEngineHttpRequest* request) {
+void QWebEnginePage_Load2(QWebEnginePage* self, const QWebEngineHttpRequest* request) {
     self->load(*request);
 }
 

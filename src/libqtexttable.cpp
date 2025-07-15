@@ -175,7 +175,7 @@ void QTextTable_MergeCells(QTextTable* self, int row, int col, int numRows, int 
     self->mergeCells(static_cast<int>(row), static_cast<int>(col), static_cast<int>(numRows), static_cast<int>(numCols));
 }
 
-void QTextTable_MergeCellsWithCursor(QTextTable* self, const QTextCursor* cursor) {
+void QTextTable_MergeCells2(QTextTable* self, const QTextCursor* cursor) {
     self->mergeCells(*cursor);
 }
 
@@ -195,11 +195,11 @@ QTextTableCell* QTextTable_CellAt(const QTextTable* self, int row, int col) {
     return new QTextTableCell(self->cellAt(static_cast<int>(row), static_cast<int>(col)));
 }
 
-QTextTableCell* QTextTable_CellAtWithPosition(const QTextTable* self, int position) {
+QTextTableCell* QTextTable_CellAt2(const QTextTable* self, int position) {
     return new QTextTableCell(self->cellAt(static_cast<int>(position)));
 }
 
-QTextTableCell* QTextTable_CellAtWithQTextCursor(const QTextTable* self, const QTextCursor* c) {
+QTextTableCell* QTextTable_CellAt3(const QTextTable* self, const QTextCursor* c) {
     return new QTextTableCell(self->cellAt(*c));
 }
 

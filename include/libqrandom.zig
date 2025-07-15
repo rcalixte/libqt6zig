@@ -76,85 +76,85 @@ pub const qrandomgenerator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, highest: u32 ```
-    pub fn BoundedWithHighest(self: ?*anyopaque, highest: u32) u32 {
-        return qtc.QRandomGenerator_BoundedWithHighest(@ptrCast(self), @intCast(highest));
+    pub fn Bounded2(self: ?*anyopaque, highest: u32) u32 {
+        return qtc.QRandomGenerator_Bounded2(@ptrCast(self), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, lowest: u32, highest: u32 ```
-    pub fn Bounded2(self: ?*anyopaque, lowest: u32, highest: u32) u32 {
-        return qtc.QRandomGenerator_Bounded2(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    pub fn Bounded3(self: ?*anyopaque, lowest: u32, highest: u32) u32 {
+        return qtc.QRandomGenerator_Bounded3(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, highest: i32 ```
-    pub fn Bounded3(self: ?*anyopaque, highest: i32) i32 {
-        return qtc.QRandomGenerator_Bounded3(@ptrCast(self), @intCast(highest));
+    pub fn Bounded4(self: ?*anyopaque, highest: i32) i32 {
+        return qtc.QRandomGenerator_Bounded4(@ptrCast(self), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, lowest: i32, highest: i32 ```
-    pub fn Bounded4(self: ?*anyopaque, lowest: i32, highest: i32) i32 {
-        return qtc.QRandomGenerator_Bounded4(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    pub fn Bounded5(self: ?*anyopaque, lowest: i32, highest: i32) i32 {
+        return qtc.QRandomGenerator_Bounded5(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, highest: u64 ```
-    pub fn Bounded5(self: ?*anyopaque, highest: u64) u64 {
-        return qtc.QRandomGenerator_Bounded5(@ptrCast(self), @intCast(highest));
+    pub fn Bounded6(self: ?*anyopaque, highest: u64) u64 {
+        return qtc.QRandomGenerator_Bounded6(@ptrCast(self), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, lowest: u64, highest: u64 ```
-    pub fn Bounded6(self: ?*anyopaque, lowest: u64, highest: u64) u64 {
-        return qtc.QRandomGenerator_Bounded6(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    pub fn Bounded7(self: ?*anyopaque, lowest: u64, highest: u64) u64 {
+        return qtc.QRandomGenerator_Bounded7(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, highest: i64 ```
-    pub fn Bounded7(self: ?*anyopaque, highest: i64) i64 {
-        return qtc.QRandomGenerator_Bounded7(@ptrCast(self), @intCast(highest));
+    pub fn Bounded8(self: ?*anyopaque, highest: i64) i64 {
+        return qtc.QRandomGenerator_Bounded8(@ptrCast(self), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator, lowest: i64, highest: i64 ```
-    pub fn Bounded8(self: ?*anyopaque, lowest: i64, highest: i64) i64 {
-        return qtc.QRandomGenerator_Bounded8(@ptrCast(self), @intCast(lowest), @intCast(highest));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
-    ///
-    /// ``` self: QtC.QRandomGenerator, lowest: i32, highest: i64 ```
-    pub fn Bounded9(self: ?*anyopaque, lowest: i32, highest: i64) i64 {
+    pub fn Bounded9(self: ?*anyopaque, lowest: i64, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded9(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
-    /// ``` self: QtC.QRandomGenerator, lowest: i64, highest: i32 ```
-    pub fn Bounded10(self: ?*anyopaque, lowest: i64, highest: i32) i64 {
+    /// ``` self: QtC.QRandomGenerator, lowest: i32, highest: i64 ```
+    pub fn Bounded10(self: ?*anyopaque, lowest: i32, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded10(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
-    /// ``` self: QtC.QRandomGenerator, lowest: u32, highest: u64 ```
-    pub fn Bounded11(self: ?*anyopaque, lowest: u32, highest: u64) u64 {
+    /// ``` self: QtC.QRandomGenerator, lowest: i64, highest: i32 ```
+    pub fn Bounded11(self: ?*anyopaque, lowest: i64, highest: i32) i64 {
         return qtc.QRandomGenerator_Bounded11(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
-    /// ``` self: QtC.QRandomGenerator, lowest: u64, highest: u32 ```
-    pub fn Bounded12(self: ?*anyopaque, lowest: u64, highest: u32) u64 {
+    /// ``` self: QtC.QRandomGenerator, lowest: u32, highest: u64 ```
+    pub fn Bounded12(self: ?*anyopaque, lowest: u32, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded12(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
+    ///
+    /// ``` self: QtC.QRandomGenerator, lowest: u64, highest: u32 ```
+    pub fn Bounded13(self: ?*anyopaque, lowest: u64, highest: u32) u64 {
+        return qtc.QRandomGenerator_Bounded13(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#generate)
@@ -376,8 +376,8 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, highest: u32 ```
-    pub fn BoundedWithHighest(self: ?*anyopaque, highest: u32) u32 {
-        return qtc.QRandomGenerator_BoundedWithHighest(@ptrCast(self), @intCast(highest));
+    pub fn Bounded2(self: ?*anyopaque, highest: u32) u32 {
+        return qtc.QRandomGenerator_Bounded2(@ptrCast(self), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator
@@ -385,8 +385,8 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, lowest: u32, highest: u32 ```
-    pub fn Bounded2(self: ?*anyopaque, lowest: u32, highest: u32) u32 {
-        return qtc.QRandomGenerator_Bounded2(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    pub fn Bounded3(self: ?*anyopaque, lowest: u32, highest: u32) u32 {
+        return qtc.QRandomGenerator_Bounded3(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator
@@ -394,8 +394,8 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, highest: i32 ```
-    pub fn Bounded3(self: ?*anyopaque, highest: i32) i32 {
-        return qtc.QRandomGenerator_Bounded3(@ptrCast(self), @intCast(highest));
+    pub fn Bounded4(self: ?*anyopaque, highest: i32) i32 {
+        return qtc.QRandomGenerator_Bounded4(@ptrCast(self), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator
@@ -403,8 +403,8 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, lowest: i32, highest: i32 ```
-    pub fn Bounded4(self: ?*anyopaque, lowest: i32, highest: i32) i32 {
-        return qtc.QRandomGenerator_Bounded4(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    pub fn Bounded5(self: ?*anyopaque, lowest: i32, highest: i32) i32 {
+        return qtc.QRandomGenerator_Bounded5(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator
@@ -412,8 +412,8 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, highest: u64 ```
-    pub fn Bounded5(self: ?*anyopaque, highest: u64) u64 {
-        return qtc.QRandomGenerator_Bounded5(@ptrCast(self), @intCast(highest));
+    pub fn Bounded6(self: ?*anyopaque, highest: u64) u64 {
+        return qtc.QRandomGenerator_Bounded6(@ptrCast(self), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator
@@ -421,8 +421,8 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, lowest: u64, highest: u64 ```
-    pub fn Bounded6(self: ?*anyopaque, lowest: u64, highest: u64) u64 {
-        return qtc.QRandomGenerator_Bounded6(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    pub fn Bounded7(self: ?*anyopaque, lowest: u64, highest: u64) u64 {
+        return qtc.QRandomGenerator_Bounded7(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator
@@ -430,8 +430,8 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, highest: i64 ```
-    pub fn Bounded7(self: ?*anyopaque, highest: i64) i64 {
-        return qtc.QRandomGenerator_Bounded7(@ptrCast(self), @intCast(highest));
+    pub fn Bounded8(self: ?*anyopaque, highest: i64) i64 {
+        return qtc.QRandomGenerator_Bounded8(@ptrCast(self), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator
@@ -439,16 +439,7 @@ pub const qrandomgenerator64 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ``` self: QtC.QRandomGenerator64, lowest: i64, highest: i64 ```
-    pub fn Bounded8(self: ?*anyopaque, lowest: i64, highest: i64) i64 {
-        return qtc.QRandomGenerator_Bounded8(@ptrCast(self), @intCast(lowest), @intCast(highest));
-    }
-
-    /// Inherited from QRandomGenerator
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
-    ///
-    /// ``` self: QtC.QRandomGenerator64, lowest: i32, highest: i64 ```
-    pub fn Bounded9(self: ?*anyopaque, lowest: i32, highest: i64) i64 {
+    pub fn Bounded9(self: ?*anyopaque, lowest: i64, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded9(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
@@ -456,8 +447,8 @@ pub const qrandomgenerator64 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
-    /// ``` self: QtC.QRandomGenerator64, lowest: i64, highest: i32 ```
-    pub fn Bounded10(self: ?*anyopaque, lowest: i64, highest: i32) i64 {
+    /// ``` self: QtC.QRandomGenerator64, lowest: i32, highest: i64 ```
+    pub fn Bounded10(self: ?*anyopaque, lowest: i32, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded10(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
@@ -465,8 +456,8 @@ pub const qrandomgenerator64 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
-    /// ``` self: QtC.QRandomGenerator64, lowest: u32, highest: u64 ```
-    pub fn Bounded11(self: ?*anyopaque, lowest: u32, highest: u64) u64 {
+    /// ``` self: QtC.QRandomGenerator64, lowest: i64, highest: i32 ```
+    pub fn Bounded11(self: ?*anyopaque, lowest: i64, highest: i32) i64 {
         return qtc.QRandomGenerator_Bounded11(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
@@ -474,9 +465,18 @@ pub const qrandomgenerator64 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
-    /// ``` self: QtC.QRandomGenerator64, lowest: u64, highest: u32 ```
-    pub fn Bounded12(self: ?*anyopaque, lowest: u64, highest: u32) u64 {
+    /// ``` self: QtC.QRandomGenerator64, lowest: u32, highest: u64 ```
+    pub fn Bounded12(self: ?*anyopaque, lowest: u32, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded12(@ptrCast(self), @intCast(lowest), @intCast(highest));
+    }
+
+    /// Inherited from QRandomGenerator
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
+    ///
+    /// ``` self: QtC.QRandomGenerator64, lowest: u64, highest: u32 ```
+    pub fn Bounded13(self: ?*anyopaque, lowest: u64, highest: u32) u64 {
+        return qtc.QRandomGenerator_Bounded13(@ptrCast(self), @intCast(lowest), @intCast(highest));
     }
 
     /// Inherited from QRandomGenerator

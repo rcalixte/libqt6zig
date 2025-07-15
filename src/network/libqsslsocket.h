@@ -101,7 +101,7 @@ void QSslSocket_SetSslConfiguration(QSslSocket* self, const QSslConfiguration* c
 void QSslSocket_SetLocalCertificateChain(QSslSocket* self, const libqt_list /* of QSslCertificate* */ localChain);
 libqt_list /* of QSslCertificate* */ QSslSocket_LocalCertificateChain(const QSslSocket* self);
 void QSslSocket_SetLocalCertificate(QSslSocket* self, const QSslCertificate* certificate);
-void QSslSocket_SetLocalCertificateWithFileName(QSslSocket* self, const libqt_string fileName);
+void QSslSocket_SetLocalCertificate2(QSslSocket* self, const libqt_string fileName);
 QSslCertificate* QSslSocket_LocalCertificate(const QSslSocket* self);
 QSslCertificate* QSslSocket_PeerCertificate(const QSslSocket* self);
 libqt_list /* of QSslCertificate* */ QSslSocket_PeerCertificateChain(const QSslSocket* self);
@@ -109,7 +109,7 @@ QSslCipher* QSslSocket_SessionCipher(const QSslSocket* self);
 int QSslSocket_SessionProtocol(const QSslSocket* self);
 libqt_list /* of QOcspResponse* */ QSslSocket_OcspResponses(const QSslSocket* self);
 void QSslSocket_SetPrivateKey(QSslSocket* self, const QSslKey* key);
-void QSslSocket_SetPrivateKeyWithFileName(QSslSocket* self, const libqt_string fileName);
+void QSslSocket_SetPrivateKey2(QSslSocket* self, const libqt_string fileName);
 QSslKey* QSslSocket_PrivateKey(const QSslSocket* self);
 bool QSslSocket_WaitForConnected(QSslSocket* self, int msecs);
 void QSslSocket_OnWaitForConnected(QSslSocket* self, intptr_t slot);
@@ -179,8 +179,8 @@ void QSslSocket_ConnectToHostEncrypted3(QSslSocket* self, const libqt_string hos
 void QSslSocket_ConnectToHostEncrypted4(QSslSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol);
 void QSslSocket_ConnectToHostEncrypted42(QSslSocket* self, const libqt_string hostName, uint16_t port, const libqt_string sslPeerName, int mode);
 void QSslSocket_ConnectToHostEncrypted5(QSslSocket* self, const libqt_string hostName, uint16_t port, const libqt_string sslPeerName, int mode, int protocol);
-void QSslSocket_SetLocalCertificate2(QSslSocket* self, const libqt_string fileName, int format);
-void QSslSocket_SetPrivateKey2(QSslSocket* self, const libqt_string fileName, int algorithm);
+void QSslSocket_SetLocalCertificate22(QSslSocket* self, const libqt_string fileName, int format);
+void QSslSocket_SetPrivateKey22(QSslSocket* self, const libqt_string fileName, int algorithm);
 void QSslSocket_SetPrivateKey3(QSslSocket* self, const libqt_string fileName, int algorithm, int format);
 void QSslSocket_SetPrivateKey4(QSslSocket* self, const libqt_string fileName, int algorithm, int format, const libqt_string passPhrase);
 bool QSslSocket_WaitForEncrypted1(QSslSocket* self, int msecs);

@@ -124,7 +124,7 @@ libqt_string QLineEdit_InputMask(const QLineEdit* self);
 void QLineEdit_SetInputMask(QLineEdit* self, const libqt_string inputMask);
 bool QLineEdit_HasAcceptableInput(const QLineEdit* self);
 void QLineEdit_SetTextMargins(QLineEdit* self, int left, int top, int right, int bottom);
-void QLineEdit_SetTextMarginsWithMargins(QLineEdit* self, const QMargins* margins);
+void QLineEdit_SetTextMargins2(QLineEdit* self, const QMargins* margins);
 QMargins* QLineEdit_TextMargins(const QLineEdit* self);
 void QLineEdit_AddAction(QLineEdit* self, QAction* action, int position);
 QAction* QLineEdit_AddAction2(QLineEdit* self, const QIcon* icon, int position);

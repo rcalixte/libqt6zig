@@ -137,7 +137,7 @@ QPixmap* QPixmap_Scaled(const QPixmap* self, int w, int h) {
     return new QPixmap(self->scaled(static_cast<int>(w), static_cast<int>(h)));
 }
 
-QPixmap* QPixmap_ScaledWithQSize(const QPixmap* self, const QSize* s) {
+QPixmap* QPixmap_Scaled2(const QPixmap* self, const QSize* s) {
     return new QPixmap(self->scaled(*s));
 }
 
@@ -178,7 +178,7 @@ bool QPixmap_LoadFromData(QPixmap* self, const unsigned char* buf, unsigned int 
     return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(lenVal));
 }
 
-bool QPixmap_LoadFromDataWithData(QPixmap* self, const libqt_string data) {
+bool QPixmap_LoadFromData2(QPixmap* self, const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
     return self->loadFromData(data_QByteArray);
 }
@@ -188,7 +188,7 @@ bool QPixmap_Save(const QPixmap* self, const libqt_string fileName) {
     return self->save(fileName_QString);
 }
 
-bool QPixmap_SaveWithDevice(const QPixmap* self, QIODevice* device) {
+bool QPixmap_Save2(const QPixmap* self, QIODevice* device) {
     return self->save(device);
 }
 
@@ -252,7 +252,7 @@ QPixmap* QPixmap_Scaled4(const QPixmap* self, int w, int h, int aspectMode, int 
     return new QPixmap(self->scaled(static_cast<int>(w), static_cast<int>(h), static_cast<Qt::AspectRatioMode>(aspectMode), static_cast<Qt::TransformationMode>(mode)));
 }
 
-QPixmap* QPixmap_Scaled2(const QPixmap* self, const QSize* s, int aspectMode) {
+QPixmap* QPixmap_Scaled22(const QPixmap* self, const QSize* s, int aspectMode) {
     return new QPixmap(self->scaled(*s, static_cast<Qt::AspectRatioMode>(aspectMode)));
 }
 
@@ -298,7 +298,7 @@ bool QPixmap_LoadFromData4(QPixmap* self, const unsigned char* buf, unsigned int
     return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(lenVal), format, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-bool QPixmap_LoadFromData2(QPixmap* self, const libqt_string data, const char* format) {
+bool QPixmap_LoadFromData22(QPixmap* self, const libqt_string data, const char* format) {
     QByteArray data_QByteArray(data.data, data.len);
     return self->loadFromData(data_QByteArray, format);
 }
@@ -308,7 +308,7 @@ bool QPixmap_LoadFromData32(QPixmap* self, const libqt_string data, const char* 
     return self->loadFromData(data_QByteArray, format, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-bool QPixmap_Save2(const QPixmap* self, const libqt_string fileName, const char* format) {
+bool QPixmap_Save22(const QPixmap* self, const libqt_string fileName, const char* format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return self->save(fileName_QString, format);
 }
@@ -318,7 +318,7 @@ bool QPixmap_Save3(const QPixmap* self, const libqt_string fileName, const char*
     return self->save(fileName_QString, format, static_cast<int>(quality));
 }
 
-bool QPixmap_Save22(const QPixmap* self, QIODevice* device, const char* format) {
+bool QPixmap_Save23(const QPixmap* self, QIODevice* device, const char* format) {
     return self->save(device, format);
 }
 

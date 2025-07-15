@@ -203,7 +203,7 @@ unsigned char* QImage_ScanLine(QImage* self, int param1) {
     return static_cast<unsigned char*>(self->scanLine(static_cast<int>(param1)));
 }
 
-const unsigned char* QImage_ScanLineWithInt(const QImage* self, int param1) {
+const unsigned char* QImage_ScanLine2(const QImage* self, int param1) {
     return static_cast<const unsigned char*>(self->scanLine(static_cast<int>(param1)));
 }
 
@@ -219,7 +219,7 @@ bool QImage_Valid(const QImage* self, int x, int y) {
     return self->valid(static_cast<int>(x), static_cast<int>(y));
 }
 
-bool QImage_ValidWithPt(const QImage* self, const QPoint* pt) {
+bool QImage_Valid2(const QImage* self, const QPoint* pt) {
     return self->valid(*pt);
 }
 
@@ -227,7 +227,7 @@ int QImage_PixelIndex(const QImage* self, int x, int y) {
     return self->pixelIndex(static_cast<int>(x), static_cast<int>(y));
 }
 
-int QImage_PixelIndexWithPt(const QImage* self, const QPoint* pt) {
+int QImage_PixelIndex2(const QImage* self, const QPoint* pt) {
     return self->pixelIndex(*pt);
 }
 
@@ -235,7 +235,7 @@ unsigned int QImage_Pixel(const QImage* self, int x, int y) {
     return static_cast<unsigned int>(self->pixel(static_cast<int>(x), static_cast<int>(y)));
 }
 
-unsigned int QImage_PixelWithPt(const QImage* self, const QPoint* pt) {
+unsigned int QImage_Pixel2(const QImage* self, const QPoint* pt) {
     return static_cast<unsigned int>(self->pixel(*pt));
 }
 
@@ -251,7 +251,7 @@ QColor* QImage_PixelColor(const QImage* self, int x, int y) {
     return new QColor(self->pixelColor(static_cast<int>(x), static_cast<int>(y)));
 }
 
-QColor* QImage_PixelColorWithPt(const QImage* self, const QPoint* pt) {
+QColor* QImage_PixelColor2(const QImage* self, const QPoint* pt) {
     return new QColor(self->pixelColor(*pt));
 }
 
@@ -302,11 +302,11 @@ void QImage_Fill(QImage* self, unsigned int pixel) {
     self->fill(static_cast<uint>(pixel));
 }
 
-void QImage_FillWithColor(QImage* self, const QColor* color) {
+void QImage_Fill2(QImage* self, const QColor* color) {
     self->fill(*color);
 }
 
-void QImage_Fill2(QImage* self, int color) {
+void QImage_Fill3(QImage* self, int color) {
     self->fill(static_cast<Qt::GlobalColor>(color));
 }
 
@@ -334,7 +334,7 @@ QImage* QImage_Scaled(const QImage* self, int w, int h) {
     return new QImage(self->scaled(static_cast<int>(w), static_cast<int>(h)));
 }
 
-QImage* QImage_ScaledWithQSize(const QImage* self, const QSize* s) {
+QImage* QImage_Scaled2(const QImage* self, const QSize* s) {
     return new QImage(self->scaled(*s));
 }
 
@@ -418,7 +418,7 @@ bool QImage_Load(QImage* self, QIODevice* device, const char* format) {
     return self->load(device, format);
 }
 
-bool QImage_LoadWithFileName(QImage* self, const libqt_string fileName) {
+bool QImage_Load2(QImage* self, const libqt_string fileName) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return self->load(fileName_QString);
 }
@@ -431,7 +431,7 @@ bool QImage_LoadFromData2(QImage* self, const unsigned char* buf, int lenVal) {
     return self->loadFromData(static_cast<const uchar*>(buf), static_cast<int>(lenVal));
 }
 
-bool QImage_LoadFromDataWithData(QImage* self, const libqt_string data) {
+bool QImage_LoadFromData3(QImage* self, const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
     return self->loadFromData(data_QByteArray);
 }
@@ -441,7 +441,7 @@ bool QImage_Save(const QImage* self, const libqt_string fileName) {
     return self->save(fileName_QString);
 }
 
-bool QImage_SaveWithDevice(const QImage* self, QIODevice* device) {
+bool QImage_Save2(const QImage* self, QIODevice* device) {
     return self->save(device);
 }
 
@@ -453,7 +453,7 @@ QImage* QImage_FromData2(const unsigned char* data, int size) {
     return new QImage(QImage::fromData(static_cast<const uchar*>(data), static_cast<int>(size)));
 }
 
-QImage* QImage_FromDataWithData(const libqt_string data) {
+QImage* QImage_FromData3(const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
     return new QImage(QImage::fromData(data_QByteArray));
 }
@@ -583,7 +583,7 @@ QImage* QImage_Scaled4(const QImage* self, int w, int h, int aspectMode, int mod
     return new QImage(self->scaled(static_cast<int>(w), static_cast<int>(h), static_cast<Qt::AspectRatioMode>(aspectMode), static_cast<Qt::TransformationMode>(mode)));
 }
 
-QImage* QImage_Scaled2(const QImage* self, const QSize* s, int aspectMode) {
+QImage* QImage_Scaled22(const QImage* self, const QSize* s, int aspectMode) {
     return new QImage(self->scaled(*s, static_cast<Qt::AspectRatioMode>(aspectMode)));
 }
 
@@ -639,7 +639,7 @@ void QImage_ApplyColorTransform3(QImage* self, const QColorTransform* transform,
     self->applyColorTransform(*transform, static_cast<QImage::Format>(format), static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-bool QImage_Load2(QImage* self, const libqt_string fileName, const char* format) {
+bool QImage_Load22(QImage* self, const libqt_string fileName, const char* format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return self->load(fileName_QString, format);
 }
@@ -648,7 +648,7 @@ bool QImage_LoadFromData22(QImage* self, QByteArrayView* data, const char* forma
     return self->loadFromData(*data, format);
 }
 
-bool QImage_LoadFromData3(QImage* self, const unsigned char* buf, int lenVal, const char* format) {
+bool QImage_LoadFromData32(QImage* self, const unsigned char* buf, int lenVal, const char* format) {
     return self->loadFromData(static_cast<const uchar*>(buf), static_cast<int>(lenVal), format);
 }
 
@@ -657,7 +657,7 @@ bool QImage_LoadFromData23(QImage* self, const libqt_string data, const char* fo
     return self->loadFromData(data_QByteArray, format);
 }
 
-bool QImage_Save2(const QImage* self, const libqt_string fileName, const char* format) {
+bool QImage_Save22(const QImage* self, const libqt_string fileName, const char* format) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
     return self->save(fileName_QString, format);
 }
@@ -667,7 +667,7 @@ bool QImage_Save3(const QImage* self, const libqt_string fileName, const char* f
     return self->save(fileName_QString, format, static_cast<int>(quality));
 }
 
-bool QImage_Save22(const QImage* self, QIODevice* device, const char* format) {
+bool QImage_Save23(const QImage* self, QIODevice* device, const char* format) {
     return self->save(device, format);
 }
 
@@ -679,7 +679,7 @@ QImage* QImage_FromData22(QByteArrayView* data, const char* format) {
     return new QImage(QImage::fromData(*data, format));
 }
 
-QImage* QImage_FromData3(const unsigned char* data, int size, const char* format) {
+QImage* QImage_FromData32(const unsigned char* data, int size, const char* format) {
     return new QImage(QImage::fromData(static_cast<const uchar*>(data), static_cast<int>(size), format));
 }
 

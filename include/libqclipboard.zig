@@ -93,14 +93,14 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, subtype: []const u8, allocator: std.mem.Allocator ```
-    pub fn TextWithSubtype(self: ?*anyopaque, subtype: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text2(self: ?*anyopaque, subtype: []const u8, allocator: std.mem.Allocator) []const u8 {
         const subtype_str = qtc.struct_libqt_string{
             .len = subtype.len,
             .data = subtype.ptr,
         };
-        const _str = qtc.QClipboard_TextWithSubtype(@ptrCast(self), subtype_str);
+        const _str = qtc.QClipboard_Text2(@ptrCast(self), subtype_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.TextWithSubtype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.Text2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -261,14 +261,14 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, subtype: []const u8, mode: qclipboard_enums.Mode, allocator: std.mem.Allocator ```
-    pub fn Text2(self: ?*anyopaque, subtype: []const u8, mode: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text22(self: ?*anyopaque, subtype: []const u8, mode: i64, allocator: std.mem.Allocator) []const u8 {
         const subtype_str = qtc.struct_libqt_string{
             .len = subtype.len,
             .data = subtype.ptr,
         };
-        const _str = qtc.QClipboard_Text2(@ptrCast(self), subtype_str, @intCast(mode));
+        const _str = qtc.QClipboard_Text22(@ptrCast(self), subtype_str, @intCast(mode));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.Text2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.Text22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -456,8 +456,8 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QClipboard, id: qnamespace_enums.TimerId ```
-    pub fn KillTimerWithId(self: ?*anyopaque, id: i64) void {
-        qtc.QObject_KillTimerWithId(@ptrCast(self), @intCast(id));
+    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+        qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
     /// Inherited from QObject
@@ -535,8 +535,8 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnect)
     ///
     /// ``` param1: QtC.QMetaObject__Connection ```
-    pub fn DisconnectWithQMetaObjectConnection(param1: ?*anyopaque) bool {
-        return qtc.QObject_DisconnectWithQMetaObjectConnection(@ptrCast(param1));
+    pub fn Disconnect2(param1: ?*anyopaque) bool {
+        return qtc.QObject_Disconnect2(@ptrCast(param1));
     }
 
     /// Inherited from QObject
@@ -679,8 +679,8 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QClipboard, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer2(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
-        return qtc.QObject_StartTimer2(@ptrCast(self), @intCast(interval), @intCast(timerType));
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+        return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
     /// Inherited from QObject

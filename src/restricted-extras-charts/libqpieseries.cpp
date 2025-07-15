@@ -75,7 +75,7 @@ bool QPieSeries_Append(QPieSeries* self, QPieSlice* slice) {
     return self->append(slice);
 }
 
-bool QPieSeries_AppendWithSlices(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices) {
+bool QPieSeries_Append2(QPieSeries* self, const libqt_list /* of QPieSlice* */ slices) {
     QList<QPieSlice*> slices_QList;
     slices_QList.reserve(slices.len);
     QPieSlice** slices_arr = static_cast<QPieSlice**>(slices.data);
@@ -91,7 +91,7 @@ QPieSeries* QPieSeries_OperatorShiftLeft(QPieSeries* self, QPieSlice* slice) {
     return &_ret;
 }
 
-QPieSlice* QPieSeries_Append2(QPieSeries* self, const libqt_string label, double value) {
+QPieSlice* QPieSeries_Append3(QPieSeries* self, const libqt_string label, double value) {
     QString label_QString = QString::fromUtf8(label.data, label.len);
     return self->append(label_QString, static_cast<qreal>(value));
 }

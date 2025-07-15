@@ -39,10 +39,10 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
     using QsciLexerFortran_DefaultStyle_Callback = int (*)();
     using QsciLexerFortran_Description_Callback = libqt_string (*)(const QsciLexerFortran*, int);
     using QsciLexerFortran_Paper_Callback = QColor* (*)(const QsciLexerFortran*, int);
-    using QsciLexerFortran_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerFortran*, int);
+    using QsciLexerFortran_DefaultColor2_Callback = QColor* (*)(const QsciLexerFortran*, int);
     using QsciLexerFortran_DefaultEolFill_Callback = bool (*)(const QsciLexerFortran*, int);
-    using QsciLexerFortran_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerFortran*, int);
-    using QsciLexerFortran_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerFortran*, int);
+    using QsciLexerFortran_DefaultFont2_Callback = QFont* (*)(const QsciLexerFortran*, int);
+    using QsciLexerFortran_DefaultPaper2_Callback = QColor* (*)(const QsciLexerFortran*, int);
     using QsciLexerFortran_SetEditor_Callback = void (*)(QsciLexerFortran*, QsciScintilla*);
     using QsciLexerFortran_RefreshProperties_Callback = void (*)();
     using QsciLexerFortran_StyleBitsNeeded_Callback = int (*)();
@@ -91,10 +91,10 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
     QsciLexerFortran_DefaultStyle_Callback qscilexerfortran_defaultstyle_callback = nullptr;
     QsciLexerFortran_Description_Callback qscilexerfortran_description_callback = nullptr;
     QsciLexerFortran_Paper_Callback qscilexerfortran_paper_callback = nullptr;
-    QsciLexerFortran_DefaultColorWithStyle_Callback qscilexerfortran_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerFortran_DefaultColor2_Callback qscilexerfortran_defaultcolor2_callback = nullptr;
     QsciLexerFortran_DefaultEolFill_Callback qscilexerfortran_defaulteolfill_callback = nullptr;
-    QsciLexerFortran_DefaultFontWithStyle_Callback qscilexerfortran_defaultfontwithstyle_callback = nullptr;
-    QsciLexerFortran_DefaultPaperWithStyle_Callback qscilexerfortran_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerFortran_DefaultFont2_Callback qscilexerfortran_defaultfont2_callback = nullptr;
+    QsciLexerFortran_DefaultPaper2_Callback qscilexerfortran_defaultpaper2_callback = nullptr;
     QsciLexerFortran_SetEditor_Callback qscilexerfortran_seteditor_callback = nullptr;
     QsciLexerFortran_RefreshProperties_Callback qscilexerfortran_refreshproperties_callback = nullptr;
     QsciLexerFortran_StyleBitsNeeded_Callback qscilexerfortran_stylebitsneeded_callback = nullptr;
@@ -142,10 +142,10 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
     mutable bool qscilexerfortran_defaultstyle_isbase = false;
     mutable bool qscilexerfortran_description_isbase = false;
     mutable bool qscilexerfortran_paper_isbase = false;
-    mutable bool qscilexerfortran_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerfortran_defaultcolor2_isbase = false;
     mutable bool qscilexerfortran_defaulteolfill_isbase = false;
-    mutable bool qscilexerfortran_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerfortran_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerfortran_defaultfont2_isbase = false;
+    mutable bool qscilexerfortran_defaultpaper2_isbase = false;
     mutable bool qscilexerfortran_seteditor_isbase = false;
     mutable bool qscilexerfortran_refreshproperties_isbase = false;
     mutable bool qscilexerfortran_stylebitsneeded_isbase = false;
@@ -197,10 +197,10 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
         qscilexerfortran_defaultstyle_callback = nullptr;
         qscilexerfortran_description_callback = nullptr;
         qscilexerfortran_paper_callback = nullptr;
-        qscilexerfortran_defaultcolorwithstyle_callback = nullptr;
+        qscilexerfortran_defaultcolor2_callback = nullptr;
         qscilexerfortran_defaulteolfill_callback = nullptr;
-        qscilexerfortran_defaultfontwithstyle_callback = nullptr;
-        qscilexerfortran_defaultpaperwithstyle_callback = nullptr;
+        qscilexerfortran_defaultfont2_callback = nullptr;
+        qscilexerfortran_defaultpaper2_callback = nullptr;
         qscilexerfortran_seteditor_callback = nullptr;
         qscilexerfortran_refreshproperties_callback = nullptr;
         qscilexerfortran_stylebitsneeded_callback = nullptr;
@@ -249,10 +249,10 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
     inline void setQsciLexerFortran_DefaultStyle_Callback(QsciLexerFortran_DefaultStyle_Callback cb) { qscilexerfortran_defaultstyle_callback = cb; }
     inline void setQsciLexerFortran_Description_Callback(QsciLexerFortran_Description_Callback cb) { qscilexerfortran_description_callback = cb; }
     inline void setQsciLexerFortran_Paper_Callback(QsciLexerFortran_Paper_Callback cb) { qscilexerfortran_paper_callback = cb; }
-    inline void setQsciLexerFortran_DefaultColorWithStyle_Callback(QsciLexerFortran_DefaultColorWithStyle_Callback cb) { qscilexerfortran_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerFortran_DefaultColor2_Callback(QsciLexerFortran_DefaultColor2_Callback cb) { qscilexerfortran_defaultcolor2_callback = cb; }
     inline void setQsciLexerFortran_DefaultEolFill_Callback(QsciLexerFortran_DefaultEolFill_Callback cb) { qscilexerfortran_defaulteolfill_callback = cb; }
-    inline void setQsciLexerFortran_DefaultFontWithStyle_Callback(QsciLexerFortran_DefaultFontWithStyle_Callback cb) { qscilexerfortran_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerFortran_DefaultPaperWithStyle_Callback(QsciLexerFortran_DefaultPaperWithStyle_Callback cb) { qscilexerfortran_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerFortran_DefaultFont2_Callback(QsciLexerFortran_DefaultFont2_Callback cb) { qscilexerfortran_defaultfont2_callback = cb; }
+    inline void setQsciLexerFortran_DefaultPaper2_Callback(QsciLexerFortran_DefaultPaper2_Callback cb) { qscilexerfortran_defaultpaper2_callback = cb; }
     inline void setQsciLexerFortran_SetEditor_Callback(QsciLexerFortran_SetEditor_Callback cb) { qscilexerfortran_seteditor_callback = cb; }
     inline void setQsciLexerFortran_RefreshProperties_Callback(QsciLexerFortran_RefreshProperties_Callback cb) { qscilexerfortran_refreshproperties_callback = cb; }
     inline void setQsciLexerFortran_StyleBitsNeeded_Callback(QsciLexerFortran_StyleBitsNeeded_Callback cb) { qscilexerfortran_stylebitsneeded_callback = cb; }
@@ -300,10 +300,10 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
     inline void setQsciLexerFortran_DefaultStyle_IsBase(bool value) const { qscilexerfortran_defaultstyle_isbase = value; }
     inline void setQsciLexerFortran_Description_IsBase(bool value) const { qscilexerfortran_description_isbase = value; }
     inline void setQsciLexerFortran_Paper_IsBase(bool value) const { qscilexerfortran_paper_isbase = value; }
-    inline void setQsciLexerFortran_DefaultColorWithStyle_IsBase(bool value) const { qscilexerfortran_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerFortran_DefaultColor2_IsBase(bool value) const { qscilexerfortran_defaultcolor2_isbase = value; }
     inline void setQsciLexerFortran_DefaultEolFill_IsBase(bool value) const { qscilexerfortran_defaulteolfill_isbase = value; }
-    inline void setQsciLexerFortran_DefaultFontWithStyle_IsBase(bool value) const { qscilexerfortran_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerFortran_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerfortran_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerFortran_DefaultFont2_IsBase(bool value) const { qscilexerfortran_defaultfont2_isbase = value; }
+    inline void setQsciLexerFortran_DefaultPaper2_IsBase(bool value) const { qscilexerfortran_defaultpaper2_isbase = value; }
     inline void setQsciLexerFortran_SetEditor_IsBase(bool value) const { qscilexerfortran_seteditor_isbase = value; }
     inline void setQsciLexerFortran_RefreshProperties_IsBase(bool value) const { qscilexerfortran_refreshproperties_isbase = value; }
     inline void setQsciLexerFortran_StyleBitsNeeded_IsBase(bool value) const { qscilexerfortran_stylebitsneeded_isbase = value; }
@@ -629,13 +629,13 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerfortran_defaultcolorwithstyle_isbase) {
-            qscilexerfortran_defaultcolorwithstyle_isbase = false;
+        if (qscilexerfortran_defaultcolor2_isbase) {
+            qscilexerfortran_defaultcolor2_isbase = false;
             return QsciLexerFortran::defaultColor(style);
-        } else if (qscilexerfortran_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerfortran_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerfortran_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerfortran_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerFortran::defaultColor(style);
@@ -659,13 +659,13 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerfortran_defaultfontwithstyle_isbase) {
-            qscilexerfortran_defaultfontwithstyle_isbase = false;
+        if (qscilexerfortran_defaultfont2_isbase) {
+            qscilexerfortran_defaultfont2_isbase = false;
             return QsciLexerFortran::defaultFont(style);
-        } else if (qscilexerfortran_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerfortran_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerfortran_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerfortran_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerFortran::defaultFont(style);
@@ -674,13 +674,13 @@ class VirtualQsciLexerFortran final : public QsciLexerFortran {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerfortran_defaultpaperwithstyle_isbase) {
-            qscilexerfortran_defaultpaperwithstyle_isbase = false;
+        if (qscilexerfortran_defaultpaper2_isbase) {
+            qscilexerfortran_defaultpaper2_isbase = false;
             return QsciLexerFortran::defaultPaper(style);
-        } else if (qscilexerfortran_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerfortran_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerfortran_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerfortran_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerFortran::defaultPaper(style);

@@ -125,7 +125,7 @@ QObject* QMetaObject_Cast(const QMetaObject* self, QObject* obj) {
     return self->cast(obj);
 }
 
-QObject* QMetaObject_CastWithObj(const QMetaObject* self, const QObject* obj) {
+QObject* QMetaObject_Cast2(const QMetaObject* self, const QObject* obj) {
     return (QObject*)self->cast(obj);
 }
 

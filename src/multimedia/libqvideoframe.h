@@ -51,7 +51,7 @@ bool QVideoFrame_Map(QVideoFrame* self, int mode);
 void QVideoFrame_Unmap(QVideoFrame* self);
 int QVideoFrame_BytesPerLine(const QVideoFrame* self, int plane);
 unsigned char* QVideoFrame_Bits(QVideoFrame* self, int plane);
-const unsigned char* QVideoFrame_BitsWithPlane(const QVideoFrame* self, int plane);
+const unsigned char* QVideoFrame_Bits2(const QVideoFrame* self, int plane);
 int QVideoFrame_MappedBytes(const QVideoFrame* self, int plane);
 int QVideoFrame_PlaneCount(const QVideoFrame* self);
 long long QVideoFrame_StartTime(const QVideoFrame* self);

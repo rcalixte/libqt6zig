@@ -893,7 +893,7 @@ void QsciLexerJava_OnPaper(const QsciLexerJava* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QColor* QsciLexerJava_DefaultColorWithStyle(const QsciLexerJava* self, int style) {
+QColor* QsciLexerJava_DefaultColor2(const QsciLexerJava* self, int style) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
         return new QColor(vqscilexerjava->defaultColor(static_cast<int>(style)));
@@ -903,10 +903,10 @@ QColor* QsciLexerJava_DefaultColorWithStyle(const QsciLexerJava* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerJava_QBaseDefaultColorWithStyle(const QsciLexerJava* self, int style) {
+QColor* QsciLexerJava_QBaseDefaultColor2(const QsciLexerJava* self, int style) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_DefaultColorWithStyle_IsBase(true);
+        vqscilexerjava->setQsciLexerJava_DefaultColor2_IsBase(true);
         return new QColor(vqscilexerjava->defaultColor(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerJava*)self)->defaultColor(static_cast<int>(style)));
@@ -914,10 +914,10 @@ QColor* QsciLexerJava_QBaseDefaultColorWithStyle(const QsciLexerJava* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJava_OnDefaultColorWithStyle(const QsciLexerJava* self, intptr_t slot) {
+void QsciLexerJava_OnDefaultColor2(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_DefaultColorWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultColorWithStyle_Callback>(slot));
+        vqscilexerjava->setQsciLexerJava_DefaultColor2_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultColor2_Callback>(slot));
     }
 }
 
@@ -951,7 +951,7 @@ void QsciLexerJava_OnDefaultEolFill(const QsciLexerJava* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-QFont* QsciLexerJava_DefaultFontWithStyle(const QsciLexerJava* self, int style) {
+QFont* QsciLexerJava_DefaultFont2(const QsciLexerJava* self, int style) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
         return new QFont(vqscilexerjava->defaultFont(static_cast<int>(style)));
@@ -961,10 +961,10 @@ QFont* QsciLexerJava_DefaultFontWithStyle(const QsciLexerJava* self, int style) 
 }
 
 // Base class handler implementation
-QFont* QsciLexerJava_QBaseDefaultFontWithStyle(const QsciLexerJava* self, int style) {
+QFont* QsciLexerJava_QBaseDefaultFont2(const QsciLexerJava* self, int style) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_DefaultFontWithStyle_IsBase(true);
+        vqscilexerjava->setQsciLexerJava_DefaultFont2_IsBase(true);
         return new QFont(vqscilexerjava->defaultFont(static_cast<int>(style)));
     } else {
         return new QFont(((VirtualQsciLexerJava*)self)->defaultFont(static_cast<int>(style)));
@@ -972,15 +972,15 @@ QFont* QsciLexerJava_QBaseDefaultFontWithStyle(const QsciLexerJava* self, int st
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJava_OnDefaultFontWithStyle(const QsciLexerJava* self, intptr_t slot) {
+void QsciLexerJava_OnDefaultFont2(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_DefaultFontWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultFontWithStyle_Callback>(slot));
+        vqscilexerjava->setQsciLexerJava_DefaultFont2_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultFont2_Callback>(slot));
     }
 }
 
 // Derived class handler implementation
-QColor* QsciLexerJava_DefaultPaperWithStyle(const QsciLexerJava* self, int style) {
+QColor* QsciLexerJava_DefaultPaper2(const QsciLexerJava* self, int style) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
         return new QColor(vqscilexerjava->defaultPaper(static_cast<int>(style)));
@@ -990,10 +990,10 @@ QColor* QsciLexerJava_DefaultPaperWithStyle(const QsciLexerJava* self, int style
 }
 
 // Base class handler implementation
-QColor* QsciLexerJava_QBaseDefaultPaperWithStyle(const QsciLexerJava* self, int style) {
+QColor* QsciLexerJava_QBaseDefaultPaper2(const QsciLexerJava* self, int style) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_DefaultPaperWithStyle_IsBase(true);
+        vqscilexerjava->setQsciLexerJava_DefaultPaper2_IsBase(true);
         return new QColor(vqscilexerjava->defaultPaper(static_cast<int>(style)));
     } else {
         return new QColor(((VirtualQsciLexerJava*)self)->defaultPaper(static_cast<int>(style)));
@@ -1001,10 +1001,10 @@ QColor* QsciLexerJava_QBaseDefaultPaperWithStyle(const QsciLexerJava* self, int 
 }
 
 // Auxiliary method to allow providing re-implementation
-void QsciLexerJava_OnDefaultPaperWithStyle(const QsciLexerJava* self, intptr_t slot) {
+void QsciLexerJava_OnDefaultPaper2(const QsciLexerJava* self, intptr_t slot) {
     auto* vqscilexerjava = const_cast<VirtualQsciLexerJava*>(dynamic_cast<const VirtualQsciLexerJava*>(self));
     if (vqscilexerjava && vqscilexerjava->isVirtualQsciLexerJava) {
-        vqscilexerjava->setQsciLexerJava_DefaultPaperWithStyle_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultPaperWithStyle_Callback>(slot));
+        vqscilexerjava->setQsciLexerJava_DefaultPaper2_Callback(reinterpret_cast<VirtualQsciLexerJava::QsciLexerJava_DefaultPaper2_Callback>(slot));
     }
 }
 

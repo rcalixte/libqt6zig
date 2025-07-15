@@ -44,7 +44,7 @@ libqt_string QShortcut_Tr(const char* s);
 void QShortcut_SetKey(QShortcut* self, const QKeySequence* key);
 QKeySequence* QShortcut_Key(const QShortcut* self);
 void QShortcut_SetKeys(QShortcut* self, int key);
-void QShortcut_SetKeysWithKeys(QShortcut* self, const libqt_list /* of QKeySequence* */ keys);
+void QShortcut_SetKeys2(QShortcut* self, const libqt_list /* of QKeySequence* */ keys);
 libqt_list /* of QKeySequence* */ QShortcut_Keys(const QShortcut* self);
 void QShortcut_SetEnabled(QShortcut* self, bool enable);
 bool QShortcut_IsEnabled(const QShortcut* self);

@@ -51,12 +51,12 @@ pub const qwebenginescriptcollection = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#insert)
     ///
     /// ``` self: QtC.QWebEngineScriptCollection, list: []QtC.QWebEngineScript ```
-    pub fn InsertWithList(self: ?*anyopaque, list: []QtC.QWebEngineScript) void {
+    pub fn Insert2(self: ?*anyopaque, list: []QtC.QWebEngineScript) void {
         const list_list = qtc.struct_libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };
-        qtc.QWebEngineScriptCollection_InsertWithList(@ptrCast(self), list_list);
+        qtc.QWebEngineScriptCollection_Insert2(@ptrCast(self), list_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescriptcollection.html#remove)

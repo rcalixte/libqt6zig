@@ -122,7 +122,7 @@ libqt_list /* of libqt_string */ QSslCertificate_IssuerInfo(const QSslCertificat
     return _out;
 }
 
-libqt_list /* of libqt_string */ QSslCertificate_IssuerInfoWithAttribute(const QSslCertificate* self, const libqt_string attribute) {
+libqt_list /* of libqt_string */ QSslCertificate_IssuerInfo2(const QSslCertificate* self, const libqt_string attribute) {
     QByteArray attribute_QByteArray(attribute.data, attribute.len);
     QList<QString> _ret = self->issuerInfo(attribute_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -165,7 +165,7 @@ libqt_list /* of libqt_string */ QSslCertificate_SubjectInfo(const QSslCertifica
     return _out;
 }
 
-libqt_list /* of libqt_string */ QSslCertificate_SubjectInfoWithAttribute(const QSslCertificate* self, const libqt_string attribute) {
+libqt_list /* of libqt_string */ QSslCertificate_SubjectInfo2(const QSslCertificate* self, const libqt_string attribute) {
     QByteArray attribute_QByteArray(attribute.data, attribute.len);
     QList<QString> _ret = self->subjectInfo(attribute_QByteArray);
     // Convert QList<> from C++ memory to manually-managed C memory

@@ -168,7 +168,7 @@ QTransform* QTransform_Rotate(QTransform* self, double a, int axis, double dista
     return &_ret;
 }
 
-QTransform* QTransform_RotateWithQreal(QTransform* self, double a) {
+QTransform* QTransform_Rotate2(QTransform* self, double a) {
     QTransform& _ret = self->rotate(static_cast<qreal>(a));
     // Cast returned reference into pointer
     return &_ret;
@@ -180,7 +180,7 @@ QTransform* QTransform_RotateRadians(QTransform* self, double a, int axis, doubl
     return &_ret;
 }
 
-QTransform* QTransform_RotateRadiansWithQreal(QTransform* self, double a) {
+QTransform* QTransform_RotateRadians2(QTransform* self, double a) {
     QTransform& _ret = self->rotateRadians(static_cast<qreal>(a));
     // Cast returned reference into pointer
     return &_ret;
@@ -216,23 +216,23 @@ QPoint* QTransform_Map(const QTransform* self, const QPoint* p) {
     return new QPoint(self->map(*p));
 }
 
-QPointF* QTransform_MapWithQPointF(const QTransform* self, const QPointF* p) {
+QPointF* QTransform_Map2(const QTransform* self, const QPointF* p) {
     return new QPointF(self->map(*p));
 }
 
-QLine* QTransform_MapWithQLine(const QTransform* self, const QLine* l) {
+QLine* QTransform_Map3(const QTransform* self, const QLine* l) {
     return new QLine(self->map(*l));
 }
 
-QLineF* QTransform_MapWithQLineF(const QTransform* self, const QLineF* l) {
+QLineF* QTransform_Map4(const QTransform* self, const QLineF* l) {
     return new QLineF(self->map(*l));
 }
 
-QRegion* QTransform_MapWithQRegion(const QTransform* self, const QRegion* r) {
+QRegion* QTransform_Map7(const QTransform* self, const QRegion* r) {
     return new QRegion(self->map(*r));
 }
 
-QPainterPath* QTransform_MapWithQPainterPath(const QTransform* self, const QPainterPath* p) {
+QPainterPath* QTransform_Map8(const QTransform* self, const QPainterPath* p) {
     return new QPainterPath(self->map(*p));
 }
 
@@ -240,19 +240,19 @@ QRect* QTransform_MapRect(const QTransform* self, const QRect* param1) {
     return new QRect(self->mapRect(*param1));
 }
 
-QRectF* QTransform_MapRectWithQRectF(const QTransform* self, const QRectF* param1) {
+QRectF* QTransform_MapRect2(const QTransform* self, const QRectF* param1) {
     return new QRectF(self->mapRect(*param1));
 }
 
-void QTransform_Map2(const QTransform* self, int x, int y, int* tx, int* ty) {
+void QTransform_Map9(const QTransform* self, int x, int y, int* tx, int* ty) {
     self->map(static_cast<int>(x), static_cast<int>(y), static_cast<int*>(tx), static_cast<int*>(ty));
 }
 
-void QTransform_Map3(const QTransform* self, double x, double y, double* tx, double* ty) {
+void QTransform_Map10(const QTransform* self, double x, double y, double* tx, double* ty) {
     self->map(static_cast<qreal>(x), static_cast<qreal>(y), static_cast<qreal*>(tx), static_cast<qreal*>(ty));
 }
 
-QTransform* QTransform_OperatorMultiplyAssignWithDiv(QTransform* self, double div) {
+QTransform* QTransform_OperatorMultiplyAssign2(QTransform* self, double div) {
     QTransform& _ret = self->operator*=(static_cast<qreal>(div));
     // Cast returned reference into pointer
     return &_ret;
@@ -288,13 +288,13 @@ QTransform* QTransform_Inverted1(const QTransform* self, bool* invertible) {
     return new QTransform(self->inverted(invertible));
 }
 
-QTransform* QTransform_Rotate2(QTransform* self, double a, int axis) {
+QTransform* QTransform_Rotate22(QTransform* self, double a, int axis) {
     QTransform& _ret = self->rotate(static_cast<qreal>(a), static_cast<Qt::Axis>(axis));
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QTransform* QTransform_RotateRadians2(QTransform* self, double a, int axis) {
+QTransform* QTransform_RotateRadians22(QTransform* self, double a, int axis) {
     QTransform& _ret = self->rotateRadians(static_cast<qreal>(a), static_cast<Qt::Axis>(axis));
     // Cast returned reference into pointer
     return &_ret;

@@ -85,12 +85,12 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8 ```
-    pub fn SetNativeKeyWithKey(self: ?*anyopaque, key: []const u8) void {
+    pub fn SetNativeKey2(self: ?*anyopaque, key: []const u8) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.QSystemSemaphore_SetNativeKeyWithKey(@ptrCast(self), key_str);
+        qtc.QSystemSemaphore_SetNativeKey2(@ptrCast(self), key_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#nativeIpcKey)
@@ -212,8 +212,8 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: QtC.QNativeIpcKey, initialValue: i32 ```
-    pub fn SetNativeKey2(self: ?*anyopaque, key: ?*anyopaque, initialValue: i32) void {
-        qtc.QSystemSemaphore_SetNativeKey2(@ptrCast(self), @ptrCast(key), @intCast(initialValue));
+    pub fn SetNativeKey22(self: ?*anyopaque, key: ?*anyopaque, initialValue: i32) void {
+        qtc.QSystemSemaphore_SetNativeKey22(@ptrCast(self), @ptrCast(key), @intCast(initialValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
@@ -226,12 +226,12 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32 ```
-    pub fn SetNativeKey22(self: ?*anyopaque, key: []const u8, initialValue: i32) void {
+    pub fn SetNativeKey23(self: ?*anyopaque, key: []const u8, initialValue: i32) void {
         const key_str = qtc.struct_libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        qtc.QSystemSemaphore_SetNativeKey22(@ptrCast(self), key_str, @intCast(initialValue));
+        qtc.QSystemSemaphore_SetNativeKey23(@ptrCast(self), key_str, @intCast(initialValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)

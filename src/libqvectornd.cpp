@@ -124,7 +124,7 @@ QVector2D* QVector2D_OperatorMultiplyAssign(QVector2D* self, float factor) {
     return &_ret;
 }
 
-QVector2D* QVector2D_OperatorMultiplyAssignWithVector(QVector2D* self, QVector2D* vector) {
+QVector2D* QVector2D_OperatorMultiplyAssign2(QVector2D* self, QVector2D* vector) {
     QVector2D& _ret = self->operator*=(*vector);
     // Cast returned reference into pointer
     return &_ret;
@@ -136,7 +136,7 @@ QVector2D* QVector2D_OperatorDivideAssign(QVector2D* self, float divisor) {
     return &_ret;
 }
 
-QVector2D* QVector2D_OperatorDivideAssignWithVector(QVector2D* self, QVector2D* vector) {
+QVector2D* QVector2D_OperatorDivideAssign2(QVector2D* self, QVector2D* vector) {
     QVector2D& _ret = self->operator/=(*vector);
     // Cast returned reference into pointer
     return &_ret;
@@ -288,7 +288,7 @@ QVector3D* QVector3D_OperatorMultiplyAssign(QVector3D* self, float factor) {
     return &_ret;
 }
 
-QVector3D* QVector3D_OperatorMultiplyAssignWithVector(QVector3D* self, QVector3D* vector) {
+QVector3D* QVector3D_OperatorMultiplyAssign2(QVector3D* self, QVector3D* vector) {
     QVector3D& _ret = self->operator*=(*vector);
     // Cast returned reference into pointer
     return &_ret;
@@ -300,7 +300,7 @@ QVector3D* QVector3D_OperatorDivideAssign(QVector3D* self, float divisor) {
     return &_ret;
 }
 
-QVector3D* QVector3D_OperatorDivideAssignWithVector(QVector3D* self, QVector3D* vector) {
+QVector3D* QVector3D_OperatorDivideAssign2(QVector3D* self, QVector3D* vector) {
     QVector3D& _ret = self->operator/=(*vector);
     // Cast returned reference into pointer
     return &_ret;
@@ -500,7 +500,7 @@ QVector4D* QVector4D_OperatorMultiplyAssign(QVector4D* self, float factor) {
     return &_ret;
 }
 
-QVector4D* QVector4D_OperatorMultiplyAssignWithVector(QVector4D* self, QVector4D* vector) {
+QVector4D* QVector4D_OperatorMultiplyAssign2(QVector4D* self, QVector4D* vector) {
     QVector4D& _ret = self->operator*=(*vector);
     // Cast returned reference into pointer
     return &_ret;
@@ -512,7 +512,7 @@ QVector4D* QVector4D_OperatorDivideAssign(QVector4D* self, float divisor) {
     return &_ret;
 }
 
-QVector4D* QVector4D_OperatorDivideAssignWithVector(QVector4D* self, QVector4D* vector) {
+QVector4D* QVector4D_OperatorDivideAssign2(QVector4D* self, QVector4D* vector) {
     QVector4D& _ret = self->operator/=(*vector);
     // Cast returned reference into pointer
     return &_ret;

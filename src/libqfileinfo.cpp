@@ -45,11 +45,11 @@ void QFileInfo_SetFile(QFileInfo* self, const libqt_string file) {
     self->setFile(file_QString);
 }
 
-void QFileInfo_SetFileWithFile(QFileInfo* self, const QFileDevice* file) {
+void QFileInfo_SetFile2(QFileInfo* self, const QFileDevice* file) {
     self->setFile(*file);
 }
 
-void QFileInfo_SetFile2(QFileInfo* self, const QDir* dir, const libqt_string file) {
+void QFileInfo_SetFile3(QFileInfo* self, const QDir* dir, const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     self->setFile(*dir, file_QString);
 }
@@ -58,7 +58,7 @@ bool QFileInfo_Exists(const QFileInfo* self) {
     return self->exists();
 }
 
-bool QFileInfo_ExistsWithFile(const libqt_string file) {
+bool QFileInfo_Exists2(const libqt_string file) {
     QString file_QString = QString::fromUtf8(file.data, file.len);
     return QFileInfo::exists(file_QString);
 }
@@ -387,19 +387,19 @@ QDateTime* QFileInfo_FileTime(const QFileInfo* self, int time) {
     return new QDateTime(self->fileTime(static_cast<QFile::FileTime>(time)));
 }
 
-QDateTime* QFileInfo_BirthTimeWithTz(const QFileInfo* self, const QTimeZone* tz) {
+QDateTime* QFileInfo_BirthTime2(const QFileInfo* self, const QTimeZone* tz) {
     return new QDateTime(self->birthTime(*tz));
 }
 
-QDateTime* QFileInfo_MetadataChangeTimeWithTz(const QFileInfo* self, const QTimeZone* tz) {
+QDateTime* QFileInfo_MetadataChangeTime2(const QFileInfo* self, const QTimeZone* tz) {
     return new QDateTime(self->metadataChangeTime(*tz));
 }
 
-QDateTime* QFileInfo_LastModifiedWithTz(const QFileInfo* self, const QTimeZone* tz) {
+QDateTime* QFileInfo_LastModified2(const QFileInfo* self, const QTimeZone* tz) {
     return new QDateTime(self->lastModified(*tz));
 }
 
-QDateTime* QFileInfo_LastReadWithTz(const QFileInfo* self, const QTimeZone* tz) {
+QDateTime* QFileInfo_LastRead2(const QFileInfo* self, const QTimeZone* tz) {
     return new QDateTime(self->lastRead(*tz));
 }
 

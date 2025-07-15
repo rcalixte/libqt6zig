@@ -258,8 +258,8 @@ pub const qcborstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborStreamReader, st: qcborstreamreader_enums.QCborSimpleType ```
-    pub fn IsSimpleTypeWithSt(self: ?*anyopaque, st: i64) bool {
-        return qtc.QCborStreamReader_IsSimpleTypeWithSt(@ptrCast(self), @intCast(st));
+    pub fn IsSimpleType2(self: ?*anyopaque, st: i64) bool {
+        return qtc.QCborStreamReader_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#isFalse)

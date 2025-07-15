@@ -356,15 +356,15 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
     /// ``` self: QtC.QTextCursor, format: QtC.QTextBlockFormat ```
-    pub fn InsertBlockWithFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextCursor_InsertBlockWithFormat(@ptrCast(self), @ptrCast(format));
+    pub fn InsertBlock2(self: ?*anyopaque, format: ?*anyopaque) void {
+        qtc.QTextCursor_InsertBlock2(@ptrCast(self), @ptrCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
     /// ``` self: QtC.QTextCursor, format: QtC.QTextBlockFormat, charFormat: QtC.QTextCharFormat ```
-    pub fn InsertBlock2(self: ?*anyopaque, format: ?*anyopaque, charFormat: ?*anyopaque) void {
-        qtc.QTextCursor_InsertBlock2(@ptrCast(self), @ptrCast(format), @ptrCast(charFormat));
+    pub fn InsertBlock3(self: ?*anyopaque, format: ?*anyopaque, charFormat: ?*anyopaque) void {
+        qtc.QTextCursor_InsertBlock3(@ptrCast(self), @ptrCast(format), @ptrCast(charFormat));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
@@ -377,8 +377,8 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
     ///
     /// ``` self: QtC.QTextCursor, style: qtextcursor_enums.Style ```
-    pub fn InsertListWithStyle(self: ?*anyopaque, style: i64) QtC.QTextList {
-        return qtc.QTextCursor_InsertListWithStyle(@ptrCast(self), @intCast(style));
+    pub fn InsertList2(self: ?*anyopaque, style: i64) QtC.QTextList {
+        return qtc.QTextCursor_InsertList2(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#createList)
@@ -391,8 +391,8 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#createList)
     ///
     /// ``` self: QtC.QTextCursor, style: qtextcursor_enums.Style ```
-    pub fn CreateListWithStyle(self: ?*anyopaque, style: i64) QtC.QTextList {
-        return qtc.QTextCursor_CreateListWithStyle(@ptrCast(self), @intCast(style));
+    pub fn CreateList2(self: ?*anyopaque, style: i64) QtC.QTextList {
+        return qtc.QTextCursor_CreateList2(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#currentList)
@@ -476,26 +476,26 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ``` self: QtC.QTextCursor, format: QtC.QTextImageFormat ```
-    pub fn InsertImageWithFormat(self: ?*anyopaque, format: ?*anyopaque) void {
-        qtc.QTextCursor_InsertImageWithFormat(@ptrCast(self), @ptrCast(format));
+    pub fn InsertImage2(self: ?*anyopaque, format: ?*anyopaque) void {
+        qtc.QTextCursor_InsertImage2(@ptrCast(self), @ptrCast(format));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ``` self: QtC.QTextCursor, name: []const u8 ```
-    pub fn InsertImageWithName(self: ?*anyopaque, name: []const u8) void {
+    pub fn InsertImage3(self: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTextCursor_InsertImageWithName(@ptrCast(self), name_str);
+        qtc.QTextCursor_InsertImage3(@ptrCast(self), name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ``` self: QtC.QTextCursor, image: QtC.QImage ```
-    pub fn InsertImageWithImage(self: ?*anyopaque, image: ?*anyopaque) void {
-        qtc.QTextCursor_InsertImageWithImage(@ptrCast(self), @ptrCast(image));
+    pub fn InsertImage4(self: ?*anyopaque, image: ?*anyopaque) void {
+        qtc.QTextCursor_InsertImage4(@ptrCast(self), @ptrCast(image));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#beginEditBlock)
@@ -624,12 +624,12 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ``` self: QtC.QTextCursor, image: QtC.QImage, name: []const u8 ```
-    pub fn InsertImage2(self: ?*anyopaque, image: ?*anyopaque, name: []const u8) void {
+    pub fn InsertImage22(self: ?*anyopaque, image: ?*anyopaque, name: []const u8) void {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        qtc.QTextCursor_InsertImage2(@ptrCast(self), @ptrCast(image), name_str);
+        qtc.QTextCursor_InsertImage22(@ptrCast(self), @ptrCast(image), name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#dtor.QTextCursor)

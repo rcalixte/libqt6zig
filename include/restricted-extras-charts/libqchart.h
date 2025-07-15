@@ -107,7 +107,7 @@ void QChart_SetAnimationEasingCurve(QChart* self, const QEasingCurve* curve);
 QEasingCurve* QChart_AnimationEasingCurve(const QChart* self);
 void QChart_ZoomIn(QChart* self);
 void QChart_ZoomOut(QChart* self);
-void QChart_ZoomInWithRect(QChart* self, const QRectF* rect);
+void QChart_ZoomIn2(QChart* self, const QRectF* rect);
 void QChart_Zoom(QChart* self, double factor);
 void QChart_ZoomReset(QChart* self);
 bool QChart_IsZoomed(QChart* self);

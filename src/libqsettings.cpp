@@ -276,7 +276,7 @@ QVariant* QSettings_Value(const QSettings* self, libqt_string key, const QVarian
     return new QVariant(self->value(QAnyStringView(key_QString), *defaultValue));
 }
 
-QVariant* QSettings_ValueWithKey(const QSettings* self, libqt_string key) {
+QVariant* QSettings_Value2(const QSettings* self, libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QVariant(self->value(QAnyStringView(key_QString)));
 }

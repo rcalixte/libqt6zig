@@ -308,7 +308,7 @@ QAbstractItemDelegate* QAbstractItemView_ItemDelegateForColumn(const QAbstractIt
     return self->itemDelegateForColumn(static_cast<int>(column));
 }
 
-QAbstractItemDelegate* QAbstractItemView_ItemDelegateWithIndex(const QAbstractItemView* self, const QModelIndex* index) {
+QAbstractItemDelegate* QAbstractItemView_ItemDelegate2(const QAbstractItemView* self, const QModelIndex* index) {
     return self->itemDelegate(*index);
 }
 

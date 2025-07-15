@@ -39,10 +39,10 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     using QsciLexerLua_DefaultStyle_Callback = int (*)();
     using QsciLexerLua_Description_Callback = libqt_string (*)(const QsciLexerLua*, int);
     using QsciLexerLua_Paper_Callback = QColor* (*)(const QsciLexerLua*, int);
-    using QsciLexerLua_DefaultColorWithStyle_Callback = QColor* (*)(const QsciLexerLua*, int);
+    using QsciLexerLua_DefaultColor2_Callback = QColor* (*)(const QsciLexerLua*, int);
     using QsciLexerLua_DefaultEolFill_Callback = bool (*)(const QsciLexerLua*, int);
-    using QsciLexerLua_DefaultFontWithStyle_Callback = QFont* (*)(const QsciLexerLua*, int);
-    using QsciLexerLua_DefaultPaperWithStyle_Callback = QColor* (*)(const QsciLexerLua*, int);
+    using QsciLexerLua_DefaultFont2_Callback = QFont* (*)(const QsciLexerLua*, int);
+    using QsciLexerLua_DefaultPaper2_Callback = QColor* (*)(const QsciLexerLua*, int);
     using QsciLexerLua_SetEditor_Callback = void (*)(QsciLexerLua*, QsciScintilla*);
     using QsciLexerLua_RefreshProperties_Callback = void (*)();
     using QsciLexerLua_StyleBitsNeeded_Callback = int (*)();
@@ -91,10 +91,10 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     QsciLexerLua_DefaultStyle_Callback qscilexerlua_defaultstyle_callback = nullptr;
     QsciLexerLua_Description_Callback qscilexerlua_description_callback = nullptr;
     QsciLexerLua_Paper_Callback qscilexerlua_paper_callback = nullptr;
-    QsciLexerLua_DefaultColorWithStyle_Callback qscilexerlua_defaultcolorwithstyle_callback = nullptr;
+    QsciLexerLua_DefaultColor2_Callback qscilexerlua_defaultcolor2_callback = nullptr;
     QsciLexerLua_DefaultEolFill_Callback qscilexerlua_defaulteolfill_callback = nullptr;
-    QsciLexerLua_DefaultFontWithStyle_Callback qscilexerlua_defaultfontwithstyle_callback = nullptr;
-    QsciLexerLua_DefaultPaperWithStyle_Callback qscilexerlua_defaultpaperwithstyle_callback = nullptr;
+    QsciLexerLua_DefaultFont2_Callback qscilexerlua_defaultfont2_callback = nullptr;
+    QsciLexerLua_DefaultPaper2_Callback qscilexerlua_defaultpaper2_callback = nullptr;
     QsciLexerLua_SetEditor_Callback qscilexerlua_seteditor_callback = nullptr;
     QsciLexerLua_RefreshProperties_Callback qscilexerlua_refreshproperties_callback = nullptr;
     QsciLexerLua_StyleBitsNeeded_Callback qscilexerlua_stylebitsneeded_callback = nullptr;
@@ -142,10 +142,10 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     mutable bool qscilexerlua_defaultstyle_isbase = false;
     mutable bool qscilexerlua_description_isbase = false;
     mutable bool qscilexerlua_paper_isbase = false;
-    mutable bool qscilexerlua_defaultcolorwithstyle_isbase = false;
+    mutable bool qscilexerlua_defaultcolor2_isbase = false;
     mutable bool qscilexerlua_defaulteolfill_isbase = false;
-    mutable bool qscilexerlua_defaultfontwithstyle_isbase = false;
-    mutable bool qscilexerlua_defaultpaperwithstyle_isbase = false;
+    mutable bool qscilexerlua_defaultfont2_isbase = false;
+    mutable bool qscilexerlua_defaultpaper2_isbase = false;
     mutable bool qscilexerlua_seteditor_isbase = false;
     mutable bool qscilexerlua_refreshproperties_isbase = false;
     mutable bool qscilexerlua_stylebitsneeded_isbase = false;
@@ -197,10 +197,10 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
         qscilexerlua_defaultstyle_callback = nullptr;
         qscilexerlua_description_callback = nullptr;
         qscilexerlua_paper_callback = nullptr;
-        qscilexerlua_defaultcolorwithstyle_callback = nullptr;
+        qscilexerlua_defaultcolor2_callback = nullptr;
         qscilexerlua_defaulteolfill_callback = nullptr;
-        qscilexerlua_defaultfontwithstyle_callback = nullptr;
-        qscilexerlua_defaultpaperwithstyle_callback = nullptr;
+        qscilexerlua_defaultfont2_callback = nullptr;
+        qscilexerlua_defaultpaper2_callback = nullptr;
         qscilexerlua_seteditor_callback = nullptr;
         qscilexerlua_refreshproperties_callback = nullptr;
         qscilexerlua_stylebitsneeded_callback = nullptr;
@@ -249,10 +249,10 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     inline void setQsciLexerLua_DefaultStyle_Callback(QsciLexerLua_DefaultStyle_Callback cb) { qscilexerlua_defaultstyle_callback = cb; }
     inline void setQsciLexerLua_Description_Callback(QsciLexerLua_Description_Callback cb) { qscilexerlua_description_callback = cb; }
     inline void setQsciLexerLua_Paper_Callback(QsciLexerLua_Paper_Callback cb) { qscilexerlua_paper_callback = cb; }
-    inline void setQsciLexerLua_DefaultColorWithStyle_Callback(QsciLexerLua_DefaultColorWithStyle_Callback cb) { qscilexerlua_defaultcolorwithstyle_callback = cb; }
+    inline void setQsciLexerLua_DefaultColor2_Callback(QsciLexerLua_DefaultColor2_Callback cb) { qscilexerlua_defaultcolor2_callback = cb; }
     inline void setQsciLexerLua_DefaultEolFill_Callback(QsciLexerLua_DefaultEolFill_Callback cb) { qscilexerlua_defaulteolfill_callback = cb; }
-    inline void setQsciLexerLua_DefaultFontWithStyle_Callback(QsciLexerLua_DefaultFontWithStyle_Callback cb) { qscilexerlua_defaultfontwithstyle_callback = cb; }
-    inline void setQsciLexerLua_DefaultPaperWithStyle_Callback(QsciLexerLua_DefaultPaperWithStyle_Callback cb) { qscilexerlua_defaultpaperwithstyle_callback = cb; }
+    inline void setQsciLexerLua_DefaultFont2_Callback(QsciLexerLua_DefaultFont2_Callback cb) { qscilexerlua_defaultfont2_callback = cb; }
+    inline void setQsciLexerLua_DefaultPaper2_Callback(QsciLexerLua_DefaultPaper2_Callback cb) { qscilexerlua_defaultpaper2_callback = cb; }
     inline void setQsciLexerLua_SetEditor_Callback(QsciLexerLua_SetEditor_Callback cb) { qscilexerlua_seteditor_callback = cb; }
     inline void setQsciLexerLua_RefreshProperties_Callback(QsciLexerLua_RefreshProperties_Callback cb) { qscilexerlua_refreshproperties_callback = cb; }
     inline void setQsciLexerLua_StyleBitsNeeded_Callback(QsciLexerLua_StyleBitsNeeded_Callback cb) { qscilexerlua_stylebitsneeded_callback = cb; }
@@ -300,10 +300,10 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
     inline void setQsciLexerLua_DefaultStyle_IsBase(bool value) const { qscilexerlua_defaultstyle_isbase = value; }
     inline void setQsciLexerLua_Description_IsBase(bool value) const { qscilexerlua_description_isbase = value; }
     inline void setQsciLexerLua_Paper_IsBase(bool value) const { qscilexerlua_paper_isbase = value; }
-    inline void setQsciLexerLua_DefaultColorWithStyle_IsBase(bool value) const { qscilexerlua_defaultcolorwithstyle_isbase = value; }
+    inline void setQsciLexerLua_DefaultColor2_IsBase(bool value) const { qscilexerlua_defaultcolor2_isbase = value; }
     inline void setQsciLexerLua_DefaultEolFill_IsBase(bool value) const { qscilexerlua_defaulteolfill_isbase = value; }
-    inline void setQsciLexerLua_DefaultFontWithStyle_IsBase(bool value) const { qscilexerlua_defaultfontwithstyle_isbase = value; }
-    inline void setQsciLexerLua_DefaultPaperWithStyle_IsBase(bool value) const { qscilexerlua_defaultpaperwithstyle_isbase = value; }
+    inline void setQsciLexerLua_DefaultFont2_IsBase(bool value) const { qscilexerlua_defaultfont2_isbase = value; }
+    inline void setQsciLexerLua_DefaultPaper2_IsBase(bool value) const { qscilexerlua_defaultpaper2_isbase = value; }
     inline void setQsciLexerLua_SetEditor_IsBase(bool value) const { qscilexerlua_seteditor_isbase = value; }
     inline void setQsciLexerLua_RefreshProperties_IsBase(bool value) const { qscilexerlua_refreshproperties_isbase = value; }
     inline void setQsciLexerLua_StyleBitsNeeded_IsBase(bool value) const { qscilexerlua_stylebitsneeded_isbase = value; }
@@ -629,13 +629,13 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultColor(int style) const override {
-        if (qscilexerlua_defaultcolorwithstyle_isbase) {
-            qscilexerlua_defaultcolorwithstyle_isbase = false;
+        if (qscilexerlua_defaultcolor2_isbase) {
+            qscilexerlua_defaultcolor2_isbase = false;
             return QsciLexerLua::defaultColor(style);
-        } else if (qscilexerlua_defaultcolorwithstyle_callback != nullptr) {
+        } else if (qscilexerlua_defaultcolor2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerlua_defaultcolorwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerlua_defaultcolor2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerLua::defaultColor(style);
@@ -659,13 +659,13 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
 
     // Virtual method for C ABI access and custom callback
     virtual QFont defaultFont(int style) const override {
-        if (qscilexerlua_defaultfontwithstyle_isbase) {
-            qscilexerlua_defaultfontwithstyle_isbase = false;
+        if (qscilexerlua_defaultfont2_isbase) {
+            qscilexerlua_defaultfont2_isbase = false;
             return QsciLexerLua::defaultFont(style);
-        } else if (qscilexerlua_defaultfontwithstyle_callback != nullptr) {
+        } else if (qscilexerlua_defaultfont2_callback != nullptr) {
             int cbval1 = style;
 
-            QFont* callback_ret = qscilexerlua_defaultfontwithstyle_callback(this, cbval1);
+            QFont* callback_ret = qscilexerlua_defaultfont2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerLua::defaultFont(style);
@@ -674,13 +674,13 @@ class VirtualQsciLexerLua final : public QsciLexerLua {
 
     // Virtual method for C ABI access and custom callback
     virtual QColor defaultPaper(int style) const override {
-        if (qscilexerlua_defaultpaperwithstyle_isbase) {
-            qscilexerlua_defaultpaperwithstyle_isbase = false;
+        if (qscilexerlua_defaultpaper2_isbase) {
+            qscilexerlua_defaultpaper2_isbase = false;
             return QsciLexerLua::defaultPaper(style);
-        } else if (qscilexerlua_defaultpaperwithstyle_callback != nullptr) {
+        } else if (qscilexerlua_defaultpaper2_callback != nullptr) {
             int cbval1 = style;
 
-            QColor* callback_ret = qscilexerlua_defaultpaperwithstyle_callback(this, cbval1);
+            QColor* callback_ret = qscilexerlua_defaultpaper2_callback(this, cbval1);
             return *callback_ret;
         } else {
             return QsciLexerLua::defaultPaper(style);

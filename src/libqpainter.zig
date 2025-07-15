@@ -101,15 +101,15 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
     /// ``` self: QtC.QPainter, pen: QtC.QPen ```
-    pub fn SetPenWithPen(self: ?*anyopaque, pen: ?*anyopaque) void {
-        qtc.QPainter_SetPenWithPen(@ptrCast(self), @ptrCast(pen));
+    pub fn SetPen2(self: ?*anyopaque, pen: ?*anyopaque) void {
+        qtc.QPainter_SetPen2(@ptrCast(self), @ptrCast(pen));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
     /// ``` self: QtC.QPainter, style: qnamespace_enums.PenStyle ```
-    pub fn SetPenWithStyle(self: ?*anyopaque, style: i64) void {
-        qtc.QPainter_SetPenWithStyle(@ptrCast(self), @intCast(style));
+    pub fn SetPen3(self: ?*anyopaque, style: i64) void {
+        qtc.QPainter_SetPen3(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#pen)
@@ -129,8 +129,8 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrush)
     ///
     /// ``` self: QtC.QPainter, style: qnamespace_enums.BrushStyle ```
-    pub fn SetBrushWithStyle(self: ?*anyopaque, style: i64) void {
-        qtc.QPainter_SetBrushWithStyle(@ptrCast(self), @intCast(style));
+    pub fn SetBrush2(self: ?*anyopaque, style: i64) void {
+        qtc.QPainter_SetBrush2(@ptrCast(self), @intCast(style));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#brush)
@@ -171,15 +171,15 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
     ///
     /// ``` self: QtC.QPainter, brushOrigin: QtC.QPoint ```
-    pub fn SetBrushOriginWithBrushOrigin(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
-        qtc.QPainter_SetBrushOriginWithBrushOrigin(@ptrCast(self), @ptrCast(brushOrigin));
+    pub fn SetBrushOrigin2(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
+        qtc.QPainter_SetBrushOrigin2(@ptrCast(self), @ptrCast(brushOrigin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
     ///
     /// ``` self: QtC.QPainter, brushOrigin: QtC.QPointF ```
-    pub fn SetBrushOrigin2(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
-        qtc.QPainter_SetBrushOrigin2(@ptrCast(self), @ptrCast(brushOrigin));
+    pub fn SetBrushOrigin3(self: ?*anyopaque, brushOrigin: ?*anyopaque) void {
+        qtc.QPainter_SetBrushOrigin3(@ptrCast(self), @ptrCast(brushOrigin));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBackground)
@@ -234,15 +234,15 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QPainter, param1: QtC.QRect ```
-    pub fn SetClipRectWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPainter_SetClipRectWithQRect(@ptrCast(self), @ptrCast(param1));
+    pub fn SetClipRect2(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QPainter_SetClipRect2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QPainter, x: i32, y: i32, w: i32, h: i32 ```
-    pub fn SetClipRect2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QPainter_SetClipRect2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+    pub fn SetClipRect3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QPainter_SetClipRect3(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
@@ -388,15 +388,15 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
     /// ``` self: QtC.QPainter, offset: QtC.QPoint ```
-    pub fn TranslateWithOffset(self: ?*anyopaque, offset: ?*anyopaque) void {
-        qtc.QPainter_TranslateWithOffset(@ptrCast(self), @ptrCast(offset));
+    pub fn Translate2(self: ?*anyopaque, offset: ?*anyopaque) void {
+        qtc.QPainter_Translate2(@ptrCast(self), @ptrCast(offset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
     /// ``` self: QtC.QPainter, dx: f64, dy: f64 ```
-    pub fn Translate2(self: ?*anyopaque, dx: f64, dy: f64) void {
-        qtc.QPainter_Translate2(@ptrCast(self), @floatCast(dx), @floatCast(dy));
+    pub fn Translate3(self: ?*anyopaque, dx: f64, dy: f64) void {
+        qtc.QPainter_Translate3(@ptrCast(self), @floatCast(dx), @floatCast(dy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#window)
@@ -486,15 +486,15 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
     /// ``` self: QtC.QPainter, p: QtC.QPoint ```
-    pub fn DrawPointWithQPoint(self: ?*anyopaque, p: ?*anyopaque) void {
-        qtc.QPainter_DrawPointWithQPoint(@ptrCast(self), @ptrCast(p));
+    pub fn DrawPoint2(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.QPainter_DrawPoint2(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
     /// ``` self: QtC.QPainter, x: i32, y: i32 ```
-    pub fn DrawPoint2(self: ?*anyopaque, x: i32, y: i32) void {
-        qtc.QPainter_DrawPoint2(@ptrCast(self), @intCast(x), @intCast(y));
+    pub fn DrawPoint3(self: ?*anyopaque, x: i32, y: i32) void {
+        qtc.QPainter_DrawPoint3(@ptrCast(self), @intCast(x), @intCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
@@ -507,8 +507,8 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
     ///
     /// ``` self: QtC.QPainter, points: QtC.QPoint, pointCount: i32 ```
-    pub fn DrawPoints2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPoints2(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
+    pub fn DrawPoints3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
+        qtc.QPainter_DrawPoints3(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
@@ -521,29 +521,29 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QPainter, line: QtC.QLine ```
-    pub fn DrawLineWithLine(self: ?*anyopaque, line: ?*anyopaque) void {
-        qtc.QPainter_DrawLineWithLine(@ptrCast(self), @ptrCast(line));
+    pub fn DrawLine2(self: ?*anyopaque, line: ?*anyopaque) void {
+        qtc.QPainter_DrawLine2(@ptrCast(self), @ptrCast(line));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QPainter, x1: i32, y1: i32, x2: i32, y2: i32 ```
-    pub fn DrawLine2(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
-        qtc.QPainter_DrawLine2(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+    pub fn DrawLine3(self: ?*anyopaque, x1: i32, y1: i32, x2: i32, y2: i32) void {
+        qtc.QPainter_DrawLine3(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QPainter, p1: QtC.QPoint, p2: QtC.QPoint ```
-    pub fn DrawLine3(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
-        qtc.QPainter_DrawLine3(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
+    pub fn DrawLine4(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
+        qtc.QPainter_DrawLine4(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
     /// ``` self: QtC.QPainter, p1: QtC.QPointF, p2: QtC.QPointF ```
-    pub fn DrawLine4(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
-        qtc.QPainter_DrawLine4(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
+    pub fn DrawLine5(self: ?*anyopaque, p1: ?*anyopaque, p2: ?*anyopaque) void {
+        qtc.QPainter_DrawLine5(@ptrCast(self), @ptrCast(p1), @ptrCast(p2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
@@ -556,66 +556,66 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QPainter, lines: []QtC.QLineF ```
-    pub fn DrawLinesWithLines(self: ?*anyopaque, lines: []QtC.QLineF) void {
+    pub fn DrawLines2(self: ?*anyopaque, lines: []QtC.QLineF) void {
         const lines_list = qtc.struct_libqt_list{
             .len = lines.len,
             .data = @ptrCast(lines.ptr),
         };
-        qtc.QPainter_DrawLinesWithLines(@ptrCast(self), lines_list);
+        qtc.QPainter_DrawLines2(@ptrCast(self), lines_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QPainter, pointPairs: QtC.QPointF, lineCount: i32 ```
-    pub fn DrawLines2(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
-        qtc.QPainter_DrawLines2(@ptrCast(self), @ptrCast(pointPairs), @intCast(lineCount));
+    pub fn DrawLines3(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
+        qtc.QPainter_DrawLines3(@ptrCast(self), @ptrCast(pointPairs), @intCast(lineCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QPainter, pointPairs: []QtC.QPointF ```
-    pub fn DrawLinesWithPointPairs(self: ?*anyopaque, pointPairs: []QtC.QPointF) void {
+    pub fn DrawLines4(self: ?*anyopaque, pointPairs: []QtC.QPointF) void {
         const pointPairs_list = qtc.struct_libqt_list{
             .len = pointPairs.len,
             .data = @ptrCast(pointPairs.ptr),
         };
-        qtc.QPainter_DrawLinesWithPointPairs(@ptrCast(self), pointPairs_list);
+        qtc.QPainter_DrawLines4(@ptrCast(self), pointPairs_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QPainter, lines: QtC.QLine, lineCount: i32 ```
-    pub fn DrawLines3(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
-        qtc.QPainter_DrawLines3(@ptrCast(self), @ptrCast(lines), @intCast(lineCount));
+    pub fn DrawLines5(self: ?*anyopaque, lines: ?*anyopaque, lineCount: i32) void {
+        qtc.QPainter_DrawLines5(@ptrCast(self), @ptrCast(lines), @intCast(lineCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QPainter, lines: []QtC.QLine ```
-    pub fn DrawLines4(self: ?*anyopaque, lines: []QtC.QLine) void {
+    pub fn DrawLines6(self: ?*anyopaque, lines: []QtC.QLine) void {
         const lines_list = qtc.struct_libqt_list{
             .len = lines.len,
             .data = @ptrCast(lines.ptr),
         };
-        qtc.QPainter_DrawLines4(@ptrCast(self), lines_list);
+        qtc.QPainter_DrawLines6(@ptrCast(self), lines_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QPainter, pointPairs: QtC.QPoint, lineCount: i32 ```
-    pub fn DrawLines5(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
-        qtc.QPainter_DrawLines5(@ptrCast(self), @ptrCast(pointPairs), @intCast(lineCount));
+    pub fn DrawLines7(self: ?*anyopaque, pointPairs: ?*anyopaque, lineCount: i32) void {
+        qtc.QPainter_DrawLines7(@ptrCast(self), @ptrCast(pointPairs), @intCast(lineCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
     /// ``` self: QtC.QPainter, pointPairs: []QtC.QPoint ```
-    pub fn DrawLines6(self: ?*anyopaque, pointPairs: []QtC.QPoint) void {
+    pub fn DrawLines8(self: ?*anyopaque, pointPairs: []QtC.QPoint) void {
         const pointPairs_list = qtc.struct_libqt_list{
             .len = pointPairs.len,
             .data = @ptrCast(pointPairs.ptr),
         };
-        qtc.QPainter_DrawLines6(@ptrCast(self), pointPairs_list);
+        qtc.QPainter_DrawLines8(@ptrCast(self), pointPairs_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRect)
@@ -635,8 +635,8 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRect)
     ///
     /// ``` self: QtC.QPainter, rect: QtC.QRect ```
-    pub fn DrawRectWithRect(self: ?*anyopaque, rect: ?*anyopaque) void {
-        qtc.QPainter_DrawRectWithRect(@ptrCast(self), @ptrCast(rect));
+    pub fn DrawRect3(self: ?*anyopaque, rect: ?*anyopaque) void {
+        qtc.QPainter_DrawRect3(@ptrCast(self), @ptrCast(rect));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
@@ -649,30 +649,30 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
     /// ``` self: QtC.QPainter, rectangles: []QtC.QRectF ```
-    pub fn DrawRectsWithRectangles(self: ?*anyopaque, rectangles: []QtC.QRectF) void {
+    pub fn DrawRects2(self: ?*anyopaque, rectangles: []QtC.QRectF) void {
         const rectangles_list = qtc.struct_libqt_list{
             .len = rectangles.len,
             .data = @ptrCast(rectangles.ptr),
         };
-        qtc.QPainter_DrawRectsWithRectangles(@ptrCast(self), rectangles_list);
+        qtc.QPainter_DrawRects2(@ptrCast(self), rectangles_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
     /// ``` self: QtC.QPainter, rects: QtC.QRect, rectCount: i32 ```
-    pub fn DrawRects2(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
-        qtc.QPainter_DrawRects2(@ptrCast(self), @ptrCast(rects), @intCast(rectCount));
+    pub fn DrawRects3(self: ?*anyopaque, rects: ?*anyopaque, rectCount: i32) void {
+        qtc.QPainter_DrawRects3(@ptrCast(self), @ptrCast(rects), @intCast(rectCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
     /// ``` self: QtC.QPainter, rectangles: []QtC.QRect ```
-    pub fn DrawRects3(self: ?*anyopaque, rectangles: []QtC.QRect) void {
+    pub fn DrawRects4(self: ?*anyopaque, rectangles: []QtC.QRect) void {
         const rectangles_list = qtc.struct_libqt_list{
             .len = rectangles.len,
             .data = @ptrCast(rectangles.ptr),
         };
-        qtc.QPainter_DrawRects3(@ptrCast(self), rectangles_list);
+        qtc.QPainter_DrawRects4(@ptrCast(self), rectangles_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
@@ -685,29 +685,29 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QPainter, r: QtC.QRect ```
-    pub fn DrawEllipseWithQRect(self: ?*anyopaque, r: ?*anyopaque) void {
-        qtc.QPainter_DrawEllipseWithQRect(@ptrCast(self), @ptrCast(r));
+    pub fn DrawEllipse2(self: ?*anyopaque, r: ?*anyopaque) void {
+        qtc.QPainter_DrawEllipse2(@ptrCast(self), @ptrCast(r));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QPainter, x: i32, y: i32, w: i32, h: i32 ```
-    pub fn DrawEllipse2(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QPainter_DrawEllipse2(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+    pub fn DrawEllipse3(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32) void {
+        qtc.QPainter_DrawEllipse3(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QPainter, center: QtC.QPointF, rx: f64, ry: f64 ```
-    pub fn DrawEllipse3(self: ?*anyopaque, center: ?*anyopaque, rx: f64, ry: f64) void {
-        qtc.QPainter_DrawEllipse3(@ptrCast(self), @ptrCast(center), @floatCast(rx), @floatCast(ry));
+    pub fn DrawEllipse4(self: ?*anyopaque, center: ?*anyopaque, rx: f64, ry: f64) void {
+        qtc.QPainter_DrawEllipse4(@ptrCast(self), @ptrCast(center), @floatCast(rx), @floatCast(ry));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
     /// ``` self: QtC.QPainter, center: QtC.QPoint, rx: i32, ry: i32 ```
-    pub fn DrawEllipse4(self: ?*anyopaque, center: ?*anyopaque, rx: i32, ry: i32) void {
-        qtc.QPainter_DrawEllipse4(@ptrCast(self), @ptrCast(center), @intCast(rx), @intCast(ry));
+    pub fn DrawEllipse5(self: ?*anyopaque, center: ?*anyopaque, rx: i32, ry: i32) void {
+        qtc.QPainter_DrawEllipse5(@ptrCast(self), @ptrCast(center), @intCast(rx), @intCast(ry));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
@@ -720,8 +720,8 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
     ///
     /// ``` self: QtC.QPainter, points: QtC.QPoint, pointCount: i32 ```
-    pub fn DrawPolyline2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPolyline2(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
+    pub fn DrawPolyline3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
+        qtc.QPainter_DrawPolyline3(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
@@ -734,8 +734,8 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ``` self: QtC.QPainter, points: QtC.QPoint, pointCount: i32 ```
-    pub fn DrawPolygon2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawPolygon2(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
+    pub fn DrawPolygon3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
+        qtc.QPainter_DrawPolygon3(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
@@ -748,8 +748,8 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
     ///
     /// ``` self: QtC.QPainter, points: QtC.QPoint, pointCount: i32 ```
-    pub fn DrawConvexPolygon2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
-        qtc.QPainter_DrawConvexPolygon2(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
+    pub fn DrawConvexPolygon3(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32) void {
+        qtc.QPainter_DrawConvexPolygon3(@ptrCast(self), @ptrCast(points), @intCast(pointCount));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawArc)
@@ -1342,8 +1342,8 @@ pub const qpainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
     ///
     /// ``` self: QtC.QPainter, param1: QtC.QRect ```
-    pub fn EraseRectWithQRect(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QPainter_EraseRectWithQRect(@ptrCast(self), @ptrCast(param1));
+    pub fn EraseRect3(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QPainter_EraseRect3(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)

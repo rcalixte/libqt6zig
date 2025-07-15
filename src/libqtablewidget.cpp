@@ -264,11 +264,11 @@ void QTableWidgetItem_SetTextAlignment(QTableWidgetItem* self, int alignment) {
     self->setTextAlignment(static_cast<int>(alignment));
 }
 
-void QTableWidgetItem_SetTextAlignmentWithAlignment(QTableWidgetItem* self, int alignment) {
+void QTableWidgetItem_SetTextAlignment2(QTableWidgetItem* self, int alignment) {
     self->setTextAlignment(static_cast<Qt::AlignmentFlag>(alignment));
 }
 
-void QTableWidgetItem_SetTextAlignment2(QTableWidgetItem* self, int alignment) {
+void QTableWidgetItem_SetTextAlignment3(QTableWidgetItem* self, int alignment) {
     self->setTextAlignment(static_cast<Qt::Alignment>(alignment));
 }
 

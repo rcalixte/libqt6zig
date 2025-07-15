@@ -59,7 +59,7 @@ QImage* QBrush_TextureImage(const QBrush* self);
 void QBrush_SetTextureImage(QBrush* self, const QImage* image);
 QColor* QBrush_Color(const QBrush* self);
 void QBrush_SetColor(QBrush* self, const QColor* color);
-void QBrush_SetColorWithColor(QBrush* self, int color);
+void QBrush_SetColor2(QBrush* self, int color);
 QGradient* QBrush_Gradient(const QBrush* self);
 bool QBrush_IsOpaque(const QBrush* self);
 bool QBrush_OperatorEqual(const QBrush* self, const QBrush* b);

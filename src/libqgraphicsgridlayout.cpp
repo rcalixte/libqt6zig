@@ -211,7 +211,7 @@ void QGraphicsGridLayout_OnCount(const QGraphicsGridLayout* self, intptr_t slot)
 }
 
 // Derived class handler implementation
-QGraphicsLayoutItem* QGraphicsGridLayout_ItemAtWithIndex(const QGraphicsGridLayout* self, int index) {
+QGraphicsLayoutItem* QGraphicsGridLayout_ItemAt2(const QGraphicsGridLayout* self, int index) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
         return vqgraphicsgridlayout->itemAt(static_cast<int>(index));
@@ -221,10 +221,10 @@ QGraphicsLayoutItem* QGraphicsGridLayout_ItemAtWithIndex(const QGraphicsGridLayo
 }
 
 // Base class handler implementation
-QGraphicsLayoutItem* QGraphicsGridLayout_QBaseItemAtWithIndex(const QGraphicsGridLayout* self, int index) {
+QGraphicsLayoutItem* QGraphicsGridLayout_QBaseItemAt2(const QGraphicsGridLayout* self, int index) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_ItemAtWithIndex_IsBase(true);
+        vqgraphicsgridlayout->setQGraphicsGridLayout_ItemAt2_IsBase(true);
         return vqgraphicsgridlayout->itemAt(static_cast<int>(index));
     } else {
         return self->QGraphicsGridLayout::itemAt(static_cast<int>(index));
@@ -232,10 +232,10 @@ QGraphicsLayoutItem* QGraphicsGridLayout_QBaseItemAtWithIndex(const QGraphicsGri
 }
 
 // Auxiliary method to allow providing re-implementation
-void QGraphicsGridLayout_OnItemAtWithIndex(const QGraphicsGridLayout* self, intptr_t slot) {
+void QGraphicsGridLayout_OnItemAt2(const QGraphicsGridLayout* self, intptr_t slot) {
     auto* vqgraphicsgridlayout = const_cast<VirtualQGraphicsGridLayout*>(dynamic_cast<const VirtualQGraphicsGridLayout*>(self));
     if (vqgraphicsgridlayout && vqgraphicsgridlayout->isVirtualQGraphicsGridLayout) {
-        vqgraphicsgridlayout->setQGraphicsGridLayout_ItemAtWithIndex_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_ItemAtWithIndex_Callback>(slot));
+        vqgraphicsgridlayout->setQGraphicsGridLayout_ItemAt2_Callback(reinterpret_cast<VirtualQGraphicsGridLayout::QGraphicsGridLayout_ItemAt2_Callback>(slot));
     }
 }
 

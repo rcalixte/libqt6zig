@@ -1739,7 +1739,7 @@ void QAbstractScrollArea_OnSetViewportMargins(QAbstractScrollArea* self, intptr_
 }
 
 // Derived class handler implementation
-void QAbstractScrollArea_SetViewportMarginsWithMargins(QAbstractScrollArea* self, const QMargins* margins) {
+void QAbstractScrollArea_SetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
         vqabstractscrollarea->setViewportMargins(*margins);
@@ -1749,10 +1749,10 @@ void QAbstractScrollArea_SetViewportMarginsWithMargins(QAbstractScrollArea* self
 }
 
 // Base class handler implementation
-void QAbstractScrollArea_QBaseSetViewportMarginsWithMargins(QAbstractScrollArea* self, const QMargins* margins) {
+void QAbstractScrollArea_QBaseSetViewportMargins2(QAbstractScrollArea* self, const QMargins* margins) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        vqabstractscrollarea->setQAbstractScrollArea_SetViewportMarginsWithMargins_IsBase(true);
+        vqabstractscrollarea->setQAbstractScrollArea_SetViewportMargins2_IsBase(true);
         vqabstractscrollarea->setViewportMargins(*margins);
     } else {
         ((VirtualQAbstractScrollArea*)self)->setViewportMargins(*margins);
@@ -1760,10 +1760,10 @@ void QAbstractScrollArea_QBaseSetViewportMarginsWithMargins(QAbstractScrollArea*
 }
 
 // Auxiliary method to allow providing re-implementation
-void QAbstractScrollArea_OnSetViewportMarginsWithMargins(QAbstractScrollArea* self, intptr_t slot) {
+void QAbstractScrollArea_OnSetViewportMargins2(QAbstractScrollArea* self, intptr_t slot) {
     auto* vqabstractscrollarea = dynamic_cast<VirtualQAbstractScrollArea*>(self);
     if (vqabstractscrollarea && vqabstractscrollarea->isVirtualQAbstractScrollArea) {
-        vqabstractscrollarea->setQAbstractScrollArea_SetViewportMarginsWithMargins_Callback(reinterpret_cast<VirtualQAbstractScrollArea::QAbstractScrollArea_SetViewportMarginsWithMargins_Callback>(slot));
+        vqabstractscrollarea->setQAbstractScrollArea_SetViewportMargins2_Callback(reinterpret_cast<VirtualQAbstractScrollArea::QAbstractScrollArea_SetViewportMargins2_Callback>(slot));
     }
 }
 

@@ -29,11 +29,11 @@ unsigned int QColorTransform_Map(const QColorTransform* self, unsigned int argb)
     return static_cast<unsigned int>(self->map(static_cast<QRgb>(argb)));
 }
 
-QRgba64* QColorTransform_MapWithRgba64(const QColorTransform* self, QRgba64* rgba64) {
+QRgba64* QColorTransform_Map2(const QColorTransform* self, QRgba64* rgba64) {
     return new QRgba64(self->map(*rgba64));
 }
 
-QColor* QColorTransform_MapWithColor(const QColorTransform* self, const QColor* color) {
+QColor* QColorTransform_Map5(const QColorTransform* self, const QColor* color) {
     return new QColor(self->map(*color));
 }
 

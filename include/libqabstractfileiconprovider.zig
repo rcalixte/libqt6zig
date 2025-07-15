@@ -40,8 +40,8 @@ pub const qabstractfileiconprovider = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo ```
-    pub fn IconWithQFileInfo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_IconWithQFileInfo(@ptrCast(self), @ptrCast(param1));
+    pub fn Icon2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
+        return qtc.QAbstractFileIconProvider_Icon2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -49,8 +49,8 @@ pub const qabstractfileiconprovider = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
-    pub fn OnIconWithQFileInfo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QAbstractFileIconProvider_OnIconWithQFileInfo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    pub fn OnIcon2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
+        qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -58,8 +58,8 @@ pub const qabstractfileiconprovider = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo ```
-    pub fn QBaseIconWithQFileInfo(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
-        return qtc.QAbstractFileIconProvider_QBaseIconWithQFileInfo(@ptrCast(self), @ptrCast(param1));
+    pub fn QBaseIcon2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QIcon {
+        return qtc.QAbstractFileIconProvider_QBaseIcon2(@ptrCast(self), @ptrCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)

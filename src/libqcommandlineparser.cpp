@@ -93,7 +93,7 @@ void QCommandLineParser_Process(QCommandLineParser* self, const libqt_list /* of
     self->process(arguments_QList);
 }
 
-void QCommandLineParser_ProcessWithApp(QCommandLineParser* self, const QCoreApplication* app) {
+void QCommandLineParser_Process2(QCommandLineParser* self, const QCoreApplication* app) {
     self->process(*app);
 }
 
@@ -160,11 +160,11 @@ libqt_list /* of libqt_string */ QCommandLineParser_Values(const QCommandLinePar
     return _out;
 }
 
-bool QCommandLineParser_IsSetWithOption(const QCommandLineParser* self, const QCommandLineOption* option) {
+bool QCommandLineParser_IsSet2(const QCommandLineParser* self, const QCommandLineOption* option) {
     return self->isSet(*option);
 }
 
-libqt_string QCommandLineParser_ValueWithOption(const QCommandLineParser* self, const QCommandLineOption* option) {
+libqt_string QCommandLineParser_Value2(const QCommandLineParser* self, const QCommandLineOption* option) {
     QString _ret = self->value(*option);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
@@ -176,7 +176,7 @@ libqt_string QCommandLineParser_ValueWithOption(const QCommandLineParser* self, 
     return _str;
 }
 
-libqt_list /* of libqt_string */ QCommandLineParser_ValuesWithOption(const QCommandLineParser* self, const QCommandLineOption* option) {
+libqt_list /* of libqt_string */ QCommandLineParser_Values2(const QCommandLineParser* self, const QCommandLineOption* option) {
     QList<QString> _ret = self->values(*option);
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));

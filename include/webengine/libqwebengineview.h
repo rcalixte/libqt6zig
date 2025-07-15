@@ -81,7 +81,7 @@ QWebEngineView* QWebEngineView_ForPage(const QWebEnginePage* page);
 QWebEnginePage* QWebEngineView_Page(const QWebEngineView* self);
 void QWebEngineView_SetPage(QWebEngineView* self, QWebEnginePage* page);
 void QWebEngineView_Load(QWebEngineView* self, const QUrl* url);
-void QWebEngineView_LoadWithRequest(QWebEngineView* self, const QWebEngineHttpRequest* request);
+void QWebEngineView_Load2(QWebEngineView* self, const QWebEngineHttpRequest* request);
 void QWebEngineView_SetHtml(QWebEngineView* self, const libqt_string html);
 void QWebEngineView_SetContent(QWebEngineView* self, const libqt_string data);
 QWebEngineHistory* QWebEngineView_History(const QWebEngineView* self);

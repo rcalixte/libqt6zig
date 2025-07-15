@@ -110,7 +110,7 @@ void QLabel_SetPixmap(QLabel* self, const QPixmap* pixmap);
 void QLabel_SetPicture(QLabel* self, const QPicture* picture);
 void QLabel_SetMovie(QLabel* self, QMovie* movie);
 void QLabel_SetNum(QLabel* self, int num);
-void QLabel_SetNumWithNum(QLabel* self, double num);
+void QLabel_SetNum2(QLabel* self, double num);
 void QLabel_Clear(QLabel* self);
 void QLabel_LinkActivated(QLabel* self, const libqt_string link);
 void QLabel_Connect_LinkActivated(QLabel* self, intptr_t slot);

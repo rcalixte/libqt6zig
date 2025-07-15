@@ -132,8 +132,8 @@ pub const qstringmatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#indexIn)
     ///
     /// ``` self: QtC.QStringMatcher, str: QtC.QChar, length: i64, from: i64 ```
-    pub fn IndexIn3(self: ?*anyopaque, str: ?*anyopaque, length: i64, from: i64) i64 {
-        return qtc.QStringMatcher_IndexIn3(@ptrCast(self), @ptrCast(str), @intCast(length), @intCast(from));
+    pub fn IndexIn32(self: ?*anyopaque, str: ?*anyopaque, length: i64, from: i64) i64 {
+        return qtc.QStringMatcher_IndexIn32(@ptrCast(self), @ptrCast(str), @intCast(length), @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#dtor.QStringMatcher)

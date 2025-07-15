@@ -213,12 +213,12 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#match)
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64 ```
-    pub fn Match2(self: ?*anyopaque, subject: []const u8, offset: i64) QtC.QRegularExpressionMatch {
+    pub fn Match22(self: ?*anyopaque, subject: []const u8, offset: i64) QtC.QRegularExpressionMatch {
         const subject_str = qtc.struct_libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
-        return qtc.QRegularExpression_Match2(@ptrCast(self), subject_str, @intCast(offset));
+        return qtc.QRegularExpression_Match22(@ptrCast(self), subject_str, @intCast(offset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#match)
@@ -246,14 +246,14 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#wildcardToRegularExpression)
     ///
     /// ``` str: []const u8, options: i32, allocator: std.mem.Allocator ```
-    pub fn WildcardToRegularExpression2(str: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn WildcardToRegularExpression22(str: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        const _str = qtc.QRegularExpression_WildcardToRegularExpression2(str_str, @intCast(options));
+        const _str = qtc.QRegularExpression_WildcardToRegularExpression22(str_str, @intCast(options));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpression.WildcardToRegularExpression2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpression.WildcardToRegularExpression22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -361,8 +361,8 @@ pub const qregularexpressionmatch = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#hasCaptured)
     ///
     /// ``` self: QtC.QRegularExpressionMatch, nth: i32 ```
-    pub fn HasCapturedWithNth(self: ?*anyopaque, nth: i32) bool {
-        return qtc.QRegularExpressionMatch_HasCapturedWithNth(@ptrCast(self), @intCast(nth));
+    pub fn HasCaptured2(self: ?*anyopaque, nth: i32) bool {
+        return qtc.QRegularExpressionMatch_HasCaptured2(@ptrCast(self), @intCast(nth));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#captured)
@@ -379,14 +379,14 @@ pub const qregularexpressionmatch = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#captured)
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8, allocator: std.mem.Allocator ```
-    pub fn CapturedWithName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Captured2(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const _str = qtc.QRegularExpressionMatch_CapturedWithName(@ptrCast(self), name_str);
+        const _str = qtc.QRegularExpressionMatch_Captured2(@ptrCast(self), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionmatch.CapturedWithName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("qregularexpressionmatch.Captured2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -437,34 +437,34 @@ pub const qregularexpressionmatch = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#capturedStart)
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8 ```
-    pub fn CapturedStartWithName(self: ?*anyopaque, name: []const u8) i64 {
+    pub fn CapturedStart2(self: ?*anyopaque, name: []const u8) i64 {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QRegularExpressionMatch_CapturedStartWithName(@ptrCast(self), name_str);
+        return qtc.QRegularExpressionMatch_CapturedStart2(@ptrCast(self), name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#capturedLength)
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8 ```
-    pub fn CapturedLengthWithName(self: ?*anyopaque, name: []const u8) i64 {
+    pub fn CapturedLength2(self: ?*anyopaque, name: []const u8) i64 {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QRegularExpressionMatch_CapturedLengthWithName(@ptrCast(self), name_str);
+        return qtc.QRegularExpressionMatch_CapturedLength2(@ptrCast(self), name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#capturedEnd)
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8 ```
-    pub fn CapturedEndWithName(self: ?*anyopaque, name: []const u8) i64 {
+    pub fn CapturedEnd2(self: ?*anyopaque, name: []const u8) i64 {
         const name_str = qtc.struct_libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        return qtc.QRegularExpressionMatch_CapturedEndWithName(@ptrCast(self), name_str);
+        return qtc.QRegularExpressionMatch_CapturedEnd2(@ptrCast(self), name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#captured)
