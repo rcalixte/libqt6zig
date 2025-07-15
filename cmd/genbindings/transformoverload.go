@@ -31,28 +31,7 @@ func astTransformOverloads(parsed *CppParsedHeader) {
 
 			ctr := 1
 			for {
-
-				if ctr == 1 {
-					// Fake special-case check
-					// If this is a 1-argument function, try and name it FooFrom{Type}
-					// e.g. NewVariantFromFloat
-					if len(m.Parameters) == 1 {
-
-						// If the parameter has a proper name (i.e. not 'l' or 'param1')
-						// then go with that
-						if len(m.Parameters[0].ParameterName) > 1 && !strings.HasPrefix(m.Parameters[0].ParameterName, "param") {
-							proposedName = originalProposal + "With" + titleCase(m.Parameters[0].ParameterName)
-						} else {
-							// Try the type instead
-							proposedName = originalProposal + "With" + titleCase(m.Parameters[0].renderTypeForMethod())
-						}
-						if _, ok := existing[proposedName]; !ok {
-							break
-						}
-
-					}
-
-				} else {
+				if ctr != 1 {
 					proposedName = fmt.Sprintf("%s%d", originalProposal, ctr)
 					if _, ok := existing[proposedName]; !ok {
 						break
