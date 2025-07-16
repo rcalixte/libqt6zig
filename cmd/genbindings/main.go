@@ -19,6 +19,11 @@ const (
 	ClangSubprocessCount = 4
 )
 
+var archMap = map[string]string{
+	"amd64": "x86_64",
+	"arm64": "aarch64",
+}
+
 func cacheFilePath(inputHeader string) string {
 	return filepath.Join("cachedir", strings.ReplaceAll(inputHeader, `/`, `__`)+".json")
 }
@@ -603,6 +608,10 @@ func generateClangCaches(includeFiles []string, clangBin string, cflags []string
 }
 
 func main() {
+	if _, ok := archMap[runtime.GOARCH]; !ok {
+		panic("Unsupported architecture: " + runtime.GOARCH)
+	}
+
 	clang := flag.String("clang", "clang", "Custom path to clang")
 	outDir := flag.String("outdir", "../../", "Output directory for generated gen_** files")
 	extraLibsDir := flag.String("extralibs", "/usr/local/src/", "Base directory to find extra library checkouts")

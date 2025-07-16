@@ -4,6 +4,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"sort"
 	"strings"
 )
@@ -20,6 +21,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	zigIncMap := map[string]string{}
 	qtstructdefs := make(map[string]struct{})
 
+	arch, _ := archMap[runtime.GOARCH]
+
 	// Define our module configuration
 	type moduleConfig struct {
 		path        string
@@ -33,9 +36,9 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtCore",
-				"/usr/include/x86_64-linux-gnu/qt6/QtGui",
-				"/usr/include/x86_64-linux-gnu/qt6/QtWidgets",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtCore",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtGui",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtWidgets",
 			},
 			allowHeader: func(fullpath string) bool {
 				// Block cbor and generate it separately
@@ -50,7 +53,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "cbor",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtCore",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtCore",
 			},
 			allowHeader: func(fullpath string) bool {
 				// Only include the same json, xml, cbor files excluded above
@@ -64,7 +67,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "printsupport",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtPrintSupport",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtPrintSupport",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
@@ -74,8 +77,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "svg",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtSvg",
-				"/usr/include/x86_64-linux-gnu/qt6/QtSvgWidgets",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtSvg",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtSvgWidgets",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SvgWidgets"),
@@ -85,7 +88,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "network",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtNetwork",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtNetwork",
 			},
 			allowHeader: func(fullpath string) bool {
 				fname := filepath.Base(fullpath)
@@ -98,8 +101,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "multimedia",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtMultimedia",
-				"/usr/include/x86_64-linux-gnu/qt6/QtMultimediaWidgets",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtMultimedia",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtMultimediaWidgets",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6MultimediaWidgets"),
@@ -109,7 +112,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "spatialaudio",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtSpatialAudio",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtSpatialAudio",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SpatialAudio"),
@@ -119,7 +122,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "webchannel",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtWebChannel",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebChannel",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6WebChannel"),
@@ -129,8 +132,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "webengine",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineCore",
-				"/usr/include/x86_64-linux-gnu/qt6/QtWebEngineWidgets",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebEngineCore",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtWebEngineWidgets",
 			},
 			allowHeader: func(fullpath string) bool {
 				baseName := filepath.Base(fullpath)
@@ -144,8 +147,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "pdf",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtPdf",
-				"/usr/include/x86_64-linux-gnu/qt6/QtPdfWidgets",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtPdf",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtPdfWidgets",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PdfWidgets"),
@@ -156,7 +159,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "restricted-extras-charts",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/QtCharts",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtCharts",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Charts"),
@@ -167,7 +170,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		{
 			path: "restricted-extras-qscintilla",
 			dirs: []string{
-				"/usr/include/x86_64-linux-gnu/qt6/Qsci",
+				"/usr/include/" + arch + "-linux-gnu/qt6/Qsci",
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
