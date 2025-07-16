@@ -1206,6 +1206,10 @@ pub const ` + zigStruct + ` = struct {`)
 		}
 
 		for i, ctor := range c.Ctors {
+			if _, ok := moveCtorOnly[c.ClassName]; ok && !ctor.IsMoveCtor {
+				continue
+			}
+
 			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(ctor)
 
 			allocatorParam := ifv(strings.Contains(preamble, "allocator"), "allocator: std.mem.Allocator", "")
@@ -1254,7 +1258,7 @@ pub const ` + zigStruct + ` = struct {`)
 			}
 		}
 
-		if c.HasTrivialCopyAssign && zigStructName != "QCborValueConstRef" && zigStructName != "QJsonValueConstRef" {
+		if c.HasTrivialCopyAssign {
 			ret.WriteString("/// CopyAssign shallow copies `other` into `self`.\n" + "///\n" +
 				"/// ``` self: QtC." + zigStructName + ", other: QtC." + zigStructName + " ```\n" +
 				"pub fn CopyAssign(self: ?*anyopaque, other: ?*anyopaque) void {\n" +
@@ -1336,14 +1340,16 @@ pub const ` + zigStruct + ` = struct {`)
 				continue
 			}
 
-			if _, ok := skippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+			mSafeMethodName := m.SafeMethodName()
+
+			if _, ok := skippedMethods[c.ClassName+"_"+mSafeMethodName]; ok {
 				if m.InheritedFrom == "" {
 					continue
 				}
 			}
 
 			var showHiddenParams bool
-			if _, ok := seenMethodVariants[m.SafeMethodName()]; ok {
+			if _, ok := seenMethodVariants[mSafeMethodName]; ok {
 				continue
 			}
 			if b, ok := seenMethodVariants[m.MethodName]; ok {
@@ -1355,9 +1361,8 @@ pub const ` + zigStruct + ` = struct {`)
 				}
 			}
 			seenMethodVariants[m.MethodName] = false
-			seenMethodVariants[m.SafeMethodName()] = false
+			seenMethodVariants[mSafeMethodName] = false
 
-			mSafeMethodName := m.SafeMethodName()
 			zfs.currentMethodName = mSafeMethodName
 			cSafeMethodName := mSafeMethodName
 
@@ -1415,10 +1420,10 @@ pub const ` + zigStruct + ` = struct {`)
 			commentParam := "self: QtC." + zigStructName + commaParams
 
 			mTrim := mSafeMethodName[:len(mSafeMethodName)-1]
-			fnMethod := m.SafeMethodName() + `(self: ?*anyopaque` + commaParams
+			fnMethod := mSafeMethodName + "(self: ?*anyopaque" + commaParams
 			if m.IsStatic {
 				commentParam = ""
-				fnMethod = mSafeMethodName + `(`
+				fnMethod = mSafeMethodName + "("
 				if len(m.Parameters) == 0 {
 					allocComma = ""
 				}
@@ -1464,7 +1469,7 @@ pub const ` + zigStruct + ` = struct {`)
 					ret.WriteString(inheritedFrom + docCommentUrl + "\n    /// ``` self: QtC." + cmdStructName + ", slot: fn (self: QtC." +
 						cmdStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, false) + ") callconv(.c) void ```\n")
 
-					ret.WriteString("    pub fn On" + mSafeMethodName + `(self: ?*anyopaque, slot: fn (?*anyopaque` +
+					ret.WriteString("    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (?*anyopaque" +
 						slotComma + zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) void) void {
         qtc.` + cmdStructName + "_Connect_" + cSafeMethodName + `(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1504,7 +1509,7 @@ pub const ` + zigStruct + ` = struct {`)
 				ret.WriteString(inheritedFrom + docCommentUrl + onDocComment + "\n    /// ``` self: QtC." +
 					cmdStructName + ", slot: fn (" + maybeCommentSelf + maybeStruct + zfs.emitCommentParametersZig(m.Parameters, false) +
 					") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs) + " ```\n" +
-					`    pub fn On` + mSafeMethodName + `(self: ?*anyopaque, slot: fn (` + maybeAnyopaque + maybeComma +
+					"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (" + maybeAnyopaque + maybeComma +
 					zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) ` +
 					m.ReturnType.renderReturnTypeZig(&zfs) + `) void {
 qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
@@ -1512,7 +1517,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 `)
 
 				qbaseDocComment := "\n/// Base class method implementation\n    ///"
-				baseMethod := "QBase" + m.SafeMethodName() + `(self: ?*anyopaque` + commaParams
+				baseMethod := "QBase" + mSafeMethodName + "(self: ?*anyopaque" + commaParams
 				baseCallTarget := "qtc." + cmdStructName + "_QBase" + cSafeMethodName + "(" + forwarding + ")"
 				basereturnFunc := zfs.emitCabiToZig("return ", m.ReturnType, baseCallTarget)
 
@@ -1556,18 +1561,16 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 				continue
 			}
 
-			if c.ClassName == "QTest::QTouchEventSequence" {
-				continue
-			}
+			mSafeMethodName := m.SafeMethodName()
 
-			if _, ok := skippedMethods[c.ClassName+"_"+m.SafeMethodName()]; ok {
+			if _, ok := skippedMethods[c.ClassName+"_"+mSafeMethodName]; ok {
 				if m.InheritedFrom == "" {
 					continue
 				}
 			}
 
 			var showHiddenParams bool
-			if _, ok := seenVirtuals[m.SafeMethodName()]; ok {
+			if _, ok := seenVirtuals[mSafeMethodName]; ok {
 				continue
 			}
 			if b, ok := seenVirtuals[m.MethodName]; ok {
@@ -1579,15 +1582,14 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 				}
 			}
 			seenVirtuals[m.MethodName] = false
-			seenVirtuals[m.SafeMethodName()] = false
+			seenVirtuals[mSafeMethodName] = false
 
 			if _, ok := previousMethods[m.MethodName]; ok {
 				continue
 			}
 			previousMethods[m.MethodName] = struct{}{}
-			previousMethods[m.SafeMethodName()] = struct{}{}
+			previousMethods[mSafeMethodName] = struct{}{}
 
-			mSafeMethodName := m.SafeMethodName()
 			zfs.currentMethodName = mSafeMethodName
 			cSafeMethodName := mSafeMethodName
 
@@ -1632,7 +1634,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
 				zigStructName + commaParams + zfs.emitCommentParametersZig(m.Parameters, false) + allocComma + allocatorParam + " ```\n" +
-				`    pub fn ` + mSafeMethodName + `(self: ?*anyopaque` + commaParams + zfsParams + allocComma + allocatorParam + `) ` + returnTypeDecl + ` {` +
+				"    pub fn " + mSafeMethodName + "(self: ?*anyopaque" + commaParams + zfsParams + allocComma + allocatorParam + ") " + returnTypeDecl + " {" +
 				"\n        " + preamble +
 				returnFunc + `
     }
@@ -1648,7 +1650,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
 				zigStructName + commaParams + zfs.emitCommentParametersZig(m.Parameters, false) + allocComma + allocatorParam + " ```\n" +
-				`    pub fn QBase` + mSafeMethodName + `(self: ?*anyopaque` + commaParams + zfsParams + allocComma + allocatorParam + `) ` + returnTypeDecl + ` {` +
+				"    pub fn QBase" + mSafeMethodName + "(self: ?*anyopaque" + commaParams + zfsParams + allocComma + allocatorParam + ") " + returnTypeDecl + " {" +
 				"\n        " + preamble +
 				returnFunc + `
 }
@@ -1676,7 +1678,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
 				cmdStructName + ", slot: fn (" + maybeCommentSelf + maybeStruct + zfs.emitCommentParametersZig(m.Parameters, false) +
 				") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs) + " ```\n" +
-				`    pub fn On` + mSafeMethodName + `(self: ?*anyopaque, slot: fn (` + maybeAnyopaque + commaParams +
+				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (" + maybeAnyopaque + commaParams +
 				zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) ` +
 				m.ReturnType.renderReturnTypeZig(&zfs) + `) void {
         qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
@@ -1727,7 +1729,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 
 			ret.WriteString(inheritedFrom + docCommentUrl + headerComment + "\n  /// ``` self: QtC." + zigStructName + ", slot: fn (self: QtC." +
 				cmdStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, false) + ") callconv(.c) void ```\n" +
-				"    pub fn On" + mSafeMethodName + `(self: ?*anyopaque, slot: fn (?*anyopaque` +
+				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (?*anyopaque" +
 				slotComma + zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) void) void {
         qtc.` + cmdStructName + "_Connect_" + cSafeMethodName + `(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
