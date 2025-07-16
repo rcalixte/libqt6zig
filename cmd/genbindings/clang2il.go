@@ -23,6 +23,12 @@ var (
 		"QStack<",
 		"QVector<",
 	}
+
+	noCopyAssign = map[string]struct{}{
+		"QCborValueConstRef":          {},
+		"QDirListing::const_iterator": {},
+		"QJsonValueConstRef":          {},
+	}
 )
 
 // parseHeader parses a whole C++ header into our CppParsedHeader intermediate format.
@@ -414,7 +420,9 @@ func processClassType(node map[string]interface{}, addNamePrefix string) (CppCla
 			// Store assignment operator info for later use
 			if copyAssign, ok := definitionData["copyAssign"].(map[string]interface{}); ok {
 				if trivial, ok := copyAssign["trivial"].(bool); ok && trivial {
-					ret.HasTrivialCopyAssign = trivial
+					if _, ok := noCopyAssign[ret.ClassName]; !ok {
+						ret.HasTrivialCopyAssign = trivial
+					}
 				}
 			}
 
@@ -1042,10 +1050,7 @@ func parseTypeString(typeString string) (CppParameter, []CppParameter, bool, err
 		return CppParameter{}, nil, false, fmt.Errorf("type string %q missing brackets", typeString)
 	}
 
-	isConst := false
-	if strings.Contains(typeString[epos:], `const`) {
-		isConst = true
-	}
+	isConst := strings.Contains(typeString[epos:], "const")
 
 	returnType := parseSingleTypeString(strings.TrimSpace(typeString[0:opos]))
 
