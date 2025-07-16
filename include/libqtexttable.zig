@@ -118,6 +118,20 @@ pub const qtexttablecell = struct {
         return qtc.QTextTableCell_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#begin)
+    ///
+    /// ``` self: QtC.QTextTableCell ```
+    pub fn Begin(self: ?*anyopaque) QtC.QTextFrame__iterator {
+        return qtc.QTextTableCell_Begin(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#end)
+    ///
+    /// ``` self: QtC.QTextTableCell ```
+    pub fn End(self: ?*anyopaque) QtC.QTextFrame__iterator {
+        return qtc.QTextTableCell_End(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#tableCellFormatIndex)
     ///
     /// ``` self: QtC.QTextTableCell ```
@@ -440,6 +454,24 @@ pub const qtexttable = struct {
     /// ``` self: QtC.QTextTable ```
     pub fn ParentFrame(self: ?*anyopaque) QtC.QTextFrame {
         return qtc.QTextFrame_ParentFrame(@ptrCast(self));
+    }
+
+    /// Inherited from QTextFrame
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe.html#begin)
+    ///
+    /// ``` self: QtC.QTextTable ```
+    pub fn Begin(self: ?*anyopaque) QtC.QTextFrame__iterator {
+        return qtc.QTextFrame_Begin(@ptrCast(self));
+    }
+
+    /// Inherited from QTextFrame
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe.html#end)
+    ///
+    /// ``` self: QtC.QTextTable ```
+    pub fn End(self: ?*anyopaque) QtC.QTextFrame__iterator {
+        return qtc.QTextFrame_End(@ptrCast(self));
     }
 
     /// Inherited from QTextObject

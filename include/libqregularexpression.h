@@ -19,6 +19,7 @@ extern "C" {
 typedef struct QAnyStringView QAnyStringView;
 typedef struct QRegularExpression QRegularExpression;
 typedef struct QRegularExpressionMatch QRegularExpressionMatch;
+typedef struct QRegularExpressionMatchIterator QRegularExpressionMatchIterator;
 #endif
 
 QRegularExpression* QRegularExpression_new();
@@ -37,6 +38,7 @@ libqt_string QRegularExpression_ErrorString(const QRegularExpression* self);
 int QRegularExpression_CaptureCount(const QRegularExpression* self);
 libqt_list /* of libqt_string */ QRegularExpression_NamedCaptureGroups(const QRegularExpression* self);
 QRegularExpressionMatch* QRegularExpression_Match(const QRegularExpression* self, const libqt_string subject);
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch(const QRegularExpression* self, const libqt_string subject);
 void QRegularExpression_Optimize(const QRegularExpression* self);
 libqt_string QRegularExpression_Escape(const libqt_string str);
 libqt_string QRegularExpression_WildcardToRegularExpression(const libqt_string str);
@@ -44,6 +46,9 @@ libqt_string QRegularExpression_AnchoredPattern(const libqt_string expression);
 QRegularExpressionMatch* QRegularExpression_Match22(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset);
 QRegularExpressionMatch* QRegularExpression_Match3(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset, int matchType);
 QRegularExpressionMatch* QRegularExpression_Match4(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset, int matchType, int matchOptions);
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch22(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset);
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch3(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset, int matchType);
+QRegularExpressionMatchIterator* QRegularExpression_GlobalMatch4(const QRegularExpression* self, const libqt_string subject, ptrdiff_t offset, int matchType, int matchOptions);
 libqt_string QRegularExpression_WildcardToRegularExpression22(const libqt_string str, int options);
 void QRegularExpression_Delete(QRegularExpression* self);
 
@@ -74,6 +79,19 @@ ptrdiff_t QRegularExpressionMatch_CapturedStart1(const QRegularExpressionMatch* 
 ptrdiff_t QRegularExpressionMatch_CapturedLength1(const QRegularExpressionMatch* self, int nth);
 ptrdiff_t QRegularExpressionMatch_CapturedEnd1(const QRegularExpressionMatch* self, int nth);
 void QRegularExpressionMatch_Delete(QRegularExpressionMatch* self);
+
+QRegularExpressionMatchIterator* QRegularExpressionMatchIterator_new();
+QRegularExpressionMatchIterator* QRegularExpressionMatchIterator_new2(const QRegularExpressionMatchIterator* iterator);
+void QRegularExpressionMatchIterator_OperatorAssign(QRegularExpressionMatchIterator* self, const QRegularExpressionMatchIterator* iterator);
+void QRegularExpressionMatchIterator_Swap(QRegularExpressionMatchIterator* self, QRegularExpressionMatchIterator* other);
+bool QRegularExpressionMatchIterator_IsValid(const QRegularExpressionMatchIterator* self);
+bool QRegularExpressionMatchIterator_HasNext(const QRegularExpressionMatchIterator* self);
+QRegularExpressionMatch* QRegularExpressionMatchIterator_Next(QRegularExpressionMatchIterator* self);
+QRegularExpressionMatch* QRegularExpressionMatchIterator_PeekNext(const QRegularExpressionMatchIterator* self);
+QRegularExpression* QRegularExpressionMatchIterator_RegularExpression(const QRegularExpressionMatchIterator* self);
+int QRegularExpressionMatchIterator_MatchType(const QRegularExpressionMatchIterator* self);
+int QRegularExpressionMatchIterator_MatchOptions(const QRegularExpressionMatchIterator* self);
+void QRegularExpressionMatchIterator_Delete(QRegularExpressionMatchIterator* self);
 
 #ifdef __cplusplus
 } /* extern C */

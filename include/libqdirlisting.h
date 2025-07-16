@@ -18,6 +18,9 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QDirListing__DirEntry)
 typedef QDirListing::DirEntry QDirListing__DirEntry;
 #endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_QDirListing__const_iterator)
+typedef QDirListing::const_iterator QDirListing__const_iterator;
+#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_QDirListing__sentinel)
 typedef QDirListing::sentinel QDirListing__sentinel;
 #endif
@@ -25,6 +28,7 @@ typedef QDirListing::sentinel QDirListing__sentinel;
 typedef struct QDateTime QDateTime;
 typedef struct QDirListing QDirListing;
 typedef struct QDirListing__DirEntry QDirListing__DirEntry;
+typedef struct QDirListing__const_iterator QDirListing__const_iterator;
 typedef struct QDirListing__sentinel QDirListing__sentinel;
 typedef struct QFileInfo QFileInfo;
 typedef struct QTimeZone QTimeZone;
@@ -38,8 +42,11 @@ void QDirListing_Swap(QDirListing* self, QDirListing* other);
 libqt_string QDirListing_IteratorPath(const QDirListing* self);
 int QDirListing_IteratorFlags(const QDirListing* self);
 libqt_list /* of libqt_string */ QDirListing_NameFilters(const QDirListing* self);
+QDirListing__const_iterator* QDirListing_Begin(const QDirListing* self);
+QDirListing__const_iterator* QDirListing_Cbegin(const QDirListing* self);
 QDirListing__sentinel* QDirListing_End(const QDirListing* self);
 QDirListing__sentinel* QDirListing_Cend(const QDirListing* self);
+QDirListing__const_iterator* QDirListing_ConstBegin(const QDirListing* self);
 QDirListing__sentinel* QDirListing_ConstEnd(const QDirListing* self);
 void QDirListing_Delete(QDirListing* self);
 
@@ -84,6 +91,13 @@ QDirListing__sentinel* QDirListing__sentinel_new4(const QDirListing__sentinel* p
 void QDirListing__sentinel_CopyAssign(QDirListing__sentinel* self, QDirListing__sentinel* other);
 void QDirListing__sentinel_MoveAssign(QDirListing__sentinel* self, QDirListing__sentinel* other);
 void QDirListing__sentinel_Delete(QDirListing__sentinel* self);
+
+QDirListing__const_iterator* QDirListing__const_iterator_new2(QDirListing__const_iterator* other);
+void QDirListing__const_iterator_MoveAssign(QDirListing__const_iterator* self, QDirListing__const_iterator* other);
+QDirListing__DirEntry* QDirListing__const_iterator_OperatorMultiply(const QDirListing__const_iterator* self);
+QDirListing__const_iterator* QDirListing__const_iterator_OperatorPlusPlus(QDirListing__const_iterator* self);
+void QDirListing__const_iterator_OperatorPlusPlus2(QDirListing__const_iterator* self, int param1);
+void QDirListing__const_iterator_Delete(QDirListing__const_iterator* self);
 
 #ifdef __cplusplus
 } /* extern C */

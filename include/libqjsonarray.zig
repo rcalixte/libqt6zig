@@ -170,6 +170,76 @@ pub const qjsonarray = struct {
         qtc.QJsonArray_Swap(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#begin)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn Begin(self: ?*anyopaque) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray_Begin(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#begin)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn Begin2(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray_Begin2(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#constBegin)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn ConstBegin(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray_ConstBegin(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#cbegin)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn Cbegin(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray_Cbegin(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#end)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn End(self: ?*anyopaque) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray_End(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#end)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn End2(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray_End2(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#constEnd)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn ConstEnd(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray_ConstEnd(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#cend)
+    ///
+    /// ``` self: QtC.QJsonArray ```
+    pub fn Cend(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray_Cend(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#insert)
+    ///
+    /// ``` self: QtC.QJsonArray, before: QtC.QJsonArray__iterator, value: QtC.QJsonValue ```
+    pub fn Insert2(self: ?*anyopaque, before: QtC.QJsonArray__iterator, value: ?*anyopaque) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray_Insert2(@ptrCast(self), @ptrCast(before), @ptrCast(value));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#erase)
+    ///
+    /// ``` self: QtC.QJsonArray, it: QtC.QJsonArray__iterator ```
+    pub fn Erase(self: ?*anyopaque, it: QtC.QJsonArray__iterator) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray_Erase(@ptrCast(self), @ptrCast(it));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#operator+)
     ///
     /// ``` self: QtC.QJsonArray, v: QtC.QJsonValue ```
@@ -233,5 +303,277 @@ pub const qjsonarray = struct {
     /// ``` self: QtC.QJsonArray ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QJsonArray_Delete(@ptrCast(self));
+    }
+};
+
+/// https://doc.qt.io/qt-6/qjsonarray-iterator.html
+pub const qjsonarray__iterator = struct {
+    /// New constructs a new QJsonArray::iterator object.
+    ///
+    /// ``` other: QtC.QJsonArray__iterator ```
+    pub fn New(other: ?*anyopaque) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_new(@ptrCast(other));
+    }
+
+    /// New2 constructs a new QJsonArray::iterator object.
+    ///
+    ///
+    pub fn New2() QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_new2();
+    }
+
+    /// New3 constructs a new QJsonArray::iterator object.
+    ///
+    /// ``` array: QtC.QJsonArray, index: i64 ```
+    pub fn New3(array: ?*anyopaque, index: i64) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_new3(@ptrCast(array), @intCast(index));
+    }
+
+    /// New4 constructs a new QJsonArray::iterator object.
+    ///
+    /// ``` other: QtC.QJsonArray__iterator ```
+    pub fn New4(other: ?*anyopaque) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_new4(@ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator=)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, other: QtC.QJsonArray__iterator ```
+    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QJsonArray__iterator_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator*)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator ```
+    pub fn OperatorMultiply(self: ?*anyopaque) QtC.QJsonValueRef {
+        return qtc.QJsonArray__iterator_OperatorMultiply(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator->)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator ```
+    pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QJsonValueConstRef {
+        return qtc.QJsonArray__iterator_OperatorMinusGreater(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator->)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator ```
+    pub fn OperatorMinusGreater2(self: ?*anyopaque) QtC.QJsonValueRef {
+        return qtc.QJsonArray__iterator_OperatorMinusGreater2(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator[])
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, j: i64 ```
+    pub fn OperatorSubscript(self: ?*anyopaque, j: i64) QtC.QJsonValueRef {
+        return qtc.QJsonArray__iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator++)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator ```
+    pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorPlusPlus(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator++)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, param1: i32 ```
+    pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator--)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator ```
+    pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorMinusMinus(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator--)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, param1: i32 ```
+    pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator+=)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, j: i64 ```
+    pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator-=)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, j: i64 ```
+    pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator+)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, j: i64 ```
+    pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorPlus(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator-)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, j: i64 ```
+    pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QJsonArray__iterator {
+        return qtc.QJsonArray__iterator_OperatorMinus(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__iterator.html#operator-)
+    ///
+    /// ``` self: QtC.QJsonArray__iterator, j: QtC.QJsonArray__iterator ```
+    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QJsonArray__iterator) i64 {
+        return qtc.QJsonArray__iterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QJsonArray__iterator ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QJsonArray__iterator_Delete(@ptrCast(self));
+    }
+};
+
+/// https://doc.qt.io/qt-6/qjsonarray-const_iterator.html
+pub const qjsonarray__const_iterator = struct {
+    /// New constructs a new QJsonArray::const_iterator object.
+    ///
+    /// ``` other: QtC.QJsonArray__const_iterator ```
+    pub fn New(other: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_new(@ptrCast(other));
+    }
+
+    /// New2 constructs a new QJsonArray::const_iterator object.
+    ///
+    ///
+    pub fn New2() QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_new2();
+    }
+
+    /// New3 constructs a new QJsonArray::const_iterator object.
+    ///
+    /// ``` array: QtC.QJsonArray, index: i64 ```
+    pub fn New3(array: ?*anyopaque, index: i64) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_new3(@ptrCast(array), @intCast(index));
+    }
+
+    /// New4 constructs a new QJsonArray::const_iterator object.
+    ///
+    /// ``` o: QtC.QJsonArray__iterator ```
+    pub fn New4(o: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_new4(@ptrCast(o));
+    }
+
+    /// New5 constructs a new QJsonArray::const_iterator object.
+    ///
+    /// ``` other: QtC.QJsonArray__const_iterator ```
+    pub fn New5(other: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_new5(@ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator=)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, other: QtC.QJsonArray__const_iterator ```
+    pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QJsonArray__const_iterator_OperatorAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator*)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator ```
+    pub fn OperatorMultiply(self: ?*anyopaque) QtC.QJsonValueConstRef {
+        return qtc.QJsonArray__const_iterator_OperatorMultiply(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator->)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator ```
+    pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QJsonValueConstRef {
+        return qtc.QJsonArray__const_iterator_OperatorMinusGreater(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator[])
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, j: i64 ```
+    pub fn OperatorSubscript(self: ?*anyopaque, j: i64) QtC.QJsonValueConstRef {
+        return qtc.QJsonArray__const_iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator++)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator ```
+    pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorPlusPlus(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator++)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, param1: i32 ```
+    pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator--)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator ```
+    pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorMinusMinus(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator--)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, param1: i32 ```
+    pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator+=)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, j: i64 ```
+    pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator-=)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, j: i64 ```
+    pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator+)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, j: i64 ```
+    pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorPlus(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator-)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, j: i64 ```
+    pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QJsonArray__const_iterator {
+        return qtc.QJsonArray__const_iterator_OperatorMinus(@ptrCast(self), @intCast(j));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray__const_iterator.html#operator-)
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator, j: QtC.QJsonArray__const_iterator ```
+    pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QJsonArray__const_iterator) i64 {
+        return qtc.QJsonArray__const_iterator_OperatorMinus2(@ptrCast(self), @ptrCast(j));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QJsonArray__const_iterator ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QJsonArray__const_iterator_Delete(@ptrCast(self));
     }
 };

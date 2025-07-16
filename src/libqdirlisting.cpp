@@ -1,6 +1,7 @@
 #include <QDateTime>
 #include <QDirListing>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QDirListing__DirEntry
+#define WORKAROUND_INNER_CLASS_DEFINITION_QDirListing__const_iterator
 #define WORKAROUND_INNER_CLASS_DEFINITION_QDirListing__sentinel
 #include <QFileInfo>
 #include <QList>
@@ -87,12 +88,24 @@ libqt_list /* of libqt_string */ QDirListing_NameFilters(const QDirListing* self
     return _out;
 }
 
+QDirListing__const_iterator* QDirListing_Begin(const QDirListing* self) {
+    return new QDirListing::const_iterator(self->begin());
+}
+
+QDirListing__const_iterator* QDirListing_Cbegin(const QDirListing* self) {
+    return new QDirListing::const_iterator(self->cbegin());
+}
+
 QDirListing__sentinel* QDirListing_End(const QDirListing* self) {
     return new QDirListing::sentinel(self->end());
 }
 
 QDirListing__sentinel* QDirListing_Cend(const QDirListing* self) {
     return new QDirListing::sentinel(self->cend());
+}
+
+QDirListing__const_iterator* QDirListing_ConstBegin(const QDirListing* self) {
+    return new QDirListing::const_iterator(self->constBegin());
 }
 
 QDirListing__sentinel* QDirListing_ConstEnd(const QDirListing* self) {
@@ -340,5 +353,31 @@ void QDirListing__sentinel_MoveAssign(QDirListing__sentinel* self, QDirListing__
 }
 
 void QDirListing__sentinel_Delete(QDirListing__sentinel* self) {
+    delete self;
+}
+
+QDirListing__const_iterator* QDirListing__const_iterator_new2(QDirListing__const_iterator* other) {
+    return new QDirListing::const_iterator(std::move(*other));
+}
+
+void QDirListing__const_iterator_MoveAssign(QDirListing__const_iterator* self, QDirListing__const_iterator* other) {
+    *self = std::move(*other);
+}
+
+QDirListing__DirEntry* QDirListing__const_iterator_OperatorMultiply(const QDirListing__const_iterator* self) {
+    return new QDirListing::DirEntry(self->operator*());
+}
+
+QDirListing__const_iterator* QDirListing__const_iterator_OperatorPlusPlus(QDirListing__const_iterator* self) {
+    QDirListing::const_iterator& _ret = self->operator++();
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
+void QDirListing__const_iterator_OperatorPlusPlus2(QDirListing__const_iterator* self, int param1) {
+    self->operator++(static_cast<int>(param1));
+}
+
+void QDirListing__const_iterator_Delete(QDirListing__const_iterator* self) {
     delete self;
 }

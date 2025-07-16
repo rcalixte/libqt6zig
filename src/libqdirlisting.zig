@@ -124,6 +124,20 @@ pub const qdirlisting = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting.html#begin)
+    ///
+    /// ``` self: QtC.QDirListing ```
+    pub fn Begin(self: ?*anyopaque) QtC.QDirListing__const_iterator {
+        return qtc.QDirListing_Begin(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting.html#cbegin)
+    ///
+    /// ``` self: QtC.QDirListing ```
+    pub fn Cbegin(self: ?*anyopaque) QtC.QDirListing__const_iterator {
+        return qtc.QDirListing_Cbegin(@ptrCast(self));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting.html#end)
     ///
     /// ``` self: QtC.QDirListing ```
@@ -136,6 +150,13 @@ pub const qdirlisting = struct {
     /// ``` self: QtC.QDirListing ```
     pub fn Cend(self: ?*anyopaque) QtC.QDirListing__sentinel {
         return qtc.QDirListing_Cend(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting.html#constBegin)
+    ///
+    /// ``` self: QtC.QDirListing ```
+    pub fn ConstBegin(self: ?*anyopaque) QtC.QDirListing__const_iterator {
+        return qtc.QDirListing_ConstBegin(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting.html#constEnd)
@@ -478,6 +499,51 @@ pub const qdirlisting__sentinel = struct {
     /// ``` self: QtC.QDirListing__sentinel ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.QDirListing__sentinel_Delete(@ptrCast(self));
+    }
+};
+
+/// https://doc.qt.io/qt-6/qdirlisting-const_iterator.html
+pub const qdirlisting__const_iterator = struct {
+    /// New2 constructs a new QDirListing::const_iterator object and invalidates the source QDirListing::const_iterator object.
+    ///
+    /// ``` other: QtC.QDirListing__const_iterator ```
+    pub fn New2(other: ?*anyopaque) QtC.QDirListing__const_iterator {
+        return qtc.QDirListing__const_iterator_new2(@ptrCast(other));
+    }
+
+    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    ///
+    /// ``` self: QtC.QDirListing__const_iterator, other: QtC.QDirListing__const_iterator ```
+    pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
+        qtc.QDirListing__const_iterator_MoveAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator*)
+    ///
+    /// ``` self: QtC.QDirListing__const_iterator ```
+    pub fn OperatorMultiply(self: ?*anyopaque) QtC.QDirListing__DirEntry {
+        return qtc.QDirListing__const_iterator_OperatorMultiply(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator++)
+    ///
+    /// ``` self: QtC.QDirListing__const_iterator ```
+    pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QDirListing__const_iterator {
+        return qtc.QDirListing__const_iterator_OperatorPlusPlus(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator++)
+    ///
+    /// ``` self: QtC.QDirListing__const_iterator, param1: i32 ```
+    pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) void {
+        qtc.QDirListing__const_iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QDirListing__const_iterator ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QDirListing__const_iterator_Delete(@ptrCast(self));
     }
 };
 
