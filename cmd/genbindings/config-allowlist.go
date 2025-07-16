@@ -113,10 +113,6 @@ func AllowClass(className string) bool {
 		return false
 	}
 
-	if strings.HasSuffix(className, "iterator") || strings.HasSuffix(className, "Iterator") {
-		return false
-	}
-
 	if strings.HasPrefix(className, `std::`) && !strings.HasPrefix(className, `std::pair`) {
 		return false // Scintilla bindings find some of these
 	}
@@ -129,7 +125,11 @@ func AllowClass(className string) bool {
 		"QUnhandledException",        // As above (child class)
 		"QPolygon",                   // Extends a QVector<QPoint> template class, too hard
 		"QPolygonF",                  // Extends a QVector<QPoint> template class, too hard
+		"QAssociativeIterator",       // Qt 6. Extends a QIterator<>, too hard
+		"QAssociativeConstIterator",  // Qt 6. Extends a QIterator<>, too hard
 		"QAssociativeIterable",       // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialIterator",        // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialConstIterator",   // Qt 6. Extends a QIterator<>, too hard
 		"QSequentialIterable",        // Qt 6. Extends a QIterator<>, too hard
 		"QBrushDataPointerDeleter",   // Qt 6 qbrush.h. Appears in header but cannot be linked
 		"QPropertyBindingPrivatePtr", // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
@@ -193,11 +193,7 @@ func AllowVirtualForClass(className string) bool {
 		return false
 	}
 
-	// Qt 5 QWebkit: undefined reference to typeinfo
-	if className == "QWebNotificationPresenter" {
-		return false
-	}
-	if className == "QWebHapticFeedbackPlayer" {
+	if className == "QTest::QTouchEventSequence" {
 		return false
 	}
 
