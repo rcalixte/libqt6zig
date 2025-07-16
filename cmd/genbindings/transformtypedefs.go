@@ -30,6 +30,9 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 			if tdd.Typedef.Alias != "" {
 				p.ApplyTypedef(tdd.Typedef.UnderlyingType)
 				p.ParameterType = tdd.Typedef.Alias
+				if !strings.Contains(p.QtCppOriginalType.ParameterType, "::") {
+					p.QtCppOriginalType.ParameterType = tdd.Typedef.UnderlyingType.ParameterType
+				}
 			} else {
 				p.ApplyTypedef(tdd.Typedef.UnderlyingType)
 			}
