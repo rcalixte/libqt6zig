@@ -36,8 +36,39 @@ const (
 	QtPage PageType = iota
 	EnumPage
 	DtorPage
-	QsciPage
 )
+
+var operatorLookup = map[rune]string{
+	'!': "-not",
+	'&': "-and",
+	'(': "-28",
+	')': "-29",
+	'*': "-2a",
+	'+': "-2b",
+	'-': "-",
+	'/': "-2f",
+	'<': "-lt",
+	'=': "-eq",
+	'>': "-gt",
+	'[': "-5b",
+	']': "-5d",
+	'^': "-5e",
+	'|': "-7c",
+	'~': "-7e",
+}
+
+func operatorToUrl(cmdUrl string) string {
+	suffix := strings.TrimPrefix(cmdUrl, "operator")
+	ret := "operator"
+
+	for _, op := range suffix {
+		if ch, ok := operatorLookup[op]; ok {
+			ret += ch
+		}
+	}
+
+	return ret
+}
 
 func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	if strings.HasPrefix(pageName, "qsci") {
@@ -55,6 +86,10 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 
 	switch pageType {
 	case QtPage:
+		if strings.HasPrefix(cmdURL, "operator") {
+			cmdURL = operatorToUrl(cmdURL)
+		}
+
 		return qtUrl + pageName + ".html" + ifv(cmdURL != "", "#"+cmdURL, "")
 	case EnumPage:
 		return qtUrl + pageName + ".html#types"
