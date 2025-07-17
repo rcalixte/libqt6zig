@@ -32,7 +32,7 @@ pub const qmediatimerange = struct {
         return qtc.QMediaTimeRange_new4(@ptrCast(range));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator-eq)
     ///
     /// ``` self: QtC.QMediaTimeRange, param1: QtC.QMediaTimeRange ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -53,7 +53,7 @@ pub const qmediatimerange = struct {
         qtc.QMediaTimeRange_Detach(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator-eq)
     ///
     /// ``` self: QtC.QMediaTimeRange, param1: QtC.QMediaTimeRange__Interval ```
     pub fn OperatorAssign2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -149,28 +149,28 @@ pub const qmediatimerange = struct {
         qtc.QMediaTimeRange_RemoveTimeRange(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QMediaTimeRange, param1: QtC.QMediaTimeRange ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QMediaTimeRange {
         return qtc.QMediaTimeRange_OperatorPlusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QMediaTimeRange, param1: QtC.QMediaTimeRange__Interval ```
     pub fn OperatorPlusAssign2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QMediaTimeRange {
         return qtc.QMediaTimeRange_OperatorPlusAssign2(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator--eq)
     ///
     /// ``` self: QtC.QMediaTimeRange, param1: QtC.QMediaTimeRange ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QMediaTimeRange {
         return qtc.QMediaTimeRange_OperatorMinusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange.html#operator--eq)
     ///
     /// ``` self: QtC.QMediaTimeRange, param1: QtC.QMediaTimeRange__Interval ```
     pub fn OperatorMinusAssign2(self: ?*anyopaque, param1: ?*anyopaque) QtC.QMediaTimeRange {

@@ -19,21 +19,21 @@ pub const qauthenticator = struct {
         return qtc.QAuthenticator_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qauthenticator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq)
     ///
     /// ``` self: QtC.QAuthenticator, other: QtC.QAuthenticator ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAuthenticator_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qauthenticator.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qauthenticator.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QAuthenticator, other: QtC.QAuthenticator ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QAuthenticator_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qauthenticator.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qauthenticator.html#operator-not-eq)
     ///
     /// ``` self: QtC.QAuthenticator, other: QtC.QAuthenticator ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

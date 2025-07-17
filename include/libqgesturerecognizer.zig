@@ -100,7 +100,7 @@ pub const qgesturerecognizer = struct {
         qtc.QGestureRecognizer_UnregisterRecognizer(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#operator-eq)
     ///
     /// ``` self: QtC.QGestureRecognizer, param1: QtC.QGestureRecognizer ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

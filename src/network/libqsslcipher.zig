@@ -43,7 +43,7 @@ pub const qsslcipher = struct {
         return qtc.QSslCipher_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcipher.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcipher.html#operator-eq)
     ///
     /// ``` self: QtC.QSslCipher, other: QtC.QSslCipher ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -57,14 +57,14 @@ pub const qsslcipher = struct {
         qtc.QSslCipher_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcipher.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcipher.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSslCipher, other: QtC.QSslCipher ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslCipher_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcipher.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcipher.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSslCipher, other: QtC.QSslCipher ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

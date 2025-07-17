@@ -42,21 +42,21 @@ pub const qvideoframeformat = struct {
         qtc.QVideoFrameFormat_Detach(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator-eq)
     ///
     /// ``` self: QtC.QVideoFrameFormat, format: QtC.QVideoFrameFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, format: ?*anyopaque) void {
         qtc.QVideoFrameFormat_OperatorAssign(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QVideoFrameFormat, format: QtC.QVideoFrameFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, format: ?*anyopaque) bool {
         return qtc.QVideoFrameFormat_OperatorEqual(@ptrCast(self), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QVideoFrameFormat, format: QtC.QVideoFrameFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, format: ?*anyopaque) bool {

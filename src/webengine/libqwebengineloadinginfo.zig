@@ -12,7 +12,7 @@ pub const qwebengineloadinginfo = struct {
         return qtc.QWebEngineLoadingInfo_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineloadinginfo.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineLoadingInfo, other: QtC.QWebEngineLoadingInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

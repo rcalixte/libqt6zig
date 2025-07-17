@@ -415,7 +415,7 @@ pub const qiconengine__scaledpixmapargument = struct {
         return qtc.QIconEngine__ScaledPixmapArgument_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine__scaledpixmapargument.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine__scaledpixmapargument.html#operator-eq)
     ///
     /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, param1: QtC.QIconEngine__ScaledPixmapArgument ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

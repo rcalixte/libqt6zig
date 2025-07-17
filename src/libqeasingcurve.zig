@@ -26,7 +26,7 @@ pub const qeasingcurve = struct {
         return qtc.QEasingCurve_new3(@intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#operator-eq)
     ///
     /// ``` self: QtC.QEasingCurve, other: QtC.QEasingCurve ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

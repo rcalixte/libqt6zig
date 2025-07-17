@@ -40,21 +40,21 @@ pub const qsslerror = struct {
         qtc.QSslError_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator-eq)
     ///
     /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QSslError_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslError_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSslError, other: QtC.QSslError ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

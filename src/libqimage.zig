@@ -88,7 +88,7 @@ pub const qimage = struct {
         return qtc.QImage_new10(fileName_str, format_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator-eq)
     ///
     /// ``` self: QtC.QImage, param1: QtC.QImage ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -134,21 +134,21 @@ pub const qimage = struct {
         return qtc.QImage_QBaseDevType(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QImage, param1: QtC.QImage ```
     pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QImage_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator-not-eq)
     ///
     /// ``` self: QtC.QImage, param1: QtC.QImage ```
     pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QImage_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#operator)
     ///
     /// ``` self: QtC.QImage ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

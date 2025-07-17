@@ -11689,7 +11689,7 @@ pub const qinputmethodevent__attribute = struct {
         return qtc.QInputMethodEvent__Attribute_new2(@intCast(typ), @intCast(s), @intCast(l));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent__attribute.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent__attribute.html#operator-eq)
     ///
     /// ``` self: QtC.QInputMethodEvent__Attribute, param1: QtC.QInputMethodEvent__Attribute ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

@@ -48,7 +48,7 @@ pub const qprintengine = struct {
         return qtc.QPrintEngine_PrinterState(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#operator-eq)
     ///
     /// ``` self: QtC.QPrintEngine, param1: QtC.QPrintEngine ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

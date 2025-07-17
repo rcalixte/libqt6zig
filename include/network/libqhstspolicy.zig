@@ -43,7 +43,7 @@ pub const qhstspolicy = struct {
         return qtc.QHstsPolicy_new4(@ptrCast(expiry), @intCast(flags), host_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#operator-eq)
     ///
     /// ``` self: QtC.QHstsPolicy, rhs: QtC.QHstsPolicy ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {

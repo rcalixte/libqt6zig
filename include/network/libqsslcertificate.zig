@@ -59,7 +59,7 @@ pub const qsslcertificate = struct {
         return qtc.QSslCertificate_new6(data_str, @intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificate.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificate.html#operator-eq)
     ///
     /// ``` self: QtC.QSslCertificate, other: QtC.QSslCertificate ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -73,14 +73,14 @@ pub const qsslcertificate = struct {
         qtc.QSslCertificate_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificate.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificate.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSslCertificate, other: QtC.QSslCertificate ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslCertificate_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificate.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificate.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSslCertificate, other: QtC.QSslCertificate ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

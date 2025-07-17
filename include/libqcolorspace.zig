@@ -131,7 +131,7 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_new14(@ptrCast(whitePoint), @ptrCast(redPoint), @ptrCast(greenPoint), @ptrCast(bluePoint), @intCast(transferFunction), @floatCast(gamma));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#operator-eq)
     ///
     /// ``` self: QtC.QColorSpace, colorSpace: QtC.QColorSpace ```
     pub fn OperatorAssign(self: ?*anyopaque, colorSpace: ?*anyopaque) void {
@@ -354,7 +354,7 @@ pub const qcolorspace = struct {
         return qtc.QColorSpace_TransformationToColorSpace(@ptrCast(self), @ptrCast(colorspace));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#operator)
     ///
     /// ``` self: QtC.QColorSpace ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

@@ -21,7 +21,7 @@ pub const qabstractundoitem = struct {
         qtc.QAbstractUndoItem_Redo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractundoitem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractundoitem.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractUndoItem, param1: QtC.QAbstractUndoItem ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

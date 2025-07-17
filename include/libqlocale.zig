@@ -60,7 +60,7 @@ pub const qlocale = struct {
         return qtc.QLocale_new7(@intCast(language), @intCast(script), @intCast(territory));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#operator-eq)
     ///
     /// ``` self: QtC.QLocale, other: QtC.QLocale ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

@@ -61,7 +61,7 @@ pub const qpen = struct {
         return qtc.QPen_new8(@ptrCast(brush), @floatCast(width), @intCast(s), @intCast(c), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator-eq)
     ///
     /// ``` self: QtC.QPen, pen: QtC.QPen ```
     pub fn OperatorAssign(self: ?*anyopaque, pen: ?*anyopaque) void {
@@ -245,21 +245,21 @@ pub const qpen = struct {
         qtc.QPen_SetCosmetic(@ptrCast(self), cosmetic);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPen, p: QtC.QPen ```
     pub fn OperatorEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.QPen_OperatorEqual(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator-not-eq)
     ///
     /// ``` self: QtC.QPen, p: QtC.QPen ```
     pub fn OperatorNotEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.QPen_OperatorNotEqual(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#operator)
     ///
     /// ``` self: QtC.QPen ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

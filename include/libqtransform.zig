@@ -68,7 +68,7 @@ pub const qtransform = struct {
         qtc.QTransform_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-eq)
     ///
     /// ``` self: QtC.QTransform, param1: QtC.QTransform ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -285,35 +285,35 @@ pub const qtransform = struct {
         return qtc.QTransform_RotateRadians2(@ptrCast(self), @floatCast(a));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTransform, param1: QtC.QTransform ```
     pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QTransform_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTransform, param1: QtC.QTransform ```
     pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QTransform_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QTransform, param1: QtC.QTransform ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QTransform {
         return qtc.QTransform_OperatorMultiplyAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator*)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-2a)
     ///
     /// ``` self: QtC.QTransform, o: QtC.QTransform ```
     pub fn OperatorMultiply(self: ?*anyopaque, o: ?*anyopaque) QtC.QTransform {
         return qtc.QTransform_OperatorMultiply(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator)
     ///
     /// ``` self: QtC.QTransform ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -397,28 +397,28 @@ pub const qtransform = struct {
         qtc.QTransform_Map10(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(tx), @floatCast(ty));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QTransform, div: f64 ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, div: f64) QtC.QTransform {
         return qtc.QTransform_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(div));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QTransform, div: f64 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, div: f64) QtC.QTransform {
         return qtc.QTransform_OperatorDivideAssign(@ptrCast(self), @floatCast(div));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QTransform, div: f64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, div: f64) QtC.QTransform {
         return qtc.QTransform_OperatorPlusAssign(@ptrCast(self), @floatCast(div));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator--eq)
     ///
     /// ``` self: QtC.QTransform, div: f64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, div: f64) QtC.QTransform {

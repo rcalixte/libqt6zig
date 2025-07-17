@@ -18,7 +18,7 @@ pub const qsslcertificateextension = struct {
         return qtc.QSslCertificateExtension_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificateextension.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslcertificateextension.html#operator-eq)
     ///
     /// ``` self: QtC.QSslCertificateExtension, other: QtC.QSslCertificateExtension ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

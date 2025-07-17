@@ -26,7 +26,7 @@ pub const qsurfaceformat = struct {
         return qtc.QSurfaceFormat_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#operator-eq)
     ///
     /// ``` self: QtC.QSurfaceFormat, other: QtC.QSurfaceFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

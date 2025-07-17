@@ -33,7 +33,7 @@ pub const qbitarray = struct {
         return qtc.QBitArray_new4(@intCast(size), val);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator-eq)
     ///
     /// ``` self: QtC.QBitArray, other: QtC.QBitArray ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -152,35 +152,35 @@ pub const qbitarray = struct {
         return qtc.QBitArray_At(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QBitArray, i: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i64) QtC.QBitRef {
         return qtc.QBitArray_OperatorSubscript(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QBitArray, i: i64 ```
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i64) bool {
         return qtc.QBitArray_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator&=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator-and-eq)
     ///
     /// ``` self: QtC.QBitArray, param1: QtC.QBitArray ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QBitArray_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator|=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator-7c-eq)
     ///
     /// ``` self: QtC.QBitArray, param1: QtC.QBitArray ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QBitArray_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator^=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#operator-5e-eq)
     ///
     /// ``` self: QtC.QBitArray, param1: QtC.QBitArray ```
     pub fn OperatorBitwiseNotAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -271,28 +271,28 @@ pub const qbitref = struct {
         return qtc.QBitRef_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator bool)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator)
     ///
     /// ``` self: QtC.QBitRef ```
     pub fn ToBool(self: ?*anyopaque) bool {
         return qtc.QBitRef_ToBool(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator!)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator-not)
     ///
     /// ``` self: QtC.QBitRef ```
     pub fn OperatorNot(self: ?*anyopaque) bool {
         return qtc.QBitRef_OperatorNot(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator-eq)
     ///
     /// ``` self: QtC.QBitRef, val: QtC.QBitRef ```
     pub fn OperatorAssign(self: ?*anyopaque, val: ?*anyopaque) void {
         qtc.QBitRef_OperatorAssign(@ptrCast(self), @ptrCast(val));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitref.html#operator-eq)
     ///
     /// ``` self: QtC.QBitRef, val: bool ```
     pub fn OperatorAssign2(self: ?*anyopaque, val: bool) void {

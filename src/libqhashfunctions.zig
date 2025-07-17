@@ -45,7 +45,7 @@ pub const qhashseed = struct {
         qtc.QHashSeed_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhashseed.html#operator unsigned long)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhashseed.html#operator)
     ///
     /// ``` self: QtC.QHashSeed ```
     pub fn ToUnsignedLong(self: ?*anyopaque) u64 {

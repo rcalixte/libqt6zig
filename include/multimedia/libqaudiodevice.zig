@@ -27,21 +27,21 @@ pub const qaudiodevice = struct {
         qtc.QAudioDevice_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator-eq)
     ///
     /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QAudioDevice_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QAudioDevice_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#operator-not-eq)
     ///
     /// ``` self: QtC.QAudioDevice, other: QtC.QAudioDevice ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

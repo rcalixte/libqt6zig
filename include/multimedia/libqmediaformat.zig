@@ -26,7 +26,7 @@ pub const qmediaformat = struct {
         return qtc.QMediaFormat_new3(@intCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator-eq)
     ///
     /// ``` self: QtC.QMediaFormat, other: QtC.QMediaFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -198,14 +198,14 @@ pub const qmediaformat = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QMediaFormat, other: QtC.QMediaFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QMediaFormat_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QMediaFormat, other: QtC.QMediaFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

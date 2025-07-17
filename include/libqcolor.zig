@@ -136,7 +136,7 @@ pub const qcolor = struct {
         return qtc.QColor_FromString(name_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator-eq)
     ///
     /// ``` self: QtC.QColor, color: qnamespace_enums.GlobalColor ```
     pub fn OperatorAssign(self: ?*anyopaque, color: i64) void {
@@ -775,21 +775,21 @@ pub const qcolor = struct {
         return qtc.QColor_Darker(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QColor, c: QtC.QColor ```
     pub fn OperatorEqual(self: ?*anyopaque, c: ?*anyopaque) bool {
         return qtc.QColor_OperatorEqual(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator-not-eq)
     ///
     /// ``` self: QtC.QColor, c: QtC.QColor ```
     pub fn OperatorNotEqual(self: ?*anyopaque, c: ?*anyopaque) bool {
         return qtc.QColor_OperatorNotEqual(@ptrCast(self), @ptrCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator)
     ///
     /// ``` self: QtC.QColor ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

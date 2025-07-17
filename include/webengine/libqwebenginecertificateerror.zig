@@ -12,7 +12,7 @@ pub const qwebenginecertificateerror = struct {
         return qtc.QWebEngineCertificateError_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineCertificateError, other: QtC.QWebEngineCertificateError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

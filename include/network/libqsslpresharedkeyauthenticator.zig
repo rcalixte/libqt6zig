@@ -18,7 +18,7 @@ pub const qsslpresharedkeyauthenticator = struct {
         return qtc.QSslPreSharedKeyAuthenticator_new2(@ptrCast(authenticator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslpresharedkeyauthenticator.html#operator-eq)
     ///
     /// ``` self: QtC.QSslPreSharedKeyAuthenticator, authenticator: QtC.QSslPreSharedKeyAuthenticator ```
     pub fn OperatorAssign(self: ?*anyopaque, authenticator: ?*anyopaque) void {

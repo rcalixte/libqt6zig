@@ -54,7 +54,7 @@ pub const qpalette = struct {
         return qtc.QPalette_new7(@ptrCast(palette));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator-eq)
     ///
     /// ``` self: QtC.QPalette, palette: QtC.QPalette ```
     pub fn OperatorAssign(self: ?*anyopaque, palette: ?*anyopaque) void {
@@ -68,7 +68,7 @@ pub const qpalette = struct {
         qtc.QPalette_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator)
     ///
     /// ``` self: QtC.QPalette ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -313,14 +313,14 @@ pub const qpalette = struct {
         return qtc.QPalette_Accent(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPalette, p: QtC.QPalette ```
     pub fn OperatorEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
         return qtc.QPalette_OperatorEqual(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#operator-not-eq)
     ///
     /// ``` self: QtC.QPalette, p: QtC.QPalette ```
     pub fn OperatorNotEqual(self: ?*anyopaque, p: ?*anyopaque) bool {

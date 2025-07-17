@@ -18,7 +18,7 @@ pub const qcapturablewindow = struct {
         return qtc.QCapturableWindow_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcapturablewindow.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcapturablewindow.html#operator-eq)
     ///
     /// ``` self: QtC.QCapturableWindow, other: QtC.QCapturableWindow ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

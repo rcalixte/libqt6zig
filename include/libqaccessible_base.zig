@@ -189,7 +189,7 @@ pub const qaccessible__activationobserver = struct {
         qtc.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self), active);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible__activationobserver.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible__activationobserver.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessible__ActivationObserver, param1: QtC.QAccessible__ActivationObserver ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

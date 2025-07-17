@@ -22,7 +22,7 @@ pub const qitemeditorcreatorbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorcreatorbase.html#operator-eq)
     ///
     /// ``` self: QtC.QItemEditorCreatorBase, param1: QtC.QItemEditorCreatorBase ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

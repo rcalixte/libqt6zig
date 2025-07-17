@@ -87,7 +87,7 @@ pub const qlocationpermission = struct {
         return qtc.QLocationPermission_Availability(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlocationpermission.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlocationpermission.html#operator-eq)
     ///
     /// ``` self: QtC.QLocationPermission, other: QtC.QLocationPermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -141,7 +141,7 @@ pub const qcalendarpermission = struct {
         return qtc.QCalendarPermission_AccessMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendarpermission.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendarpermission.html#operator-eq)
     ///
     /// ``` self: QtC.QCalendarPermission, other: QtC.QCalendarPermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -195,7 +195,7 @@ pub const qcontactspermission = struct {
         return qtc.QContactsPermission_AccessMode(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcontactspermission.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcontactspermission.html#operator-eq)
     ///
     /// ``` self: QtC.QContactsPermission, other: QtC.QContactsPermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -249,7 +249,7 @@ pub const qbluetoothpermission = struct {
         return qtc.QBluetoothPermission_CommunicationModes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbluetoothpermission.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbluetoothpermission.html#operator-eq)
     ///
     /// ``` self: QtC.QBluetoothPermission, other: QtC.QBluetoothPermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -289,7 +289,7 @@ pub const qcamerapermission = struct {
         return qtc.QCameraPermission_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcamerapermission.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcamerapermission.html#operator-eq)
     ///
     /// ``` self: QtC.QCameraPermission, other: QtC.QCameraPermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -329,7 +329,7 @@ pub const qmicrophonepermission = struct {
         return qtc.QMicrophonePermission_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmicrophonepermission.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmicrophonepermission.html#operator-eq)
     ///
     /// ``` self: QtC.QMicrophonePermission, other: QtC.QMicrophonePermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

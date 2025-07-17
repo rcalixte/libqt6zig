@@ -437,28 +437,28 @@ pub const qrect = struct {
         qtc.QRect_SetSize(@ptrCast(self), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator|)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-7c)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseOr(self: ?*anyopaque, r: ?*anyopaque) QtC.QRect {
         return qtc.QRect_OperatorBitwiseOr(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator&)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-and)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, r: ?*anyopaque) QtC.QRect {
         return qtc.QRect_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator|=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-7c-eq)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRect_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator&=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-and-eq)
     ///
     /// ``` self: QtC.QRect, r: QtC.QRect ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, r: ?*anyopaque) void {
@@ -528,14 +528,14 @@ pub const qrect = struct {
         return qtc.QRect_MarginsRemoved(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QRect, margins: QtC.QMargins ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRect {
         return qtc.QRect_OperatorPlusAssign(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#operator--eq)
     ///
     /// ``` self: QtC.QRect, margins: QtC.QMargins ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRect {
@@ -1023,28 +1023,28 @@ pub const qrectf = struct {
         qtc.QRectF_SetSize(@ptrCast(self), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator|)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-7c)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseOr(self: ?*anyopaque, r: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_OperatorBitwiseOr(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator&)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-and)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, r: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator|=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-7c-eq)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRectF_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator&=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-and-eq)
     ///
     /// ``` self: QtC.QRectF, r: QtC.QRectF ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, r: ?*anyopaque) void {
@@ -1107,14 +1107,14 @@ pub const qrectf = struct {
         return qtc.QRectF_MarginsRemoved(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QRectF, margins: QtC.QMarginsF ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRectF {
         return qtc.QRectF_OperatorPlusAssign(@ptrCast(self), @ptrCast(margins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#operator--eq)
     ///
     /// ``` self: QtC.QRectF, margins: QtC.QMarginsF ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, margins: ?*anyopaque) QtC.QRectF {

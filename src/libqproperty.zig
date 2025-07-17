@@ -111,7 +111,7 @@ pub const qpropertybindingerror = struct {
         return qtc.QPropertyBindingError_new4(@intCast(typeVal), description_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#operator-eq)
     ///
     /// ``` self: QtC.QPropertyBindingError, other: QtC.QPropertyBindingError ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -169,7 +169,7 @@ pub const quntypedpropertybinding = struct {
         return qtc.QUntypedPropertyBinding_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quntypedpropertybinding.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/quntypedpropertybinding.html#operator-eq)
     ///
     /// ``` self: QtC.QUntypedPropertyBinding, other: QtC.QUntypedPropertyBinding ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

@@ -21,7 +21,7 @@ pub const qdnsdomainnamerecord = struct {
         return qtc.QDnsDomainNameRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsDomainNameRecord, other: QtC.QDnsDomainNameRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -90,7 +90,7 @@ pub const qdnshostaddressrecord = struct {
         return qtc.QDnsHostAddressRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsHostAddressRecord, other: QtC.QDnsHostAddressRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -155,7 +155,7 @@ pub const qdnsmailexchangerecord = struct {
         return qtc.QDnsMailExchangeRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsMailExchangeRecord, other: QtC.QDnsMailExchangeRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -231,7 +231,7 @@ pub const qdnsservicerecord = struct {
         return qtc.QDnsServiceRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnsservicerecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsServiceRecord, other: QtC.QDnsServiceRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -321,7 +321,7 @@ pub const qdnstextrecord = struct {
         return qtc.QDnsTextRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstextrecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsTextRecord, other: QtC.QDnsTextRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -401,7 +401,7 @@ pub const qdnstlsassociationrecord = struct {
         return qtc.QDnsTlsAssociationRecord_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#operator-eq)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord, other: QtC.QDnsTlsAssociationRecord ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

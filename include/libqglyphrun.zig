@@ -19,7 +19,7 @@ pub const qglyphrun = struct {
         return qtc.QGlyphRun_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#operator-eq)
     ///
     /// ``` self: QtC.QGlyphRun, other: QtC.QGlyphRun ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -107,14 +107,14 @@ pub const qglyphrun = struct {
         qtc.QGlyphRun_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QGlyphRun, other: QtC.QGlyphRun ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QGlyphRun_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#operator-not-eq)
     ///
     /// ``` self: QtC.QGlyphRun, other: QtC.QGlyphRun ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

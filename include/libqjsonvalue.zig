@@ -89,7 +89,7 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_new11(@intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonValue, other: QtC.QJsonValue ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -255,7 +255,7 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_ToObject2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValue, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QJsonValue {
@@ -266,7 +266,7 @@ pub const qjsonvalue = struct {
         return qtc.QJsonValue_OperatorSubscript(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValue, i: i64 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {
@@ -327,7 +327,7 @@ pub const qjsonvalueconstref = struct {
         return qtc.QJsonValueConstRef_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator QJsonValue)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
     pub fn ToQJsonValue(self: ?*anyopaque) QtC.QJsonValue {
@@ -450,7 +450,7 @@ pub const qjsonvalueconstref = struct {
         return qtc.QJsonValueConstRef_ToObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValueConstRef, i: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {
@@ -540,21 +540,21 @@ pub const qjsonvalueref = struct {
         return qtc.QJsonValueRef_new4(@ptrCast(object), @intCast(idx));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonValueRef, val: QtC.QJsonValue ```
     pub fn OperatorAssign(self: ?*anyopaque, val: ?*anyopaque) void {
         qtc.QJsonValueRef_OperatorAssign(@ptrCast(self), @ptrCast(val));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonValueRef, val: QtC.QJsonValueRef ```
     pub fn OperatorAssign2(self: ?*anyopaque, val: ?*anyopaque) void {
         qtc.QJsonValueRef_OperatorAssign2(@ptrCast(self), @ptrCast(val));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator QJsonValue)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator)
     ///
     /// ``` self: QtC.QJsonValueRef ```
     pub fn ToQJsonValue(self: ?*anyopaque) QtC.QJsonValue {
@@ -677,7 +677,7 @@ pub const qjsonvalueref = struct {
         return qtc.QJsonValueRef_ToObject(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonValueRef, i: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, i: i64) QtC.QJsonValue {

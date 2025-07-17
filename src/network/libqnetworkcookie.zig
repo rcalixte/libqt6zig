@@ -47,7 +47,7 @@ pub const qnetworkcookie = struct {
         return qtc.QNetworkCookie_new4(name_str, value_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -61,14 +61,14 @@ pub const qnetworkcookie = struct {
         qtc.QNetworkCookie_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkCookie_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#operator-not-eq)
     ///
     /// ``` self: QtC.QNetworkCookie, other: QtC.QNetworkCookie ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

@@ -38,7 +38,7 @@ pub const qscopedpointerpoddeleter = struct {
         qtc.QScopedPointerPodDeleter_Cleanup(pointer);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#operator())
+    /// [Qt documentation](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#operator-28-29)
     ///
     /// ``` self: QtC.QScopedPointerPodDeleter, pointer: ?*anyopaque ```
     pub fn OperatorCall(self: ?*anyopaque, pointer: ?*anyopaque) void {

@@ -18,7 +18,7 @@ pub const qocspresponse = struct {
         return qtc.QOcspResponse_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#operator-eq)
     ///
     /// ``` self: QtC.QOcspResponse, other: QtC.QOcspResponse ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

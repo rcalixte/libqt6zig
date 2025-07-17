@@ -114,7 +114,7 @@ pub const qbarset = struct {
         qtc.QBarSet_Append2(@ptrCast(self), values_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QBarSet, value: ?*f64 ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, value: ?*anyopaque) QtC.QBarSet {
@@ -149,7 +149,7 @@ pub const qbarset = struct {
         return qtc.QBarSet_At(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QBarSet, index: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, index: i32) f64 {

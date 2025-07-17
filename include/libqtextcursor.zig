@@ -40,7 +40,7 @@ pub const qtextcursor = struct {
         return qtc.QTextCursor_new5(@ptrCast(cursor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator-eq)
     ///
     /// ``` self: QtC.QTextCursor, other: QtC.QTextCursor ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -519,42 +519,42 @@ pub const qtextcursor = struct {
         qtc.QTextCursor_EndEditBlock(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextCursor, rhs: QtC.QTextCursor ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QTextCursor_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator-lt)
     ///
     /// ``` self: QtC.QTextCursor, rhs: QtC.QTextCursor ```
     pub fn OperatorLesser(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QTextCursor_OperatorLesser(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator<=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator-lt-eq)
     ///
     /// ``` self: QtC.QTextCursor, rhs: QtC.QTextCursor ```
     pub fn OperatorLesserOrEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QTextCursor_OperatorLesserOrEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextCursor, rhs: QtC.QTextCursor ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QTextCursor_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator>=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator-gt-eq)
     ///
     /// ``` self: QtC.QTextCursor, rhs: QtC.QTextCursor ```
     pub fn OperatorGreaterOrEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QTextCursor_OperatorGreaterOrEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator>)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#operator-gt)
     ///
     /// ``` self: QtC.QTextCursor, rhs: QtC.QTextCursor ```
     pub fn OperatorGreater(self: ?*anyopaque, rhs: ?*anyopaque) bool {

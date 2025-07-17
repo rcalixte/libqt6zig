@@ -54,7 +54,7 @@ pub const qnetworkdatagram = struct {
         return qtc.QNetworkDatagram_new5(data_str, @ptrCast(destinationAddress), @intCast(port));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdatagram.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkdatagram.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkDatagram, other: QtC.QNetworkDatagram ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

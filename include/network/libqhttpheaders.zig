@@ -20,7 +20,7 @@ pub const qhttpheaders = struct {
         return qtc.QHttpHeaders_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhttpheaders.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhttpheaders.html#operator-eq)
     ///
     /// ``` self: QtC.QHttpHeaders, other: QtC.QHttpHeaders ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

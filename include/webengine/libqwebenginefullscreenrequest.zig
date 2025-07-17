@@ -10,7 +10,7 @@ pub const qwebenginefullscreenrequest = struct {
         return qtc.QWebEngineFullScreenRequest_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefullscreenrequest.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineFullScreenRequest, other: QtC.QWebEngineFullScreenRequest ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

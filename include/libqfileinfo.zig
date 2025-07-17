@@ -50,7 +50,7 @@ pub const qfileinfo = struct {
         return qtc.QFileInfo_new5(@ptrCast(fileinfo));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#operator-eq)
     ///
     /// ``` self: QtC.QFileInfo, fileinfo: QtC.QFileInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, fileinfo: ?*anyopaque) void {

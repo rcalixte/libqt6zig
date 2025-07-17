@@ -495,7 +495,7 @@ pub const qscatterseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QScatterSeries, point: QtC.QPointF ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, point: ?*anyopaque) QtC.QXYSeries {
@@ -504,7 +504,7 @@ pub const qscatterseries = struct {
 
     /// Inherited from QXYSeries
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QScatterSeries, points: []QtC.QPointF ```
     pub fn OperatorShiftLeft2(self: ?*anyopaque, points: []QtC.QPointF) QtC.QXYSeries {

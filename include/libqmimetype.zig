@@ -18,7 +18,7 @@ pub const qmimetype = struct {
         return qtc.QMimeType_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmimetype.html#operator-eq)
     ///
     /// ``` self: QtC.QMimeType, other: QtC.QMimeType ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

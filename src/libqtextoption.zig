@@ -27,7 +27,7 @@ pub const qtextoption = struct {
         return qtc.QTextOption_new3(@ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#operator-eq)
     ///
     /// ``` self: QtC.QTextOption, o: QtC.QTextOption ```
     pub fn OperatorAssign(self: ?*anyopaque, o: ?*anyopaque) void {
@@ -225,14 +225,14 @@ pub const qtextoption__tab = struct {
         qtc.QTextOption__Tab_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption__tab.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption__tab.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextOption__Tab, other: QtC.QTextOption__Tab ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTextOption__Tab_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption__tab.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption__tab.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextOption__Tab, other: QtC.QTextOption__Tab ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

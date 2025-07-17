@@ -19,7 +19,7 @@ pub const qfontinfo = struct {
         return qtc.QFontInfo_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#operator-eq)
     ///
     /// ``` self: QtC.QFontInfo, param1: QtC.QFontInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

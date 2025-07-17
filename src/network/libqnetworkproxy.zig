@@ -109,7 +109,7 @@ pub const qnetworkproxyquery = struct {
         return qtc.QNetworkProxyQuery_new10(@intCast(bindPort), protocolTag_str, @intCast(queryType));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkProxyQuery, other: QtC.QNetworkProxyQuery ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -123,14 +123,14 @@ pub const qnetworkproxyquery = struct {
         qtc.QNetworkProxyQuery_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QNetworkProxyQuery, other: QtC.QNetworkProxyQuery ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkProxyQuery_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#operator-not-eq)
     ///
     /// ``` self: QtC.QNetworkProxyQuery, other: QtC.QNetworkProxyQuery ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -330,7 +330,7 @@ pub const qnetworkproxy = struct {
         return qtc.QNetworkProxy_new7(@intCast(typeVal), hostName_str, @intCast(port), user_str, password_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkProxy, other: QtC.QNetworkProxy ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -344,14 +344,14 @@ pub const qnetworkproxy = struct {
         qtc.QNetworkProxy_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QNetworkProxy, other: QtC.QNetworkProxy ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkProxy_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#operator-not-eq)
     ///
     /// ``` self: QtC.QNetworkProxy, other: QtC.QNetworkProxy ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -684,7 +684,7 @@ pub const qnetworkproxyfactory = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyfactory.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkProxyFactory, param1: QtC.QNetworkProxyFactory ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

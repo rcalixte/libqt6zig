@@ -57,7 +57,7 @@ pub const qnativeipckey = struct {
         return qtc.QNativeIpcKey_LegacyDefaultTypeForOs();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#operator-eq)
     ///
     /// ``` self: QtC.QNativeIpcKey, other: QtC.QNativeIpcKey ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

@@ -18,7 +18,7 @@ pub const qwebenginepermission = struct {
         return qtc.QWebEnginePermission_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEnginePermission, other: QtC.QWebEnginePermission ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

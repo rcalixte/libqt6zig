@@ -137,21 +137,21 @@ pub const qsizepolicy = struct {
         return qtc.QSizePolicy_HasWidthForHeight(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSizePolicy, s: QtC.QSizePolicy ```
     pub fn OperatorEqual(self: ?*anyopaque, s: ?*anyopaque) bool {
         return qtc.QSizePolicy_OperatorEqual(@ptrCast(self), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSizePolicy, s: QtC.QSizePolicy ```
     pub fn OperatorNotEqual(self: ?*anyopaque, s: ?*anyopaque) bool {
         return qtc.QSizePolicy_OperatorNotEqual(@ptrCast(self), @ptrCast(s));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#operator)
     ///
     /// ``` self: QtC.QSizePolicy ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

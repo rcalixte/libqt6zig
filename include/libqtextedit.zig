@@ -6438,7 +6438,7 @@ pub const qtextedit__extraselection = struct {
         return qtc.QTextEdit__ExtraSelection_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit__extraselection.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit__extraselection.html#operator-eq)
     ///
     /// ``` self: QtC.QTextEdit__ExtraSelection, param1: QtC.QTextEdit__ExtraSelection ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

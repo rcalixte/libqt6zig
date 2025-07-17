@@ -2060,7 +2060,7 @@ pub const qdtlsclientverifier__generatorparameters = struct {
         return qtc.QDtlsClientVerifier__GeneratorParameters_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier__generatorparameters.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier__generatorparameters.html#operator-eq)
     ///
     /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, param1: QtC.QDtlsClientVerifier__GeneratorParameters ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

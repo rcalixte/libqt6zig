@@ -50,14 +50,14 @@ pub const qwebengineregisterprotocolhandlerrequest = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineRegisterProtocolHandlerRequest, that: QtC.QWebEngineRegisterProtocolHandlerRequest ```
     pub fn OperatorEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
         return qtc.QWebEngineRegisterProtocolHandlerRequest_OperatorEqual(@ptrCast(self), @ptrCast(that));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineregisterprotocolhandlerrequest.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineRegisterProtocolHandlerRequest, that: QtC.QWebEngineRegisterProtocolHandlerRequest ```
     pub fn OperatorNotEqual(self: ?*anyopaque, that: ?*anyopaque) bool {

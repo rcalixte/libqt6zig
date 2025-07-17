@@ -54,7 +54,7 @@ pub const qregion = struct {
         return qtc.QRegion_new7(@ptrCast(r), @intCast(t));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-eq)
     ///
     /// ``` self: QtC.QRegion, param1: QtC.QRegion ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -252,35 +252,35 @@ pub const qregion = struct {
         return qtc.QRegion_RectCount(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator|)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-7c)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseOr(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorBitwiseOr(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-2b)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorPlus(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorPlus(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-2b)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRect ```
     pub fn OperatorPlus2(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorPlus2(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-and)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-and)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRect ```
     pub fn OperatorBitwiseAnd2(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
@@ -294,77 +294,77 @@ pub const qregion = struct {
         return qtc.QRegion_OperatorMinus(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator^)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-5e)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseNot(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorBitwiseNot(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator|=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-7c-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRegion_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorPlusAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRect ```
     pub fn OperatorPlusAssign2(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorPlusAssign2(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-and-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRegion_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator&=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-and-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRect ```
     pub fn OperatorBitwiseAndAssign2(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRegion_OperatorBitwiseAndAssign2(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator--eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, r: ?*anyopaque) QtC.QRegion {
         return qtc.QRegion_OperatorMinusAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator^=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-5e-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorBitwiseNotAssign(self: ?*anyopaque, r: ?*anyopaque) void {
         qtc.QRegion_OperatorBitwiseNotAssign(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorEqual(self: ?*anyopaque, r: ?*anyopaque) bool {
         return qtc.QRegion_OperatorEqual(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator-not-eq)
     ///
     /// ``` self: QtC.QRegion, r: QtC.QRegion ```
     pub fn OperatorNotEqual(self: ?*anyopaque, r: ?*anyopaque) bool {
         return qtc.QRegion_OperatorNotEqual(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregion.html#operator)
     ///
     /// ``` self: QtC.QRegion ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

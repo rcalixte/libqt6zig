@@ -21,7 +21,7 @@ pub const qipv6address = struct {
         return qtc.QIPv6Address_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qipv6address.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qipv6address.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QIPv6Address, index: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, index: i32) u8 {
@@ -94,14 +94,14 @@ pub const qhostaddress = struct {
         return qtc.QHostAddress_new7(@intCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq)
     ///
     /// ``` self: QtC.QHostAddress, other: QtC.QHostAddress ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QHostAddress_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
     pub fn OperatorAssign2(self: ?*anyopaque, address: i64) void {
@@ -215,28 +215,28 @@ pub const qhostaddress = struct {
         return qtc.QHostAddress_IsEqual(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: QtC.QHostAddress ```
     pub fn OperatorEqual(self: ?*anyopaque, address: ?*anyopaque) bool {
         return qtc.QHostAddress_OperatorEqual(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
     pub fn OperatorEqual2(self: ?*anyopaque, address: i64) bool {
         return qtc.QHostAddress_OperatorEqual2(@ptrCast(self), @intCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-not-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: QtC.QHostAddress ```
     pub fn OperatorNotEqual(self: ?*anyopaque, address: ?*anyopaque) bool {
         return qtc.QHostAddress_OperatorNotEqual(@ptrCast(self), @ptrCast(address));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-not-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
     pub fn OperatorNotEqual2(self: ?*anyopaque, address: i64) bool {

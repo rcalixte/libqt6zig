@@ -19,7 +19,7 @@ pub const qnetworkaddressentry = struct {
         return qtc.QNetworkAddressEntry_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkAddressEntry, other: QtC.QNetworkAddressEntry ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -33,14 +33,14 @@ pub const qnetworkaddressentry = struct {
         qtc.QNetworkAddressEntry_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QNetworkAddressEntry, other: QtC.QNetworkAddressEntry ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkAddressEntry_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaddressentry.html#operator-not-eq)
     ///
     /// ``` self: QtC.QNetworkAddressEntry, other: QtC.QNetworkAddressEntry ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -192,7 +192,7 @@ pub const qnetworkinterface = struct {
         return qtc.QNetworkInterface_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkInterface, other: QtC.QNetworkInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

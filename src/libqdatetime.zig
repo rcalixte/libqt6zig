@@ -812,7 +812,7 @@ pub const qdatetime = struct {
         return qtc.QDateTime_new8(@ptrCast(date), @ptrCast(time), @intCast(resolve));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#operator-eq)
     ///
     /// ``` self: QtC.QDateTime, other: QtC.QDateTime ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

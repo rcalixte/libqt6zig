@@ -18,7 +18,7 @@ pub const qcborarray = struct {
         return qtc.QCborArray_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator-eq)
     ///
     /// ``` self: QtC.QCborArray, other: QtC.QCborArray ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -81,7 +81,7 @@ pub const qcborarray = struct {
         return qtc.QCborArray_Last(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborArray, i: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i64) QtC.QCborValue {
@@ -102,7 +102,7 @@ pub const qcborarray = struct {
         return qtc.QCborArray_Last2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborArray, i: i64 ```
     pub fn OperatorSubscript2(self: ?*anyopaque, i: i64) QtC.QCborValueRef {
@@ -319,21 +319,21 @@ pub const qcborarray = struct {
         return qtc.QCborArray_Empty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator+)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator-2b)
     ///
     /// ``` self: QtC.QCborArray, v: QtC.QCborValue ```
     pub fn OperatorPlus(self: ?*anyopaque, v: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborArray_OperatorPlus(@ptrCast(self), @ptrCast(v));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QCborArray, v: QtC.QCborValue ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, v: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborArray_OperatorPlusAssign(@ptrCast(self), @ptrCast(v));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QCborArray, v: QtC.QCborValue ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, v: ?*anyopaque) QtC.QCborArray {
@@ -406,49 +406,49 @@ pub const qcborarray__iterator = struct {
         return qtc.QCborArray__Iterator_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-eq)
     ///
     /// ``` self: QtC.QCborArray__Iterator, other: QtC.QCborArray__Iterator ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborArray__Iterator_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator*)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-2a)
     ///
     /// ``` self: QtC.QCborArray__Iterator ```
     pub fn OperatorMultiply(self: ?*anyopaque) QtC.QCborValueRef {
         return qtc.QCborArray__Iterator_OperatorMultiply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator->)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator--gt)
     ///
     /// ``` self: QtC.QCborArray__Iterator ```
     pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QCborValueRef {
         return qtc.QCborArray__Iterator_OperatorMinusGreater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator->)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator--gt)
     ///
     /// ``` self: QtC.QCborArray__Iterator ```
     pub fn OperatorMinusGreater2(self: ?*anyopaque) QtC.QCborValueConstRef {
         return qtc.QCborArray__Iterator_OperatorMinusGreater2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborArray__Iterator, j: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) QtC.QCborValueRef {
         return qtc.QCborArray__Iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborArray__Iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QCborArray__Iterator {
         return qtc.QCborArray__Iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborArray__Iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QCborArray__Iterator {
@@ -469,21 +469,21 @@ pub const qcborarray__iterator = struct {
         return qtc.QCborArray__Iterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QCborArray__Iterator, j: i64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborArray__Iterator {
         return qtc.QCborArray__Iterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator--eq)
     ///
     /// ``` self: QtC.QCborArray__Iterator, j: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborArray__Iterator {
         return qtc.QCborArray__Iterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator+)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__iterator.html#operator-2b)
     ///
     /// ``` self: QtC.QCborArray__Iterator, j: i64 ```
     pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborArray__Iterator {
@@ -535,42 +535,42 @@ pub const qcborarray__constiterator = struct {
         return qtc.QCborArray__ConstIterator_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-eq)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator, other: QtC.QCborArray__ConstIterator ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborArray__ConstIterator_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator*)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-2a)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator ```
     pub fn OperatorMultiply(self: ?*anyopaque) QtC.QCborValueConstRef {
         return qtc.QCborArray__ConstIterator_OperatorMultiply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator->)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator--gt)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator ```
     pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QCborValueConstRef {
         return qtc.QCborArray__ConstIterator_OperatorMinusGreater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator, j: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) QtC.QCborValueConstRef {
         return qtc.QCborArray__ConstIterator_OperatorSubscript(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QCborArray__ConstIterator {
         return qtc.QCborArray__ConstIterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QCborArray__ConstIterator {
@@ -591,21 +591,21 @@ pub const qcborarray__constiterator = struct {
         return qtc.QCborArray__ConstIterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator, j: i64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborArray__ConstIterator {
         return qtc.QCborArray__ConstIterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator--eq)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator, j: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborArray__ConstIterator {
         return qtc.QCborArray__ConstIterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator+)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray__constiterator.html#operator-2b)
     ///
     /// ``` self: QtC.QCborArray__ConstIterator, j: i64 ```
     pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborArray__ConstIterator {

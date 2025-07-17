@@ -38,7 +38,7 @@ pub const qurlquery = struct {
         return qtc.QUrlQuery_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#operator-eq)
     ///
     /// ``` self: QtC.QUrlQuery, other: QtC.QUrlQuery ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

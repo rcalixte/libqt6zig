@@ -171,14 +171,14 @@ pub const qrgba64 = struct {
         return qtc.QRgba64_Unpremultiplied(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrgba64.html#operator unsigned long long)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrgba64.html#operator)
     ///
     /// ``` self: QtC.QRgba64 ```
     pub fn ToUnsignedLongLong(self: ?*anyopaque) u64 {
         return qtc.QRgba64_ToUnsignedLongLong(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrgba64.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrgba64.html#operator-eq)
     ///
     /// ``` self: QtC.QRgba64, _rgba: u64 ```
     pub fn OperatorAssign(self: ?*anyopaque, _rgba: u64) void {

@@ -22,7 +22,7 @@ pub const qsslconfiguration = struct {
         return qtc.QSslConfiguration_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#operator-eq)
     ///
     /// ``` self: QtC.QSslConfiguration, other: QtC.QSslConfiguration ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -36,14 +36,14 @@ pub const qsslconfiguration = struct {
         qtc.QSslConfiguration_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSslConfiguration, other: QtC.QSslConfiguration ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QSslConfiguration_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSslConfiguration, other: QtC.QSslConfiguration ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

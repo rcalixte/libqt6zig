@@ -39,7 +39,7 @@ pub const qpagelayout = struct {
         return qtc.QPageLayout_new5(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins), @intCast(units), @ptrCast(minMargins));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#operator-eq)
     ///
     /// ``` self: QtC.QPageLayout, other: QtC.QPageLayout ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

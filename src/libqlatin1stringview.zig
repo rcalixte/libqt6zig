@@ -180,7 +180,7 @@ pub const qlatin1string = struct {
         return qtc.QLatin1String_At(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QLatin1String, i: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i64) QtC.QLatin1Char {

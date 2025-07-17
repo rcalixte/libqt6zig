@@ -26,7 +26,7 @@ pub const qpainterpath = struct {
         return qtc.QPainterPath_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-eq)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -440,35 +440,35 @@ pub const qpainterpath = struct {
         return qtc.QPainterPath_Simplified(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QPainterPath_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-not-eq)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QPainterPath_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator&)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-and)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorBitwiseAnd(self: ?*anyopaque, other: ?*anyopaque) QtC.QPainterPath {
         return qtc.QPainterPath_OperatorBitwiseAnd(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator|)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-7c)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorBitwiseOr(self: ?*anyopaque, other: ?*anyopaque) QtC.QPainterPath {
         return qtc.QPainterPath_OperatorBitwiseOr(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator+)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-2b)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorPlus(self: ?*anyopaque, other: ?*anyopaque) QtC.QPainterPath {
@@ -482,28 +482,28 @@ pub const qpainterpath = struct {
         return qtc.QPainterPath_OperatorMinus(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator&=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-and-eq)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorBitwiseAndAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPainterPath_OperatorBitwiseAndAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator|=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-7c-eq)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorBitwiseOrAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPainterPath_OperatorBitwiseOrAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, other: ?*anyopaque) QtC.QPainterPath {
         return qtc.QPainterPath_OperatorPlusAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#operator--eq)
     ///
     /// ``` self: QtC.QPainterPath, other: QtC.QPainterPath ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, other: ?*anyopaque) QtC.QPainterPath {
@@ -718,21 +718,21 @@ pub const qpainterpath__element = struct {
         return qtc.QPainterPath__Element_IsCurveTo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator QPointF)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator)
     ///
     /// ``` self: QtC.QPainterPath__Element ```
     pub fn ToQPointF(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPainterPath__Element_ToQPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPainterPath__Element, e: QtC.QPainterPath__Element ```
     pub fn OperatorEqual(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QPainterPath__Element_OperatorEqual(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator-not-eq)
     ///
     /// ``` self: QtC.QPainterPath__Element, e: QtC.QPainterPath__Element ```
     pub fn OperatorNotEqual(self: ?*anyopaque, e: ?*anyopaque) bool {

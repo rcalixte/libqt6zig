@@ -111,7 +111,7 @@ pub const qtimezone = struct {
         return qtc.QTimeZone_new8(zoneId_str, @intCast(offsetSeconds), name_str, abbreviation_str, @intCast(territory), comment_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#operator-eq)
     ///
     /// ``` self: QtC.QTimeZone, other: QtC.QTimeZone ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -594,7 +594,7 @@ pub const qtimezone__offsetdata = struct {
         return qtc.QTimeZone__OffsetData_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone__offsetdata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone__offsetdata.html#operator-eq)
     ///
     /// ``` self: QtC.QTimeZone__OffsetData, param1: QtC.QTimeZone__OffsetData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

@@ -20,7 +20,7 @@ pub const qtexttablecell = struct {
         return qtc.QTextTableCell_new2(@ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#operator-eq)
     ///
     /// ``` self: QtC.QTextTableCell, o: QtC.QTextTableCell ```
     pub fn OperatorAssign(self: ?*anyopaque, o: ?*anyopaque) void {
@@ -104,14 +104,14 @@ pub const qtexttablecell = struct {
         return qtc.QTextTableCell_LastPosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextTableCell, other: QtC.QTextTableCell ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTextTableCell_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecell.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextTableCell, other: QtC.QTextTableCell ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

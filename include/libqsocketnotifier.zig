@@ -968,7 +968,7 @@ pub const qsocketdescriptor = struct {
         qtc.QSocketDescriptor_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsocketdescriptor.html#operator int)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsocketdescriptor.html#operator)
     ///
     /// ``` self: QtC.QSocketDescriptor ```
     pub fn ToInt(self: ?*anyopaque) i32 {

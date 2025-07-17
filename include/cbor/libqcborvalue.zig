@@ -222,7 +222,7 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_new22(@intCast(t_), @ptrCast(tv));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-eq)
     ///
     /// ``` self: QtC.QCborValue, other: QtC.QCborValue ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -503,7 +503,7 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_ToMap2(@ptrCast(self), @ptrCast(defaultValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
@@ -514,21 +514,21 @@ pub const qcborvalue = struct {
         return qtc.QCborValue_OperatorSubscript(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: i64) QtC.QCborValue {
         return qtc.QCborValue_OperatorSubscript3(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: i64 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, key: i64) QtC.QCborValueRef {
         return qtc.QCborValue_OperatorSubscript4(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValue, key: []const u8 ```
     pub fn OperatorSubscript6(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
@@ -817,7 +817,7 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator QCborValue)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
     pub fn ToQCborValue(self: ?*anyopaque) QtC.QCborValue {
@@ -1091,7 +1091,7 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_ToMap2(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueConstRef, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
@@ -1102,7 +1102,7 @@ pub const qcborvalueconstref = struct {
         return qtc.QCborValueConstRef_OperatorSubscript(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueConstRef, key: i64 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: i64) QtC.QCborValue {
@@ -1321,28 +1321,28 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QCborValueRef, other: QtC.QCborValue ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborValueRef_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
     ///
     /// ``` self: QtC.QCborValueRef, other: QtC.QCborValueRef ```
     pub fn OperatorAssign2(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborValueRef_OperatorAssign2(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: i64) QtC.QCborValueRef {
         return qtc.QCborValueRef_OperatorSubscript(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: []const u8 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
@@ -1353,7 +1353,7 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_OperatorSubscript3(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator QCborValue)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator)
     ///
     /// ``` self: QtC.QCborValueRef ```
     pub fn ToQCborValue(self: ?*anyopaque) QtC.QCborValue {
@@ -1627,7 +1627,7 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_ToMap2(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: []const u8 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
@@ -1638,7 +1638,7 @@ pub const qcborvalueref = struct {
         return qtc.QCborValueRef_OperatorSubscript4(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborValueRef, key: i64 ```
     pub fn OperatorSubscript6(self: ?*anyopaque, key: i64) QtC.QCborValue {

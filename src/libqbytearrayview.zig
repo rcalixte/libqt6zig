@@ -81,7 +81,7 @@ pub const qbytearrayview = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QByteArrayView, n: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, n: i64) i8 {

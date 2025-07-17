@@ -18,21 +18,21 @@ pub const qscrollerproperties = struct {
         return qtc.QScrollerProperties_new2(@ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq)
     ///
     /// ``` self: QtC.QScrollerProperties, sp: QtC.QScrollerProperties ```
     pub fn OperatorAssign(self: ?*anyopaque, sp: ?*anyopaque) void {
         qtc.QScrollerProperties_OperatorAssign(@ptrCast(self), @ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QScrollerProperties, sp: QtC.QScrollerProperties ```
     pub fn OperatorEqual(self: ?*anyopaque, sp: ?*anyopaque) bool {
         return qtc.QScrollerProperties_OperatorEqual(@ptrCast(self), @ptrCast(sp));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-not-eq)
     ///
     /// ``` self: QtC.QScrollerProperties, sp: QtC.QScrollerProperties ```
     pub fn OperatorNotEqual(self: ?*anyopaque, sp: ?*anyopaque) bool {

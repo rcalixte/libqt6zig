@@ -17,7 +17,7 @@ pub const qcolortransform = struct {
         return qtc.QColorTransform_new2(@ptrCast(colorTransform));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolortransform.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolortransform.html#operator-eq)
     ///
     /// ``` self: QtC.QColorTransform, other: QtC.QColorTransform ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

@@ -32,7 +32,7 @@ pub const qstatictext = struct {
         return qtc.QStaticText_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#operator-eq)
     ///
     /// ``` self: QtC.QStaticText, param1: QtC.QStaticText ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -138,14 +138,14 @@ pub const qstatictext = struct {
         return qtc.QStaticText_PerformanceHint(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QStaticText, param1: QtC.QStaticText ```
     pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QStaticText_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#operator-not-eq)
     ///
     /// ``` self: QtC.QStaticText, param1: QtC.QStaticText ```
     pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {

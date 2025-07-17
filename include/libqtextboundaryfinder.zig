@@ -52,7 +52,7 @@ pub const qtextboundaryfinder = struct {
         return qtc.QTextBoundaryFinder_new6(@intCast(typeVal), @ptrCast(chars), @intCast(length), @intCast(buffer), @intCast(bufferSize));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#operator-eq)
     ///
     /// ``` self: QtC.QTextBoundaryFinder, other: QtC.QTextBoundaryFinder ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

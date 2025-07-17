@@ -5,7 +5,7 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qcborerror.html
 pub const qcborerror = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#operator QCborError::Code)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#operator)
     ///
     /// ``` self: QtC.QCborError ```
     pub fn ToQCborError__Code(self: ?*anyopaque) i64 {

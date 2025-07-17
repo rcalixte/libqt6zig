@@ -21,7 +21,7 @@ pub const qcameraformat = struct {
         return qtc.QCameraFormat_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq)
     ///
     /// ``` self: QtC.QCameraFormat, other: QtC.QCameraFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -63,14 +63,14 @@ pub const qcameraformat = struct {
         return qtc.QCameraFormat_IsNull(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QCameraFormat, other: QtC.QCameraFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QCameraFormat_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QCameraFormat, other: QtC.QCameraFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -103,21 +103,21 @@ pub const qcameradevice = struct {
         return qtc.QCameraDevice_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq)
     ///
     /// ``` self: QtC.QCameraDevice, other: QtC.QCameraDevice ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCameraDevice_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QCameraDevice, other: QtC.QCameraDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QCameraDevice_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#operator-not-eq)
     ///
     /// ``` self: QtC.QCameraDevice, other: QtC.QCameraDevice ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

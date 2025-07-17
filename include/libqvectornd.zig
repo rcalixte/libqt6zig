@@ -123,7 +123,7 @@ pub const qvector2d = struct {
         qtc.QVector2D_SetY(@ptrCast(self), @floatCast(y));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector2D, i: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) f32 {
@@ -172,42 +172,42 @@ pub const qvector2d = struct {
         return qtc.QVector2D_DistanceToLine(@ptrCast(self), @ptrCast(point), @ptrCast(direction));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
         return qtc.QVector2D_OperatorPlusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator--eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
         return qtc.QVector2D_OperatorMinusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector2D, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector2D {
         return qtc.QVector2D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
         return qtc.QVector2D_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector2D, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector2D {
         return qtc.QVector2D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector2D, vector: QtC.QVector2D ```
     pub fn OperatorDivideAssign2(self: ?*anyopaque, vector: QtC.QVector2D) QtC.QVector2D {
@@ -249,7 +249,7 @@ pub const qvector2d = struct {
         return qtc.QVector2D_ToPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator)
     ///
     /// ``` self: QtC.QVector2D ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -408,7 +408,7 @@ pub const qvector3d = struct {
         qtc.QVector3D_SetZ(@ptrCast(self), @floatCast(z));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector3D, i: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) f32 {
@@ -443,42 +443,42 @@ pub const qvector3d = struct {
         qtc.QVector3D_Normalize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_OperatorPlusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator--eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_OperatorMinusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector3D, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector3D {
         return qtc.QVector3D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
         return qtc.QVector3D_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector3D, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector3D {
         return qtc.QVector3D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector3D, vector: QtC.QVector3D ```
     pub fn OperatorDivideAssign2(self: ?*anyopaque, vector: QtC.QVector3D) QtC.QVector3D {
@@ -583,7 +583,7 @@ pub const qvector3d = struct {
         return qtc.QVector3D_ToPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator)
     ///
     /// ``` self: QtC.QVector3D ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -763,7 +763,7 @@ pub const qvector4d = struct {
         qtc.QVector4D_SetW(@ptrCast(self), @floatCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector4D, i: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: i32) f32 {
@@ -798,42 +798,42 @@ pub const qvector4d = struct {
         qtc.QVector4D_Normalize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
         return qtc.QVector4D_OperatorPlusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator--eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
         return qtc.QVector4D_OperatorMinusAssign(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector4D, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QVector4D {
         return qtc.QVector4D_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
         return qtc.QVector4D_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector4D, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QVector4D {
         return qtc.QVector4D_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QVector4D, vector: QtC.QVector4D ```
     pub fn OperatorDivideAssign2(self: ?*anyopaque, vector: QtC.QVector4D) QtC.QVector4D {
@@ -889,7 +889,7 @@ pub const qvector4d = struct {
         return qtc.QVector4D_ToPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator)
     ///
     /// ``` self: QtC.QVector4D ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

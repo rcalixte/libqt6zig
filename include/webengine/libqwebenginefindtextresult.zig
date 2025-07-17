@@ -31,7 +31,7 @@ pub const qwebenginefindtextresult = struct {
         return qtc.QWebEngineFindTextResult_ActiveMatch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefindtextresult.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineFindTextResult, other: QtC.QWebEngineFindTextResult ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

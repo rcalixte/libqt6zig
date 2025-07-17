@@ -17,7 +17,7 @@ pub const qhttp2configuration = struct {
         return qtc.QHttp2Configuration_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhttp2configuration.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhttp2configuration.html#operator-eq)
     ///
     /// ``` self: QtC.QHttp2Configuration, other: QtC.QHttp2Configuration ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

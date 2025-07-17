@@ -67,7 +67,7 @@ pub const qcursor = struct {
         return qtc.QCursor_new9(@ptrCast(pixmap), @intCast(hotX), @intCast(hotY));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#operator-eq)
     ///
     /// ``` self: QtC.QCursor, cursor: QtC.QCursor ```
     pub fn OperatorAssign(self: ?*anyopaque, cursor: ?*anyopaque) void {
@@ -81,7 +81,7 @@ pub const qcursor = struct {
         qtc.QCursor_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#operator)
     ///
     /// ``` self: QtC.QCursor ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

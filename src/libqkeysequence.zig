@@ -203,21 +203,21 @@ pub const qkeysequence = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator)
     ///
     /// ``` self: QtC.QKeySequence ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
         return qtc.QKeySequence_ToQVariant(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QKeySequence, i: u32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, i: u32) QtC.QKeyCombination {
         return qtc.QKeySequence_OperatorSubscript(@ptrCast(self), @intCast(i));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-eq)
     ///
     /// ``` self: QtC.QKeySequence, other: QtC.QKeySequence ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -231,42 +231,42 @@ pub const qkeysequence = struct {
         qtc.QKeySequence_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QKeySequence, other: QtC.QKeySequence ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QKeySequence_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-not-eq)
     ///
     /// ``` self: QtC.QKeySequence, other: QtC.QKeySequence ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QKeySequence_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-lt)
     ///
     /// ``` self: QtC.QKeySequence, ks: QtC.QKeySequence ```
     pub fn OperatorLesser(self: ?*anyopaque, ks: ?*anyopaque) bool {
         return qtc.QKeySequence_OperatorLesser(@ptrCast(self), @ptrCast(ks));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator>)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-gt)
     ///
     /// ``` self: QtC.QKeySequence, other: QtC.QKeySequence ```
     pub fn OperatorGreater(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QKeySequence_OperatorGreater(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator<=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-lt-eq)
     ///
     /// ``` self: QtC.QKeySequence, other: QtC.QKeySequence ```
     pub fn OperatorLesserOrEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QKeySequence_OperatorLesserOrEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator>=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#operator-gt-eq)
     ///
     /// ``` self: QtC.QKeySequence, other: QtC.QKeySequence ```
     pub fn OperatorGreaterOrEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

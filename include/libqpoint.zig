@@ -101,42 +101,42 @@ pub const qpoint = struct {
         return qtc.QPoint_Transposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QPoint, p: QtC.QPoint ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, p: ?*anyopaque) QtC.QPoint {
         return qtc.QPoint_OperatorPlusAssign(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator--eq)
     ///
     /// ``` self: QtC.QPoint, p: QtC.QPoint ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, p: ?*anyopaque) QtC.QPoint {
         return qtc.QPoint_OperatorMinusAssign(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QPoint, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QPoint {
         return qtc.QPoint_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QPoint, factor: f64 ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, factor: f64) QtC.QPoint {
         return qtc.QPoint_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QPoint, factor: i32 ```
     pub fn OperatorMultiplyAssign3(self: ?*anyopaque, factor: i32) QtC.QPoint {
         return qtc.QPoint_OperatorMultiplyAssign3(@ptrCast(self), @intCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QPoint, divisor: f64 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f64) QtC.QPoint {
@@ -274,28 +274,28 @@ pub const qpointf = struct {
         return qtc.QPointF_Transposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QPointF, p: QtC.QPointF ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, p: ?*anyopaque) QtC.QPointF {
         return qtc.QPointF_OperatorPlusAssign(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator--eq)
     ///
     /// ``` self: QtC.QPointF, p: QtC.QPointF ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, p: ?*anyopaque) QtC.QPointF {
         return qtc.QPointF_OperatorMinusAssign(@ptrCast(self), @ptrCast(p));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QPointF, c: f64 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QPointF {
         return qtc.QPointF_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QPointF, c: f64 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QPointF {

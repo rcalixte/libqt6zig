@@ -977,7 +977,7 @@ pub const qmetaobject__connection = struct {
         return qtc.QMetaObject__Connection_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__connection.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__connection.html#operator-eq)
     ///
     /// ``` self: QtC.QMetaObject__Connection, other: QtC.QMetaObject__Connection ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -1022,21 +1022,21 @@ pub const qmetaobject__superdata = struct {
         return qtc.QMetaObject__SuperData_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator->)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator--gt)
     ///
     /// ``` self: QtC.QMetaObject__SuperData ```
     pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QMetaObject__SuperData_OperatorMinusGreater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator const QMetaObject *)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator-2a)
     ///
     /// ``` self: QtC.QMetaObject__SuperData ```
     pub fn ToConstQMetaObjectMultiply(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QMetaObject__SuperData_ToConstQMetaObjectMultiply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator-eq)
     ///
     /// ``` self: QtC.QMetaObject__SuperData, param1: QtC.QMetaObject__SuperData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1067,7 +1067,7 @@ pub const qmetaobject__data = struct {
         return qtc.QMetaObject__Data_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__data.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__data.html#operator-eq)
     ///
     /// ``` self: QtC.QMetaObject__Data, param1: QtC.QMetaObject__Data ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

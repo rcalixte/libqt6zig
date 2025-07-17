@@ -84,7 +84,7 @@ pub const qjsondocument = struct {
         return qtc.QJsonDocument_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonDocument, other: QtC.QJsonDocument ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -183,7 +183,7 @@ pub const qjsondocument = struct {
         qtc.QJsonDocument_SetArray(@ptrCast(self), @ptrCast(array));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonDocument, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QJsonValue {
@@ -194,7 +194,7 @@ pub const qjsondocument = struct {
         return qtc.QJsonDocument_OperatorSubscript(@ptrCast(self), key_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsondocument.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonDocument, i: i64 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, i: i64) QtC.QJsonValue {

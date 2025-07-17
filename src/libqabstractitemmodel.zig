@@ -44,7 +44,7 @@ pub const qmodelroledata = struct {
         qtc.QModelRoleData_ClearData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledata.html#operator-eq)
     ///
     /// ``` self: QtC.QModelRoleData, param1: QtC.QModelRoleData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -154,7 +154,7 @@ pub const qmodelroledataspan = struct {
         return qtc.QModelRoleDataSpan_End(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmodelroledataspan.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QModelRoleDataSpan, index: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, index: i64) QtC.QModelRoleData {
@@ -360,7 +360,7 @@ pub const qpersistentmodelindex = struct {
         return qtc.QPersistentModelIndex_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator-eq)
     ///
     /// ``` self: QtC.QPersistentModelIndex, other: QtC.QPersistentModelIndex ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -374,14 +374,14 @@ pub const qpersistentmodelindex = struct {
         qtc.QPersistentModelIndex_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator-eq)
     ///
     /// ``` self: QtC.QPersistentModelIndex, other: QtC.QModelIndex ```
     pub fn OperatorAssign2(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPersistentModelIndex_OperatorAssign2(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator QModelIndex)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#operator)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
     pub fn ToQModelIndex(self: ?*anyopaque) QtC.QModelIndex {

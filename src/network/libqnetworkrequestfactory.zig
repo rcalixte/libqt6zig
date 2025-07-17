@@ -26,7 +26,7 @@ pub const qnetworkrequestfactory = struct {
         return qtc.QNetworkRequestFactory_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, other: QtC.QNetworkRequestFactory ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

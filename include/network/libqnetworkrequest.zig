@@ -26,7 +26,7 @@ pub const qnetworkrequest = struct {
         return qtc.QNetworkRequest_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkRequest, other: QtC.QNetworkRequest ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -40,14 +40,14 @@ pub const qnetworkrequest = struct {
         qtc.QNetworkRequest_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QNetworkRequest, other: QtC.QNetworkRequest ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkRequest_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#operator-not-eq)
     ///
     /// ``` self: QtC.QNetworkRequest, other: QtC.QNetworkRequest ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

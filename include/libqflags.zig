@@ -66,14 +66,14 @@ pub const qflag = struct {
         qtc.QFlag_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qflag.html#operator int)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qflag.html#operator)
     ///
     /// ``` self: QtC.QFlag ```
     pub fn ToInt(self: ?*anyopaque) i32 {
         return qtc.QFlag_ToInt(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qflag.html#operator unsigned int)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qflag.html#operator)
     ///
     /// ``` self: QtC.QFlag ```
     pub fn ToUnsignedInt(self: ?*anyopaque) u32 {
@@ -134,7 +134,7 @@ pub const qincompatibleflag = struct {
         qtc.QIncompatibleFlag_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qincompatibleflag.html#operator int)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qincompatibleflag.html#operator)
     ///
     /// ``` self: QtC.QIncompatibleFlag ```
     pub fn ToInt(self: ?*anyopaque) i32 {

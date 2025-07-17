@@ -52,7 +52,7 @@ pub const qmediametadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediametadata.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediametadata.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QMediaMetaData, k: qmediametadata_enums.Key ```
     pub fn OperatorSubscript(self: ?*anyopaque, k: i64) QtC.QVariant {

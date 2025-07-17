@@ -843,14 +843,14 @@ pub const qstandarditem = struct {
         qtc.QStandardItem_QBaseWrite(@ptrCast(self), @ptrCast(out));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator-lt)
     ///
     /// ``` self: QtC.QStandardItem, other: QtC.QStandardItem ```
     pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QStandardItem_OperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator-lt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -859,7 +859,7 @@ pub const qstandarditem = struct {
         qtc.QStandardItem_OnOperatorLesser(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator-lt)
     ///
     /// Base class method implementation
     ///
@@ -868,14 +868,14 @@ pub const qstandarditem = struct {
         return qtc.QStandardItem_QBaseOperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator-eq)
     ///
     /// ``` self: QtC.QStandardItem, other: QtC.QStandardItem ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QStandardItem_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator-eq)
     ///
     /// Allows for overriding the related default method
     ///
@@ -884,7 +884,7 @@ pub const qstandarditem = struct {
         qtc.QStandardItem_OnOperatorAssign(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#operator-eq)
     ///
     /// Base class method implementation
     ///

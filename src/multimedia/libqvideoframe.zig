@@ -42,21 +42,21 @@ pub const qvideoframe = struct {
         qtc.QVideoFrame_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#operator-eq)
     ///
     /// ``` self: QtC.QVideoFrame, other: QtC.QVideoFrame ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QVideoFrame_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QVideoFrame, other: QtC.QVideoFrame ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QVideoFrame_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#operator-not-eq)
     ///
     /// ``` self: QtC.QVideoFrame, other: QtC.QVideoFrame ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

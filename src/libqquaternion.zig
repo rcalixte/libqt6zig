@@ -221,35 +221,35 @@ pub const qquaternion = struct {
         return qtc.QQuaternion_RotatedVector(@ptrCast(self), @ptrCast(vector));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QQuaternion, quaternion: QtC.QQuaternion ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, quaternion: ?*anyopaque) QtC.QQuaternion {
         return qtc.QQuaternion_OperatorPlusAssign(@ptrCast(self), @ptrCast(quaternion));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator--eq)
     ///
     /// ``` self: QtC.QQuaternion, quaternion: QtC.QQuaternion ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, quaternion: ?*anyopaque) QtC.QQuaternion {
         return qtc.QQuaternion_OperatorMinusAssign(@ptrCast(self), @ptrCast(quaternion));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QQuaternion, factor: f32 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, factor: f32) QtC.QQuaternion {
         return qtc.QQuaternion_OperatorMultiplyAssign(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QQuaternion, quaternion: QtC.QQuaternion ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, quaternion: ?*anyopaque) QtC.QQuaternion {
         return qtc.QQuaternion_OperatorMultiplyAssign2(@ptrCast(self), @ptrCast(quaternion));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QQuaternion, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QQuaternion {
@@ -263,7 +263,7 @@ pub const qquaternion = struct {
         return qtc.QQuaternion_ToVector4D(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#operator)
     ///
     /// ``` self: QtC.QQuaternion ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

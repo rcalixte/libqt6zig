@@ -91,7 +91,7 @@ pub const qbrush = struct {
         return qtc.QBrush_new12(@intCast(color), @intCast(bs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator-eq)
     ///
     /// ``` self: QtC.QBrush, brush: QtC.QBrush ```
     pub fn OperatorAssign(self: ?*anyopaque, brush: ?*anyopaque) void {
@@ -105,7 +105,7 @@ pub const qbrush = struct {
         qtc.QBrush_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator)
     ///
     /// ``` self: QtC.QBrush ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -203,14 +203,14 @@ pub const qbrush = struct {
         return qtc.QBrush_IsOpaque(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QBrush, b: QtC.QBrush ```
     pub fn OperatorEqual(self: ?*anyopaque, b: ?*anyopaque) bool {
         return qtc.QBrush_OperatorEqual(@ptrCast(self), @ptrCast(b));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#operator-not-eq)
     ///
     /// ``` self: QtC.QBrush, b: QtC.QBrush ```
     pub fn OperatorNotEqual(self: ?*anyopaque, b: ?*anyopaque) bool {
@@ -243,7 +243,7 @@ pub const qbrushdata = struct {
         return qtc.QBrushData_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#operator-eq)
     ///
     /// ``` self: QtC.QBrushData, param1: QtC.QBrushData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -358,14 +358,14 @@ pub const qgradient = struct {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QGradient, gradient: QtC.QGradient ```
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
         return qtc.QGradient_OperatorEqual(@ptrCast(self), @ptrCast(gradient));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
     /// ``` self: QtC.QGradient, other: QtC.QGradient ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -549,7 +549,7 @@ pub const qlineargradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QLinearGradient, gradient: QtC.QGradient ```
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
@@ -558,7 +558,7 @@ pub const qlineargradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
     /// ``` self: QtC.QLinearGradient, other: QtC.QGradient ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -812,7 +812,7 @@ pub const qradialgradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QRadialGradient, gradient: QtC.QGradient ```
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
@@ -821,7 +821,7 @@ pub const qradialgradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
     /// ``` self: QtC.QRadialGradient, other: QtC.QGradient ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -998,7 +998,7 @@ pub const qconicalgradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QConicalGradient, gradient: QtC.QGradient ```
     pub fn OperatorEqual(self: ?*anyopaque, gradient: ?*anyopaque) bool {
@@ -1007,7 +1007,7 @@ pub const qconicalgradient = struct {
 
     /// Inherited from QGradient
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
     /// ``` self: QtC.QConicalGradient, other: QtC.QGradient ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

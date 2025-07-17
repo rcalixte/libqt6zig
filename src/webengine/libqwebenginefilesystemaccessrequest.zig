@@ -11,7 +11,7 @@ pub const qwebenginefilesystemaccessrequest = struct {
         return qtc.QWebEngineFileSystemAccessRequest_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineFileSystemAccessRequest, other: QtC.QWebEngineFileSystemAccessRequest ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

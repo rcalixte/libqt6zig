@@ -564,7 +564,7 @@ pub const qwebenginecookiestore__filterrequest = struct {
         return qtc.QWebEngineCookieStore__FilterRequest_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore__filterrequest.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore__filterrequest.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, param1: QtC.QWebEngineCookieStore__FilterRequest ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

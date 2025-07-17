@@ -34,7 +34,7 @@ pub const qwebenginehttprequest = struct {
         return qtc.QWebEngineHttpRequest_new4(@ptrCast(url), @intCast(method));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, other: QtC.QWebEngineHttpRequest ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -75,14 +75,14 @@ pub const qwebenginehttprequest = struct {
         qtc.QWebEngineHttpRequest_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, other: QtC.QWebEngineHttpRequest ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QWebEngineHttpRequest_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, other: QtC.QWebEngineHttpRequest ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

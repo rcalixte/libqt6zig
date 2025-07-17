@@ -250,7 +250,7 @@ pub const quuid__id128bytes = struct {
         return qtc.QUuid__Id128Bytes_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/quuid__id128bytes.html#operator QByteArrayView)
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid__id128bytes.html#operator)
     ///
     /// ``` self: QtC.QUuid__Id128Bytes, allocator: std.mem.Allocator ```
     pub fn ToQByteArrayView(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {

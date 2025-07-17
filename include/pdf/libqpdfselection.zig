@@ -12,7 +12,7 @@ pub const qpdfselection = struct {
         return qtc.QPdfSelection_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfselection.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfselection.html#operator-eq)
     ///
     /// ``` self: QtC.QPdfSelection, other: QtC.QPdfSelection ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

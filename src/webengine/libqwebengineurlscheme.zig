@@ -31,21 +31,21 @@ pub const qwebengineurlscheme = struct {
         return qtc.QWebEngineUrlScheme_new3(@ptrCast(that));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineUrlScheme, that: QtC.QWebEngineUrlScheme ```
     pub fn OperatorAssign(self: ?*anyopaque, that: ?*anyopaque) void {
         qtc.QWebEngineUrlScheme_OperatorAssign(@ptrCast(self), @ptrCast(that));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineUrlScheme, that: QtC.QWebEngineUrlScheme ```
     pub fn OperatorEqual(self: ?*anyopaque, that: ?*anyopaque) bool {
         return qtc.QWebEngineUrlScheme_OperatorEqual(@ptrCast(self), @ptrCast(that));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineUrlScheme, that: QtC.QWebEngineUrlScheme ```
     pub fn OperatorNotEqual(self: ?*anyopaque, that: ?*anyopaque) bool {

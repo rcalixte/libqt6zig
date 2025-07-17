@@ -118,7 +118,7 @@ pub const qsslkey = struct {
         return qtc.QSslKey_new12(handle, @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator-eq)
     ///
     /// ``` self: QtC.QSslKey, other: QtC.QSslKey ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -196,14 +196,14 @@ pub const qsslkey = struct {
         return qtc.QSslKey_Handle(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QSslKey, key: QtC.QSslKey ```
     pub fn OperatorEqual(self: ?*anyopaque, key: ?*anyopaque) bool {
         return qtc.QSslKey_OperatorEqual(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator-not-eq)
     ///
     /// ``` self: QtC.QSslKey, key: QtC.QSslKey ```
     pub fn OperatorNotEqual(self: ?*anyopaque, key: ?*anyopaque) bool {

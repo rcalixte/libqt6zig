@@ -620,35 +620,35 @@ pub const qfont = struct {
         return qtc.QFont_ExactMatch(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator-eq)
     ///
     /// ``` self: QtC.QFont, param1: QtC.QFont ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QFont_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QFont, param1: QtC.QFont ```
     pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QFont_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator-not-eq)
     ///
     /// ``` self: QtC.QFont, param1: QtC.QFont ```
     pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QFont_OperatorNotEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator-lt)
     ///
     /// ``` self: QtC.QFont, param1: QtC.QFont ```
     pub fn OperatorLesser(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QFont_OperatorLesser(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#operator)
     ///
     /// ``` self: QtC.QFont ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

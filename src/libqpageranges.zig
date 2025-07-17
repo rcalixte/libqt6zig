@@ -18,7 +18,7 @@ pub const qpageranges = struct {
         return qtc.QPageRanges_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges.html#operator-eq)
     ///
     /// ``` self: QtC.QPageRanges, other: QtC.QPageRanges ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

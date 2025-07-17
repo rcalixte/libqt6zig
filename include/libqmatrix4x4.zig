@@ -158,49 +158,49 @@ pub const qmatrix4x4 = struct {
         return qtc.QMatrix4x4_Transposed(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QMatrix4x4, other: QtC.QMatrix4x4 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, other: ?*anyopaque) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_OperatorPlusAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator--eq)
     ///
     /// ``` self: QtC.QMatrix4x4, other: QtC.QMatrix4x4 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, other: ?*anyopaque) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_OperatorMinusAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QMatrix4x4, other: QtC.QMatrix4x4 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, other: ?*anyopaque) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_OperatorMultiplyAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QMatrix4x4, factor: f32 ```
     pub fn OperatorMultiplyAssign2(self: ?*anyopaque, factor: f32) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_OperatorMultiplyAssign2(@ptrCast(self), @floatCast(factor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QMatrix4x4, divisor: f32 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, divisor: f32) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_OperatorDivideAssign(@ptrCast(self), @floatCast(divisor));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QMatrix4x4, other: QtC.QMatrix4x4 ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QMatrix4x4_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-not-eq)
     ///
     /// ``` self: QtC.QMatrix4x4, other: QtC.QMatrix4x4 ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -438,7 +438,7 @@ pub const qmatrix4x4 = struct {
         qtc.QMatrix4x4_Optimize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator)
     ///
     /// ``` self: QtC.QMatrix4x4 ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

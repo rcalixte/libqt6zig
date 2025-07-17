@@ -38,7 +38,7 @@ pub const qstyleoption = struct {
         qtc.QStyleOption_InitFrom(@ptrCast(self), @ptrCast(w));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOption, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -82,7 +82,7 @@ pub const qstyleoptionfocusrect = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionFocusRect, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -126,7 +126,7 @@ pub const qstyleoptionframe = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionFrame, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -170,7 +170,7 @@ pub const qstyleoptiontabwidgetframe = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionTabWidgetFrame, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -214,7 +214,7 @@ pub const qstyleoptiontabbarbase = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionTabBarBase, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -258,7 +258,7 @@ pub const qstyleoptionheader = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionHeader, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -302,7 +302,7 @@ pub const qstyleoptionheaderv2 = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionHeaderV2, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -346,7 +346,7 @@ pub const qstyleoptionbutton = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionButton, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -390,7 +390,7 @@ pub const qstyleoptiontab = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionTab, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -434,7 +434,7 @@ pub const qstyleoptiontoolbar = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionToolBar, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -478,7 +478,7 @@ pub const qstyleoptionprogressbar = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionProgressBar, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -522,7 +522,7 @@ pub const qstyleoptionmenuitem = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionMenuItem, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -566,7 +566,7 @@ pub const qstyleoptiondockwidget = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionDockWidget, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -610,7 +610,7 @@ pub const qstyleoptionviewitem = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionViewItem, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -654,7 +654,7 @@ pub const qstyleoptiontoolbox = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionToolBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -698,7 +698,7 @@ pub const qstyleoptionrubberband = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionRubberBand, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -756,7 +756,7 @@ pub const qstyleoptioncomplex = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionComplex, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -800,7 +800,7 @@ pub const qstyleoptionslider = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionSlider, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -844,7 +844,7 @@ pub const qstyleoptionspinbox = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionSpinBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -888,7 +888,7 @@ pub const qstyleoptiontoolbutton = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionToolButton, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -932,7 +932,7 @@ pub const qstyleoptioncombobox = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionComboBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -976,7 +976,7 @@ pub const qstyleoptiontitlebar = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionTitleBar, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -1020,7 +1020,7 @@ pub const qstyleoptiongroupbox = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionGroupBox, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -1064,7 +1064,7 @@ pub const qstyleoptionsizegrip = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionSizeGrip, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -1115,7 +1115,7 @@ pub const qstyleoptiongraphicsitem = struct {
 
     /// Inherited from QStyleOption
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleOptionGraphicsItem, other: QtC.QStyleOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -1162,7 +1162,7 @@ pub const qstylehintreturn = struct {
         return qtc.QStyleHintReturn_new4(@intCast(version), @intCast(typeVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturn.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturn.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleHintReturn, param1: QtC.QStyleHintReturn ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1195,7 +1195,7 @@ pub const qstylehintreturnmask = struct {
         return qtc.QStyleHintReturnMask_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnmask.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnmask.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleHintReturnMask, param1: QtC.QStyleHintReturnMask ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1228,7 +1228,7 @@ pub const qstylehintreturnvariant = struct {
         return qtc.QStyleHintReturnVariant_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#operator-eq)
     ///
     /// ``` self: QtC.QStyleHintReturnVariant, param1: QtC.QStyleHintReturnVariant ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

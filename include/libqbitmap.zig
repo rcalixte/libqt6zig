@@ -59,7 +59,7 @@ pub const qbitmap = struct {
         return qtc.QBitmap_new6(fileName_str, format_Cstring);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
     ///
     /// ``` self: QtC.QBitmap, param1: QtC.QPixmap ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -73,7 +73,7 @@ pub const qbitmap = struct {
         qtc.QBitmap_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -115,7 +115,7 @@ pub const qbitmap = struct {
         return qtc.QBitmap_Transformed(@ptrCast(self), @ptrCast(matrix));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#operator-eq)
     ///
     /// ``` self: QtC.QBitmap, param1: QtC.QBitmap ```
     pub fn OperatorAssign2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -492,7 +492,7 @@ pub const qbitmap = struct {
 
     /// Inherited from QPixmap
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#operator!)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#operator-not)
     ///
     /// ``` self: QtC.QBitmap ```
     pub fn OperatorNot(self: ?*anyopaque) bool {

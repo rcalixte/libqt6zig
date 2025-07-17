@@ -45,7 +45,7 @@ pub const qicon = struct {
         return qtc.QIcon_new5(@ptrCast(engine));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#operator-eq)
     ///
     /// ``` self: QtC.QIcon, other: QtC.QIcon ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -59,7 +59,7 @@ pub const qicon = struct {
         qtc.QIcon_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#operator)
     ///
     /// ``` self: QtC.QIcon ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

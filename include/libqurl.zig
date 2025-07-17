@@ -43,14 +43,14 @@ pub const qurl = struct {
         return qtc.QUrl_new4(url_str, @intCast(mode));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator-eq)
     ///
     /// ``` self: QtC.QUrl, copyVal: QtC.QUrl ```
     pub fn OperatorAssign(self: ?*anyopaque, copyVal: ?*anyopaque) void {
         qtc.QUrl_OperatorAssign(@ptrCast(self), @ptrCast(copyVal));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#operator-eq)
     ///
     /// ``` self: QtC.QUrl, url: []const u8 ```
     pub fn OperatorAssign2(self: ?*anyopaque, url: []const u8) void {

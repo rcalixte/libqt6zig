@@ -1317,7 +1317,7 @@ pub const qtextobjectinterface = struct {
         qtc.QTextObjectInterface_DrawObject(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(doc), @intCast(posInDocument), @ptrCast(format));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextobjectinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextobjectinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QTextObjectInterface, param1: QtC.QTextObjectInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1343,7 +1343,7 @@ pub const qabstracttextdocumentlayout__selection = struct {
         return qtc.QAbstractTextDocumentLayout__Selection_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__selection.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__selection.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, param1: QtC.QAbstractTextDocumentLayout__Selection ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1367,7 +1367,7 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
         return qtc.QAbstractTextDocumentLayout__PaintContext_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__paintcontext.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__paintcontext.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, param1: QtC.QAbstractTextDocumentLayout__PaintContext ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

@@ -78,21 +78,21 @@ pub const qtextlength = struct {
         return qtc.QTextLength_RawValue(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextLength, other: QtC.QTextLength ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTextLength_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextLength, other: QtC.QTextLength ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTextLength_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#operator)
     ///
     /// ``` self: QtC.QTextLength ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -132,7 +132,7 @@ pub const qtextformat = struct {
         return qtc.QTextFormat_new3(@ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -439,21 +439,21 @@ pub const qtextformat = struct {
         return qtc.QTextFormat_ToTableCellFormat(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QTextFormat_OperatorEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
         return qtc.QTextFormat_OperatorNotEqual(@ptrCast(self), @ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -1087,7 +1087,7 @@ pub const qtextcharformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextCharFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -1465,7 +1465,7 @@ pub const qtextcharformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextCharFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -1474,7 +1474,7 @@ pub const qtextcharformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextCharFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -1483,7 +1483,7 @@ pub const qtextcharformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextCharFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -1795,7 +1795,7 @@ pub const qtextblockformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextBlockFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -2173,7 +2173,7 @@ pub const qtextblockformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextBlockFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -2182,7 +2182,7 @@ pub const qtextblockformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextBlockFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -2191,7 +2191,7 @@ pub const qtextblockformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextBlockFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -2384,7 +2384,7 @@ pub const qtextlistformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextListFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -2762,7 +2762,7 @@ pub const qtextlistformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextListFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -2771,7 +2771,7 @@ pub const qtextlistformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextListFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -2780,7 +2780,7 @@ pub const qtextlistformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextListFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -3651,7 +3651,7 @@ pub const qtextimageformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextImageFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -4029,7 +4029,7 @@ pub const qtextimageformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextImageFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -4038,7 +4038,7 @@ pub const qtextimageformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextImageFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -4047,7 +4047,7 @@ pub const qtextimageformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextImageFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -4350,7 +4350,7 @@ pub const qtextframeformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextFrameFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -4728,7 +4728,7 @@ pub const qtextframeformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextFrameFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -4737,7 +4737,7 @@ pub const qtextframeformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextFrameFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -4746,7 +4746,7 @@ pub const qtextframeformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextFrameFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -5219,7 +5219,7 @@ pub const qtexttableformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextTableFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -5597,7 +5597,7 @@ pub const qtexttableformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextTableFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -5606,7 +5606,7 @@ pub const qtexttableformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextTableFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -5615,7 +5615,7 @@ pub const qtexttableformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextTableFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {
@@ -6653,7 +6653,7 @@ pub const qtexttablecellformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq)
     ///
     /// ``` self: QtC.QTextTableCellFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {
@@ -7031,7 +7031,7 @@ pub const qtexttablecellformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextTableCellFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -7040,7 +7040,7 @@ pub const qtexttablecellformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextTableCellFormat, rhs: QtC.QTextFormat ```
     pub fn OperatorNotEqual(self: ?*anyopaque, rhs: ?*anyopaque) bool {
@@ -7049,7 +7049,7 @@ pub const qtexttablecellformat = struct {
 
     /// Inherited from QTextFormat
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator QVariant)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#operator)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
     pub fn ToQVariant(self: ?*anyopaque) QtC.QVariant {

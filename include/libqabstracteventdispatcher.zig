@@ -1435,7 +1435,7 @@ pub const qabstracteventdispatcher__timerinfov2 = struct {
         return qtc.QAbstractEventDispatcher__TimerInfoV2_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher__timerinfov2.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher__timerinfov2.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2, param1: QtC.QAbstractEventDispatcher__TimerInfoV2 ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

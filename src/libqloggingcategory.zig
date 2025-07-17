@@ -49,14 +49,14 @@ pub const qloggingcategory = struct {
         return std.mem.span(_ret);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qloggingcategory.html#operator())
+    /// [Qt documentation](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
     ///
     /// ``` self: QtC.QLoggingCategory ```
     pub fn OperatorCall(self: ?*anyopaque) QtC.QLoggingCategory {
         return qtc.QLoggingCategory_OperatorCall(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qloggingcategory.html#operator())
+    /// [Qt documentation](https://doc.qt.io/qt-6/qloggingcategory.html#operator-28-29)
     ///
     /// ``` self: QtC.QLoggingCategory ```
     pub fn OperatorCall2(self: ?*anyopaque) QtC.QLoggingCategory {

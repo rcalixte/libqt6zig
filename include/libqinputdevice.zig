@@ -207,7 +207,7 @@ pub const qinputdevice = struct {
         return qtc.QInputDevice_PrimaryKeyboard();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QInputDevice, other: QtC.QInputDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

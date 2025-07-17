@@ -18,7 +18,7 @@ pub const qpdfoutputintent = struct {
         return qtc.QPdfOutputIntent_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdfoutputintent.html#operator-eq)
     ///
     /// ``` self: QtC.QPdfOutputIntent, other: QtC.QPdfOutputIntent ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

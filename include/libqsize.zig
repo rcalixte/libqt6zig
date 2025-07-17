@@ -172,28 +172,28 @@ pub const qsize = struct {
         return qtc.QSize_ShrunkBy(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QSize, param1: QtC.QSize ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSize {
         return qtc.QSize_OperatorPlusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator--eq)
     ///
     /// ``` self: QtC.QSize, param1: QtC.QSize ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSize {
         return qtc.QSize_OperatorMinusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QSize, c: f64 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QSize {
         return qtc.QSize_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QSize, c: f64 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QSize {
@@ -394,28 +394,28 @@ pub const qsizef = struct {
         return qtc.QSizeF_ShrunkBy(@ptrCast(self), @ptrCast(m));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QSizeF, param1: QtC.QSizeF ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSizeF {
         return qtc.QSizeF_OperatorPlusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator--eq)
     ///
     /// ``` self: QtC.QSizeF, param1: QtC.QSizeF ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, param1: ?*anyopaque) QtC.QSizeF {
         return qtc.QSizeF_OperatorMinusAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator*=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-2a-eq)
     ///
     /// ``` self: QtC.QSizeF, c: f64 ```
     pub fn OperatorMultiplyAssign(self: ?*anyopaque, c: f64) QtC.QSizeF {
         return qtc.QSizeF_OperatorMultiplyAssign(@ptrCast(self), @floatCast(c));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator/=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-2f-eq)
     ///
     /// ``` self: QtC.QSizeF, c: f64 ```
     pub fn OperatorDivideAssign(self: ?*anyopaque, c: f64) QtC.QSizeF {

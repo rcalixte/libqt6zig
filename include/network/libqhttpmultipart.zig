@@ -22,7 +22,7 @@ pub const qhttppart = struct {
         return qtc.QHttpPart_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhttppart.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhttppart.html#operator-eq)
     ///
     /// ``` self: QtC.QHttpPart, other: QtC.QHttpPart ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -36,14 +36,14 @@ pub const qhttppart = struct {
         qtc.QHttpPart_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhttppart.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhttppart.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QHttpPart, other: QtC.QHttpPart ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QHttpPart_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhttppart.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhttppart.html#operator-not-eq)
     ///
     /// ``` self: QtC.QHttpPart, other: QtC.QHttpPart ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

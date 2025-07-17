@@ -109,7 +109,7 @@ pub const qpieseries = struct {
         return qtc.QPieSeries_Append2(@ptrCast(self), slices_list);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QPieSeries, slice: QtC.QPieSlice ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, slice: ?*anyopaque) QtC.QPieSeries {

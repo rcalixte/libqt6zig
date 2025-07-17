@@ -11,7 +11,7 @@ pub const qcollatorsortkey = struct {
         return qtc.QCollatorSortKey_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcollatorsortkey.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcollatorsortkey.html#operator-eq)
     ///
     /// ``` self: QtC.QCollatorSortKey, other: QtC.QCollatorSortKey ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -65,7 +65,7 @@ pub const qcollator = struct {
         return qtc.QCollator_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcollator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcollator.html#operator-eq)
     ///
     /// ``` self: QtC.QCollator, param1: QtC.QCollator ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -157,7 +157,7 @@ pub const qcollator = struct {
         return qtc.QCollator_Compare2(@ptrCast(self), @ptrCast(s1), @intCast(len1), @ptrCast(s2), @intCast(len2));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcollator.html#operator())
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcollator.html#operator-28-29)
     ///
     /// ``` self: QtC.QCollator, s1: []const u8, s2: []const u8 ```
     pub fn OperatorCall(self: ?*anyopaque, s1: []const u8, s2: []const u8) bool {

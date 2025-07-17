@@ -58,7 +58,7 @@ pub const qstringview = struct {
         return qtc.QStringView_ConstData(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QStringView, n: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, n: i64) QtC.QChar {

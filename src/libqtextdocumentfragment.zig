@@ -32,7 +32,7 @@ pub const qtextdocumentfragment = struct {
         return qtc.QTextDocumentFragment_new4(@ptrCast(rhs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#operator-eq)
     ///
     /// ``` self: QtC.QTextDocumentFragment, rhs: QtC.QTextDocumentFragment ```
     pub fn OperatorAssign(self: ?*anyopaque, rhs: ?*anyopaque) void {

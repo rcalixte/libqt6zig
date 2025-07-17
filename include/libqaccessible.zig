@@ -366,7 +366,7 @@ pub const qaccessibletextinterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleTextInterface, param1: QtC.QAccessibleTextInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -414,7 +414,7 @@ pub const qaccessibleeditabletextinterface = struct {
         qtc.QAccessibleEditableTextInterface_ReplaceText(@ptrCast(self), @intCast(startOffset), @intCast(endOffset), text_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleeditabletextinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleEditableTextInterface, param1: QtC.QAccessibleEditableTextInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -468,7 +468,7 @@ pub const qaccessiblevalueinterface = struct {
         return qtc.QAccessibleValueInterface_MinimumStepSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevalueinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleValueInterface, param1: QtC.QAccessibleValueInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -553,7 +553,7 @@ pub const qaccessibletablecellinterface = struct {
         return qtc.QAccessibleTableCellInterface_Table(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablecellinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleTableCellInterface, param1: QtC.QAccessibleTableCellInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -980,7 +980,7 @@ pub const qaccessibleactioninterface = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleactioninterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleActionInterface, param1: QtC.QAccessibleActionInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1050,7 +1050,7 @@ pub const qaccessibleimageinterface = struct {
         return qtc.QAccessibleImageInterface_ImagePosition(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleimageinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleImageInterface, param1: QtC.QAccessibleImageInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1112,7 +1112,7 @@ pub const qaccessiblehyperlinkinterface = struct {
         return qtc.QAccessibleHyperlinkInterface_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblehyperlinkinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleHyperlinkInterface, param1: QtC.QAccessibleHyperlinkInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1192,7 +1192,7 @@ pub const qaccessibleselectioninterface = struct {
         return qtc.QAccessibleSelectionInterface_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleselectioninterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleSelectionInterface, param1: QtC.QAccessibleSelectionInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1230,7 +1230,7 @@ pub const qaccessibleattributesinterface = struct {
         return qtc.QAccessibleAttributesInterface_AttributeValue(@ptrCast(self), @intCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleattributesinterface.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleattributesinterface.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleAttributesInterface, param1: QtC.QAccessibleAttributesInterface ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

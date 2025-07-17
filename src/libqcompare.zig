@@ -85,7 +85,7 @@ pub const weak_ordering = struct {
         qtc.weak_ordering_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/weak_ordering.html#operator partial_ordering)
+    /// [Qt documentation](https://doc.qt.io/qt-6/weak_ordering.html#operator)
     ///
     /// ``` self: QtC.weak_ordering ```
     pub fn ToPartialOrdering(self: ?*anyopaque) QtC.partial_ordering {
@@ -139,14 +139,14 @@ pub const strong_ordering = struct {
         qtc.strong_ordering_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/strong_ordering.html#operator partial_ordering)
+    /// [Qt documentation](https://doc.qt.io/qt-6/strong_ordering.html#operator)
     ///
     /// ``` self: QtC.strong_ordering ```
     pub fn ToPartialOrdering(self: ?*anyopaque) QtC.partial_ordering {
         return qtc.strong_ordering_ToPartialOrdering(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/strong_ordering.html#operator weak_ordering)
+    /// [Qt documentation](https://doc.qt.io/qt-6/strong_ordering.html#operator)
     ///
     /// ``` self: QtC.strong_ordering ```
     pub fn ToWeakOrdering(self: ?*anyopaque) QtC.weak_ordering {
@@ -221,7 +221,7 @@ pub const qpartialordering = struct {
         qtc.QPartialOrdering_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpartialordering.html#operator partial_ordering)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpartialordering.html#operator)
     ///
     /// ``` self: QtC.QPartialOrdering ```
     pub fn ToPartialOrdering(self: ?*anyopaque) QtC.partial_ordering {

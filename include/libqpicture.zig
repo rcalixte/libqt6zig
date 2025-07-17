@@ -157,7 +157,7 @@ pub const qpicture = struct {
         qtc.QPicture_SetBoundingRect(@ptrCast(self), @ptrCast(r));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpicture.html#operator-eq)
     ///
     /// ``` self: QtC.QPicture, p: QtC.QPicture ```
     pub fn OperatorAssign(self: ?*anyopaque, p: ?*anyopaque) void {

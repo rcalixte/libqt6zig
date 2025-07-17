@@ -55,7 +55,7 @@ pub const qbytearraymatcher = struct {
         return qtc.QByteArrayMatcher_new6(pattern_Cstring, @intCast(length));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#operator-eq)
     ///
     /// ``` self: QtC.QByteArrayMatcher, other: QtC.QByteArrayMatcher ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

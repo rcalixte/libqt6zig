@@ -39,21 +39,21 @@ pub const qeventpoint = struct {
         return qtc.QEventPoint_new5(@intCast(id), @ptrCast(device));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qeventpoint.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qeventpoint.html#operator-eq)
     ///
     /// ``` self: QtC.QEventPoint, other: QtC.QEventPoint ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QEventPoint_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qeventpoint.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qeventpoint.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QEventPoint, other: QtC.QEventPoint ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QEventPoint_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qeventpoint.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qeventpoint.html#operator-not-eq)
     ///
     /// ``` self: QtC.QEventPoint, other: QtC.QEventPoint ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

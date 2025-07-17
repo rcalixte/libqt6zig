@@ -23,7 +23,7 @@ pub const qnetworkcachemetadata = struct {
         return qtc.QNetworkCacheMetaData_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator-eq)
     ///
     /// ``` self: QtC.QNetworkCacheMetaData, other: QtC.QNetworkCacheMetaData ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -37,14 +37,14 @@ pub const qnetworkcachemetadata = struct {
         qtc.QNetworkCacheMetaData_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QNetworkCacheMetaData, other: QtC.QNetworkCacheMetaData ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QNetworkCacheMetaData_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#operator-not-eq)
     ///
     /// ``` self: QtC.QNetworkCacheMetaData, other: QtC.QNetworkCacheMetaData ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

@@ -159,7 +159,7 @@ pub const qboxset = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QBoxSet, value: ?*f64 ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, value: ?*anyopaque) QtC.QBoxSet {
@@ -180,7 +180,7 @@ pub const qboxset = struct {
         return qtc.QBoxSet_At(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QBoxSet, index: i32 ```
     pub fn OperatorSubscript(self: ?*anyopaque, index: i32) f64 {

@@ -27,7 +27,7 @@ pub const qssldiffiehellmanparameters = struct {
         return qtc.QSslDiffieHellmanParameters_DefaultParameters();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#operator-eq)
     ///
     /// ``` self: QtC.QSslDiffieHellmanParameters, other: QtC.QSslDiffieHellmanParameters ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

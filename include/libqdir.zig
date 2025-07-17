@@ -78,7 +78,7 @@ pub const qdir = struct {
         return qtc.QDir_new6(path_str, nameFilter_str, @intCast(sort), @intCast(filter));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator-eq)
     ///
     /// ``` self: QtC.QDir, param1: QtC.QDir ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -387,7 +387,7 @@ pub const qdir = struct {
         return qtc.QDir_IsEmpty(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator[])
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QDir, param1: i64, allocator: std.mem.Allocator ```
     pub fn OperatorSubscript(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {

@@ -19,7 +19,7 @@ pub const qpdflink = struct {
         return qtc.QPdfLink_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpdflink.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpdflink.html#operator-eq)
     ///
     /// ``` self: QtC.QPdfLink, other: QtC.QPdfLink ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

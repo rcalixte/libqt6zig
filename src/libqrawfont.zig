@@ -69,7 +69,7 @@ pub const qrawfont = struct {
         return qtc.QRawFont_new6(fontData_str, @floatCast(pixelSize), @intCast(hintingPreference));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#operator-eq)
     ///
     /// ``` self: QtC.QRawFont, other: QtC.QRawFont ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -90,14 +90,14 @@ pub const qrawfont = struct {
         return qtc.QRawFont_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QRawFont, other: QtC.QRawFont ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QRawFont_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#operator-not-eq)
     ///
     /// ``` self: QtC.QRawFont, other: QtC.QRawFont ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

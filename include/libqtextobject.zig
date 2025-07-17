@@ -1000,7 +1000,7 @@ pub const qtextblockgroup = struct {
 
 /// https://doc.qt.io/qt-6/qtextframelayoutdata.html
 pub const qtextframelayoutdata = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframelayoutdata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframelayoutdata.html#operator-eq)
     ///
     /// ``` self: QtC.QTextFrameLayoutData, param1: QtC.QTextFrameLayoutData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2019,7 +2019,7 @@ pub const qtextframe = struct {
 
 /// https://doc.qt.io/qt-6/qtextblockuserdata.html
 pub const qtextblockuserdata = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockuserdata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockuserdata.html#operator-eq)
     ///
     /// ``` self: QtC.QTextBlockUserData, param1: QtC.QTextBlockUserData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -2052,7 +2052,7 @@ pub const qtextblock = struct {
         return qtc.QTextBlock_new2(@ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator-eq)
     ///
     /// ``` self: QtC.QTextBlock, o: QtC.QTextBlock ```
     pub fn OperatorAssign(self: ?*anyopaque, o: ?*anyopaque) void {
@@ -2066,21 +2066,21 @@ pub const qtextblock = struct {
         return qtc.QTextBlock_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextBlock, o: QtC.QTextBlock ```
     pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextBlock_OperatorEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextBlock, o: QtC.QTextBlock ```
     pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextBlock_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#operator-lt)
     ///
     /// ``` self: QtC.QTextBlock, o: QtC.QTextBlock ```
     pub fn OperatorLesser(self: ?*anyopaque, o: ?*anyopaque) bool {
@@ -2339,7 +2339,7 @@ pub const qtextfragment = struct {
         return qtc.QTextFragment_new2(@ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator-eq)
     ///
     /// ``` self: QtC.QTextFragment, o: QtC.QTextFragment ```
     pub fn OperatorAssign(self: ?*anyopaque, o: ?*anyopaque) void {
@@ -2353,21 +2353,21 @@ pub const qtextfragment = struct {
         return qtc.QTextFragment_IsValid(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextFragment, o: QtC.QTextFragment ```
     pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextFragment_OperatorEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextFragment, o: QtC.QTextFragment ```
     pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextFragment_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextfragment.html#operator-lt)
     ///
     /// ``` self: QtC.QTextFragment, o: QtC.QTextFragment ```
     pub fn OperatorLesser(self: ?*anyopaque, o: ?*anyopaque) bool {
@@ -2538,28 +2538,28 @@ pub const qtextframe__iterator = struct {
         return qtc.QTextFrame__iterator_AtEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextFrame__iterator, o: QtC.QTextFrame__iterator ```
     pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextFrame__iterator_OperatorEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextFrame__iterator, o: QtC.QTextFrame__iterator ```
     pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextFrame__iterator_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextFrame__iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTextFrame__iterator {
         return qtc.QTextFrame__iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextFrame__iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QTextFrame__iterator {
@@ -2646,28 +2646,28 @@ pub const qtextblock__iterator = struct {
         return qtc.QTextBlock__iterator_AtEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextBlock__iterator, o: QtC.QTextBlock__iterator ```
     pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextBlock__iterator_OperatorEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextBlock__iterator, o: QtC.QTextBlock__iterator ```
     pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextBlock__iterator_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextBlock__iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTextBlock__iterator {
         return qtc.QTextBlock__iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextBlock__iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QTextBlock__iterator {

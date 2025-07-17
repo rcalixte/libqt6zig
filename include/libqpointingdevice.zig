@@ -257,7 +257,7 @@ pub const qpointingdevice = struct {
         return qtc.QPointingDevice_PrimaryPointingDevice();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPointingDevice, other: QtC.QPointingDevice ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

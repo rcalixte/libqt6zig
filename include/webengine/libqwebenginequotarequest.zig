@@ -66,14 +66,14 @@ pub const qwebenginequotarequest = struct {
         return qtc.QWebEngineQuotaRequest_RequestedSize(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest, param1: QtC.QWebEngineQuotaRequest ```
     pub fn OperatorEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {
         return qtc.QWebEngineQuotaRequest_OperatorEqual(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginequotarequest.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineQuotaRequest, param1: QtC.QWebEngineQuotaRequest ```
     pub fn OperatorNotEqual(self: ?*anyopaque, param1: ?*anyopaque) bool {

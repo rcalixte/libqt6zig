@@ -57,7 +57,7 @@ pub const qregularexpression = struct {
         qtc.QRegularExpression_SetPatternOptions(@ptrCast(self), @intCast(options));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#operator-eq)
     ///
     /// ``` self: QtC.QRegularExpression, re: QtC.QRegularExpression ```
     pub fn OperatorAssign(self: ?*anyopaque, re: ?*anyopaque) void {
@@ -328,7 +328,7 @@ pub const qregularexpressionmatch = struct {
         return qtc.QRegularExpressionMatch_new2(@ptrCast(match));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#operator-eq)
     ///
     /// ``` self: QtC.QRegularExpressionMatch, match: QtC.QRegularExpressionMatch ```
     pub fn OperatorAssign(self: ?*anyopaque, match: ?*anyopaque) void {
@@ -569,7 +569,7 @@ pub const qregularexpressionmatchiterator = struct {
         return qtc.QRegularExpressionMatchIterator_new2(@ptrCast(iterator));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatchiterator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatchiterator.html#operator-eq)
     ///
     /// ``` self: QtC.QRegularExpressionMatchIterator, iterator: QtC.QRegularExpressionMatchIterator ```
     pub fn OperatorAssign(self: ?*anyopaque, iterator: ?*anyopaque) void {

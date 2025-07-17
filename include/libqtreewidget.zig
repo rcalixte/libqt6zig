@@ -591,14 +591,14 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_QBaseSetData(@ptrCast(self), @intCast(column), @intCast(role), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-lt)
     ///
     /// ``` self: QtC.QTreeWidgetItem, other: QtC.QTreeWidgetItem ```
     pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTreeWidgetItem_OperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-lt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -607,7 +607,7 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_OnOperatorLesser(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-lt)
     ///
     /// Base class method implementation
     ///
@@ -666,7 +666,7 @@ pub const qtreewidgetitem = struct {
         qtc.QTreeWidgetItem_QBaseWrite(@ptrCast(self), @ptrCast(out));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-eq)
     ///
     /// ``` self: QtC.QTreeWidgetItem, other: QtC.QTreeWidgetItem ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

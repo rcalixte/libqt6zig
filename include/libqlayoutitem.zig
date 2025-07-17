@@ -414,14 +414,14 @@ pub const qlayoutitem = struct {
         return qtc.QLayoutItem_QBaseControlTypes(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// ``` self: QtC.QLayoutItem, param1: QtC.QLayoutItem ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QLayoutItem_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// Allows for overriding the related default method
     ///
@@ -430,7 +430,7 @@ pub const qlayoutitem = struct {
         qtc.QLayoutItem_OnOperatorAssign(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
     ///
     /// Base class method implementation
     ///

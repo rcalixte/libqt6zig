@@ -187,14 +187,14 @@ pub const qdeadlinetimer = struct {
         return qtc.QDeadlineTimer_Current();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, msecs: i64) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_OperatorPlusAssign(@ptrCast(self), @intCast(msecs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#operator--eq)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, msecs: i64) QtC.QDeadlineTimer {

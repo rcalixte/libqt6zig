@@ -19,7 +19,7 @@ pub const qwebenginescript = struct {
         return qtc.QWebEngineScript_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineScript, other: QtC.QWebEngineScript ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -126,14 +126,14 @@ pub const qwebenginescript = struct {
         qtc.QWebEngineScript_SetRunsOnSubFrames(@ptrCast(self), on);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QWebEngineScript, other: QtC.QWebEngineScript ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QWebEngineScript_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#operator-not-eq)
     ///
     /// ``` self: QtC.QWebEngineScript, other: QtC.QWebEngineScript ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

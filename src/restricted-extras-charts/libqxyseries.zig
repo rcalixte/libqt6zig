@@ -174,14 +174,14 @@ pub const qxyseries = struct {
         return qtc.QXYSeries_At(@ptrCast(self), @intCast(index));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QXYSeries, point: QtC.QPointF ```
     pub fn OperatorShiftLeft(self: ?*anyopaque, point: ?*anyopaque) QtC.QXYSeries {
         return qtc.QXYSeries_OperatorShiftLeft(@ptrCast(self), @ptrCast(point));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#operator<<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#operator-lt-lt)
     ///
     /// ``` self: QtC.QXYSeries, points: []QtC.QPointF ```
     pub fn OperatorShiftLeft2(self: ?*anyopaque, points: []QtC.QPointF) QtC.QXYSeries {

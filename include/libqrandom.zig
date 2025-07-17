@@ -38,7 +38,7 @@ pub const qrandomgenerator = struct {
         return qtc.QRandomGenerator_new5(@intCast(seedValue));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#operator-eq)
     ///
     /// ``` self: QtC.QRandomGenerator, other: QtC.QRandomGenerator ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -164,7 +164,7 @@ pub const qrandomgenerator = struct {
         qtc.QRandomGenerator_Generate2(@ptrCast(self), @intCast(begin), @intCast(end));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#operator())
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator.html#operator-28-29)
     ///
     /// ``` self: QtC.QRandomGenerator ```
     pub fn OperatorCall(self: ?*anyopaque) u32 {
@@ -288,7 +288,7 @@ pub const qrandomgenerator64 = struct {
         return qtc.QRandomGenerator64_Generate(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator64.html#operator())
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator64.html#operator-28-29)
     ///
     /// ``` self: QtC.QRandomGenerator64 ```
     pub fn OperatorCall(self: ?*anyopaque) u64 {
@@ -337,7 +337,7 @@ pub const qrandomgenerator64 = struct {
         return qtc.QRandomGenerator64_SecurelySeeded();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator64.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qrandomgenerator64.html#operator-eq)
     ///
     /// ``` self: QtC.QRandomGenerator64, param1: QtC.QRandomGenerator64 ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

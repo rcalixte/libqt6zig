@@ -26,7 +26,7 @@ pub const qhostinfo = struct {
         return qtc.QHostInfo_new3(@intCast(lookupId));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhostinfo.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qhostinfo.html#operator-eq)
     ///
     /// ``` self: QtC.QHostInfo, d: QtC.QHostInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, d: ?*anyopaque) void {

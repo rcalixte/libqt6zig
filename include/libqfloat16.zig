@@ -39,7 +39,7 @@ pub const qfloat16 = struct {
         qtc.qfloat16_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#operator float)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfloat16.html#operator)
     ///
     /// ``` self: QtC.qfloat16 ```
     pub fn ToFloat(self: ?*anyopaque) f32 {

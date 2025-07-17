@@ -33,7 +33,7 @@ pub const qcolormap = struct {
         return qtc.QColormap_Instance();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#operator-eq)
     ///
     /// ``` self: QtC.QColormap, colormap: QtC.QColormap ```
     pub fn OperatorAssign(self: ?*anyopaque, colormap: ?*anyopaque) void {

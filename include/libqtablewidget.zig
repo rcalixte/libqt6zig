@@ -502,14 +502,14 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_QBaseSetData(@ptrCast(self), @intCast(role), @ptrCast(value));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
     /// ``` self: QtC.QTableWidgetItem, other: QtC.QTableWidgetItem ```
     pub fn OperatorLesser(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTableWidgetItem_OperatorLesser(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
     /// Allows for overriding the related default method
     ///
@@ -518,7 +518,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_OnOperatorLesser(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator<)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-lt)
     ///
     /// Base class method implementation
     ///
@@ -577,7 +577,7 @@ pub const qtablewidgetitem = struct {
         qtc.QTableWidgetItem_QBaseWrite(@ptrCast(self), @ptrCast(out));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtablewidgetitem.html#operator-eq)
     ///
     /// ``` self: QtC.QTableWidgetItem, other: QtC.QTableWidgetItem ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

@@ -16,7 +16,7 @@ pub const qwebenginehistoryitem = struct {
         return qtc.QWebEngineHistoryItem_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehistoryitem.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineHistoryItem, other: QtC.QWebEngineHistoryItem ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

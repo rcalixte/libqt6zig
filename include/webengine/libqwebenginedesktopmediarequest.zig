@@ -10,7 +10,7 @@ pub const qwebenginedesktopmediarequest = struct {
         return qtc.QWebEngineDesktopMediaRequest_new(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineDesktopMediaRequest, other: QtC.QWebEngineDesktopMediaRequest ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

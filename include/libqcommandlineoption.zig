@@ -187,7 +187,7 @@ pub const qcommandlineoption = struct {
         return qtc.QCommandLineOption_new9(names_list, description_str, valueName_str, defaultValue_str);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#operator-eq)
     ///
     /// ``` self: QtC.QCommandLineOption, other: QtC.QCommandLineOption ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

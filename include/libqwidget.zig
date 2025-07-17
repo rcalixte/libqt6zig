@@ -16,7 +16,7 @@ pub const qwidgetdata = struct {
         return qtc.QWidgetData_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#operator-eq)
     ///
     /// ``` self: QtC.QWidgetData, param1: QtC.QWidgetData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

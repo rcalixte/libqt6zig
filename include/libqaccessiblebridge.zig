@@ -20,7 +20,7 @@ pub const qaccessiblebridge = struct {
         qtc.QAccessibleBridge_NotifyAccessibilityUpdate(@ptrCast(self), @ptrCast(event));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblebridge.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblebridge.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessibleBridge, param1: QtC.QAccessibleBridge ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

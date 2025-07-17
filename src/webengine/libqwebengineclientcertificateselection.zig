@@ -11,7 +11,7 @@ pub const qwebengineclientcertificateselection = struct {
         return qtc.QWebEngineClientCertificateSelection_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineClientCertificateSelection, param1: QtC.QWebEngineClientCertificateSelection ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

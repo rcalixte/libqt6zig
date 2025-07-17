@@ -37,7 +37,7 @@ pub const qstorageinfo = struct {
         return qtc.QStorageInfo_new4(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstorageinfo.html#operator-eq)
     ///
     /// ``` self: QtC.QStorageInfo, other: QtC.QStorageInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

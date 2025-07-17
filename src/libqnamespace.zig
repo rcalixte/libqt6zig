@@ -210,7 +210,7 @@ pub const qkeycombination = struct {
         return qtc.QKeyCombination_ToCombined(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#operator int)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#operator)
     ///
     /// ``` self: QtC.QKeyCombination ```
     pub fn ToInt(self: ?*anyopaque) i32 {

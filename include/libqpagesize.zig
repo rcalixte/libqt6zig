@@ -88,7 +88,7 @@ pub const qpagesize = struct {
         return qtc.QPageSize_new9(@ptrCast(size), @intCast(units), name_str, @intCast(matchPolicy));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#operator-eq)
     ///
     /// ``` self: QtC.QPageSize, other: QtC.QPageSize ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

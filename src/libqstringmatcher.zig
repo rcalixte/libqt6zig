@@ -57,7 +57,7 @@ pub const qstringmatcher = struct {
         return qtc.QStringMatcher_new6(@ptrCast(uc), @intCast(lenVal), @intCast(cs));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#operator-eq)
     ///
     /// ``` self: QtC.QStringMatcher, other: QtC.QStringMatcher ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

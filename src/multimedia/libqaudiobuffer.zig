@@ -55,7 +55,7 @@ pub const qaudiobuffer = struct {
         return qtc.QAudioBuffer_new6(@intCast(numFrames), @ptrCast(format), @intCast(startTime));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiobuffer.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaudiobuffer.html#operator-eq)
     ///
     /// ``` self: QtC.QAudioBuffer, other: QtC.QAudioBuffer ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

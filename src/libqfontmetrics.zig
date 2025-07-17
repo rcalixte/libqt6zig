@@ -26,7 +26,7 @@ pub const qfontmetrics = struct {
         return qtc.QFontMetrics_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#operator-eq)
     ///
     /// ``` self: QtC.QFontMetrics, param1: QtC.QFontMetrics ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -308,14 +308,14 @@ pub const qfontmetrics = struct {
         return qtc.QFontMetrics_FontDpi(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QFontMetrics, other: QtC.QFontMetrics ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QFontMetrics_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#operator-not-eq)
     ///
     /// ``` self: QtC.QFontMetrics, other: QtC.QFontMetrics ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
@@ -454,14 +454,14 @@ pub const qfontmetricsf = struct {
         return qtc.QFontMetricsF_new4(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-eq)
     ///
     /// ``` self: QtC.QFontMetricsF, param1: QtC.QFontMetricsF ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
         qtc.QFontMetricsF_OperatorAssign(@ptrCast(self), @ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-eq)
     ///
     /// ``` self: QtC.QFontMetricsF, param1: QtC.QFontMetrics ```
     pub fn OperatorAssign2(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -732,14 +732,14 @@ pub const qfontmetricsf = struct {
         return qtc.QFontMetricsF_FontDpi(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QFontMetricsF, other: QtC.QFontMetricsF ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QFontMetricsF_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#operator-not-eq)
     ///
     /// ``` self: QtC.QFontMetricsF, other: QtC.QFontMetricsF ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

@@ -28,7 +28,7 @@ pub const qprocessenvironment = struct {
         return qtc.QProcessEnvironment_new3(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocessenvironment.html#operator-eq)
     ///
     /// ``` self: QtC.QProcessEnvironment, other: QtC.QProcessEnvironment ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

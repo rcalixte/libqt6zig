@@ -38,28 +38,28 @@ pub const qtreewidgetitemiterator = struct {
         return qtc.QTreeWidgetItemIterator_new5(@ptrCast(item), @intCast(flags));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-eq)
     ///
     /// ``` self: QtC.QTreeWidgetItemIterator, it: QtC.QTreeWidgetItemIterator ```
     pub fn OperatorAssign(self: ?*anyopaque, it: ?*anyopaque) void {
         qtc.QTreeWidgetItemIterator_OperatorAssign(@ptrCast(self), @ptrCast(it));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTreeWidgetItemIterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTreeWidgetItemIterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator+=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QTreeWidgetItemIterator, n: i32 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, n: i32) QtC.QTreeWidgetItemIterator {
@@ -80,14 +80,14 @@ pub const qtreewidgetitemiterator = struct {
         return qtc.QTreeWidgetItemIterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--eq)
     ///
     /// ``` self: QtC.QTreeWidgetItemIterator, n: i32 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, n: i32) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_OperatorMinusAssign(@ptrCast(self), @intCast(n));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator*)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2a)
     ///
     /// ``` self: QtC.QTreeWidgetItemIterator ```
     pub fn OperatorMultiply(self: ?*anyopaque) QtC.QTreeWidgetItem {

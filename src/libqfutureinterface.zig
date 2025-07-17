@@ -26,7 +26,7 @@ pub const qfutureinterfacebase = struct {
         return qtc.QFutureInterfaceBase_new3(@intCast(initialState));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-eq)
     ///
     /// ``` self: QtC.QFutureInterfaceBase, other: QtC.QFutureInterfaceBase ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -363,14 +363,14 @@ pub const qfutureinterfacebase = struct {
         return qtc.QFutureInterfaceBase_HasException(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator==)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QFutureInterfaceBase, other: QtC.QFutureInterfaceBase ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QFutureInterfaceBase_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator!=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qfutureinterfacebase.html#operator-not-eq)
     ///
     /// ``` self: QtC.QFutureInterfaceBase, other: QtC.QFutureInterfaceBase ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

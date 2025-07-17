@@ -274,7 +274,7 @@ pub const qvariant = struct {
         return qtc.QVariant_new29(@ptrCast(typeVal), copyVal);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
     ///
     /// ``` self: QtC.QVariant, other: QtC.QVariant ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {

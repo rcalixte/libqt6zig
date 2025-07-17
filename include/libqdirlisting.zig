@@ -435,7 +435,7 @@ pub const qdirlisting__direntry = struct {
         return qtc.QDirListing__DirEntry_FileTime(@ptrCast(self), @intCast(typeVal), @ptrCast(tz));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__direntry.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__direntry.html#operator-eq)
     ///
     /// ``` self: QtC.QDirListing__DirEntry, param1: QtC.QDirListing__DirEntry ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -518,21 +518,21 @@ pub const qdirlisting__const_iterator = struct {
         qtc.QDirListing__const_iterator_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator*)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator-2a)
     ///
     /// ``` self: QtC.QDirListing__const_iterator ```
     pub fn OperatorMultiply(self: ?*anyopaque) QtC.QDirListing__DirEntry {
         return qtc.QDirListing__const_iterator_OperatorMultiply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QDirListing__const_iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QDirListing__const_iterator {
         return qtc.QDirListing__const_iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator++)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting__const_iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QDirListing__const_iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) void {

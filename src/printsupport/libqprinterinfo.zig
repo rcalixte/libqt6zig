@@ -26,7 +26,7 @@ pub const qprinterinfo = struct {
         return qtc.QPrinterInfo_new3(@ptrCast(printer));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#operator=)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprinterinfo.html#operator-eq)
     ///
     /// ``` self: QtC.QPrinterInfo, other: QtC.QPrinterInfo ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
