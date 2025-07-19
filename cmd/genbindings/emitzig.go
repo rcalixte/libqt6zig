@@ -186,7 +186,7 @@ func enumClassToZig(enumClass, enumName, fileName string) string {
 	return enumClass
 }
 
-func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType bool, fullEnumName bool) string {
+func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumName bool) string {
 	if p.Pointer && p.ParameterType == "char" {
 		return "[]const u8"
 	}
@@ -198,7 +198,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType bool, fullEn
 		return "[]u8"
 	}
 
-	if t, ok := p.QListOf(); ok {
+	if t, _, ok := p.QListOf(); ok {
 		tType := t.RenderTypeZig(zfs, isReturnType, fullEnumName)
 		maybePointer := ifv(t.needsPointer(tType), "QtC.", "")
 		return "[]" + maybePointer + tType
@@ -208,7 +208,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType bool, fullEn
 		return "map_" + t.RenderTypeMapZig(zfs, isReturnType)
 	}
 
-	if t1, t2, ok := p.QMapOf(); ok {
+	if t1, t2, _, ok := p.QMapOf(); ok {
 		var hashMapType, k string
 		if t1.ParameterType == "QString" {
 			k = "constu8"
@@ -393,8 +393,10 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType bool, fullEn
 			if p.needsPointer(ret) {
 				ret = "QtC." + ret
 			}
-		} else if !strings.Contains(p.ParameterType, "*bool") {
+		} else if p.QtClassType() {
 			ret = "?*anyopaque"
+		} else {
+			ret = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + ret
 		}
 	}
 
@@ -467,7 +469,7 @@ func (p CppParameter) parameterTypeZig() string {
 		return "qtc.struct_libqt_strview"
 	}
 
-	if _, ok := p.QListOf(); ok {
+	if _, _, ok := p.QListOf(); ok {
 		return "qtc.struct_libqt_list"
 	}
 
@@ -475,7 +477,7 @@ func (p CppParameter) parameterTypeZig() string {
 		return "qtc.struct_libqt_list"
 	}
 
-	if _, _, ok := p.QMapOf(); ok {
+	if _, _, _, ok := p.QMapOf(); ok {
 		return "qtc.struct_libqt_map"
 	}
 
@@ -543,7 +545,7 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				paramType = "QtC." + paramType
 			}
 			if p.IntType() && (p.Pointer || p.ByRef) {
-				paramType = "?*" + paramType
+				paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
 			}
 			if isSlot {
 				tmp = append(tmp, paramType)
@@ -656,7 +658,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	} else if p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" {
 		rvalue = p.ParameterName + ".ptr"
 
-	} else if t, ok := p.QListOf(); ok {
+	} else if t, _, ok := p.QListOf(); ok {
 		// QList<T>
 		// Convert []T to C array without allocation if we can.
 		// This is not always possible, e.g. for QString.
@@ -688,7 +690,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	} else if _, ok := p.QSetOf(); ok {
 		panic("QSet<> arguments are not yet implemented") // n.b. doesn't seem to exist in QtCore/QtGui/QtWidgets at all
 
-	} else if kType, vType, ok := p.QMapOf(); ok {
+	} else if kType, vType, _, ok := p.QMapOf(); ok {
 		// QMap<K,V>
 		zfs.imports["std"] = struct{}{}
 		var hashMapType string
@@ -770,12 +772,16 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// We want our functions to accept the Zig wrapper type, and forward as a pointer
 		rvalue = "@ptrCast(" + p.ParameterName + ")"
 
-	} else if p.IntType() || p.IsFlagType() || p.IsKnownEnum() || p.ParameterType == "WId" {
-		castType := "int"
-		if p.ParameterType == "float" || p.ParameterType == "double" {
-			castType = "float"
+	} else if p.IntType() || p.IsFlagType() || p.IsKnownEnum() {
+		if p.Pointer || p.ByRef {
+			rvalue = "@ptrCast(" + p.ParameterName + ")"
+		} else {
+			castType := "int"
+			if p.ParameterType == "float" || p.ParameterType == "double" {
+				castType = "float"
+			}
+			rvalue = "@" + castType + "Cast(" + p.ParameterName + ")"
 		}
-		rvalue = "@" + castType + "Cast(" + p.ParameterName + ")"
 
 	} else if p.ParameterType == "bool" {
 		if p.Pointer || p.ByRef {
@@ -839,7 +845,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if t, ok := rt.QListOf(); ok {
+	} else if t, containerType, ok := rt.QListOf(); ok {
 		// In the simplest QList case, the list is a slice of the inner type
 		// e.g. QList<double>
 		// In the intermediate case, the list is a slice of a struct
@@ -889,8 +895,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "    " + namePrefix + "_ret[i] = " + namePrefix + "_buf;\n"
 			afterword += "}\n"
 
-		} else if strings.HasPrefix(rt.ParameterType, "QList<QPair<") {
-			pair := rt.ParameterType[12 : len(rt.ParameterType)-2]
+		} else if strings.Contains(rt.ParameterType, "<QPair<") {
+			pair := rt.ParameterType[len(containerType)+7 : len(rt.ParameterType)-2]
 			switch pair {
 			case "QByteArray, QByteArray", "QString, QString":
 				afterword += "defer {\n"
@@ -936,7 +942,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		afterword += assignExpr + " " + namePrefix + "_ret;"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
-	} else if kType, vType, ok := rt.QMapOf(); ok {
+	} else if kType, vType, _, ok := rt.QMapOf(); ok {
 		// We deallocate QMap in a similar way to the QList,
 		// depending on the type of the hash map (Auto vs String)
 		zfs.imports["std"] = struct{}{}
