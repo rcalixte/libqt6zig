@@ -679,9 +679,9 @@ pub const qpaintengine = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#fix_neg_rect)
     ///
-    /// ``` self: QtC.QPaintEngine, x: ?*i32, y: ?*i32, w: ?*i32, h: ?*i32 ```
-    pub fn FixNegRect(self: ?*anyopaque, x: ?*anyopaque, y: ?*anyopaque, w: ?*anyopaque, h: ?*anyopaque) void {
-        qtc.QPaintEngine_FixNegRect(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+    /// ``` self: QtC.QPaintEngine, x: *i32, y: *i32, w: *i32, h: *i32 ```
+    pub fn FixNegRect(self: ?*anyopaque, x: *i32, y: *i32, w: *i32, h: *i32) void {
+        qtc.QPaintEngine_FixNegRect(@ptrCast(self), @ptrCast(x), @ptrCast(y), @ptrCast(w), @ptrCast(h));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#testDirty)

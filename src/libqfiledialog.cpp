@@ -535,7 +535,7 @@ void QFileDialog_Connect_FilesSelected(QFileDialog* self, intptr_t slot) {
     void (*slotFunc)(QFileDialog*, libqt_list /* of libqt_string */) = reinterpret_cast<void (*)(QFileDialog*, libqt_list /* of libqt_string */)>(slot);
     QFileDialog::connect(self, &QFileDialog::filesSelected, [self, slotFunc](const QList<QString>& files) {
         const QList<QString>& files_ret = files;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* files_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * files_ret.size()));
         for (size_t i = 0; i < files_ret.size(); ++i) {
             QString files_lv_ret = files_ret[i];
@@ -626,7 +626,7 @@ void QFileDialog_Connect_UrlsSelected(QFileDialog* self, intptr_t slot) {
     void (*slotFunc)(QFileDialog*, libqt_list /* of QUrl* */) = reinterpret_cast<void (*)(QFileDialog*, libqt_list /* of QUrl* */)>(slot);
     QFileDialog::connect(self, &QFileDialog::urlsSelected, [self, slotFunc](const QList<QUrl>& urls) {
         const QList<QUrl>& urls_ret = urls;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * urls_ret.size()));
         for (size_t i = 0; i < urls_ret.size(); ++i) {
             urls_arr[i] = new QUrl(urls_ret[i]);

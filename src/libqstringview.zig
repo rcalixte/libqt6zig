@@ -519,126 +519,126 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toShort)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToShort1(self: ?*anyopaque, ok: ?*anyopaque) i16 {
+    pub fn ToShort1(self: ?*anyopaque, ok: *bool) i16 {
         return qtc.QStringView_ToShort1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toShort)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToShort2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i16 {
+    pub fn ToShort2(self: ?*anyopaque, ok: *bool, base: i32) i16 {
         return qtc.QStringView_ToShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUShort)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToUShort1(self: ?*anyopaque, ok: ?*anyopaque) u16 {
+    pub fn ToUShort1(self: ?*anyopaque, ok: *bool) u16 {
         return qtc.QStringView_ToUShort1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUShort)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToUShort2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u16 {
+    pub fn ToUShort2(self: ?*anyopaque, ok: *bool, base: i32) u16 {
         return qtc.QStringView_ToUShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toInt)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToInt1(self: ?*anyopaque, ok: ?*anyopaque) i32 {
+    pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QStringView_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toInt)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToInt2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i32 {
+    pub fn ToInt2(self: ?*anyopaque, ok: *bool, base: i32) i32 {
         return qtc.QStringView_ToInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUInt)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToUInt1(self: ?*anyopaque, ok: ?*anyopaque) u32 {
+    pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QStringView_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUInt)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToUInt2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u32 {
+    pub fn ToUInt2(self: ?*anyopaque, ok: *bool, base: i32) u32 {
         return qtc.QStringView_ToUInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLong)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToLong1(self: ?*anyopaque, ok: ?*anyopaque) i64 {
+    pub fn ToLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QStringView_ToLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLong)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToLong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i64 {
+    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QStringView_ToLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULong)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToULong1(self: ?*anyopaque, ok: ?*anyopaque) u64 {
+    pub fn ToULong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QStringView_ToULong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULong)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToULong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u64 {
+    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QStringView_ToULong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLongLong)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToLongLong1(self: ?*anyopaque, ok: ?*anyopaque) i64 {
+    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QStringView_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLongLong)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToLongLong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i64 {
+    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QStringView_ToLongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULongLong)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToULongLong1(self: ?*anyopaque, ok: ?*anyopaque) u64 {
+    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QStringView_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULongLong)
     ///
     /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
-    pub fn ToULongLong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u64 {
+    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QStringView_ToULongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toFloat)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToFloat1(self: ?*anyopaque, ok: ?*anyopaque) f32 {
+    pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QStringView_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toDouble)
     ///
     /// ``` self: QtC.QStringView, ok: bool ```
-    pub fn ToDouble1(self: ?*anyopaque, ok: ?*anyopaque) f64 {
+    pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QStringView_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 

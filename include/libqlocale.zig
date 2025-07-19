@@ -1195,7 +1195,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toShort)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToShort22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) i16 {
+    pub fn ToShort22(self: ?*anyopaque, s: []const u8, ok: *bool) i16 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1206,7 +1206,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toUShort)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToUShort22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) u16 {
+    pub fn ToUShort22(self: ?*anyopaque, s: []const u8, ok: *bool) u16 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1217,7 +1217,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toInt)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToInt22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) i32 {
+    pub fn ToInt22(self: ?*anyopaque, s: []const u8, ok: *bool) i32 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1228,7 +1228,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toUInt)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToUInt22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) u32 {
+    pub fn ToUInt22(self: ?*anyopaque, s: []const u8, ok: *bool) u32 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1239,7 +1239,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toLong)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToLong22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) i64 {
+    pub fn ToLong22(self: ?*anyopaque, s: []const u8, ok: *bool) i64 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1250,7 +1250,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toULong)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToULong22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) u64 {
+    pub fn ToULong22(self: ?*anyopaque, s: []const u8, ok: *bool) u64 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1261,7 +1261,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toLongLong)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToLongLong22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) i64 {
+    pub fn ToLongLong22(self: ?*anyopaque, s: []const u8, ok: *bool) i64 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1272,7 +1272,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toULongLong)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToULongLong22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) u64 {
+    pub fn ToULongLong22(self: ?*anyopaque, s: []const u8, ok: *bool) u64 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1283,7 +1283,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toFloat)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToFloat22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) f32 {
+    pub fn ToFloat22(self: ?*anyopaque, s: []const u8, ok: *bool) f32 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -1294,7 +1294,7 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toDouble)
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
-    pub fn ToDouble22(self: ?*anyopaque, s: []const u8, ok: ?*anyopaque) f64 {
+    pub fn ToDouble22(self: ?*anyopaque, s: []const u8, ok: *bool) f64 {
         const s_str = qtc.struct_libqt_string{
             .len = s.len,
             .data = s.ptr,

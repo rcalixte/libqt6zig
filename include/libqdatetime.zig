@@ -280,9 +280,9 @@ pub const qdate = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#getDate)
     ///
-    /// ``` self: QtC.QDate, year: ?*i32, month: ?*i32, day: ?*i32 ```
-    pub fn GetDate(self: ?*anyopaque, year: ?*anyopaque, month: ?*anyopaque, day: ?*anyopaque) void {
-        qtc.QDate_GetDate(@ptrCast(self), @intCast(year), @intCast(month), @intCast(day));
+    /// ``` self: QtC.QDate, year: *i32, month: *i32, day: *i32 ```
+    pub fn GetDate(self: ?*anyopaque, year: *i32, month: *i32, day: *i32) void {
+        qtc.QDate_GetDate(@ptrCast(self), @ptrCast(year), @ptrCast(month), @ptrCast(day));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#addDays)
@@ -420,9 +420,9 @@ pub const qdate = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#weekNumber)
     ///
-    /// ``` self: QtC.QDate, yearNum: ?*i32 ```
-    pub fn WeekNumber1(self: ?*anyopaque, yearNum: ?*anyopaque) i32 {
-        return qtc.QDate_WeekNumber1(@ptrCast(self), @intCast(yearNum));
+    /// ``` self: QtC.QDate, yearNum: *i32 ```
+    pub fn WeekNumber1(self: ?*anyopaque, yearNum: *i32) i32 {
+        return qtc.QDate_WeekNumber1(@ptrCast(self), @ptrCast(yearNum));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#startOfDay)

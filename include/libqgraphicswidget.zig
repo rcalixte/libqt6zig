@@ -247,17 +247,17 @@ pub const qgraphicswidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QGraphicsWidget, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsWidget_GetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QGraphicsWidget, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsWidget_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64) callconv(.c) void ```
-    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
+    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
         qtc.QGraphicsWidget_OnGetContentsMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -265,9 +265,9 @@ pub const qgraphicswidget = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsWidget, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsWidget_QBaseGetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QGraphicsWidget, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsWidget_QBaseGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFrameMargins)
@@ -286,9 +286,9 @@ pub const qgraphicswidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getWindowFrameMargins)
     ///
-    /// ``` self: QtC.QGraphicsWidget, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetWindowFrameMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsWidget_GetWindowFrameMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QGraphicsWidget, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetWindowFrameMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsWidget_GetWindowFrameMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#unsetWindowFrameMargins)
@@ -3417,7 +3417,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsWidget, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 

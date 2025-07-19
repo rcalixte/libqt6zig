@@ -243,9 +243,9 @@ pub const qtextcursor = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#selectedTableCells)
     ///
-    /// ``` self: QtC.QTextCursor, firstRow: ?*i32, numRows: ?*i32, firstColumn: ?*i32, numColumns: ?*i32 ```
-    pub fn SelectedTableCells(self: ?*anyopaque, firstRow: ?*anyopaque, numRows: ?*anyopaque, firstColumn: ?*anyopaque, numColumns: ?*anyopaque) void {
-        qtc.QTextCursor_SelectedTableCells(@ptrCast(self), @intCast(firstRow), @intCast(numRows), @intCast(firstColumn), @intCast(numColumns));
+    /// ``` self: QtC.QTextCursor, firstRow: *i32, numRows: *i32, firstColumn: *i32, numColumns: *i32 ```
+    pub fn SelectedTableCells(self: ?*anyopaque, firstRow: *i32, numRows: *i32, firstColumn: *i32, numColumns: *i32) void {
+        qtc.QTextCursor_SelectedTableCells(@ptrCast(self), @ptrCast(firstRow), @ptrCast(numRows), @ptrCast(firstColumn), @ptrCast(numColumns));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#block)

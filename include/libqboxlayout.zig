@@ -680,9 +680,9 @@ pub const qboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QBoxLayout, left: ?*i32, top: ?*i32, right: ?*i32, bottom: ?*i32 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QLayout_GetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+    /// ``` self: QtC.QBoxLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
+        qtc.QLayout_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QLayout
@@ -2457,9 +2457,9 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QHBoxLayout, left: ?*i32, top: ?*i32, right: ?*i32, bottom: ?*i32 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QLayout_GetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+    /// ``` self: QtC.QHBoxLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
+        qtc.QLayout_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QLayout
@@ -4729,9 +4729,9 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QVBoxLayout, left: ?*i32, top: ?*i32, right: ?*i32, bottom: ?*i32 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QLayout_GetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+    /// ``` self: QtC.QVBoxLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
+        qtc.QLayout_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QLayout

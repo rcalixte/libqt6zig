@@ -287,25 +287,25 @@ pub const qscilexerruby = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerRuby.html)
     ///
-    /// ``` self: QtC.QsciLexerRuby, style: ?*i32 ```
-    pub fn BlockEnd1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerRuby_BlockEnd1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerRuby, style: *i32 ```
+    pub fn BlockEnd1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerRuby_BlockEnd1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerRuby.html)
     ///
-    /// ``` self: QtC.QsciLexerRuby, style: ?*i32 ```
-    pub fn BlockStart1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerRuby_BlockStart1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerRuby, style: *i32 ```
+    pub fn BlockStart1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerRuby_BlockStart1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerRuby.html)
     ///
-    /// ``` self: QtC.QsciLexerRuby, style: ?*i32 ```
-    pub fn BlockStartKeyword1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerRuby_BlockStartKeyword1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerRuby, style: *i32 ```
+    pub fn BlockStartKeyword1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerRuby_BlockStartKeyword1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 

@@ -312,9 +312,9 @@ pub const qpixmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QPixmap, buf: ?*u8, lenVal: u32 ```
-    pub fn LoadFromData(self: ?*anyopaque, buf: ?*anyopaque, lenVal: u32) bool {
-        return qtc.QPixmap_LoadFromData(@ptrCast(self), @intCast(buf), @intCast(lenVal));
+    /// ``` self: QtC.QPixmap, buf: *const u8, lenVal: u32 ```
+    pub fn LoadFromData(self: ?*anyopaque, buf: *const u8, lenVal: u32) bool {
+        return qtc.QPixmap_LoadFromData(@ptrCast(self), @ptrCast(buf), @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -576,18 +576,18 @@ pub const qpixmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QPixmap, buf: ?*u8, lenVal: u32, format: []const u8 ```
-    pub fn LoadFromData3(self: ?*anyopaque, buf: ?*anyopaque, lenVal: u32, format: []const u8) bool {
+    /// ``` self: QtC.QPixmap, buf: *const u8, lenVal: u32, format: []const u8 ```
+    pub fn LoadFromData3(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: []const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData3(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring);
+        return qtc.QPixmap_LoadFromData3(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QPixmap, buf: ?*u8, lenVal: u32, format: []const u8, flags: i32 ```
-    pub fn LoadFromData4(self: ?*anyopaque, buf: ?*anyopaque, lenVal: u32, format: []const u8, flags: i64) bool {
+    /// ``` self: QtC.QPixmap, buf: *const u8, lenVal: u32, format: []const u8, flags: i32 ```
+    pub fn LoadFromData4(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: []const u8, flags: i64) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData4(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring, @intCast(flags));
+        return qtc.QPixmap_LoadFromData4(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring, @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)

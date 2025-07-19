@@ -409,16 +409,16 @@ pub const qmetatype = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#compare)
     ///
-    /// ``` lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: ?*i32 ```
-    pub fn Compare2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: ?*anyopaque) bool {
-        return qtc.QMetaType_Compare2(lhs, rhs, @intCast(typeId), @intCast(result));
+    /// ``` lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32 ```
+    pub fn Compare2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32) bool {
+        return qtc.QMetaType_Compare2(lhs, rhs, @intCast(typeId), @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#equals)
     ///
-    /// ``` lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: ?*i32 ```
-    pub fn Equals2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: ?*anyopaque) bool {
-        return qtc.QMetaType_Equals2(lhs, rhs, @intCast(typeId), @intCast(result));
+    /// ``` lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32 ```
+    pub fn Equals2(lhs: ?*anyopaque, rhs: ?*anyopaque, typeId: i32, result: *i32) bool {
+        return qtc.QMetaType_Equals2(lhs, rhs, @intCast(typeId), @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#hasRegisteredConverterFunction)

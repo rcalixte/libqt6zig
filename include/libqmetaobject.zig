@@ -116,9 +116,9 @@ pub const qmetamethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#getParameterTypes)
     ///
-    /// ``` self: QtC.QMetaMethod, types: ?*i32 ```
-    pub fn GetParameterTypes(self: ?*anyopaque, types: ?*anyopaque) void {
-        qtc.QMetaMethod_GetParameterTypes(@ptrCast(self), @intCast(types));
+    /// ``` self: QtC.QMetaMethod, types: *i32 ```
+    pub fn GetParameterTypes(self: ?*anyopaque, types: *i32) void {
+        qtc.QMetaMethod_GetParameterTypes(@ptrCast(self), @ptrCast(types));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#parameterTypes)
@@ -861,7 +861,7 @@ pub const qmetaenum = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaenum.html#keyToValue)
     ///
     /// ``` self: QtC.QMetaEnum, key: []const u8, ok: bool ```
-    pub fn KeyToValue2(self: ?*anyopaque, key: []const u8, ok: ?*anyopaque) i32 {
+    pub fn KeyToValue2(self: ?*anyopaque, key: []const u8, ok: *bool) i32 {
         const key_Cstring = key.ptr;
         return qtc.QMetaEnum_KeyToValue2(@ptrCast(self), key_Cstring, @ptrCast(ok));
     }
@@ -869,7 +869,7 @@ pub const qmetaenum = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaenum.html#keysToValue)
     ///
     /// ``` self: QtC.QMetaEnum, keys: []const u8, ok: bool ```
-    pub fn KeysToValue2(self: ?*anyopaque, keys: []const u8, ok: ?*anyopaque) i32 {
+    pub fn KeysToValue2(self: ?*anyopaque, keys: []const u8, ok: *bool) i32 {
         const keys_Cstring = keys.ptr;
         return qtc.QMetaEnum_KeysToValue2(@ptrCast(self), keys_Cstring, @ptrCast(ok));
     }

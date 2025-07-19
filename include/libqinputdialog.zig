@@ -784,7 +784,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: bool, allocator: std.mem.Allocator ```
-    pub fn GetText6(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText6(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: *bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -807,7 +807,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: bool, flags: i32, allocator: std.mem.Allocator ```
-    pub fn GetText7(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: ?*anyopaque, flags: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText7(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: *bool, flags: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -830,7 +830,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator ```
-    pub fn GetText8(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: ?*anyopaque, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText8(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: *bool, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -876,7 +876,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getMultiLineText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: bool, allocator: std.mem.Allocator ```
-    pub fn GetMultiLineText5(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText5(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -899,7 +899,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getMultiLineText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: bool, flags: i32, allocator: std.mem.Allocator ```
-    pub fn GetMultiLineText6(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: ?*anyopaque, flags: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText6(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -922,7 +922,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getMultiLineText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator ```
-    pub fn GetMultiLineText7(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: ?*anyopaque, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetMultiLineText7(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1007,7 +1007,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getItem)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: bool, allocator: std.mem.Allocator ```
-    pub fn GetItem7(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem7(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1038,7 +1038,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getItem)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: bool, flags: i32, allocator: std.mem.Allocator ```
-    pub fn GetItem8(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: ?*anyopaque, flags: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem8(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1069,7 +1069,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getItem)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: bool, flags: i32, inputMethodHints: i32, allocator: std.mem.Allocator ```
-    pub fn GetItem9(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: ?*anyopaque, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetItem9(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1160,7 +1160,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: bool ```
-    pub fn GetInt8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: ?*anyopaque) i32 {
+    pub fn GetInt8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool) i32 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1175,7 +1175,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: bool, flags: i32 ```
-    pub fn GetInt9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: ?*anyopaque, flags: i64) i32 {
+    pub fn GetInt9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool, flags: i64) i32 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1250,7 +1250,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: bool ```
-    pub fn GetDouble8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: ?*anyopaque) f64 {
+    pub fn GetDouble8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool) f64 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1265,7 +1265,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: bool, flags: i32 ```
-    pub fn GetDouble9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: ?*anyopaque, flags: i64) f64 {
+    pub fn GetDouble9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i64) f64 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1280,7 +1280,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: bool, flags: i32, step: f64 ```
-    pub fn GetDouble10(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: ?*anyopaque, flags: i64, step: f64) f64 {
+    pub fn GetDouble10(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i64, step: f64) f64 {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -5577,13 +5577,13 @@ pub const qinputdialog = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QInputDialog, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QInputDialog, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QInputDialog_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QInputDialog_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5592,13 +5592,13 @@ pub const qinputdialog = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QInputDialog, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QInputDialog, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QInputDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QInputDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5607,8 +5607,8 @@ pub const qinputdialog = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QInputDialog, slot: fn (self: QtC.QInputDialog, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QInputDialog, slot: fn (self: QtC.QInputDialog, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QInputDialog_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

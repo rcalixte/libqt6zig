@@ -1005,9 +1005,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getWindowFrameMargins)
     ///
-    /// ``` self: QtC.QPolarChart, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetWindowFrameMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsWidget_GetWindowFrameMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QPolarChart, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetWindowFrameMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsWidget_GetWindowFrameMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3411,7 +3411,7 @@ pub const qpolarchart = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QPolarChart, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -3810,9 +3810,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QPolarChart_GetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QPolarChart, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QPolarChart_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3821,9 +3821,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QPolarChart_QBaseGetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QPolarChart, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QPolarChart_QBaseGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3832,8 +3832,8 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64) callconv(.c) void ```
-    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
+    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
         qtc.QPolarChart_OnGetContentsMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

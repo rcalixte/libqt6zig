@@ -1052,9 +1052,9 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
-    /// ``` self: QtC.QProcess, pid: ?*i64 ```
-    pub fn StartDetached1(self: ?*anyopaque, pid: ?*anyopaque) bool {
-        return qtc.QProcess_StartDetached1(@ptrCast(self), @intCast(pid));
+    /// ``` self: QtC.QProcess, pid: *i64 ```
+    pub fn StartDetached1(self: ?*anyopaque, pid: *i64) bool {
+        return qtc.QProcess_StartDetached1(@ptrCast(self), @ptrCast(pid));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputFile)
@@ -1176,8 +1176,8 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startDetached)
     ///
-    /// ``` program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: ?*i64, allocator: std.mem.Allocator ```
-    pub fn StartDetached4(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: ?*anyopaque, allocator: std.mem.Allocator) bool {
+    /// ``` program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator ```
+    pub fn StartDetached4(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator) bool {
         const program_str = qtc.struct_libqt_string{
             .len = program.len,
             .data = program.ptr,
@@ -1198,7 +1198,7 @@ pub const qprocess = struct {
             .len = workingDirectory.len,
             .data = workingDirectory.ptr,
         };
-        return qtc.QProcess_StartDetached4(program_str, arguments_list, workingDirectory_str, @intCast(pid));
+        return qtc.QProcess_StartDetached4(program_str, arguments_list, workingDirectory_str, @ptrCast(pid));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)

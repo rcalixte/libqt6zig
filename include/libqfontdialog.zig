@@ -159,14 +159,14 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
     ///
     /// ``` ok: bool ```
-    pub fn GetFont(ok: ?*anyopaque) QtC.QFont {
+    pub fn GetFont(ok: *bool) QtC.QFont {
         return qtc.QFontDialog_GetFont(@ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
     ///
     /// ``` ok: bool, initial: QtC.QFont ```
-    pub fn GetFont2(ok: ?*anyopaque, initial: ?*anyopaque) QtC.QFont {
+    pub fn GetFont2(ok: *bool, initial: ?*anyopaque) QtC.QFont {
         return qtc.QFontDialog_GetFont2(@ptrCast(ok), @ptrCast(initial));
     }
 
@@ -309,21 +309,21 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
     ///
     /// ``` ok: bool, parent: QtC.QWidget ```
-    pub fn GetFont22(ok: ?*anyopaque, parent: ?*anyopaque) QtC.QFont {
+    pub fn GetFont22(ok: *bool, parent: ?*anyopaque) QtC.QFont {
         return qtc.QFontDialog_GetFont22(@ptrCast(ok), @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
     ///
     /// ``` ok: bool, initial: QtC.QFont, parent: QtC.QWidget ```
-    pub fn GetFont3(ok: ?*anyopaque, initial: ?*anyopaque, parent: ?*anyopaque) QtC.QFont {
+    pub fn GetFont3(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque) QtC.QFont {
         return qtc.QFontDialog_GetFont3(@ptrCast(ok), @ptrCast(initial), @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
     ///
     /// ``` ok: bool, initial: QtC.QFont, parent: QtC.QWidget, title: []const u8 ```
-    pub fn GetFont4(ok: ?*anyopaque, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8) QtC.QFont {
+    pub fn GetFont4(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8) QtC.QFont {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -334,7 +334,7 @@ pub const qfontdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdialog.html#getFont)
     ///
     /// ``` ok: bool, initial: QtC.QFont, parent: QtC.QWidget, title: []const u8, options: i32 ```
-    pub fn GetFont5(ok: ?*anyopaque, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8, options: i64) QtC.QFont {
+    pub fn GetFont5(ok: *bool, initial: ?*anyopaque, parent: ?*anyopaque, title: []const u8, options: i64) QtC.QFont {
         const title_str = qtc.struct_libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -4660,13 +4660,13 @@ pub const qfontdialog = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QFontDialog, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QFontDialog, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QFontDialog_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QFontDialog_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -4675,13 +4675,13 @@ pub const qfontdialog = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QFontDialog, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QFontDialog, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QFontDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QFontDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -4690,8 +4690,8 @@ pub const qfontdialog = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFontDialog, slot: fn (self: QtC.QFontDialog, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QFontDialog, slot: fn (self: QtC.QFontDialog, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFontDialog_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

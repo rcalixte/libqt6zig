@@ -160,16 +160,16 @@ pub const qresource = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
-    /// ``` rccData: ?*u8 ```
-    pub fn RegisterResource2(rccData: ?*anyopaque) bool {
-        return qtc.QResource_RegisterResource2(@intCast(rccData));
+    /// ``` rccData: *const u8 ```
+    pub fn RegisterResource2(rccData: *const u8) bool {
+        return qtc.QResource_RegisterResource2(@ptrCast(rccData));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
-    /// ``` rccData: ?*u8 ```
-    pub fn UnregisterResource2(rccData: ?*anyopaque) bool {
-        return qtc.QResource_UnregisterResource2(@intCast(rccData));
+    /// ``` rccData: *const u8 ```
+    pub fn UnregisterResource2(rccData: *const u8) bool {
+        return qtc.QResource_UnregisterResource2(@ptrCast(rccData));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#registerResource)
@@ -204,24 +204,24 @@ pub const qresource = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#registerResource)
     ///
-    /// ``` rccData: ?*u8, resourceRoot: []const u8 ```
-    pub fn RegisterResource23(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
+    /// ``` rccData: *const u8, resourceRoot: []const u8 ```
+    pub fn RegisterResource23(rccData: *const u8, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
-        return qtc.QResource_RegisterResource23(@intCast(rccData), resourceRoot_str);
+        return qtc.QResource_RegisterResource23(@ptrCast(rccData), resourceRoot_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#unregisterResource)
     ///
-    /// ``` rccData: ?*u8, resourceRoot: []const u8 ```
-    pub fn UnregisterResource23(rccData: ?*anyopaque, resourceRoot: []const u8) bool {
+    /// ``` rccData: *const u8, resourceRoot: []const u8 ```
+    pub fn UnregisterResource23(rccData: *const u8, resourceRoot: []const u8) bool {
         const resourceRoot_str = qtc.struct_libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
-        return qtc.QResource_UnregisterResource23(@intCast(rccData), resourceRoot_str);
+        return qtc.QResource_UnregisterResource23(@ptrCast(rccData), resourceRoot_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#dtor.QResource)

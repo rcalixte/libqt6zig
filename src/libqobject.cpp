@@ -149,7 +149,7 @@ void QObject_KillTimer2(QObject* self, int id) {
 
 libqt_list /* of QObject* */ QObject_Children(const QObject* self) {
     const QList<QObject*>& _ret = self->children();
-    // Convert const QList<> from C++ memory to manually-managed C memory
+    // Convert QList<> from C++ memory to manually-managed C memory
     QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.size()));
     for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];

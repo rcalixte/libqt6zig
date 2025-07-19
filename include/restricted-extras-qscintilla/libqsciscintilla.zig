@@ -72,9 +72,9 @@ pub const qsciscintilla = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, pos: i32, context_start: ?*i32, last_word_start: ?*i32, allocator: std.mem.Allocator ```
-    pub fn ApiContext(self: ?*anyopaque, pos: i32, context_start: ?*anyopaque, last_word_start: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QsciScintilla_ApiContext(@ptrCast(self), @intCast(pos), @intCast(context_start), @intCast(last_word_start));
+    /// ``` self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator ```
+    pub fn ApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QsciScintilla_ApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -96,8 +96,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, pos: i32, context_start: ?*i32, last_word_start: ?*i32) callconv(.c) [][]const u8 ```
-    pub fn OnApiContext(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32) callconv(.c) [][]const u8 ```
+    pub fn OnApiContext(self: ?*anyopaque, slot: fn (?*anyopaque, i32, *i32, *i32) callconv(.c) [][]const u8) void {
         qtc.QsciScintilla_OnApiContext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -105,9 +105,9 @@ pub const qsciscintilla = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QsciScintilla, pos: i32, context_start: ?*i32, last_word_start: ?*i32, allocator: std.mem.Allocator ```
-    pub fn QBaseApiContext(self: ?*anyopaque, pos: i32, context_start: ?*anyopaque, last_word_start: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QsciScintilla_QBaseApiContext(@ptrCast(self), @intCast(pos), @intCast(context_start), @intCast(last_word_start));
+    /// ``` self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator ```
+    pub fn QBaseApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) [][]const u8 {
+        const _arr: qtc.struct_libqt_list = qtc.QsciScintilla_QBaseApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
         const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
@@ -533,9 +533,9 @@ pub const qsciscintilla = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, brace: ?*i64, other: ?*i64, mode: qsciscintilla_enums.BraceMatch ```
-    pub fn FindMatchingBrace(self: ?*anyopaque, brace: ?*anyopaque, other: ?*anyopaque, mode: i64) bool {
-        return qtc.QsciScintilla_FindMatchingBrace(@ptrCast(self), @intCast(brace), @intCast(other), @intCast(mode));
+    /// ``` self: QtC.QsciScintilla, brace: *i64, other: *i64, mode: qsciscintilla_enums.BraceMatch ```
+    pub fn FindMatchingBrace(self: ?*anyopaque, brace: *i64, other: *i64, mode: i64) bool {
+        return qtc.QsciScintilla_FindMatchingBrace(@ptrCast(self), @ptrCast(brace), @ptrCast(other), @intCast(mode));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -554,16 +554,16 @@ pub const qsciscintilla = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, line: ?*i32, index: ?*i32 ```
-    pub fn GetCursorPosition(self: ?*anyopaque, line: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QsciScintilla_GetCursorPosition(@ptrCast(self), @intCast(line), @intCast(index));
+    /// ``` self: QtC.QsciScintilla, line: *i32, index: *i32 ```
+    pub fn GetCursorPosition(self: ?*anyopaque, line: *i32, index: *i32) void {
+        qtc.QsciScintilla_GetCursorPosition(@ptrCast(self), @ptrCast(line), @ptrCast(index));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, lineFrom: ?*i32, indexFrom: ?*i32, lineTo: ?*i32, indexTo: ?*i32 ```
-    pub fn GetSelection(self: ?*anyopaque, lineFrom: ?*anyopaque, indexFrom: ?*anyopaque, lineTo: ?*anyopaque, indexTo: ?*anyopaque) void {
-        qtc.QsciScintilla_GetSelection(@ptrCast(self), @intCast(lineFrom), @intCast(indexFrom), @intCast(lineTo), @intCast(indexTo));
+    /// ``` self: QtC.QsciScintilla, lineFrom: *i32, indexFrom: *i32, lineTo: *i32, indexTo: *i32 ```
+    pub fn GetSelection(self: ?*anyopaque, lineFrom: *i32, indexFrom: *i32, lineTo: *i32, indexTo: *i32) void {
+        qtc.QsciScintilla_GetSelection(@ptrCast(self), @ptrCast(lineFrom), @ptrCast(indexFrom), @ptrCast(lineTo), @ptrCast(indexTo));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -680,9 +680,9 @@ pub const qsciscintilla = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, position: i32, line: ?*i32, index: ?*i32 ```
-    pub fn LineIndexFromPosition(self: ?*anyopaque, position: i32, line: ?*anyopaque, index: ?*anyopaque) void {
-        qtc.QsciScintilla_LineIndexFromPosition(@ptrCast(self), @intCast(position), @intCast(line), @intCast(index));
+    /// ``` self: QtC.QsciScintilla, position: i32, line: *i32, index: *i32 ```
+    pub fn LineIndexFromPosition(self: ?*anyopaque, position: i32, line: *i32, index: *i32) void {
+        qtc.QsciScintilla_LineIndexFromPosition(@ptrCast(self), @intCast(position), @ptrCast(line), @ptrCast(index));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -4148,9 +4148,9 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
-    /// ``` qt_key: i32, modifiers: ?*i32 ```
-    pub fn CommandKey(qt_key: i32, modifiers: ?*anyopaque) i32 {
-        return qtc.QsciScintillaBase_CommandKey(@intCast(qt_key), @intCast(modifiers));
+    /// ``` qt_key: i32, modifiers: *i32 ```
+    pub fn CommandKey(qt_key: i32, modifiers: *i32) i32 {
+        return qtc.QsciScintillaBase_CommandKey(@intCast(qt_key), @ptrCast(modifiers));
     }
 
     /// Inherited from QsciScintillaBase
@@ -7867,7 +7867,7 @@ pub const qsciscintilla = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: bool, allocator: std.mem.Allocator ```
-    pub fn FromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+    pub fn FromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QsciScintilla_FromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
@@ -7882,7 +7882,7 @@ pub const qsciscintilla = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: bool, allocator: std.mem.Allocator ```
-    pub fn QBaseFromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+    pub fn QBaseFromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QsciScintilla_QBaseFromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
@@ -7897,7 +7897,7 @@ pub const qsciscintilla = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: bool) callconv(.c) []u8 ```
-    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) []u8) void {
+    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) []u8) void {
         qtc.QsciScintilla_OnFromMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -9169,13 +9169,13 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintilla_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QsciScintilla_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9184,13 +9184,13 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintilla_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QsciScintilla_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -9199,8 +9199,8 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QsciScintilla_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -637,9 +637,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QLegend, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsWidget_GetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QLegend, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsWidget_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -664,9 +664,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#getWindowFrameMargins)
     ///
-    /// ``` self: QtC.QLegend, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetWindowFrameMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsWidget_GetWindowFrameMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QLegend, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetWindowFrameMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsWidget_GetWindowFrameMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3178,7 +3178,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QLegend, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 

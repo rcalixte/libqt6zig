@@ -2337,7 +2337,7 @@ pub const qgraphicssvgitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsSvgItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 

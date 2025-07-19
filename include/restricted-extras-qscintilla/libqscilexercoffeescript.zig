@@ -345,25 +345,25 @@ pub const qscilexercoffeescript = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCoffeeScript.html)
     ///
-    /// ``` self: QtC.QsciLexerCoffeeScript, style: ?*i32 ```
-    pub fn BlockEnd1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerCoffeeScript_BlockEnd1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCoffeeScript, style: *i32 ```
+    pub fn BlockEnd1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerCoffeeScript_BlockEnd1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCoffeeScript.html)
     ///
-    /// ``` self: QtC.QsciLexerCoffeeScript, style: ?*i32 ```
-    pub fn BlockStart1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerCoffeeScript_BlockStart1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCoffeeScript, style: *i32 ```
+    pub fn BlockStart1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerCoffeeScript_BlockStart1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCoffeeScript.html)
     ///
-    /// ``` self: QtC.QsciLexerCoffeeScript, style: ?*i32 ```
-    pub fn BlockStartKeyword1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerCoffeeScript_BlockStartKeyword1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCoffeeScript, style: *i32 ```
+    pub fn BlockStartKeyword1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerCoffeeScript_BlockStartKeyword1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 

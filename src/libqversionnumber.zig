@@ -157,13 +157,13 @@ pub const qversionnumber = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#fromString)
     ///
-    /// ``` stringVal: []const u8, suffixIndex: ?*i64 ```
-    pub fn FromString2(stringVal: []const u8, suffixIndex: ?*anyopaque) QtC.QVersionNumber {
+    /// ``` stringVal: []const u8, suffixIndex: *i64 ```
+    pub fn FromString2(stringVal: []const u8, suffixIndex: *i64) QtC.QVersionNumber {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QVersionNumber_FromString2(stringVal_str, @intCast(suffixIndex));
+        return qtc.QVersionNumber_FromString2(stringVal_str, @ptrCast(suffixIndex));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qversionnumber.html#dtor.QVersionNumber)

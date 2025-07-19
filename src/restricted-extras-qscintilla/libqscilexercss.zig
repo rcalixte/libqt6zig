@@ -344,17 +344,17 @@ pub const qscilexercss = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCSS.html)
     ///
-    /// ``` self: QtC.QsciLexerCSS, style: ?*i32 ```
-    pub fn BlockEnd1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerCSS_BlockEnd1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCSS, style: *i32 ```
+    pub fn BlockEnd1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerCSS_BlockEnd1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerCSS.html)
     ///
-    /// ``` self: QtC.QsciLexerCSS, style: ?*i32 ```
-    pub fn BlockStart1(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerCSS_BlockStart1(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCSS, style: *i32 ```
+    pub fn BlockStart1(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerCSS_BlockStart1(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1107,9 +1107,9 @@ pub const qscilexercss = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCSS, style: ?*i32 ```
-    pub fn BlockStartKeyword(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerCSS_BlockStartKeyword(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCSS, style: *i32 ```
+    pub fn BlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerCSS_BlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1119,9 +1119,9 @@ pub const qscilexercss = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCSS, style: ?*i32 ```
-    pub fn QBaseBlockStartKeyword(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerCSS_QBaseBlockStartKeyword(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerCSS, style: *i32 ```
+    pub fn QBaseBlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerCSS_QBaseBlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1131,8 +1131,8 @@ pub const qscilexercss = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerCSS, slot: fn (self: QtC.QsciLexerCSS, style: ?*i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerCSS, slot: fn (self: QtC.QsciLexerCSS, style: *i32) callconv(.c) []const u8 ```
+    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
         qtc.QsciLexerCSS_OnBlockStartKeyword(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

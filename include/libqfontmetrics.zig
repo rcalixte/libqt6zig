@@ -346,13 +346,13 @@ pub const qfontmetrics = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
-    /// ``` self: QtC.QFontMetrics, r: QtC.QRect, flags: i32, text: []const u8, tabstops: i32, tabarray: ?*i32 ```
-    pub fn BoundingRect52(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, tabstops: i32, tabarray: ?*anyopaque) QtC.QRect {
+    /// ``` self: QtC.QFontMetrics, r: QtC.QRect, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32 ```
+    pub fn BoundingRect52(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect52(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @intCast(tabstops), @intCast(tabarray));
+        return qtc.QFontMetrics_BoundingRect52(@ptrCast(self), @ptrCast(r), @intCast(flags), text_str, @intCast(tabstops), @ptrCast(tabarray));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -368,13 +368,13 @@ pub const qfontmetrics = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
     ///
-    /// ``` self: QtC.QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: ?*i32 ```
-    pub fn BoundingRect8(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: ?*anyopaque) QtC.QRect {
+    /// ``` self: QtC.QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32 ```
+    pub fn BoundingRect8(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QtC.QRect {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return qtc.QFontMetrics_BoundingRect8(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str, @intCast(tabstops), @intCast(tabarray));
+        return qtc.QFontMetrics_BoundingRect8(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(flags), text_str, @intCast(tabstops), @ptrCast(tabarray));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#size)
@@ -390,13 +390,13 @@ pub const qfontmetrics = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#size)
     ///
-    /// ``` self: QtC.QFontMetrics, flags: i32, str: []const u8, tabstops: i32, tabarray: ?*i32 ```
-    pub fn Size4(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32, tabarray: ?*anyopaque) QtC.QSize {
+    /// ``` self: QtC.QFontMetrics, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32 ```
+    pub fn Size4(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QtC.QSize {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetrics_Size4(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops), @intCast(tabarray));
+        return qtc.QFontMetrics_Size4(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops), @ptrCast(tabarray));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#elidedText)
@@ -770,13 +770,13 @@ pub const qfontmetricsf = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#boundingRect)
     ///
-    /// ``` self: QtC.QFontMetricsF, r: QtC.QRectF, flags: i32, stringVal: []const u8, tabstops: i32, tabarray: ?*i32 ```
-    pub fn BoundingRect5(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8, tabstops: i32, tabarray: ?*anyopaque) QtC.QRectF {
+    /// ``` self: QtC.QFontMetricsF, r: QtC.QRectF, flags: i32, stringVal: []const u8, tabstops: i32, tabarray: *i32 ```
+    pub fn BoundingRect5(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8, tabstops: i32, tabarray: *i32) QtC.QRectF {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        return qtc.QFontMetricsF_BoundingRect5(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str, @intCast(tabstops), @intCast(tabarray));
+        return qtc.QFontMetricsF_BoundingRect5(@ptrCast(self), @ptrCast(r), @intCast(flags), stringVal_str, @intCast(tabstops), @ptrCast(tabarray));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
@@ -792,13 +792,13 @@ pub const qfontmetricsf = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#size)
     ///
-    /// ``` self: QtC.QFontMetricsF, flags: i32, str: []const u8, tabstops: i32, tabarray: ?*i32 ```
-    pub fn Size4(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32, tabarray: ?*anyopaque) QtC.QSizeF {
+    /// ``` self: QtC.QFontMetricsF, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32 ```
+    pub fn Size4(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QtC.QSizeF {
         const str_str = qtc.struct_libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        return qtc.QFontMetricsF_Size4(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops), @intCast(tabarray));
+        return qtc.QFontMetricsF_Size4(@ptrCast(self), @intCast(flags), str_str, @intCast(tabstops), @ptrCast(tabarray));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#elidedText)

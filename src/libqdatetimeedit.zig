@@ -704,21 +704,21 @@ pub const qdatetimeedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#validate)
     ///
-    /// ``` self: QtC.QDateTimeEdit, input: []const u8, pos: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QDateTimeEdit, input: []const u8, pos: *i32 ```
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QDateTimeEdit_Validate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QDateTimeEdit_Validate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: []const u8, pos: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: []const u8, pos: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QDateTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -726,13 +726,13 @@ pub const qdatetimeedit = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDateTimeEdit, input: []const u8, pos: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QDateTimeEdit, input: []const u8, pos: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QDateTimeEdit_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QDateTimeEdit_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#fixup)
@@ -5212,13 +5212,13 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QDateTimeEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QDateTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5227,13 +5227,13 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QDateTimeEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QDateTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5242,8 +5242,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDateTimeEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10200,13 +10200,13 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, input: []const u8, pos: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QTimeEdit, input: []const u8, pos: *i32 ```
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QTimeEdit_Validate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QTimeEdit_Validate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10215,13 +10215,13 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, input: []const u8, pos: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QTimeEdit, input: []const u8, pos: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QTimeEdit_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QTimeEdit_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10230,8 +10230,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: []const u8, pos: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: []const u8, pos: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -11420,13 +11420,13 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QTimeEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -11435,13 +11435,13 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QTimeEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -11450,8 +11450,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QTimeEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -16408,13 +16408,13 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, input: []const u8, pos: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QDateEdit, input: []const u8, pos: *i32 ```
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QDateEdit_Validate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QDateEdit_Validate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16423,13 +16423,13 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, input: []const u8, pos: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QDateEdit, input: []const u8, pos: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QDateEdit_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QDateEdit_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16438,8 +16438,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: []const u8, pos: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: []const u8, pos: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QDateEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -17628,13 +17628,13 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QDateEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateEdit_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QDateEdit_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -17643,13 +17643,13 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QDateEdit, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QDateEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -17658,8 +17658,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDateEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

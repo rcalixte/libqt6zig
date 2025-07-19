@@ -133,7 +133,7 @@ libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, libqt_string hea
 
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkReply_RawHeaderPairs(const QNetworkReply* self) {
     const QList<QPair<QByteArray, QByteArray>>& _ret = self->rawHeaderPairs();
-    // Convert const QList<> from C++ memory to manually-managed C memory
+    // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * _ret.size()));
     for (size_t i = 0; i < _ret.size(); ++i) {
         QPair<QByteArray, QByteArray> _lv_ret = _ret[i];
@@ -280,7 +280,7 @@ void QNetworkReply_Connect_SslErrors(QNetworkReply* self, intptr_t slot) {
     void (*slotFunc)(QNetworkReply*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QNetworkReply*, libqt_list /* of QSslError* */)>(slot);
     QNetworkReply::connect(self, &QNetworkReply::sslErrors, [self, slotFunc](const QList<QSslError>& errors) {
         const QList<QSslError>& errors_ret = errors;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * errors_ret.size()));
         for (size_t i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);

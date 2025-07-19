@@ -236,9 +236,9 @@ pub const qaccessibleinterface = struct {
 pub const qaccessibletextinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#selection)
     ///
-    /// ``` self: QtC.QAccessibleTextInterface, selectionIndex: i32, startOffset: ?*i32, endOffset: ?*i32 ```
-    pub fn Selection(self: ?*anyopaque, selectionIndex: i32, startOffset: ?*anyopaque, endOffset: ?*anyopaque) void {
-        qtc.QAccessibleTextInterface_Selection(@ptrCast(self), @intCast(selectionIndex), @intCast(startOffset), @intCast(endOffset));
+    /// ``` self: QtC.QAccessibleTextInterface, selectionIndex: i32, startOffset: *i32, endOffset: *i32 ```
+    pub fn Selection(self: ?*anyopaque, selectionIndex: i32, startOffset: *i32, endOffset: *i32) void {
+        qtc.QAccessibleTextInterface_Selection(@ptrCast(self), @intCast(selectionIndex), @ptrCast(startOffset), @ptrCast(endOffset));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#selectionCount)
@@ -296,9 +296,9 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textBeforeOffset)
     ///
-    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
-    pub fn TextBeforeOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleTextInterface_TextBeforeOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator ```
+    pub fn TextBeforeOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QAccessibleTextInterface_TextBeforeOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextBeforeOffset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -307,9 +307,9 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textAfterOffset)
     ///
-    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
-    pub fn TextAfterOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleTextInterface_TextAfterOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator ```
+    pub fn TextAfterOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QAccessibleTextInterface_TextAfterOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAfterOffset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -318,9 +318,9 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textAtOffset)
     ///
-    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
-    pub fn TextAtOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleTextInterface_TextAtOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @intCast(startOffset), @intCast(endOffset));
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator ```
+    pub fn TextAtOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QAccessibleTextInterface_TextAtOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAtOffset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -357,9 +357,9 @@ pub const qaccessibletextinterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#attributes)
     ///
-    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, startOffset: ?*i32, endOffset: ?*i32, allocator: std.mem.Allocator ```
-    pub fn Attributes(self: ?*anyopaque, offset: i32, startOffset: ?*anyopaque, endOffset: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
-        const _str = qtc.QAccessibleTextInterface_Attributes(@ptrCast(self), @intCast(offset), @intCast(startOffset), @intCast(endOffset));
+    /// ``` self: QtC.QAccessibleTextInterface, offset: i32, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator ```
+    pub fn Attributes(self: ?*anyopaque, offset: i32, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
+        const _str = qtc.QAccessibleTextInterface_Attributes(@ptrCast(self), @intCast(offset), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.Attributes: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

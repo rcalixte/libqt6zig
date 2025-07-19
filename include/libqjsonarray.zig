@@ -44,6 +44,29 @@ pub const qjsonarray = struct {
         return qtc.QJsonArray_FromStringList(list_list);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#fromVariantList)
+    ///
+    /// ``` list: []QtC.QVariant ```
+    pub fn FromVariantList(list: []QtC.QVariant) QtC.QJsonArray {
+        const list_list = qtc.struct_libqt_list{
+            .len = list.len,
+            .data = @ptrCast(list.ptr),
+        };
+        return qtc.QJsonArray_FromVariantList(list_list);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#toVariantList)
+    ///
+    /// ``` self: QtC.QJsonArray, allocator: std.mem.Allocator ```
+    pub fn ToVariantList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
+        const _arr: qtc.struct_libqt_list = qtc.QJsonArray_ToVariantList(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qjsonarray.ToVariantList: Memory allocation failed");
+        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonarray.html#size)
     ///
     /// ``` self: QtC.QJsonArray ```

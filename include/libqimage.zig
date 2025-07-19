@@ -30,30 +30,30 @@ pub const qimage = struct {
 
     /// New4 constructs a new QImage object.
     ///
-    /// ``` data: ?*u8, width: i32, height: i32, format: qimage_enums.Format ```
-    pub fn New4(data: ?*anyopaque, width: i32, height: i32, format: i64) QtC.QImage {
-        return qtc.QImage_new4(@intCast(data), @intCast(width), @intCast(height), @intCast(format));
+    /// ``` data: *u8, width: i32, height: i32, format: qimage_enums.Format ```
+    pub fn New4(data: *u8, width: i32, height: i32, format: i64) QtC.QImage {
+        return qtc.QImage_new4(@ptrCast(data), @intCast(width), @intCast(height), @intCast(format));
     }
 
     /// New5 constructs a new QImage object.
     ///
-    /// ``` data: ?*u8, width: i32, height: i32, format: qimage_enums.Format ```
-    pub fn New5(data: ?*anyopaque, width: i32, height: i32, format: i64) QtC.QImage {
-        return qtc.QImage_new5(@intCast(data), @intCast(width), @intCast(height), @intCast(format));
+    /// ``` data: *const u8, width: i32, height: i32, format: qimage_enums.Format ```
+    pub fn New5(data: *const u8, width: i32, height: i32, format: i64) QtC.QImage {
+        return qtc.QImage_new5(@ptrCast(data), @intCast(width), @intCast(height), @intCast(format));
     }
 
     /// New6 constructs a new QImage object.
     ///
-    /// ``` data: ?*u8, width: i32, height: i32, bytesPerLine: i64, format: qimage_enums.Format ```
-    pub fn New6(data: ?*anyopaque, width: i32, height: i32, bytesPerLine: i64, format: i64) QtC.QImage {
-        return qtc.QImage_new6(@intCast(data), @intCast(width), @intCast(height), @intCast(bytesPerLine), @intCast(format));
+    /// ``` data: *u8, width: i32, height: i32, bytesPerLine: i64, format: qimage_enums.Format ```
+    pub fn New6(data: *u8, width: i32, height: i32, bytesPerLine: i64, format: i64) QtC.QImage {
+        return qtc.QImage_new6(@ptrCast(data), @intCast(width), @intCast(height), @intCast(bytesPerLine), @intCast(format));
     }
 
     /// New7 constructs a new QImage object.
     ///
-    /// ``` data: ?*u8, width: i32, height: i32, bytesPerLine: i64, format: qimage_enums.Format ```
-    pub fn New7(data: ?*anyopaque, width: i32, height: i32, bytesPerLine: i64, format: i64) QtC.QImage {
-        return qtc.QImage_new7(@intCast(data), @intCast(width), @intCast(height), @intCast(bytesPerLine), @intCast(format));
+    /// ``` data: *const u8, width: i32, height: i32, bytesPerLine: i64, format: qimage_enums.Format ```
+    pub fn New7(data: *const u8, width: i32, height: i32, bytesPerLine: i64, format: i64) QtC.QImage {
+        return qtc.QImage_new7(@ptrCast(data), @intCast(width), @intCast(height), @intCast(bytesPerLine), @intCast(format));
     }
 
     /// New8 constructs a new QImage object.
@@ -728,9 +728,9 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
     ///
-    /// ``` self: QtC.QImage, buf: ?*u8, lenVal: i32 ```
-    pub fn LoadFromData2(self: ?*anyopaque, buf: ?*anyopaque, lenVal: i32) bool {
-        return qtc.QImage_LoadFromData2(@ptrCast(self), @intCast(buf), @intCast(lenVal));
+    /// ``` self: QtC.QImage, buf: *const u8, lenVal: i32 ```
+    pub fn LoadFromData2(self: ?*anyopaque, buf: *const u8, lenVal: i32) bool {
+        return qtc.QImage_LoadFromData2(@ptrCast(self), @ptrCast(buf), @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -771,9 +771,9 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
     ///
-    /// ``` data: ?*u8, size: i32 ```
-    pub fn FromData2(data: ?*anyopaque, size: i32) QtC.QImage {
-        return qtc.QImage_FromData2(@intCast(data), @intCast(size));
+    /// ``` data: *const u8, size: i32 ```
+    pub fn FromData2(data: *const u8, size: i32) QtC.QImage {
+        return qtc.QImage_FromData2(@ptrCast(data), @intCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
@@ -1349,10 +1349,10 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
     ///
-    /// ``` self: QtC.QImage, buf: ?*u8, lenVal: i32, format: []const u8 ```
-    pub fn LoadFromData32(self: ?*anyopaque, buf: ?*anyopaque, lenVal: i32, format: []const u8) bool {
+    /// ``` self: QtC.QImage, buf: *const u8, lenVal: i32, format: []const u8 ```
+    pub fn LoadFromData32(self: ?*anyopaque, buf: *const u8, lenVal: i32, format: []const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QImage_LoadFromData32(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring);
+        return qtc.QImage_LoadFromData32(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -1417,10 +1417,10 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
     ///
-    /// ``` data: ?*u8, size: i32, format: []const u8 ```
-    pub fn FromData32(data: ?*anyopaque, size: i32, format: []const u8) QtC.QImage {
+    /// ``` data: *const u8, size: i32, format: []const u8 ```
+    pub fn FromData32(data: *const u8, size: i32, format: []const u8) QtC.QImage {
         const format_Cstring = format.ptr;
-        return qtc.QImage_FromData32(@intCast(data), @intCast(size), format_Cstring);
+        return qtc.QImage_FromData32(@ptrCast(data), @intCast(size), format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)

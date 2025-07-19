@@ -247,7 +247,7 @@ void QListView_Connect_IndexesMoved(QListView* self, intptr_t slot) {
     void (*slotFunc)(QListView*, libqt_list /* of QModelIndex* */) = reinterpret_cast<void (*)(QListView*, libqt_list /* of QModelIndex* */)>(slot);
     QListView::connect(self, &QListView::indexesMoved, [self, slotFunc](const QList<QModelIndex>& indexes) {
         const QList<QModelIndex>& indexes_ret = indexes;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
         for (size_t i = 0; i < indexes_ret.size(); ++i) {
             indexes_arr[i] = new QModelIndex(indexes_ret[i]);

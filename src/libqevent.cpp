@@ -226,7 +226,7 @@ QEventPoint* QPointerEvent_Point(QPointerEvent* self, ptrdiff_t i) {
 
 libqt_list /* of QEventPoint* */ QPointerEvent_Points(const QPointerEvent* self) {
     const QList<QEventPoint>& _ret = self->points();
-    // Convert const QList<> from C++ memory to manually-managed C memory
+    // Convert QList<> from C++ memory to manually-managed C memory
     QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.size()));
     for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QEventPoint(_ret[i]);
@@ -2948,7 +2948,7 @@ void QInputMethodEvent_SetCommitString(QInputMethodEvent* self, const libqt_stri
 
 libqt_list /* of QInputMethodEvent__Attribute* */ QInputMethodEvent_Attributes(const QInputMethodEvent* self) {
     const QList<QInputMethodEvent::Attribute>& _ret = self->attributes();
-    // Convert const QList<> from C++ memory to manually-managed C memory
+    // Convert QList<> from C++ memory to manually-managed C memory
     QInputMethodEvent__Attribute** _arr = static_cast<QInputMethodEvent__Attribute**>(malloc(sizeof(QInputMethodEvent__Attribute*) * _ret.size()));
     for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QInputMethodEvent::Attribute(_ret[i]);
@@ -4200,7 +4200,7 @@ int QTouchEvent_TouchPointStates(const QTouchEvent* self) {
 
 libqt_list /* of QEventPoint* */ QTouchEvent_TouchPoints(const QTouchEvent* self) {
     const QList<QEventPoint>& _ret = self->touchPoints();
-    // Convert const QList<> from C++ memory to manually-managed C memory
+    // Convert QList<> from C++ memory to manually-managed C memory
     QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.size()));
     for (size_t i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QEventPoint(_ret[i]);

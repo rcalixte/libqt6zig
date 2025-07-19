@@ -592,9 +592,9 @@ pub const qgridlayout = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgridlayout.html#getItemPosition)
     ///
-    /// ``` self: QtC.QGridLayout, idx: i32, row: ?*i32, column: ?*i32, rowSpan: ?*i32, columnSpan: ?*i32 ```
-    pub fn GetItemPosition(self: ?*anyopaque, idx: i32, row: ?*anyopaque, column: ?*anyopaque, rowSpan: ?*anyopaque, columnSpan: ?*anyopaque) void {
-        qtc.QGridLayout_GetItemPosition(@ptrCast(self), @intCast(idx), @intCast(row), @intCast(column), @intCast(rowSpan), @intCast(columnSpan));
+    /// ``` self: QtC.QGridLayout, idx: i32, row: *i32, column: *i32, rowSpan: *i32, columnSpan: *i32 ```
+    pub fn GetItemPosition(self: ?*anyopaque, idx: i32, row: *i32, column: *i32, rowSpan: *i32, columnSpan: *i32) void {
+        qtc.QGridLayout_GetItemPosition(@ptrCast(self), @intCast(idx), @ptrCast(row), @ptrCast(column), @ptrCast(rowSpan), @ptrCast(columnSpan));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgridlayout.html#addItem)
@@ -728,9 +728,9 @@ pub const qgridlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QGridLayout, left: ?*i32, top: ?*i32, right: ?*i32, bottom: ?*i32 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QLayout_GetContentsMargins(@ptrCast(self), @intCast(left), @intCast(top), @intCast(right), @intCast(bottom));
+    /// ``` self: QtC.QGridLayout, left: *i32, top: *i32, right: *i32, bottom: *i32 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *i32, top: *i32, right: *i32, bottom: *i32) void {
+        qtc.QLayout_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QLayout

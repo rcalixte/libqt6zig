@@ -362,9 +362,9 @@ pub const qrect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#getRect)
     ///
-    /// ``` self: QtC.QRect, x: ?*i32, y: ?*i32, w: ?*i32, h: ?*i32 ```
-    pub fn GetRect(self: ?*anyopaque, x: ?*anyopaque, y: ?*anyopaque, w: ?*anyopaque, h: ?*anyopaque) void {
-        qtc.QRect_GetRect(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+    /// ``` self: QtC.QRect, x: *i32, y: *i32, w: *i32, h: *i32 ```
+    pub fn GetRect(self: ?*anyopaque, x: *i32, y: *i32, w: *i32, h: *i32) void {
+        qtc.QRect_GetRect(@ptrCast(self), @ptrCast(x), @ptrCast(y), @ptrCast(w), @ptrCast(h));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#setCoords)
@@ -376,9 +376,9 @@ pub const qrect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#getCoords)
     ///
-    /// ``` self: QtC.QRect, x1: ?*i32, y1: ?*i32, x2: ?*i32, y2: ?*i32 ```
-    pub fn GetCoords(self: ?*anyopaque, x1: ?*anyopaque, y1: ?*anyopaque, x2: ?*anyopaque, y2: ?*anyopaque) void {
-        qtc.QRect_GetCoords(@ptrCast(self), @intCast(x1), @intCast(y1), @intCast(x2), @intCast(y2));
+    /// ``` self: QtC.QRect, x1: *i32, y1: *i32, x2: *i32, y2: *i32 ```
+    pub fn GetCoords(self: ?*anyopaque, x1: *i32, y1: *i32, x2: *i32, y2: *i32) void {
+        qtc.QRect_GetCoords(@ptrCast(self), @ptrCast(x1), @ptrCast(y1), @ptrCast(x2), @ptrCast(y2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrect.html#adjust)
@@ -948,9 +948,9 @@ pub const qrectf = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#getRect)
     ///
-    /// ``` self: QtC.QRectF, x: ?*f64, y: ?*f64, w: ?*f64, h: ?*f64 ```
-    pub fn GetRect(self: ?*anyopaque, x: ?*anyopaque, y: ?*anyopaque, w: ?*anyopaque, h: ?*anyopaque) void {
-        qtc.QRectF_GetRect(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
+    /// ``` self: QtC.QRectF, x: *f64, y: *f64, w: *f64, h: *f64 ```
+    pub fn GetRect(self: ?*anyopaque, x: *f64, y: *f64, w: *f64, h: *f64) void {
+        qtc.QRectF_GetRect(@ptrCast(self), @ptrCast(x), @ptrCast(y), @ptrCast(w), @ptrCast(h));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#setCoords)
@@ -962,9 +962,9 @@ pub const qrectf = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#getCoords)
     ///
-    /// ``` self: QtC.QRectF, x1: ?*f64, y1: ?*f64, x2: ?*f64, y2: ?*f64 ```
-    pub fn GetCoords(self: ?*anyopaque, x1: ?*anyopaque, y1: ?*anyopaque, x2: ?*anyopaque, y2: ?*anyopaque) void {
-        qtc.QRectF_GetCoords(@ptrCast(self), @floatCast(x1), @floatCast(y1), @floatCast(x2), @floatCast(y2));
+    /// ``` self: QtC.QRectF, x1: *f64, y1: *f64, x2: *f64, y2: *f64 ```
+    pub fn GetCoords(self: ?*anyopaque, x1: *f64, y1: *f64, x2: *f64, y2: *f64) void {
+        qtc.QRectF_GetCoords(@ptrCast(self), @ptrCast(x1), @ptrCast(y1), @ptrCast(x2), @ptrCast(y2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrectf.html#adjust)

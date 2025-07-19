@@ -852,7 +852,7 @@ void QXYSeries_Connect_PointsConfigurationChanged(QXYSeries* self, intptr_t slot
     void (*slotFunc)(QXYSeries*, libqt_map /* of int to libqt_map  of int to QVariant*  */) = reinterpret_cast<void (*)(QXYSeries*, libqt_map /* of int to libqt_map  of int to QVariant*  */)>(slot);
     QXYSeries::connect(self, &QXYSeries::pointsConfigurationChanged, [self, slotFunc](const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration) {
         const QHash<int, QHash<QXYSeries::PointConfiguration, QVariant>>& configuration_ret = configuration;
-        // Convert const QHash<> from C++ memory to manually-managed C memory
+        // Convert QHash<> from C++ memory to manually-managed C memory
         int* configuration_karr = static_cast<int*>(malloc(sizeof(int) * configuration_ret.size()));
         libqt_map /* of int to QVariant* */* configuration_varr = static_cast<libqt_map /* of int to QVariant* */*>(malloc(sizeof(libqt_map /* of int to QVariant* */) * configuration_ret.size()));
         int configuration_ctr = 0;

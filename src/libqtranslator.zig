@@ -174,9 +174,9 @@ pub const qtranslator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtranslator.html#load)
     ///
-    /// ``` self: QtC.QTranslator, data: ?*u8, lenVal: i32 ```
-    pub fn Load3(self: ?*anyopaque, data: ?*anyopaque, lenVal: i32) bool {
-        return qtc.QTranslator_Load3(@ptrCast(self), @intCast(data), @intCast(lenVal));
+    /// ``` self: QtC.QTranslator, data: *const u8, lenVal: i32 ```
+    pub fn Load3(self: ?*anyopaque, data: *const u8, lenVal: i32) bool {
+        return qtc.QTranslator_Load3(@ptrCast(self), @ptrCast(data), @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -321,13 +321,13 @@ pub const qtranslator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtranslator.html#load)
     ///
-    /// ``` self: QtC.QTranslator, data: ?*u8, lenVal: i32, directory: []const u8 ```
-    pub fn Load34(self: ?*anyopaque, data: ?*anyopaque, lenVal: i32, directory: []const u8) bool {
+    /// ``` self: QtC.QTranslator, data: *const u8, lenVal: i32, directory: []const u8 ```
+    pub fn Load34(self: ?*anyopaque, data: *const u8, lenVal: i32, directory: []const u8) bool {
         const directory_str = qtc.struct_libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
-        return qtc.QTranslator_Load34(@ptrCast(self), @intCast(data), @intCast(lenVal), directory_str);
+        return qtc.QTranslator_Load34(@ptrCast(self), @ptrCast(data), @intCast(lenVal), directory_str);
     }
 
     /// Inherited from QObject

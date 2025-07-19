@@ -9,6 +9,7 @@
 #include <QString>
 #include <QByteArray>
 #include <cstring>
+#include <QVariant>
 #include <qcborarray.h>
 #include "libqcborarray.h"
 #include "libqcborarray.hxx"
@@ -220,8 +221,31 @@ QCborArray* QCborArray_FromStringList(const libqt_list /* of libqt_string */ lis
     return new QCborArray(QCborArray::fromStringList(list_QList));
 }
 
+QCborArray* QCborArray_FromVariantList(const libqt_list /* of QVariant* */ list) {
+    QList<QVariant> list_QList;
+    list_QList.reserve(list.len);
+    QVariant** list_arr = static_cast<QVariant**>(list.data);
+    for (size_t i = 0; i < list.len; ++i) {
+        list_QList.push_back(*(list_arr[i]));
+    }
+    return new QCborArray(QCborArray::fromVariantList(list_QList));
+}
+
 QCborArray* QCborArray_FromJsonArray(const QJsonArray* array) {
     return new QCborArray(QCborArray::fromJsonArray(*array));
+}
+
+libqt_list /* of QVariant* */ QCborArray_ToVariantList(const QCborArray* self) {
+    QList<QVariant> _ret = self->toVariantList();
+    // Convert QList<> from C++ memory to manually-managed C memory
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    for (size_t i = 0; i < _ret.size(); ++i) {
+        _arr[i] = new QVariant(_ret[i]);
+    }
+    libqt_list _out;
+    _out.len = _ret.size();
+    _out.data = static_cast<void*>(_arr);
+    return _out;
 }
 
 QJsonArray* QCborArray_ToJsonArray(const QCborArray* self) {

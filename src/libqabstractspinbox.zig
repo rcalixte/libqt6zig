@@ -344,21 +344,21 @@ pub const qabstractspinbox = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#validate)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, input: []const u8, pos: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QAbstractSpinBox, input: []const u8, pos: *i32 ```
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QAbstractSpinBox_Validate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QAbstractSpinBox_Validate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, input: []const u8, pos: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, input: []const u8, pos: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QAbstractSpinBox_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -366,13 +366,13 @@ pub const qabstractspinbox = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractSpinBox, input: []const u8, pos: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QAbstractSpinBox, input: []const u8, pos: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QAbstractSpinBox_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QAbstractSpinBox_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#fixup)
@@ -4578,13 +4578,13 @@ pub const qabstractspinbox = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractSpinBox_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QAbstractSpinBox_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -4593,13 +4593,13 @@ pub const qabstractspinbox = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractSpinBox_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QAbstractSpinBox_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -4608,8 +4608,8 @@ pub const qabstractspinbox = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

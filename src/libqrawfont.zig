@@ -190,23 +190,23 @@ pub const qrawfont = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#glyphIndexesForChars)
     ///
-    /// ``` self: QtC.QRawFont, chars: QtC.QChar, numChars: i32, glyphIndexes: ?*u32, numGlyphs: ?*i32 ```
-    pub fn GlyphIndexesForChars(self: ?*anyopaque, chars: ?*anyopaque, numChars: i32, glyphIndexes: ?*anyopaque, numGlyphs: ?*anyopaque) bool {
-        return qtc.QRawFont_GlyphIndexesForChars(@ptrCast(self), @ptrCast(chars), @intCast(numChars), @intCast(glyphIndexes), @intCast(numGlyphs));
+    /// ``` self: QtC.QRawFont, chars: QtC.QChar, numChars: i32, glyphIndexes: *u32, numGlyphs: *i32 ```
+    pub fn GlyphIndexesForChars(self: ?*anyopaque, chars: ?*anyopaque, numChars: i32, glyphIndexes: *u32, numGlyphs: *i32) bool {
+        return qtc.QRawFont_GlyphIndexesForChars(@ptrCast(self), @ptrCast(chars), @intCast(numChars), @ptrCast(glyphIndexes), @ptrCast(numGlyphs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: ?*u32, advances: QtC.QPointF, numGlyphs: i32 ```
-    pub fn AdvancesForGlyphIndexes3(self: ?*anyopaque, glyphIndexes: ?*anyopaque, advances: ?*anyopaque, numGlyphs: i32) bool {
-        return qtc.QRawFont_AdvancesForGlyphIndexes3(@ptrCast(self), @intCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs));
+    /// ``` self: QtC.QRawFont, glyphIndexes: *const u32, advances: QtC.QPointF, numGlyphs: i32 ```
+    pub fn AdvancesForGlyphIndexes3(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32) bool {
+        return qtc.QRawFont_AdvancesForGlyphIndexes3(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: ?*u32, advances: QtC.QPointF, numGlyphs: i32, layoutFlags: i32 ```
-    pub fn AdvancesForGlyphIndexes4(self: ?*anyopaque, glyphIndexes: ?*anyopaque, advances: ?*anyopaque, numGlyphs: i32, layoutFlags: i64) bool {
-        return qtc.QRawFont_AdvancesForGlyphIndexes4(@ptrCast(self), @intCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs), @intCast(layoutFlags));
+    /// ``` self: QtC.QRawFont, glyphIndexes: *const u32, advances: QtC.QPointF, numGlyphs: i32, layoutFlags: i32 ```
+    pub fn AdvancesForGlyphIndexes4(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32, layoutFlags: i64) bool {
+        return qtc.QRawFont_AdvancesForGlyphIndexes4(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs), @intCast(layoutFlags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)

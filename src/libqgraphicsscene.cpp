@@ -509,7 +509,7 @@ void QGraphicsScene_Connect_Changed(QGraphicsScene* self, intptr_t slot) {
     void (*slotFunc)(QGraphicsScene*, libqt_list /* of QRectF* */) = reinterpret_cast<void (*)(QGraphicsScene*, libqt_list /* of QRectF* */)>(slot);
     QGraphicsScene::connect(self, &QGraphicsScene::changed, [self, slotFunc](const QList<QRectF>& region) {
         const QList<QRectF>& region_ret = region;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QRectF** region_arr = static_cast<QRectF**>(malloc(sizeof(QRectF*) * region_ret.size()));
         for (size_t i = 0; i < region_ret.size(); ++i) {
             region_arr[i] = new QRectF(region_ret[i]);

@@ -227,10 +227,10 @@ pub const qudpsocket = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qudpsocket.html#readDatagram)
     ///
-    /// ``` self: QtC.QUdpSocket, data: []const u8, maxlen: i64, host: QtC.QHostAddress, port: ?*u16 ```
-    pub fn ReadDatagram4(self: ?*anyopaque, data: []const u8, maxlen: i64, host: ?*anyopaque, port: ?*anyopaque) i64 {
+    /// ``` self: QtC.QUdpSocket, data: []const u8, maxlen: i64, host: QtC.QHostAddress, port: *u16 ```
+    pub fn ReadDatagram4(self: ?*anyopaque, data: []const u8, maxlen: i64, host: ?*anyopaque, port: *u16) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QUdpSocket_ReadDatagram4(@ptrCast(self), data_Cstring, @intCast(maxlen), @ptrCast(host), @intCast(port));
+        return qtc.QUdpSocket_ReadDatagram4(@ptrCast(self), data_Cstring, @intCast(maxlen), @ptrCast(host), @ptrCast(port));
     }
 
     /// Inherited from QAbstractSocket

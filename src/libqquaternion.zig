@@ -272,9 +272,9 @@ pub const qquaternion = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#getAxisAndAngle)
     ///
-    /// ``` self: QtC.QQuaternion, axis: QtC.QVector3D, angle: ?*f32 ```
-    pub fn GetAxisAndAngle(self: ?*anyopaque, axis: ?*anyopaque, angle: ?*anyopaque) void {
-        qtc.QQuaternion_GetAxisAndAngle(@ptrCast(self), @ptrCast(axis), @floatCast(angle));
+    /// ``` self: QtC.QQuaternion, axis: QtC.QVector3D, angle: *f32 ```
+    pub fn GetAxisAndAngle(self: ?*anyopaque, axis: ?*anyopaque, angle: *f32) void {
+        qtc.QQuaternion_GetAxisAndAngle(@ptrCast(self), @ptrCast(axis), @ptrCast(angle));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#fromAxisAndAngle)
@@ -286,9 +286,9 @@ pub const qquaternion = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#getAxisAndAngle)
     ///
-    /// ``` self: QtC.QQuaternion, x: ?*f32, y: ?*f32, z: ?*f32, angle: ?*f32 ```
-    pub fn GetAxisAndAngle2(self: ?*anyopaque, x: ?*anyopaque, y: ?*anyopaque, z: ?*anyopaque, angle: ?*anyopaque) void {
-        qtc.QQuaternion_GetAxisAndAngle2(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(angle));
+    /// ``` self: QtC.QQuaternion, x: *f32, y: *f32, z: *f32, angle: *f32 ```
+    pub fn GetAxisAndAngle2(self: ?*anyopaque, x: *f32, y: *f32, z: *f32, angle: *f32) void {
+        qtc.QQuaternion_GetAxisAndAngle2(@ptrCast(self), @ptrCast(x), @ptrCast(y), @ptrCast(z), @ptrCast(angle));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#fromAxisAndAngle)
@@ -314,9 +314,9 @@ pub const qquaternion = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#getEulerAngles)
     ///
-    /// ``` self: QtC.QQuaternion, pitch: ?*f32, yaw: ?*f32, roll: ?*f32 ```
-    pub fn GetEulerAngles(self: ?*anyopaque, pitch: ?*anyopaque, yaw: ?*anyopaque, roll: ?*anyopaque) void {
-        qtc.QQuaternion_GetEulerAngles(@ptrCast(self), @floatCast(pitch), @floatCast(yaw), @floatCast(roll));
+    /// ``` self: QtC.QQuaternion, pitch: *f32, yaw: *f32, roll: *f32 ```
+    pub fn GetEulerAngles(self: ?*anyopaque, pitch: *f32, yaw: *f32, roll: *f32) void {
+        qtc.QQuaternion_GetEulerAngles(@ptrCast(self), @ptrCast(pitch), @ptrCast(yaw), @ptrCast(roll));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qquaternion.html#fromEulerAngles)

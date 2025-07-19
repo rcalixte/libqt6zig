@@ -453,126 +453,126 @@ pub const qlatin1string = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toShort)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToShort1(self: ?*anyopaque, ok: ?*anyopaque) i16 {
+    pub fn ToShort1(self: ?*anyopaque, ok: *bool) i16 {
         return qtc.QLatin1String_ToShort1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toShort)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToShort2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i16 {
+    pub fn ToShort2(self: ?*anyopaque, ok: *bool, base: i32) i16 {
         return qtc.QLatin1String_ToShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toUShort)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToUShort1(self: ?*anyopaque, ok: ?*anyopaque) u16 {
+    pub fn ToUShort1(self: ?*anyopaque, ok: *bool) u16 {
         return qtc.QLatin1String_ToUShort1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toUShort)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToUShort2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u16 {
+    pub fn ToUShort2(self: ?*anyopaque, ok: *bool, base: i32) u16 {
         return qtc.QLatin1String_ToUShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toInt)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToInt1(self: ?*anyopaque, ok: ?*anyopaque) i32 {
+    pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QLatin1String_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toInt)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToInt2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i32 {
+    pub fn ToInt2(self: ?*anyopaque, ok: *bool, base: i32) i32 {
         return qtc.QLatin1String_ToInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toUInt)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToUInt1(self: ?*anyopaque, ok: ?*anyopaque) u32 {
+    pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QLatin1String_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toUInt)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToUInt2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u32 {
+    pub fn ToUInt2(self: ?*anyopaque, ok: *bool, base: i32) u32 {
         return qtc.QLatin1String_ToUInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toLong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToLong1(self: ?*anyopaque, ok: ?*anyopaque) i64 {
+    pub fn ToLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QLatin1String_ToLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toLong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToLong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i64 {
+    pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QLatin1String_ToLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toULong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToULong1(self: ?*anyopaque, ok: ?*anyopaque) u64 {
+    pub fn ToULong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QLatin1String_ToULong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toULong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToULong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u64 {
+    pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QLatin1String_ToULong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toLongLong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToLongLong1(self: ?*anyopaque, ok: ?*anyopaque) i64 {
+    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QLatin1String_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toLongLong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToLongLong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) i64 {
+    pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QLatin1String_ToLongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toULongLong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToULongLong1(self: ?*anyopaque, ok: ?*anyopaque) u64 {
+    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QLatin1String_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toULongLong)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool, base: i32 ```
-    pub fn ToULongLong2(self: ?*anyopaque, ok: ?*anyopaque, base: i32) u64 {
+    pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QLatin1String_ToULongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toFloat)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToFloat1(self: ?*anyopaque, ok: ?*anyopaque) f32 {
+    pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QLatin1String_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1string.html#toDouble)
     ///
     /// ``` self: QtC.QLatin1String, ok: bool ```
-    pub fn ToDouble1(self: ?*anyopaque, ok: ?*anyopaque) f64 {
+    pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QLatin1String_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 

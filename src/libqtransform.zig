@@ -385,16 +385,16 @@ pub const qtransform = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
-    /// ``` self: QtC.QTransform, x: i32, y: i32, tx: ?*i32, ty: ?*i32 ```
-    pub fn Map9(self: ?*anyopaque, x: i32, y: i32, tx: ?*anyopaque, ty: ?*anyopaque) void {
-        qtc.QTransform_Map9(@ptrCast(self), @intCast(x), @intCast(y), @intCast(tx), @intCast(ty));
+    /// ``` self: QtC.QTransform, x: i32, y: i32, tx: *i32, ty: *i32 ```
+    pub fn Map9(self: ?*anyopaque, x: i32, y: i32, tx: *i32, ty: *i32) void {
+        qtc.QTransform_Map9(@ptrCast(self), @intCast(x), @intCast(y), @ptrCast(tx), @ptrCast(ty));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#map)
     ///
-    /// ``` self: QtC.QTransform, x: f64, y: f64, tx: ?*f64, ty: ?*f64 ```
-    pub fn Map10(self: ?*anyopaque, x: f64, y: f64, tx: ?*anyopaque, ty: ?*anyopaque) void {
-        qtc.QTransform_Map10(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(tx), @floatCast(ty));
+    /// ``` self: QtC.QTransform, x: f64, y: f64, tx: *f64, ty: *f64 ```
+    pub fn Map10(self: ?*anyopaque, x: f64, y: f64, tx: *f64, ty: *f64) void {
+        qtc.QTransform_Map10(@ptrCast(self), @floatCast(x), @floatCast(y), @ptrCast(tx), @ptrCast(ty));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#operator-2a-eq)
@@ -442,7 +442,7 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#inverted)
     ///
     /// ``` self: QtC.QTransform, invertible: bool ```
-    pub fn Inverted1(self: ?*anyopaque, invertible: ?*anyopaque) QtC.QTransform {
+    pub fn Inverted1(self: ?*anyopaque, invertible: *bool) QtC.QTransform {
         return qtc.QTransform_Inverted1(@ptrCast(self), @ptrCast(invertible));
     }
 

@@ -968,7 +968,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
             // Cast returned reference into pointer
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
             for (size_t i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];

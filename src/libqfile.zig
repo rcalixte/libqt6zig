@@ -587,9 +587,9 @@ pub const qfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#unmap)
     ///
-    /// ``` self: QtC.QFile, address: ?*u8 ```
-    pub fn Unmap(self: ?*anyopaque, address: ?*anyopaque) bool {
-        return qtc.QFileDevice_Unmap(@ptrCast(self), @intCast(address));
+    /// ``` self: QtC.QFile, address: *u8 ```
+    pub fn Unmap(self: ?*anyopaque, address: *u8) bool {
+        return qtc.QFileDevice_Unmap(@ptrCast(self), @ptrCast(address));
     }
 
     /// Inherited from QFileDevice

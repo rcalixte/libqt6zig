@@ -579,9 +579,9 @@ pub const qmetaobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#connect)
     ///
-    /// ``` sender: QtC.QObject, signal_index: i32, receiver: QtC.QObject, method_index: i32, typeVal: i32, types: ?*i32 ```
-    pub fn Connect6(sender: ?*anyopaque, signal_index: i32, receiver: ?*anyopaque, method_index: i32, typeVal: i32, types: ?*anyopaque) QtC.QMetaObject__Connection {
-        return qtc.QMetaObject_Connect6(@ptrCast(sender), @intCast(signal_index), @ptrCast(receiver), @intCast(method_index), @intCast(typeVal), @intCast(types));
+    /// ``` sender: QtC.QObject, signal_index: i32, receiver: QtC.QObject, method_index: i32, typeVal: i32, types: *i32 ```
+    pub fn Connect6(sender: ?*anyopaque, signal_index: i32, receiver: ?*anyopaque, method_index: i32, typeVal: i32, types: *i32) QtC.QMetaObject__Connection {
+        return qtc.QMetaObject_Connect6(@ptrCast(sender), @intCast(signal_index), @ptrCast(receiver), @intCast(method_index), @intCast(typeVal), @ptrCast(types));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)

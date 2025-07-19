@@ -299,7 +299,7 @@ void QAbstractBarSeries_Connect_BarsetsAdded(QAbstractBarSeries* self, intptr_t 
     void (*slotFunc)(QAbstractBarSeries*, libqt_list /* of QBarSet* */) = reinterpret_cast<void (*)(QAbstractBarSeries*, libqt_list /* of QBarSet* */)>(slot);
     QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsAdded, [self, slotFunc](const QList<QBarSet*>& sets) {
         const QList<QBarSet*>& sets_ret = sets;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * sets_ret.size()));
         for (size_t i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
@@ -326,7 +326,7 @@ void QAbstractBarSeries_Connect_BarsetsRemoved(QAbstractBarSeries* self, intptr_
     void (*slotFunc)(QAbstractBarSeries*, libqt_list /* of QBarSet* */) = reinterpret_cast<void (*)(QAbstractBarSeries*, libqt_list /* of QBarSet* */)>(slot);
     QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsRemoved, [self, slotFunc](const QList<QBarSet*>& sets) {
         const QList<QBarSet*>& sets_ret = sets;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * sets_ret.size()));
         for (size_t i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];

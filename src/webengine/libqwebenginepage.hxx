@@ -221,7 +221,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
         } else if (qwebenginepage_choosefiles_callback != nullptr) {
             int cbval1 = static_cast<int>(mode);
             const QList<QString>& oldFiles_ret = oldFiles;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* oldFiles_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * oldFiles_ret.size()));
             for (size_t i = 0; i < oldFiles_ret.size(); ++i) {
                 QString oldFiles_lv_ret = oldFiles_ret[i];
@@ -239,7 +239,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             oldFiles_out.data = static_cast<void*>(oldFiles_arr);
             libqt_list /* of libqt_string */ cbval2 = oldFiles_out;
             const QList<QString>& acceptedMimeTypes_ret = acceptedMimeTypes;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * acceptedMimeTypes_ret.size()));
             for (size_t i = 0; i < acceptedMimeTypes_ret.size(); ++i) {
                 QString acceptedMimeTypes_lv_ret = acceptedMimeTypes_ret[i];

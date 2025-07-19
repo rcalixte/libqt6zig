@@ -167,15 +167,27 @@ pub const qvariant = struct {
 
     /// New20 constructs a new QVariant object.
     ///
-    /// ``` locale: QtC.QLocale ```
-    pub fn New20(locale: ?*anyopaque) QtC.QVariant {
-        return qtc.QVariant_new20(@ptrCast(locale));
+    /// ``` list: []QtC.QVariant ```
+    pub fn New20(list: []QtC.QVariant) QtC.QVariant {
+        const list_list = qtc.struct_libqt_list{
+            .len = list.len,
+            .data = @ptrCast(list.ptr),
+        };
+
+        return qtc.QVariant_new20(list_list);
     }
 
     /// New21 constructs a new QVariant object.
     ///
+    /// ``` locale: QtC.QLocale ```
+    pub fn New21(locale: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new21(@ptrCast(locale));
+    }
+
+    /// New22 constructs a new QVariant object.
+    ///
     /// ``` mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
-    pub fn New21(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
+    pub fn New22(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
         const mapVal_keys = allocator.alloc(qtc.struct_libqt_string, mapVal.count()) catch @panic("qvariant.: Memory allocation failed");
         defer allocator.free(mapVal_keys);
         const mapVal_values = allocator.alloc(QtC.QVariant, mapVal.count()) catch @panic("qvariant.: Memory allocation failed");
@@ -197,32 +209,32 @@ pub const qvariant = struct {
             .values = @ptrCast(mapVal_values.ptr),
         };
 
-        return qtc.QVariant_new21(mapVal_map);
-    }
-
-    /// New22 constructs a new QVariant object.
-    ///
-    /// ``` re: QtC.QRegularExpression ```
-    pub fn New22(re: ?*anyopaque) QtC.QVariant {
-        return qtc.QVariant_new22(@ptrCast(re));
+        return qtc.QVariant_new22(mapVal_map);
     }
 
     /// New23 constructs a new QVariant object.
     ///
+    /// ``` re: QtC.QRegularExpression ```
+    pub fn New23(re: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new23(@ptrCast(re));
+    }
+
+    /// New24 constructs a new QVariant object.
+    ///
     /// ``` stringVal: []const u8 ```
-    pub fn New23(stringVal: []const u8) QtC.QVariant {
+    pub fn New24(stringVal: []const u8) QtC.QVariant {
         const stringVal_str = qtc.struct_libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
 
-        return qtc.QVariant_new23(stringVal_str);
+        return qtc.QVariant_new24(stringVal_str);
     }
 
-    /// New24 constructs a new QVariant object.
+    /// New25 constructs a new QVariant object.
     ///
     /// ``` stringlist: [][]const u8, allocator: std.mem.Allocator ```
-    pub fn New24(stringlist: [][]const u8, allocator: std.mem.Allocator) QtC.QVariant {
+    pub fn New25(stringlist: [][]const u8, allocator: std.mem.Allocator) QtC.QVariant {
         var stringlist_arr = allocator.alloc(qtc.struct_libqt_string, stringlist.len) catch @panic("qvariant.: Memory allocation failed");
         defer allocator.free(stringlist_arr);
         for (stringlist, 0..stringlist.len) |item, i| {
@@ -236,42 +248,42 @@ pub const qvariant = struct {
             .data = stringlist_arr.ptr,
         };
 
-        return qtc.QVariant_new24(stringlist_list);
-    }
-
-    /// New25 constructs a new QVariant object.
-    ///
-    /// ``` url: QtC.QUrl ```
-    pub fn New25(url: ?*anyopaque) QtC.QVariant {
-        return qtc.QVariant_new25(@ptrCast(url));
+        return qtc.QVariant_new25(stringlist_list);
     }
 
     /// New26 constructs a new QVariant object.
     ///
-    /// ``` size: QtC.QSize ```
-    pub fn New26(size: QtC.QSize) QtC.QVariant {
-        return qtc.QVariant_new26(@ptrCast(size));
+    /// ``` url: QtC.QUrl ```
+    pub fn New26(url: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new26(@ptrCast(url));
     }
 
     /// New27 constructs a new QVariant object.
     ///
-    /// ``` pt: QtC.QPoint ```
-    pub fn New27(pt: QtC.QPoint) QtC.QVariant {
-        return qtc.QVariant_new27(@ptrCast(pt));
+    /// ``` size: QtC.QSize ```
+    pub fn New27(size: QtC.QSize) QtC.QVariant {
+        return qtc.QVariant_new27(@ptrCast(size));
     }
 
     /// New28 constructs a new QVariant object.
     ///
-    /// ``` typeVal: qvariant_enums.Type ```
-    pub fn New28(typeVal: i64) QtC.QVariant {
-        return qtc.QVariant_new28(@intCast(typeVal));
+    /// ``` pt: QtC.QPoint ```
+    pub fn New28(pt: QtC.QPoint) QtC.QVariant {
+        return qtc.QVariant_new28(@ptrCast(pt));
     }
 
     /// New29 constructs a new QVariant object.
     ///
+    /// ``` typeVal: qvariant_enums.Type ```
+    pub fn New29(typeVal: i64) QtC.QVariant {
+        return qtc.QVariant_new29(@intCast(typeVal));
+    }
+
+    /// New30 constructs a new QVariant object.
+    ///
     /// ``` typeVal: QtC.QMetaType, copyVal: ?*anyopaque ```
-    pub fn New29(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
-        return qtc.QVariant_new29(@ptrCast(typeVal), copyVal);
+    pub fn New30(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
+        return qtc.QVariant_new30(@ptrCast(typeVal), copyVal);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
@@ -520,6 +532,18 @@ pub const qvariant = struct {
     /// ``` self: QtC.QVariant ```
     pub fn ToDateTime(self: ?*anyopaque) QtC.QDateTime {
         return qtc.QVariant_ToDateTime(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toList)
+    ///
+    /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
+    pub fn ToList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
+        const _arr: qtc.struct_libqt_list = qtc.QVariant_ToList(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qvariant.ToList: Memory allocation failed");
+        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toMap)
@@ -789,49 +813,49 @@ pub const qvariant = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toInt)
     ///
     /// ``` self: QtC.QVariant, ok: bool ```
-    pub fn ToInt1(self: ?*anyopaque, ok: ?*anyopaque) i32 {
+    pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QVariant_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toUInt)
     ///
     /// ``` self: QtC.QVariant, ok: bool ```
-    pub fn ToUInt1(self: ?*anyopaque, ok: ?*anyopaque) u32 {
+    pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QVariant_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
     ///
     /// ``` self: QtC.QVariant, ok: bool ```
-    pub fn ToLongLong1(self: ?*anyopaque, ok: ?*anyopaque) i64 {
+    pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QVariant_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
     ///
     /// ``` self: QtC.QVariant, ok: bool ```
-    pub fn ToULongLong1(self: ?*anyopaque, ok: ?*anyopaque) u64 {
+    pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QVariant_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toDouble)
     ///
     /// ``` self: QtC.QVariant, ok: bool ```
-    pub fn ToDouble1(self: ?*anyopaque, ok: ?*anyopaque) f64 {
+    pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toFloat)
     ///
     /// ``` self: QtC.QVariant, ok: bool ```
-    pub fn ToFloat1(self: ?*anyopaque, ok: ?*anyopaque) f32 {
+    pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QVariant_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toReal)
     ///
     /// ``` self: QtC.QVariant, ok: bool ```
-    pub fn ToReal1(self: ?*anyopaque, ok: ?*anyopaque) f64 {
+    pub fn ToReal1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToReal1(@ptrCast(self), @ptrCast(ok));
     }
 

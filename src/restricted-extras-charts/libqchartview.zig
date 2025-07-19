@@ -87,9 +87,9 @@ pub const qchartview = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchartview-qtcharts.html#setRubberBand)
     ///
-    /// ``` self: QtC.QChartView, rubberBands: ?*i32 ```
-    pub fn SetRubberBand(self: ?*anyopaque, rubberBands: ?*anyopaque) void {
-        qtc.QChartView_SetRubberBand(@ptrCast(self), @intCast(rubberBands));
+    /// ``` self: QtC.QChartView, rubberBands: *const i32 ```
+    pub fn SetRubberBand(self: ?*anyopaque, rubberBands: *const i64) void {
+        qtc.QChartView_SetRubberBand(@ptrCast(self), @ptrCast(rubberBands));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchartview-qtcharts.html#rubberBand)
@@ -5730,13 +5730,13 @@ pub const qchartview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QChartView, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QChartView, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QChartView_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QChartView_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5745,13 +5745,13 @@ pub const qchartview = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QChartView, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QChartView, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QChartView_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QChartView_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5760,8 +5760,8 @@ pub const qchartview = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QChartView, slot: fn (self: QtC.QChartView, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QChartView, slot: fn (self: QtC.QChartView, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QChartView_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

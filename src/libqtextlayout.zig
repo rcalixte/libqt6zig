@@ -716,9 +716,9 @@ pub const qtextline = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#cursorToX)
     ///
-    /// ``` self: QtC.QTextLine, cursorPos: ?*i32 ```
-    pub fn CursorToX(self: ?*anyopaque, cursorPos: ?*anyopaque) f64 {
-        return qtc.QTextLine_CursorToX(@ptrCast(self), @intCast(cursorPos));
+    /// ``` self: QtC.QTextLine, cursorPos: *i32 ```
+    pub fn CursorToX(self: ?*anyopaque, cursorPos: *i32) f64 {
+        return qtc.QTextLine_CursorToX(@ptrCast(self), @ptrCast(cursorPos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#cursorToX)
@@ -824,9 +824,9 @@ pub const qtextline = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#cursorToX)
     ///
-    /// ``` self: QtC.QTextLine, cursorPos: ?*i32, edge: qtextlayout_enums.Edge ```
-    pub fn CursorToX22(self: ?*anyopaque, cursorPos: ?*anyopaque, edge: i64) f64 {
-        return qtc.QTextLine_CursorToX22(@ptrCast(self), @intCast(cursorPos), @intCast(edge));
+    /// ``` self: QtC.QTextLine, cursorPos: *i32, edge: qtextlayout_enums.Edge ```
+    pub fn CursorToX22(self: ?*anyopaque, cursorPos: *i32, edge: i64) f64 {
+        return qtc.QTextLine_CursorToX22(@ptrCast(self), @ptrCast(cursorPos), @intCast(edge));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#cursorToX)

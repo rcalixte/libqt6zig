@@ -161,9 +161,9 @@ pub const qboxset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QBoxSet, value: ?*f64 ```
-    pub fn OperatorShiftLeft(self: ?*anyopaque, value: ?*anyopaque) QtC.QBoxSet {
-        return qtc.QBoxSet_OperatorShiftLeft(@ptrCast(self), @floatCast(value));
+    /// ``` self: QtC.QBoxSet, value: *const f64 ```
+    pub fn OperatorShiftLeft(self: ?*anyopaque, value: *const f64) QtC.QBoxSet {
+        return qtc.QBoxSet_OperatorShiftLeft(@ptrCast(self), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxset-qtcharts.html#setValue)

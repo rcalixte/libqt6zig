@@ -29,6 +29,7 @@ typedef struct QCborValue QCborValue;
 typedef struct QCborValueConstRef QCborValueConstRef;
 typedef struct QCborValueRef QCborValueRef;
 typedef struct QJsonArray QJsonArray;
+typedef struct QVariant QVariant;
 #endif
 
 QCborArray* QCborArray_new();
@@ -80,7 +81,9 @@ QCborArray* QCborArray_OperatorPlus(const QCborArray* self, const QCborValue* v)
 QCborArray* QCborArray_OperatorPlusAssign(QCborArray* self, const QCborValue* v);
 QCborArray* QCborArray_OperatorShiftLeft(QCborArray* self, const QCborValue* v);
 QCborArray* QCborArray_FromStringList(const libqt_list /* of libqt_string */ list);
+QCborArray* QCborArray_FromVariantList(const libqt_list /* of QVariant* */ list);
 QCborArray* QCborArray_FromJsonArray(const QJsonArray* array);
+libqt_list /* of QVariant* */ QCborArray_ToVariantList(const QCborArray* self);
 QJsonArray* QCborArray_ToJsonArray(const QCborArray* self);
 void QCborArray_Delete(QCborArray* self);
 

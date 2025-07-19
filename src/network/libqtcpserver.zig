@@ -373,7 +373,7 @@ pub const qtcpserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtcpserver.html#waitForNewConnection)
     ///
     /// ``` self: QtC.QTcpServer, msec: i32, timedOut: bool ```
-    pub fn WaitForNewConnection2(self: ?*anyopaque, msec: i32, timedOut: ?*anyopaque) bool {
+    pub fn WaitForNewConnection2(self: ?*anyopaque, msec: i32, timedOut: *bool) bool {
         return qtc.QTcpServer_WaitForNewConnection2(@ptrCast(self), @intCast(msec), @ptrCast(timedOut));
     }
 

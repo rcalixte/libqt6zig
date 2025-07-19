@@ -96,9 +96,9 @@ pub const qbitmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromData)
     ///
-    /// ``` size: QtC.QSize, bits: ?*u8 ```
-    pub fn FromData(size: ?*anyopaque, bits: ?*anyopaque) QtC.QBitmap {
-        return qtc.QBitmap_FromData(@ptrCast(size), @intCast(bits));
+    /// ``` size: QtC.QSize, bits: *const u8 ```
+    pub fn FromData(size: ?*anyopaque, bits: *const u8) QtC.QBitmap {
+        return qtc.QBitmap_FromData(@ptrCast(size), @ptrCast(bits));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromPixmap)
@@ -131,9 +131,9 @@ pub const qbitmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitmap.html#fromData)
     ///
-    /// ``` size: QtC.QSize, bits: ?*u8, monoFormat: qimage_enums.Format ```
-    pub fn FromData3(size: ?*anyopaque, bits: ?*anyopaque, monoFormat: i64) QtC.QBitmap {
-        return qtc.QBitmap_FromData3(@ptrCast(size), @intCast(bits), @intCast(monoFormat));
+    /// ``` size: QtC.QSize, bits: *const u8, monoFormat: qimage_enums.Format ```
+    pub fn FromData3(size: ?*anyopaque, bits: *const u8, monoFormat: i64) QtC.QBitmap {
+        return qtc.QBitmap_FromData3(@ptrCast(size), @ptrCast(bits), @intCast(monoFormat));
     }
 
     /// Inherited from QPixmap
@@ -369,9 +369,9 @@ pub const qbitmap = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QBitmap, buf: ?*u8, lenVal: u32 ```
-    pub fn LoadFromData(self: ?*anyopaque, buf: ?*anyopaque, lenVal: u32) bool {
-        return qtc.QPixmap_LoadFromData(@ptrCast(self), @intCast(buf), @intCast(lenVal));
+    /// ``` self: QtC.QBitmap, buf: *const u8, lenVal: u32 ```
+    pub fn LoadFromData(self: ?*anyopaque, buf: *const u8, lenVal: u32) bool {
+        return qtc.QPixmap_LoadFromData(@ptrCast(self), @ptrCast(buf), @intCast(lenVal));
     }
 
     /// Inherited from QPixmap
@@ -630,20 +630,20 @@ pub const qbitmap = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QBitmap, buf: ?*u8, lenVal: u32, format: []const u8 ```
-    pub fn LoadFromData3(self: ?*anyopaque, buf: ?*anyopaque, lenVal: u32, format: []const u8) bool {
+    /// ``` self: QtC.QBitmap, buf: *const u8, lenVal: u32, format: []const u8 ```
+    pub fn LoadFromData3(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: []const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData3(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring);
+        return qtc.QPixmap_LoadFromData3(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring);
     }
 
     /// Inherited from QPixmap
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QBitmap, buf: ?*u8, lenVal: u32, format: []const u8, flags: i32 ```
-    pub fn LoadFromData4(self: ?*anyopaque, buf: ?*anyopaque, lenVal: u32, format: []const u8, flags: i64) bool {
+    /// ``` self: QtC.QBitmap, buf: *const u8, lenVal: u32, format: []const u8, flags: i32 ```
+    pub fn LoadFromData4(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: []const u8, flags: i64) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData4(@ptrCast(self), @intCast(buf), @intCast(lenVal), format_Cstring, @intCast(flags));
+        return qtc.QPixmap_LoadFromData4(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring, @intCast(flags));
     }
 
     /// Inherited from QPixmap

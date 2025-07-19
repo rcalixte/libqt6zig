@@ -489,7 +489,7 @@ void QBarSet_Connect_SelectedBarsChanged(QBarSet* self, intptr_t slot) {
     void (*slotFunc)(QBarSet*, libqt_list /* of int */) = reinterpret_cast<void (*)(QBarSet*, libqt_list /* of int */)>(slot);
     QBarSet::connect(self, &QBarSet::selectedBarsChanged, [self, slotFunc](const QList<int>& indexes) {
         const QList<int>& indexes_ret = indexes;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * indexes_ret.size()));
         for (size_t i = 0; i < indexes_ret.size(); ++i) {
             indexes_arr[i] = indexes_ret[i];

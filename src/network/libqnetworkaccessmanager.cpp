@@ -336,7 +336,7 @@ void QNetworkAccessManager_Connect_SslErrors(QNetworkAccessManager* self, intptr
     QNetworkAccessManager::connect(self, &QNetworkAccessManager::sslErrors, [self, slotFunc](QNetworkReply* reply, const QList<QSslError>& errors) {
         QNetworkReply* sigval1 = reply;
         const QList<QSslError>& errors_ret = errors;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * errors_ret.size()));
         for (size_t i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);

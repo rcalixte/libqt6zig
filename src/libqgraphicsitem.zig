@@ -2139,7 +2139,7 @@ pub const qgraphicsitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -4358,7 +4358,7 @@ pub const qgraphicsobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsObject, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -7576,7 +7576,7 @@ pub const qabstractgraphicsshapeitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QAbstractGraphicsShapeItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -10654,7 +10654,7 @@ pub const qgraphicspathitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsPathItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -13489,7 +13489,7 @@ pub const qgraphicsrectitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsRectItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -16352,7 +16352,7 @@ pub const qgraphicsellipseitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsEllipseItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -19152,7 +19152,7 @@ pub const qgraphicspolygonitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsPolygonItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -21965,7 +21965,7 @@ pub const qgraphicslineitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsLineItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -24792,7 +24792,7 @@ pub const qgraphicspixmapitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsPixmapItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -28930,7 +28930,7 @@ pub const qgraphicstextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsTextItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -31525,7 +31525,7 @@ pub const qgraphicssimpletextitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsSimpleTextItem, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 
@@ -34164,7 +34164,7 @@ pub const qgraphicsitemgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
     /// ``` self: QtC.QGraphicsItemGroup, other: QtC.QGraphicsItem, ok: bool ```
-    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: ?*anyopaque) QtC.QTransform {
+    pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
 

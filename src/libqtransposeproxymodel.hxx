@@ -597,7 +597,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             // Cast returned reference into pointer
             QModelIndex* cbval1 = const_cast<QModelIndex*>(&index_ret);
             const QMap<int, QVariant>& roles_ret = roles;
-            // Convert const QMap<> from C++ memory to manually-managed C memory
+            // Convert QMap<> from C++ memory to manually-managed C memory
             int* roles_karr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
             QVariant** roles_varr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * roles_ret.size()));
             int roles_ctr = 0;
@@ -1091,7 +1091,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             return QTransposeProxyModel::mimeData(indexes);
         } else if (qtransposeproxymodel_mimedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
             for (size_t i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
@@ -1420,7 +1420,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QTransposeProxyModel::encodeData(indexes, stream);
         } else if (qtransposeproxymodel_encodedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
             for (size_t i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
@@ -1701,7 +1701,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             QTransposeProxyModel::changePersistentIndexList(from, to);
         } else if (qtransposeproxymodel_changepersistentindexlist_callback != nullptr) {
             const QList<QModelIndex>& from_ret = from;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
             for (size_t i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
@@ -1711,7 +1711,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             from_out.data = static_cast<void*>(from_arr);
             libqt_list /* of QModelIndex* */ cbval1 = from_out;
             const QList<QModelIndex>& to_ret = to;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
             for (size_t i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);

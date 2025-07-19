@@ -327,79 +327,79 @@ pub const qtextstream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, ch: ?*i8 ```
-    pub fn OperatorShiftRight2(self: ?*anyopaque, ch: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight2(@ptrCast(self), @intCast(ch));
+    /// ``` self: QtC.QTextStream, ch: *i8 ```
+    pub fn OperatorShiftRight2(self: ?*anyopaque, ch: *i8) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight2(@ptrCast(self), @ptrCast(ch));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*i16 ```
-    pub fn OperatorShiftRight4(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight4(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *i16 ```
+    pub fn OperatorShiftRight4(self: ?*anyopaque, i: *i16) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight4(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*u16 ```
-    pub fn OperatorShiftRight5(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight5(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *u16 ```
+    pub fn OperatorShiftRight5(self: ?*anyopaque, i: *u16) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight5(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*i32 ```
-    pub fn OperatorShiftRight6(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight6(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *i32 ```
+    pub fn OperatorShiftRight6(self: ?*anyopaque, i: *i32) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight6(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*u32 ```
-    pub fn OperatorShiftRight7(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight7(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *u32 ```
+    pub fn OperatorShiftRight7(self: ?*anyopaque, i: *u32) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight7(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*i64 ```
-    pub fn OperatorShiftRight8(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight8(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *i64 ```
+    pub fn OperatorShiftRight8(self: ?*anyopaque, i: *i64) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight8(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*u64 ```
-    pub fn OperatorShiftRight9(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight9(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *u64 ```
+    pub fn OperatorShiftRight9(self: ?*anyopaque, i: *u64) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight9(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*i64 ```
-    pub fn OperatorShiftRight10(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight10(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *i64 ```
+    pub fn OperatorShiftRight10(self: ?*anyopaque, i: *i64) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight10(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, i: ?*u64 ```
-    pub fn OperatorShiftRight11(self: ?*anyopaque, i: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight11(@ptrCast(self), @intCast(i));
+    /// ``` self: QtC.QTextStream, i: *u64 ```
+    pub fn OperatorShiftRight11(self: ?*anyopaque, i: *u64) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight11(@ptrCast(self), @ptrCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, f: ?*f32 ```
-    pub fn OperatorShiftRight12(self: ?*anyopaque, f: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight12(@ptrCast(self), @floatCast(f));
+    /// ``` self: QtC.QTextStream, f: *f32 ```
+    pub fn OperatorShiftRight12(self: ?*anyopaque, f: *f32) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight12(@ptrCast(self), @ptrCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QTextStream, f: ?*f64 ```
-    pub fn OperatorShiftRight13(self: ?*anyopaque, f: ?*anyopaque) QtC.QTextStream {
-        return qtc.QTextStream_OperatorShiftRight13(@ptrCast(self), @floatCast(f));
+    /// ``` self: QtC.QTextStream, f: *f64 ```
+    pub fn OperatorShiftRight13(self: ?*anyopaque, f: *f64) QtC.QTextStream {
+        return qtc.QTextStream_OperatorShiftRight13(@ptrCast(self), @ptrCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#operator-gt-gt)

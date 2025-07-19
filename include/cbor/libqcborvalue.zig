@@ -602,9 +602,9 @@ pub const qcborvalue = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
-    /// ``` data: ?*u8, lenVal: i64 ```
-    pub fn FromCbor4(data: ?*anyopaque, lenVal: i64) QtC.QCborValue {
-        return qtc.QCborValue_FromCbor4(@intCast(data), @intCast(lenVal));
+    /// ``` data: *const u8, lenVal: i64 ```
+    pub fn FromCbor4(data: *const u8, lenVal: i64) QtC.QCborValue {
+        return qtc.QCborValue_FromCbor4(@ptrCast(data), @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
@@ -757,9 +757,9 @@ pub const qcborvalue = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
-    /// ``` data: ?*u8, lenVal: i64, errorVal: QtC.QCborParserError ```
-    pub fn FromCbor33(data: ?*anyopaque, lenVal: i64, errorVal: ?*anyopaque) QtC.QCborValue {
-        return qtc.QCborValue_FromCbor33(@intCast(data), @intCast(lenVal), @ptrCast(errorVal));
+    /// ``` data: *const u8, lenVal: i64, errorVal: QtC.QCborParserError ```
+    pub fn FromCbor33(data: *const u8, lenVal: i64, errorVal: ?*anyopaque) QtC.QCborValue {
+        return qtc.QCborValue_FromCbor33(@ptrCast(data), @intCast(lenVal), @ptrCast(errorVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)

@@ -174,13 +174,13 @@ pub const qabstracteventdispatcher = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#filterNativeEvent)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QAbstractEventDispatcher, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
@@ -897,13 +897,13 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#filterNativeEvent)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QAbstractEventDispatcherV2, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QAbstractEventDispatcher

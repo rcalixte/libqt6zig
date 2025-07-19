@@ -1716,21 +1716,21 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
-    /// ``` self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QWindow_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QWindow_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QWindow_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1738,13 +1738,13 @@ pub const qwindow = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QWindow_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QWindow_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

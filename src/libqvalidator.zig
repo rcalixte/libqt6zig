@@ -81,21 +81,21 @@ pub const qvalidator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
-    /// ``` self: QtC.QValidator, param1: []const u8, param2: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
+    /// ``` self: QtC.QValidator, param1: []const u8, param2: *i32 ```
+    pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QValidator_Validate(@ptrCast(self), param1_str, @intCast(param2));
+        return qtc.QValidator_Validate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, param1: []const u8, param2: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, param1: []const u8, param2: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -103,13 +103,13 @@ pub const qvalidator = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QValidator, param1: []const u8, param2: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
+    /// ``` self: QtC.QValidator, param1: []const u8, param2: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QValidator_QBaseValidate(@ptrCast(self), param1_str, @intCast(param2));
+        return qtc.QValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#fixup)
@@ -1024,21 +1024,21 @@ pub const qintvalidator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
-    /// ``` self: QtC.QIntValidator, param1: []const u8, param2: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
+    /// ``` self: QtC.QIntValidator, param1: []const u8, param2: *i32 ```
+    pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QIntValidator_Validate(@ptrCast(self), param1_str, @intCast(param2));
+        return qtc.QIntValidator_Validate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, param1: []const u8, param2: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, param1: []const u8, param2: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QIntValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1046,13 +1046,13 @@ pub const qintvalidator = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QIntValidator, param1: []const u8, param2: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
+    /// ``` self: QtC.QIntValidator, param1: []const u8, param2: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QIntValidator_QBaseValidate(@ptrCast(self), param1_str, @intCast(param2));
+        return qtc.QIntValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#fixup)
@@ -2052,21 +2052,21 @@ pub const qdoublevalidator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
-    /// ``` self: QtC.QDoubleValidator, param1: []const u8, param2: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
+    /// ``` self: QtC.QDoubleValidator, param1: []const u8, param2: *i32 ```
+    pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QDoubleValidator_Validate(@ptrCast(self), param1_str, @intCast(param2));
+        return qtc.QDoubleValidator_Validate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, param1: []const u8, param2: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, param1: []const u8, param2: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QDoubleValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2074,13 +2074,13 @@ pub const qdoublevalidator = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QDoubleValidator, param1: []const u8, param2: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: ?*anyopaque) i64 {
+    /// ``` self: QtC.QDoubleValidator, param1: []const u8, param2: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
         const param1_str = qtc.struct_libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QDoubleValidator_QBaseValidate(@ptrCast(self), param1_str, @intCast(param2));
+        return qtc.QDoubleValidator_QBaseValidate(@ptrCast(self), param1_str, @ptrCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#fixup)
@@ -3143,21 +3143,21 @@ pub const qregularexpressionvalidator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
-    /// ``` self: QtC.QRegularExpressionValidator, input: []const u8, pos: ?*i32 ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QRegularExpressionValidator, input: []const u8, pos: *i32 ```
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QRegularExpressionValidator_Validate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QRegularExpressionValidator_Validate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, input: []const u8, pos: ?*i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, input: []const u8, pos: *i32) callconv(.c) i64 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
         qtc.QRegularExpressionValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3165,13 +3165,13 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QRegularExpressionValidator, input: []const u8, pos: ?*i32 ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: ?*anyopaque) i64 {
+    /// ``` self: QtC.QRegularExpressionValidator, input: []const u8, pos: *i32 ```
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
         const input_str = qtc.struct_libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QRegularExpressionValidator_QBaseValidate(@ptrCast(self), input_str, @intCast(pos));
+        return qtc.QRegularExpressionValidator_QBaseValidate(@ptrCast(self), input_str, @ptrCast(pos));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#regularExpression)

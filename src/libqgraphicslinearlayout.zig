@@ -673,9 +673,9 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLinearLayout, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_GetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QGraphicsLinearLayout, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsLinearLayout_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsLayout
@@ -684,9 +684,9 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLinearLayout, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsLinearLayout_QBaseGetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QGraphicsLinearLayout, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsLinearLayout_QBaseGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// Inherited from QGraphicsLayout
@@ -695,8 +695,8 @@ pub const qgraphicslinearlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLinearLayout, slot: fn (self: QtC.QGraphicsLinearLayout, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64) callconv(.c) void ```
-    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsLinearLayout, slot: fn (self: QtC.QGraphicsLinearLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
+    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
         qtc.QGraphicsLinearLayout_OnGetContentsMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

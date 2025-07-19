@@ -23,9 +23,9 @@ pub const qcborstreamreader = struct {
 
     /// New3 constructs a new QCborStreamReader object.
     ///
-    /// ``` data: ?*u8, lenVal: i64 ```
-    pub fn New3(data: ?*anyopaque, lenVal: i64) QtC.QCborStreamReader {
-        return qtc.QCborStreamReader_new3(@intCast(data), @intCast(lenVal));
+    /// ``` data: *const u8, lenVal: i64 ```
+    pub fn New3(data: *const u8, lenVal: i64) QtC.QCborStreamReader {
+        return qtc.QCborStreamReader_new3(@ptrCast(data), @intCast(lenVal));
     }
 
     /// New4 constructs a new QCborStreamReader object.
@@ -82,9 +82,9 @@ pub const qcborstreamreader = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#addData)
     ///
-    /// ``` self: QtC.QCborStreamReader, data: ?*u8, lenVal: i64 ```
-    pub fn AddData3(self: ?*anyopaque, data: ?*anyopaque, lenVal: i64) void {
-        qtc.QCborStreamReader_AddData3(@ptrCast(self), @intCast(data), @intCast(lenVal));
+    /// ``` self: QtC.QCborStreamReader, data: *const u8, lenVal: i64 ```
+    pub fn AddData3(self: ?*anyopaque, data: *const u8, lenVal: i64) void {
+        qtc.QCborStreamReader_AddData3(@ptrCast(self), @ptrCast(data), @intCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#reparse)

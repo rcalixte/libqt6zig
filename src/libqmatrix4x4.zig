@@ -34,9 +34,9 @@ pub const qmatrix4x4 = struct {
 
     /// New5 constructs a new QMatrix4x4 object.
     ///
-    /// ``` values: ?*f32 ```
-    pub fn New5(values: ?*anyopaque) QtC.QMatrix4x4 {
-        return qtc.QMatrix4x4_new5(@floatCast(values));
+    /// ``` values: *const f32 ```
+    pub fn New5(values: *const f32) QtC.QMatrix4x4 {
+        return qtc.QMatrix4x4_new5(@ptrCast(values));
     }
 
     /// New6 constructs a new QMatrix4x4 object.
@@ -48,9 +48,9 @@ pub const qmatrix4x4 = struct {
 
     /// New7 constructs a new QMatrix4x4 object.
     ///
-    /// ``` values: ?*f32, cols: i32, rows: i32 ```
-    pub fn New7(values: ?*anyopaque, cols: i32, rows: i32) QtC.QMatrix4x4 {
-        return qtc.QMatrix4x4_new7(@floatCast(values), @intCast(cols), @intCast(rows));
+    /// ``` values: *const f32, cols: i32, rows: i32 ```
+    pub fn New7(values: *const f32, cols: i32, rows: i32) QtC.QMatrix4x4 {
+        return qtc.QMatrix4x4_new7(@ptrCast(values), @intCast(cols), @intCast(rows));
     }
 
     /// New8 constructs a new QMatrix4x4 object.
@@ -342,9 +342,9 @@ pub const qmatrix4x4 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#copyDataTo)
     ///
-    /// ``` self: QtC.QMatrix4x4, values: ?*f32 ```
-    pub fn CopyDataTo(self: ?*anyopaque, values: ?*anyopaque) void {
-        qtc.QMatrix4x4_CopyDataTo(@ptrCast(self), @floatCast(values));
+    /// ``` self: QtC.QMatrix4x4, values: *f32 ```
+    pub fn CopyDataTo(self: ?*anyopaque, values: *f32) void {
+        qtc.QMatrix4x4_CopyDataTo(@ptrCast(self), @ptrCast(values));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#toTransform)
@@ -469,7 +469,7 @@ pub const qmatrix4x4 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#inverted)
     ///
     /// ``` self: QtC.QMatrix4x4, invertible: bool ```
-    pub fn Inverted1(self: ?*anyopaque, invertible: ?*anyopaque) QtC.QMatrix4x4 {
+    pub fn Inverted1(self: ?*anyopaque, invertible: *bool) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_Inverted1(@ptrCast(self), @ptrCast(invertible));
     }
 

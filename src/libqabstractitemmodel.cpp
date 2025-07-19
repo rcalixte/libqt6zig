@@ -505,7 +505,7 @@ void QAbstractItemModel_Connect_DataChanged3(QAbstractItemModel* self, intptr_t 
         // Cast returned reference into pointer
         QModelIndex* sigval2 = const_cast<QModelIndex*>(&bottomRight_ret);
         const QList<int>& roles_ret = roles;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
         for (size_t i = 0; i < roles_ret.size(); ++i) {
             roles_arr[i] = roles_ret[i];
@@ -532,7 +532,7 @@ void QAbstractItemModel_Connect_LayoutChanged1(QAbstractItemModel* self, intptr_
     void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
         for (size_t i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
@@ -559,7 +559,7 @@ void QAbstractItemModel_Connect_LayoutChanged2(QAbstractItemModel* self, intptr_
     void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents, QAbstractItemModel::LayoutChangeHint hint) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
         for (size_t i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
@@ -587,7 +587,7 @@ void QAbstractItemModel_Connect_LayoutAboutToBeChanged1(QAbstractItemModel* self
     void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutAboutToBeChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
         for (size_t i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
@@ -614,7 +614,7 @@ void QAbstractItemModel_Connect_LayoutAboutToBeChanged2(QAbstractItemModel* self
     void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutAboutToBeChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents, QAbstractItemModel::LayoutChangeHint hint) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
         for (size_t i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);

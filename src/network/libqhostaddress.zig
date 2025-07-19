@@ -56,9 +56,9 @@ pub const qhostaddress = struct {
 
     /// New3 constructs a new QHostAddress object.
     ///
-    /// ``` ip6Addr: ?*u8 ```
-    pub fn New3(ip6Addr: ?*anyopaque) QtC.QHostAddress {
-        return qtc.QHostAddress_new3(@intCast(ip6Addr));
+    /// ``` ip6Addr: *const u8 ```
+    pub fn New3(ip6Addr: *const u8) QtC.QHostAddress {
+        return qtc.QHostAddress_new3(@ptrCast(ip6Addr));
     }
 
     /// New4 constructs a new QHostAddress object.
@@ -124,9 +124,9 @@ pub const qhostaddress = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
-    /// ``` self: QtC.QHostAddress, ip6Addr: ?*u8 ```
-    pub fn SetAddress2(self: ?*anyopaque, ip6Addr: ?*anyopaque) void {
-        qtc.QHostAddress_SetAddress2(@ptrCast(self), @intCast(ip6Addr));
+    /// ``` self: QtC.QHostAddress, ip6Addr: *const u8 ```
+    pub fn SetAddress2(self: ?*anyopaque, ip6Addr: *const u8) void {
+        qtc.QHostAddress_SetAddress2(@ptrCast(self), @ptrCast(ip6Addr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
@@ -335,7 +335,7 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#toIPv4Address)
     ///
     /// ``` self: QtC.QHostAddress, ok: bool ```
-    pub fn ToIPv4Address1(self: ?*anyopaque, ok: ?*anyopaque) u32 {
+    pub fn ToIPv4Address1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QHostAddress_ToIPv4Address1(@ptrCast(self), @ptrCast(ok));
     }
 

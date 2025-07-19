@@ -354,7 +354,7 @@ pub const qlocalserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#waitForNewConnection)
     ///
     /// ``` self: QtC.QLocalServer, msec: i32, timedOut: bool ```
-    pub fn WaitForNewConnection2(self: ?*anyopaque, msec: i32, timedOut: ?*anyopaque) bool {
+    pub fn WaitForNewConnection2(self: ?*anyopaque, msec: i32, timedOut: *bool) bool {
         return qtc.QLocalServer_WaitForNewConnection2(@ptrCast(self), @intCast(msec), @ptrCast(timedOut));
     }
 

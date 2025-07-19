@@ -658,7 +658,7 @@ pub const qlineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineEquation)
     ///
     /// ``` self: QtC.QLineSeries, ok: bool ```
-    pub fn BestFitLineEquation(self: ?*anyopaque, ok: ?*anyopaque) struct_f64_f64 {
+    pub fn BestFitLineEquation(self: ?*anyopaque, ok: *bool) struct_f64_f64 {
         const _pair: qtc.struct_libqt_pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self), @ptrCast(ok));
         return struct_f64_f64{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
     }

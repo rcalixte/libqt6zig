@@ -195,9 +195,9 @@ pub const qsciscintillabase = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
-    /// ``` qt_key: i32, modifiers: ?*i32 ```
-    pub fn CommandKey(qt_key: i32, modifiers: ?*anyopaque) i32 {
-        return qtc.QsciScintillaBase_CommandKey(@intCast(qt_key), @intCast(modifiers));
+    /// ``` qt_key: i32, modifiers: *i32 ```
+    pub fn CommandKey(qt_key: i32, modifiers: *i32) i32 {
+        return qtc.QsciScintillaBase_CommandKey(@intCast(qt_key), @ptrCast(modifiers));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -488,7 +488,7 @@ pub const qsciscintillabase = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
     /// ``` self: QtC.QsciScintillaBase, source: QtC.QMimeData, rectangular: bool, allocator: std.mem.Allocator ```
-    pub fn FromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+    pub fn FromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QsciScintillaBase_FromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintillabase.FromMimeData: Memory allocation failed");
@@ -501,7 +501,7 @@ pub const qsciscintillabase = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, source: QtC.QMimeData, rectangular: bool) callconv(.c) []u8 ```
-    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) []u8) void {
+    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) []u8) void {
         qtc.QsciScintillaBase_OnFromMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -510,7 +510,7 @@ pub const qsciscintillabase = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QsciScintillaBase, source: QtC.QMimeData, rectangular: bool, allocator: std.mem.Allocator ```
-    pub fn QBaseFromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+    pub fn QBaseFromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.struct_libqt_string = qtc.QsciScintillaBase_QBaseFromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintillabase.FromMimeData: Memory allocation failed");
@@ -5189,13 +5189,13 @@ pub const qsciscintillabase = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintillaBase, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QsciScintillaBase, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintillaBase_NativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QsciScintillaBase_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5204,13 +5204,13 @@ pub const qsciscintillabase = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintillaBase, eventType: []u8, message: ?*anyopaque, result: ?*isize ```
-    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: ?*anyopaque) bool {
+    /// ``` self: QtC.QsciScintillaBase, eventType: []u8, message: ?*anyopaque, result: *isize ```
+    pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.struct_libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintillaBase_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @intCast(result));
+        return qtc.QsciScintillaBase_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5219,8 +5219,8 @@ pub const qsciscintillabase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, eventType: []u8, message: ?*anyopaque, result: ?*isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QsciScintillaBase_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

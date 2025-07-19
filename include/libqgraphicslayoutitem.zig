@@ -228,17 +228,17 @@ pub const qgraphicslayoutitem = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#getContentsMargins)
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn GetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_GetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QGraphicsLayoutItem, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn GetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsLayoutItem_GetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#getContentsMargins)
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn (self: QtC.QGraphicsLayoutItem, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64) callconv(.c) void ```
-    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn (self: QtC.QGraphicsLayoutItem, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
+    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
         qtc.QGraphicsLayoutItem_OnGetContentsMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -246,9 +246,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, left: ?*f64, top: ?*f64, right: ?*f64, bottom: ?*f64 ```
-    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: ?*anyopaque, top: ?*anyopaque, right: ?*anyopaque, bottom: ?*anyopaque) void {
-        qtc.QGraphicsLayoutItem_QBaseGetContentsMargins(@ptrCast(self), @floatCast(left), @floatCast(top), @floatCast(right), @floatCast(bottom));
+    /// ``` self: QtC.QGraphicsLayoutItem, left: *f64, top: *f64, right: *f64, bottom: *f64 ```
+    pub fn QBaseGetContentsMargins(self: ?*anyopaque, left: *f64, top: *f64, right: *f64, bottom: *f64) void {
+        qtc.QGraphicsLayoutItem_QBaseGetContentsMargins(@ptrCast(self), @ptrCast(left), @ptrCast(top), @ptrCast(right), @ptrCast(bottom));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#contentsRect)

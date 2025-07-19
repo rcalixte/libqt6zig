@@ -899,9 +899,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, style: ?*i32 ```
-    pub fn BlockEnd(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerHex_BlockEnd(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerHex, style: *i32 ```
+    pub fn BlockEnd(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerHex_BlockEnd(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -911,9 +911,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, style: ?*i32 ```
-    pub fn QBaseBlockEnd(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerHex_QBaseBlockEnd(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerHex, style: *i32 ```
+    pub fn QBaseBlockEnd(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerHex_QBaseBlockEnd(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -923,8 +923,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: ?*i32) callconv(.c) []const u8 ```
-    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) []const u8 ```
+    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
         qtc.QsciLexerHex_OnBlockEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -967,9 +967,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, style: ?*i32 ```
-    pub fn BlockStart(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerHex_BlockStart(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerHex, style: *i32 ```
+    pub fn BlockStart(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerHex_BlockStart(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -979,9 +979,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, style: ?*i32 ```
-    pub fn QBaseBlockStart(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerHex_QBaseBlockStart(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerHex, style: *i32 ```
+    pub fn QBaseBlockStart(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerHex_QBaseBlockStart(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -991,8 +991,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: ?*i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStart(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) []const u8 ```
+    pub fn OnBlockStart(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
         qtc.QsciLexerHex_OnBlockStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1002,9 +1002,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, style: ?*i32 ```
-    pub fn BlockStartKeyword(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerHex_BlockStartKeyword(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerHex, style: *i32 ```
+    pub fn BlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerHex_BlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1014,9 +1014,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, style: ?*i32 ```
-    pub fn QBaseBlockStartKeyword(self: ?*anyopaque, style: ?*anyopaque) []const u8 {
-        const _ret = qtc.QsciLexerHex_QBaseBlockStartKeyword(@ptrCast(self), @intCast(style));
+    /// ``` self: QtC.QsciLexerHex, style: *i32 ```
+    pub fn QBaseBlockStartKeyword(self: ?*anyopaque, style: *i32) []const u8 {
+        const _ret = qtc.QsciLexerHex_QBaseBlockStartKeyword(@ptrCast(self), @ptrCast(style));
         return std.mem.span(_ret);
     }
 
@@ -1026,8 +1026,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: ?*i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) []const u8 ```
+    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
         qtc.QsciLexerHex_OnBlockStartKeyword(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

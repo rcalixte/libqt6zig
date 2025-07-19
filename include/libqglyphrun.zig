@@ -49,9 +49,9 @@ pub const qglyphrun = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#setRawData)
     ///
-    /// ``` self: QtC.QGlyphRun, glyphIndexArray: ?*u32, glyphPositionArray: QtC.QPointF, size: i32 ```
-    pub fn SetRawData(self: ?*anyopaque, glyphIndexArray: ?*anyopaque, glyphPositionArray: ?*anyopaque, size: i32) void {
-        qtc.QGlyphRun_SetRawData(@ptrCast(self), @intCast(glyphIndexArray), @ptrCast(glyphPositionArray), @intCast(size));
+    /// ``` self: QtC.QGlyphRun, glyphIndexArray: *const u32, glyphPositionArray: QtC.QPointF, size: i32 ```
+    pub fn SetRawData(self: ?*anyopaque, glyphIndexArray: *const u32, glyphPositionArray: ?*anyopaque, size: i32) void {
+        qtc.QGlyphRun_SetRawData(@ptrCast(self), @ptrCast(glyphIndexArray), @ptrCast(glyphPositionArray), @intCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#glyphIndexes)

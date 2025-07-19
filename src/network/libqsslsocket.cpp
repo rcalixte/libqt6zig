@@ -453,7 +453,7 @@ void QSslSocket_Connect_SslErrors(QSslSocket* self, intptr_t slot) {
     void (*slotFunc)(QSslSocket*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QSslSocket*, libqt_list /* of QSslError* */)>(slot);
     QSslSocket::connect(self, &QSslSocket::sslErrors, [self, slotFunc](const QList<QSslError>& errors) {
         const QList<QSslError>& errors_ret = errors;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * errors_ret.size()));
         for (size_t i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);

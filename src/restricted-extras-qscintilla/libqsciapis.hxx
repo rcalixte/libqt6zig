@@ -148,7 +148,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
             QsciAPIs::updateAutoCompletionList(context, list);
         } else if (qsciapis_updateautocompletionlist_callback != nullptr) {
             const QList<QString>& context_ret = context;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * context_ret.size()));
             for (size_t i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];
@@ -219,7 +219,7 @@ class VirtualQsciAPIs final : public QsciAPIs {
             return QsciAPIs::callTips(context, commas, style, shifts);
         } else if (qsciapis_calltips_callback != nullptr) {
             const QList<QString>& context_ret = context;
-            // Convert const QList<> from C++ memory to manually-managed C memory
+            // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * context_ret.size()));
             for (size_t i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];

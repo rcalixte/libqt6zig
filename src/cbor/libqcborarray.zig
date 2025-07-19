@@ -359,11 +359,34 @@ pub const qcborarray = struct {
         return qtc.QCborArray_FromStringList(list_list);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#fromVariantList)
+    ///
+    /// ``` list: []QtC.QVariant ```
+    pub fn FromVariantList(list: []QtC.QVariant) QtC.QCborArray {
+        const list_list = qtc.struct_libqt_list{
+            .len = list.len,
+            .data = @ptrCast(list.ptr),
+        };
+        return qtc.QCborArray_FromVariantList(list_list);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#fromJsonArray)
     ///
     /// ``` array: QtC.QJsonArray ```
     pub fn FromJsonArray(array: ?*anyopaque) QtC.QCborArray {
         return qtc.QCborArray_FromJsonArray(@ptrCast(array));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#toVariantList)
+    ///
+    /// ``` self: QtC.QCborArray, allocator: std.mem.Allocator ```
+    pub fn ToVariantList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
+        const _arr: qtc.struct_libqt_list = qtc.QCborArray_ToVariantList(@ptrCast(self));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qcborarray.ToVariantList: Memory allocation failed");
+        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data[0.._arr.len]);
+        return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborarray.html#toJsonArray)

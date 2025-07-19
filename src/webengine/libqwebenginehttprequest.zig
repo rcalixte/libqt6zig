@@ -29,9 +29,9 @@ pub const qwebenginehttprequest = struct {
 
     /// New4 constructs a new QWebEngineHttpRequest object.
     ///
-    /// ``` url: QtC.QUrl, method: ?*qwebenginehttprequest_enums.Method ```
-    pub fn New4(url: ?*anyopaque, method: ?*anyopaque) QtC.QWebEngineHttpRequest {
-        return qtc.QWebEngineHttpRequest_new4(@ptrCast(url), @intCast(method));
+    /// ``` url: QtC.QUrl, method: *const qwebenginehttprequest_enums.Method ```
+    pub fn New4(url: ?*anyopaque, method: *const i64) QtC.QWebEngineHttpRequest {
+        return qtc.QWebEngineHttpRequest_new4(@ptrCast(url), @ptrCast(method));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#operator-eq)

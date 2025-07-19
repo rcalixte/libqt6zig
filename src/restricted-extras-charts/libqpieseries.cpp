@@ -207,7 +207,7 @@ void QPieSeries_Connect_Added(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, libqt_list /* of QPieSlice* */) = reinterpret_cast<void (*)(QPieSeries*, libqt_list /* of QPieSlice* */)>(slot);
     QPieSeries::connect(self, &QPieSeries::added, [self, slotFunc](const QList<QPieSlice*>& slices) {
         const QList<QPieSlice*>& slices_ret = slices;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * slices_ret.size()));
         for (size_t i = 0; i < slices_ret.size(); ++i) {
             slices_arr[i] = slices_ret[i];
@@ -234,7 +234,7 @@ void QPieSeries_Connect_Removed(QPieSeries* self, intptr_t slot) {
     void (*slotFunc)(QPieSeries*, libqt_list /* of QPieSlice* */) = reinterpret_cast<void (*)(QPieSeries*, libqt_list /* of QPieSlice* */)>(slot);
     QPieSeries::connect(self, &QPieSeries::removed, [self, slotFunc](const QList<QPieSlice*>& slices) {
         const QList<QPieSlice*>& slices_ret = slices;
-        // Convert const QList<> from C++ memory to manually-managed C memory
+        // Convert QList<> from C++ memory to manually-managed C memory
         QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * slices_ret.size()));
         for (size_t i = 0; i < slices_ret.size(); ++i) {
             slices_arr[i] = slices_ret[i];
