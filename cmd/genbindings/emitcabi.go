@@ -28,13 +28,13 @@ func (p CppParameter) RenderTypeCabi() string {
 		p.ParameterType == "QAnyStringView" {
 		return "libqt_string"
 
-	} else if inner, ok := p.QListOf(); ok {
+	} else if inner, _, ok := p.QListOf(); ok {
 		return "libqt_list " + cppComment("of "+inner.RenderTypeCabi())
 
 	} else if inner, ok := p.QSetOf(); ok {
 		return "libqt_list " + cppComment("set of "+inner.RenderTypeCabi())
 
-	} else if inner1, inner2, ok := p.QMapOf(); ok {
+	} else if inner1, inner2, _, ok := p.QMapOf(); ok {
 		return "libqt_map " + cppComment("of "+inner1.RenderTypeCabi()+" to "+inner2.RenderTypeCabi())
 
 	} else if inner1, inner2, ok := p.QPairOf(); ok {
@@ -248,7 +248,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 		preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ".data, " + p.ParameterName + ".len);\n"
 		return preamble, p.ParameterType + "(" + nameprefix + "_QString)"
 
-	} else if listType, ok := p.QListOf(); ok {
+	} else if listType, containerType, ok := p.QListOf(); ok {
 
 		// QSpan technically doesn't own the data but we use QList because we already
 		// have the structure in place to support the conversion with a patch for
@@ -261,7 +261,6 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 			containerQtType = strings.Replace(containerQtType, "const ", "", 1)
 			listType.Const = false
 		}
-		containerType := strings.Split(paramType, "<")[0]
 		containerType = strings.ReplaceAll(containerType, "::", "__")
 
 		preamble += indent + containerQtType + " " + nameprefix + "_" + containerType + ";\n"
@@ -284,7 +283,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 			return preamble, nameprefix + "_" + containerType
 		}
 
-	} else if kType, vType, ok := p.QMapOf(); ok {
+	} else if kType, vType, _, ok := p.QMapOf(); ok {
 		preamble += indent + p.GetQtCppType().ParameterType + " " + nameprefix + "_QMap;\n"
 
 		// This container may be a QMap or a QHash
@@ -472,7 +471,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + assignExpression + namePrefix + "_str;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
-	} else if t, ok := p.QListOf(); ok {
+	} else if t, containerType, ok := p.QListOf(); ok {
 
 		// In some cases rvalue is a function call and the temporary
 		// is necessary; in some cases it's a literal and the temporary is
@@ -481,19 +480,18 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		// TODO Detect safe cases where this can be optimized
 
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
-		containerType := strings.Split(p.RenderTypeQtCpp(), "<")[0]
 
 		afterCall += indent + "// Convert " + containerType + "<> from C++ memory to manually-managed C memory\n"
-		afterCall += indent + "" + t.RenderTypeCabi() + "* " + namePrefix + "_arr = static_cast<" + t.RenderTypeCabi() + "*>(malloc(sizeof(" + t.RenderTypeCabi() + ") * " + namePrefix + "_ret.size()));\n"
+		afterCall += indent + t.RenderTypeCabi() + "* " + namePrefix + "_arr = static_cast<" + t.RenderTypeCabi() + "*>(malloc(sizeof(" + t.RenderTypeCabi() + ") * " + namePrefix + "_ret.size()));\n"
 		afterCall += indent + "for (size_t i = 0; i < " + namePrefix + "_ret.size(); ++i) {\n"
 		afterCall += emitAssignCppToCabi(indent+"\t"+namePrefix+"_arr[i] = ", t, namePrefix+"_ret[i]")
 		afterCall += indent + "}\n"
 
 		afterCall += indent + "libqt_list " + namePrefix + "_out;\n"
-		afterCall += indent + "" + namePrefix + "_out.len = " + namePrefix + "_ret.size();\n"
-		afterCall += indent + "" + namePrefix + "_out.data = static_cast<void*>(" + namePrefix + "_arr);\n"
+		afterCall += indent + namePrefix + "_out.len = " + namePrefix + "_ret.size();\n"
+		afterCall += indent + namePrefix + "_out.data = static_cast<void*>(" + namePrefix + "_arr);\n"
 
-		afterCall += indent + assignExpression + "" + namePrefix + "_out;\n"
+		afterCall += indent + assignExpression + namePrefix + "_out;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
 	} else if t, ok := p.QSetOf(); ok {
@@ -501,7 +499,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		afterCall += indent + "// Convert QSet<> from C++ memory to manually-managed C memory\n"
-		afterCall += indent + "" + t.RenderTypeCabi() + "* " + namePrefix + "_arr = static_cast<" + t.RenderTypeCabi() + "*>(malloc(sizeof(" + t.RenderTypeCabi() + ") * " + namePrefix + "_ret.size()));\n"
+		afterCall += indent + t.RenderTypeCabi() + "* " + namePrefix + "_arr = static_cast<" + t.RenderTypeCabi() + "*>(malloc(sizeof(" + t.RenderTypeCabi() + ") * " + namePrefix + "_ret.size()));\n"
 		afterCall += indent + "int " + namePrefix + "_ctr = 0;\n"
 		afterCall += indent + "QSetIterator<" + t.RenderTypeQtCpp() + "> " + namePrefix + "_itr(" + namePrefix + "_ret);\n"
 		afterCall += indent + "while (" + namePrefix + "_itr.hasNext()) {\n"
@@ -509,24 +507,23 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + "}\n"
 
 		afterCall += indent + "libqt_list " + namePrefix + "_out;\n"
-		afterCall += indent + "" + namePrefix + "_out.len = " + namePrefix + "_ret.size();\n"
-		afterCall += indent + "" + namePrefix + "_out.data = static_cast<void*>(" + namePrefix + "_arr);\n"
+		afterCall += indent + namePrefix + "_out.len = " + namePrefix + "_ret.size();\n"
+		afterCall += indent + namePrefix + "_out.data = static_cast<void*>(" + namePrefix + "_arr);\n"
 
-		afterCall += indent + assignExpression + "" + namePrefix + "_out;\n"
+		afterCall += indent + assignExpression + namePrefix + "_out;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
-	} else if kType, vType, ok := p.QMapOf(); ok {
+	} else if kType, vType, containerType, ok := p.QMapOf(); ok {
 
 		// QMap<K,V>
 		kTypeC := kType.RenderTypeCabi()
 		vTypeC := vType.RenderTypeCabi()
 
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
-		containerType := strings.Split(p.RenderTypeQtCpp(), "<")[0]
 
 		afterCall += indent + "// Convert " + containerType + "<> from C++ memory to manually-managed C memory\n"
-		afterCall += indent + "" + kTypeC + "* " + namePrefix + "_karr = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ") * " + namePrefix + "_ret.size()));\n"
-		afterCall += indent + "" + vTypeC + "* " + namePrefix + "_varr = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ") * " + namePrefix + "_ret.size()));\n"
+		afterCall += indent + kTypeC + "* " + namePrefix + "_karr = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ") * " + namePrefix + "_ret.size()));\n"
+		afterCall += indent + vTypeC + "* " + namePrefix + "_varr = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ") * " + namePrefix + "_ret.size()));\n"
 
 		afterCall += indent + "int " + namePrefix + "_ctr = 0;\n"
 		afterCall += indent + "for (auto " + namePrefix + "_itr = " + namePrefix + "_ret.keyValueBegin(); " + namePrefix + "_itr != " + namePrefix + "_ret.keyValueEnd(); ++" + namePrefix + "_itr) {\n"
@@ -537,11 +534,11 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + "}\n"
 
 		afterCall += indent + "libqt_map " + namePrefix + "_out;\n"
-		afterCall += indent + "" + namePrefix + "_out.len = " + namePrefix + "_ret.size();\n"
-		afterCall += indent + "" + namePrefix + "_out.keys = static_cast<void*>(" + namePrefix + "_karr);\n"
-		afterCall += indent + "" + namePrefix + "_out.values = static_cast<void*>(" + namePrefix + "_varr);\n"
+		afterCall += indent + namePrefix + "_out.len = " + namePrefix + "_ret.size();\n"
+		afterCall += indent + namePrefix + "_out.keys = static_cast<void*>(" + namePrefix + "_karr);\n"
+		afterCall += indent + namePrefix + "_out.values = static_cast<void*>(" + namePrefix + "_varr);\n"
 
-		afterCall += indent + assignExpression + "" + namePrefix + "_out;\n"
+		afterCall += indent + assignExpression + namePrefix + "_out;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
 	} else if kType, vType, ok := p.QPairOf(); ok {
@@ -553,16 +550,16 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		afterCall += indent + "// Convert QPair<> from C++ memory to manually-managed C memory\n"
-		afterCall += indent + "" + kTypeC + "* " + namePrefix + "_first = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ")));\n"
-		afterCall += indent + "" + vTypeC + "* " + namePrefix + "_second = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ")));\n"
+		afterCall += indent + kTypeC + "* " + namePrefix + "_first = static_cast<" + kTypeC + "*>(malloc(sizeof(" + kTypeC + ")));\n"
+		afterCall += indent + vTypeC + "* " + namePrefix + "_second = static_cast<" + vTypeC + "*>(malloc(sizeof(" + vTypeC + ")));\n"
 
 		afterCall += emitAssignCppToCabi(indent+"*"+namePrefix+"_first = ", kType, namePrefix+"_ret.first")
 		afterCall += emitAssignCppToCabi(indent+"*"+namePrefix+"_second = ", vType, namePrefix+"_ret.second")
 
 		afterCall += indent + "libqt_pair " + namePrefix + "_out;\n"
-		afterCall += indent + "" + namePrefix + "_out.first = static_cast<void*>(" + namePrefix + "_first);\n"
-		afterCall += indent + "" + namePrefix + "_out.second = static_cast<void*>(" + namePrefix + "_second);\n"
-		afterCall += indent + assignExpression + "" + namePrefix + "_out;\n"
+		afterCall += indent + namePrefix + "_out.first = static_cast<void*>(" + namePrefix + "_first);\n"
+		afterCall += indent + namePrefix + "_out.second = static_cast<void*>(" + namePrefix + "_second);\n"
+		afterCall += indent + assignExpression + namePrefix + "_out;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
 	} else if p.QtClassType() && p.ByRef {
@@ -582,9 +579,9 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 				nonConst.ByRef = false
 				nonConst.Pointer = true
 				nonConst.PointerCount = 1
-				afterCall += indent + "" + assignExpression + "const_cast<" + nonConst.RenderTypeQtCpp() + ">(&" + namePrefix + "_ret);\n"
+				afterCall += indent + assignExpression + "const_cast<" + nonConst.RenderTypeQtCpp() + ">(&" + namePrefix + "_ret);\n"
 			} else {
-				afterCall += indent + "" + assignExpression + "&" + namePrefix + "_ret;\n"
+				afterCall += indent + assignExpression + "&" + namePrefix + "_ret;\n"
 			}
 		}
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
@@ -600,12 +597,12 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		if p.QtCppOriginalType != nil && p.QtCppOriginalType.Const != p.Const {
-			afterCall += indent + "" + assignExpression + "const_cast<" + p.RenderTypeCabi() + ">(static_cast<" + p.RenderTypeIntermediateCpp() + ">(" + namePrefix + "_ret));\n"
+			afterCall += indent + assignExpression + "const_cast<" + p.RenderTypeCabi() + ">(static_cast<" + p.RenderTypeIntermediateCpp() + ">(" + namePrefix + "_ret));\n"
 		} else if p.QtCppOriginalType != nil && p.QtCppOriginalType.ParameterType == "qintptr" {
 			// Hard int cast
-			afterCall += indent + "" + assignExpression + "(" + p.RenderTypeCabi() + ")(" + namePrefix + "_ret);\n"
+			afterCall += indent + assignExpression + "(" + p.RenderTypeCabi() + ")(" + namePrefix + "_ret);\n"
 		} else {
-			afterCall += indent + "" + assignExpression + "static_cast<" + p.RenderTypeCabi() + ">(" + rvalue + ");\n"
+			afterCall += indent + assignExpression + "static_cast<" + p.RenderTypeCabi() + ">(" + rvalue + ");\n"
 			return indent + afterCall
 		}
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
@@ -636,13 +633,11 @@ func getReferencedTypes(src *CppParsedHeader) []string {
 		if p.QtClassType() {
 			foundTypes[p.ParameterType] = struct{}{}
 		}
-		if t, ok := p.QListOf(); ok {
-			containerType := strings.Split(p.ParameterType, "<")[0]
+		if t, containerType, ok := p.QListOf(); ok {
 			foundTypes[containerType] = struct{}{}
 			maybeAddType(t)
 		}
-		if kType, vType, ok := p.QMapOf(); ok {
-			containerType := strings.Split(p.ParameterType, "<")[0]
+		if kType, vType, containerType, ok := p.QMapOf(); ok {
 			foundTypes[containerType] = struct{}{}
 			maybeAddType(kType)
 			maybeAddType(vType)
@@ -1554,8 +1549,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 				nonConstCallTarget := "const_cast<" + methodPrefixName + "*>(self)->" + m.CppCallTarget() + "(" + forwarding + ")"
 
-				ret.WriteString("" +
-					m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n" +
+				ret.WriteString(m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n" +
 					preamble +
 					"// This method was changed from const to non-const in Qt " + *m.BecomesNonConstInVersion + "\n" +
 					"#if QT_VERSION < QT_VERSION_CHECK(" + strings.ReplaceAll(*m.BecomesNonConstInVersion, `.`, `,`) + ",0)\n" +
@@ -1569,8 +1563,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 			} else if m.ReturnType.BecomesConstInVersion != nil {
 
-				ret.WriteString("" +
-					"// This method's return type was changed from non-const to const in Qt " + *m.ReturnType.BecomesConstInVersion + "\n" +
+				ret.WriteString("// This method's return type was changed from non-const to const in Qt " + *m.ReturnType.BecomesConstInVersion + "\n" +
 					"#if QT_VERSION >= QT_VERSION_CHECK(" + strings.ReplaceAll(*m.ReturnType.BecomesConstInVersion, `.`, `,`) + ",0)\n" +
 					"const " + m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n" +
 					"#else\n" +
