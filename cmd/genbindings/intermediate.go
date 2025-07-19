@@ -141,29 +141,29 @@ func IsKnownTypeDef(className string) bool {
 	return ok
 }
 
-func (p CppParameter) QListOf() (CppParameter, bool) {
+func (p CppParameter) QListOf() (CppParameter, string, bool) {
 	if strings.HasPrefix(p.ParameterType, "QList<") && strings.HasSuffix(p.ParameterType, `>`) {
 		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_lv"
-		return ret, true
+		return ret, "QList", true
 	}
 
 	if strings.HasPrefix(p.ParameterType, "QVector<") && strings.HasSuffix(p.ParameterType, `>`) {
 		ret := parseSingleTypeString(p.ParameterType[8 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_vv"
-		return ret, true
+		return ret, "QVector", true
 	}
 
 	if strings.HasPrefix(p.ParameterType, "QSpan<") && strings.HasSuffix(p.ParameterType, `>`) {
 		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_sv"
-		return ret, true
+		return ret, "QSpan", true
 	}
 
-	return CppParameter{}, false
+	return CppParameter{}, "", false
 }
 
-func (p CppParameter) QMapOf() (CppParameter, CppParameter, bool) {
+func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 	// n.b. Need to block QMap<k,v>::const_terator
 
 	if strings.HasPrefix(p.ParameterType, `QMap<`) && strings.HasSuffix(p.ParameterType, `>`) {
@@ -176,7 +176,7 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, bool) {
 		first.ParameterName = p.ParameterName + "_mapkey"
 		second := parseSingleTypeString(interior[1])
 		second.ParameterName = p.ParameterName + "_mapval"
-		return first, second, true
+		return first, second, "QMap", true
 	}
 
 	if strings.HasPrefix(p.ParameterType, `QHash<`) && strings.HasSuffix(p.ParameterType, `>`) {
@@ -189,10 +189,10 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, bool) {
 		first.ParameterName = p.ParameterName + "_hashkey"
 		second := parseSingleTypeString(interior[1])
 		second.ParameterName = p.ParameterName + "_hashval"
-		return first, second, true
+		return first, second, "QHash", true
 	}
 
-	return CppParameter{}, CppParameter{}, false
+	return CppParameter{}, CppParameter{}, "", false
 }
 
 func (p CppParameter) QPairOf() (CppParameter, CppParameter, bool) {
