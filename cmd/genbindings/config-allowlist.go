@@ -368,7 +368,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 			return err
 		}
 	}
-	if t, ok := p.QListOf(); ok {
+	if t, _, ok := p.QListOf(); ok {
 		if err := AllowType(t, isReturnType); err != nil { // e.g. QGradientStops is a QVector<> (OK) of QGradientStop (not OK)
 			return err
 		}
@@ -379,7 +379,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 			return ErrTooComplex
 		}
 	}
-	if kType, vType, ok := p.QMapOf(); ok {
+	if kType, vType, _, ok := p.QMapOf(); ok {
 		if err := AllowType(kType, isReturnType); err != nil {
 			return err
 		}
@@ -528,7 +528,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 
 	switch p.ParameterType {
 	case
-		"QList<QVariant>",       // e.g. QVariant constructor - this has a deleted copy-constructor so we can't get it over the CABI boundary by value
 		"QPolygon", "QPolygonF", // QPolygon extends a template type
 		"QGenericMatrix", "QMatrix3x3", // extends a template type
 		"QLatin1String", "QStringView", // e.g. QColor constructors and QColor::SetNamedColor() overloads. These are usually optional alternatives to QString
