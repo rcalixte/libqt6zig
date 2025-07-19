@@ -49,18 +49,14 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 		p.ParameterType = fd.Typedef.Alias
 	}
 
-	if t, ok := p.QListOf(); ok {
+	if t, containerType, ok := p.QListOf(); ok {
 		t2 := applyTypedefs(t, className) // recursive
 
 		// Wipe out so that RenderTypeQtCpp() does not see it
 		t2.QtCppOriginalType = nil
 
-		// QListOf returns for either QList<, QVector<, or QSpan<
-		// Patch it up to the first < position and last character
-		bpos := strings.Index(p.ParameterType, `<`)
-
 		tType := resolveStructType(t2.RenderTypeQtCpp(), className, "")
-		p.ParameterType = p.ParameterType[0:bpos] + `<` + tType + `>`
+		p.ParameterType = containerType + "<" + tType + ">"
 
 		if p.QtCppOriginalType == nil {
 			tmp := p // copy
@@ -72,19 +68,17 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 			}
 		}
 
-	} else if kType, vType, ok := p.QMapOf(); ok {
+	} else if kType, vType, containerType, ok := p.QMapOf(); ok {
 		kType2 := applyTypedefs(kType, className)
 		kType2.QtCppOriginalType = nil
 
 		vType2 := applyTypedefs(vType, className)
 		vType2.QtCppOriginalType = nil
 
-		bpos := strings.Index(p.ParameterType, `<`)
-
 		k2 := resolveStructType(kType2.RenderTypeQtCpp(), className, namespace)
 		v2 := resolveStructType(vType2.RenderTypeQtCpp(), className, namespace)
 
-		p.ParameterType = p.ParameterType[0:bpos] + `<` + k2 + `, ` + v2 + `>`
+		p.ParameterType = containerType + `<` + k2 + `, ` + v2 + `>`
 
 		if p.QtCppOriginalType == nil {
 			tmp := p // copy
