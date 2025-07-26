@@ -623,7 +623,7 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
-    /// ``` self: QtC.QAbstractItemDelegate, slot: fn (self: QtC.QAbstractItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
     pub fn OnCommitData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -641,7 +641,7 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.QAbstractItemDelegate, slot: fn (self: QtC.QAbstractItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
     pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -659,7 +659,7 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
-    /// ``` self: QtC.QAbstractItemDelegate, slot: fn (self: QtC.QAbstractItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnSizeHintChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -677,7 +677,7 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.QAbstractItemDelegate, slot: fn (self: QtC.QAbstractItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
     pub fn OnCloseEditor2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -970,7 +970,7 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1054,7 +1054,7 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1506,7 +1506,7 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

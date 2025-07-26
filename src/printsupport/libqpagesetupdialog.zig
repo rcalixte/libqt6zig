@@ -222,7 +222,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#finished)
     ///
-    /// ``` self: QtC.QDialog, slot: fn (self: QtC.QDialog, result: i32) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog, result: i32) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -240,7 +240,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accepted)
     ///
-    /// ``` self: QtC.QDialog, slot: fn (self: QtC.QDialog) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog) callconv(.c) void ```
     pub fn OnAccepted(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -258,7 +258,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#rejected)
     ///
-    /// ``` self: QtC.QDialog, slot: fn (self: QtC.QDialog) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog) callconv(.c) void ```
     pub fn OnRejected(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2620,7 +2620,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2638,7 +2638,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2660,7 +2660,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2678,7 +2678,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3115,7 +3115,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3199,7 +3199,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5350,7 +5350,7 @@ pub const qpagesetupdialog = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QPageSetupDialog, slot: fn (self: QtC.QPageSetupDialog, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

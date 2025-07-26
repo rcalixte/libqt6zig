@@ -689,7 +689,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox) callconv(.c) void ```
     pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3051,7 +3051,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3069,7 +3069,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3091,7 +3091,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3109,7 +3109,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3546,7 +3546,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3630,7 +3630,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5814,7 +5814,7 @@ pub const qspinbox = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6484,7 +6484,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox) callconv(.c) void ```
     pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -8846,7 +8846,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -8864,7 +8864,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -8886,7 +8886,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -8904,7 +8904,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9341,7 +9341,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9425,7 +9425,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -11642,7 +11642,7 @@ pub const qdoublespinbox = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

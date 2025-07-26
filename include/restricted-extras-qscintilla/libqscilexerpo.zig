@@ -371,7 +371,7 @@ pub const qscilexerpo = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, c: QtC.QColor, style: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -389,7 +389,7 @@ pub const qscilexerpo = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, eolfilled: bool, style: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO, eolfilled: bool, style: i32) callconv(.c) void ```
     pub fn OnEolFillChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -407,7 +407,7 @@ pub const qscilexerpo = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, f: QtC.QFont, style: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO, f: QtC.QFont, style: i32) callconv(.c) void ```
     pub fn OnFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -425,7 +425,7 @@ pub const qscilexerpo = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, c: QtC.QColor, style: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO, c: QtC.QColor, style: i32) callconv(.c) void ```
     pub fn OnPaperChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -445,7 +445,7 @@ pub const qscilexerpo = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, prop: []const u8, val: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO, prop: []const u8, val: []const u8) callconv(.c) void ```
     pub fn OnPropertyChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, []const u8) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -758,7 +758,7 @@ pub const qscilexerpo = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -842,7 +842,7 @@ pub const qscilexerpo = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2276,7 +2276,7 @@ pub const qscilexerpo = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QsciLexerPO, slot: fn (self: QtC.QsciLexerPO, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

@@ -317,7 +317,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnParentChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -335,7 +335,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -353,7 +353,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -371,7 +371,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -389,7 +389,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnXChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -407,7 +407,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnYChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -425,7 +425,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnZChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -443,7 +443,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnRotationChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -461,7 +461,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnScaleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -479,7 +479,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnChildrenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -497,7 +497,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -515,7 +515,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -817,7 +817,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -901,7 +901,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3916,7 +3916,7 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

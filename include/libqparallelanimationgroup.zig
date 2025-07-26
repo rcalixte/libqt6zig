@@ -391,7 +391,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#finished)
     ///
-    /// ``` self: QtC.QAbstractAnimation, slot: fn (self: QtC.QAbstractAnimation) callconv(.c) void ```
+    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QParallelAnimationGroup) callconv(.c) void ```
     pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -409,7 +409,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
-    /// ``` self: QtC.QAbstractAnimation, slot: fn (self: QtC.QAbstractAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
+    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QParallelAnimationGroup, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -427,7 +427,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#currentLoopChanged)
     ///
-    /// ``` self: QtC.QAbstractAnimation, slot: fn (self: QtC.QAbstractAnimation, currentLoop: i32) callconv(.c) void ```
+    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QParallelAnimationGroup, currentLoop: i32) callconv(.c) void ```
     pub fn OnCurrentLoopChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -445,7 +445,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
-    /// ``` self: QtC.QAbstractAnimation, slot: fn (self: QtC.QAbstractAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void ```
+    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QParallelAnimationGroup, param1: qabstractanimation_enums.Direction) callconv(.c) void ```
     pub fn OnDirectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -801,7 +801,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QParallelAnimationGroup) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -885,7 +885,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QParallelAnimationGroup, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1228,7 +1228,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QParallelAnimationGroup, slot: fn (self: QtC.QParallelAnimationGroup, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

@@ -585,7 +585,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
     pub fn OnParent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
         qtc.QAbstractItemModel_OnParent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -616,7 +616,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex) callconv(.c) i32 ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex) callconv(.c) i32 ```
     pub fn OnColumnCount(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractItemModel_OnColumnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -647,7 +647,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex) callconv(.c) bool ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex) callconv(.c) bool ```
     pub fn OnHasChildren(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -739,7 +739,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -757,7 +757,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
     pub fn OnHeaderDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -775,7 +775,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel) callconv(.c) void ```
     pub fn OnLayoutChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -793,7 +793,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -869,7 +869,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32) callconv(.c) void ```
     pub fn OnDataChanged3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, []i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -891,7 +891,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parents: []QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutChanged1(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -913,7 +913,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex, i64) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -935,7 +935,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parents: []QtC.QPersistentModelIndex) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -957,7 +957,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
     pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex, i64) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1250,7 +1250,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1325,7 +1325,7 @@ pub const qstringlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3164,7 +3164,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3175,7 +3175,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnRowsInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3186,7 +3186,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3197,7 +3197,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnRowsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3208,7 +3208,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3219,7 +3219,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnColumnsInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3230,7 +3230,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3241,7 +3241,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
     pub fn OnColumnsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3252,7 +3252,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel) callconv(.c) void ```
     pub fn OnModelAboutToBeReset(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3263,7 +3263,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel) callconv(.c) void ```
     pub fn OnModelReset(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3274,7 +3274,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
     pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3285,7 +3285,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
     pub fn OnRowsMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3296,7 +3296,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
     pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3307,7 +3307,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QAbstractItemModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
     pub fn OnColumnsMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3318,7 +3318,7 @@ pub const qstringlistmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QStringListModel, slot: fn (self: QtC.QStringListModel, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

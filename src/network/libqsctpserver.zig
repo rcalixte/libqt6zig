@@ -316,7 +316,7 @@ pub const qsctpserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtcpserver.html#newConnection)
     ///
-    /// ``` self: QtC.QTcpServer, slot: fn (self: QtC.QTcpServer) callconv(.c) void ```
+    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QSctpServer) callconv(.c) void ```
     pub fn OnNewConnection(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTcpServer_Connect_NewConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -334,7 +334,7 @@ pub const qsctpserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
     ///
-    /// ``` self: QtC.QTcpServer, slot: fn (self: QtC.QTcpServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void ```
+    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QSctpServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void ```
     pub fn OnAcceptError(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -663,7 +663,7 @@ pub const qsctpserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QSctpServer) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -747,7 +747,7 @@ pub const qsctpserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QSctpServer, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1222,7 +1222,7 @@ pub const qsctpserver = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QTcpServer) callconv(.c) void ```
+    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QSctpServer) callconv(.c) void ```
     pub fn OnPendingConnectionAvailable(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QTcpServer_Connect_PendingConnectionAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1233,7 +1233,7 @@ pub const qsctpserver = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSctpServer, slot: fn (self: QtC.QSctpServer, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

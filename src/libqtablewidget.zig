@@ -1561,7 +1561,7 @@ pub const qtablewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTableView, slot: fn (self: QtC.QTableView, model: QtC.QAbstractItemModel) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, model: QtC.QAbstractItemModel) callconv(.c) void ```
     pub fn OnSetModel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QTableView_OnSetModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2427,7 +2427,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2445,7 +2445,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2463,7 +2463,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2481,7 +2481,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2499,7 +2499,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, index: QtC.QModelIndex) callconv(.c) void ```
     pub fn OnEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2517,7 +2517,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget) callconv(.c) void ```
     pub fn OnViewportEntered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2535,7 +2535,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, size: QtC.QSize) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, size: QtC.QSize) callconv(.c) void ```
     pub fn OnIconSizeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5163,7 +5163,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5181,7 +5181,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5203,7 +5203,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5221,7 +5221,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5658,7 +5658,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5742,7 +5742,7 @@ pub const qtablewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9800,7 +9800,7 @@ pub const qtablewidget = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QTableWidget, slot: fn (self: QtC.QTableWidget, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

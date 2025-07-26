@@ -651,7 +651,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -669,7 +669,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice, channel: i32) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -687,7 +687,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice, bytes: i64) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -705,7 +705,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice, channel: i32, bytes: i64) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -723,7 +723,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -741,7 +741,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1047,7 +1047,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1131,7 +1131,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2146,7 +2146,7 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

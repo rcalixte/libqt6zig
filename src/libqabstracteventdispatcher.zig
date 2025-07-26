@@ -550,7 +550,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -634,7 +634,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -645,7 +645,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -919,7 +919,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
     pub fn OnAboutToBlock(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractEventDispatcher_Connect_AboutToBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -937,7 +937,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
     pub fn OnAwake(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractEventDispatcher_Connect_Awake(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1257,7 +1257,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1341,7 +1341,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1352,7 +1352,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

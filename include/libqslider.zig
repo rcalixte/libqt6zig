@@ -566,7 +566,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractslider.html#valueChanged)
     ///
-    /// ``` self: QtC.QAbstractSlider, slot: fn (self: QtC.QAbstractSlider, value: i32) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, value: i32) callconv(.c) void ```
     pub fn OnValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -584,7 +584,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractslider.html#sliderPressed)
     ///
-    /// ``` self: QtC.QAbstractSlider, slot: fn (self: QtC.QAbstractSlider) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider) callconv(.c) void ```
     pub fn OnSliderPressed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -602,7 +602,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractslider.html#sliderMoved)
     ///
-    /// ``` self: QtC.QAbstractSlider, slot: fn (self: QtC.QAbstractSlider, position: i32) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, position: i32) callconv(.c) void ```
     pub fn OnSliderMoved(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -620,7 +620,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractslider.html#sliderReleased)
     ///
-    /// ``` self: QtC.QAbstractSlider, slot: fn (self: QtC.QAbstractSlider) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider) callconv(.c) void ```
     pub fn OnSliderReleased(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_SliderReleased(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -638,7 +638,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractslider.html#rangeChanged)
     ///
-    /// ``` self: QtC.QAbstractSlider, slot: fn (self: QtC.QAbstractSlider, min: i32, max: i32) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, min: i32, max: i32) callconv(.c) void ```
     pub fn OnRangeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_RangeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -656,7 +656,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractslider.html#actionTriggered)
     ///
-    /// ``` self: QtC.QAbstractSlider, slot: fn (self: QtC.QAbstractSlider, action: i32) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, action: i32) callconv(.c) void ```
     pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSlider_Connect_ActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3018,7 +3018,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3036,7 +3036,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3058,7 +3058,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3076,7 +3076,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3513,7 +3513,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3597,7 +3597,7 @@ pub const qslider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5484,7 +5484,7 @@ pub const qslider = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSlider, slot: fn (self: QtC.QSlider, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

@@ -792,7 +792,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction) callconv(.c) void ```
     pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -810,7 +810,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction, enabled: bool) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction, enabled: bool) callconv(.c) void ```
     pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -828,7 +828,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction, checkable: bool) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction, checkable: bool) callconv(.c) void ```
     pub fn OnCheckableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -846,7 +846,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -864,7 +864,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction) callconv(.c) void ```
     pub fn OnTriggered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -882,7 +882,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAction_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -900,7 +900,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction, param1: bool) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction, param1: bool) callconv(.c) void ```
     pub fn OnToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Toggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -927,7 +927,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.QAction, slot: fn (self: QtC.QAction, checked: bool) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction, checked: bool) callconv(.c) void ```
     pub fn OnTriggered1(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QAction_Connect_Triggered1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1220,7 +1220,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1304,7 +1304,7 @@ pub const qwidgetaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1614,7 +1614,7 @@ pub const qwidgetaction = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

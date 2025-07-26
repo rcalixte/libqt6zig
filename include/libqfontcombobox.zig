@@ -902,7 +902,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
     ///
-    /// ``` self: QtC.QComboBox, slot: fn (self: QtC.QComboBox, param1: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
     pub fn OnEditTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -920,7 +920,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#activated)
     ///
-    /// ``` self: QtC.QComboBox, slot: fn (self: QtC.QComboBox, index: i32) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, index: i32) callconv(.c) void ```
     pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -942,7 +942,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
     ///
-    /// ``` self: QtC.QComboBox, slot: fn (self: QtC.QComboBox, param1: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
     pub fn OnTextActivated(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -960,7 +960,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#highlighted)
     ///
-    /// ``` self: QtC.QComboBox, slot: fn (self: QtC.QComboBox, index: i32) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, index: i32) callconv(.c) void ```
     pub fn OnHighlighted(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -982,7 +982,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
     ///
-    /// ``` self: QtC.QComboBox, slot: fn (self: QtC.QComboBox, param1: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
     pub fn OnTextHighlighted(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1000,7 +1000,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentIndexChanged)
     ///
-    /// ``` self: QtC.QComboBox, slot: fn (self: QtC.QComboBox, index: i32) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, index: i32) callconv(.c) void ```
     pub fn OnCurrentIndexChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1022,7 +1022,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentTextChanged)
     ///
-    /// ``` self: QtC.QComboBox, slot: fn (self: QtC.QComboBox, param1: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
     pub fn OnCurrentTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3494,7 +3494,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3512,7 +3512,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3534,7 +3534,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3552,7 +3552,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3989,7 +3989,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -4073,7 +4073,7 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6158,7 +6158,7 @@ pub const qfontcombobox = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

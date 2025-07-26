@@ -1219,7 +1219,7 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit) callconv(.c) void ```
     pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3581,7 +3581,7 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3599,7 +3599,7 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3621,7 +3621,7 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3639,7 +3639,7 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -4076,7 +4076,7 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -4160,7 +4160,7 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5981,7 +5981,7 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6540,7 +6540,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
     pub fn OnDateTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6558,7 +6558,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#timeChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, time: QtC.QTime) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6576,7 +6576,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, date: QtC.QDate) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6867,7 +6867,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit) callconv(.c) void ```
     pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9229,7 +9229,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9247,7 +9247,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9269,7 +9269,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9287,7 +9287,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9724,7 +9724,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -9808,7 +9808,7 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -12189,7 +12189,7 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -12748,7 +12748,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
     pub fn OnDateTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -12766,7 +12766,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#timeChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, time: QtC.QTime) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, time: QtC.QTime) callconv(.c) void ```
     pub fn OnTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -12784,7 +12784,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, date: QtC.QDate) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, date: QtC.QDate) callconv(.c) void ```
     pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
         qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -13075,7 +13075,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit) callconv(.c) void ```
     pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -15437,7 +15437,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -15455,7 +15455,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, icon: QtC.QIcon) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, icon: QtC.QIcon) callconv(.c) void ```
     pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -15477,7 +15477,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, iconText: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, iconText: []const u8) callconv(.c) void ```
     pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -15495,7 +15495,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QWidget, slot: fn (self: QtC.QWidget, pos: QtC.QPoint) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, pos: QtC.QPoint) callconv(.c) void ```
     pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -15932,7 +15932,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -16016,7 +16016,7 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -18397,7 +18397,7 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

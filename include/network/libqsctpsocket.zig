@@ -445,7 +445,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#hostFound)
     ///
-    /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket) callconv(.c) void ```
     pub fn OnHostFound(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_HostFound(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -463,7 +463,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connected)
     ///
-    /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket) callconv(.c) void ```
     pub fn OnConnected(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_Connected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -481,7 +481,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#disconnected)
     ///
-    /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket) callconv(.c) void ```
     pub fn OnDisconnected(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_Disconnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -499,7 +499,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
-    /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void ```
     pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -517,7 +517,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
-    /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void ```
     pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -535,7 +535,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#proxyAuthenticationRequired)
     ///
-    /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, proxy: QtC.QNetworkProxy, authenticator: QtC.QAuthenticator) callconv(.c) void ```
     pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ProxyAuthenticationRequired(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -889,7 +889,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket) callconv(.c) void ```
     pub fn OnReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -907,7 +907,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice, channel: i32) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, channel: i32) callconv(.c) void ```
     pub fn OnChannelReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -925,7 +925,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice, bytes: i64) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, bytes: i64) callconv(.c) void ```
     pub fn OnBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -943,7 +943,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice, channel: i32, bytes: i64) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, channel: i32, bytes: i64) callconv(.c) void ```
     pub fn OnChannelBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -961,7 +961,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket) callconv(.c) void ```
     pub fn OnAboutToClose(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -979,7 +979,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.QIODevice, slot: fn (self: QtC.QIODevice) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket) callconv(.c) void ```
     pub fn OnReadChannelFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1285,7 +1285,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1369,7 +1369,7 @@ pub const qsctpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2860,7 +2860,7 @@ pub const qsctpsocket = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QSctpSocket, slot: fn (self: QtC.QSctpSocket, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

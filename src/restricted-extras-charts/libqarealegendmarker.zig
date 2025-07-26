@@ -289,7 +289,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#clicked)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -307,7 +307,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#hovered)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker, status: bool) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker, status: bool) callconv(.c) void ```
     pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -325,7 +325,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnLabelChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_LabelChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -343,7 +343,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnLabelBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_LabelBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -361,7 +361,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -379,7 +379,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnPenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_PenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -397,7 +397,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_BrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -415,7 +415,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -433,7 +433,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#shapeChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnShapeChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_ShapeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -726,7 +726,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -810,7 +810,7 @@ pub const qarealegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1186,7 +1186,7 @@ pub const qarealegendmarker = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QAreaLegendMarker, slot: fn (self: QtC.QAreaLegendMarker, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

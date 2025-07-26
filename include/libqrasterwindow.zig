@@ -1160,7 +1160,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, screen: QtC.QScreen) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, screen: QtC.QScreen) callconv(.c) void ```
     pub fn OnScreenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_ScreenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1178,7 +1178,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void ```
     pub fn OnModalityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QWindow_Connect_ModalityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1196,7 +1196,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void ```
     pub fn OnWindowStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1218,7 +1218,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, title: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, title: []const u8) callconv(.c) void ```
     pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1236,7 +1236,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#xChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnXChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_XChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1254,7 +1254,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#yChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnYChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_YChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1272,7 +1272,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1290,7 +1290,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_HeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1308,7 +1308,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMinimumWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1326,7 +1326,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMinimumHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MinimumHeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1344,7 +1344,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMaximumWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1362,7 +1362,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: i32) callconv(.c) void ```
     pub fn OnMaximumHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_MaximumHeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1380,7 +1380,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: bool) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, arg: bool) callconv(.c) void ```
     pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1398,7 +1398,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, visibility: qwindow_enums.Visibility) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, visibility: qwindow_enums.Visibility) callconv(.c) void ```
     pub fn OnVisibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1416,7 +1416,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow) callconv(.c) void ```
     pub fn OnActiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_ActiveChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1434,7 +1434,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
     pub fn OnContentOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QWindow_Connect_ContentOrientationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1452,7 +1452,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, object: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, object: QtC.QObject) callconv(.c) void ```
     pub fn OnFocusObjectChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_FocusObjectChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1470,7 +1470,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, opacity: f64) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, opacity: f64) callconv(.c) void ```
     pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
         qtc.QWindow_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1488,7 +1488,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, transientParent: QtC.QWindow) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, transientParent: QtC.QWindow) callconv(.c) void ```
     pub fn OnTransientParentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QWindow_Connect_TransientParentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1799,7 +1799,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1874,7 +1874,7 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3319,7 +3319,7 @@ pub const qrasterwindow = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

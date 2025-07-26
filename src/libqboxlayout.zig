@@ -817,7 +817,7 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
+    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
     pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1193,7 +1193,7 @@ pub const qboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1277,7 +1277,7 @@ pub const qboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2091,7 +2091,7 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2594,7 +2594,7 @@ pub const qhboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
+    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
     pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2970,7 +2970,7 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3054,7 +3054,7 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -4363,7 +4363,7 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -4866,7 +4866,7 @@ pub const qvboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
+    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
     pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5242,7 +5242,7 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout) callconv(.c) void ```
     pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5326,7 +5326,7 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QObject, slot: fn (self: QtC.QObject, param1: QtC.QObject) callconv(.c) void ```
+    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6635,7 +6635,7 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QObject, objectName: []const u8) callconv(.c) void ```
+    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, objectName: []const u8) callconv(.c) void ```
     pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
