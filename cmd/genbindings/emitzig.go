@@ -1507,8 +1507,8 @@ pub const ` + zigStruct + ` = struct {`)
 
 				if addConnect {
 					slotComma := ifv(len(m.Parameters) != 0, ", ", "")
-					ret.WriteString(inheritedFrom + docCommentUrl + "\n    /// ``` self: QtC." + cmdStructName + ", slot: fn (self: QtC." +
-						cmdStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, false) + ") callconv(.c) void ```\n")
+					ret.WriteString(inheritedFrom + docCommentUrl + "\n    /// ``` self: QtC." + zigStructName + ", slot: fn (self: QtC." +
+						zigStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, false) + ") callconv(.c) void ```\n")
 
 					ret.WriteString("    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (?*anyopaque" +
 						slotComma + zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) void) void {
@@ -1528,14 +1528,14 @@ pub const ` + zigStruct + ` = struct {`)
 			}
 
 			if (m.IsVirtual || m.IsProtected) && len(virtualMethods) > 0 && virtualEligible {
-				var maybeStruct, maybeAnyopaque, maybeComma, maybeCommentSelf string
+				var maybeCommentStruct, maybeAnyopaque, maybeComma, maybeCommentSelf string
 				if len(m.Parameters) != 0 {
-					maybeStruct = "QtC." + cmdStructName + commaParams
+					maybeCommentStruct = "QtC." + zigStructName + commaParams
 					maybeAnyopaque = "?*anyopaque"
 					maybeCommentSelf = "self: "
 				}
 				if showHiddenParams && len(m.HiddenParams) != 0 {
-					maybeStruct = "QtC." + cmdStructName + commaParams
+					maybeCommentStruct = "QtC." + zigStructName + commaParams
 					maybeAnyopaque = "?*anyopaque"
 					maybeCommentSelf = "self: "
 				}
@@ -1548,7 +1548,7 @@ pub const ` + zigStruct + ` = struct {`)
 
 				onDocComment := "\n/// Allows for overriding the related default method\n    ///"
 				ret.WriteString(inheritedFrom + docCommentUrl + onDocComment + "\n    /// ``` self: QtC." +
-					cmdStructName + ", slot: fn (" + maybeCommentSelf + maybeStruct + zfs.emitCommentParametersZig(m.Parameters, false) +
+					zigStructName + ", slot: fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, false) +
 					") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs) + " ```\n" +
 					"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (" + maybeAnyopaque + maybeComma +
 					zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) ` +
@@ -1639,7 +1639,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 			}
 
 			// Include inheritance information if we have it
-			var inheritedFrom, maybeStruct, maybeAnyopaque, maybeCommentSelf string
+			var inheritedFrom, maybeCommentStruct, maybeAnyopaque, maybeCommentSelf string
 			cmdStructName := zigStructName
 			commaParams := ifv(len(m.Parameters) > 0, ", ", "")
 			if m.InheritedFrom != "" {
@@ -1704,12 +1704,12 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 				commaParams = ", "
 			}
 			if len(m.Parameters) != 0 {
-				maybeStruct = "QtC." + cmdStructName + commaParams
+				maybeCommentStruct = "QtC." + zigStructName + commaParams
 				maybeAnyopaque = "?*anyopaque"
 				maybeCommentSelf = "self: "
 			}
 			if showHiddenParams && len(m.HiddenParams) != 0 {
-				maybeStruct = "QtC." + cmdStructName + commaParams
+				maybeCommentStruct = "QtC." + zigStructName + commaParams
 				maybeAnyopaque = "?*anyopaque"
 				maybeCommentSelf = "self: "
 			}
@@ -1717,7 +1717,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 			headerComment = "\n /// Wrapper to allow overriding base class virtual or protected method\n ///\n"
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
-				cmdStructName + ", slot: fn (" + maybeCommentSelf + maybeStruct + zfs.emitCommentParametersZig(m.Parameters, false) +
+				zigStructName + ", slot: fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, false) +
 				") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs) + " ```\n" +
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (" + maybeAnyopaque + commaParams +
 				zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) ` +
@@ -1769,7 +1769,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 			headerComment := "/// Wrapper to allow calling private signal\n///"
 
 			ret.WriteString(inheritedFrom + docCommentUrl + headerComment + "\n  /// ``` self: QtC." + zigStructName + ", slot: fn (self: QtC." +
-				cmdStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, false) + ") callconv(.c) void ```\n" +
+				zigStructName + slotComma + zfs.emitCommentParametersZig(m.Parameters, false) + ") callconv(.c) void ```\n" +
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, slot: fn (?*anyopaque" +
 				slotComma + zfs.emitParametersZig(m.Parameters, true) + `) callconv(.c) void) void {
         qtc.` + cmdStructName + "_Connect_" + cSafeMethodName + `(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
