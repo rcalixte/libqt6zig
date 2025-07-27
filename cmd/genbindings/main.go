@@ -357,7 +357,7 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 		atr.Process(parsed)
 
 		// Update global state tracker (AFTER astTransformChildClasses)
-		addKnownTypes(packageName, parsed)
+		addKnownTypes(srcName, parsed)
 
 		processHeaders = append(processHeaders, parsed)
 	}
@@ -570,7 +570,6 @@ func generateClangCaches(includeFiles []string, clangBin string, cflags []string
 				log.Printf("Clang worker got message for file %q", inputHeader)
 
 				// Parse the file
-				// This seems to intermittently fail, so allow retrying
 				astInner := mustClangExec(ctx, clangBin, inputHeader, cflags, matcher)
 
 				// Write to cache
