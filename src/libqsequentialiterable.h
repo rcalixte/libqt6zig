@@ -9,7 +9,6 @@
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 #include "qtlibc.h"
-#include "libqvariant.h"
 
 #ifdef __cplusplus
 extern "C" {

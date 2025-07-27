@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qstringconverter_base_enums = @import("libqstringconverter_base.zig").enums;
 const qtextstream_enums = enums;
 const std = @import("std");
 
@@ -45,7 +46,7 @@ pub const qtextstream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#setEncoding)
     ///
-    /// ``` self: QtC.QTextStream, encoding: qstringconverter_enums.Encoding ```
+    /// ``` self: QtC.QTextStream, encoding: qstringconverter_base_enums.Encoding ```
     pub fn SetEncoding(self: ?*anyopaque, encoding: i64) void {
         qtc.QTextStream_SetEncoding(@ptrCast(self), @intCast(encoding));
     }

@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const qevent_enums = @import("libqevent.zig").enums;
+const qcoreevent_enums = @import("libqcoreevent.zig").enums;
 const qgraphicssceneevent_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
@@ -8,7 +8,7 @@ const qnamespace_enums = @import("libqnamespace.zig").enums;
 pub const qgraphicssceneevent = struct {
     /// New constructs a new QGraphicsSceneEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New(typeVal: i64) QtC.QGraphicsSceneEvent {
         return qtc.QGraphicsSceneEvent_new(@intCast(typeVal));
     }
@@ -218,7 +218,7 @@ pub const qgraphicsscenemouseevent = struct {
 
     /// New2 constructs a new QGraphicsSceneMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New2(typeVal: i64) QtC.QGraphicsSceneMouseEvent {
         return qtc.QGraphicsSceneMouseEvent_new2(@intCast(typeVal));
     }
@@ -632,7 +632,7 @@ pub const qgraphicsscenewheelevent = struct {
 
     /// New2 constructs a new QGraphicsSceneWheelEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New2(typeVal: i64) QtC.QGraphicsSceneWheelEvent {
         return qtc.QGraphicsSceneWheelEvent_new2(@intCast(typeVal));
     }
@@ -990,7 +990,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
 
     /// New2 constructs a new QGraphicsSceneContextMenuEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New2(typeVal: i64) QtC.QGraphicsSceneContextMenuEvent {
         return qtc.QGraphicsSceneContextMenuEvent_new2(@intCast(typeVal));
     }
@@ -1278,7 +1278,7 @@ pub const qgraphicsscenehoverevent = struct {
 
     /// New2 constructs a new QGraphicsSceneHoverEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New2(typeVal: i64) QtC.QGraphicsSceneHoverEvent {
         return qtc.QGraphicsSceneHoverEvent_new2(@intCast(typeVal));
     }
@@ -1594,7 +1594,7 @@ pub const qgraphicsscenehelpevent = struct {
 
     /// New2 constructs a new QGraphicsSceneHelpEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New2(typeVal: i64) QtC.QGraphicsSceneHelpEvent {
         return qtc.QGraphicsSceneHelpEvent_new2(@intCast(typeVal));
     }
@@ -1840,7 +1840,7 @@ pub const qgraphicsscenedragdropevent = struct {
 
     /// New2 constructs a new QGraphicsSceneDragDropEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New2(typeVal: i64) QtC.QGraphicsSceneDragDropEvent {
         return qtc.QGraphicsSceneDragDropEvent_new2(@intCast(typeVal));
     }

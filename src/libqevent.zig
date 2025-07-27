@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qcoreevent_enums = @import("libqcoreevent.zig").enums;
 const qevent_enums = enums;
 const qinputdevice_enums = @import("libqinputdevice.zig").enums;
 const qkeysequence_enums = @import("libqkeysequence.zig").enums;
@@ -11,14 +12,14 @@ const std = @import("std");
 pub const qinputevent = struct {
     /// New constructs a new QInputEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, m_dev: QtC.QInputDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, m_dev: QtC.QInputDevice ```
     pub fn New(typeVal: i64, m_dev: ?*anyopaque) QtC.QInputEvent {
         return qtc.QInputEvent_new(@intCast(typeVal), @ptrCast(m_dev));
     }
 
     /// New2 constructs a new QInputEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, m_dev: QtC.QInputDevice, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, m_dev: QtC.QInputDevice, modifiers: i32 ```
     pub fn New2(typeVal: i64, m_dev: ?*anyopaque, modifiers: i64) QtC.QInputEvent {
         return qtc.QInputEvent_new2(@intCast(typeVal), @ptrCast(m_dev), @intCast(modifiers));
     }
@@ -245,21 +246,21 @@ pub const qinputevent = struct {
 pub const qpointerevent = struct {
     /// New constructs a new QPointerEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, dev: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice ```
     pub fn New(typeVal: i64, dev: ?*anyopaque) QtC.QPointerEvent {
         return qtc.QPointerEvent_new(@intCast(typeVal), @ptrCast(dev));
     }
 
     /// New2 constructs a new QPointerEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, dev: QtC.QPointingDevice, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: i32 ```
     pub fn New2(typeVal: i64, dev: ?*anyopaque, modifiers: i64) QtC.QPointerEvent {
         return qtc.QPointerEvent_new2(@intCast(typeVal), @ptrCast(dev), @intCast(modifiers));
     }
 
     /// New3 constructs a new QPointerEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, dev: QtC.QPointingDevice, modifiers: i32, points: []QtC.QEventPoint ```
+    /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: i32, points: []QtC.QEventPoint ```
     pub fn New3(typeVal: i64, dev: ?*anyopaque, modifiers: i64, points: []QtC.QEventPoint) QtC.QPointerEvent {
         const points_list = qtc.struct_libqt_list{
             .len = points.len,
@@ -1627,56 +1628,56 @@ pub const qenterevent = struct {
 pub const qmouseevent = struct {
     /// New constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
     pub fn New(typeVal: i64, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New2 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
     pub fn New2(typeVal: i64, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new2(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New3 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
     pub fn New3(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new3(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New4 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, source: qnamespace_enums.MouseEventSource ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, source: qnamespace_enums.MouseEventSource ```
     pub fn New4(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new4(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source));
     }
 
     /// New5 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
     pub fn New5(typeVal: i64, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new5(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New6 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
     pub fn New6(typeVal: i64, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new6(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New7 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
     pub fn New7(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new7(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New8 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
     pub fn New8(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new8(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source), @ptrCast(device));
     }
@@ -2282,42 +2283,42 @@ pub const qmouseevent = struct {
 pub const qhoverevent = struct {
     /// New constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF ```
+    /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF ```
     pub fn New(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos));
     }
 
     /// New2 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF ```
+    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF ```
     pub fn New2(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new2(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos));
     }
 
     /// New3 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32 ```
     pub fn New3(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
         return qtc.QHoverEvent_new3(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers));
     }
 
     /// New4 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32, device: QtC.QPointingDevice ```
     pub fn New4(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new4(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New5 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32 ```
     pub fn New5(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
         return qtc.QHoverEvent_new5(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers));
     }
 
     /// New6 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32, device: QtC.QPointingDevice ```
     pub fn New6(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new6(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
     }
@@ -3434,7 +3435,7 @@ pub const qwheelevent = struct {
 pub const qtabletevent = struct {
     /// New constructs a new QTabletEvent object.
     ///
-    /// ``` t: qevent_enums.Type, device: QtC.QPointingDevice, pos: QtC.QPointF, globalPos: QtC.QPointF, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i32, button: qnamespace_enums.MouseButton, buttons: i32 ```
+    /// ``` t: qcoreevent_enums.Type, device: QtC.QPointingDevice, pos: QtC.QPointF, globalPos: QtC.QPointF, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i32, button: qnamespace_enums.MouseButton, buttons: i32 ```
     pub fn New(t: i64, device: ?*anyopaque, pos: ?*anyopaque, globalPos: ?*anyopaque, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i64, button: i64, buttons: i64) QtC.QTabletEvent {
         return qtc.QTabletEvent_new(@intCast(t), @ptrCast(device), @ptrCast(pos), @ptrCast(globalPos), @floatCast(pressure), @floatCast(xTilt), @floatCast(yTilt), @floatCast(tangentialPressure), @floatCast(rotation), @floatCast(z), @intCast(keyState), @intCast(button), @intCast(buttons));
     }
@@ -4688,21 +4689,21 @@ pub const qnativegestureevent = struct {
 pub const qkeyevent = struct {
     /// New constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32 ```
     pub fn New(typeVal: i64, key: i32, modifiers: i64) QtC.QKeyEvent {
         return qtc.QKeyEvent_new(@intCast(typeVal), @intCast(key), @intCast(modifiers));
     }
 
     /// New2 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32 ```
     pub fn New2(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32) QtC.QKeyEvent {
         return qtc.QKeyEvent_new2(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers));
     }
 
     /// New3 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, text: []const u8 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, text: []const u8 ```
     pub fn New3(typeVal: i64, key: i32, modifiers: i64, text: []const u8) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
@@ -4714,7 +4715,7 @@ pub const qkeyevent = struct {
 
     /// New4 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, text: []const u8, autorep: bool ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, text: []const u8, autorep: bool ```
     pub fn New4(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
@@ -4726,7 +4727,7 @@ pub const qkeyevent = struct {
 
     /// New5 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, text: []const u8, autorep: bool, count: u16 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, text: []const u8, autorep: bool, count: u16 ```
     pub fn New5(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
@@ -4738,7 +4739,7 @@ pub const qkeyevent = struct {
 
     /// New6 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8 ```
     pub fn New6(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
@@ -4750,7 +4751,7 @@ pub const qkeyevent = struct {
 
     /// New7 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool ```
     pub fn New7(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
@@ -4762,7 +4763,7 @@ pub const qkeyevent = struct {
 
     /// New8 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16 ```
     pub fn New8(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
@@ -4774,7 +4775,7 @@ pub const qkeyevent = struct {
 
     /// New9 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: QtC.QInputDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: QtC.QInputDevice ```
     pub fn New9(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: ?*anyopaque) QtC.QKeyEvent {
         const text_str = qtc.struct_libqt_string{
             .len = text.len,
@@ -5089,14 +5090,14 @@ pub const qkeyevent = struct {
 pub const qfocusevent = struct {
     /// New constructs a new QFocusEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New(typeVal: i64) QtC.QFocusEvent {
         return qtc.QFocusEvent_new(@intCast(typeVal));
     }
 
     /// New2 constructs a new QFocusEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, reason: qnamespace_enums.FocusReason ```
+    /// ``` typeVal: qcoreevent_enums.Type, reason: qnamespace_enums.FocusReason ```
     pub fn New2(typeVal: i64, reason: i64) QtC.QFocusEvent {
         return qtc.QFocusEvent_new2(@intCast(typeVal), @intCast(reason));
     }
@@ -7617,7 +7618,7 @@ pub const qdropevent = struct {
 
     /// New2 constructs a new QDropEvent object.
     ///
-    /// ``` pos: QtC.QPointF, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32, typeVal: qevent_enums.Type ```
+    /// ``` pos: QtC.QPointF, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32, typeVal: qcoreevent_enums.Type ```
     pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i64) QtC.QDropEvent {
         return qtc.QDropEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
@@ -7889,7 +7890,7 @@ pub const qdragmoveevent = struct {
 
     /// New2 constructs a new QDragMoveEvent object.
     ///
-    /// ``` pos: QtC.QPoint, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32, typeVal: qevent_enums.Type ```
+    /// ``` pos: QtC.QPoint, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32, typeVal: qcoreevent_enums.Type ```
     pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i64) QtC.QDragMoveEvent {
         return qtc.QDragMoveEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
@@ -8686,7 +8687,7 @@ pub const qdragleaveevent = struct {
 pub const qhelpevent = struct {
     /// New constructs a new QHelpEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, pos: QtC.QPoint, globalPos: QtC.QPoint ```
+    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPoint, globalPos: QtC.QPoint ```
     pub fn New(typeVal: i64, pos: ?*anyopaque, globalPos: ?*anyopaque) QtC.QHelpEvent {
         return qtc.QHelpEvent_new(@intCast(typeVal), @ptrCast(pos), @ptrCast(globalPos));
     }
@@ -10231,35 +10232,35 @@ pub const qwindowstatechangeevent = struct {
 pub const qtouchevent = struct {
     /// New constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qevent_enums.Type ```
+    /// ``` eventType: qcoreevent_enums.Type ```
     pub fn New(eventType: i64) QtC.QTouchEvent {
         return qtc.QTouchEvent_new(@intCast(eventType));
     }
 
     /// New2 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPointStates: u8 ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPointStates: u8 ```
     pub fn New2(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPointStates: i64) QtC.QTouchEvent {
         return qtc.QTouchEvent_new2(@intCast(eventType), @ptrCast(device), @intCast(modifiers), @intCast(touchPointStates));
     }
 
     /// New3 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qevent_enums.Type, device: QtC.QPointingDevice ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice ```
     pub fn New3(eventType: i64, device: ?*anyopaque) QtC.QTouchEvent {
         return qtc.QTouchEvent_new3(@intCast(eventType), @ptrCast(device));
     }
 
     /// New4 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32 ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32 ```
     pub fn New4(eventType: i64, device: ?*anyopaque, modifiers: i64) QtC.QTouchEvent {
         return qtc.QTouchEvent_new4(@intCast(eventType), @ptrCast(device), @intCast(modifiers));
     }
 
     /// New5 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPoints: []QtC.QEventPoint ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPoints: []QtC.QEventPoint ```
     pub fn New5(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
         const touchPoints_list = qtc.struct_libqt_list{
             .len = touchPoints.len,
@@ -10271,7 +10272,7 @@ pub const qtouchevent = struct {
 
     /// New6 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPointStates: u8, touchPoints: []QtC.QEventPoint ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPointStates: u8, touchPoints: []QtC.QEventPoint ```
     pub fn New6(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPointStates: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
         const touchPoints_list = qtc.struct_libqt_list{
             .len = touchPoints.len,
@@ -11503,7 +11504,7 @@ pub const qapplicationstatechangeevent = struct {
 pub const qchildwindowevent = struct {
     /// New constructs a new QChildWindowEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, childWindow: QtC.QWindow ```
+    /// ``` typeVal: qcoreevent_enums.Type, childWindow: QtC.QWindow ```
     pub fn New(typeVal: i64, childWindow: ?*anyopaque) QtC.QChildWindowEvent {
         return qtc.QChildWindowEvent_new(@intCast(typeVal), @ptrCast(childWindow));
     }

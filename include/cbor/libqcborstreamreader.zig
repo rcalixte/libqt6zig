@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qcborcommon_enums = @import("libqcborcommon.zig").enums;
 const qcborstreamreader_enums = enums;
 const std = @import("std");
 
@@ -257,7 +258,7 @@ pub const qcborstreamreader = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#isSimpleType)
     ///
-    /// ``` self: QtC.QCborStreamReader, st: qcborstreamreader_enums.QCborSimpleType ```
+    /// ``` self: QtC.QCborStreamReader, st: qcborcommon_enums.QCborSimpleType ```
     pub fn IsSimpleType2(self: ?*anyopaque, st: i64) bool {
         return qtc.QCborStreamReader_IsSimpleType2(@ptrCast(self), @intCast(st));
     }

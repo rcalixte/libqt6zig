@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qtextcursor_enums = enums;
+const qtextformat_enums = @import("libqtextformat.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qtextcursor.html
@@ -376,7 +377,7 @@ pub const qtextcursor = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
     ///
-    /// ``` self: QtC.QTextCursor, style: qtextcursor_enums.Style ```
+    /// ``` self: QtC.QTextCursor, style: qtextformat_enums.Style ```
     pub fn InsertList2(self: ?*anyopaque, style: i64) QtC.QTextList {
         return qtc.QTextCursor_InsertList2(@ptrCast(self), @intCast(style));
     }
@@ -390,7 +391,7 @@ pub const qtextcursor = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#createList)
     ///
-    /// ``` self: QtC.QTextCursor, style: qtextcursor_enums.Style ```
+    /// ``` self: QtC.QTextCursor, style: qtextformat_enums.Style ```
     pub fn CreateList2(self: ?*anyopaque, style: i64) QtC.QTextList {
         return qtc.QTextCursor_CreateList2(@ptrCast(self), @intCast(style));
     }
@@ -468,7 +469,7 @@ pub const qtextcursor = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
-    /// ``` self: QtC.QTextCursor, format: QtC.QTextImageFormat, alignment: qtextcursor_enums.Position ```
+    /// ``` self: QtC.QTextCursor, format: QtC.QTextImageFormat, alignment: qtextformat_enums.Position ```
     pub fn InsertImage(self: ?*anyopaque, format: ?*anyopaque, alignment: i64) void {
         qtc.QTextCursor_InsertImage(@ptrCast(self), @ptrCast(format), @intCast(alignment));
     }

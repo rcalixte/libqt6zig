@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qstringconverter_base_enums = enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qstringconverter.html
@@ -35,7 +36,7 @@ pub const qstringconverter = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
-    /// ``` e: qstringconverter_enums.Encoding ```
+    /// ``` e: qstringconverter_base_enums.Encoding ```
     pub fn NameForEncoding(e: i64) []const u8 {
         const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
         return std.mem.span(_ret);

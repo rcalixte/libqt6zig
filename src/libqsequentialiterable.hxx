@@ -9,6 +9,5 @@
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 #include "qtlibc.h"
-#include "libqvariant.h"
 
 #endif

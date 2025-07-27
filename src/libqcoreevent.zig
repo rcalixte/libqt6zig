@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const qevent_enums = @import("libqevent.zig").enums;
+const qcoreevent_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const std = @import("std");
 
@@ -8,7 +8,7 @@ const std = @import("std");
 pub const qevent = struct {
     /// New constructs a new QEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type ```
+    /// ``` typeVal: qcoreevent_enums.Type ```
     pub fn New(typeVal: i64) QtC.QEvent {
         return qtc.QEvent_new(@intCast(typeVal));
     }
@@ -335,7 +335,7 @@ pub const qtimerevent = struct {
 pub const qchildevent = struct {
     /// New constructs a new QChildEvent object.
     ///
-    /// ``` typeVal: qevent_enums.Type, child: QtC.QObject ```
+    /// ``` typeVal: qcoreevent_enums.Type, child: QtC.QObject ```
     pub fn New(typeVal: i64, child: ?*anyopaque) QtC.QChildEvent {
         return qtc.QChildEvent_new(@intCast(typeVal), @ptrCast(child));
     }

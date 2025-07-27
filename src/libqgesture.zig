@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const qevent_enums = @import("libqevent.zig").enums;
+const qcoreevent_enums = @import("libqcoreevent.zig").enums;
 const qgesture_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
