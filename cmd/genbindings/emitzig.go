@@ -10,11 +10,12 @@ import (
 	"strings"
 	"unicode"
 )
+import "path/filepath"
 
 func zigReservedWord(s string) bool {
 	switch s {
 	case "default", "const", "fn", "var", "type", "len", "new", "copy", "import", "error", "string", "map", "int", "select",
-		"pub", "ret", "suspend", "opaque": // not language-reserved words, but binding-reserved words
+		"pub", "ret", "suspend", "opaque", "align": // not language-reserved words, but binding-reserved words
 		return true
 	default:
 		return false
@@ -132,58 +133,6 @@ func mapParamToString(param string) string {
 		}
 	}
 	return strings.ToLower(string(result))
-}
-
-func enumClassToZig(enumClass, enumName, fileName string) string {
-	// this started out like a good idea...
-	switch enumClass {
-	case "qt", "qinternal":
-		return "qnamespace"
-	case "qmetaobject":
-		return "qobjectdefs"
-	case "qgraphicspixmapitem":
-		return "qgraphicsitem"
-	case "qaccessibletablemodelchangeevent":
-		return "qaccessible"
-	case "qaccessible":
-		return "qaccessible_base"
-	case "qgradient":
-		return "qbrush"
-	case "qcborstreamwriter", "qcborerror":
-		return "qcborcommon"
-	case "feature", "flags", "syntax", "fontfamily", "fontsize", "unknownurlschemepolicy", "webattribute",
-		"qgraphicsscenecontextmenuevent", "javascriptconsolemessagelevel", "lifecyclestate",
-		"permissionpolicy", "navigationtype", "error", "svgversion", "renderprocessterminationstatus",
-		"wellknownheader", "webaction", "injectionpoint", "savepageformat", "qdoublevalidator",
-		"qfutureinterfacebase", "qlinef", "qmetamethod", "qnetworkaddressentry",
-		"qnetworkproxyquery", "qoperatingsystemversionbase", "qprocessenvironment",
-		"qpropertybindingerror", "qswipegesture", "qtextblockformat", "qtextcharformat",
-		"qtextframeformat", "qtextlength", "qtextlistformat", "qtextline", "qtreewidgetitem",
-		"qxmlstreamreader", "mediatype", "downloadinterruptreason", "downloadstate",
-		"errordomain", "loadstatus", "handletype", "method", "resourcetype",
-		"httpcachetype", "persistentcookiespolicy", "webauthuxstate", "requestfailurereason",
-		"destinationtype", "fileselectionmode", "webwindowtype":
-		return fileName
-	}
-
-	if (enumClass == "qcontextmenuevent" || enumClass == "qinputmethodevent" ||
-		enumClass == "qplatformsurfaceevent" || enumClass == "qscrollevent") && enumName == "Type" {
-		return "qcoreevent"
-	}
-
-	if enumClass == "qcontextmenuevent" || enumClass == "qinputmethodevent" ||
-		enumClass == "qplatformsurfaceevent" || enumClass == "qscrollevent" {
-		return "qevent"
-	}
-
-	if enumClass == "qnativeipckey" {
-		return "qtipccommon"
-	}
-	if enumClass == "qcalendarpermission" || enumClass == "qcontactspermission" || enumClass == "qlocationpermission" {
-		return "qpermissions"
-	}
-
-	return enumClass
 }
 
 func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumName bool) string {
@@ -326,47 +275,31 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				}
 			}
 
-		} else if enumInfo, ok := KnownEnums[p.ParameterType]; ok {
+		} else if _, ok := KnownEnums[p.ParameterType]; ok {
 			enumName := cabiEnumName(p.ParameterType)
 			if enumName == "" {
 				enumName = cabiClassName(p.ParameterType)
 			}
-			if enumInfo.PackageName != zfs.currentPackageName {
-				// Potentially cross-package
-				enumClass := strings.Split(p.ParameterType, "::")[0]
-				enumClass = strings.ToLower(enumClass)
-				enumPrefix := enumClassToZig(enumClass, enumName, zfs.currentHeaderName)
+
+			enumClass := strings.Split(p.ParameterType, "::")[0]
+			if zigImport, ok := KnownImports[enumClass]; ok {
 				if fullEnumName {
-					ret += enumPrefix + "_enums." + enumName
+					ret += zigImport.Filename + "_enums." + enumName
 				} else {
 					ret += "i64"
 				}
-				if enumPrefix == zfs.currentHeaderName {
-					zfs.imports[enumPrefix+"__enums"] = struct{}{}
-				} else {
-					zfs.imports["../"+enumPrefix+"__enums"] = struct{}{}
+
+				var maybeDots string
+				if zigImport.PackageName != zfs.currentPackageName {
+					if zigImport.PackageName == "" {
+						maybeDots = "../"
+					} else {
+						maybeDots = "../" + zigImport.PackageName + "/"
+					}
 				}
+				zfs.imports[maybeDots+zigImport.Filename+"__enums"] = struct{}{}
 			} else {
-				// Same package
-				if strings.Contains(p.ParameterType, "::") {
-					enumClass := strings.Split(p.ParameterType, "::")[0]
-					enumClass = strings.ToLower(enumClass)
-					enumPrefix := enumClassToZig(enumClass, enumName, zfs.currentHeaderName)
-					if fullEnumName {
-						ret += enumPrefix + "_enums." + enumName
-					} else {
-						ret += "i64"
-					}
-					zfs.imports[enumPrefix+"__enums"] = struct{}{}
-				} else {
-					enumClass := zfs.currentHeaderName
-					if fullEnumName {
-						ret += enumClass + "_enums." + enumName
-					} else {
-						ret += "i64"
-					}
-					zfs.imports[enumClass+"__enums"] = struct{}{}
-				}
+				panic("UNKNOWN IMPORT: p.ParameterType: " + p.ParameterType + " enumClass: " + enumClass)
 			}
 
 		} else if strings.Contains(p.ParameterType, `::`) {
@@ -397,14 +330,6 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			ret = "?*anyopaque"
 		} else {
 			ret = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + ret
-		}
-	}
-
-	if _, ok := KnownEnums[ret]; ok {
-		if fullEnumName {
-			ret = "flags." + ret
-		} else {
-			ret = "i64"
 		}
 	}
 
@@ -494,7 +419,7 @@ func (p CppParameter) parameterTypeZig() string {
 		return "?*anyopaque"
 	}
 
-	tmp := strings.ReplaceAll(p.RenderTypeCabi(), `*`, "")
+	tmp := strings.ReplaceAll(p.RenderTypeCabi(), "*", "")
 
 	switch tmp {
 	case "char":
@@ -666,7 +591,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		zfs.imports["std"] = struct{}{}
 
 		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
-			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.struct_libqt_string, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.struct_libqt_string, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |item, i| {\n"
 			preamble += "    " + nameprefix + "_arr[i] = .{\n"
@@ -890,7 +815,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 			afterword += "    const " + namePrefix + "_data = " + namePrefix + "_str[i];\n"
-			afterword += "    const " + namePrefix + "_buf = allocator.alloc(u8, " + namePrefix + `_data.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+			afterword += "    const " + namePrefix + "_buf = allocator.alloc(u8, " + namePrefix + `_data.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "    @memcpy(" + namePrefix + "_buf, " + namePrefix + "_data.data[0.." + namePrefix + "_data.len]);\n"
 			afterword += "    " + namePrefix + "_ret[i] = " + namePrefix + "_buf;\n"
 			afterword += "}\n"
@@ -1162,6 +1087,13 @@ func emitZig(src *CppParsedHeader, headerName, packageName string) (string, map[
 	zigIncs := map[string]string{}
 	dirRoot := strings.TrimPrefix(packageName, "src/")
 	dirRoot = strings.TrimPrefix(dirRoot, "src")
+
+	zfs := zigFileState{
+		imports:            map[string]struct{}{},
+		currentPackageName: dirRoot,
+		currentHeaderName:  strings.TrimSuffix(headerName, ".h"),
+	}
+
 	if dirRoot != "" {
 		dirRoot += "/"
 	}
@@ -1169,12 +1101,6 @@ func emitZig(src *CppParsedHeader, headerName, packageName string) (string, map[
 	ret.WriteString(`const QtC = @import("qt6zig");
 const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 `)
-
-	zfs := zigFileState{
-		imports:            map[string]struct{}{},
-		currentPackageName: packageName,
-		currentHeaderName:  strings.TrimSuffix(headerName, ".h"),
-	}
 
 	// Check if short-named enums are allowed.
 	// We only allow short names if there are no conflicts anywhere in the whole
@@ -1236,12 +1162,13 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		}
 
 		footerNeeded := false
-		if len(c.Ctors) > 0 || len(c.Methods) > 0 || len(virtualMethods) > 0 {
+		if len(c.Ctors) > 0 || len(c.Methods) > 0 || len(virtualMethods) > 0 ||
+			(len(c.DirectInherits) > 0 && len(collectInheritedMethodsForZig(c.DirectInherits[0], map[string]struct{}{c.ClassName: {}}, &zfs)) > 0) {
 			footerNeeded = true
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
 			pageName := getPageName(zigStructName) + maybeCharts
 			zigStruct := strings.ToLower(zigStructName)
-			zigIncs[zigStruct] = "pub const " + zigStruct + " = @import(\"" + dirRoot + "lib" + zfs.currentHeaderName + ".zig\")." + zigStruct + ";"
+			zigIncs[zigStruct] = "pub const " + zigStruct + ` = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").` + zigStruct + ";"
 			ret.WriteString("\n/// " + getPageUrl(QtPage, pageName, "", zigStructName) + `
 pub const ` + zigStruct + ` = struct {`)
 		}
@@ -1796,7 +1723,7 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 	closeEnums := false
 	if len(src.Enums) > 0 {
 		pageName := getPageName(zfs.currentHeaderName)
-		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + "_enums = @import(\"" + dirRoot + "lib" + zfs.currentHeaderName + ".zig\").enums;"
+		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
 		pageUrl := getPageUrl(EnumPage, pageName+maybeCharts, "", "")
 		maybeUrl := ifv(pageUrl != "", "\n/// "+pageUrl, "")
@@ -1893,29 +1820,20 @@ qtc.` + cmdStructName + "_On" + cSafeMethodName + `(@ptrCast(self), @as(isize, @
 			}
 			if strings.Contains(k, "__enums") {
 				var enumPrefix string
-				if strings.HasPrefix(k, "../") {
-					enumPrefix = "../"
-					k = strings.TrimPrefix(k, "../")
+				if strings.Contains(k, "/") {
+					enumPrefix = filepath.Dir(k) + "/"
+					k = filepath.Base(k)
 				}
 				enumClass := strings.Split(k, "__enums")[0]
-				if zfs.currentHeaderName == "qsciprinter" && strings.Contains(enumClass, "qprinter") {
-					enumPrefix = "../printsupport/"
-				}
-				// hacks
-				if enumClass == "qstringconverter" || enumClass == "qdnstlsassociationrecord" {
-					continue
-				}
-				if enumClass == "qcborstreamwriter" {
-					enumClass = "qcborcommon"
-				}
+
 				if _, ok := seenEnumClasses[enumClass]; ok {
 					continue
 				}
 				seenEnumClasses[enumClass] = struct{}{}
 				if enumClass == zfs.currentHeaderName {
-					allImports = append(allImports, `const `+enumClass+`_enums = enums;`)
+					allImports = append(allImports, "const "+enumClass+"_enums = enums;")
 				} else {
-					allImports = append(allImports, `const `+enumClass+`_enums = @import("`+enumPrefix+`lib`+enumClass+`.zig").enums;`)
+					allImports = append(allImports, "const "+enumClass+`_enums = @import("`+enumPrefix+"lib"+enumClass+`.zig").enums;`)
 				}
 			}
 		}
