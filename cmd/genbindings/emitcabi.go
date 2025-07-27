@@ -804,7 +804,6 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 	ret := strings.Builder{}
 
 	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, `/`, `_`), `-`, `_`)) + "C_LIBVIRTUAL" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(filename, `.`, `_`), `-`, `_`))
-	extraInclude := ifv(filename == "qsequentialiterable.h", "#include \"libqvariant.h\"", "")
 	bindingInclude := "qtlibc.h"
 
 	if strings.Contains(packageName, `/`) {
@@ -821,7 +820,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include "` + bindingInclude + "\"\n" + extraInclude + "\n\n")
+#include "` + bindingInclude + `"` + "\n\n\n")
 
 	for _, c := range src.Classes {
 		cppClassName := c.ClassName
@@ -1068,7 +1067,6 @@ func emitBindingHeader(src *CppParsedHeader, filename, packageName string) (stri
 	qtstructdefs := make(map[string]struct{})
 
 	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, `/`, `_`), `-`, `_`)) + "C_LIB" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(filename, `.`, `_`), `-`, `_`))
-	extraInclude := ifv(filename == "qsequentialiterable.h", "#include \"libqvariant.h\"", "")
 	bindingInclude := "qtlibc.h"
 
 	if strings.Contains(packageName, `/`) {
@@ -1085,7 +1083,7 @@ func emitBindingHeader(src *CppParsedHeader, filename, packageName string) (stri
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include "` + bindingInclude + "\"\n" + extraInclude + "\n" + `
+#include "` + bindingInclude + `"` + "\n\n" + `
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -1352,7 +1350,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 	}
 
 	ret.WriteString(`#include <` + filename + ">\n")
-	ret.WriteString(`#include "lib` + filename + "\"\n")
+	ret.WriteString(`#include "lib` + filename + `"` + "\n")
 	ret.WriteString(`#include "lib` + filename + `xx"` + "\n\n")
 
 	for _, c := range src.Classes {
@@ -1748,7 +1746,8 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				// The exceptions are QString and QByteArray.
 				var emptyReturn string
 				maybeSelf := ifv(m.IsPrivate || m.IsProtected, vVar+"->", "((Virtual"+cppClassName+"*)self)->")
-				maybeElse := "\t} else {\nreturn new " + m.ReturnType.RenderTypeQtCpp() + "(" + maybeSelf + vbCallTarget + ");\n}"
+				nonConstReturn := strings.TrimPrefix(m.ReturnType.RenderTypeQtCpp(), "const ")
+				maybeElse := "\t} else {\nreturn new " + nonConstReturn + "(" + maybeSelf + vbCallTarget + ");\n}"
 
 				// private hack/workaround
 				if m.IsProtected || ((methodPrefixName == "QAbstractListModel" || methodPrefixName == "QAbstractTableModel") && m.MethodName == "parent") {
@@ -1761,7 +1760,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 						emitParametersCabi(m, maybeConst+cppClassName+"*") + ") {" +
 						"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
 						vbpreamble + "\tif (" + vVar + " && " + vVar + "->isVirtual" + methodPrefixName + ") {\n" +
-						"\t\treturn new " + m.ReturnType.RenderTypeQtCpp() + "(" + vVar + "->" + vbCallTarget + ");\n" +
+						"\t\treturn new " + nonConstReturn + "(" + vVar + "->" + vbCallTarget + ");\n" +
 						maybeElse + emptyReturn + "\n}\n\n")
 
 				ret.WriteString("// Base class handler implementation\n")
@@ -1772,7 +1771,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 						"\tauto* " + vVar + " = " + virtualTarget + ";\n" +
 						vbpreamble + "\tif (" + vVar + " && " + vVar + "->isVirtual" + methodPrefixName + ") {\n" +
 						vVar + "->set" + isBaseName + "(true);\n" +
-						"\t\treturn new " + m.ReturnType.RenderTypeQtCpp() + "(" + vVar + "->" + vbCallTarget + ");\n" +
+						"\t\treturn new " + nonConstReturn + "(" + vVar + "->" + vbCallTarget + ");\n" +
 						maybeElse + emptyReturn + "\n}\n\n")
 
 			} else {
