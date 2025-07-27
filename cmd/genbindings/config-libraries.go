@@ -12,9 +12,6 @@ import (
 func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	AllowAllHeaders := func(string) bool { return true }
 
-	// FLUSH all known typedefs / ...
-
-	flushKnownTypes()
 	InsertTypedefs(true)
 
 	headerList := []string{}
