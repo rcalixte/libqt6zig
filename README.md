@@ -320,7 +320,7 @@ qwidget.OnCustomEvent(widget, onCustomEvent);
 
 ```cpp
 // Qt 6 C++ API
-Qt::AlignmentFlag alignment = Qt::AlignLeft | Qt::AlignTop;
+Qt::AlignmentFlag alignment = Qt::AlignmentFlag::AlignLeft | Qt::AlignmentFlag::AlignTop;
 ```
 
 ```zig
@@ -344,13 +344,54 @@ or
 zig build --release=safe
 ```
 
-### Q5. Can I use Qt Designer and the Qt Resource system?
+### Q5. Can I use Qt Creator/Designer and the Qt Resource system?
 
-MIQT (the upstream Qt bindings for Go) has a custom implementation of Qt `uic` and `rcc` tools, to allow using [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html) for form design and resource management. There is work in progress to support Qt Designer with this library in the future.
+There is a custom implementation of Qt's `uic` and `rcc` tools to allow using [Qt Creator](https://doc.qt.io/qtcreator/index.html) or [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html) for form design and resource management with this library. The programs and their respective documentation are located at [`uic-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/uic-zig) and [`qrc-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/qrc-zig).
+
+> [!NOTE]
+> Only Qt Creator 16.0 (or higher) and Qt Designer 6.8.2 (or higher) are supported for use. Any existing `.ui` or `.qrc` files should be saved/exported from one of them for proper usage with these tools. Older versions can result in panics during execution and are not supported.
+
+While optional for the `uic-zig` program, there is a hard requirement for the `qrc-zig` program:
+
+FreeBSD
+-------
+
+These tools are already installed with `qt6-base` and located at:
+
+- `/usr/local/libexec/qt6/rcc`
+- `/usr/local/libexec/qt6/uic`
+
+Linux
+-----
+
+- __Debian-based distributions__:
+
+```bash
+sudo apt install qt6-base-dev-tools
+```
+
+Once installed, the tools are located at:
+
+- `/usr/lib/qt6/libexec/rcc`
+- `/usr/lib/qt6/libexec/uic`
+
+- __Fedora-based distributions__:
+
+These tools are already installed with `qt6-qtbase-devel` and located at:
+
+- `/usr/lib64/qt6/libexec/rcc`
+- `/usr/lib64/qt6/libexec/uic`
+
+- __Arch-based distributions__:
+
+These tools are already installed with `qt6-base` and located at:
+
+- `/usr/lib/qt6/rcc`
+- `/usr/lib/qt6/uic`
 
 ### Q6. How can I add bindings for another Qt library?
 
-Fork this repository and add your library to the `genbindings/config-libraries` file. [Read more »](cmd/genbindings/README.md)
+Fork this repository and add your library to the `genbindings/config-libraries` file. [Read more »](https://github.com/rcalixte/libqt6zig/tree/master/cmd/genbindings/README.md)
 
 Special Thanks
 --------------
