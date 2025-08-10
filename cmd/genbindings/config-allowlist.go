@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func InsertTypedefs(qt6 bool) {
+func InsertTypedefs() {
 	// Seed well-known typedefs
 	pp := "qt6"
 
