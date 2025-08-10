@@ -2,7 +2,6 @@ package main
 
 import (
 	"os"
-	"os/exec"
 	"path/filepath"
 	"runtime"
 	"sort"
@@ -12,7 +11,7 @@ import (
 func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	AllowAllHeaders := func(string) bool { return true }
 
-	InsertTypedefs(true)
+	InsertTypedefs()
 
 	headerList := []string{}
 	zigIncMap := map[string]string{}
@@ -30,6 +29,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	// Qt 6 modules
 	modules := []moduleConfig{
+		// Qt 6 Core, Gui, Widgets
 		{
 			path: "",
 			dirs: []string{
@@ -47,6 +47,8 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Widgets"),
 		},
+
+		// Qt 6 CBOR
 		{
 			path: "cbor",
 			dirs: []string{
@@ -61,6 +63,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 QtPrintSupport
+		// Depends on QtCore/Gui/Widgets
 		{
 			path: "printsupport",
 			dirs: []string{
@@ -71,6 +74,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 SVG
+		// Depends on QtCore/Gui/Widgets
 		{
 			path: "svg",
 			dirs: []string{
@@ -82,6 +86,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 QtNetwork
+		// Depends on QtCore
 		{
 			path: "network",
 			dirs: []string{
@@ -95,6 +100,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 QtMultimedia
+		// Depends on QtCore/Gui/Widgets
 		{
 			path: "multimedia",
 			dirs: []string{
@@ -106,6 +112,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 Spatial Audio (on Debian this is a dependency of Qt6Multimedia)
+		// Depends on QtCore
 		{
 			path: "spatialaudio",
 			dirs: []string{
@@ -116,6 +123,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 QWebChannel
+		// Depends on QtCore
 		{
 			path: "webchannel",
 			dirs: []string{
@@ -126,6 +134,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		},
 
 		// Qt 6 QWebEngine
+		// Depends on QtCore/Gui/Widgets
 		{
 			path: "webengine",
 			dirs: []string{
@@ -185,9 +194,11 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		)
 	}
 
+	var allBatches []*FormatBatch
+
 	// PASS 2: Generate bindings with complete type information
 	for _, mod := range modules {
-		generate(
+		batch := generate(
 			mod.path,
 			mod.dirs,
 			mod.allowHeader,
@@ -196,6 +207,13 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			zigIncMap,
 			qtstructdefs,
 		)
+		allBatches = append(allBatches, batch)
+	}
+
+	for _, batch := range allBatches {
+		if err := processFormatBatch(batch); err != nil {
+			panic(err)
+		}
 	}
 
 	// Post-processing to generate auxiliary files
@@ -212,12 +230,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	zigCLibPath := filepath.Join(outDir, "src", "libqtc.zig")
 	err := os.WriteFile(zigCLibPath, []byte(typedefHeader), 0644)
-	if err != nil {
-		panic(err)
-	}
-	cmdQtC := exec.Command("zig", "fmt", zigCLibPath)
-	cmdQtC.Stderr = os.Stderr
-	err = cmdQtC.Start()
 	if err != nil {
 		panic(err)
 	}
@@ -267,10 +279,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 	if err != nil {
 		panic(err)
 	}
-	cmdQt6 := exec.Command("zig", "fmt", zigQtPath)
-	cmdQt6.Stderr = os.Stderr
-	err = cmdQt6.Start()
-	if err != nil {
+
+	zigCLibIncludePath := filepath.Join(outDir, "include", "libqtc.zig")
+	zigQtIncludePath := filepath.Join(outDir, "include", "libqt6.zig")
+
+	finalBatch := &FormatBatch{
+		zigFiles: []string{zigCLibPath, zigQtPath},
+		zigCopies: map[string]string{
+			zigCLibPath: zigCLibIncludePath,
+			zigQtPath:   zigQtIncludePath,
+		},
+	}
+
+	if err := processFormatBatch(finalBatch); err != nil {
 		panic(err)
 	}
 
@@ -296,30 +317,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		panic(err)
 	}
 	err = os.WriteFile(zigThreadingIncludeQtLib, zigThreadingQtFile, 0644)
-	if err != nil {
-		panic(err)
-	}
-
-	cmdQtC.Wait()
-
-	zigCLibIncludePath := filepath.Join(outDir, "include", "libqtc.zig")
-	zigCLibQtInclude, err := os.ReadFile(zigCLibPath)
-	if err != nil {
-		panic(err)
-	}
-	err = os.WriteFile(zigCLibIncludePath, zigCLibQtInclude, 0644)
-	if err != nil {
-		panic(err)
-	}
-
-	cmdQt6.Wait()
-
-	zigQtIncludePath := filepath.Join(outDir, "include", "libqt6.zig")
-	zigQtInclude, err := os.ReadFile(zigQtPath)
-	if err != nil {
-		panic(err)
-	}
-	err = os.WriteFile(zigQtIncludePath, zigQtInclude, 0644)
 	if err != nil {
 		panic(err)
 	}
