@@ -1,11 +1,13 @@
 package main
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
+	"maps"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -24,8 +26,119 @@ var archMap = map[string]string{
 	"arm64": "aarch64",
 }
 
+type FormatBatch struct {
+	zigFiles     []string
+	cppFiles     []string
+	headerFiles  []string
+	hxxFiles     []string
+	zigCopies    map[string]string // source -> dest mapping
+	headerCopies map[string]string
+}
+
+func chunk(slice []string, size int) [][]string {
+	var chunks [][]string
+	for i := 0; i < len(slice); i += size {
+		end := min(i+size, len(slice))
+		chunks = append(chunks, slice[i:end])
+	}
+	return chunks
+}
+
+func processFormatBatch(batch *FormatBatch) error {
+	numCPU := runtime.NumCPU()
+	var wg sync.WaitGroup
+	errors := make(chan error, numCPU*2) // Buffer for potential errors
+
+	// Process zig files in parallel chunks
+	if len(batch.zigFiles) > 0 {
+		chunkSize := (len(batch.zigFiles) + numCPU - 1) / numCPU // Round up division
+		chunks := chunk(batch.zigFiles, chunkSize)
+
+		for _, files := range chunks {
+			wg.Add(1)
+			go func(files []string) {
+				defer wg.Done()
+
+				args := append([]string{"fmt"}, files...)
+				cmd := exec.Command("zig", args...)
+				var stderr bytes.Buffer
+				cmd.Stderr = &stderr
+				if err := cmd.Run(); err != nil {
+					errors <- fmt.Errorf("zig format failed: %v", err, stderr.String())
+					return
+				}
+
+				// Handle copies for this chunk
+				for _, file := range files {
+					if dest, ok := batch.zigCopies[file]; ok {
+						if err := copyFile(file, dest); err != nil {
+							errors <- err
+							return
+						}
+					}
+				}
+			}(files)
+		}
+	}
+
+	// Process C++ files in parallel chunks
+	allCppFiles := append(append(batch.cppFiles, batch.headerFiles...), batch.hxxFiles...)
+	if len(allCppFiles) > 0 {
+		chunkSize := (len(allCppFiles) + numCPU - 1) / numCPU
+		chunks := chunk(allCppFiles, chunkSize)
+
+		for _, files := range chunks {
+			wg.Add(1)
+			go func(files []string) {
+				defer wg.Done()
+
+				args := append([]string{"-i"}, files...)
+				cmd := exec.Command("clang-format", args...)
+				if err := cmd.Run(); err != nil {
+					errors <- fmt.Errorf("clang-format failed: %v", err)
+					return
+				}
+
+				// Handle copies for this chunk
+				for _, file := range files {
+					if dest, ok := batch.headerCopies[file]; ok {
+						if err := copyFile(file, dest); err != nil {
+							errors <- err
+							return
+						}
+					}
+				}
+			}(files)
+		}
+	}
+
+	// Wait for all formatting to complete
+	done := make(chan struct{})
+	go func() {
+		wg.Wait()
+		close(done)
+		close(errors)
+	}()
+
+	// Check for any errors
+	select {
+	case err := <-errors:
+		return err
+	case <-done:
+		return nil
+	}
+}
+
+func copyFile(src, dest string) error {
+	content, err := os.ReadFile(src)
+	if err != nil {
+		return fmt.Errorf("read failed for %s: %v", src, err)
+	}
+	return os.WriteFile(dest, content, 0644)
+}
+
 func cacheFilePath(inputHeader string) string {
-	return filepath.Join("cachedir", strings.ReplaceAll(inputHeader, `/`, `__`)+".json")
+	return filepath.Join("cachedir", strings.ReplaceAll(inputHeader, "/", "__")+".json")
 }
 
 func findHeadersInDir(srcDir string, allowHeader func(string) bool) []string {
@@ -40,7 +153,7 @@ func findHeadersInDir(srcDir string, allowHeader func(string) bool) []string {
 		if includeFile.IsDir() {
 			continue
 		}
-		if !strings.HasSuffix(includeFile.Name(), `.h`) {
+		if !strings.HasSuffix(includeFile.Name(), ".h") {
 			continue
 		}
 		fullPath := filepath.Join(srcDir, includeFile.Name())
@@ -68,7 +181,7 @@ func cleanGeneratedFilesInDir(dirpath string) {
 		if e.IsDir() {
 			continue
 		}
-		if !strings.HasPrefix(e.Name(), `libq`) {
+		if !strings.HasPrefix(e.Name(), "lib") {
 			continue
 		}
 		// One of ours, clean up
@@ -85,7 +198,7 @@ func cleanGeneratedFilesInDir(dirpath string) {
 }
 
 func pkgConfigCflags(packageName string) string {
-	stdout, err := exec.Command(`pkg-config`, `--cflags`, packageName).Output()
+	stdout, err := exec.Command("pkg-config", "--cflags", packageName).Output()
 	if err != nil {
 		panic(err)
 	}
@@ -99,7 +212,7 @@ func (header *CppParsedHeader) RegisterFlags() map[string]CppFlagProperty {
 	}
 
 	for _, typedef := range header.Typedefs {
-		typeClass := strings.Split(typedef.Alias, `::`)[0]
+		typeClass := strings.Split(typedef.Alias, "::")[0]
 
 		// Skip private/internal types
 		if strings.HasSuffix(typedef.Alias, "Private") ||
@@ -115,13 +228,13 @@ func (header *CppParsedHeader) RegisterFlags() map[string]CppFlagProperty {
 		}
 
 		if strings.Contains(typedef.Alias, "::") {
-			flagDef := strings.Split(typedef.Alias, `::`)
+			flagDef := strings.Split(typedef.Alias, "::")
 			if len(flagDef) <= 1 {
 				continue
 			}
 
 			className := flagDef[0]
-			flagName := strings.Join(flagDef[1:], ``)
+			flagName := strings.Join(flagDef[1:], "")
 
 			flagProperty := CppFlagProperty{
 				PropertyName: typedef.Alias, // Fully qualified name
@@ -209,7 +322,7 @@ func gatherTypes(name string, dirs []string, allowHeader func(string) bool, clan
 
 	var includeFiles []string
 	for _, srcDir := range dirs {
-		if strings.HasSuffix(srcDir, `.h`) {
+		if strings.HasSuffix(srcDir, ".h") {
 			includeFiles = append(includeFiles, srcDir)
 		} else {
 			includeFiles = append(includeFiles, findHeadersInDir(srcDir, allowHeader)...)
@@ -288,14 +401,14 @@ func gatherTypes(name string, dirs []string, allowHeader func(string) bool, clan
 	// The cache should now be fully populated
 }
 
-func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool, outDir string, headerList *[]string, zigIncs map[string]string, qtstructdefs map[string]struct{}) {
+func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool, outDir string, headerList *[]string, zigIncs map[string]string, qtstructdefs map[string]struct{}) *FormatBatch {
 
 	packageName := "src" + ifv(srcName != "", "/"+srcName, "")
 	includePath := "include" + ifv(srcName != "", "/"+srcName, "")
 
 	var includeFiles []string
 	for _, srcDir := range srcDirs {
-		if strings.HasSuffix(srcDir, `.h`) {
+		if strings.HasSuffix(srcDir, ".h") {
 			includeFiles = append(includeFiles, srcDir) // single .h
 		} else {
 			includeFiles = append(includeFiles, findHeadersInDir(srcDir, allowHeaderFn)...)
@@ -365,6 +478,11 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 	//
 	// PASS 2
 	//
+
+	batch := &FormatBatch{
+		zigCopies:    make(map[string]string),
+		headerCopies: make(map[string]string),
+	}
 
 	for _, parsed := range processHeaders {
 
@@ -452,18 +570,9 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 			panic(err)
 		}
 
-		for k, v := range zigInc {
-			zigIncs[k] = v
-		}
+		maps.Copy(zigIncs, zigInc)
 
 		err = os.WriteFile(outputName+".zig", []byte(zigSrc), 0644)
-		if err != nil {
-			panic(err)
-		}
-
-		zCmd := exec.Command("zig", "fmt", outputName+".zig")
-		zCmd.Stderr = os.Stderr
-		err = zCmd.Start()
 		if err != nil {
 			panic(err)
 		}
@@ -478,70 +587,22 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 			panic(err)
 		}
 
-		cmdCpp := exec.Command("clang-format", "-i", outputName+".cpp")
-		cmdCpp.Stderr = os.Stderr
-		err = cmdCpp.Start()
-		if err != nil {
-			panic(err)
-		}
+		// Instead of running format jobs, collect the files
+		batch.zigFiles = append(batch.zigFiles, outputName+".zig")
+		batch.cppFiles = append(batch.cppFiles, outputName+".cpp")
+		batch.headerFiles = append(batch.headerFiles, outputName+".h")
+		batch.hxxFiles = append(batch.hxxFiles, outputName+".hxx")
 
-		cmdH := exec.Command("clang-format", "-i", outputName+".h")
-		cmdH.Stderr = os.Stderr
-		err = cmdH.Start()
-		if err != nil {
-			panic(err)
-		}
-
-		cmdHxx := exec.Command("clang-format", "-i", outputName+".hxx")
-		cmdHxx.Stderr = os.Stderr
-		err = cmdHxx.Start()
-		if err != nil {
-			panic(err)
-		}
-
-		cmdH.Wait()
-
-		formattedHeader, err := os.ReadFile(outputName + ".h")
-		if err != nil {
-			panic(err)
-		}
-
-		headerInclude := filepath.Join(includeDir, filepath.Base(outputName+".h"))
-
-		err = os.MkdirAll(filepath.Dir(includeDir), 0755)
-		if err != nil {
-			panic(err)
-		}
-
-		err = os.WriteFile(headerInclude, formattedHeader, 0644)
-		if err != nil {
-			panic(err)
-		}
-
-		zCmd.Wait()
-
-		formattedZig, err := os.ReadFile(outputName + ".zig")
-		if err != nil {
-			panic(err)
-		}
-
+		// Record copy operations
 		zigIncludeFile := filepath.Join(includeDir, filepath.Base(outputName+".zig"))
-
-		err = os.MkdirAll(filepath.Dir(includeDir), 0755)
-		if err != nil {
-			panic(err)
-		}
-
-		err = os.WriteFile(zigIncludeFile, formattedZig, 0644)
-		if err != nil {
-			panic(err)
-		}
-
-		cmdCpp.Wait()
-		cmdHxx.Wait()
+		headerInclude := filepath.Join(includeDir, filepath.Base(outputName+".h"))
+		batch.zigCopies[outputName+".zig"] = zigIncludeFile
+		batch.headerCopies[outputName+".h"] = headerInclude
 	}
 
 	log.Printf("Processing %d file(s) completed", len(includeFiles))
+
+	return batch
 }
 
 func generateClangCaches(includeFiles []string, clangBin string, cflags []string, matcher ClangMatcher) {
@@ -612,7 +673,7 @@ func main() {
 	}
 
 	clang := flag.String("clang", "clang", "Custom path to clang")
-	outDir := flag.String("outdir", "../../", "Output directory for generated gen_** files")
+	outDir := flag.String("outdir", "../../", "Output directory for generated lib** files")
 	extraLibsDir := flag.String("extralibs", "/usr/local/src/", "Base directory to find extra library checkouts")
 
 	flag.Parse()
