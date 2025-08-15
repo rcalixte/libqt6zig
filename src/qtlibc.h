@@ -76,7 +76,7 @@ static inline void libqt_string_free(const libqt_string* str) {
 }
 
 static libqt_strview qstrview(const char* string) {
-    libqt_strview view = {0}; // Initialize to zero
+    libqt_strview view = {0, NULL}; // Initialize to zero and NULL
     if (string) {
         view.ptr = string;
         view.len = strlen(string);
