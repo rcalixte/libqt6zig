@@ -29,10 +29,7 @@ var (
 	KnownClassnames = make(map[string]lookupResultClass) // Entries of the form QFoo::Bar if it is an inner class
 	KnownTypedefs   = make(map[string]lookupResultTypedef)
 	KnownEnums      = make(map[string]lookupResultEnum)
-
-	KnownImports = map[string]lookupResultImport{
-		"Qt": {"", "qnamespace"}, // Qt is a special case
-	}
+	KnownImports    = make(map[string]lookupResultImport)
 )
 
 // Handle child classes recursively
@@ -125,12 +122,21 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 		}
 	}
 
-	if len(parsed.Classes) == 0 && len(parsed.Enums) != 0 && parsed.Filename != "" && strings.Contains(parsed.Enums[0].EnumName, "::") {
-		// Some headers only have enums we can process, e.g. QSsl, QtVideo
-		importName := strings.Split(parsed.Enums[0].EnumName, "::")[0]
+	if len(parsed.Enums) != 0 && parsed.Filename != "" {
 		f := filepath.Base(parsed.Filename)
-		filename := f[:len(f)-2]
-		KnownImports[importName] = lookupResultImport{packageName, filename}
+		extensionIndex := strings.LastIndex(f, ".")
+		filename := f[:extensionIndex]
+
+		for _, en := range parsed.Enums {
+			// Some headers only have enums we can process, e.g. QSsl, QtVideo
+			// We also need to check for enums in scoped classes
+			lastIndex := strings.LastIndex(en.EnumName, "::")
+			if lastIndex == -1 {
+				lastIndex = len(en.EnumName)
+			}
+			importName := en.EnumName[:lastIndex]
+			KnownImports[importName] = lookupResultImport{packageName, filename}
+		}
 	}
 
 	// Register detected flags
