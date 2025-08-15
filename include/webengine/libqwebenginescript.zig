@@ -41,7 +41,7 @@ pub const qwebenginescript = struct {
     ///
     /// ``` self: QtC.QWebEngineScript, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -77,7 +77,7 @@ pub const qwebenginescript = struct {
     ///
     /// ``` self: QtC.QWebEngineScript, sourceCode: []const u8 ```
     pub fn SetSourceCode(self: ?*anyopaque, sourceCode: []const u8) void {
-        const sourceCode_str = qtc.struct_libqt_string{
+        const sourceCode_str = qtc.libqt_string{
             .len = sourceCode.len,
             .data = sourceCode.ptr,
         };
@@ -87,6 +87,8 @@ pub const qwebenginescript = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#injectionPoint)
     ///
     /// ``` self: QtC.QWebEngineScript ```
+    ///
+    /// Returns: ``` qwebenginescript_enums.InjectionPoint ```
     pub fn InjectionPoint(self: ?*anyopaque) i64 {
         return qtc.QWebEngineScript_InjectionPoint(@ptrCast(self));
     }

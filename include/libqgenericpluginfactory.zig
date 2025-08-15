@@ -36,8 +36,8 @@ pub const qgenericpluginfactory = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Keys(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QGenericPluginFactory_Keys();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QGenericPluginFactory_Keys();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -58,11 +58,11 @@ pub const qgenericpluginfactory = struct {
     ///
     /// ``` param1: []const u8, param2: []const u8 ```
     pub fn Create(param1: []const u8, param2: []const u8) QtC.QObject {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_str = qtc.struct_libqt_string{
+        const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
         };

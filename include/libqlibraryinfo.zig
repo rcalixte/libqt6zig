@@ -77,8 +77,8 @@ pub const qlibraryinfo = struct {
     ///
     /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
     pub fn Paths(p: i64, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QLibraryInfo_Paths(@intCast(p));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QLibraryInfo_Paths(@intCast(p));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -110,12 +110,12 @@ pub const qlibraryinfo = struct {
     ///
     /// ``` platformName: []const u8, allocator: std.mem.Allocator ```
     pub fn PlatformPluginArguments(platformName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const platformName_str = qtc.struct_libqt_string{
+        const platformName_str = qtc.libqt_string{
             .len = platformName.len,
             .data = platformName.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QLibraryInfo_PlatformPluginArguments(platformName_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QLibraryInfo_PlatformPluginArguments(platformName_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

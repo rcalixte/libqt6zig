@@ -43,6 +43,8 @@ pub const qmediaformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#fileFormat)
     ///
     /// ``` self: QtC.QMediaFormat ```
+    ///
+    /// Returns: ``` qmediaformat_enums.FileFormat ```
     pub fn FileFormat(self: ?*anyopaque) i64 {
         return qtc.QMediaFormat_FileFormat(@ptrCast(self));
     }
@@ -64,6 +66,8 @@ pub const qmediaformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#videoCodec)
     ///
     /// ``` self: QtC.QMediaFormat ```
+    ///
+    /// Returns: ``` qmediaformat_enums.VideoCodec ```
     pub fn VideoCodec(self: ?*anyopaque) i64 {
         return qtc.QMediaFormat_VideoCodec(@ptrCast(self));
     }
@@ -78,6 +82,8 @@ pub const qmediaformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#audioCodec)
     ///
     /// ``` self: QtC.QMediaFormat ```
+    ///
+    /// Returns: ``` qmediaformat_enums.AudioCodec ```
     pub fn AudioCodec(self: ?*anyopaque) i64 {
         return qtc.QMediaFormat_AudioCodec(@ptrCast(self));
     }
@@ -99,11 +105,13 @@ pub const qmediaformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#supportedFileFormats)
     ///
     /// ``` self: QtC.QMediaFormat, m: qmediaformat_enums.ConversionMode, allocator: std.mem.Allocator ```
-    pub fn SupportedFileFormats(self: ?*anyopaque, m: i64, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaFormat_SupportedFileFormats(@ptrCast(self), @intCast(m));
+    ///
+    /// Returns: ``` []qmediaformat_enums.FileFormat ```
+    pub fn SupportedFileFormats(self: ?*anyopaque, m: i64, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QMediaFormat_SupportedFileFormats(@ptrCast(self), @intCast(m));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qmediaformat_enums.FileFormat, _arr.len) catch @panic("qmediaformat.SupportedFileFormats: Memory allocation failed");
-        const _data: [*]qmediaformat_enums.FileFormat = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediaformat.SupportedFileFormats: Memory allocation failed");
+        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -111,11 +119,13 @@ pub const qmediaformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#supportedVideoCodecs)
     ///
     /// ``` self: QtC.QMediaFormat, m: qmediaformat_enums.ConversionMode, allocator: std.mem.Allocator ```
-    pub fn SupportedVideoCodecs(self: ?*anyopaque, m: i64, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaFormat_SupportedVideoCodecs(@ptrCast(self), @intCast(m));
+    ///
+    /// Returns: ``` []qmediaformat_enums.VideoCodec ```
+    pub fn SupportedVideoCodecs(self: ?*anyopaque, m: i64, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QMediaFormat_SupportedVideoCodecs(@ptrCast(self), @intCast(m));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qmediaformat_enums.VideoCodec, _arr.len) catch @panic("qmediaformat.SupportedVideoCodecs: Memory allocation failed");
-        const _data: [*]qmediaformat_enums.VideoCodec = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediaformat.SupportedVideoCodecs: Memory allocation failed");
+        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -123,11 +133,13 @@ pub const qmediaformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaformat.html#supportedAudioCodecs)
     ///
     /// ``` self: QtC.QMediaFormat, m: qmediaformat_enums.ConversionMode, allocator: std.mem.Allocator ```
-    pub fn SupportedAudioCodecs(self: ?*anyopaque, m: i64, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaFormat_SupportedAudioCodecs(@ptrCast(self), @intCast(m));
+    ///
+    /// Returns: ``` []qmediaformat_enums.AudioCodec ```
+    pub fn SupportedAudioCodecs(self: ?*anyopaque, m: i64, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QMediaFormat_SupportedAudioCodecs(@ptrCast(self), @intCast(m));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qmediaformat_enums.AudioCodec, _arr.len) catch @panic("qmediaformat.SupportedAudioCodecs: Memory allocation failed");
-        const _data: [*]qmediaformat_enums.AudioCodec = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediaformat.SupportedAudioCodecs: Memory allocation failed");
+        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }

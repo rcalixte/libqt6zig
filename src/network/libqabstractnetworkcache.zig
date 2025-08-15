@@ -76,9 +76,9 @@ pub const qnetworkcachemetadata = struct {
     ///
     /// ``` self: QtC.QNetworkCacheMetaData, allocator: std.mem.Allocator ```
     pub fn RawHeaders(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkCacheMetaData_RawHeaders(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QNetworkCacheMetaData_RawHeaders(@ptrCast(self));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_pair[i].first));
                 qtc.libqt_free(_pair[i].first);
@@ -98,7 +98,7 @@ pub const qnetworkcachemetadata = struct {
     ///
     /// ``` self: QtC.QNetworkCacheMetaData, headers: []struct_u8_u8 ```
     pub fn SetRawHeaders(self: ?*anyopaque, headers: []struct_u8_u8) void {
-        const headers_list = qtc.struct_libqt_list{
+        const headers_list = qtc.libqt_list{
             .len = headers.len,
             .data = headers.ptr,
         };
@@ -165,7 +165,7 @@ pub const qnetworkcachemetadata = struct {
     ///
     /// ``` self: QtC.QNetworkCacheMetaData, allocator: std.mem.Allocator ```
     pub fn Attributes(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QNetworkCacheMetaData_Attributes(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QNetworkCacheMetaData_Attributes(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -198,7 +198,7 @@ pub const qnetworkcachemetadata = struct {
             attributes_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const attributes_map = qtc.struct_libqt_map{
+        const attributes_map = qtc.libqt_map{
             .len = attributes.count(),
             .keys = @ptrCast(attributes_keys.ptr),
             .values = @ptrCast(attributes_values.ptr),
@@ -367,7 +367,7 @@ pub const qabstractnetworkcache = struct {
     ///
     /// ``` self: QtC.QAbstractNetworkCache, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -470,7 +470,7 @@ pub const qabstractnetworkcache = struct {
     ///
     /// ``` self: QtC.QAbstractNetworkCache, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractnetworkcache.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -587,8 +587,8 @@ pub const qabstractnetworkcache = struct {
     ///
     /// ``` self: QtC.QAbstractNetworkCache, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

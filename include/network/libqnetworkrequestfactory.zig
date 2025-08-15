@@ -86,7 +86,7 @@ pub const qnetworkrequestfactory = struct {
     ///
     /// ``` self: QtC.QNetworkRequestFactory, path: []const u8 ```
     pub fn CreateRequest3(self: ?*anyopaque, path: []const u8) QtC.QNetworkRequest {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -97,7 +97,7 @@ pub const qnetworkrequestfactory = struct {
     ///
     /// ``` self: QtC.QNetworkRequestFactory, path: []const u8, query: QtC.QUrlQuery ```
     pub fn CreateRequest4(self: ?*anyopaque, path: []const u8, query: ?*anyopaque) QtC.QNetworkRequest {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -129,7 +129,7 @@ pub const qnetworkrequestfactory = struct {
     ///
     /// ``` self: QtC.QNetworkRequestFactory, allocator: std.mem.Allocator ```
     pub fn BearerToken(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QNetworkRequestFactory_BearerToken(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QNetworkRequestFactory_BearerToken(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkrequestfactory.BearerToken: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -140,7 +140,7 @@ pub const qnetworkrequestfactory = struct {
     ///
     /// ``` self: QtC.QNetworkRequestFactory, token: []u8 ```
     pub fn SetBearerToken(self: ?*anyopaque, token: []u8) void {
-        const token_str = qtc.struct_libqt_string{
+        const token_str = qtc.libqt_string{
             .len = token.len,
             .data = token.ptr,
         };
@@ -169,7 +169,7 @@ pub const qnetworkrequestfactory = struct {
     ///
     /// ``` self: QtC.QNetworkRequestFactory, userName: []const u8 ```
     pub fn SetUserName(self: ?*anyopaque, userName: []const u8) void {
-        const userName_str = qtc.struct_libqt_string{
+        const userName_str = qtc.libqt_string{
             .len = userName.len,
             .data = userName.ptr,
         };
@@ -198,7 +198,7 @@ pub const qnetworkrequestfactory = struct {
     ///
     /// ``` self: QtC.QNetworkRequestFactory, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
-        const password_str = qtc.struct_libqt_string{
+        const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
@@ -243,6 +243,8 @@ pub const qnetworkrequestfactory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#priority)
     ///
     /// ``` self: QtC.QNetworkRequestFactory ```
+    ///
+    /// Returns: ``` qnetworkrequest_enums.Priority ```
     pub fn Priority(self: ?*anyopaque) i64 {
         return qtc.QNetworkRequestFactory_Priority(@ptrCast(self));
     }

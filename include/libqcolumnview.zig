@@ -4,6 +4,7 @@ const qabstractitemdelegate_enums = @import("libqabstractitemdelegate.zig").enum
 const qabstractitemview_enums = @import("libqabstractitemview.zig").enums;
 const qabstractscrollarea_enums = @import("libqabstractscrollarea.zig").enums;
 const qframe_enums = @import("libqframe.zig").enums;
+const qitemselectionmodel_enums = @import("libqitemselectionmodel.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("libqpaintdevice.zig").enums;
@@ -317,7 +318,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, list: []i32 ```
     pub fn SetColumnWidths(self: ?*anyopaque, list: []i32) void {
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list.ptr,
         };
@@ -328,7 +329,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, allocator: std.mem.Allocator ```
     pub fn ColumnWidths(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.struct_libqt_list = qtc.QColumnView_ColumnWidths(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QColumnView_ColumnWidths(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcolumnview.ColumnWidths: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -363,7 +364,7 @@ pub const qcolumnview = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolumnview.html#moveCursor)
     ///
-    /// ``` self: QtC.QColumnView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: i32 ```
+    /// ``` self: QtC.QColumnView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MoveCursor(self: ?*anyopaque, cursorAction: i64, modifiers: i64) QtC.QModelIndex {
         return qtc.QColumnView_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
@@ -372,7 +373,7 @@ pub const qcolumnview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QColumnView, slot: fn (self: QtC.QColumnView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: i32) callconv(.c) QtC.QModelIndex ```
+    /// ``` self: QtC.QColumnView, slot: fn (self: QtC.QColumnView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex ```
     pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) QtC.QModelIndex) void {
         qtc.QColumnView_OnMoveCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -381,7 +382,7 @@ pub const qcolumnview = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QColumnView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: i32 ```
+    /// ``` self: QtC.QColumnView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i64, modifiers: i64) QtC.QModelIndex {
         return qtc.QColumnView_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
@@ -413,7 +414,7 @@ pub const qcolumnview = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolumnview.html#setSelection)
     ///
-    /// ``` self: QtC.QColumnView, rect: QtC.QRect, command: i32 ```
+    /// ``` self: QtC.QColumnView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i64) void {
         qtc.QColumnView_SetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
@@ -422,7 +423,7 @@ pub const qcolumnview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QColumnView, slot: fn (self: QtC.QColumnView, rect: QtC.QRect, command: i32) callconv(.c) void ```
+    /// ``` self: QtC.QColumnView, slot: fn (self: QtC.QColumnView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
     pub fn OnSetSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
         qtc.QColumnView_OnSetSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -431,7 +432,7 @@ pub const qcolumnview = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QColumnView, rect: QtC.QRect, command: i32 ```
+    /// ``` self: QtC.QColumnView, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn QBaseSetSelection(self: ?*anyopaque, rect: ?*anyopaque, command: i64) void {
         qtc.QColumnView_QBaseSetSelection(@ptrCast(self), @ptrCast(rect), @intCast(command));
     }
@@ -712,6 +713,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionMode)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.SelectionMode ```
     pub fn SelectionMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
     }
@@ -730,6 +733,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#selectionBehavior)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.SelectionBehavior ```
     pub fn SelectionBehavior(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
     }
@@ -756,7 +761,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setEditTriggers)
     ///
-    /// ``` self: QtC.QColumnView, triggers: i32 ```
+    /// ``` self: QtC.QColumnView, triggers: flag of qabstractitemview_enums.EditTrigger ```
     pub fn SetEditTriggers(self: ?*anyopaque, triggers: i64) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self), @intCast(triggers));
     }
@@ -766,6 +771,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#editTriggers)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` flag of qabstractitemview_enums.EditTrigger ```
     pub fn EditTriggers(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self));
     }
@@ -784,6 +791,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollMode)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.ScrollMode ```
     pub fn VerticalScrollMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
     }
@@ -811,6 +820,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#horizontalScrollMode)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.ScrollMode ```
     pub fn HorizontalScrollMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
     }
@@ -946,6 +957,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#dragDropMode)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.DragDropMode ```
     pub fn DragDropMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
     }
@@ -964,6 +977,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#defaultDropAction)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn DefaultDropAction(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
     }
@@ -1018,6 +1033,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#textElideMode)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.TextElideMode ```
     pub fn TextElideMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
     }
@@ -1306,6 +1323,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
@@ -1342,6 +1361,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
@@ -1395,7 +1416,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
-    /// ``` self: QtC.QColumnView, widget: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QColumnView, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
@@ -1404,9 +1425,9 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
-    /// ``` self: QtC.QColumnView, alignment: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QColumnView, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qcolumnview.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -1446,6 +1467,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
@@ -1491,6 +1514,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qframe_enums.Shape ```
     pub fn FrameShape(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
@@ -1509,6 +1534,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qframe_enums.Shadow ```
     pub fn FrameShadow(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
@@ -1662,6 +1689,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
@@ -2220,6 +2249,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
@@ -2238,6 +2269,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
@@ -2455,7 +2488,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = qtc.struct_libqt_string{
+        const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
@@ -2468,7 +2501,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = qtc.struct_libqt_string{
+        const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
@@ -2525,7 +2558,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = qtc.struct_libqt_string{
+        const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
@@ -2551,7 +2584,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = qtc.struct_libqt_string{
+        const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
@@ -2577,7 +2610,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -2630,7 +2663,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -2674,7 +2707,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -2700,7 +2733,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -2739,7 +2772,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2765,7 +2798,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -2786,6 +2819,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
@@ -2894,6 +2929,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
@@ -2948,6 +2985,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
@@ -3309,7 +3348,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcolumnview.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3322,7 +3361,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = qtc.struct_libqt_string{
+        const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
@@ -3397,6 +3436,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
@@ -3405,7 +3446,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.QColumnView, state: i32 ```
+    /// ``` self: QtC.QColumnView, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
@@ -3414,7 +3455,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.QColumnView, state: i32 ```
+    /// ``` self: QtC.QColumnView, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
@@ -3531,7 +3572,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.QColumnView, parent: QtC.QWidget, f: i32 ```
+    /// ``` self: QtC.QColumnView, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
@@ -3614,7 +3655,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -3627,7 +3668,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -3658,7 +3699,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qcolumnview.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -3672,7 +3713,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3685,7 +3726,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3698,7 +3739,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3711,7 +3752,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3731,7 +3772,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QColumnView, typeVal: i32 ```
+    /// ``` self: QtC.QColumnView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -3741,6 +3782,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
@@ -3758,7 +3801,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.QColumnView, typeVal: i32 ```
+    /// ``` self: QtC.QColumnView, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -3768,6 +3811,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
@@ -3913,7 +3958,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -3953,7 +3998,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = qtc.struct_libqt_string{
+        const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
@@ -3992,6 +4037,8 @@ pub const qcolumnview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
@@ -4000,7 +4047,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QColumnView, hints: i32 ```
+    /// ``` self: QtC.QColumnView, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -4027,7 +4074,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QColumnView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QColumnView, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -4054,7 +4101,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QColumnView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QColumnView, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -4072,7 +4119,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.QColumnView, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QColumnView, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -4135,7 +4182,7 @@ pub const qcolumnview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
@@ -4159,7 +4206,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -4262,7 +4309,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcolumnview.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -4370,8 +4417,8 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4633,7 +4680,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, search: []const u8 ```
     pub fn KeyboardSearch(self: ?*anyopaque, search: []const u8) void {
-        const search_str = qtc.struct_libqt_string{
+        const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
@@ -4648,7 +4695,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, search: []const u8 ```
     pub fn QBaseKeyboardSearch(self: ?*anyopaque, search: []const u8) void {
-        const search_str = qtc.struct_libqt_string{
+        const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
@@ -4872,7 +4919,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -4887,7 +4934,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn QBaseDataChanged(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -5309,7 +5356,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, allocator: std.mem.Allocator ```
     pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QColumnView_SelectedIndexes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QColumnView_SelectedIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qcolumnview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -5325,7 +5372,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, allocator: std.mem.Allocator ```
     pub fn QBaseSelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QColumnView_QBaseSelectedIndexes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QColumnView_QBaseSelectedIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qcolumnview.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -5384,6 +5431,8 @@ pub const qcolumnview = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QColumnView, index: QtC.QModelIndex, event: QtC.QEvent ```
+    ///
+    /// Returns: ``` flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
         return qtc.QColumnView_SelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
@@ -5395,6 +5444,8 @@ pub const qcolumnview = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QColumnView, index: QtC.QModelIndex, event: QtC.QEvent ```
+    ///
+    /// Returns: ``` flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn QBaseSelectionCommand(self: ?*anyopaque, index: ?*anyopaque, event: ?*anyopaque) i64 {
         return qtc.QColumnView_QBaseSelectionCommand(@ptrCast(self), @ptrCast(index), @ptrCast(event));
     }
@@ -5416,7 +5467,7 @@ pub const qcolumnview = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QColumnView, supportedActions: i32 ```
+    /// ``` self: QtC.QColumnView, supportedActions: flag of qnamespace_enums.DropAction ```
     pub fn StartDrag(self: ?*anyopaque, supportedActions: i64) void {
         qtc.QColumnView_StartDrag(@ptrCast(self), @intCast(supportedActions));
     }
@@ -5427,7 +5478,7 @@ pub const qcolumnview = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QColumnView, supportedActions: i32 ```
+    /// ``` self: QtC.QColumnView, supportedActions: flag of qnamespace_enums.DropAction ```
     pub fn QBaseStartDrag(self: ?*anyopaque, supportedActions: i64) void {
         qtc.QColumnView_QBaseStartDrag(@ptrCast(self), @intCast(supportedActions));
     }
@@ -5438,7 +5489,7 @@ pub const qcolumnview = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QColumnView, slot: fn (self: QtC.QColumnView, supportedActions: i32) callconv(.c) void ```
+    /// ``` self: QtC.QColumnView, slot: fn (self: QtC.QColumnView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void ```
     pub fn OnStartDrag(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QColumnView_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -6771,7 +6822,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -6786,7 +6837,7 @@ pub const qcolumnview = struct {
     ///
     /// ``` self: QtC.QColumnView, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -7075,6 +7126,8 @@ pub const qcolumnview = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.State ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QColumnView_State(@ptrCast(self));
     }
@@ -7086,6 +7139,8 @@ pub const qcolumnview = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.State ```
     pub fn QBaseState(self: ?*anyopaque) i64 {
         return qtc.QColumnView_QBaseState(@ptrCast(self));
     }
@@ -7405,6 +7460,8 @@ pub const qcolumnview = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.DropIndicatorPosition ```
     pub fn DropIndicatorPosition(self: ?*anyopaque) i64 {
         return qtc.QColumnView_DropIndicatorPosition(@ptrCast(self));
     }
@@ -7416,6 +7473,8 @@ pub const qcolumnview = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QColumnView ```
+    ///
+    /// Returns: ``` qabstractitemview_enums.DropIndicatorPosition ```
     pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i64 {
         return qtc.QColumnView_QBaseDropIndicatorPosition(@ptrCast(self));
     }

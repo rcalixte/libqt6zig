@@ -77,6 +77,8 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#mode)
     ///
     /// ``` self: QtC.QPageLayout ```
+    ///
+    /// Returns: ``` qpagelayout_enums.Mode ```
     pub fn Mode(self: ?*anyopaque) i64 {
         return qtc.QPageLayout_Mode(@ptrCast(self));
     }
@@ -105,6 +107,8 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#orientation)
     ///
     /// ``` self: QtC.QPageLayout ```
+    ///
+    /// Returns: ``` qpagelayout_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QPageLayout_Orientation(@ptrCast(self));
     }
@@ -119,6 +123,8 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#units)
     ///
     /// ``` self: QtC.QPageLayout ```
+    ///
+    /// Returns: ``` qpagelayout_enums.Unit ```
     pub fn Units(self: ?*anyopaque) i64 {
         return qtc.QPageLayout_Units(@ptrCast(self));
     }

@@ -77,6 +77,8 @@ pub const qaudioformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#channelConfig)
     ///
     /// ``` self: QtC.QAudioFormat ```
+    ///
+    /// Returns: ``` qaudioformat_enums.ChannelConfig ```
     pub fn ChannelConfig(self: ?*anyopaque) i64 {
         return qtc.QAudioFormat_ChannelConfig(@ptrCast(self));
     }
@@ -112,6 +114,8 @@ pub const qaudioformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#sampleFormat)
     ///
     /// ``` self: QtC.QAudioFormat ```
+    ///
+    /// Returns: ``` qaudioformat_enums.SampleFormat ```
     pub fn SampleFormat(self: ?*anyopaque) i64 {
         return qtc.QAudioFormat_SampleFormat(@ptrCast(self));
     }
@@ -182,6 +186,8 @@ pub const qaudioformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#defaultChannelConfigForChannelCount)
     ///
     /// ``` channelCount: i32 ```
+    ///
+    /// Returns: ``` qaudioformat_enums.ChannelConfig ```
     pub fn DefaultChannelConfigForChannelCount(channelCount: i32) i64 {
         return qtc.QAudioFormat_DefaultChannelConfigForChannelCount(@intCast(channelCount));
     }

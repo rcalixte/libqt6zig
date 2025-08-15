@@ -98,7 +98,7 @@ pub const qsslserver = struct {
     ///
     /// ``` self: QtC.QSslServer, socket: QtC.QSslSocket, errors: []QtC.QSslError ```
     pub fn SslErrors(self: ?*anyopaque, socket: ?*anyopaque, errors: []QtC.QSslError) void {
-        const errors_list = qtc.struct_libqt_list{
+        const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
@@ -158,7 +158,7 @@ pub const qsslserver = struct {
     ///
     /// ``` self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: []const u8 ```
     pub fn AlertSent(self: ?*anyopaque, socket: ?*anyopaque, level: i64, typeVal: i64, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -176,7 +176,7 @@ pub const qsslserver = struct {
     ///
     /// ``` self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: []const u8 ```
     pub fn AlertReceived(self: ?*anyopaque, socket: ?*anyopaque, level: i64, typeVal: i64, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -382,6 +382,8 @@ pub const qsslserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtcpserver.html#serverError)
     ///
     /// ``` self: QtC.QSslServer ```
+    ///
+    /// Returns: ``` qabstractsocket_enums.SocketError ```
     pub fn ServerError(self: ?*anyopaque) i64 {
         return qtc.QTcpServer_ServerError(@ptrCast(self));
     }
@@ -526,7 +528,7 @@ pub const qsslserver = struct {
     ///
     /// ``` self: QtC.QSslServer, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -629,7 +631,7 @@ pub const qsslserver = struct {
     ///
     /// ``` self: QtC.QSslServer, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsslserver.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -746,8 +748,8 @@ pub const qsslserver = struct {
     ///
     /// ``` self: QtC.QSslServer, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

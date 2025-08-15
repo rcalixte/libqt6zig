@@ -15,7 +15,7 @@ pub const qitemeditorcreatorbase = struct {
     ///
     /// ``` self: QtC.QItemEditorCreatorBase, allocator: std.mem.Allocator ```
     pub fn ValuePropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QItemEditorCreatorBase_ValuePropertyName(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QItemEditorCreatorBase_ValuePropertyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorcreatorbase.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -84,7 +84,7 @@ pub const qitemeditorfactory = struct {
     ///
     /// ``` self: QtC.QItemEditorFactory, userType: i32, allocator: std.mem.Allocator ```
     pub fn ValuePropertyName(self: ?*anyopaque, userType: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self), @intCast(userType));
+        const _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self), @intCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorfactory.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -106,7 +106,7 @@ pub const qitemeditorfactory = struct {
     ///
     /// ``` self: QtC.QItemEditorFactory, userType: i32, allocator: std.mem.Allocator ```
     pub fn QBaseValuePropertyName(self: ?*anyopaque, userType: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QItemEditorFactory_QBaseValuePropertyName(@ptrCast(self), @intCast(userType));
+        const _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_QBaseValuePropertyName(@ptrCast(self), @intCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorfactory.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

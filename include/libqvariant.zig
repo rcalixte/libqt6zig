@@ -108,7 +108,7 @@ pub const qvariant = struct {
     ///
     /// ``` bytearray: []u8 ```
     pub fn New15(bytearray: []u8) QtC.QVariant {
-        const bytearray_str = qtc.struct_libqt_string{
+        const bytearray_str = qtc.libqt_string{
             .len = bytearray.len,
             .data = bytearray.ptr,
         };
@@ -127,7 +127,7 @@ pub const qvariant = struct {
     ///
     /// ``` hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn New17(hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
-        const hash_keys = allocator.alloc(qtc.struct_libqt_string, hash.count()) catch @panic("qvariant.: Memory allocation failed");
+        const hash_keys = allocator.alloc(qtc.libqt_string, hash.count()) catch @panic("qvariant.: Memory allocation failed");
         defer allocator.free(hash_keys);
         const hash_values = allocator.alloc(QtC.QVariant, hash.count()) catch @panic("qvariant.: Memory allocation failed");
         defer allocator.free(hash_values);
@@ -135,14 +135,14 @@ pub const qvariant = struct {
         var hash_it = hash.iterator();
         while (hash_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            hash_keys[i] = qtc.struct_libqt_string{
+            hash_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             hash_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const hash_map = qtc.struct_libqt_map{
+        const hash_map = qtc.libqt_map{
             .len = hash.count(),
             .keys = @ptrCast(hash_keys.ptr),
             .values = @ptrCast(hash_values.ptr),
@@ -169,7 +169,7 @@ pub const qvariant = struct {
     ///
     /// ``` list: []QtC.QVariant ```
     pub fn New20(list: []QtC.QVariant) QtC.QVariant {
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };
@@ -188,7 +188,7 @@ pub const qvariant = struct {
     ///
     /// ``` mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn New22(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
-        const mapVal_keys = allocator.alloc(qtc.struct_libqt_string, mapVal.count()) catch @panic("qvariant.: Memory allocation failed");
+        const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal.count()) catch @panic("qvariant.: Memory allocation failed");
         defer allocator.free(mapVal_keys);
         const mapVal_values = allocator.alloc(QtC.QVariant, mapVal.count()) catch @panic("qvariant.: Memory allocation failed");
         defer allocator.free(mapVal_values);
@@ -196,14 +196,14 @@ pub const qvariant = struct {
         var mapVal_it = mapVal.iterator();
         while (mapVal_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            mapVal_keys[i] = qtc.struct_libqt_string{
+            mapVal_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             mapVal_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const mapVal_map = qtc.struct_libqt_map{
+        const mapVal_map = qtc.libqt_map{
             .len = mapVal.count(),
             .keys = @ptrCast(mapVal_keys.ptr),
             .values = @ptrCast(mapVal_values.ptr),
@@ -223,7 +223,7 @@ pub const qvariant = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn New24(stringVal: []const u8) QtC.QVariant {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -235,7 +235,7 @@ pub const qvariant = struct {
     ///
     /// ``` stringlist: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New25(stringlist: [][]const u8, allocator: std.mem.Allocator) QtC.QVariant {
-        var stringlist_arr = allocator.alloc(qtc.struct_libqt_string, stringlist.len) catch @panic("qvariant.: Memory allocation failed");
+        var stringlist_arr = allocator.alloc(qtc.libqt_string, stringlist.len) catch @panic("qvariant.: Memory allocation failed");
         defer allocator.free(stringlist_arr);
         for (stringlist, 0..stringlist.len) |item, i| {
             stringlist_arr[i] = .{
@@ -243,7 +243,7 @@ pub const qvariant = struct {
                 .data = item.ptr,
             };
         }
-        const stringlist_list = qtc.struct_libqt_list{
+        const stringlist_list = qtc.libqt_list{
             .len = stringlist.len,
             .data = stringlist_arr.ptr,
         };
@@ -459,7 +459,7 @@ pub const qvariant = struct {
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QVariant_ToByteArray(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QVariant_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qvariant.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -488,8 +488,8 @@ pub const qvariant = struct {
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QVariant_ToStringList(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QVariant_ToStringList(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -538,7 +538,7 @@ pub const qvariant = struct {
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QVariant {
-        const _arr: qtc.struct_libqt_list = qtc.QVariant_ToList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QVariant_ToList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QVariant, _arr.len) catch @panic("qvariant.ToList: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
@@ -550,17 +550,17 @@ pub const qvariant = struct {
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QVariant_ToMap(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QVariant_ToMap(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
-            const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
-        const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
@@ -576,17 +576,17 @@ pub const qvariant = struct {
     ///
     /// ``` self: QtC.QVariant, allocator: std.mem.Allocator ```
     pub fn ToHash(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QVariant_ToHash(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QVariant_ToHash(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
-            const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
-        const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
@@ -748,6 +748,8 @@ pub const qvariant = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#type)
     ///
     /// ``` self: QtC.QVariant ```
+    ///
+    /// Returns: ``` qvariant_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QVariant_Type(@ptrCast(self));
     }
@@ -763,6 +765,8 @@ pub const qvariant = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#nameToType)
     ///
     /// ``` name: []const u8 ```
+    ///
+    /// Returns: ``` qvariant_enums.Type ```
     pub fn NameToType(name: []const u8) i64 {
         const name_Cstring = name.ptr;
         return qtc.QVariant_NameToType(name_Cstring);

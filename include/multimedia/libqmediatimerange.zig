@@ -78,7 +78,7 @@ pub const qmediatimerange = struct {
     ///
     /// ``` self: QtC.QMediaTimeRange, allocator: std.mem.Allocator ```
     pub fn Intervals(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QMediaTimeRange__Interval {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaTimeRange_Intervals(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QMediaTimeRange_Intervals(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMediaTimeRange__Interval, _arr.len) catch @panic("qmediatimerange.Intervals: Memory allocation failed");
         const _data: [*]QtC.QMediaTimeRange__Interval = @ptrCast(@alignCast(_arr.data));
@@ -245,42 +245,42 @@ pub const qmediatimerange__interval = struct {
         qtc.QMediaTimeRange__Interval_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange__interval.html#start)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange-interval.html#start)
     ///
     /// ``` self: QtC.QMediaTimeRange__Interval ```
     pub fn Start(self: ?*anyopaque) i64 {
         return qtc.QMediaTimeRange__Interval_Start(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange__interval.html#end)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange-interval.html#end)
     ///
     /// ``` self: QtC.QMediaTimeRange__Interval ```
     pub fn End(self: ?*anyopaque) i64 {
         return qtc.QMediaTimeRange__Interval_End(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange__interval.html#contains)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange-interval.html#contains)
     ///
     /// ``` self: QtC.QMediaTimeRange__Interval, time: i64 ```
     pub fn Contains(self: ?*anyopaque, time: i64) bool {
         return qtc.QMediaTimeRange__Interval_Contains(@ptrCast(self), @intCast(time));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange__interval.html#isNormal)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange-interval.html#isNormal)
     ///
     /// ``` self: QtC.QMediaTimeRange__Interval ```
     pub fn IsNormal(self: ?*anyopaque) bool {
         return qtc.QMediaTimeRange__Interval_IsNormal(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange__interval.html#normalized)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange-interval.html#normalized)
     ///
     /// ``` self: QtC.QMediaTimeRange__Interval ```
     pub fn Normalized(self: ?*anyopaque) QtC.QMediaTimeRange__Interval {
         return qtc.QMediaTimeRange__Interval_Normalized(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange__interval.html#translated)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmediatimerange-interval.html#translated)
     ///
     /// ``` self: QtC.QMediaTimeRange__Interval, offset: i64 ```
     pub fn Translated(self: ?*anyopaque, offset: i64) QtC.QMediaTimeRange__Interval {

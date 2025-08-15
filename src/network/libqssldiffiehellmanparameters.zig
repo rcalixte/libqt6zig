@@ -45,7 +45,7 @@ pub const qssldiffiehellmanparameters = struct {
     ///
     /// ``` encoded: []u8 ```
     pub fn FromEncoded(encoded: []u8) QtC.QSslDiffieHellmanParameters {
-        const encoded_str = qtc.struct_libqt_string{
+        const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
         };
@@ -76,6 +76,8 @@ pub const qssldiffiehellmanparameters = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#error)
     ///
     /// ``` self: QtC.QSslDiffieHellmanParameters ```
+    ///
+    /// Returns: ``` qssldiffiehellmanparameters_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QSslDiffieHellmanParameters_Error(@ptrCast(self));
     }
@@ -95,7 +97,7 @@ pub const qssldiffiehellmanparameters = struct {
     ///
     /// ``` encoded: []u8, format: qssl_enums.EncodingFormat ```
     pub fn FromEncoded22(encoded: []u8, format: i64) QtC.QSslDiffieHellmanParameters {
-        const encoded_str = qtc.struct_libqt_string{
+        const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
         };

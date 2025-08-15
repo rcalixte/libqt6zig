@@ -100,7 +100,7 @@ pub const qeasingcurve = struct {
     ///
     /// ``` self: QtC.QEasingCurve, allocator: std.mem.Allocator ```
     pub fn ToCubicSpline(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
-        const _arr: qtc.struct_libqt_list = qtc.QEasingCurve_ToCubicSpline(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QEasingCurve_ToCubicSpline(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qeasingcurve.ToCubicSpline: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
@@ -111,6 +111,8 @@ pub const qeasingcurve = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#type)
     ///
     /// ``` self: QtC.QEasingCurve ```
+    ///
+    /// Returns: ``` qeasingcurve_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEasingCurve_Type(@ptrCast(self));
     }

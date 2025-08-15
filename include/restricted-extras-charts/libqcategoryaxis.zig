@@ -70,6 +70,8 @@ pub const qcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#type)
     ///
     /// ``` self: QtC.QCategoryAxis ```
+    ///
+    /// Returns: ``` qabstractaxis_enums.AxisType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QCategoryAxis_Type(@ptrCast(self));
     }
@@ -88,6 +90,8 @@ pub const qcategoryaxis = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCategoryAxis ```
+    ///
+    /// Returns: ``` qabstractaxis_enums.AxisType ```
     pub fn QBaseType(self: ?*anyopaque) i64 {
         return qtc.QCategoryAxis_QBaseType(@ptrCast(self));
     }
@@ -96,7 +100,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, label: []const u8, categoryEndValue: f64 ```
     pub fn Append(self: ?*anyopaque, label: []const u8, categoryEndValue: f64) void {
-        const label_str = qtc.struct_libqt_string{
+        const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
@@ -107,7 +111,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, label: []const u8 ```
     pub fn Remove(self: ?*anyopaque, label: []const u8) void {
-        const label_str = qtc.struct_libqt_string{
+        const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
@@ -118,11 +122,11 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, oldLabel: []const u8, newLabel: []const u8 ```
     pub fn ReplaceLabel(self: ?*anyopaque, oldLabel: []const u8, newLabel: []const u8) void {
-        const oldLabel_str = qtc.struct_libqt_string{
+        const oldLabel_str = qtc.libqt_string{
             .len = oldLabel.len,
             .data = oldLabel.ptr,
         };
-        const newLabel_str = qtc.struct_libqt_string{
+        const newLabel_str = qtc.libqt_string{
             .len = newLabel.len,
             .data = newLabel.ptr,
         };
@@ -147,7 +151,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, categoryLabel: []const u8 ```
     pub fn EndValue(self: ?*anyopaque, categoryLabel: []const u8) f64 {
-        const categoryLabel_str = qtc.struct_libqt_string{
+        const categoryLabel_str = qtc.libqt_string{
             .len = categoryLabel.len,
             .data = categoryLabel.ptr,
         };
@@ -158,8 +162,8 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn CategoriesLabels(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QCategoryAxis_CategoriesLabels(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCategoryAxis_CategoriesLabels(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -186,6 +190,8 @@ pub const qcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcategoryaxis-qtcharts.html#labelsPosition)
     ///
     /// ``` self: QtC.QCategoryAxis ```
+    ///
+    /// Returns: ``` qcategoryaxis_enums.AxisLabelsPosition ```
     pub fn LabelsPosition(self: ?*anyopaque) i64 {
         return qtc.QCategoryAxis_LabelsPosition(@ptrCast(self));
     }
@@ -255,7 +261,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, categoryLabel: []const u8 ```
     pub fn StartValue1(self: ?*anyopaque, categoryLabel: []const u8) f64 {
-        const categoryLabel_str = qtc.struct_libqt_string{
+        const categoryLabel_str = qtc.libqt_string{
             .len = categoryLabel.len,
             .data = categoryLabel.ptr,
         };
@@ -393,6 +399,8 @@ pub const qcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#tickType)
     ///
     /// ``` self: QtC.QCategoryAxis ```
+    ///
+    /// Returns: ``` qvalueaxis_enums.TickType ```
     pub fn TickType(self: ?*anyopaque) i64 {
         return qtc.QValueAxis_TickType(@ptrCast(self));
     }
@@ -403,7 +411,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, format: []const u8 ```
     pub fn SetLabelFormat(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -528,7 +536,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, format: []const u8 ```
     pub fn LabelFormatChanged(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -946,7 +954,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, title: []const u8 ```
     pub fn SetTitleText(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -1061,6 +1069,8 @@ pub const qcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#orientation)
     ///
     /// ``` self: QtC.QCategoryAxis ```
+    ///
+    /// Returns: ``` qnamespace_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Orientation(@ptrCast(self));
     }
@@ -1070,6 +1080,8 @@ pub const qcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#alignment)
     ///
     /// ``` self: QtC.QCategoryAxis ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self));
     }
@@ -1413,7 +1425,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, title: []const u8 ```
     pub fn TitleTextChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -1754,7 +1766,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1857,7 +1869,7 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcategoryaxis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1974,8 +1986,8 @@ pub const qcategoryaxis = struct {
     ///
     /// ``` self: QtC.QCategoryAxis, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

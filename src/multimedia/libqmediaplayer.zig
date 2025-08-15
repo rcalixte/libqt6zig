@@ -69,7 +69,7 @@ pub const qmediaplayer = struct {
     ///
     /// ``` self: QtC.QMediaPlayer, allocator: std.mem.Allocator ```
     pub fn AudioTracks(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QMediaMetaData {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaPlayer_AudioTracks(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QMediaPlayer_AudioTracks(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMediaMetaData, _arr.len) catch @panic("qmediaplayer.AudioTracks: Memory allocation failed");
         const _data: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
@@ -81,7 +81,7 @@ pub const qmediaplayer = struct {
     ///
     /// ``` self: QtC.QMediaPlayer, allocator: std.mem.Allocator ```
     pub fn VideoTracks(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QMediaMetaData {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaPlayer_VideoTracks(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QMediaPlayer_VideoTracks(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMediaMetaData, _arr.len) catch @panic("qmediaplayer.VideoTracks: Memory allocation failed");
         const _data: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
@@ -93,7 +93,7 @@ pub const qmediaplayer = struct {
     ///
     /// ``` self: QtC.QMediaPlayer, allocator: std.mem.Allocator ```
     pub fn SubtitleTracks(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QMediaMetaData {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaPlayer_SubtitleTracks(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QMediaPlayer_SubtitleTracks(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMediaMetaData, _arr.len) catch @panic("qmediaplayer.SubtitleTracks: Memory allocation failed");
         const _data: [*]QtC.QMediaMetaData = @ptrCast(@alignCast(_arr.data));
@@ -216,6 +216,8 @@ pub const qmediaplayer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#playbackState)
     ///
     /// ``` self: QtC.QMediaPlayer ```
+    ///
+    /// Returns: ``` qmediaplayer_enums.PlaybackState ```
     pub fn PlaybackState(self: ?*anyopaque) i64 {
         return qtc.QMediaPlayer_PlaybackState(@ptrCast(self));
     }
@@ -223,6 +225,8 @@ pub const qmediaplayer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#mediaStatus)
     ///
     /// ``` self: QtC.QMediaPlayer ```
+    ///
+    /// Returns: ``` qmediaplayer_enums.MediaStatus ```
     pub fn MediaStatus(self: ?*anyopaque) i64 {
         return qtc.QMediaPlayer_MediaStatus(@ptrCast(self));
     }
@@ -307,6 +311,8 @@ pub const qmediaplayer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#error)
     ///
     /// ``` self: QtC.QMediaPlayer ```
+    ///
+    /// Returns: ``` qmediaplayer_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QMediaPlayer_Error(@ptrCast(self));
     }
@@ -655,7 +661,7 @@ pub const qmediaplayer = struct {
     ///
     /// ``` self: QtC.QMediaPlayer, errorVal: qmediaplayer_enums.Error, errorString: []const u8 ```
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i64, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -721,7 +727,7 @@ pub const qmediaplayer = struct {
     ///
     /// ``` self: QtC.QMediaPlayer, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -824,7 +830,7 @@ pub const qmediaplayer = struct {
     ///
     /// ``` self: QtC.QMediaPlayer, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qmediaplayer.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -941,8 +947,8 @@ pub const qmediaplayer = struct {
     ///
     /// ``` self: QtC.QMediaPlayer, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

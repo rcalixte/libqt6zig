@@ -24,7 +24,7 @@ pub const qgraphicswidget = struct {
 
     /// New3 constructs a new QGraphicsWidget object.
     ///
-    /// ``` parent: QtC.QGraphicsItem, wFlags: i32 ```
+    /// ``` parent: QtC.QGraphicsItem, wFlags: flag of qnamespace_enums.WindowType ```
     pub fn New3(parent: ?*anyopaque, wFlags: i64) QtC.QGraphicsWidget {
         return qtc.QGraphicsWidget_new3(@ptrCast(parent), @intCast(wFlags));
     }
@@ -97,6 +97,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QGraphicsWidget_LayoutDirection(@ptrCast(self));
     }
@@ -315,6 +317,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFlags)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QGraphicsWidget_WindowFlags(@ptrCast(self));
     }
@@ -322,13 +326,15 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowType)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QGraphicsWidget_WindowType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QGraphicsWidget, wFlags: i32 ```
+    /// ``` self: QtC.QGraphicsWidget, wFlags: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, wFlags: i64) void {
         qtc.QGraphicsWidget_SetWindowFlags(@ptrCast(self), @intCast(wFlags));
     }
@@ -344,7 +350,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, title: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -365,6 +371,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QGraphicsWidget_FocusPolicy(@ptrCast(self));
     }
@@ -429,7 +437,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -440,7 +448,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -465,7 +473,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGraphicsWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qgraphicswidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -751,7 +759,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, propertyName: []const u8, value: QtC.QVariant ```
     pub fn PropertyChange(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) QtC.QVariant {
-        const propertyName_str = qtc.struct_libqt_string{
+        const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
@@ -773,7 +781,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, propertyName: []const u8, value: QtC.QVariant ```
     pub fn QBasePropertyChange(self: ?*anyopaque, propertyName: []const u8, value: ?*anyopaque) QtC.QVariant {
-        const propertyName_str = qtc.struct_libqt_string{
+        const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
@@ -833,6 +841,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#windowFrameSectionAt)
     ///
     /// ``` self: QtC.QGraphicsWidget, pos: QtC.QPointF ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowFrameSection ```
     pub fn WindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i64 {
         return qtc.QGraphicsWidget_WindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
@@ -851,6 +861,8 @@ pub const qgraphicswidget = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsWidget, pos: QtC.QPointF ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowFrameSection ```
     pub fn QBaseWindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i64 {
         return qtc.QGraphicsWidget_QBaseWindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
@@ -1572,7 +1584,7 @@ pub const qgraphicswidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#grabGesture)
     ///
-    /// ``` self: QtC.QGraphicsWidget, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QGraphicsWidget, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QGraphicsObject_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -1596,7 +1608,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1699,7 +1711,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicswidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1816,8 +1828,8 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2041,7 +2053,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, allocator: std.mem.Allocator ```
     pub fn ChildItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicswidget.ChildItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -2117,6 +2129,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#flags)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` flag of qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QGraphicsItem_Flags(@ptrCast(self));
     }
@@ -2134,7 +2148,7 @@ pub const qgraphicswidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlags)
     ///
-    /// ``` self: QtC.QGraphicsWidget, flags: i32 ```
+    /// ``` self: QtC.QGraphicsWidget, flags: flag of qgraphicsitem_enums.GraphicsItemFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
@@ -2144,6 +2158,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#cacheMode)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` qgraphicsitem_enums.CacheMode ```
     pub fn CacheMode(self: ?*anyopaque) i64 {
         return qtc.QGraphicsItem_CacheMode(@ptrCast(self));
     }
@@ -2162,6 +2178,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#panelModality)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` qgraphicsitem_enums.PanelModality ```
     pub fn PanelModality(self: ?*anyopaque) i64 {
         return qtc.QGraphicsItem_PanelModality(@ptrCast(self));
     }
@@ -2203,7 +2221,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -2395,6 +2413,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#acceptedMouseButtons)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn AcceptedMouseButtons(self: ?*anyopaque) i64 {
         return qtc.QGraphicsItem_AcceptedMouseButtons(@ptrCast(self));
     }
@@ -2403,7 +2423,7 @@ pub const qgraphicswidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setAcceptedMouseButtons)
     ///
-    /// ``` self: QtC.QGraphicsWidget, buttons: i32 ```
+    /// ``` self: QtC.QGraphicsWidget, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetAcceptedMouseButtons(self: ?*anyopaque, buttons: i64) void {
         qtc.QGraphicsItem_SetAcceptedMouseButtons(@ptrCast(self), @intCast(buttons));
     }
@@ -2792,7 +2812,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, allocator: std.mem.Allocator ```
     pub fn Transformations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsTransform {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsTransform, _arr.len) catch @panic("qgraphicswidget.Transformations: Memory allocation failed");
         const _data: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
@@ -2806,7 +2826,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, transformations: []QtC.QGraphicsTransform ```
     pub fn SetTransformations(self: ?*anyopaque, transformations: []?*anyopaque) void {
-        const transformations_list = qtc.struct_libqt_list{
+        const transformations_list = qtc.libqt_list{
             .len = transformations.len,
             .data = @ptrCast(transformations.ptr),
         };
@@ -2909,7 +2929,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, allocator: std.mem.Allocator ```
     pub fn CollidingItems(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicswidget.CollidingItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
@@ -3309,6 +3329,8 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodHints)
     ///
     /// ``` self: QtC.QGraphicsWidget ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QGraphicsItem_InputMethodHints(@ptrCast(self));
     }
@@ -3317,7 +3339,7 @@ pub const qgraphicswidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QGraphicsWidget, hints: i32 ```
+    /// ``` self: QtC.QGraphicsWidget, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QGraphicsItem_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -3436,7 +3458,7 @@ pub const qgraphicswidget = struct {
     ///
     /// ``` self: QtC.QGraphicsWidget, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
     pub fn CollidingItems1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
-        const _arr: qtc.struct_libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicswidget.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));

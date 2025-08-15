@@ -23,7 +23,7 @@ pub const qurlquery = struct {
     ///
     /// ``` queryString: []const u8 ```
     pub fn New3(queryString: []const u8) QtC.QUrlQuery {
-        const queryString_str = qtc.struct_libqt_string{
+        const queryString_str = qtc.libqt_string{
             .len = queryString.len,
             .data = queryString.ptr,
         };
@@ -88,7 +88,7 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, queryString: []const u8 ```
     pub fn SetQuery(self: ?*anyopaque, queryString: []const u8) void {
-        const queryString_str = qtc.struct_libqt_string{
+        const queryString_str = qtc.libqt_string{
             .len = queryString.len,
             .data = queryString.ptr,
         };
@@ -131,7 +131,7 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, query: []struct_constu8_constu8 ```
     pub fn SetQueryItems(self: ?*anyopaque, query: []struct_constu8_constu8) void {
-        const query_list = qtc.struct_libqt_list{
+        const query_list = qtc.libqt_list{
             .len = query.len,
             .data = query.ptr,
         };
@@ -142,9 +142,9 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, allocator: std.mem.Allocator ```
     pub fn QueryItems(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_constu8_constu8 {
-        const _arr: qtc.struct_libqt_list = qtc.QUrlQuery_QueryItems(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QUrlQuery_QueryItems(@ptrCast(self));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_pair[i].first));
                 qtc.libqt_free(_pair[i].first);
@@ -164,7 +164,7 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8 ```
     pub fn HasQueryItem(self: ?*anyopaque, key: []const u8) bool {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -175,11 +175,11 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, value: []const u8 ```
     pub fn AddQueryItem(self: ?*anyopaque, key: []const u8, value: []const u8) void {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -190,7 +190,7 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8 ```
     pub fn RemoveQueryItem(self: ?*anyopaque, key: []const u8) void {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -201,7 +201,7 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, allocator: std.mem.Allocator ```
     pub fn QueryItemValue(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -216,12 +216,12 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8, allocator: std.mem.Allocator ```
     pub fn AllQueryItemValues(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QUrlQuery_AllQueryItemValues(@ptrCast(self), key_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QUrlQuery_AllQueryItemValues(@ptrCast(self), key_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -242,7 +242,7 @@ pub const qurlquery = struct {
     ///
     /// ``` self: QtC.QUrlQuery, key: []const u8 ```
     pub fn RemoveAllQueryItems(self: ?*anyopaque, key: []const u8) void {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -251,7 +251,7 @@ pub const qurlquery = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#query)
     ///
-    /// ``` self: QtC.QUrlQuery, encoding: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Query1(self: ?*anyopaque, encoding: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrlQuery_Query1(@ptrCast(self), @intCast(encoding));
         defer qtc.libqt_string_free(&_str);
@@ -262,7 +262,7 @@ pub const qurlquery = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#toString)
     ///
-    /// ``` self: QtC.QUrlQuery, encoding: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, encoding: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrlQuery_ToString1(@ptrCast(self), @intCast(encoding));
         defer qtc.libqt_string_free(&_str);
@@ -273,11 +273,11 @@ pub const qurlquery = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItems)
     ///
-    /// ``` self: QtC.QUrlQuery, encoding: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrlQuery, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn QueryItems1(self: ?*anyopaque, encoding: i64, allocator: std.mem.Allocator) []struct_constu8_constu8 {
-        const _arr: qtc.struct_libqt_list = qtc.QUrlQuery_QueryItems1(@ptrCast(self), @intCast(encoding));
+        const _arr: qtc.libqt_list = qtc.QUrlQuery_QueryItems1(@ptrCast(self), @intCast(encoding));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_pair[i].first));
                 qtc.libqt_free(_pair[i].first);
@@ -295,9 +295,9 @@ pub const qurlquery = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItemValue)
     ///
-    /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn QueryItemValue2(self: ?*anyopaque, key: []const u8, encoding: i64, allocator: std.mem.Allocator) []const u8 {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -310,14 +310,14 @@ pub const qurlquery = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#allQueryItemValues)
     ///
-    /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrlQuery, key: []const u8, encoding: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn AllQueryItemValues2(self: ?*anyopaque, key: []const u8, encoding: i64, allocator: std.mem.Allocator) [][]const u8 {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QUrlQuery_AllQueryItemValues2(@ptrCast(self), key_str, @intCast(encoding));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QUrlQuery_AllQueryItemValues2(@ptrCast(self), key_str, @intCast(encoding));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

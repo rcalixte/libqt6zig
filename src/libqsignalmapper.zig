@@ -75,7 +75,7 @@ pub const qsignalmapper = struct {
     ///
     /// ``` self: QtC.QSignalMapper, sender: QtC.QObject, text: []const u8 ```
     pub fn SetMapping2(self: ?*anyopaque, sender: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -107,7 +107,7 @@ pub const qsignalmapper = struct {
     ///
     /// ``` self: QtC.QSignalMapper, text: []const u8 ```
     pub fn Mapping2(self: ?*anyopaque, text: []const u8) QtC.QObject {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -139,7 +139,7 @@ pub const qsignalmapper = struct {
     ///
     /// ``` self: QtC.QSignalMapper, param1: []const u8 ```
     pub fn MappedString(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -226,7 +226,7 @@ pub const qsignalmapper = struct {
     ///
     /// ``` self: QtC.QSignalMapper, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -329,7 +329,7 @@ pub const qsignalmapper = struct {
     ///
     /// ``` self: QtC.QSignalMapper, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsignalmapper.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -446,8 +446,8 @@ pub const qsignalmapper = struct {
     ///
     /// ``` self: QtC.QSignalMapper, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

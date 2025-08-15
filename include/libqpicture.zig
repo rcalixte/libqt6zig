@@ -118,7 +118,7 @@ pub const qpicture = struct {
     ///
     /// ``` self: QtC.QPicture, fileName: []const u8 ```
     pub fn Load2(self: ?*anyopaque, fileName: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -136,7 +136,7 @@ pub const qpicture = struct {
     ///
     /// ``` self: QtC.QPicture, fileName: []const u8 ```
     pub fn Save2(self: ?*anyopaque, fileName: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };

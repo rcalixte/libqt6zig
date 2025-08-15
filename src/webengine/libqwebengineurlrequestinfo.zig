@@ -8,6 +8,8 @@ pub const qwebengineurlrequestinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#resourceType)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
+    ///
+    /// Returns: ``` qwebengineurlrequestinfo_enums.ResourceType ```
     pub fn ResourceType(self: ?*anyopaque) i64 {
         return qtc.QWebEngineUrlRequestInfo_ResourceType(@ptrCast(self));
     }
@@ -15,6 +17,8 @@ pub const qwebengineurlrequestinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#navigationType)
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
+    ///
+    /// Returns: ``` qwebengineurlrequestinfo_enums.NavigationType ```
     pub fn NavigationType(self: ?*anyopaque) i64 {
         return qtc.QWebEngineUrlRequestInfo_NavigationType(@ptrCast(self));
     }
@@ -44,7 +48,7 @@ pub const qwebengineurlrequestinfo = struct {
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo, allocator: std.mem.Allocator ```
     pub fn RequestMethod(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebengineurlrequestinfo.RequestMethod: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -83,11 +87,11 @@ pub const qwebengineurlrequestinfo = struct {
     ///
     /// ``` self: QtC.QWebEngineUrlRequestInfo, name: []u8, value: []u8 ```
     pub fn SetHttpHeader(self: ?*anyopaque, name: []u8, value: []u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };

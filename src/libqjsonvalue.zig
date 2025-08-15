@@ -44,7 +44,7 @@ pub const qjsonvalue = struct {
     ///
     /// ``` s: []const u8 ```
     pub fn New6(s: []const u8) QtC.QJsonValue {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -120,6 +120,8 @@ pub const qjsonvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalue.html#type)
     ///
     /// ``` self: QtC.QJsonValue ```
+    ///
+    /// Returns: ``` qjsonvalue_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QJsonValue_Type(@ptrCast(self));
     }
@@ -216,7 +218,7 @@ pub const qjsonvalue = struct {
     ///
     /// ``` self: QtC.QJsonValue, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString2(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -259,7 +261,7 @@ pub const qjsonvalue = struct {
     ///
     /// ``` self: QtC.QJsonValue, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QJsonValue {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -344,6 +346,8 @@ pub const qjsonvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueconstref.html#type)
     ///
     /// ``` self: QtC.QJsonValueConstRef ```
+    ///
+    /// Returns: ``` qjsonvalue_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QJsonValueConstRef_Type(@ptrCast(self));
     }
@@ -489,7 +493,7 @@ pub const qjsonvalueconstref = struct {
     ///
     /// ``` self: QtC.QJsonValueConstRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -571,6 +575,8 @@ pub const qjsonvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonvalueref.html#type)
     ///
     /// ``` self: QtC.QJsonValueRef ```
+    ///
+    /// Returns: ``` qjsonvalue_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QJsonValueRef_Type(@ptrCast(self));
     }
@@ -716,7 +722,7 @@ pub const qjsonvalueref = struct {
     ///
     /// ``` self: QtC.QJsonValueRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };

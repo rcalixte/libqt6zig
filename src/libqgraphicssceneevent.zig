@@ -46,6 +46,8 @@ pub const qgraphicssceneevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -352,13 +354,15 @@ pub const qgraphicsscenemouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttons)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneMouseEvent_Buttons(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtons)
     ///
-    /// ``` self: QtC.QGraphicsSceneMouseEvent, buttons: i32 ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
         qtc.QGraphicsSceneMouseEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
@@ -366,6 +370,8 @@ pub const qgraphicsscenemouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#button)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneMouseEvent_Button(@ptrCast(self));
     }
@@ -380,13 +386,15 @@ pub const qgraphicsscenemouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneMouseEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QGraphicsSceneMouseEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneMouseEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -394,6 +402,8 @@ pub const qgraphicsscenemouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#source)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseEventSource ```
     pub fn Source(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneMouseEvent_Source(@ptrCast(self));
     }
@@ -408,13 +418,15 @@ pub const qgraphicsscenemouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#flags)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseEventFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneMouseEvent_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setFlags)
     ///
-    /// ``` self: QtC.QGraphicsSceneMouseEvent, flags: i32 ```
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, flags: flag of qnamespace_enums.MouseEventFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsSceneMouseEvent_SetFlags(@ptrCast(self), @intCast(flags));
     }
@@ -460,6 +472,8 @@ pub const qgraphicsscenemouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -682,13 +696,15 @@ pub const qgraphicsscenewheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#buttons)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneWheelEvent_Buttons(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setButtons)
     ///
-    /// ``` self: QtC.QGraphicsSceneWheelEvent, buttons: i32 ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
         qtc.QGraphicsSceneWheelEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
@@ -696,13 +712,15 @@ pub const qgraphicsscenewheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneWheelEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QGraphicsSceneWheelEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneWheelEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -724,6 +742,8 @@ pub const qgraphicsscenewheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#orientation)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneWheelEvent_Orientation(@ptrCast(self));
     }
@@ -738,6 +758,8 @@ pub const qgraphicsscenewheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#phase)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollPhase ```
     pub fn Phase(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneWheelEvent_Phase(@ptrCast(self));
     }
@@ -818,6 +840,8 @@ pub const qgraphicsscenewheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -1040,13 +1064,15 @@ pub const qgraphicsscenecontextmenuevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneContextMenuEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneContextMenuEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -1054,6 +1080,8 @@ pub const qgraphicsscenecontextmenuevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#reason)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    ///
+    /// Returns: ``` qgraphicssceneevent_enums.Reason ```
     pub fn Reason(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneContextMenuEvent_Reason(@ptrCast(self));
     }
@@ -1106,6 +1134,8 @@ pub const qgraphicsscenecontextmenuevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -1370,13 +1400,15 @@ pub const qgraphicsscenehoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneHoverEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QGraphicsSceneHoverEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneHoverEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -1422,6 +1454,8 @@ pub const qgraphicsscenehoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -1668,6 +1702,8 @@ pub const qgraphicsscenehelpevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -1890,13 +1926,15 @@ pub const qgraphicsscenedragdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#buttons)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneDragDropEvent_Buttons(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setButtons)
     ///
-    /// ``` self: QtC.QGraphicsSceneDragDropEvent, buttons: i32 ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn SetButtons(self: ?*anyopaque, buttons: i64) void {
         qtc.QGraphicsSceneDragDropEvent_SetButtons(@ptrCast(self), @intCast(buttons));
     }
@@ -1904,13 +1942,15 @@ pub const qgraphicsscenedragdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#modifiers)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneDragDropEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QGraphicsSceneDragDropEvent, modifiers: i32 ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QGraphicsSceneDragDropEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -1918,13 +1958,15 @@ pub const qgraphicsscenedragdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#possibleActions)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn PossibleActions(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneDragDropEvent_PossibleActions(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPossibleActions)
     ///
-    /// ``` self: QtC.QGraphicsSceneDragDropEvent, actions: i32 ```
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, actions: flag of qnamespace_enums.DropAction ```
     pub fn SetPossibleActions(self: ?*anyopaque, actions: i64) void {
         qtc.QGraphicsSceneDragDropEvent_SetPossibleActions(@ptrCast(self), @intCast(actions));
     }
@@ -1932,6 +1974,8 @@ pub const qgraphicsscenedragdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#proposedAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn ProposedAction(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneDragDropEvent_ProposedAction(@ptrCast(self));
     }
@@ -1953,6 +1997,8 @@ pub const qgraphicsscenedragdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dropAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn DropAction(self: ?*anyopaque) i64 {
         return qtc.QGraphicsSceneDragDropEvent_DropAction(@ptrCast(self));
     }
@@ -2033,6 +2079,8 @@ pub const qgraphicsscenedragdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -2272,6 +2320,8 @@ pub const qgraphicssceneresizeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -2511,6 +2561,8 @@ pub const qgraphicsscenemoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }

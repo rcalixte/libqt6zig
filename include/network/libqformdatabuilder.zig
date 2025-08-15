@@ -49,7 +49,7 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ``` self: QtC.QFormDataPartBuilder, data: []const u8, fileName: []const u8 ```
     pub fn SetBody2(self: ?*anyopaque, data: []const u8, fileName: []const u8) QtC.QFormDataPartBuilder {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -60,11 +60,11 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ``` self: QtC.QFormDataPartBuilder, data: []const u8, fileName: []const u8, mimeType: []const u8 ```
     pub fn SetBody3(self: ?*anyopaque, data: []const u8, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const mimeType_str = qtc.struct_libqt_string{
+        const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
@@ -75,7 +75,7 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ``` self: QtC.QFormDataPartBuilder, body: QtC.QIODevice, fileName: []const u8 ```
     pub fn SetBodyDevice2(self: ?*anyopaque, body: ?*anyopaque, fileName: []const u8) QtC.QFormDataPartBuilder {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -86,11 +86,11 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ``` self: QtC.QFormDataPartBuilder, body: QtC.QIODevice, fileName: []const u8, mimeType: []const u8 ```
     pub fn SetBodyDevice3(self: ?*anyopaque, body: ?*anyopaque, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const mimeType_str = qtc.struct_libqt_string{
+        const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
@@ -127,7 +127,7 @@ pub const qformdatabuilder = struct {
     ///
     /// ``` self: QtC.QFormDataBuilder, name: []const u8 ```
     pub fn Part(self: ?*anyopaque, name: []const u8) QtC.QFormDataPartBuilder {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };

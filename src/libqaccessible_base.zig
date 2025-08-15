@@ -121,8 +121,11 @@ pub const qaccessible = struct {
     ///
     /// ``` cursor: QtC.QTextCursor, boundaryType: qaccessible_base_enums.TextBoundaryType ```
     pub fn QAccessibleTextBoundaryHelper(cursor: ?*anyopaque, boundaryType: i64) struct_i32_i32 {
-        const _pair: qtc.struct_libqt_pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
-        return struct_i32_i32{ .first = @intCast(@intFromPtr(_pair.first)), .second = @intCast(@intFromPtr(_pair.second)) };
+        const _pair: qtc.libqt_pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor), @intCast(boundaryType));
+        return struct_i32_i32{
+            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
+            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
+        };
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible.html#dtor.QAccessible)
@@ -182,14 +185,14 @@ pub const qaccessible__state = struct {
 
 /// https://doc.qt.io/qt-6/qaccessible-activationobserver.html
 pub const qaccessible__activationobserver = struct {
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible__activationobserver.html#accessibilityActiveChanged)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#accessibilityActiveChanged)
     ///
     /// ``` self: QtC.QAccessible__ActivationObserver, active: bool ```
     pub fn AccessibilityActiveChanged(self: ?*anyopaque, active: bool) void {
         qtc.QAccessible__ActivationObserver_AccessibilityActiveChanged(@ptrCast(self), active);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible__activationobserver.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qaccessible-activationobserver.html#operator-eq)
     ///
     /// ``` self: QtC.QAccessible__ActivationObserver, param1: QtC.QAccessible__ActivationObserver ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

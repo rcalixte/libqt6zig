@@ -78,6 +78,8 @@ pub const qpen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#style)
     ///
     /// ``` self: QtC.QPen ```
+    ///
+    /// Returns: ``` qnamespace_enums.PenStyle ```
     pub fn Style(self: ?*anyopaque) i64 {
         return qtc.QPen_Style(@ptrCast(self));
     }
@@ -93,7 +95,7 @@ pub const qpen = struct {
     ///
     /// ``` self: QtC.QPen, allocator: std.mem.Allocator ```
     pub fn DashPattern(self: ?*anyopaque, allocator: std.mem.Allocator) []f64 {
-        const _arr: qtc.struct_libqt_list = qtc.QPen_DashPattern(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPen_DashPattern(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(f64, _arr.len) catch @panic("qpen.DashPattern: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
@@ -105,7 +107,7 @@ pub const qpen = struct {
     ///
     /// ``` self: QtC.QPen, pattern: []f64 ```
     pub fn SetDashPattern(self: ?*anyopaque, pattern: []f64) void {
-        const pattern_list = qtc.struct_libqt_list{
+        const pattern_list = qtc.libqt_list{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -206,6 +208,8 @@ pub const qpen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#capStyle)
     ///
     /// ``` self: QtC.QPen ```
+    ///
+    /// Returns: ``` qnamespace_enums.PenCapStyle ```
     pub fn CapStyle(self: ?*anyopaque) i64 {
         return qtc.QPen_CapStyle(@ptrCast(self));
     }
@@ -220,6 +224,8 @@ pub const qpen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#joinStyle)
     ///
     /// ``` self: QtC.QPen ```
+    ///
+    /// Returns: ``` qnamespace_enums.PenJoinStyle ```
     pub fn JoinStyle(self: ?*anyopaque) i64 {
         return qtc.QPen_JoinStyle(@ptrCast(self));
     }

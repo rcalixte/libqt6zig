@@ -15,7 +15,7 @@ pub const qstorageinfo = struct {
     ///
     /// ``` path: []const u8 ```
     pub fn New2(path: []const u8) QtC.QStorageInfo {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -55,7 +55,7 @@ pub const qstorageinfo = struct {
     ///
     /// ``` self: QtC.QStorageInfo, path: []const u8 ```
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -77,7 +77,7 @@ pub const qstorageinfo = struct {
     ///
     /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn Device(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QStorageInfo_Device(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QStorageInfo_Device(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.Device: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -88,7 +88,7 @@ pub const qstorageinfo = struct {
     ///
     /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn Subvolume(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QStorageInfo_Subvolume(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QStorageInfo_Subvolume(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.Subvolume: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -99,7 +99,7 @@ pub const qstorageinfo = struct {
     ///
     /// ``` self: QtC.QStorageInfo, allocator: std.mem.Allocator ```
     pub fn FileSystemType(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QStorageInfo_FileSystemType(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QStorageInfo_FileSystemType(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.FileSystemType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -195,7 +195,7 @@ pub const qstorageinfo = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MountedVolumes(allocator: std.mem.Allocator) []QtC.QStorageInfo {
-        const _arr: qtc.struct_libqt_list = qtc.QStorageInfo_MountedVolumes();
+        const _arr: qtc.libqt_list = qtc.QStorageInfo_MountedVolumes();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStorageInfo, _arr.len) catch @panic("qstorageinfo.MountedVolumes: Memory allocation failed");
         const _data: [*]QtC.QStorageInfo = @ptrCast(@alignCast(_arr.data));

@@ -19,7 +19,7 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` target: QtC.QObject, propertyName: []u8 ```
     pub fn New2(target: ?*anyopaque, propertyName: []u8) QtC.QPropertyAnimation {
-        const propertyName_str = qtc.struct_libqt_string{
+        const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
@@ -38,7 +38,7 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` target: QtC.QObject, propertyName: []u8, parent: QtC.QObject ```
     pub fn New4(target: ?*anyopaque, propertyName: []u8, parent: ?*anyopaque) QtC.QPropertyAnimation {
-        const propertyName_str = qtc.struct_libqt_string{
+        const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
@@ -108,7 +108,7 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn PropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QPropertyAnimation_PropertyName(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QPropertyAnimation_PropertyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qpropertyanimation.PropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -119,7 +119,7 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` self: QtC.QPropertyAnimation, propertyName: []u8 ```
     pub fn SetPropertyName(self: ?*anyopaque, propertyName: []u8) void {
-        const propertyName_str = qtc.struct_libqt_string{
+        const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
@@ -287,9 +287,9 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn KeyValues(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_f64_qtcqvariant {
-        const _arr: qtc.struct_libqt_list = qtc.QVariantAnimation_KeyValues(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QVariantAnimation_KeyValues(@ptrCast(self));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_free(_pair[i].first);
                 qtc.libqt_free(_pair[i].second);
@@ -308,7 +308,7 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` self: QtC.QPropertyAnimation, values: []struct_f64_qtcqvariant ```
     pub fn SetKeyValues(self: ?*anyopaque, values: []struct_f64_qtcqvariant) void {
-        const values_list = qtc.struct_libqt_list{
+        const values_list = qtc.libqt_list{
             .len = values.len,
             .data = values.ptr,
         };
@@ -374,6 +374,8 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#state)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
+    ///
+    /// Returns: ``` qabstractanimation_enums.State ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QAbstractAnimation_State(@ptrCast(self));
     }
@@ -392,6 +394,8 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
     ///
     /// ``` self: QtC.QPropertyAnimation ```
+    ///
+    /// Returns: ``` qabstractanimation_enums.Direction ```
     pub fn Direction(self: ?*anyopaque) i64 {
         return qtc.QAbstractAnimation_Direction(@ptrCast(self));
     }
@@ -613,7 +617,7 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` self: QtC.QPropertyAnimation, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -716,7 +720,7 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpropertyanimation.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -833,8 +837,8 @@ pub const qpropertyanimation = struct {
     ///
     /// ``` self: QtC.QPropertyAnimation, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

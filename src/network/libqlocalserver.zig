@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qabstractsocket_enums = @import("libqabstractsocket.zig").enums;
+const qlocalserver_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -133,7 +134,7 @@ pub const qlocalserver = struct {
     ///
     /// ``` self: QtC.QLocalServer, name: []const u8 ```
     pub fn Listen(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -205,7 +206,7 @@ pub const qlocalserver = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn RemoveServer(name: []const u8) bool {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -215,6 +216,8 @@ pub const qlocalserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#serverError)
     ///
     /// ``` self: QtC.QLocalServer ```
+    ///
+    /// Returns: ``` qabstractsocket_enums.SocketError ```
     pub fn ServerError(self: ?*anyopaque) i64 {
         return qtc.QLocalServer_ServerError(@ptrCast(self));
     }
@@ -249,7 +252,7 @@ pub const qlocalserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#setSocketOptions)
     ///
-    /// ``` self: QtC.QLocalServer, options: i32 ```
+    /// ``` self: QtC.QLocalServer, options: flag of qlocalserver_enums.SocketOption ```
     pub fn SetSocketOptions(self: ?*anyopaque, options: i64) void {
         qtc.QLocalServer_SetSocketOptions(@ptrCast(self), @intCast(options));
     }
@@ -257,6 +260,8 @@ pub const qlocalserver = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocalserver.html#socketOptions)
     ///
     /// ``` self: QtC.QLocalServer ```
+    ///
+    /// Returns: ``` flag of qlocalserver_enums.SocketOption ```
     pub fn SocketOptions(self: ?*anyopaque) i64 {
         return qtc.QLocalServer_SocketOptions(@ptrCast(self));
     }
@@ -377,7 +382,7 @@ pub const qlocalserver = struct {
     ///
     /// ``` self: QtC.QLocalServer, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -480,7 +485,7 @@ pub const qlocalserver = struct {
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qlocalserver.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -597,8 +602,8 @@ pub const qlocalserver = struct {
     ///
     /// ``` self: QtC.QLocalServer, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

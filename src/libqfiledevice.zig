@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qfiledevice_enums = enums;
+const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -40,6 +41,8 @@ pub const qfiledevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#error)
     ///
     /// ``` self: QtC.QFileDevice ```
+    ///
+    /// Returns: ``` qfiledevice_enums.FileError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QFileDevice_Error(@ptrCast(self));
     }
@@ -128,13 +131,15 @@ pub const qfiledevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#permissions)
     ///
     /// ``` self: QtC.QFileDevice ```
+    ///
+    /// Returns: ``` flag of qfiledevice_enums.Permission ```
     pub fn Permissions(self: ?*anyopaque) i64 {
         return qtc.QFileDevice_Permissions(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#setPermissions)
     ///
-    /// ``` self: QtC.QFileDevice, permissionSpec: i32 ```
+    /// ``` self: QtC.QFileDevice, permissionSpec: flag of qfiledevice_enums.Permission ```
     pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i64) bool {
         return qtc.QFileDevice_SetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
@@ -195,7 +200,7 @@ pub const qfiledevice = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
-    /// ``` self: QtC.QFileDevice, offset: i64, size: i64, flags: i32 ```
+    /// ``` self: QtC.QFileDevice, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
     pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i64) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @intCast(offset), @intCast(size), @intCast(flags)));
     }
@@ -205,6 +210,8 @@ pub const qfiledevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QFileDevice ```
+    ///
+    /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn OpenMode(self: ?*anyopaque) i64 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
@@ -312,7 +319,7 @@ pub const qfiledevice = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
-    /// ``` self: QtC.QFileDevice, mode: i32 ```
+    /// ``` self: QtC.QFileDevice, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, mode: i64) bool {
         return qtc.QIODevice_Open(@ptrCast(self), @intCast(mode));
     }
@@ -360,7 +367,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -373,7 +380,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -396,7 +403,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -474,7 +481,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -497,7 +504,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -686,7 +693,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledevice.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -730,7 +737,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -833,7 +840,7 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfiledevice.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -950,8 +957,8 @@ pub const qfiledevice = struct {
     ///
     /// ``` self: QtC.QFileDevice, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

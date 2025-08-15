@@ -78,6 +78,8 @@ pub const qpalette = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#currentColorGroup)
     ///
     /// ``` self: QtC.QPalette ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorGroup ```
     pub fn CurrentColorGroup(self: ?*anyopaque) i64 {
         return qtc.QPalette_CurrentColorGroup(@ptrCast(self));
     }

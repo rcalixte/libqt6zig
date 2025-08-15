@@ -68,6 +68,8 @@ pub const qdatetimeaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#type)
     ///
     /// ``` self: QtC.QDateTimeAxis ```
+    ///
+    /// Returns: ``` qabstractaxis_enums.AxisType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QDateTimeAxis_Type(@ptrCast(self));
     }
@@ -86,6 +88,8 @@ pub const qdatetimeaxis = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QDateTimeAxis ```
+    ///
+    /// Returns: ``` qabstractaxis_enums.AxisType ```
     pub fn QBaseType(self: ?*anyopaque) i64 {
         return qtc.QDateTimeAxis_QBaseType(@ptrCast(self));
     }
@@ -129,7 +133,7 @@ pub const qdatetimeaxis = struct {
     ///
     /// ``` self: QtC.QDateTimeAxis, format: []const u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -207,7 +211,7 @@ pub const qdatetimeaxis = struct {
     ///
     /// ``` self: QtC.QDateTimeAxis, format: []const u8 ```
     pub fn FormatChanged(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -609,7 +613,7 @@ pub const qdatetimeaxis = struct {
     ///
     /// ``` self: QtC.QDateTimeAxis, title: []const u8 ```
     pub fn SetTitleText(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -724,6 +728,8 @@ pub const qdatetimeaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#orientation)
     ///
     /// ``` self: QtC.QDateTimeAxis ```
+    ///
+    /// Returns: ``` qnamespace_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Orientation(@ptrCast(self));
     }
@@ -733,6 +739,8 @@ pub const qdatetimeaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#alignment)
     ///
     /// ``` self: QtC.QDateTimeAxis ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self));
     }
@@ -1076,7 +1084,7 @@ pub const qdatetimeaxis = struct {
     ///
     /// ``` self: QtC.QDateTimeAxis, title: []const u8 ```
     pub fn TitleTextChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -1417,7 +1425,7 @@ pub const qdatetimeaxis = struct {
     ///
     /// ``` self: QtC.QDateTimeAxis, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1520,7 +1528,7 @@ pub const qdatetimeaxis = struct {
     ///
     /// ``` self: QtC.QDateTimeAxis, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdatetimeaxis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1637,8 +1645,8 @@ pub const qdatetimeaxis = struct {
     ///
     /// ``` self: QtC.QDateTimeAxis, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

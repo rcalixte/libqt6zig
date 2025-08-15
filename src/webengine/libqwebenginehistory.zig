@@ -136,7 +136,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QWebEngineHistoryModel_RoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QWebEngineHistoryModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -218,6 +218,8 @@ pub const qwebenginehistorymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QAbstractListModel_Flags(@ptrCast(self), @ptrCast(index));
     }
@@ -291,7 +293,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -326,7 +328,7 @@ pub const qwebenginehistorymodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -349,8 +351,8 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -373,7 +375,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -394,6 +396,8 @@ pub const qwebenginehistorymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_SupportedDropActions(@ptrCast(self));
     }
@@ -403,6 +407,8 @@ pub const qwebenginehistorymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// ``` self: QtC.QWebEngineHistoryModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_SupportedDragActions(@ptrCast(self));
     }
@@ -555,9 +561,9 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
-    /// ``` self: QtC.QWebEngineHistoryModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QWebEngineHistoryModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qwebenginehistorymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -731,7 +737,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
-    /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, options: i32 ```
+    /// ``` self: QtC.QWebEngineHistoryModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
@@ -742,7 +748,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -764,7 +770,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -786,7 +792,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -808,7 +814,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -830,7 +836,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -883,7 +889,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -986,7 +992,7 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebenginehistorymodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1103,8 +1109,8 @@ pub const qwebenginehistorymodel = struct {
     ///
     /// ``` self: QtC.QWebEngineHistoryModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1441,7 +1447,7 @@ pub const qwebenginehistory = struct {
     ///
     /// ``` self: QtC.QWebEngineHistory, allocator: std.mem.Allocator ```
     pub fn Items(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineHistory_Items(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWebEngineHistory_Items(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineHistoryItem, _arr.len) catch @panic("qwebenginehistory.Items: Memory allocation failed");
         const _data: [*]QtC.QWebEngineHistoryItem = @ptrCast(@alignCast(_arr.data));
@@ -1453,7 +1459,7 @@ pub const qwebenginehistory = struct {
     ///
     /// ``` self: QtC.QWebEngineHistory, maxItems: i32, allocator: std.mem.Allocator ```
     pub fn BackItems(self: ?*anyopaque, maxItems: i32, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineHistory_BackItems(@ptrCast(self), @intCast(maxItems));
+        const _arr: qtc.libqt_list = qtc.QWebEngineHistory_BackItems(@ptrCast(self), @intCast(maxItems));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineHistoryItem, _arr.len) catch @panic("qwebenginehistory.BackItems: Memory allocation failed");
         const _data: [*]QtC.QWebEngineHistoryItem = @ptrCast(@alignCast(_arr.data));
@@ -1465,7 +1471,7 @@ pub const qwebenginehistory = struct {
     ///
     /// ``` self: QtC.QWebEngineHistory, maxItems: i32, allocator: std.mem.Allocator ```
     pub fn ForwardItems(self: ?*anyopaque, maxItems: i32, allocator: std.mem.Allocator) []QtC.QWebEngineHistoryItem {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineHistory_ForwardItems(@ptrCast(self), @intCast(maxItems));
+        const _arr: qtc.libqt_list = qtc.QWebEngineHistory_ForwardItems(@ptrCast(self), @intCast(maxItems));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineHistoryItem, _arr.len) catch @panic("qwebenginehistory.ForwardItems: Memory allocation failed");
         const _data: [*]QtC.QWebEngineHistoryItem = @ptrCast(@alignCast(_arr.data));
@@ -1634,7 +1640,7 @@ pub const qwebenginehistory = struct {
     ///
     /// ``` self: QtC.QWebEngineHistory, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1737,7 +1743,7 @@ pub const qwebenginehistory = struct {
     ///
     /// ``` self: QtC.QWebEngineHistory, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebenginehistory.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1854,8 +1860,8 @@ pub const qwebenginehistory = struct {
     ///
     /// ``` self: QtC.QWebEngineHistory, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

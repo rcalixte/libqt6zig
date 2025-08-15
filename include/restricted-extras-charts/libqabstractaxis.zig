@@ -40,6 +40,8 @@ pub const qabstractaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#type)
     ///
     /// ``` self: QtC.QAbstractAxis ```
+    ///
+    /// Returns: ``` qabstractaxis_enums.AxisType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Type(@ptrCast(self));
     }
@@ -314,7 +316,7 @@ pub const qabstractaxis = struct {
     ///
     /// ``` self: QtC.QAbstractAxis, title: []const u8 ```
     pub fn SetTitleText(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -405,6 +407,8 @@ pub const qabstractaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#orientation)
     ///
     /// ``` self: QtC.QAbstractAxis ```
+    ///
+    /// Returns: ``` qnamespace_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Orientation(@ptrCast(self));
     }
@@ -412,6 +416,8 @@ pub const qabstractaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#alignment)
     ///
     /// ``` self: QtC.QAbstractAxis ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self));
     }
@@ -700,7 +706,7 @@ pub const qabstractaxis = struct {
     ///
     /// ``` self: QtC.QAbstractAxis, title: []const u8 ```
     pub fn TitleTextChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -1015,7 +1021,7 @@ pub const qabstractaxis = struct {
     ///
     /// ``` self: QtC.QAbstractAxis, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1118,7 +1124,7 @@ pub const qabstractaxis = struct {
     ///
     /// ``` self: QtC.QAbstractAxis, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractaxis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1235,8 +1241,8 @@ pub const qabstractaxis = struct {
     ///
     /// ``` self: QtC.QAbstractAxis, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

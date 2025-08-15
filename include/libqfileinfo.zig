@@ -16,7 +16,7 @@ pub const qfileinfo = struct {
     ///
     /// ``` file: []const u8 ```
     pub fn New2(file: []const u8) QtC.QFileInfo {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -35,7 +35,7 @@ pub const qfileinfo = struct {
     ///
     /// ``` dir: QtC.QDir, file: []const u8 ```
     pub fn New4(dir: ?*anyopaque, file: []const u8) QtC.QFileInfo {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -68,7 +68,7 @@ pub const qfileinfo = struct {
     ///
     /// ``` self: QtC.QFileInfo, file: []const u8 ```
     pub fn SetFile(self: ?*anyopaque, file: []const u8) void {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -86,7 +86,7 @@ pub const qfileinfo = struct {
     ///
     /// ``` self: QtC.QFileInfo, dir: QtC.QDir, file: []const u8 ```
     pub fn SetFile3(self: ?*anyopaque, dir: ?*anyopaque, file: []const u8) void {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -104,7 +104,7 @@ pub const qfileinfo = struct {
     ///
     /// ``` file: []const u8 ```
     pub fn Exists2(file: []const u8) bool {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -454,7 +454,7 @@ pub const qfileinfo = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#permission)
     ///
-    /// ``` self: QtC.QFileInfo, permissions: i32 ```
+    /// ``` self: QtC.QFileInfo, permissions: flag of qfiledevice_enums.Permission ```
     pub fn Permission(self: ?*anyopaque, permissions: i64) bool {
         return qtc.QFileInfo_Permission(@ptrCast(self), @intCast(permissions));
     }
@@ -462,6 +462,8 @@ pub const qfileinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#permissions)
     ///
     /// ``` self: QtC.QFileInfo ```
+    ///
+    /// Returns: ``` flag of qfiledevice_enums.Permission ```
     pub fn Permissions(self: ?*anyopaque) i64 {
         return qtc.QFileInfo_Permissions(@ptrCast(self));
     }

@@ -24,7 +24,7 @@ pub const qtextstream = struct {
     ///
     /// ``` array: []u8 ```
     pub fn New3(array: []u8) QtC.QTextStream {
-        const array_str = qtc.struct_libqt_string{
+        const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
         };
@@ -34,9 +34,9 @@ pub const qtextstream = struct {
 
     /// New4 constructs a new QTextStream object.
     ///
-    /// ``` array: []u8, openMode: i32 ```
+    /// ``` array: []u8, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn New4(array: []u8, openMode: i64) QtC.QTextStream {
-        const array_str = qtc.struct_libqt_string{
+        const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
         };
@@ -54,6 +54,8 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#encoding)
     ///
     /// ``` self: QtC.QTextStream ```
+    ///
+    /// Returns: ``` qstringconverter_base_enums.Encoding ```
     pub fn Encoding(self: ?*anyopaque) i64 {
         return qtc.QTextStream_Encoding(@ptrCast(self));
     }
@@ -128,6 +130,8 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#status)
     ///
     /// ``` self: QtC.QTextStream ```
+    ///
+    /// Returns: ``` qtextstream_enums.Status ```
     pub fn Status(self: ?*anyopaque) i64 {
         return qtc.QTextStream_Status(@ptrCast(self));
     }
@@ -231,6 +235,8 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#fieldAlignment)
     ///
     /// ``` self: QtC.QTextStream ```
+    ///
+    /// Returns: ``` qtextstream_enums.FieldAlignment ```
     pub fn FieldAlignment(self: ?*anyopaque) i64 {
         return qtc.QTextStream_FieldAlignment(@ptrCast(self));
     }
@@ -265,7 +271,7 @@ pub const qtextstream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#setNumberFlags)
     ///
-    /// ``` self: QtC.QTextStream, flags: i32 ```
+    /// ``` self: QtC.QTextStream, flags: flag of qtextstream_enums.NumberFlag ```
     pub fn SetNumberFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QTextStream_SetNumberFlags(@ptrCast(self), @intCast(flags));
     }
@@ -273,6 +279,8 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#numberFlags)
     ///
     /// ``` self: QtC.QTextStream ```
+    ///
+    /// Returns: ``` flag of qtextstream_enums.NumberFlag ```
     pub fn NumberFlags(self: ?*anyopaque) i64 {
         return qtc.QTextStream_NumberFlags(@ptrCast(self));
     }
@@ -301,6 +309,8 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#realNumberNotation)
     ///
     /// ``` self: QtC.QTextStream ```
+    ///
+    /// Returns: ``` qtextstream_enums.RealNumberNotation ```
     pub fn RealNumberNotation(self: ?*anyopaque) i64 {
         return qtc.QTextStream_RealNumberNotation(@ptrCast(self));
     }
@@ -407,7 +417,7 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, s: []const u8 ```
     pub fn OperatorShiftRight14(self: ?*anyopaque, s: []const u8) QtC.QTextStream {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -418,7 +428,7 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, array: []u8 ```
     pub fn OperatorShiftRight15(self: ?*anyopaque, array: []u8) QtC.QTextStream {
-        const array_str = qtc.struct_libqt_string{
+        const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
         };
@@ -521,7 +531,7 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, s: []const u8 ```
     pub fn OperatorShiftLeft14(self: ?*anyopaque, s: []const u8) QtC.QTextStream {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -532,7 +542,7 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, array: []u8 ```
     pub fn OperatorShiftLeft17(self: ?*anyopaque, array: []u8) QtC.QTextStream {
-        const array_str = qtc.struct_libqt_string{
+        const array_str = qtc.libqt_string{
             .len = array.len,
             .data = array.ptr,
         };

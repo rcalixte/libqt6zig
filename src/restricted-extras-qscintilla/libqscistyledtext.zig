@@ -8,7 +8,7 @@ pub const qscistyledtext = struct {
     ///
     /// ``` text: []const u8, style: i32 ```
     pub fn New(text: []const u8, style: i32) QtC.QsciStyledText {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -20,7 +20,7 @@ pub const qscistyledtext = struct {
     ///
     /// ``` text: []const u8, style: QtC.QsciStyle ```
     pub fn New2(text: []const u8, style: ?*anyopaque) QtC.QsciStyledText {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };

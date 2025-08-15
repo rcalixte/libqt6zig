@@ -29,6 +29,8 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#algorithm)
     ///
     /// ``` self: QtC.QCryptographicHash ```
+    ///
+    /// Returns: ``` qcryptographichash_enums.Algorithm ```
     pub fn Algorithm(self: ?*anyopaque) i64 {
         return qtc.QCryptographicHash_Algorithm(@ptrCast(self));
     }
@@ -59,7 +61,7 @@ pub const qcryptographichash = struct {
     ///
     /// ``` self: QtC.QCryptographicHash, allocator: std.mem.Allocator ```
     pub fn Result(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCryptographicHash_Result(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCryptographicHash_Result(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Result: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -81,7 +83,7 @@ pub const qcryptographichash = struct {
     ///
     /// ``` data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn Hash(data: []const u8, method: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCryptographicHash_Hash(data.ptr, @intCast(method));
+        const _bytearray: qtc.libqt_string = qtc.QCryptographicHash_Hash(data.ptr, @intCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Hash: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -92,7 +94,7 @@ pub const qcryptographichash = struct {
     ///
     /// ``` buffer: []i8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto(buffer: []i8, data: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
-        const buffer_list = qtc.struct_libqt_list{
+        const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
         };
@@ -107,7 +109,7 @@ pub const qcryptographichash = struct {
     ///
     /// ``` buffer: []u8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto2(buffer: []u8, data: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
-        const buffer_list = qtc.struct_libqt_list{
+        const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
         };
@@ -122,11 +124,11 @@ pub const qcryptographichash = struct {
     ///
     /// ``` buffer: []i8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto4(buffer: []i8, data: [][]const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
-        const buffer_list = qtc.struct_libqt_list{
+        const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
         };
-        const data_list = qtc.struct_libqt_list{
+        const data_list = qtc.libqt_list{
             .len = data.len,
             .data = @ptrCast(data.ptr),
         };
@@ -141,11 +143,11 @@ pub const qcryptographichash = struct {
     ///
     /// ``` buffer: []u8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn HashInto5(buffer: []u8, data: [][]const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
-        const buffer_list = qtc.struct_libqt_list{
+        const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
         };
-        const data_list = qtc.struct_libqt_list{
+        const data_list = qtc.libqt_list{
             .len = data.len,
             .data = @ptrCast(data.ptr),
         };

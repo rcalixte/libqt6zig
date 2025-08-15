@@ -15,7 +15,7 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ``` device: QtC.QIODevice, format: []u8 ```
     pub fn New2(device: ?*anyopaque, format: []u8) QtC.QTextDocumentWriter {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -27,7 +27,7 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New3(fileName: []const u8) QtC.QTextDocumentWriter {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -39,11 +39,11 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ``` fileName: []const u8, format: []u8 ```
     pub fn New4(fileName: []const u8, format: []u8) QtC.QTextDocumentWriter {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -55,7 +55,7 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ``` self: QtC.QTextDocumentWriter, format: []u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -66,7 +66,7 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ``` self: QtC.QTextDocumentWriter, allocator: std.mem.Allocator ```
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QTextDocumentWriter_Format(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QTextDocumentWriter_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtextdocumentwriter.Format: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -91,7 +91,7 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ``` self: QtC.QTextDocumentWriter, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -127,8 +127,8 @@ pub const qtextdocumentwriter = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedDocumentFormats(allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QTextDocumentWriter_SupportedDocumentFormats();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QTextDocumentWriter_SupportedDocumentFormats();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

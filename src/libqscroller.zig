@@ -61,6 +61,8 @@ pub const qscroller = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#grabGesture)
     ///
     /// ``` target: QtC.QObject ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GrabGesture(target: ?*anyopaque) i64 {
         return qtc.QScroller_GrabGesture(@ptrCast(target));
     }
@@ -68,6 +70,8 @@ pub const qscroller = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#grabbedGesture)
     ///
     /// ``` target: QtC.QObject ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GrabbedGesture(target: ?*anyopaque) i64 {
         return qtc.QScroller_GrabbedGesture(@ptrCast(target));
     }
@@ -83,7 +87,7 @@ pub const qscroller = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ActiveScrollers(allocator: std.mem.Allocator) []QtC.QScroller {
-        const _arr: qtc.struct_libqt_list = qtc.QScroller_ActiveScrollers();
+        const _arr: qtc.libqt_list = qtc.QScroller_ActiveScrollers();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QScroller, _arr.len) catch @panic("qscroller.ActiveScrollers: Memory allocation failed");
         const _data: [*]QtC.QScroller = @ptrCast(@alignCast(_arr.data));
@@ -101,6 +105,8 @@ pub const qscroller = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#state)
     ///
     /// ``` self: QtC.QScroller ```
+    ///
+    /// Returns: ``` qscroller_enums.State ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QScroller_State(@ptrCast(self));
     }
@@ -151,7 +157,7 @@ pub const qscroller = struct {
     ///
     /// ``` self: QtC.QScroller, positions: []f64 ```
     pub fn SetSnapPositionsX(self: ?*anyopaque, positions: []f64) void {
-        const positions_list = qtc.struct_libqt_list{
+        const positions_list = qtc.libqt_list{
             .len = positions.len,
             .data = positions.ptr,
         };
@@ -169,7 +175,7 @@ pub const qscroller = struct {
     ///
     /// ``` self: QtC.QScroller, positions: []f64 ```
     pub fn SetSnapPositionsY(self: ?*anyopaque, positions: []f64) void {
-        const positions_list = qtc.struct_libqt_list{
+        const positions_list = qtc.libqt_list{
             .len = positions.len,
             .data = positions.ptr,
         };
@@ -282,6 +288,8 @@ pub const qscroller = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscroller.html#grabGesture)
     ///
     /// ``` target: QtC.QObject, gestureType: qscroller_enums.ScrollerGestureType ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GrabGesture2(target: ?*anyopaque, gestureType: i64) i64 {
         return qtc.QScroller_GrabGesture2(@ptrCast(target), @intCast(gestureType));
     }
@@ -330,7 +338,7 @@ pub const qscroller = struct {
     ///
     /// ``` self: QtC.QScroller, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -433,7 +441,7 @@ pub const qscroller = struct {
     ///
     /// ``` self: QtC.QScroller, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qscroller.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -550,8 +558,8 @@ pub const qscroller = struct {
     ///
     /// ``` self: QtC.QScroller, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

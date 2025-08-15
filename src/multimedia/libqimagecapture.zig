@@ -82,6 +82,8 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#error)
     ///
     /// ``` self: QtC.QImageCapture ```
+    ///
+    /// Returns: ``` qimagecapture_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QImageCapture_Error(@ptrCast(self));
     }
@@ -107,6 +109,8 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormat)
     ///
     /// ``` self: QtC.QImageCapture ```
+    ///
+    /// Returns: ``` qimagecapture_enums.FileFormat ```
     pub fn FileFormat(self: ?*anyopaque) i64 {
         return qtc.QImageCapture_FileFormat(@ptrCast(self));
     }
@@ -121,11 +125,13 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#supportedFormats)
     ///
     /// ``` allocator: std.mem.Allocator ```
-    pub fn SupportedFormats(allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QImageCapture_SupportedFormats();
+    ///
+    /// Returns: ``` []qimagecapture_enums.FileFormat ```
+    pub fn SupportedFormats(allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QImageCapture_SupportedFormats();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qimagecapture_enums.FileFormat, _arr.len) catch @panic("qimagecapture.SupportedFormats: Memory allocation failed");
-        const _data: [*]qimagecapture_enums.FileFormat = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qimagecapture.SupportedFormats: Memory allocation failed");
+        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -176,6 +182,8 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#quality)
     ///
     /// ``` self: QtC.QImageCapture ```
+    ///
+    /// Returns: ``` qimagecapture_enums.Quality ```
     pub fn Quality(self: ?*anyopaque) i64 {
         return qtc.QImageCapture_Quality(@ptrCast(self));
     }
@@ -240,7 +248,7 @@ pub const qimagecapture = struct {
     ///
     /// ``` self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: []const u8 ```
     pub fn ErrorOccurred(self: ?*anyopaque, id: i32, errorVal: i64, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -384,7 +392,7 @@ pub const qimagecapture = struct {
     ///
     /// ``` self: QtC.QImageCapture, id: i32, fileName: []const u8 ```
     pub fn ImageSaved(self: ?*anyopaque, id: i32, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -428,7 +436,7 @@ pub const qimagecapture = struct {
     ///
     /// ``` self: QtC.QImageCapture, location: []const u8 ```
     pub fn CaptureToFile1(self: ?*anyopaque, location: []const u8) i32 {
-        const location_str = qtc.struct_libqt_string{
+        const location_str = qtc.libqt_string{
             .len = location.len,
             .data = location.ptr,
         };
@@ -454,7 +462,7 @@ pub const qimagecapture = struct {
     ///
     /// ``` self: QtC.QImageCapture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -557,7 +565,7 @@ pub const qimagecapture = struct {
     ///
     /// ``` self: QtC.QImageCapture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qimagecapture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -674,8 +682,8 @@ pub const qimagecapture = struct {
     ///
     /// ``` self: QtC.QImageCapture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

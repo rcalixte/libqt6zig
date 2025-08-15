@@ -33,7 +33,7 @@ pub const qimageiohandler = struct {
     ///
     /// ``` self: QtC.QImageIOHandler, format: []u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -44,7 +44,7 @@ pub const qimageiohandler = struct {
     ///
     /// ``` self: QtC.QImageIOHandler, format: []u8 ```
     pub fn SetFormat2(self: ?*anyopaque, format: []u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -55,7 +55,7 @@ pub const qimageiohandler = struct {
     ///
     /// ``` self: QtC.QImageIOHandler, allocator: std.mem.Allocator ```
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QImageIOHandler_Format(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QImageIOHandler_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimageiohandler.Format: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -439,8 +439,10 @@ pub const qimageioplugin = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
     ///
     /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
+    ///
+    /// Returns: ``` flag of qimageiohandler_enums.Capability ```
     pub fn Capabilities(self: ?*anyopaque, device: ?*anyopaque, format: []u8) i64 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -451,7 +453,7 @@ pub const qimageioplugin = struct {
     ///
     /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
     pub fn Create(self: ?*anyopaque, device: ?*anyopaque, format: []u8) QtC.QImageIOHandler {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -521,7 +523,7 @@ pub const qimageioplugin = struct {
     ///
     /// ``` self: QtC.QImageIOPlugin, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -624,7 +626,7 @@ pub const qimageioplugin = struct {
     ///
     /// ``` self: QtC.QImageIOPlugin, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qimageioplugin.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -741,8 +743,8 @@ pub const qimageioplugin = struct {
     ///
     /// ``` self: QtC.QImageIOPlugin, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

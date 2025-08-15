@@ -15,7 +15,7 @@ pub const qversionnumber = struct {
     ///
     /// ``` args: []i32 ```
     pub fn New2(args: []i32) QtC.QVersionNumber {
-        const args_list = qtc.struct_libqt_list{
+        const args_list = qtc.libqt_list{
             .len = args.len,
             .data = args.ptr,
         };
@@ -90,7 +90,7 @@ pub const qversionnumber = struct {
     ///
     /// ``` self: QtC.QVersionNumber, allocator: std.mem.Allocator ```
     pub fn Segments(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.struct_libqt_list = qtc.QVersionNumber_Segments(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QVersionNumber_Segments(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qversionnumber.Segments: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -148,7 +148,7 @@ pub const qversionnumber = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) QtC.QVersionNumber {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -159,7 +159,7 @@ pub const qversionnumber = struct {
     ///
     /// ``` stringVal: []const u8, suffixIndex: *i64 ```
     pub fn FromString2(stringVal: []const u8, suffixIndex: *i64) QtC.QVersionNumber {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };

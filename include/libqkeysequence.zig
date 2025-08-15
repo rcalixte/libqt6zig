@@ -16,7 +16,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` key: []const u8 ```
     pub fn New2(key: []const u8) QtC.QKeySequence {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -56,7 +56,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` key: []const u8, format: qkeysequence_enums.SequenceFormat ```
     pub fn New7(key: []const u8, format: i64) QtC.QKeySequence {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -135,7 +135,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` str: []const u8 ```
     pub fn FromString(str: []const u8) QtC.QKeySequence {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -146,11 +146,11 @@ pub const qkeysequence = struct {
     ///
     /// ``` str: []const u8, allocator: std.mem.Allocator ```
     pub fn ListFromString(str: []const u8, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QKeySequence_ListFromString(str_str);
+        const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString(str_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -162,7 +162,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` list: []QtC.QKeySequence, allocator: std.mem.Allocator ```
     pub fn ListToString(list: []QtC.QKeySequence, allocator: std.mem.Allocator) []const u8 {
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };
@@ -176,6 +176,8 @@ pub const qkeysequence = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#matches)
     ///
     /// ``` self: QtC.QKeySequence, seq: QtC.QKeySequence ```
+    ///
+    /// Returns: ``` qkeysequence_enums.SequenceMatch ```
     pub fn Matches(self: ?*anyopaque, seq: ?*anyopaque) i64 {
         return qtc.QKeySequence_Matches(@ptrCast(self), @ptrCast(seq));
     }
@@ -184,7 +186,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` text: []const u8 ```
     pub fn Mnemonic(text: []const u8) QtC.QKeySequence {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -195,7 +197,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` key: qkeysequence_enums.StandardKey, allocator: std.mem.Allocator ```
     pub fn KeyBindings(key: i64, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.struct_libqt_list = qtc.QKeySequence_KeyBindings(@intCast(key));
+        const _arr: qtc.libqt_list = qtc.QKeySequence_KeyBindings(@intCast(key));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.KeyBindings: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -295,7 +297,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` str: []const u8, format: qkeysequence_enums.SequenceFormat ```
     pub fn FromString2(str: []const u8, format: i64) QtC.QKeySequence {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -306,11 +308,11 @@ pub const qkeysequence = struct {
     ///
     /// ``` str: []const u8, format: qkeysequence_enums.SequenceFormat, allocator: std.mem.Allocator ```
     pub fn ListFromString2(str: []const u8, format: i64, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QKeySequence_ListFromString2(str_str, @intCast(format));
+        const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString2(str_str, @intCast(format));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString2: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -322,7 +324,7 @@ pub const qkeysequence = struct {
     ///
     /// ``` list: []QtC.QKeySequence, format: qkeysequence_enums.SequenceFormat, allocator: std.mem.Allocator ```
     pub fn ListToString2(list: []QtC.QKeySequence, format: i64, allocator: std.mem.Allocator) []const u8 {
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };

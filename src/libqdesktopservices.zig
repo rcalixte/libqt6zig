@@ -42,7 +42,7 @@ pub const qdesktopservices = struct {
     ///
     /// ``` scheme: []const u8, receiver: QtC.QObject, method: []const u8 ```
     pub fn SetUrlHandler(scheme: []const u8, receiver: ?*anyopaque, method: []const u8) void {
-        const scheme_str = qtc.struct_libqt_string{
+        const scheme_str = qtc.libqt_string{
             .len = scheme.len,
             .data = scheme.ptr,
         };
@@ -54,7 +54,7 @@ pub const qdesktopservices = struct {
     ///
     /// ``` scheme: []const u8 ```
     pub fn UnsetUrlHandler(scheme: []const u8) void {
-        const scheme_str = qtc.struct_libqt_string{
+        const scheme_str = qtc.libqt_string{
             .len = scheme.len,
             .data = scheme.ptr,
         };

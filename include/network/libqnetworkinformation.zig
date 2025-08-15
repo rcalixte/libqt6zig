@@ -40,6 +40,8 @@ pub const qnetworkinformation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#reachability)
     ///
     /// ``` self: QtC.QNetworkInformation ```
+    ///
+    /// Returns: ``` qnetworkinformation_enums.Reachability ```
     pub fn Reachability(self: ?*anyopaque) i64 {
         return qtc.QNetworkInformation_Reachability(@ptrCast(self));
     }
@@ -54,6 +56,8 @@ pub const qnetworkinformation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMedium)
     ///
     /// ``` self: QtC.QNetworkInformation ```
+    ///
+    /// Returns: ``` qnetworkinformation_enums.TransportMedium ```
     pub fn TransportMedium(self: ?*anyopaque) i64 {
         return qtc.QNetworkInformation_TransportMedium(@ptrCast(self));
     }
@@ -78,7 +82,7 @@ pub const qnetworkinformation = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#supports)
     ///
-    /// ``` self: QtC.QNetworkInformation, features: i32 ```
+    /// ``` self: QtC.QNetworkInformation, features: flag of qnetworkinformation_enums.Feature ```
     pub fn Supports(self: ?*anyopaque, features: i64) bool {
         return qtc.QNetworkInformation_Supports(@ptrCast(self), @intCast(features));
     }
@@ -86,6 +90,8 @@ pub const qnetworkinformation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#supportedFeatures)
     ///
     /// ``` self: QtC.QNetworkInformation ```
+    ///
+    /// Returns: ``` flag of qnetworkinformation_enums.Feature ```
     pub fn SupportedFeatures(self: ?*anyopaque) i64 {
         return qtc.QNetworkInformation_SupportedFeatures(@ptrCast(self));
     }
@@ -99,14 +105,14 @@ pub const qnetworkinformation = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#loadBackendByFeatures)
     ///
-    /// ``` features: i32 ```
+    /// ``` features: flag of qnetworkinformation_enums.Feature ```
     pub fn LoadBackendByFeatures(features: i64) bool {
         return qtc.QNetworkInformation_LoadBackendByFeatures(@intCast(features));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#load)
     ///
-    /// ``` features: i32 ```
+    /// ``` features: flag of qnetworkinformation_enums.Feature ```
     pub fn Load2(features: i64) bool {
         return qtc.QNetworkInformation_Load2(@intCast(features));
     }
@@ -115,8 +121,8 @@ pub const qnetworkinformation = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableBackends(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkInformation_AvailableBackends();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkInformation_AvailableBackends();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -259,7 +265,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ``` self: QtC.QNetworkInformation, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -362,7 +368,7 @@ pub const qnetworkinformation = struct {
     ///
     /// ``` self: QtC.QNetworkInformation, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qnetworkinformation.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -479,8 +485,8 @@ pub const qnetworkinformation = struct {
     ///
     /// ``` self: QtC.QNetworkInformation, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

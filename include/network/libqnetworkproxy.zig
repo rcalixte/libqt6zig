@@ -24,7 +24,7 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ``` hostname: []const u8, port: i32 ```
     pub fn New3(hostname: []const u8, port: i32) QtC.QNetworkProxyQuery {
-        const hostname_str = qtc.struct_libqt_string{
+        const hostname_str = qtc.libqt_string{
             .len = hostname.len,
             .data = hostname.ptr,
         };
@@ -57,11 +57,11 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ``` hostname: []const u8, port: i32, protocolTag: []const u8 ```
     pub fn New7(hostname: []const u8, port: i32, protocolTag: []const u8) QtC.QNetworkProxyQuery {
-        const hostname_str = qtc.struct_libqt_string{
+        const hostname_str = qtc.libqt_string{
             .len = hostname.len,
             .data = hostname.ptr,
         };
-        const protocolTag_str = qtc.struct_libqt_string{
+        const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
             .data = protocolTag.ptr,
         };
@@ -73,11 +73,11 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ``` hostname: []const u8, port: i32, protocolTag: []const u8, queryType: qnetworkproxy_enums.QueryType ```
     pub fn New8(hostname: []const u8, port: i32, protocolTag: []const u8, queryType: i64) QtC.QNetworkProxyQuery {
-        const hostname_str = qtc.struct_libqt_string{
+        const hostname_str = qtc.libqt_string{
             .len = hostname.len,
             .data = hostname.ptr,
         };
-        const protocolTag_str = qtc.struct_libqt_string{
+        const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
             .data = protocolTag.ptr,
         };
@@ -89,7 +89,7 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ``` bindPort: u16, protocolTag: []const u8 ```
     pub fn New9(bindPort: u16, protocolTag: []const u8) QtC.QNetworkProxyQuery {
-        const protocolTag_str = qtc.struct_libqt_string{
+        const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
             .data = protocolTag.ptr,
         };
@@ -101,7 +101,7 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ``` bindPort: u16, protocolTag: []const u8, queryType: qnetworkproxy_enums.QueryType ```
     pub fn New10(bindPort: u16, protocolTag: []const u8, queryType: i64) QtC.QNetworkProxyQuery {
-        const protocolTag_str = qtc.struct_libqt_string{
+        const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
             .data = protocolTag.ptr,
         };
@@ -140,6 +140,8 @@ pub const qnetworkproxyquery = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#queryType)
     ///
     /// ``` self: QtC.QNetworkProxyQuery ```
+    ///
+    /// Returns: ``` qnetworkproxy_enums.QueryType ```
     pub fn QueryType(self: ?*anyopaque) i64 {
         return qtc.QNetworkProxyQuery_QueryType(@ptrCast(self));
     }
@@ -180,7 +182,7 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ``` self: QtC.QNetworkProxyQuery, hostname: []const u8 ```
     pub fn SetPeerHostName(self: ?*anyopaque, hostname: []const u8) void {
-        const hostname_str = qtc.struct_libqt_string{
+        const hostname_str = qtc.libqt_string{
             .len = hostname.len,
             .data = hostname.ptr,
         };
@@ -216,7 +218,7 @@ pub const qnetworkproxyquery = struct {
     ///
     /// ``` self: QtC.QNetworkProxyQuery, protocolTag: []const u8 ```
     pub fn SetProtocolTag(self: ?*anyopaque, protocolTag: []const u8) void {
-        const protocolTag_str = qtc.struct_libqt_string{
+        const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
             .data = protocolTag.ptr,
         };
@@ -274,7 +276,7 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8 ```
     pub fn New4(typeVal: i64, hostName: []const u8) QtC.QNetworkProxy {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -286,7 +288,7 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16 ```
     pub fn New5(typeVal: i64, hostName: []const u8, port: u16) QtC.QNetworkProxy {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -298,11 +300,11 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16, user: []const u8 ```
     pub fn New6(typeVal: i64, hostName: []const u8, port: u16, user: []const u8) QtC.QNetworkProxy {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        const user_str = qtc.struct_libqt_string{
+        const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
         };
@@ -314,15 +316,15 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16, user: []const u8, password: []const u8 ```
     pub fn New7(typeVal: i64, hostName: []const u8, port: u16, user: []const u8, password: []const u8) QtC.QNetworkProxy {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        const user_str = qtc.struct_libqt_string{
+        const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
         };
-        const password_str = qtc.struct_libqt_string{
+        const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
@@ -368,13 +370,15 @@ pub const qnetworkproxy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#type)
     ///
     /// ``` self: QtC.QNetworkProxy ```
+    ///
+    /// Returns: ``` qnetworkproxy_enums.ProxyType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QNetworkProxy_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#setCapabilities)
     ///
-    /// ``` self: QtC.QNetworkProxy, capab: i32 ```
+    /// ``` self: QtC.QNetworkProxy, capab: flag of qnetworkproxy_enums.Capability ```
     pub fn SetCapabilities(self: ?*anyopaque, capab: i64) void {
         qtc.QNetworkProxy_SetCapabilities(@ptrCast(self), @intCast(capab));
     }
@@ -382,6 +386,8 @@ pub const qnetworkproxy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#capabilities)
     ///
     /// ``` self: QtC.QNetworkProxy ```
+    ///
+    /// Returns: ``` flag of qnetworkproxy_enums.Capability ```
     pub fn Capabilities(self: ?*anyopaque) i64 {
         return qtc.QNetworkProxy_Capabilities(@ptrCast(self));
     }
@@ -404,7 +410,7 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` self: QtC.QNetworkProxy, userName: []const u8 ```
     pub fn SetUser(self: ?*anyopaque, userName: []const u8) void {
-        const userName_str = qtc.struct_libqt_string{
+        const userName_str = qtc.libqt_string{
             .len = userName.len,
             .data = userName.ptr,
         };
@@ -426,7 +432,7 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` self: QtC.QNetworkProxy, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
-        const password_str = qtc.struct_libqt_string{
+        const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
@@ -448,7 +454,7 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` self: QtC.QNetworkProxy, hostName: []const u8 ```
     pub fn SetHostName(self: ?*anyopaque, hostName: []const u8) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -526,7 +532,7 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` self: QtC.QNetworkProxy, headerName: []u8 ```
     pub fn HasRawHeader(self: ?*anyopaque, headerName: []u8) bool {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
@@ -537,8 +543,8 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` self: QtC.QNetworkProxy, allocator: std.mem.Allocator ```
     pub fn RawHeaderList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkProxy_RawHeaderList(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkProxy_RawHeaderList(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -559,11 +565,11 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` self: QtC.QNetworkProxy, headerName: []u8, allocator: std.mem.Allocator ```
     pub fn RawHeader(self: ?*anyopaque, headerName: []u8, allocator: std.mem.Allocator) []u8 {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QNetworkProxy_RawHeader(@ptrCast(self), headerName_str);
+        const _bytearray: qtc.libqt_string = qtc.QNetworkProxy_RawHeader(@ptrCast(self), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkproxy.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -574,11 +580,11 @@ pub const qnetworkproxy = struct {
     ///
     /// ``` self: QtC.QNetworkProxy, headerName: []u8, value: []u8 ```
     pub fn SetRawHeader(self: ?*anyopaque, headerName: []u8, value: []u8) void {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -608,7 +614,7 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ``` self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
     pub fn QueryProxy(self: ?*anyopaque, query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkProxyFactory_QueryProxy(@ptrCast(self), @ptrCast(query));
+        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_QueryProxy(@ptrCast(self), @ptrCast(query));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkProxy, _arr.len) catch @panic("qnetworkproxyfactory.QueryProxy: Memory allocation failed");
         const _data: [*]QtC.QNetworkProxy = @ptrCast(@alignCast(_arr.data));
@@ -631,7 +637,7 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ``` self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
     pub fn QBaseQueryProxy(self: ?*anyopaque, query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkProxyFactory_QBaseQueryProxy(@ptrCast(self), @ptrCast(query));
+        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_QBaseQueryProxy(@ptrCast(self), @ptrCast(query));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkProxy, _arr.len) catch @panic("qnetworkproxyfactory.QueryProxy: Memory allocation failed");
         const _data: [*]QtC.QNetworkProxy = @ptrCast(@alignCast(_arr.data));
@@ -664,7 +670,7 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ``` query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
     pub fn ProxyForQuery(query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkProxyFactory_ProxyForQuery(@ptrCast(query));
+        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_ProxyForQuery(@ptrCast(query));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkProxy, _arr.len) catch @panic("qnetworkproxyfactory.ProxyForQuery: Memory allocation failed");
         const _data: [*]QtC.QNetworkProxy = @ptrCast(@alignCast(_arr.data));
@@ -676,7 +682,7 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SystemProxyForQuery(allocator: std.mem.Allocator) []QtC.QNetworkProxy {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkProxyFactory_SystemProxyForQuery();
+        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_SystemProxyForQuery();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkProxy, _arr.len) catch @panic("qnetworkproxyfactory.SystemProxyForQuery: Memory allocation failed");
         const _data: [*]QtC.QNetworkProxy = @ptrCast(@alignCast(_arr.data));
@@ -695,7 +701,7 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// ``` query: QtC.QNetworkProxyQuery, allocator: std.mem.Allocator ```
     pub fn SystemProxyForQuery1(query: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkProxy {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkProxyFactory_SystemProxyForQuery1(@ptrCast(query));
+        const _arr: qtc.libqt_list = qtc.QNetworkProxyFactory_SystemProxyForQuery1(@ptrCast(query));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkProxy, _arr.len) catch @panic("qnetworkproxyfactory.SystemProxyForQuery1: Memory allocation failed");
         const _data: [*]QtC.QNetworkProxy = @ptrCast(@alignCast(_arr.data));

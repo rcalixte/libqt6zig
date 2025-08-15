@@ -150,7 +150,7 @@ pub const qitemselectionrange = struct {
     ///
     /// ``` self: QtC.QItemSelectionRange, allocator: std.mem.Allocator ```
     pub fn Indexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QItemSelectionRange_Indexes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionRange_Indexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionrange.Indexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -288,7 +288,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn SelectedIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QItemSelectionModel_SelectedIndexes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionmodel.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -300,7 +300,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn SelectedRows(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QItemSelectionModel_SelectedRows(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionmodel.SelectedRows: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -312,7 +312,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn SelectedColumns(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QItemSelectionModel_SelectedColumns(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionmodel.SelectedColumns: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -350,7 +350,7 @@ pub const qitemselectionmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#setCurrentIndex)
     ///
-    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: i32 ```
+    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn SetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
         qtc.QItemSelectionModel_SetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
@@ -359,7 +359,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: i32) callconv(.c) void ```
+    /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
     pub fn OnSetCurrentIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnSetCurrentIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -368,14 +368,14 @@ pub const qitemselectionmodel = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: i32 ```
+    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn QBaseSetCurrentIndex(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
         qtc.QItemSelectionModel_QBaseSetCurrentIndex(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
     ///
-    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: i32 ```
+    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn Select(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
         qtc.QItemSelectionModel_Select(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
@@ -384,7 +384,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: i32) callconv(.c) void ```
+    /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
     pub fn OnSelect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnSelect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -393,14 +393,14 @@ pub const qitemselectionmodel = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: i32 ```
+    /// ``` self: QtC.QItemSelectionModel, index: QtC.QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn QBaseSelect(self: ?*anyopaque, index: ?*anyopaque, command: i64) void {
         qtc.QItemSelectionModel_QBaseSelect(@ptrCast(self), @ptrCast(index), @intCast(command));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselectionmodel.html#select)
     ///
-    /// ``` self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: i32 ```
+    /// ``` self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn Select2(self: ?*anyopaque, selection: ?*anyopaque, command: i64) void {
         qtc.QItemSelectionModel_Select2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
@@ -409,7 +409,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: i32) callconv(.c) void ```
+    /// ``` self: QtC.QItemSelectionModel, slot: fn (self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
     pub fn OnSelect2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
         qtc.QItemSelectionModel_OnSelect2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -418,7 +418,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: i32 ```
+    /// ``` self: QtC.QItemSelectionModel, selection: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn QBaseSelect2(self: ?*anyopaque, selection: ?*anyopaque, command: i64) void {
         qtc.QItemSelectionModel_QBaseSelect2(@ptrCast(self), @ptrCast(selection), @intCast(command));
     }
@@ -658,7 +658,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, column: i32, allocator: std.mem.Allocator ```
     pub fn SelectedRows1(self: ?*anyopaque, column: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QItemSelectionModel_SelectedRows1(@ptrCast(self), @intCast(column));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows1(@ptrCast(self), @intCast(column));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionmodel.SelectedRows1: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -670,7 +670,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, row: i32, allocator: std.mem.Allocator ```
     pub fn SelectedColumns1(self: ?*anyopaque, row: i32, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QItemSelectionModel_SelectedColumns1(@ptrCast(self), @intCast(row));
+        const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns1(@ptrCast(self), @intCast(row));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselectionmodel.SelectedColumns1: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -697,7 +697,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -800,7 +800,7 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qitemselectionmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -917,8 +917,8 @@ pub const qitemselectionmodel = struct {
     ///
     /// ``` self: QtC.QItemSelectionModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1484,7 +1484,7 @@ pub const qitemselection = struct {
     ///
     /// ``` self: QtC.QItemSelection, allocator: std.mem.Allocator ```
     pub fn Indexes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QItemSelection_Indexes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QItemSelection_Indexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qitemselection.Indexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1494,7 +1494,7 @@ pub const qitemselection = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemselection.html#merge)
     ///
-    /// ``` self: QtC.QItemSelection, other: QtC.QItemSelection, command: i32 ```
+    /// ``` self: QtC.QItemSelection, other: QtC.QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag ```
     pub fn Merge(self: ?*anyopaque, other: ?*anyopaque, command: i64) void {
         qtc.QItemSelection_Merge(@ptrCast(self), @ptrCast(other), @intCast(command));
     }

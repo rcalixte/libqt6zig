@@ -16,6 +16,8 @@ pub const qevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -194,6 +196,8 @@ pub const qtimerevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#id)
     ///
     /// ``` self: QtC.QTimerEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.TimerId ```
     pub fn Id(self: ?*anyopaque) i64 {
         return qtc.QTimerEvent_Id(@ptrCast(self));
     }
@@ -203,6 +207,8 @@ pub const qtimerevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QTimerEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -398,6 +404,8 @@ pub const qchildevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QChildEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -532,7 +540,7 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     /// ``` name: []u8 ```
     pub fn New(name: []u8) QtC.QDynamicPropertyChangeEvent {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -569,7 +577,7 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     /// ``` self: QtC.QDynamicPropertyChangeEvent, allocator: std.mem.Allocator ```
     pub fn PropertyName(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QDynamicPropertyChangeEvent_PropertyName(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QDynamicPropertyChangeEvent_PropertyName(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdynamicpropertychangeevent.PropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -581,6 +589,8 @@ pub const qdynamicpropertychangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QDynamicPropertyChangeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }

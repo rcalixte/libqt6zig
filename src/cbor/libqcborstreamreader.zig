@@ -33,7 +33,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ``` data: []u8 ```
     pub fn New4(data: []u8) QtC.QCborStreamReader {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -66,7 +66,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ``` self: QtC.QCborStreamReader, data: []u8 ```
     pub fn AddData(self: ?*anyopaque, data: []u8) void {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -140,6 +140,8 @@ pub const qcborstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#parentContainerType)
     ///
     /// ``` self: QtC.QCborStreamReader ```
+    ///
+    /// Returns: ``` qcborstreamreader_enums.Type ```
     pub fn ParentContainerType(self: ?*anyopaque) i64 {
         return qtc.QCborStreamReader_ParentContainerType(@ptrCast(self));
     }
@@ -161,6 +163,8 @@ pub const qcborstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#type)
     ///
     /// ``` self: QtC.QCborStreamReader ```
+    ///
+    /// Returns: ``` qcborstreamreader_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QCborStreamReader_Type(@ptrCast(self));
     }
@@ -337,7 +341,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ``` self: QtC.QCborStreamReader, dst: []const u8 ```
     pub fn ReadAndAppendToString(self: ?*anyopaque, dst: []const u8) bool {
-        const dst_str = qtc.struct_libqt_string{
+        const dst_str = qtc.libqt_string{
             .len = dst.len,
             .data = dst.ptr,
         };
@@ -348,7 +352,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ``` self: QtC.QCborStreamReader, dst: []u8 ```
     pub fn ReadAndAppendToUtf8String(self: ?*anyopaque, dst: []u8) bool {
-        const dst_str = qtc.struct_libqt_string{
+        const dst_str = qtc.libqt_string{
             .len = dst.len,
             .data = dst.ptr,
         };
@@ -359,7 +363,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ``` self: QtC.QCborStreamReader, dst: []u8 ```
     pub fn ReadAndAppendToByteArray(self: ?*anyopaque, dst: []u8) bool {
-        const dst_str = qtc.struct_libqt_string{
+        const dst_str = qtc.libqt_string{
             .len = dst.len,
             .data = dst.ptr,
         };
@@ -383,6 +387,8 @@ pub const qcborstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#toTag)
     ///
     /// ``` self: QtC.QCborStreamReader ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborTag ```
     pub fn ToTag(self: ?*anyopaque) i64 {
         return qtc.QCborStreamReader_ToTag(@ptrCast(self));
     }
@@ -397,6 +403,8 @@ pub const qcborstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#toNegativeInteger)
     ///
     /// ``` self: QtC.QCborStreamReader ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborNegativeInteger ```
     pub fn ToNegativeInteger(self: ?*anyopaque) i64 {
         return qtc.QCborStreamReader_ToNegativeInteger(@ptrCast(self));
     }
@@ -404,6 +412,8 @@ pub const qcborstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborStreamReader ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
     pub fn ToSimpleType(self: ?*anyopaque) i64 {
         return qtc.QCborStreamReader_ToSimpleType(@ptrCast(self));
     }
@@ -444,7 +454,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ``` self: QtC.QCborStreamReader, allocator: std.mem.Allocator ```
     pub fn ReadAllUtf8String(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborStreamReader_ReadAllUtf8String(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllUtf8String(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllUtf8String: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -455,7 +465,7 @@ pub const qcborstreamreader = struct {
     ///
     /// ``` self: QtC.QCborStreamReader, allocator: std.mem.Allocator ```
     pub fn ReadAllByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborStreamReader_ReadAllByteArray(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

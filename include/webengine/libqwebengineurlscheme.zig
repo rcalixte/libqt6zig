@@ -16,7 +16,7 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ``` name: []u8 ```
     pub fn New2(name: []u8) QtC.QWebEngineUrlScheme {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -56,7 +56,7 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ``` self: QtC.QWebEngineUrlScheme, allocator: std.mem.Allocator ```
     pub fn Name(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWebEngineUrlScheme_Name(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWebEngineUrlScheme_Name(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebengineurlscheme.Name: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -67,7 +67,7 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ``` self: QtC.QWebEngineUrlScheme, newValue: []u8 ```
     pub fn SetName(self: ?*anyopaque, newValue: []u8) void {
-        const newValue_str = qtc.struct_libqt_string{
+        const newValue_str = qtc.libqt_string{
             .len = newValue.len,
             .data = newValue.ptr,
         };
@@ -77,6 +77,8 @@ pub const qwebengineurlscheme = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#syntax)
     ///
     /// ``` self: QtC.QWebEngineUrlScheme ```
+    ///
+    /// Returns: ``` qwebengineurlscheme_enums.Syntax ```
     pub fn Syntax(self: ?*anyopaque) i64 {
         return qtc.QWebEngineUrlScheme_Syntax(@ptrCast(self));
     }
@@ -105,13 +107,15 @@ pub const qwebengineurlscheme = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#flags)
     ///
     /// ``` self: QtC.QWebEngineUrlScheme ```
+    ///
+    /// Returns: ``` flag of qwebengineurlscheme_enums.Flag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QWebEngineUrlScheme_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setFlags)
     ///
-    /// ``` self: QtC.QWebEngineUrlScheme, newValue: i32 ```
+    /// ``` self: QtC.QWebEngineUrlScheme, newValue: flag of qwebengineurlscheme_enums.Flag ```
     pub fn SetFlags(self: ?*anyopaque, newValue: i64) void {
         qtc.QWebEngineUrlScheme_SetFlags(@ptrCast(self), @intCast(newValue));
     }
@@ -127,7 +131,7 @@ pub const qwebengineurlscheme = struct {
     ///
     /// ``` name: []u8 ```
     pub fn SchemeByName(name: []u8) QtC.QWebEngineUrlScheme {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };

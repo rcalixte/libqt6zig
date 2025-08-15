@@ -148,7 +148,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, replacement: []const u8 ```
     pub fn ReplaceMisspelledWord(self: ?*anyopaque, replacement: []const u8) void {
-        const replacement_str = qtc.struct_libqt_string{
+        const replacement_str = qtc.libqt_string{
             .len = replacement.len,
             .data = replacement.ptr,
         };
@@ -212,7 +212,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, html: []const u8 ```
     pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
-        const html_str = qtc.struct_libqt_string{
+        const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
@@ -223,7 +223,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, data: []u8 ```
     pub fn SetContent(self: ?*anyopaque, data: []u8) void {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -350,7 +350,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, filePath: []const u8 ```
     pub fn Save(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -389,7 +389,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, filePath: []const u8 ```
     pub fn PrintToPdf(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -445,6 +445,8 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleState)
     ///
     /// ``` self: QtC.QWebEnginePage ```
+    ///
+    /// Returns: ``` qwebenginepage_enums.LifecycleState ```
     pub fn LifecycleState(self: ?*anyopaque) i64 {
         return qtc.QWebEnginePage_LifecycleState(@ptrCast(self));
     }
@@ -459,6 +461,8 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedState)
     ///
     /// ``` self: QtC.QWebEnginePage ```
+    ///
+    /// Returns: ``` qwebenginepage_enums.LifecycleState ```
     pub fn RecommendedState(self: ?*anyopaque) i64 {
         return qtc.QWebEnginePage_RecommendedState(@ptrCast(self));
     }
@@ -551,7 +555,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, url: []const u8 ```
     pub fn LinkHovered(self: ?*anyopaque, url: []const u8) void {
-        const url_str = qtc.struct_libqt_string{
+        const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
@@ -737,7 +741,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: []const u8 ```
     pub fn ProxyAuthenticationRequired(self: ?*anyopaque, requestUrl: ?*anyopaque, authenticator: ?*anyopaque, proxyHost: []const u8) void {
-        const proxyHost_str = qtc.struct_libqt_string{
+        const proxyHost_str = qtc.libqt_string{
             .len = proxyHost.len,
             .data = proxyHost.ptr,
         };
@@ -825,7 +829,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, title: []const u8 ```
     pub fn TitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -969,7 +973,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, filePath: []const u8, success: bool ```
     pub fn PdfPrintingFinished(self: ?*anyopaque, filePath: []const u8, success: bool) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -1124,7 +1128,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator ```
     pub fn ChooseFiles(self: ?*anyopaque, mode: i64, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
-        var oldFiles_arr = allocator.alloc(qtc.struct_libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
             oldFiles_arr[i] = .{
@@ -1132,11 +1136,11 @@ pub const qwebenginepage = struct {
                 .data = item.ptr,
             };
         }
-        const oldFiles_list = qtc.struct_libqt_list{
+        const oldFiles_list = qtc.libqt_list{
             .len = oldFiles.len,
             .data = oldFiles_arr.ptr,
         };
-        var acceptedMimeTypes_arr = allocator.alloc(qtc.struct_libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        var acceptedMimeTypes_arr = allocator.alloc(qtc.libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(acceptedMimeTypes_arr);
         for (acceptedMimeTypes, 0..acceptedMimeTypes.len) |item, i| {
             acceptedMimeTypes_arr[i] = .{
@@ -1144,12 +1148,12 @@ pub const qwebenginepage = struct {
                 .data = item.ptr,
             };
         }
-        const acceptedMimeTypes_list = qtc.struct_libqt_list{
+        const acceptedMimeTypes_list = qtc.libqt_list{
             .len = acceptedMimeTypes.len,
             .data = acceptedMimeTypes_arr.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QWebEnginePage_ChooseFiles(@ptrCast(self), @intCast(mode), oldFiles_list, acceptedMimeTypes_list);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QWebEnginePage_ChooseFiles(@ptrCast(self), @intCast(mode), oldFiles_list, acceptedMimeTypes_list);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1181,7 +1185,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator ```
     pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i64, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
-        var oldFiles_arr = allocator.alloc(qtc.struct_libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
             oldFiles_arr[i] = .{
@@ -1189,11 +1193,11 @@ pub const qwebenginepage = struct {
                 .data = item.ptr,
             };
         }
-        const oldFiles_list = qtc.struct_libqt_list{
+        const oldFiles_list = qtc.libqt_list{
             .len = oldFiles.len,
             .data = oldFiles_arr.ptr,
         };
-        var acceptedMimeTypes_arr = allocator.alloc(qtc.struct_libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
+        var acceptedMimeTypes_arr = allocator.alloc(qtc.libqt_string, acceptedMimeTypes.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(acceptedMimeTypes_arr);
         for (acceptedMimeTypes, 0..acceptedMimeTypes.len) |item, i| {
             acceptedMimeTypes_arr[i] = .{
@@ -1201,12 +1205,12 @@ pub const qwebenginepage = struct {
                 .data = item.ptr,
             };
         }
-        const acceptedMimeTypes_list = qtc.struct_libqt_list{
+        const acceptedMimeTypes_list = qtc.libqt_list{
             .len = acceptedMimeTypes.len,
             .data = acceptedMimeTypes_arr.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QWebEnginePage_QBaseChooseFiles(@ptrCast(self), @intCast(mode), oldFiles_list, acceptedMimeTypes_list);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QWebEnginePage_QBaseChooseFiles(@ptrCast(self), @intCast(mode), oldFiles_list, acceptedMimeTypes_list);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1227,7 +1231,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
     pub fn JavaScriptAlert(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) void {
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -1249,7 +1253,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
     pub fn QBaseJavaScriptAlert(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) void {
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -1260,7 +1264,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
     pub fn JavaScriptConfirm(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) bool {
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -1282,7 +1286,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8 ```
     pub fn QBaseJavaScriptConfirm(self: ?*anyopaque, securityOrigin: ?*anyopaque, msg: []const u8) bool {
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -1293,11 +1297,11 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8 ```
     pub fn JavaScriptConsoleMessage(self: ?*anyopaque, level: i64, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
-        const message_str = qtc.struct_libqt_string{
+        const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        const sourceID_str = qtc.struct_libqt_string{
+        const sourceID_str = qtc.libqt_string{
             .len = sourceID.len,
             .data = sourceID.ptr,
         };
@@ -1319,11 +1323,11 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8 ```
     pub fn QBaseJavaScriptConsoleMessage(self: ?*anyopaque, level: i64, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
-        const message_str = qtc.struct_libqt_string{
+        const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
-        const sourceID_str = qtc.struct_libqt_string{
+        const sourceID_str = qtc.libqt_string{
             .len = sourceID.len,
             .data = sourceID.ptr,
         };
@@ -1385,7 +1389,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl, filename: []const u8 ```
     pub fn Download2(self: ?*anyopaque, url: ?*anyopaque, filename: []const u8) void {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -1396,7 +1400,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, html: []const u8, baseUrl: QtC.QUrl ```
     pub fn SetHtml2(self: ?*anyopaque, html: []const u8, baseUrl: ?*anyopaque) void {
-        const html_str = qtc.struct_libqt_string{
+        const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
@@ -1407,11 +1411,11 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, data: []u8, mimeType: []const u8 ```
     pub fn SetContent2(self: ?*anyopaque, data: []u8, mimeType: []const u8) void {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        const mimeType_str = qtc.struct_libqt_string{
+        const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
@@ -1422,11 +1426,11 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, data: []u8, mimeType: []const u8, baseUrl: QtC.QUrl ```
     pub fn SetContent3(self: ?*anyopaque, data: []u8, mimeType: []const u8, baseUrl: ?*anyopaque) void {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        const mimeType_str = qtc.struct_libqt_string{
+        const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
@@ -1444,7 +1448,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, filePath: []const u8, format: qwebenginedownloadrequest_enums.SavePageFormat ```
     pub fn Save2(self: ?*anyopaque, filePath: []const u8, format: i64) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -1455,7 +1459,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, filePath: []const u8, layout: QtC.QPageLayout ```
     pub fn PrintToPdf2(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -1466,7 +1470,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, filePath: []const u8, layout: QtC.QPageLayout, ranges: QtC.QPageRanges ```
     pub fn PrintToPdf3(self: ?*anyopaque, filePath: []const u8, layout: ?*anyopaque, ranges: ?*anyopaque) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -1492,7 +1496,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1595,7 +1599,7 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebenginepage.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1712,8 +1716,8 @@ pub const qwebenginepage = struct {
     ///
     /// ``` self: QtC.QWebEnginePage, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

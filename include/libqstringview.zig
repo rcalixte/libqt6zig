@@ -69,7 +69,7 @@ pub const qstringview = struct {
     ///
     /// ``` self: QtC.QStringView, allocator: std.mem.Allocator ```
     pub fn ToLatin1(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QStringView_ToLatin1(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QStringView_ToLatin1(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstringview.ToLatin1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -80,7 +80,7 @@ pub const qstringview = struct {
     ///
     /// ``` self: QtC.QStringView, allocator: std.mem.Allocator ```
     pub fn ToUtf8(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QStringView_ToUtf8(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QStringView_ToUtf8(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstringview.ToUtf8: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -91,7 +91,7 @@ pub const qstringview = struct {
     ///
     /// ``` self: QtC.QStringView, allocator: std.mem.Allocator ```
     pub fn ToLocal8Bit(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QStringView_ToLocal8Bit(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QStringView_ToLocal8Bit(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstringview.ToLocal8Bit: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -102,7 +102,7 @@ pub const qstringview = struct {
     ///
     /// ``` self: QtC.QStringView, allocator: std.mem.Allocator ```
     pub fn ToUcs4(self: ?*anyopaque, allocator: std.mem.Allocator) []u32 {
-        const _arr: qtc.struct_libqt_list = qtc.QStringView_ToUcs4(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QStringView_ToUcs4(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u32, _arr.len) catch @panic("qstringview.ToUcs4: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));

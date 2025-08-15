@@ -127,7 +127,7 @@ pub const qtextobject = struct {
     ///
     /// ``` self: QtC.QTextObject, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -230,7 +230,7 @@ pub const qtextobject = struct {
     ///
     /// ``` self: QtC.QTextObject, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextobject.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -347,8 +347,8 @@ pub const qtextobject = struct {
     ///
     /// ``` self: QtC.QTextObject, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -628,7 +628,7 @@ pub const qtextblockgroup = struct {
     ///
     /// ``` self: QtC.QTextBlockGroup, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -731,7 +731,7 @@ pub const qtextblockgroup = struct {
     ///
     /// ``` self: QtC.QTextBlockGroup, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextblockgroup.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -848,8 +848,8 @@ pub const qtextblockgroup = struct {
     ///
     /// ``` self: QtC.QTextBlockGroup, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1130,7 +1130,7 @@ pub const qtextframe = struct {
     ///
     /// ``` self: QtC.QTextFrame, allocator: std.mem.Allocator ```
     pub fn ChildFrames(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextFrame {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFrame_ChildFrames(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextFrame_ChildFrames(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextFrame, _arr.len) catch @panic("qtextframe.ChildFrames: Memory allocation failed");
         const _data: [*]QtC.QTextFrame = @ptrCast(@alignCast(_arr.data));
@@ -1240,7 +1240,7 @@ pub const qtextframe = struct {
     ///
     /// ``` self: QtC.QTextFrame, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1343,7 +1343,7 @@ pub const qtextframe = struct {
     ///
     /// ``` self: QtC.QTextFrame, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextframe.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1460,8 +1460,8 @@ pub const qtextframe = struct {
     ///
     /// ``` self: QtC.QTextFrame, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2153,6 +2153,8 @@ pub const qtextblock = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock.html#textDirection)
     ///
     /// ``` self: QtC.QTextBlock ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn TextDirection(self: ?*anyopaque) i64 {
         return qtc.QTextBlock_TextDirection(@ptrCast(self));
     }
@@ -2172,7 +2174,7 @@ pub const qtextblock = struct {
     ///
     /// ``` self: QtC.QTextBlock, allocator: std.mem.Allocator ```
     pub fn TextFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextLayout__FormatRange {
-        const _arr: qtc.struct_libqt_list = qtc.QTextBlock_TextFormats(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextBlock_TextFormats(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLayout__FormatRange, _arr.len) catch @panic("qtextblock.TextFormats: Memory allocation failed");
         const _data: [*]QtC.QTextLayout__FormatRange = @ptrCast(@alignCast(_arr.data));
@@ -2424,7 +2426,7 @@ pub const qtextfragment = struct {
     ///
     /// ``` self: QtC.QTextFragment, allocator: std.mem.Allocator ```
     pub fn GlyphRuns(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFragment_GlyphRuns(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextFragment_GlyphRuns(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextfragment.GlyphRuns: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -2436,7 +2438,7 @@ pub const qtextfragment = struct {
     ///
     /// ``` self: QtC.QTextFragment, from: i32, allocator: std.mem.Allocator ```
     pub fn GlyphRuns1(self: ?*anyopaque, from: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFragment_GlyphRuns1(@ptrCast(self), @intCast(from));
+        const _arr: qtc.libqt_list = qtc.QTextFragment_GlyphRuns1(@ptrCast(self), @intCast(from));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextfragment.GlyphRuns1: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -2448,7 +2450,7 @@ pub const qtextfragment = struct {
     ///
     /// ``` self: QtC.QTextFragment, from: i32, length: i32, allocator: std.mem.Allocator ```
     pub fn GlyphRuns2(self: ?*anyopaque, from: i32, length: i32, allocator: std.mem.Allocator) []QtC.QGlyphRun {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFragment_GlyphRuns2(@ptrCast(self), @intCast(from), @intCast(length));
+        const _arr: qtc.libqt_list = qtc.QTextFragment_GlyphRuns2(@ptrCast(self), @intCast(from), @intCast(length));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGlyphRun, _arr.len) catch @panic("qtextfragment.GlyphRuns2: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
@@ -2510,70 +2512,70 @@ pub const qtextframe__iterator = struct {
         qtc.QTextFrame__iterator_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#parentFrame)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#parentFrame)
     ///
     /// ``` self: QtC.QTextFrame__iterator ```
     pub fn ParentFrame(self: ?*anyopaque) QtC.QTextFrame {
         return qtc.QTextFrame__iterator_ParentFrame(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#currentFrame)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#currentFrame)
     ///
     /// ``` self: QtC.QTextFrame__iterator ```
     pub fn CurrentFrame(self: ?*anyopaque) QtC.QTextFrame {
         return qtc.QTextFrame__iterator_CurrentFrame(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#currentBlock)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#currentBlock)
     ///
     /// ``` self: QtC.QTextFrame__iterator ```
     pub fn CurrentBlock(self: ?*anyopaque) QtC.QTextBlock {
         return qtc.QTextFrame__iterator_CurrentBlock(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#atEnd)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#atEnd)
     ///
     /// ``` self: QtC.QTextFrame__iterator ```
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.QTextFrame__iterator_AtEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-eq-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextFrame__iterator, o: QtC.QTextFrame__iterator ```
     pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextFrame__iterator_OperatorEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-not-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextFrame__iterator, o: QtC.QTextFrame__iterator ```
     pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextFrame__iterator_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextFrame__iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTextFrame__iterator {
         return qtc.QTextFrame__iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextFrame__iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QTextFrame__iterator {
         return qtc.QTextFrame__iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator--)
     ///
     /// ``` self: QtC.QTextFrame__iterator ```
     pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QTextFrame__iterator {
         return qtc.QTextFrame__iterator_OperatorMinusMinus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe__iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextframe-iterator.html#operator--)
     ///
     /// ``` self: QtC.QTextFrame__iterator, param1: i32 ```
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QTextFrame__iterator {
@@ -2632,56 +2634,56 @@ pub const qtextblock__iterator = struct {
         qtc.QTextBlock__iterator_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#fragment)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#fragment)
     ///
     /// ``` self: QtC.QTextBlock__iterator ```
     pub fn Fragment(self: ?*anyopaque) QtC.QTextFragment {
         return qtc.QTextBlock__iterator_Fragment(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#atEnd)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#atEnd)
     ///
     /// ``` self: QtC.QTextBlock__iterator ```
     pub fn AtEnd(self: ?*anyopaque) bool {
         return qtc.QTextBlock__iterator_AtEnd(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-eq-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextBlock__iterator, o: QtC.QTextBlock__iterator ```
     pub fn OperatorEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextBlock__iterator_OperatorEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-not-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextBlock__iterator, o: QtC.QTextBlock__iterator ```
     pub fn OperatorNotEqual(self: ?*anyopaque, o: ?*anyopaque) bool {
         return qtc.QTextBlock__iterator_OperatorNotEqual(@ptrCast(self), @ptrCast(o));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextBlock__iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QTextBlock__iterator {
         return qtc.QTextBlock__iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QTextBlock__iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QTextBlock__iterator {
         return qtc.QTextBlock__iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator--)
     ///
     /// ``` self: QtC.QTextBlock__iterator ```
     pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QTextBlock__iterator {
         return qtc.QTextBlock__iterator_OperatorMinusMinus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock__iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextblock-iterator.html#operator--)
     ///
     /// ``` self: QtC.QTextBlock__iterator, param1: i32 ```
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QTextBlock__iterator {

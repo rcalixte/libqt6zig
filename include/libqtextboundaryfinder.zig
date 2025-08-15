@@ -23,7 +23,7 @@ pub const qtextboundaryfinder = struct {
     ///
     /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, stringVal: []const u8 ```
     pub fn New3(typeVal: i64, stringVal: []const u8) QtC.QTextBoundaryFinder {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -69,6 +69,8 @@ pub const qtextboundaryfinder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#type)
     ///
     /// ``` self: QtC.QTextBoundaryFinder ```
+    ///
+    /// Returns: ``` qtextboundaryfinder_enums.BoundaryType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QTextBoundaryFinder_Type(@ptrCast(self));
     }
@@ -136,6 +138,8 @@ pub const qtextboundaryfinder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextboundaryfinder.html#boundaryReasons)
     ///
     /// ``` self: QtC.QTextBoundaryFinder ```
+    ///
+    /// Returns: ``` flag of qtextboundaryfinder_enums.BoundaryReason ```
     pub fn BoundaryReasons(self: ?*anyopaque) i64 {
         return qtc.QTextBoundaryFinder_BoundaryReasons(@ptrCast(self));
     }

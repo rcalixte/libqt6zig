@@ -42,6 +42,8 @@ pub const qwebenginepermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#permissionType)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
+    ///
+    /// Returns: ``` qwebenginepermission_enums.PermissionType ```
     pub fn PermissionType(self: ?*anyopaque) i64 {
         return qtc.QWebEnginePermission_PermissionType(@ptrCast(self));
     }
@@ -49,6 +51,8 @@ pub const qwebenginepermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepermission.html#state)
     ///
     /// ``` self: QtC.QWebEnginePermission ```
+    ///
+    /// Returns: ``` qwebenginepermission_enums.State ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QWebEnginePermission_State(@ptrCast(self));
     }

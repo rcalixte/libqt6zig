@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qcommandlineoption_enums = enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qcommandlineoption.html
@@ -8,7 +9,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New(name: []const u8) QtC.QCommandLineOption {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -20,7 +21,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New2(names: [][]const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -28,7 +29,7 @@ pub const qcommandlineoption = struct {
                 .data = item.ptr,
             };
         }
-        const names_list = qtc.struct_libqt_list{
+        const names_list = qtc.libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
@@ -40,11 +41,11 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` name: []const u8, description: []const u8 ```
     pub fn New3(name: []const u8, description: []const u8) QtC.QCommandLineOption {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -56,7 +57,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, description: []const u8, allocator: std.mem.Allocator ```
     pub fn New4(names: [][]const u8, description: []const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -64,11 +65,11 @@ pub const qcommandlineoption = struct {
                 .data = item.ptr,
             };
         }
-        const names_list = qtc.struct_libqt_list{
+        const names_list = qtc.libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -87,15 +88,15 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` name: []const u8, description: []const u8, valueName: []const u8 ```
     pub fn New6(name: []const u8, description: []const u8, valueName: []const u8) QtC.QCommandLineOption {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        const valueName_str = qtc.struct_libqt_string{
+        const valueName_str = qtc.libqt_string{
             .len = valueName.len,
             .data = valueName.ptr,
         };
@@ -107,19 +108,19 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` name: []const u8, description: []const u8, valueName: []const u8, defaultValue: []const u8 ```
     pub fn New7(name: []const u8, description: []const u8, valueName: []const u8, defaultValue: []const u8) QtC.QCommandLineOption {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        const valueName_str = qtc.struct_libqt_string{
+        const valueName_str = qtc.libqt_string{
             .len = valueName.len,
             .data = valueName.ptr,
         };
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -131,7 +132,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, description: []const u8, valueName: []const u8, allocator: std.mem.Allocator ```
     pub fn New8(names: [][]const u8, description: []const u8, valueName: []const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -139,15 +140,15 @@ pub const qcommandlineoption = struct {
                 .data = item.ptr,
             };
         }
-        const names_list = qtc.struct_libqt_list{
+        const names_list = qtc.libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        const valueName_str = qtc.struct_libqt_string{
+        const valueName_str = qtc.libqt_string{
             .len = valueName.len,
             .data = valueName.ptr,
         };
@@ -159,7 +160,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, description: []const u8, valueName: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn New9(names: [][]const u8, description: []const u8, valueName: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -167,19 +168,19 @@ pub const qcommandlineoption = struct {
                 .data = item.ptr,
             };
         }
-        const names_list = qtc.struct_libqt_list{
+        const names_list = qtc.libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
-        const valueName_str = qtc.struct_libqt_string{
+        const valueName_str = qtc.libqt_string{
             .len = valueName.len,
             .data = valueName.ptr,
         };
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -205,8 +206,8 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` self: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
     pub fn Names(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QCommandLineOption_Names(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCommandLineOption_Names(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -227,7 +228,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` self: QtC.QCommandLineOption, name: []const u8 ```
     pub fn SetValueName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -249,7 +250,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` self: QtC.QCommandLineOption, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -271,7 +272,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` self: QtC.QCommandLineOption, defaultValue: []const u8 ```
     pub fn SetDefaultValue(self: ?*anyopaque, defaultValue: []const u8) void {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -282,7 +283,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` self: QtC.QCommandLineOption, defaultValues: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetDefaultValues(self: ?*anyopaque, defaultValues: [][]const u8, allocator: std.mem.Allocator) void {
-        var defaultValues_arr = allocator.alloc(qtc.struct_libqt_string, defaultValues.len) catch @panic("qcommandlineoption.SetDefaultValues: Memory allocation failed");
+        var defaultValues_arr = allocator.alloc(qtc.libqt_string, defaultValues.len) catch @panic("qcommandlineoption.SetDefaultValues: Memory allocation failed");
         defer allocator.free(defaultValues_arr);
         for (defaultValues, 0..defaultValues.len) |item, i| {
             defaultValues_arr[i] = .{
@@ -290,7 +291,7 @@ pub const qcommandlineoption = struct {
                 .data = item.ptr,
             };
         }
-        const defaultValues_list = qtc.struct_libqt_list{
+        const defaultValues_list = qtc.libqt_list{
             .len = defaultValues.len,
             .data = defaultValues_arr.ptr,
         };
@@ -301,8 +302,8 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` self: QtC.QCommandLineOption, allocator: std.mem.Allocator ```
     pub fn DefaultValues(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QCommandLineOption_DefaultValues(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCommandLineOption_DefaultValues(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -322,13 +323,15 @@ pub const qcommandlineoption = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#flags)
     ///
     /// ``` self: QtC.QCommandLineOption ```
+    ///
+    /// Returns: ``` flag of qcommandlineoption_enums.Flag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QCommandLineOption_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineoption.html#setFlags)
     ///
-    /// ``` self: QtC.QCommandLineOption, aflags: i32 ```
+    /// ``` self: QtC.QCommandLineOption, aflags: flag of qcommandlineoption_enums.Flag ```
     pub fn SetFlags(self: ?*anyopaque, aflags: i64) void {
         qtc.QCommandLineOption_SetFlags(@ptrCast(self), @intCast(aflags));
     }

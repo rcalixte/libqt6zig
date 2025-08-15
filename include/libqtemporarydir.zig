@@ -15,7 +15,7 @@ pub const qtemporarydir = struct {
     ///
     /// ``` templateName: []const u8 ```
     pub fn New2(templateName: []const u8) QtC.QTemporaryDir {
-        const templateName_str = qtc.struct_libqt_string{
+        const templateName_str = qtc.libqt_string{
             .len = templateName.len,
             .data = templateName.ptr,
         };
@@ -84,7 +84,7 @@ pub const qtemporarydir = struct {
     ///
     /// ``` self: QtC.QTemporaryDir, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn FilePath(self: ?*anyopaque, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };

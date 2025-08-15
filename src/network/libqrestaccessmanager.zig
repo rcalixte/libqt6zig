@@ -97,7 +97,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Get2(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -129,7 +129,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn Post2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
-        const data_keys = allocator.alloc(qtc.struct_libqt_string, data.count()) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data.count()) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
         defer allocator.free(data_values);
@@ -137,14 +137,14 @@ pub const qrestaccessmanager = struct {
         var data_it = data.iterator();
         while (data_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            data_keys[i] = qtc.struct_libqt_string{
+            data_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             data_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const data_map = qtc.struct_libqt_map{
+        const data_map = qtc.libqt_map{
             .len = data.count(),
             .keys = @ptrCast(data_keys.ptr),
             .values = @ptrCast(data_values.ptr),
@@ -156,7 +156,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Post3(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -188,7 +188,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn Put2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
-        const data_keys = allocator.alloc(qtc.struct_libqt_string, data.count()) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data.count()) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
         defer allocator.free(data_values);
@@ -196,14 +196,14 @@ pub const qrestaccessmanager = struct {
         var data_it = data.iterator();
         while (data_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            data_keys[i] = qtc.struct_libqt_string{
+            data_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             data_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const data_map = qtc.struct_libqt_map{
+        const data_map = qtc.libqt_map{
             .len = data.count(),
             .keys = @ptrCast(data_keys.ptr),
             .values = @ptrCast(data_values.ptr),
@@ -215,7 +215,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Put3(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -247,7 +247,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn Patch2(self: ?*anyopaque, request: ?*anyopaque, data: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QNetworkReply {
-        const data_keys = allocator.alloc(qtc.struct_libqt_string, data.count()) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data.count()) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
         defer allocator.free(data_keys);
         const data_values = allocator.alloc(QtC.QVariant, data.count()) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
         defer allocator.free(data_values);
@@ -255,14 +255,14 @@ pub const qrestaccessmanager = struct {
         var data_it = data.iterator();
         while (data_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            data_keys[i] = qtc.struct_libqt_string{
+            data_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             data_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const data_map = qtc.struct_libqt_map{
+        const data_map = qtc.libqt_map{
             .len = data.count(),
             .keys = @ptrCast(data_keys.ptr),
             .values = @ptrCast(data_values.ptr),
@@ -274,7 +274,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Patch3(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -292,11 +292,11 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, method: []u8, data: []u8 ```
     pub fn SendCustomRequest(self: ?*anyopaque, request: ?*anyopaque, method: []u8, data: []u8) QtC.QNetworkReply {
-        const method_str = qtc.struct_libqt_string{
+        const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
         };
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -307,7 +307,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, method: []u8, data: QtC.QIODevice ```
     pub fn SendCustomRequest2(self: ?*anyopaque, request: ?*anyopaque, method: []u8, data: ?*anyopaque) QtC.QNetworkReply {
-        const method_str = qtc.struct_libqt_string{
+        const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
         };
@@ -318,7 +318,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, request: QtC.QNetworkRequest, method: []u8, data: QtC.QHttpMultiPart ```
     pub fn SendCustomRequest3(self: ?*anyopaque, request: ?*anyopaque, method: []u8, data: ?*anyopaque) QtC.QNetworkReply {
-        const method_str = qtc.struct_libqt_string{
+        const method_str = qtc.libqt_string{
             .len = method.len,
             .data = method.ptr,
         };
@@ -370,7 +370,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -473,7 +473,7 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qrestaccessmanager.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -590,8 +590,8 @@ pub const qrestaccessmanager = struct {
     ///
     /// ``` self: QtC.QRestAccessManager, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

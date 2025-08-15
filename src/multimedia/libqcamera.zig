@@ -146,6 +146,8 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#error)
     ///
     /// ``` self: QtC.QCamera ```
+    ///
+    /// Returns: ``` qcamera_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QCamera_Error(@ptrCast(self));
     }
@@ -164,6 +166,8 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#supportedFeatures)
     ///
     /// ``` self: QtC.QCamera ```
+    ///
+    /// Returns: ``` flag of qcamera_enums.Feature ```
     pub fn SupportedFeatures(self: ?*anyopaque) i64 {
         return qtc.QCamera_SupportedFeatures(@ptrCast(self));
     }
@@ -171,6 +175,8 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#focusMode)
     ///
     /// ``` self: QtC.QCamera ```
+    ///
+    /// Returns: ``` qcamera_enums.FocusMode ```
     pub fn FocusMode(self: ?*anyopaque) i64 {
         return qtc.QCamera_FocusMode(@ptrCast(self));
     }
@@ -255,6 +261,8 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#flashMode)
     ///
     /// ``` self: QtC.QCamera ```
+    ///
+    /// Returns: ``` qcamera_enums.FlashMode ```
     pub fn FlashMode(self: ?*anyopaque) i64 {
         return qtc.QCamera_FlashMode(@ptrCast(self));
     }
@@ -276,6 +284,8 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#torchMode)
     ///
     /// ``` self: QtC.QCamera ```
+    ///
+    /// Returns: ``` qcamera_enums.TorchMode ```
     pub fn TorchMode(self: ?*anyopaque) i64 {
         return qtc.QCamera_TorchMode(@ptrCast(self));
     }
@@ -290,6 +300,8 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#exposureMode)
     ///
     /// ``` self: QtC.QCamera ```
+    ///
+    /// Returns: ``` qcamera_enums.ExposureMode ```
     pub fn ExposureMode(self: ?*anyopaque) i64 {
         return qtc.QCamera_ExposureMode(@ptrCast(self));
     }
@@ -367,6 +379,8 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#whiteBalanceMode)
     ///
     /// ``` self: QtC.QCamera ```
+    ///
+    /// Returns: ``` qcamera_enums.WhiteBalanceMode ```
     pub fn WhiteBalanceMode(self: ?*anyopaque) i64 {
         return qtc.QCamera_WhiteBalanceMode(@ptrCast(self));
     }
@@ -515,7 +529,7 @@ pub const qcamera = struct {
     ///
     /// ``` self: QtC.QCamera, errorVal: qcamera_enums.Error, errorString: []const u8 ```
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i64, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -924,7 +938,7 @@ pub const qcamera = struct {
     ///
     /// ``` self: QtC.QCamera, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1027,7 +1041,7 @@ pub const qcamera = struct {
     ///
     /// ``` self: QtC.QCamera, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcamera.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1144,8 +1158,8 @@ pub const qcamera = struct {
     ///
     /// ``` self: QtC.QCamera, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

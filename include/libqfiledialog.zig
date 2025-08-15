@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qdir_enums = @import("libqdir.zig").enums;
 const qfiledialog_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -19,7 +20,7 @@ pub const qfiledialog = struct {
 
     /// New2 constructs a new QFileDialog object.
     ///
-    /// ``` parent: QtC.QWidget, f: i32 ```
+    /// ``` parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn New2(parent: ?*anyopaque, f: i64) QtC.QFileDialog {
         return qtc.QFileDialog_new2(@ptrCast(parent), @intCast(f));
     }
@@ -35,7 +36,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8 ```
     pub fn New4(parent: ?*anyopaque, caption: []const u8) QtC.QFileDialog {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -47,11 +48,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, directory: []const u8 ```
     pub fn New5(parent: ?*anyopaque, caption: []const u8, directory: []const u8) QtC.QFileDialog {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
@@ -63,15 +64,15 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, directory: []const u8, filter: []const u8 ```
     pub fn New6(parent: ?*anyopaque, caption: []const u8, directory: []const u8, filter: []const u8) QtC.QFileDialog {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -127,7 +128,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, directory: []const u8 ```
     pub fn SetDirectory(self: ?*anyopaque, directory: []const u8) void {
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
@@ -166,7 +167,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filename: []const u8 ```
     pub fn SelectFile(self: ?*anyopaque, filename: []const u8) void {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -177,8 +178,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn SelectedFiles(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_SelectedFiles(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedFiles(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -206,7 +207,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn SelectedUrls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_SelectedUrls(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedUrls(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.SelectedUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -218,7 +219,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filter: []const u8 ```
     pub fn SetNameFilter(self: ?*anyopaque, filter: []const u8) void {
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -229,7 +230,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetNameFilters(self: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.struct_libqt_string, filters.len) catch @panic("qfiledialog.SetNameFilters: Memory allocation failed");
+        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -237,7 +238,7 @@ pub const qfiledialog = struct {
                 .data = item.ptr,
             };
         }
-        const filters_list = qtc.struct_libqt_list{
+        const filters_list = qtc.libqt_list{
             .len = filters.len,
             .data = filters_arr.ptr,
         };
@@ -248,8 +249,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_NameFilters(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_NameFilters(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -270,7 +271,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filter: []const u8 ```
     pub fn SelectNameFilter(self: ?*anyopaque, filter: []const u8) void {
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -303,7 +304,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetMimeTypeFilters(self: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.struct_libqt_string, filters.len) catch @panic("qfiledialog.SetMimeTypeFilters: Memory allocation failed");
+        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -311,7 +312,7 @@ pub const qfiledialog = struct {
                 .data = item.ptr,
             };
         }
-        const filters_list = qtc.struct_libqt_list{
+        const filters_list = qtc.libqt_list{
             .len = filters.len,
             .data = filters_arr.ptr,
         };
@@ -322,8 +323,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn MimeTypeFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_MimeTypeFilters(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_MimeTypeFilters(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -344,7 +345,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filter: []const u8 ```
     pub fn SelectMimeTypeFilter(self: ?*anyopaque, filter: []const u8) void {
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -354,13 +355,15 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#filter)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` flag of qdir_enums.Filter ```
     pub fn Filter(self: ?*anyopaque) i64 {
         return qtc.QFileDialog_Filter(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#setFilter)
     ///
-    /// ``` self: QtC.QFileDialog, filters: i32 ```
+    /// ``` self: QtC.QFileDialog, filters: flag of qdir_enums.Filter ```
     pub fn SetFilter(self: ?*anyopaque, filters: i64) void {
         qtc.QFileDialog_SetFilter(@ptrCast(self), @intCast(filters));
     }
@@ -375,6 +378,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#viewMode)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qfiledialog_enums.ViewMode ```
     pub fn ViewMode(self: ?*anyopaque) i64 {
         return qtc.QFileDialog_ViewMode(@ptrCast(self));
     }
@@ -389,6 +394,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#fileMode)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qfiledialog_enums.FileMode ```
     pub fn FileMode(self: ?*anyopaque) i64 {
         return qtc.QFileDialog_FileMode(@ptrCast(self));
     }
@@ -403,6 +410,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#acceptMode)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qfiledialog_enums.AcceptMode ```
     pub fn AcceptMode(self: ?*anyopaque) i64 {
         return qtc.QFileDialog_AcceptMode(@ptrCast(self));
     }
@@ -411,7 +420,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, urls: []QtC.QUrl ```
     pub fn SetSidebarUrls(self: ?*anyopaque, urls: []QtC.QUrl) void {
-        const urls_list = qtc.struct_libqt_list{
+        const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
@@ -422,7 +431,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn SidebarUrls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_SidebarUrls(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SidebarUrls(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.SidebarUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -434,7 +443,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn SaveState(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QFileDialog_SaveState(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QFileDialog_SaveState(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledialog.SaveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -445,7 +454,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, state: []u8 ```
     pub fn RestoreState(self: ?*anyopaque, state: []u8) bool {
-        const state_str = qtc.struct_libqt_string{
+        const state_str = qtc.libqt_string{
             .len = state.len,
             .data = state.ptr,
         };
@@ -456,7 +465,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, suffix: []const u8 ```
     pub fn SetDefaultSuffix(self: ?*anyopaque, suffix: []const u8) void {
-        const suffix_str = qtc.struct_libqt_string{
+        const suffix_str = qtc.libqt_string{
             .len = suffix.len,
             .data = suffix.ptr,
         };
@@ -478,7 +487,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, paths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetHistory(self: ?*anyopaque, paths: [][]const u8, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.struct_libqt_string, paths.len) catch @panic("qfiledialog.SetHistory: Memory allocation failed");
+        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfiledialog.SetHistory: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -486,7 +495,7 @@ pub const qfiledialog = struct {
                 .data = item.ptr,
             };
         }
-        const paths_list = qtc.struct_libqt_list{
+        const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };
@@ -497,8 +506,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn History(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_History(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_History(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -547,7 +556,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, label: qfiledialog_enums.DialogLabel, text: []const u8 ```
     pub fn SetLabelText(self: ?*anyopaque, label: i64, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -569,7 +578,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, schemes: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetSupportedSchemes(self: ?*anyopaque, schemes: [][]const u8, allocator: std.mem.Allocator) void {
-        var schemes_arr = allocator.alloc(qtc.struct_libqt_string, schemes.len) catch @panic("qfiledialog.SetSupportedSchemes: Memory allocation failed");
+        var schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("qfiledialog.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i| {
             schemes_arr[i] = .{
@@ -577,7 +586,7 @@ pub const qfiledialog = struct {
                 .data = item.ptr,
             };
         }
-        const schemes_list = qtc.struct_libqt_list{
+        const schemes_list = qtc.libqt_list{
             .len = schemes.len,
             .data = schemes_arr.ptr,
         };
@@ -588,8 +597,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_SupportedSchemes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_SupportedSchemes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -636,7 +645,7 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#setOptions)
     ///
-    /// ``` self: QtC.QFileDialog, options: i32 ```
+    /// ``` self: QtC.QFileDialog, options: flag of qfiledialog_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i64) void {
         qtc.QFileDialog_SetOptions(@ptrCast(self), @intCast(options));
     }
@@ -644,6 +653,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#options)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` flag of qfiledialog_enums.Option ```
     pub fn Options(self: ?*anyopaque) i64 {
         return qtc.QFileDialog_Options(@ptrCast(self));
     }
@@ -677,7 +688,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, file: []const u8 ```
     pub fn FileSelected(self: ?*anyopaque, file: []const u8) void {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -695,7 +706,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, files: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FilesSelected(self: ?*anyopaque, files: [][]const u8, allocator: std.mem.Allocator) void {
-        var files_arr = allocator.alloc(qtc.struct_libqt_string, files.len) catch @panic("qfiledialog.FilesSelected: Memory allocation failed");
+        var files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfiledialog.FilesSelected: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i| {
             files_arr[i] = .{
@@ -703,7 +714,7 @@ pub const qfiledialog = struct {
                 .data = item.ptr,
             };
         }
-        const files_list = qtc.struct_libqt_list{
+        const files_list = qtc.libqt_list{
             .len = files.len,
             .data = files_arr.ptr,
         };
@@ -721,7 +732,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, path: []const u8 ```
     pub fn CurrentChanged(self: ?*anyopaque, path: []const u8) void {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -739,7 +750,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, directory: []const u8 ```
     pub fn DirectoryEntered(self: ?*anyopaque, directory: []const u8) void {
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
@@ -771,7 +782,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, urls: []QtC.QUrl ```
     pub fn UrlsSelected(self: ?*anyopaque, urls: []QtC.QUrl) void {
-        const urls_list = qtc.struct_libqt_list{
+        const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
@@ -817,7 +828,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filter: []const u8 ```
     pub fn FilterSelected(self: ?*anyopaque, filter: []const u8) void {
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -889,8 +900,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn GetOpenFileNames(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileNames();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -911,7 +922,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn GetOpenFileUrls(allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileUrls();
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -923,11 +934,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` fileContent: []u8, fileNameHint: []const u8 ```
     pub fn SaveFileContent(fileContent: []u8, fileNameHint: []const u8) void {
-        const fileContent_str = qtc.struct_libqt_string{
+        const fileContent_str = qtc.libqt_string{
             .len = fileContent.len,
             .data = fileContent.ptr,
         };
-        const fileNameHint_str = qtc.struct_libqt_string{
+        const fileNameHint_str = qtc.libqt_string{
             .len = fileNameHint.len,
             .data = fileNameHint.ptr,
         };
@@ -1057,7 +1068,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileName2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1072,11 +1083,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileName3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
@@ -1091,15 +1102,15 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileName4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -1121,7 +1132,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8 ```
     pub fn GetOpenFileUrl2(parent: ?*anyopaque, caption: []const u8) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1132,7 +1143,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl ```
     pub fn GetOpenFileUrl3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1143,11 +1154,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, filter: []const u8 ```
     pub fn GetOpenFileUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, filter: []const u8) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -1169,7 +1180,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, allocator: std.mem.Allocator ```
     pub fn GetSaveFileName2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1184,11 +1195,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator ```
     pub fn GetSaveFileName3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
@@ -1203,15 +1214,15 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator ```
     pub fn GetSaveFileName4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -1233,7 +1244,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8 ```
     pub fn GetSaveFileUrl2(parent: ?*anyopaque, caption: []const u8) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1244,7 +1255,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl ```
     pub fn GetSaveFileUrl3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1255,11 +1266,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, filter: []const u8 ```
     pub fn GetSaveFileUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, filter: []const u8) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
@@ -1281,7 +1292,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, allocator: std.mem.Allocator ```
     pub fn GetExistingDirectory2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1296,11 +1307,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator ```
     pub fn GetExistingDirectory3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
@@ -1313,13 +1324,13 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectory)
     ///
-    /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, options: i32, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, options: flag of qfiledialog_enums.Option, allocator: std.mem.Allocator ```
     pub fn GetExistingDirectory4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
@@ -1341,7 +1352,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8 ```
     pub fn GetExistingDirectoryUrl2(parent: ?*anyopaque, caption: []const u8) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1352,7 +1363,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl ```
     pub fn GetExistingDirectoryUrl3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1361,9 +1372,9 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
-    /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, options: i32 ```
+    /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, options: flag of qfiledialog_enums.Option ```
     pub fn GetExistingDirectoryUrl4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i64) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
@@ -1372,13 +1383,13 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#getExistingDirectoryUrl)
     ///
-    /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, options: i32, supportedSchemes: [][]const u8, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, options: flag of qfiledialog_enums.Option, supportedSchemes: [][]const u8, allocator: std.mem.Allocator ```
     pub fn GetExistingDirectoryUrl5(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, options: i64, supportedSchemes: [][]const u8, allocator: std.mem.Allocator) QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        var supportedSchemes_arr = allocator.alloc(qtc.struct_libqt_string, supportedSchemes.len) catch @panic("qfiledialog.GetExistingDirectoryUrl5: Memory allocation failed");
+        var supportedSchemes_arr = allocator.alloc(qtc.libqt_string, supportedSchemes.len) catch @panic("qfiledialog.GetExistingDirectoryUrl5: Memory allocation failed");
         defer allocator.free(supportedSchemes_arr);
         for (supportedSchemes, 0..supportedSchemes.len) |item, i| {
             supportedSchemes_arr[i] = .{
@@ -1386,7 +1397,7 @@ pub const qfiledialog = struct {
                 .data = item.ptr,
             };
         }
-        const supportedSchemes_list = qtc.struct_libqt_list{
+        const supportedSchemes_list = qtc.libqt_list{
             .len = supportedSchemes.len,
             .data = supportedSchemes_arr.ptr,
         };
@@ -1397,8 +1408,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn GetOpenFileNames1(parent: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileNames1(@ptrCast(parent));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames1(@ptrCast(parent));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1419,12 +1430,12 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileNames2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileNames2(@ptrCast(parent), caption_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames2(@ptrCast(parent), caption_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1445,16 +1456,16 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileNames3(parent: ?*anyopaque, caption: []const u8, dir: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileNames3(@ptrCast(parent), caption_str, dir_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames3(@ptrCast(parent), caption_str, dir_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1475,20 +1486,20 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileNames4(parent: ?*anyopaque, caption: []const u8, dir: []const u8, filter: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileNames4(@ptrCast(parent), caption_str, dir_str, filter_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileNames4(@ptrCast(parent), caption_str, dir_str, filter_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1509,7 +1520,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn GetOpenFileUrls1(parent: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileUrls1(@ptrCast(parent));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls1(@ptrCast(parent));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls1: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -1521,11 +1532,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileUrls2(parent: ?*anyopaque, caption: []const u8, allocator: std.mem.Allocator) []QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileUrls2(@ptrCast(parent), caption_str);
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls2(@ptrCast(parent), caption_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls2: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -1537,11 +1548,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn GetOpenFileUrls3(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileUrls3(@ptrCast(parent), caption_str, @ptrCast(dir));
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls3(@ptrCast(parent), caption_str, @ptrCast(dir));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls3: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -1553,15 +1564,15 @@ pub const qfiledialog = struct {
     ///
     /// ``` parent: QtC.QWidget, caption: []const u8, dir: QtC.QUrl, filter: []const u8, allocator: std.mem.Allocator ```
     pub fn GetOpenFileUrls4(parent: ?*anyopaque, caption: []const u8, dir: ?*anyopaque, filter: []const u8, allocator: std.mem.Allocator) []QtC.QUrl {
-        const caption_str = qtc.struct_libqt_string{
+        const caption_str = qtc.libqt_string{
             .len = caption.len,
             .data = caption.ptr,
         };
-        const filter_str = qtc.struct_libqt_string{
+        const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QFileDialog_GetOpenFileUrls4(@ptrCast(parent), caption_str, @ptrCast(dir), filter_str);
+        const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls4(@ptrCast(parent), caption_str, @ptrCast(dir), filter_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls4: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -1573,11 +1584,11 @@ pub const qfiledialog = struct {
     ///
     /// ``` fileContent: []u8, fileNameHint: []const u8, parent: QtC.QWidget ```
     pub fn SaveFileContent3(fileContent: []u8, fileNameHint: []const u8, parent: ?*anyopaque) void {
-        const fileContent_str = qtc.struct_libqt_string{
+        const fileContent_str = qtc.libqt_string{
             .len = fileContent.len,
             .data = fileContent.ptr,
         };
-        const fileNameHint_str = qtc.struct_libqt_string{
+        const fileNameHint_str = qtc.libqt_string{
             .len = fileNameHint.len,
             .data = fileNameHint.ptr,
         };
@@ -1769,6 +1780,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
@@ -2327,6 +2340,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
@@ -2345,6 +2360,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
@@ -2562,7 +2579,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = qtc.struct_libqt_string{
+        const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
@@ -2575,7 +2592,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = qtc.struct_libqt_string{
+        const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
@@ -2632,7 +2649,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = qtc.struct_libqt_string{
+        const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
@@ -2658,7 +2675,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = qtc.struct_libqt_string{
+        const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
@@ -2684,7 +2701,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -2737,7 +2754,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -2781,7 +2798,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -2807,7 +2824,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -2846,7 +2863,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2872,7 +2889,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -2893,6 +2910,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
@@ -3001,6 +3020,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
@@ -3055,6 +3076,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
@@ -3425,7 +3448,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3438,7 +3461,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = qtc.struct_libqt_string{
+        const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
@@ -3513,6 +3536,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
@@ -3521,7 +3546,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.QFileDialog, state: i32 ```
+    /// ``` self: QtC.QFileDialog, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
@@ -3530,7 +3555,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.QFileDialog, state: i32 ```
+    /// ``` self: QtC.QFileDialog, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
@@ -3647,7 +3672,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.QFileDialog, parent: QtC.QWidget, f: i32 ```
+    /// ``` self: QtC.QFileDialog, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
@@ -3730,7 +3755,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -3743,7 +3768,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -3774,7 +3799,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qfiledialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -3788,7 +3813,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3801,7 +3826,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3814,7 +3839,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3827,7 +3852,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3847,7 +3872,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QFileDialog, typeVal: i32 ```
+    /// ``` self: QtC.QFileDialog, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -3857,6 +3882,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
@@ -3874,7 +3901,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.QFileDialog, typeVal: i32 ```
+    /// ``` self: QtC.QFileDialog, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -3884,6 +3911,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
@@ -4029,7 +4058,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -4069,7 +4098,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = qtc.struct_libqt_string{
+        const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
@@ -4108,6 +4137,8 @@ pub const qfiledialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QFileDialog ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
@@ -4116,7 +4147,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QFileDialog, hints: i32 ```
+    /// ``` self: QtC.QFileDialog, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -4143,7 +4174,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QFileDialog, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QFileDialog, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -4170,7 +4201,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QFileDialog, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QFileDialog, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -4188,7 +4219,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.QFileDialog, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QFileDialog, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -4251,7 +4282,7 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
@@ -4275,7 +4306,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -4378,7 +4409,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfiledialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -4486,8 +4517,8 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -5904,7 +5935,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -5919,7 +5950,7 @@ pub const qfiledialog = struct {
     ///
     /// ``` self: QtC.QFileDialog, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };

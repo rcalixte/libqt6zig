@@ -46,8 +46,8 @@ pub const qstringconverter = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableCodecs(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QStringConverter_AvailableCodecs();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QStringConverter_AvailableCodecs();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -76,19 +76,19 @@ pub const qstringconverterbase__state = struct {
 
     /// New2 constructs a new QStringConverterBase::State object.
     ///
-    /// ``` f: i32 ```
+    /// ``` f: flag of qstringconverter_base_enums.Flag ```
     pub fn New2(f: i64) QtC.QStringConverterBase__State {
         return qtc.QStringConverterBase__State_new2(@intCast(f));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase__state.html#clear)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#clear)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     pub fn Clear(self: ?*anyopaque) void {
         qtc.QStringConverterBase__State_Clear(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase__state.html#reset)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverterbase-state.html#reset)
     ///
     /// ``` self: QtC.QStringConverterBase__State ```
     pub fn Reset(self: ?*anyopaque) void {

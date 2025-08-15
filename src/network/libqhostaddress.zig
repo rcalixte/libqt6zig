@@ -72,7 +72,7 @@ pub const qhostaddress = struct {
     ///
     /// ``` address: []const u8 ```
     pub fn New5(address: []const u8) QtC.QHostAddress {
-        const address_str = qtc.struct_libqt_string{
+        const address_str = qtc.libqt_string{
             .len = address.len,
             .data = address.ptr,
         };
@@ -140,7 +140,7 @@ pub const qhostaddress = struct {
     ///
     /// ``` self: QtC.QHostAddress, address: []const u8 ```
     pub fn SetAddress5(self: ?*anyopaque, address: []const u8) bool {
-        const address_str = qtc.struct_libqt_string{
+        const address_str = qtc.libqt_string{
             .len = address.len,
             .data = address.ptr,
         };
@@ -157,6 +157,8 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#protocol)
     ///
     /// ``` self: QtC.QHostAddress ```
+    ///
+    /// Returns: ``` qabstractsocket_enums.NetworkLayerProtocol ```
     pub fn Protocol(self: ?*anyopaque) i64 {
         return qtc.QHostAddress_Protocol(@ptrCast(self));
     }
@@ -201,7 +203,7 @@ pub const qhostaddress = struct {
     ///
     /// ``` self: QtC.QHostAddress, id: []const u8 ```
     pub fn SetScopeId(self: ?*anyopaque, id: []const u8) void {
-        const id_str = qtc.struct_libqt_string{
+        const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
@@ -324,12 +326,15 @@ pub const qhostaddress = struct {
     ///
     /// ``` subnet: []const u8 ```
     pub fn ParseSubnet(subnet: []const u8) struct_qtcqhostaddress_i32 {
-        const subnet_str = qtc.struct_libqt_string{
+        const subnet_str = qtc.libqt_string{
             .len = subnet.len,
             .data = subnet.ptr,
         };
-        const _pair: qtc.struct_libqt_pair = qtc.QHostAddress_ParseSubnet(subnet_str);
-        return struct_qtcqhostaddress_i32{ .first = @ptrCast(_pair.first), .second = @intCast(@intFromPtr(_pair.second)) };
+        const _pair: qtc.libqt_pair = qtc.QHostAddress_ParseSubnet(subnet_str);
+        return struct_qtcqhostaddress_i32{
+            .first = @ptrCast(_pair.first),
+            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
+        };
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#toIPv4Address)
@@ -341,7 +346,7 @@ pub const qhostaddress = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#isEqual)
     ///
-    /// ``` self: QtC.QHostAddress, address: QtC.QHostAddress, mode: i32 ```
+    /// ``` self: QtC.QHostAddress, address: QtC.QHostAddress, mode: flag of qhostaddress_enums.ConversionModeFlag ```
     pub fn IsEqual2(self: ?*anyopaque, address: ?*anyopaque, mode: i64) bool {
         return qtc.QHostAddress_IsEqual2(@ptrCast(self), @ptrCast(address), @intCast(mode));
     }

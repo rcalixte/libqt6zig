@@ -49,6 +49,8 @@ pub const qpdfdocumentrenderoptions = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#rotation)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
+    ///
+    /// Returns: ``` qpdfdocumentrenderoptions_enums.Rotation ```
     pub fn Rotation(self: ?*anyopaque) i64 {
         return qtc.QPdfDocumentRenderOptions_Rotation(@ptrCast(self));
     }
@@ -63,13 +65,15 @@ pub const qpdfdocumentrenderoptions = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#renderFlags)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
+    ///
+    /// Returns: ``` flag of qpdfdocumentrenderoptions_enums.RenderFlag ```
     pub fn RenderFlags(self: ?*anyopaque) i64 {
         return qtc.QPdfDocumentRenderOptions_RenderFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRenderFlags)
     ///
-    /// ``` self: QtC.QPdfDocumentRenderOptions, r: i32 ```
+    /// ``` self: QtC.QPdfDocumentRenderOptions, r: flag of qpdfdocumentrenderoptions_enums.RenderFlag ```
     pub fn SetRenderFlags(self: ?*anyopaque, r: i64) void {
         qtc.QPdfDocumentRenderOptions_SetRenderFlags(@ptrCast(self), @intCast(r));
     }

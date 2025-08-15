@@ -68,6 +68,8 @@ pub const qbarcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarcategoryaxis-qtcharts.html#type)
     ///
     /// ``` self: QtC.QBarCategoryAxis ```
+    ///
+    /// Returns: ``` qabstractaxis_enums.AxisType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QBarCategoryAxis_Type(@ptrCast(self));
     }
@@ -86,6 +88,8 @@ pub const qbarcategoryaxis = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QBarCategoryAxis ```
+    ///
+    /// Returns: ``` qabstractaxis_enums.AxisType ```
     pub fn QBaseType(self: ?*anyopaque) i64 {
         return qtc.QBarCategoryAxis_QBaseType(@ptrCast(self));
     }
@@ -94,7 +98,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, categories: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Append(self: ?*anyopaque, categories: [][]const u8, allocator: std.mem.Allocator) void {
-        var categories_arr = allocator.alloc(qtc.struct_libqt_string, categories.len) catch @panic("qbarcategoryaxis.Append: Memory allocation failed");
+        var categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.Append: Memory allocation failed");
         defer allocator.free(categories_arr);
         for (categories, 0..categories.len) |item, i| {
             categories_arr[i] = .{
@@ -102,7 +106,7 @@ pub const qbarcategoryaxis = struct {
                 .data = item.ptr,
             };
         }
-        const categories_list = qtc.struct_libqt_list{
+        const categories_list = qtc.libqt_list{
             .len = categories.len,
             .data = categories_arr.ptr,
         };
@@ -113,7 +117,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, category: []const u8 ```
     pub fn Append2(self: ?*anyopaque, category: []const u8) void {
-        const category_str = qtc.struct_libqt_string{
+        const category_str = qtc.libqt_string{
             .len = category.len,
             .data = category.ptr,
         };
@@ -124,7 +128,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, category: []const u8 ```
     pub fn Remove(self: ?*anyopaque, category: []const u8) void {
-        const category_str = qtc.struct_libqt_string{
+        const category_str = qtc.libqt_string{
             .len = category.len,
             .data = category.ptr,
         };
@@ -135,7 +139,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, index: i32, category: []const u8 ```
     pub fn Insert(self: ?*anyopaque, index: i32, category: []const u8) void {
-        const category_str = qtc.struct_libqt_string{
+        const category_str = qtc.libqt_string{
             .len = category.len,
             .data = category.ptr,
         };
@@ -146,11 +150,11 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, oldCategory: []const u8, newCategory: []const u8 ```
     pub fn Replace(self: ?*anyopaque, oldCategory: []const u8, newCategory: []const u8) void {
-        const oldCategory_str = qtc.struct_libqt_string{
+        const oldCategory_str = qtc.libqt_string{
             .len = oldCategory.len,
             .data = oldCategory.ptr,
         };
-        const newCategory_str = qtc.struct_libqt_string{
+        const newCategory_str = qtc.libqt_string{
             .len = newCategory.len,
             .data = newCategory.ptr,
         };
@@ -168,7 +172,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, categories: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetCategories(self: ?*anyopaque, categories: [][]const u8, allocator: std.mem.Allocator) void {
-        var categories_arr = allocator.alloc(qtc.struct_libqt_string, categories.len) catch @panic("qbarcategoryaxis.SetCategories: Memory allocation failed");
+        var categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.SetCategories: Memory allocation failed");
         defer allocator.free(categories_arr);
         for (categories, 0..categories.len) |item, i| {
             categories_arr[i] = .{
@@ -176,7 +180,7 @@ pub const qbarcategoryaxis = struct {
                 .data = item.ptr,
             };
         }
-        const categories_list = qtc.struct_libqt_list{
+        const categories_list = qtc.libqt_list{
             .len = categories.len,
             .data = categories_arr.ptr,
         };
@@ -187,8 +191,8 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, allocator: std.mem.Allocator ```
     pub fn Categories(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QBarCategoryAxis_Categories(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QBarCategoryAxis_Categories(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -227,7 +231,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, minCategory: []const u8 ```
     pub fn SetMin(self: ?*anyopaque, minCategory: []const u8) void {
-        const minCategory_str = qtc.struct_libqt_string{
+        const minCategory_str = qtc.libqt_string{
             .len = minCategory.len,
             .data = minCategory.ptr,
         };
@@ -249,7 +253,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, maxCategory: []const u8 ```
     pub fn SetMax(self: ?*anyopaque, maxCategory: []const u8) void {
-        const maxCategory_str = qtc.struct_libqt_string{
+        const maxCategory_str = qtc.libqt_string{
             .len = maxCategory.len,
             .data = maxCategory.ptr,
         };
@@ -271,11 +275,11 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, minCategory: []const u8, maxCategory: []const u8 ```
     pub fn SetRange(self: ?*anyopaque, minCategory: []const u8, maxCategory: []const u8) void {
-        const minCategory_str = qtc.struct_libqt_string{
+        const minCategory_str = qtc.libqt_string{
             .len = minCategory.len,
             .data = minCategory.ptr,
         };
-        const maxCategory_str = qtc.struct_libqt_string{
+        const maxCategory_str = qtc.libqt_string{
             .len = maxCategory.len,
             .data = maxCategory.ptr,
         };
@@ -300,7 +304,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, min: []const u8 ```
     pub fn MinChanged(self: ?*anyopaque, min: []const u8) void {
-        const min_str = qtc.struct_libqt_string{
+        const min_str = qtc.libqt_string{
             .len = min.len,
             .data = min.ptr,
         };
@@ -318,7 +322,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, max: []const u8 ```
     pub fn MaxChanged(self: ?*anyopaque, max: []const u8) void {
-        const max_str = qtc.struct_libqt_string{
+        const max_str = qtc.libqt_string{
             .len = max.len,
             .data = max.ptr,
         };
@@ -336,11 +340,11 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, min: []const u8, max: []const u8 ```
     pub fn RangeChanged(self: ?*anyopaque, min: []const u8, max: []const u8) void {
-        const min_str = qtc.struct_libqt_string{
+        const min_str = qtc.libqt_string{
             .len = min.len,
             .data = min.ptr,
         };
-        const max_str = qtc.struct_libqt_string{
+        const max_str = qtc.libqt_string{
             .len = max.len,
             .data = max.ptr,
         };
@@ -742,7 +746,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, title: []const u8 ```
     pub fn SetTitleText(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -857,6 +861,8 @@ pub const qbarcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#orientation)
     ///
     /// ``` self: QtC.QBarCategoryAxis ```
+    ///
+    /// Returns: ``` qnamespace_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Orientation(@ptrCast(self));
     }
@@ -866,6 +872,8 @@ pub const qbarcategoryaxis = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#alignment)
     ///
     /// ``` self: QtC.QBarCategoryAxis ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QAbstractAxis_Alignment(@ptrCast(self));
     }
@@ -1209,7 +1217,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, title: []const u8 ```
     pub fn TitleTextChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -1550,7 +1558,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1653,7 +1661,7 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qbarcategoryaxis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1770,8 +1778,8 @@ pub const qbarcategoryaxis = struct {
     ///
     /// ``` self: QtC.QBarCategoryAxis, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

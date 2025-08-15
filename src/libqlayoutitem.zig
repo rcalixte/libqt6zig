@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 
 /// https://doc.qt.io/qt-6/qlayoutitem.html
@@ -20,7 +21,7 @@ pub const qlayoutitem = struct {
 
     /// New3 constructs a new QLayoutItem object.
     ///
-    /// ``` alignment: i32 ```
+    /// ``` alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn New3(alignment: i64) QtC.QLayoutItem {
         return qtc.QLayoutItem_new3(@intCast(alignment));
     }
@@ -103,6 +104,8 @@ pub const qlayoutitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
     ///
     /// ``` self: QtC.QLayoutItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_ExpandingDirections(@ptrCast(self));
     }
@@ -121,6 +124,8 @@ pub const qlayoutitem = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QLayoutItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -378,13 +383,15 @@ pub const qlayoutitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QLayoutItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QLayoutItem, a: i32 ```
+    /// ``` self: QtC.QLayoutItem, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i64) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
@@ -392,6 +399,8 @@ pub const qlayoutitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
     ///
     /// ``` self: QtC.QLayoutItem ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_ControlTypes(@ptrCast(self));
     }
@@ -410,6 +419,8 @@ pub const qlayoutitem = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QLayoutItem ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_QBaseControlTypes(@ptrCast(self));
     }
@@ -564,6 +575,8 @@ pub const qspaceritem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
     ///
     /// ``` self: QtC.QSpacerItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QSpacerItem_ExpandingDirections(@ptrCast(self));
     }
@@ -582,6 +595,8 @@ pub const qspaceritem = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSpacerItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QSpacerItem_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -712,6 +727,8 @@ pub const qspaceritem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QSpacerItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -720,7 +737,7 @@ pub const qspaceritem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QSpacerItem, a: i32 ```
+    /// ``` self: QtC.QSpacerItem, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i64) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
@@ -930,6 +947,8 @@ pub const qspaceritem = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSpacerItem ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QSpacerItem_ControlTypes(@ptrCast(self));
     }
@@ -941,6 +960,8 @@ pub const qspaceritem = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSpacerItem ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QSpacerItem_QBaseControlTypes(@ptrCast(self));
     }
@@ -1053,6 +1074,8 @@ pub const qwidgetitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
     ///
     /// ``` self: QtC.QWidgetItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QWidgetItem_ExpandingDirections(@ptrCast(self));
     }
@@ -1071,6 +1094,8 @@ pub const qwidgetitem = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWidgetItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QWidgetItem_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -1253,6 +1278,8 @@ pub const qwidgetitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
     ///
     /// ``` self: QtC.QWidgetItem ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QWidgetItem_ControlTypes(@ptrCast(self));
     }
@@ -1271,6 +1298,8 @@ pub const qwidgetitem = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWidgetItem ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QWidgetItem_QBaseControlTypes(@ptrCast(self));
     }
@@ -1280,6 +1309,8 @@ pub const qwidgetitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QWidgetItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -1288,7 +1319,7 @@ pub const qwidgetitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QWidgetItem, a: i32 ```
+    /// ``` self: QtC.QWidgetItem, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i64) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
@@ -1516,6 +1547,8 @@ pub const qwidgetitemv2 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -1524,7 +1557,7 @@ pub const qwidgetitemv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setAlignment)
     ///
-    /// ``` self: QtC.QWidgetItemV2, a: i32 ```
+    /// ``` self: QtC.QWidgetItemV2, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i64) void {
         qtc.QLayoutItem_SetAlignment(@ptrCast(self), @intCast(a));
     }
@@ -1536,6 +1569,8 @@ pub const qwidgetitemv2 = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QWidgetItemV2_ExpandingDirections(@ptrCast(self));
     }
@@ -1547,6 +1582,8 @@ pub const qwidgetitemv2 = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QWidgetItemV2_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -1767,6 +1804,8 @@ pub const qwidgetitemv2 = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QWidgetItemV2_ControlTypes(@ptrCast(self));
     }
@@ -1778,6 +1817,8 @@ pub const qwidgetitemv2 = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QWidgetItemV2 ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QWidgetItemV2_QBaseControlTypes(@ptrCast(self));
     }

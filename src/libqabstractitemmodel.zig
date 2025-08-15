@@ -302,6 +302,8 @@ pub const qmodelindex = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmodelindex.html#flags)
     ///
     /// ``` self: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QModelIndex_Flags(@ptrCast(self));
     }
@@ -454,6 +456,8 @@ pub const qpersistentmodelindex = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpersistentmodelindex.html#flags)
     ///
     /// ``` self: QtC.QPersistentModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QPersistentModelIndex_Flags(@ptrCast(self));
     }
@@ -810,7 +814,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -842,7 +846,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractItemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QAbstractItemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -875,7 +879,7 @@ pub const qabstractitemmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -910,7 +914,7 @@ pub const qabstractitemmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -947,8 +951,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -980,8 +984,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_QBaseMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_QBaseMimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1002,7 +1006,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -1024,7 +1028,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, indexes: []QtC.QModelIndex ```
     pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -1084,6 +1088,8 @@ pub const qabstractitemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_SupportedDropActions(@ptrCast(self));
     }
@@ -1102,6 +1108,8 @@ pub const qabstractitemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_QBaseSupportedDropActions(@ptrCast(self));
     }
@@ -1109,6 +1117,8 @@ pub const qabstractitemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDragActions)
     ///
     /// ``` self: QtC.QAbstractItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_SupportedDragActions(@ptrCast(self));
     }
@@ -1127,6 +1137,8 @@ pub const qabstractitemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_QBaseSupportedDragActions(@ptrCast(self));
     }
@@ -1376,6 +1388,8 @@ pub const qabstractitemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#flags)
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_Flags(@ptrCast(self), @ptrCast(index));
     }
@@ -1394,6 +1408,8 @@ pub const qabstractitemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QAbstractItemModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
@@ -1450,9 +1466,9 @@ pub const qabstractitemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#match)
     ///
-    /// ``` self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1464,7 +1480,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32) callconv(.c) []QtC.QModelIndex ```
+    /// ``` self: QtC.QAbstractItemModel, slot: fn (self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) []QtC.QModelIndex ```
     pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) []QtC.QModelIndex) void {
         qtc.QAbstractItemModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1473,9 +1489,9 @@ pub const qabstractitemmodel = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAbstractItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1512,7 +1528,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractItemModel_RoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QAbstractItemModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1544,7 +1560,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractItemModel_QBaseRoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QAbstractItemModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1778,7 +1794,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -1800,7 +1816,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -2211,11 +2227,11 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -2237,11 +2253,11 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -2252,7 +2268,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_PersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_PersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2275,7 +2291,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractItemModel_QBasePersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_QBasePersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractitemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2346,7 +2362,7 @@ pub const qabstractitemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
-    /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, options: i32 ```
+    /// ``` self: QtC.QAbstractItemModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
@@ -2355,7 +2371,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -2373,7 +2389,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2391,7 +2407,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2409,7 +2425,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2427,7 +2443,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2485,7 +2501,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2588,7 +2604,7 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractitemmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -2705,8 +2721,8 @@ pub const qabstractitemmodel = struct {
     ///
     /// ``` self: QtC.QAbstractItemModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3484,6 +3500,8 @@ pub const qabstracttablemodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttablemodel.html#flags)
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QAbstractTableModel_Flags(@ptrCast(self), @ptrCast(index));
     }
@@ -3502,6 +3520,8 @@ pub const qabstracttablemodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QAbstractTableModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
@@ -3787,7 +3807,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
-    /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex, options: i32 ```
+    /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
@@ -3798,7 +3818,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -3820,7 +3840,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -3842,7 +3862,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -3864,7 +3884,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -3886,7 +3906,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -3921,7 +3941,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -4024,7 +4044,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstracttablemodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -4141,8 +4161,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4476,7 +4496,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractTableModel_ItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QAbstractTableModel_ItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -4501,7 +4521,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractTableModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QAbstractTableModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -4549,7 +4569,7 @@ pub const qabstracttablemodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -4577,7 +4597,7 @@ pub const qabstracttablemodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -4637,8 +4657,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_MimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4663,8 +4683,8 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_QBaseMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_QBaseMimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4700,7 +4720,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -4715,7 +4735,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, indexes: []QtC.QModelIndex ```
     pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -4773,6 +4793,8 @@ pub const qabstracttablemodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractTableModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractTableModel_SupportedDropActions(@ptrCast(self));
     }
@@ -4784,6 +4806,8 @@ pub const qabstracttablemodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractTableModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractTableModel_QBaseSupportedDropActions(@ptrCast(self));
     }
@@ -4806,6 +4830,8 @@ pub const qabstracttablemodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractTableModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractTableModel_SupportedDragActions(@ptrCast(self));
     }
@@ -4817,6 +4843,8 @@ pub const qabstracttablemodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractTableModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractTableModel_QBaseSupportedDragActions(@ptrCast(self));
     }
@@ -5168,9 +5196,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -5184,9 +5212,9 @@ pub const qabstracttablemodel = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -5200,7 +5228,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractTableModel, slot: fn (self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32) callconv(.c) []QtC.QModelIndex ```
+    /// ``` self: QtC.QAbstractTableModel, slot: fn (self: QtC.QAbstractTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) []QtC.QModelIndex ```
     pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) []QtC.QModelIndex) void {
         qtc.QAbstractTableModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5246,7 +5274,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractTableModel_RoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QAbstractTableModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -5271,7 +5299,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractTableModel_QBaseRoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QAbstractTableModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -5703,7 +5731,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -5718,7 +5746,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -6272,11 +6300,11 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -6291,11 +6319,11 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -6321,7 +6349,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_PersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_PersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -6337,7 +6365,7 @@ pub const qabstracttablemodel = struct {
     ///
     /// ``` self: QtC.QAbstractTableModel, allocator: std.mem.Allocator ```
     pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractTableModel_QBasePersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractTableModel_QBasePersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstracttablemodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -6803,6 +6831,8 @@ pub const qabstractlistmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractlistmodel.html#flags)
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QAbstractListModel_Flags(@ptrCast(self), @ptrCast(index));
     }
@@ -6821,6 +6851,8 @@ pub const qabstractlistmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QAbstractListModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
@@ -7137,7 +7169,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
-    /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex, options: i32 ```
+    /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
@@ -7148,7 +7180,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -7170,7 +7202,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -7192,7 +7224,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -7214,7 +7246,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -7236,7 +7268,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -7271,7 +7303,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -7374,7 +7406,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstractlistmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -7491,8 +7523,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -7793,7 +7825,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractListModel_ItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QAbstractListModel_ItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -7818,7 +7850,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractListModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QAbstractListModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -7866,7 +7898,7 @@ pub const qabstractlistmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -7894,7 +7926,7 @@ pub const qabstractlistmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -7954,8 +7986,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_MimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -7980,8 +8012,8 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_QBaseMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_QBaseMimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -8017,7 +8049,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -8032,7 +8064,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, indexes: []QtC.QModelIndex ```
     pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -8090,6 +8122,8 @@ pub const qabstractlistmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractListModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractListModel_SupportedDropActions(@ptrCast(self));
     }
@@ -8101,6 +8135,8 @@ pub const qabstractlistmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractListModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractListModel_QBaseSupportedDropActions(@ptrCast(self));
     }
@@ -8123,6 +8159,8 @@ pub const qabstractlistmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractListModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractListModel_SupportedDragActions(@ptrCast(self));
     }
@@ -8134,6 +8172,8 @@ pub const qabstractlistmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractListModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QAbstractListModel_QBaseSupportedDragActions(@ptrCast(self));
     }
@@ -8485,9 +8525,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -8501,9 +8541,9 @@ pub const qabstractlistmodel = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -8517,7 +8557,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractListModel, slot: fn (self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32) callconv(.c) []QtC.QModelIndex ```
+    /// ``` self: QtC.QAbstractListModel, slot: fn (self: QtC.QAbstractListModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) []QtC.QModelIndex ```
     pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) []QtC.QModelIndex) void {
         qtc.QAbstractListModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -8563,7 +8603,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractListModel_RoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QAbstractListModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -8588,7 +8628,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QAbstractListModel_QBaseRoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QAbstractListModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -9020,7 +9060,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -9035,7 +9075,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -9589,11 +9629,11 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -9608,11 +9648,11 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -9638,7 +9678,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_PersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_PersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -9654,7 +9694,7 @@ pub const qabstractlistmodel = struct {
     ///
     /// ``` self: QtC.QAbstractListModel, allocator: std.mem.Allocator ```
     pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractListModel_QBasePersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractListModel_QBasePersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qabstractlistmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));

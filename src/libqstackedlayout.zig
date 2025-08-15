@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const qlayout_enums = @import("libqlayout.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
+const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const qstackedlayout_enums = enums;
 const std = @import("std");
 
@@ -136,6 +137,8 @@ pub const qstackedlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstackedlayout.html#stackingMode)
     ///
     /// ``` self: QtC.QStackedLayout ```
+    ///
+    /// Returns: ``` qstackedlayout_enums.StackingMode ```
     pub fn StackingMode(self: ?*anyopaque) i64 {
         return qtc.QStackedLayout_StackingMode(@ptrCast(self));
     }
@@ -473,7 +476,7 @@ pub const qstackedlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QStackedLayout, w: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QStackedLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
@@ -482,7 +485,7 @@ pub const qstackedlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QStackedLayout, l: QtC.QLayout, alignment: i32 ```
+    /// ``` self: QtC.QStackedLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
@@ -501,6 +504,8 @@ pub const qstackedlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QStackedLayout ```
+    ///
+    /// Returns: ``` qlayout_enums.SizeConstraint ```
     pub fn SizeConstraint(self: ?*anyopaque) i64 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
@@ -690,7 +695,7 @@ pub const qstackedlayout = struct {
     ///
     /// ``` self: QtC.QStackedLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -793,7 +798,7 @@ pub const qstackedlayout = struct {
     ///
     /// ``` self: QtC.QStackedLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qstackedlayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -910,8 +915,8 @@ pub const qstackedlayout = struct {
     ///
     /// ``` self: QtC.QStackedLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1053,6 +1058,8 @@ pub const qstackedlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QStackedLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -1196,6 +1203,8 @@ pub const qstackedlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QStackedLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QStackedLayout_ExpandingDirections(@ptrCast(self));
     }
@@ -1207,6 +1216,8 @@ pub const qstackedlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QStackedLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QStackedLayout_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -1328,6 +1339,8 @@ pub const qstackedlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QStackedLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QStackedLayout_ControlTypes(@ptrCast(self));
     }
@@ -1339,6 +1352,8 @@ pub const qstackedlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QStackedLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QStackedLayout_QBaseControlTypes(@ptrCast(self));
     }
@@ -1360,7 +1375,7 @@ pub const qstackedlayout = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QStackedLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QStackedLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QStackedLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -1371,7 +1386,7 @@ pub const qstackedlayout = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QStackedLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QStackedLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QStackedLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -1382,7 +1397,7 @@ pub const qstackedlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QStackedLayout, slot: fn (self: QtC.QStackedLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ``` self: QtC.QStackedLayout, slot: fn (self: QtC.QStackedLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
     pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) QtC.QLayoutItem) void {
         qtc.QStackedLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

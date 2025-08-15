@@ -21,6 +21,8 @@ pub const qlatin1stringmatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1stringmatcher.html#caseSensitivity)
     ///
     /// ``` self: QtC.QLatin1StringMatcher ```
+    ///
+    /// Returns: ``` qnamespace_enums.CaseSensitivity ```
     pub fn CaseSensitivity(self: ?*anyopaque) i64 {
         return qtc.QLatin1StringMatcher_CaseSensitivity(@ptrCast(self));
     }

@@ -540,7 +540,7 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -643,7 +643,7 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qscilexerjavascript.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -760,8 +760,8 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1174,8 +1174,8 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, allocator: std.mem.Allocator ```
     pub fn AutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QsciLexerJavaScript_AutoCompletionWordSeparators(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QsciLexerJavaScript_AutoCompletionWordSeparators(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1200,8 +1200,8 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, allocator: std.mem.Allocator ```
     pub fn QBaseAutoCompletionWordSeparators(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QsciLexerJavaScript_QBaseAutoCompletionWordSeparators(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QsciLexerJavaScript_QBaseAutoCompletionWordSeparators(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2037,7 +2037,7 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn ReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -2052,7 +2052,7 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn QBaseReadProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -2078,7 +2078,7 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn WriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -2093,7 +2093,7 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, qs: QtC.QSettings, prefix: []const u8 ```
     pub fn QBaseWriteProperties(self: ?*anyopaque, qs: ?*anyopaque, prefix: []const u8) bool {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -2350,11 +2350,11 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, text: []const u8, allocator: std.mem.Allocator ```
     pub fn TextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QsciLexerJavaScript_TextAsBytes(@ptrCast(self), text_str);
+        const _bytearray: qtc.libqt_string = qtc.QsciLexerJavaScript_TextAsBytes(@ptrCast(self), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexerjavascript.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2369,11 +2369,11 @@ pub const qscilexerjavascript = struct {
     ///
     /// ``` self: QtC.QsciLexerJavaScript, text: []const u8, allocator: std.mem.Allocator ```
     pub fn QBaseTextAsBytes(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u8 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QsciLexerJavaScript_QBaseTextAsBytes(@ptrCast(self), text_str);
+        const _bytearray: qtc.libqt_string = qtc.QsciLexerJavaScript_QBaseTextAsBytes(@ptrCast(self), text_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qscilexerjavascript.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

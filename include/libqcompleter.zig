@@ -25,7 +25,7 @@ pub const qcompleter = struct {
     ///
     /// ``` completions: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New3(completions: [][]const u8, allocator: std.mem.Allocator) QtC.QCompleter {
-        var completions_arr = allocator.alloc(qtc.struct_libqt_string, completions.len) catch @panic("qcompleter.: Memory allocation failed");
+        var completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.: Memory allocation failed");
         defer allocator.free(completions_arr);
         for (completions, 0..completions.len) |item, i| {
             completions_arr[i] = .{
@@ -33,7 +33,7 @@ pub const qcompleter = struct {
                 .data = item.ptr,
             };
         }
-        const completions_list = qtc.struct_libqt_list{
+        const completions_list = qtc.libqt_list{
             .len = completions.len,
             .data = completions_arr.ptr,
         };
@@ -59,7 +59,7 @@ pub const qcompleter = struct {
     ///
     /// ``` completions: [][]const u8, parent: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn New6(completions: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QCompleter {
-        var completions_arr = allocator.alloc(qtc.struct_libqt_string, completions.len) catch @panic("qcompleter.: Memory allocation failed");
+        var completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.: Memory allocation failed");
         defer allocator.free(completions_arr);
         for (completions, 0..completions.len) |item, i| {
             completions_arr[i] = .{
@@ -67,7 +67,7 @@ pub const qcompleter = struct {
                 .data = item.ptr,
             };
         }
-        const completions_list = qtc.struct_libqt_list{
+        const completions_list = qtc.libqt_list{
             .len = completions.len,
             .data = completions_arr.ptr,
         };
@@ -157,13 +157,15 @@ pub const qcompleter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcompleter.html#completionMode)
     ///
     /// ``` self: QtC.QCompleter ```
+    ///
+    /// Returns: ``` qcompleter_enums.CompletionMode ```
     pub fn CompletionMode(self: ?*anyopaque) i64 {
         return qtc.QCompleter_CompletionMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcompleter.html#setFilterMode)
     ///
-    /// ``` self: QtC.QCompleter, filterMode: i32 ```
+    /// ``` self: QtC.QCompleter, filterMode: flag of qnamespace_enums.MatchFlag ```
     pub fn SetFilterMode(self: ?*anyopaque, filterMode: i64) void {
         qtc.QCompleter_SetFilterMode(@ptrCast(self), @intCast(filterMode));
     }
@@ -171,6 +173,8 @@ pub const qcompleter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcompleter.html#filterMode)
     ///
     /// ``` self: QtC.QCompleter ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MatchFlag ```
     pub fn FilterMode(self: ?*anyopaque) i64 {
         return qtc.QCompleter_FilterMode(@ptrCast(self));
     }
@@ -199,6 +203,8 @@ pub const qcompleter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcompleter.html#caseSensitivity)
     ///
     /// ``` self: QtC.QCompleter ```
+    ///
+    /// Returns: ``` qnamespace_enums.CaseSensitivity ```
     pub fn CaseSensitivity(self: ?*anyopaque) i64 {
         return qtc.QCompleter_CaseSensitivity(@ptrCast(self));
     }
@@ -213,6 +219,8 @@ pub const qcompleter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcompleter.html#modelSorting)
     ///
     /// ``` self: QtC.QCompleter ```
+    ///
+    /// Returns: ``` qcompleter_enums.ModelSorting ```
     pub fn ModelSorting(self: ?*anyopaque) i64 {
         return qtc.QCompleter_ModelSorting(@ptrCast(self));
     }
@@ -327,7 +335,7 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, prefix: []const u8 ```
     pub fn SetCompletionPrefix(self: ?*anyopaque, prefix: []const u8) void {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -385,12 +393,12 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, path: []const u8, allocator: std.mem.Allocator ```
     pub fn SplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QCompleter_SplitPath(@ptrCast(self), path_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCompleter_SplitPath(@ptrCast(self), path_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -422,12 +430,12 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, path: []const u8, allocator: std.mem.Allocator ```
     pub fn QBaseSplitPath(self: ?*anyopaque, path: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QCompleter_QBaseSplitPath(@ptrCast(self), path_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCompleter_QBaseSplitPath(@ptrCast(self), path_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -498,7 +506,7 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, text: []const u8 ```
     pub fn Activated(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -516,7 +524,7 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, text: []const u8 ```
     pub fn Highlighted(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -582,7 +590,7 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -685,7 +693,7 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcompleter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -802,8 +810,8 @@ pub const qcompleter = struct {
     ///
     /// ``` self: QtC.QCompleter, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

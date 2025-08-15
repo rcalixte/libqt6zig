@@ -196,7 +196,7 @@ pub const qtextlist = struct {
     ///
     /// ``` self: QtC.QTextList, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -299,7 +299,7 @@ pub const qtextlist = struct {
     ///
     /// ``` self: QtC.QTextList, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextlist.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -416,8 +416,8 @@ pub const qtextlist = struct {
     ///
     /// ``` self: QtC.QTextList, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -892,7 +892,7 @@ pub const qtextlist = struct {
     ///
     /// ``` self: QtC.QTextList, allocator: std.mem.Allocator ```
     pub fn BlockList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextBlock {
-        const _arr: qtc.struct_libqt_list = qtc.QTextList_BlockList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextList_BlockList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextBlock, _arr.len) catch @panic("qtextlist.BlockList: Memory allocation failed");
         const _data: [*]QtC.QTextBlock = @ptrCast(@alignCast(_arr.data));
@@ -908,7 +908,7 @@ pub const qtextlist = struct {
     ///
     /// ``` self: QtC.QTextList, allocator: std.mem.Allocator ```
     pub fn QBaseBlockList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextBlock {
-        const _arr: qtc.struct_libqt_list = qtc.QTextList_QBaseBlockList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextList_QBaseBlockList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextBlock, _arr.len) catch @panic("qtextlist.BlockList: Memory allocation failed");
         const _data: [*]QtC.QTextBlock = @ptrCast(@alignCast(_arr.data));

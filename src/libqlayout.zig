@@ -3,6 +3,7 @@ const qtc = @import("qt6c");
 const qlayout_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
+const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qlayout.html
@@ -159,14 +160,14 @@ pub const qlayout = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QLayout, w: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QLayout, l: QtC.QLayout, alignment: i32 ```
+    /// ``` self: QtC.QLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
@@ -181,6 +182,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QLayout ```
+    ///
+    /// Returns: ``` qlayout_enums.SizeConstraint ```
     pub fn SizeConstraint(self: ?*anyopaque) i64 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
@@ -319,6 +322,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#expandingDirections)
     ///
     /// ``` self: QtC.QLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QLayout_ExpandingDirections(@ptrCast(self));
     }
@@ -337,6 +342,8 @@ pub const qlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QLayout_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -569,6 +576,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#controlTypes)
     ///
     /// ``` self: QtC.QLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QLayout_ControlTypes(@ptrCast(self));
     }
@@ -587,13 +596,15 @@ pub const qlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QLayout_QBaseControlTypes(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#replaceWidget)
     ///
-    /// ``` self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -602,7 +613,7 @@ pub const qlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ``` self: QtC.QLayout, slot: fn (self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
     pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) QtC.QLayoutItem) void {
         qtc.QLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -611,7 +622,7 @@ pub const qlayout = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -892,7 +903,7 @@ pub const qlayout = struct {
     ///
     /// ``` self: QtC.QLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -995,7 +1006,7 @@ pub const qlayout = struct {
     ///
     /// ``` self: QtC.QLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qlayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1112,8 +1123,8 @@ pub const qlayout = struct {
     ///
     /// ``` self: QtC.QLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1255,6 +1266,8 @@ pub const qlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }

@@ -9,7 +9,7 @@ pub const qwebenginesettings = struct {
     ///
     /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, which: i64, family: []const u8) void {
-        const family_str = qtc.struct_libqt_string{
+        const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
@@ -80,7 +80,7 @@ pub const qwebenginesettings = struct {
     ///
     /// ``` self: QtC.QWebEngineSettings, encoding: []const u8 ```
     pub fn SetDefaultTextEncoding(self: ?*anyopaque, encoding: []const u8) void {
-        const encoding_str = qtc.struct_libqt_string{
+        const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
         };
@@ -101,6 +101,8 @@ pub const qwebenginesettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#unknownUrlSchemePolicy)
     ///
     /// ``` self: QtC.QWebEngineSettings ```
+    ///
+    /// Returns: ``` qwebenginesettings_enums.UnknownUrlSchemePolicy ```
     pub fn UnknownUrlSchemePolicy(self: ?*anyopaque) i64 {
         return qtc.QWebEngineSettings_UnknownUrlSchemePolicy(@ptrCast(self));
     }
@@ -129,6 +131,8 @@ pub const qwebenginesettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#imageAnimationPolicy)
     ///
     /// ``` self: QtC.QWebEngineSettings ```
+    ///
+    /// Returns: ``` qwebenginesettings_enums.ImageAnimationPolicy ```
     pub fn ImageAnimationPolicy(self: ?*anyopaque) i64 {
         return qtc.QWebEngineSettings_ImageAnimationPolicy(@ptrCast(self));
     }

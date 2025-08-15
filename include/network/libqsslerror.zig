@@ -64,6 +64,8 @@ pub const qsslerror = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslerror.html#error)
     ///
     /// ``` self: QtC.QSslError ```
+    ///
+    /// Returns: ``` qsslerror_enums.SslError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QSslError_Error(@ptrCast(self));
     }

@@ -23,7 +23,7 @@ pub const qurl = struct {
     ///
     /// ``` url: []const u8 ```
     pub fn New3(url: []const u8) QtC.QUrl {
-        const url_str = qtc.struct_libqt_string{
+        const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
@@ -35,7 +35,7 @@ pub const qurl = struct {
     ///
     /// ``` url: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn New4(url: []const u8, mode: i64) QtC.QUrl {
-        const url_str = qtc.struct_libqt_string{
+        const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
@@ -54,7 +54,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, url: []const u8 ```
     pub fn OperatorAssign2(self: ?*anyopaque, url: []const u8) void {
-        const url_str = qtc.struct_libqt_string{
+        const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
@@ -72,7 +72,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, url: []const u8 ```
     pub fn SetUrl(self: ?*anyopaque, url: []const u8) void {
-        const url_str = qtc.struct_libqt_string{
+        const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
@@ -116,7 +116,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ToEncoded(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QUrl_ToEncoded(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QUrl_ToEncoded(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToEncoded: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -134,7 +134,7 @@ pub const qurl = struct {
     ///
     /// ``` userInput: []const u8 ```
     pub fn FromUserInput(userInput: []const u8) QtC.QUrl {
-        const userInput_str = qtc.struct_libqt_string{
+        const userInput_str = qtc.libqt_string{
             .len = userInput.len,
             .data = userInput.ptr,
         };
@@ -177,7 +177,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, scheme: []const u8 ```
     pub fn SetScheme(self: ?*anyopaque, scheme: []const u8) void {
-        const scheme_str = qtc.struct_libqt_string{
+        const scheme_str = qtc.libqt_string{
             .len = scheme.len,
             .data = scheme.ptr,
         };
@@ -199,7 +199,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, authority: []const u8 ```
     pub fn SetAuthority(self: ?*anyopaque, authority: []const u8) void {
-        const authority_str = qtc.struct_libqt_string{
+        const authority_str = qtc.libqt_string{
             .len = authority.len,
             .data = authority.ptr,
         };
@@ -221,7 +221,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, userInfo: []const u8 ```
     pub fn SetUserInfo(self: ?*anyopaque, userInfo: []const u8) void {
-        const userInfo_str = qtc.struct_libqt_string{
+        const userInfo_str = qtc.libqt_string{
             .len = userInfo.len,
             .data = userInfo.ptr,
         };
@@ -243,7 +243,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, userName: []const u8 ```
     pub fn SetUserName(self: ?*anyopaque, userName: []const u8) void {
-        const userName_str = qtc.struct_libqt_string{
+        const userName_str = qtc.libqt_string{
             .len = userName.len,
             .data = userName.ptr,
         };
@@ -265,7 +265,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
-        const password_str = qtc.struct_libqt_string{
+        const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
@@ -287,7 +287,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, host: []const u8 ```
     pub fn SetHost(self: ?*anyopaque, host: []const u8) void {
-        const host_str = qtc.struct_libqt_string{
+        const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
@@ -323,7 +323,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, path: []const u8 ```
     pub fn SetPath(self: ?*anyopaque, path: []const u8) void {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -363,7 +363,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, query: []const u8 ```
     pub fn SetQuery(self: ?*anyopaque, query: []const u8) void {
-        const query_str = qtc.struct_libqt_string{
+        const query_str = qtc.libqt_string{
             .len = query.len,
             .data = query.ptr,
         };
@@ -410,7 +410,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, fragment: []const u8 ```
     pub fn SetFragment(self: ?*anyopaque, fragment: []const u8) void {
-        const fragment_str = qtc.struct_libqt_string{
+        const fragment_str = qtc.libqt_string{
             .len = fragment.len,
             .data = fragment.ptr,
         };
@@ -449,7 +449,7 @@ pub const qurl = struct {
     ///
     /// ``` localfile: []const u8 ```
     pub fn FromLocalFile(localfile: []const u8) QtC.QUrl {
-        const localfile_str = qtc.struct_libqt_string{
+        const localfile_str = qtc.libqt_string{
             .len = localfile.len,
             .data = localfile.ptr,
         };
@@ -485,7 +485,7 @@ pub const qurl = struct {
     ///
     /// ``` param1: []u8, allocator: std.mem.Allocator ```
     pub fn FromPercentEncoding(param1: []u8, allocator: std.mem.Allocator) []const u8 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -500,11 +500,11 @@ pub const qurl = struct {
     ///
     /// ``` param1: []const u8, allocator: std.mem.Allocator ```
     pub fn ToPercentEncoding(param1: []const u8, allocator: std.mem.Allocator) []u8 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QUrl_ToPercentEncoding(param1_str);
+        const _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding(param1_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToPercentEncoding: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -515,7 +515,7 @@ pub const qurl = struct {
     ///
     /// ``` domain: []u8, allocator: std.mem.Allocator ```
     pub fn FromAce(domain: []u8, allocator: std.mem.Allocator) []const u8 {
-        const domain_str = qtc.struct_libqt_string{
+        const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
         };
@@ -530,11 +530,11 @@ pub const qurl = struct {
     ///
     /// ``` domain: []const u8, allocator: std.mem.Allocator ```
     pub fn ToAce(domain: []const u8, allocator: std.mem.Allocator) []u8 {
-        const domain_str = qtc.struct_libqt_string{
+        const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QUrl_ToAce(domain_str);
+        const _bytearray: qtc.libqt_string = qtc.QUrl_ToAce(domain_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToAce: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -545,8 +545,8 @@ pub const qurl = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn IdnWhitelist(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QUrl_IdnWhitelist();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QUrl_IdnWhitelist();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -567,12 +567,12 @@ pub const qurl = struct {
     ///
     /// ``` uris: []QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn ToStringList(uris: []QtC.QUrl, allocator: std.mem.Allocator) [][]const u8 {
-        const uris_list = qtc.struct_libqt_list{
+        const uris_list = qtc.libqt_list{
             .len = uris.len,
             .data = @ptrCast(uris.ptr),
         };
-        const _arr: qtc.struct_libqt_list = qtc.QUrl_ToStringList(uris_list);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QUrl_ToStringList(uris_list);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -593,7 +593,7 @@ pub const qurl = struct {
     ///
     /// ``` uris: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FromStringList(uris: [][]const u8, allocator: std.mem.Allocator) []QtC.QUrl {
-        var uris_arr = allocator.alloc(qtc.struct_libqt_string, uris.len) catch @panic("qurl.FromStringList: Memory allocation failed");
+        var uris_arr = allocator.alloc(qtc.libqt_string, uris.len) catch @panic("qurl.FromStringList: Memory allocation failed");
         defer allocator.free(uris_arr);
         for (uris, 0..uris.len) |item, i| {
             uris_arr[i] = .{
@@ -601,11 +601,11 @@ pub const qurl = struct {
                 .data = item.ptr,
             };
         }
-        const uris_list = qtc.struct_libqt_list{
+        const uris_list = qtc.libqt_list{
             .len = uris.len,
             .data = uris_arr.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QUrl_FromStringList(uris_list);
+        const _arr: qtc.libqt_list = qtc.QUrl_FromStringList(uris_list);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qurl.FromStringList: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -617,7 +617,7 @@ pub const qurl = struct {
     ///
     /// ``` idnWhitelist: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetIdnWhitelist(idnWhitelist: [][]const u8, allocator: std.mem.Allocator) void {
-        var idnWhitelist_arr = allocator.alloc(qtc.struct_libqt_string, idnWhitelist.len) catch @panic("qurl.SetIdnWhitelist: Memory allocation failed");
+        var idnWhitelist_arr = allocator.alloc(qtc.libqt_string, idnWhitelist.len) catch @panic("qurl.SetIdnWhitelist: Memory allocation failed");
         defer allocator.free(idnWhitelist_arr);
         for (idnWhitelist, 0..idnWhitelist.len) |item, i| {
             idnWhitelist_arr[i] = .{
@@ -625,7 +625,7 @@ pub const qurl = struct {
                 .data = item.ptr,
             };
         }
-        const idnWhitelist_list = qtc.struct_libqt_list{
+        const idnWhitelist_list = qtc.libqt_list{
             .len = idnWhitelist.len,
             .data = idnWhitelist_arr.ptr,
         };
@@ -636,7 +636,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, url: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetUrl2(self: ?*anyopaque, url: []const u8, mode: i64) void {
-        const url_str = qtc.struct_libqt_string{
+        const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
         };
@@ -654,11 +654,11 @@ pub const qurl = struct {
     ///
     /// ``` userInput: []const u8, workingDirectory: []const u8 ```
     pub fn FromUserInput2(userInput: []const u8, workingDirectory: []const u8) QtC.QUrl {
-        const userInput_str = qtc.struct_libqt_string{
+        const userInput_str = qtc.libqt_string{
             .len = userInput.len,
             .data = userInput.ptr,
         };
-        const workingDirectory_str = qtc.struct_libqt_string{
+        const workingDirectory_str = qtc.libqt_string{
             .len = workingDirectory.len,
             .data = workingDirectory.ptr,
         };
@@ -667,13 +667,13 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
     ///
-    /// ``` userInput: []const u8, workingDirectory: []const u8, options: i32 ```
+    /// ``` userInput: []const u8, workingDirectory: []const u8, options: flag of qurl_enums.UserInputResolutionOption ```
     pub fn FromUserInput3(userInput: []const u8, workingDirectory: []const u8, options: i64) QtC.QUrl {
-        const userInput_str = qtc.struct_libqt_string{
+        const userInput_str = qtc.libqt_string{
             .len = userInput.len,
             .data = userInput.ptr,
         };
-        const workingDirectory_str = qtc.struct_libqt_string{
+        const workingDirectory_str = qtc.libqt_string{
             .len = workingDirectory.len,
             .data = workingDirectory.ptr,
         };
@@ -684,7 +684,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, authority: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetAuthority2(self: ?*anyopaque, authority: []const u8, mode: i64) void {
-        const authority_str = qtc.struct_libqt_string{
+        const authority_str = qtc.libqt_string{
             .len = authority.len,
             .data = authority.ptr,
         };
@@ -693,7 +693,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#authority)
     ///
-    /// ``` self: QtC.QUrl, options: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Authority1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_Authority1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
@@ -706,7 +706,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, userInfo: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetUserInfo2(self: ?*anyopaque, userInfo: []const u8, mode: i64) void {
-        const userInfo_str = qtc.struct_libqt_string{
+        const userInfo_str = qtc.libqt_string{
             .len = userInfo.len,
             .data = userInfo.ptr,
         };
@@ -715,7 +715,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#userInfo)
     ///
-    /// ``` self: QtC.QUrl, options: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn UserInfo1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_UserInfo1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
@@ -728,7 +728,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, userName: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetUserName2(self: ?*anyopaque, userName: []const u8, mode: i64) void {
-        const userName_str = qtc.struct_libqt_string{
+        const userName_str = qtc.libqt_string{
             .len = userName.len,
             .data = userName.ptr,
         };
@@ -737,7 +737,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#userName)
     ///
-    /// ``` self: QtC.QUrl, options: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn UserName1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_UserName1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
@@ -750,7 +750,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, password: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetPassword2(self: ?*anyopaque, password: []const u8, mode: i64) void {
-        const password_str = qtc.struct_libqt_string{
+        const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
@@ -759,7 +759,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#password)
     ///
-    /// ``` self: QtC.QUrl, param1: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, param1: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Password1(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_Password1(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -772,7 +772,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, host: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i64) void {
-        const host_str = qtc.struct_libqt_string{
+        const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
@@ -781,7 +781,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#host)
     ///
-    /// ``` self: QtC.QUrl, param1: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, param1: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Host1(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_Host1(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -801,7 +801,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, path: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetPath2(self: ?*anyopaque, path: []const u8, mode: i64) void {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -810,7 +810,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#path)
     ///
-    /// ``` self: QtC.QUrl, options: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Path1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_Path1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
@@ -821,7 +821,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fileName)
     ///
-    /// ``` self: QtC.QUrl, options: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn FileName1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_FileName1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
@@ -834,7 +834,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, query: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetQuery22(self: ?*anyopaque, query: []const u8, mode: i64) void {
-        const query_str = qtc.struct_libqt_string{
+        const query_str = qtc.libqt_string{
             .len = query.len,
             .data = query.ptr,
         };
@@ -843,7 +843,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#query)
     ///
-    /// ``` self: QtC.QUrl, param1: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, param1: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Query1(self: ?*anyopaque, param1: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_Query1(@ptrCast(self), @intCast(param1));
         defer qtc.libqt_string_free(&_str);
@@ -854,7 +854,7 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fragment)
     ///
-    /// ``` self: QtC.QUrl, options: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QUrl, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Fragment1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUrl_Fragment1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);
@@ -867,7 +867,7 @@ pub const qurl = struct {
     ///
     /// ``` self: QtC.QUrl, fragment: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetFragment2(self: ?*anyopaque, fragment: []const u8, mode: i64) void {
-        const fragment_str = qtc.struct_libqt_string{
+        const fragment_str = qtc.libqt_string{
             .len = fragment.len,
             .data = fragment.ptr,
         };
@@ -878,15 +878,15 @@ pub const qurl = struct {
     ///
     /// ``` param1: []const u8, exclude: []u8, allocator: std.mem.Allocator ```
     pub fn ToPercentEncoding2(param1: []const u8, exclude: []u8, allocator: std.mem.Allocator) []u8 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        const exclude_str = qtc.struct_libqt_string{
+        const exclude_str = qtc.libqt_string{
             .len = exclude.len,
             .data = exclude.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QUrl_ToPercentEncoding2(param1_str, exclude_str);
+        const _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding2(param1_str, exclude_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToPercentEncoding2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -897,19 +897,19 @@ pub const qurl = struct {
     ///
     /// ``` param1: []const u8, exclude: []u8, include: []u8, allocator: std.mem.Allocator ```
     pub fn ToPercentEncoding3(param1: []const u8, exclude: []u8, include: []u8, allocator: std.mem.Allocator) []u8 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        const exclude_str = qtc.struct_libqt_string{
+        const exclude_str = qtc.libqt_string{
             .len = exclude.len,
             .data = exclude.ptr,
         };
-        const include_str = qtc.struct_libqt_string{
+        const include_str = qtc.libqt_string{
             .len = include.len,
             .data = include.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QUrl_ToPercentEncoding3(param1_str, exclude_str, include_str);
+        const _bytearray: qtc.libqt_string = qtc.QUrl_ToPercentEncoding3(param1_str, exclude_str, include_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToPercentEncoding3: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -918,9 +918,9 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromAce)
     ///
-    /// ``` domain: []u8, options: u32, allocator: std.mem.Allocator ```
+    /// ``` domain: []u8, options: flag of qurl_enums.AceProcessingOption, allocator: std.mem.Allocator ```
     pub fn FromAce2(domain: []u8, options: i64, allocator: std.mem.Allocator) []const u8 {
-        const domain_str = qtc.struct_libqt_string{
+        const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
         };
@@ -933,13 +933,13 @@ pub const qurl = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#toAce)
     ///
-    /// ``` domain: []const u8, options: u32, allocator: std.mem.Allocator ```
+    /// ``` domain: []const u8, options: flag of qurl_enums.AceProcessingOption, allocator: std.mem.Allocator ```
     pub fn ToAce2(domain: []const u8, options: i64, allocator: std.mem.Allocator) []u8 {
-        const domain_str = qtc.struct_libqt_string{
+        const domain_str = qtc.libqt_string{
             .len = domain.len,
             .data = domain.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QUrl_ToAce2(domain_str, @intCast(options));
+        const _bytearray: qtc.libqt_string = qtc.QUrl_ToAce2(domain_str, @intCast(options));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qurl.ToAce2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -950,7 +950,7 @@ pub const qurl = struct {
     ///
     /// ``` uris: [][]const u8, mode: qurl_enums.ParsingMode, allocator: std.mem.Allocator ```
     pub fn FromStringList2(uris: [][]const u8, mode: i64, allocator: std.mem.Allocator) []QtC.QUrl {
-        var uris_arr = allocator.alloc(qtc.struct_libqt_string, uris.len) catch @panic("qurl.FromStringList2: Memory allocation failed");
+        var uris_arr = allocator.alloc(qtc.libqt_string, uris.len) catch @panic("qurl.FromStringList2: Memory allocation failed");
         defer allocator.free(uris_arr);
         for (uris, 0..uris.len) |item, i| {
             uris_arr[i] = .{
@@ -958,11 +958,11 @@ pub const qurl = struct {
                 .data = item.ptr,
             };
         }
-        const uris_list = qtc.struct_libqt_list{
+        const uris_list = qtc.libqt_list{
             .len = uris.len,
             .data = uris_arr.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QUrl_FromStringList2(uris_list, @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QUrl_FromStringList2(uris_list, @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qurl.FromStringList2: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));

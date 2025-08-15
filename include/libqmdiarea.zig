@@ -139,7 +139,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn SubWindowList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QMdiSubWindow {
-        const _arr: qtc.struct_libqt_list = qtc.QMdiArea_SubWindowList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QMdiArea_SubWindowList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMdiSubWindow, _arr.len) catch @panic("qmdiarea.SubWindowList: Memory allocation failed");
         const _data: [*]QtC.QMdiSubWindow = @ptrCast(@alignCast(_arr.data));
@@ -178,6 +178,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#activationOrder)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qmdiarea_enums.WindowOrder ```
     pub fn ActivationOrder(self: ?*anyopaque) i64 {
         return qtc.QMdiArea_ActivationOrder(@ptrCast(self));
     }
@@ -213,6 +215,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#viewMode)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qmdiarea_enums.ViewMode ```
     pub fn ViewMode(self: ?*anyopaque) i64 {
         return qtc.QMdiArea_ViewMode(@ptrCast(self));
     }
@@ -269,6 +273,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#tabShape)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qtabwidget_enums.TabShape ```
     pub fn TabShape(self: ?*anyopaque) i64 {
         return qtc.QMdiArea_TabShape(@ptrCast(self));
     }
@@ -283,6 +289,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#tabPosition)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qtabwidget_enums.TabPosition ```
     pub fn TabPosition(self: ?*anyopaque) i64 {
         return qtc.QMdiArea_TabPosition(@ptrCast(self));
     }
@@ -630,7 +638,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, order: qmdiarea_enums.WindowOrder, allocator: std.mem.Allocator ```
     pub fn SubWindowList1(self: ?*anyopaque, order: i64, allocator: std.mem.Allocator) []QtC.QMdiSubWindow {
-        const _arr: qtc.struct_libqt_list = qtc.QMdiArea_SubWindowList1(@ptrCast(self), @intCast(order));
+        const _arr: qtc.libqt_list = qtc.QMdiArea_SubWindowList1(@ptrCast(self), @intCast(order));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QMdiSubWindow, _arr.len) catch @panic("qmdiarea.SubWindowList1: Memory allocation failed");
         const _data: [*]QtC.QMdiSubWindow = @ptrCast(@alignCast(_arr.data));
@@ -640,7 +648,7 @@ pub const qmdiarea = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmdiarea.html#addSubWindow)
     ///
-    /// ``` self: QtC.QMdiArea, widget: QtC.QWidget, flags: i32 ```
+    /// ``` self: QtC.QMdiArea, widget: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn AddSubWindow2(self: ?*anyopaque, widget: ?*anyopaque, flags: i64) QtC.QMdiSubWindow {
         return qtc.QMdiArea_AddSubWindow2(@ptrCast(self), @ptrCast(widget), @intCast(flags));
     }
@@ -657,6 +665,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
@@ -693,6 +703,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
@@ -746,7 +758,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
-    /// ``` self: QtC.QMdiArea, widget: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QMdiArea, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
@@ -755,9 +767,9 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
-    /// ``` self: QtC.QMdiArea, alignment: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMdiArea, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qmdiarea.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -797,6 +809,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
@@ -842,6 +856,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qframe_enums.Shape ```
     pub fn FrameShape(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
@@ -860,6 +876,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qframe_enums.Shadow ```
     pub fn FrameShadow(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
@@ -1013,6 +1031,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
@@ -1571,6 +1591,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
@@ -1589,6 +1611,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
@@ -1806,7 +1830,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = qtc.struct_libqt_string{
+        const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
@@ -1819,7 +1843,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = qtc.struct_libqt_string{
+        const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
@@ -1876,7 +1900,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = qtc.struct_libqt_string{
+        const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
@@ -1902,7 +1926,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = qtc.struct_libqt_string{
+        const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
@@ -1928,7 +1952,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -1981,7 +2005,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -2025,7 +2049,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -2051,7 +2075,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -2090,7 +2114,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2116,7 +2140,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -2137,6 +2161,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
@@ -2245,6 +2271,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
@@ -2299,6 +2327,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
@@ -2669,7 +2699,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmdiarea.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2682,7 +2712,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = qtc.struct_libqt_string{
+        const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
@@ -2757,6 +2787,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
@@ -2765,7 +2797,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.QMdiArea, state: i32 ```
+    /// ``` self: QtC.QMdiArea, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
@@ -2774,7 +2806,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.QMdiArea, state: i32 ```
+    /// ``` self: QtC.QMdiArea, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
@@ -2891,7 +2923,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.QMdiArea, parent: QtC.QWidget, f: i32 ```
+    /// ``` self: QtC.QMdiArea, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
@@ -2974,7 +3006,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -2987,7 +3019,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -3018,7 +3050,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qmdiarea.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -3032,7 +3064,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3045,7 +3077,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3058,7 +3090,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3071,7 +3103,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3091,7 +3123,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QMdiArea, typeVal: i32 ```
+    /// ``` self: QtC.QMdiArea, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -3101,6 +3133,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
@@ -3118,7 +3152,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.QMdiArea, typeVal: i32 ```
+    /// ``` self: QtC.QMdiArea, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -3128,6 +3162,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
@@ -3273,7 +3309,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -3313,7 +3349,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = qtc.struct_libqt_string{
+        const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
@@ -3352,6 +3388,8 @@ pub const qmdiarea = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QMdiArea ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
@@ -3360,7 +3398,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QMdiArea, hints: i32 ```
+    /// ``` self: QtC.QMdiArea, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -3387,7 +3425,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QMdiArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QMdiArea, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -3414,7 +3452,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QMdiArea, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QMdiArea, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -3432,7 +3470,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.QMdiArea, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QMdiArea, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -3495,7 +3533,7 @@ pub const qmdiarea = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
@@ -3519,7 +3557,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -3622,7 +3660,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qmdiarea.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -3730,8 +3768,8 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4950,7 +4988,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -4965,7 +5003,7 @@ pub const qmdiarea = struct {
     ///
     /// ``` self: QtC.QMdiArea, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };

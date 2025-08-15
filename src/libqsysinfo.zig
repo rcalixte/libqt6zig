@@ -135,7 +135,7 @@ pub const qsysinfo = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn MachineUniqueId(allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSysInfo_MachineUniqueId();
+        const _bytearray: qtc.libqt_string = qtc.QSysInfo_MachineUniqueId();
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsysinfo.MachineUniqueId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -146,7 +146,7 @@ pub const qsysinfo = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn BootUniqueId(allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSysInfo_BootUniqueId();
+        const _bytearray: qtc.libqt_string = qtc.QSysInfo_BootUniqueId();
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsysinfo.BootUniqueId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

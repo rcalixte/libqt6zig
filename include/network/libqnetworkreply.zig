@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qnetworkaccessmanager_enums = @import("libqnetworkaccessmanager.zig").enums;
 const qnetworkreply_enums = enums;
@@ -78,6 +79,8 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#operation)
     ///
     /// ``` self: QtC.QNetworkReply ```
+    ///
+    /// Returns: ``` qnetworkaccessmanager_enums.Operation ```
     pub fn Operation(self: ?*anyopaque) i64 {
         return qtc.QNetworkReply_Operation(@ptrCast(self));
     }
@@ -92,6 +95,8 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#error)
     ///
     /// ``` self: QtC.QNetworkReply ```
+    ///
+    /// Returns: ``` qnetworkreply_enums.NetworkError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QNetworkReply_Error(@ptrCast(self));
     }
@@ -128,7 +133,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, headerName: []const u8 ```
     pub fn HasRawHeader(self: ?*anyopaque, headerName: []const u8) bool {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
@@ -139,8 +144,8 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, allocator: std.mem.Allocator ```
     pub fn RawHeaderList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkReply_RawHeaderList(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkReply_RawHeaderList(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -161,11 +166,11 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, headerName: []const u8, allocator: std.mem.Allocator ```
     pub fn RawHeader(self: ?*anyopaque, headerName: []const u8, allocator: std.mem.Allocator) []u8 {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QNetworkReply_RawHeader(@ptrCast(self), headerName_str);
+        const _bytearray: qtc.libqt_string = qtc.QNetworkReply_RawHeader(@ptrCast(self), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -176,9 +181,9 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, allocator: std.mem.Allocator ```
     pub fn RawHeaderPairs(self: ?*anyopaque, allocator: std.mem.Allocator) []struct_u8_u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkReply_RawHeaderPairs(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QNetworkReply_RawHeaderPairs(@ptrCast(self));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_pair[i].first));
                 qtc.libqt_free(_pair[i].first);
@@ -226,7 +231,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, errors: []QtC.QSslError ```
     pub fn IgnoreSslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
-        const errors_list = qtc.struct_libqt_list{
+        const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
@@ -335,7 +340,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, errors: []QtC.QSslError ```
     pub fn SslErrors(self: ?*anyopaque, errors: []QtC.QSslError) void {
-        const errors_list = qtc.struct_libqt_list{
+        const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
@@ -450,6 +455,8 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QNetworkReply ```
+    ///
+    /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn OpenMode(self: ?*anyopaque) i64 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
@@ -557,7 +564,7 @@ pub const qnetworkreply = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#open)
     ///
-    /// ``` self: QtC.QNetworkReply, mode: i32 ```
+    /// ``` self: QtC.QNetworkReply, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, mode: i64) bool {
         return qtc.QIODevice_Open(@ptrCast(self), @intCast(mode));
     }
@@ -641,7 +648,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -654,7 +661,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -677,7 +684,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -755,7 +762,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -778,7 +785,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -967,7 +974,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1011,7 +1018,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1114,7 +1121,7 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qnetworkreply.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1231,8 +1238,8 @@ pub const qnetworkreply = struct {
     ///
     /// ``` self: QtC.QNetworkReply, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

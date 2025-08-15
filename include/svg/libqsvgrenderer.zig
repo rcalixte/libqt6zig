@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
+const qtsvgglobal_enums = @import("libqtsvgglobal.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qsvgrenderer.html
@@ -17,7 +18,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` filename: []const u8 ```
     pub fn New2(filename: []const u8) QtC.QSvgRenderer {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -29,7 +30,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` contents: []u8 ```
     pub fn New3(contents: []u8) QtC.QSvgRenderer {
-        const contents_str = qtc.struct_libqt_string{
+        const contents_str = qtc.libqt_string{
             .len = contents.len,
             .data = contents.ptr,
         };
@@ -55,7 +56,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` filename: []const u8, parent: QtC.QObject ```
     pub fn New6(filename: []const u8, parent: ?*anyopaque) QtC.QSvgRenderer {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -67,7 +68,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` contents: []u8, parent: QtC.QObject ```
     pub fn New7(contents: []u8, parent: ?*anyopaque) QtC.QSvgRenderer {
-        const contents_str = qtc.struct_libqt_string{
+        const contents_str = qtc.libqt_string{
             .len = contents.len,
             .data = contents.ptr,
         };
@@ -171,6 +172,8 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#aspectRatioMode)
     ///
     /// ``` self: QtC.QSvgRenderer ```
+    ///
+    /// Returns: ``` qnamespace_enums.AspectRatioMode ```
     pub fn AspectRatioMode(self: ?*anyopaque) i64 {
         return qtc.QSvgRenderer_AspectRatioMode(@ptrCast(self));
     }
@@ -185,13 +188,15 @@ pub const qsvgrenderer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#options)
     ///
     /// ``` self: QtC.QSvgRenderer ```
+    ///
+    /// Returns: ``` flag of qtsvgglobal_enums.Option ```
     pub fn Options(self: ?*anyopaque) i64 {
         return qtc.QSvgRenderer_Options(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setOptions)
     ///
-    /// ``` self: QtC.QSvgRenderer, flags: u32 ```
+    /// ``` self: QtC.QSvgRenderer, flags: flag of qtsvgglobal_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, flags: i64) void {
         qtc.QSvgRenderer_SetOptions(@ptrCast(self), @intCast(flags));
     }
@@ -256,7 +261,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, id: []const u8 ```
     pub fn BoundsOnElement(self: ?*anyopaque, id: []const u8) QtC.QRectF {
-        const id_str = qtc.struct_libqt_string{
+        const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
@@ -267,7 +272,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, id: []const u8 ```
     pub fn ElementExists(self: ?*anyopaque, id: []const u8) bool {
-        const id_str = qtc.struct_libqt_string{
+        const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
@@ -278,7 +283,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, id: []const u8 ```
     pub fn TransformForElement(self: ?*anyopaque, id: []const u8) QtC.QTransform {
-        const id_str = qtc.struct_libqt_string{
+        const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
@@ -287,7 +292,7 @@ pub const qsvgrenderer = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvgrenderer.html#setDefaultOptions)
     ///
-    /// ``` flags: u32 ```
+    /// ``` flags: flag of qtsvgglobal_enums.Option ```
     pub fn SetDefaultOptions(flags: i64) void {
         qtc.QSvgRenderer_SetDefaultOptions(@intCast(flags));
     }
@@ -296,7 +301,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, filename: []const u8 ```
     pub fn Load(self: ?*anyopaque, filename: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -307,7 +312,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, contents: []u8 ```
     pub fn Load2(self: ?*anyopaque, contents: []u8) bool {
-        const contents_str = qtc.struct_libqt_string{
+        const contents_str = qtc.libqt_string{
             .len = contents.len,
             .data = contents.ptr,
         };
@@ -339,7 +344,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, p: QtC.QPainter, elementId: []const u8 ```
     pub fn Render3(self: ?*anyopaque, p: ?*anyopaque, elementId: []const u8) void {
-        const elementId_str = qtc.struct_libqt_string{
+        const elementId_str = qtc.libqt_string{
             .len = elementId.len,
             .data = elementId.ptr,
         };
@@ -390,7 +395,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, p: QtC.QPainter, elementId: []const u8, bounds: QtC.QRectF ```
     pub fn Render32(self: ?*anyopaque, p: ?*anyopaque, elementId: []const u8, bounds: ?*anyopaque) void {
-        const elementId_str = qtc.struct_libqt_string{
+        const elementId_str = qtc.libqt_string{
             .len = elementId.len,
             .data = elementId.ptr,
         };
@@ -416,7 +421,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -519,7 +524,7 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsvgrenderer.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -636,8 +641,8 @@ pub const qsvgrenderer = struct {
     ///
     /// ``` self: QtC.QSvgRenderer, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -20,8 +20,8 @@ pub const qstandardpaths = struct {
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, allocator: std.mem.Allocator ```
     pub fn StandardLocations(typeVal: i64, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardPaths_StandardLocations(@intCast(typeVal));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QStandardPaths_StandardLocations(@intCast(typeVal));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -42,7 +42,7 @@ pub const qstandardpaths = struct {
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn Locate(typeVal: i64, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -57,12 +57,12 @@ pub const qstandardpaths = struct {
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, allocator: std.mem.Allocator ```
     pub fn LocateAll(typeVal: i64, fileName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QStandardPaths_LocateAll(@intCast(typeVal), fileName_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QStandardPaths_LocateAll(@intCast(typeVal), fileName_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -94,7 +94,7 @@ pub const qstandardpaths = struct {
     ///
     /// ``` executableName: []const u8, allocator: std.mem.Allocator ```
     pub fn FindExecutable(executableName: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const executableName_str = qtc.struct_libqt_string{
+        const executableName_str = qtc.libqt_string{
             .len = executableName.len,
             .data = executableName.ptr,
         };
@@ -121,9 +121,9 @@ pub const qstandardpaths = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
     ///
-    /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: i32, allocator: std.mem.Allocator ```
+    /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
     pub fn Locate3(typeVal: i64, fileName: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -136,14 +136,14 @@ pub const qstandardpaths = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
     ///
-    /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: i32, allocator: std.mem.Allocator ```
+    /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
     pub fn LocateAll3(typeVal: i64, fileName: []const u8, options: i64, allocator: std.mem.Allocator) [][]const u8 {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QStandardPaths_LocateAll3(@intCast(typeVal), fileName_str, @intCast(options));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QStandardPaths_LocateAll3(@intCast(typeVal), fileName_str, @intCast(options));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -164,11 +164,11 @@ pub const qstandardpaths = struct {
     ///
     /// ``` executableName: []const u8, paths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn FindExecutable2(executableName: []const u8, paths: [][]const u8, allocator: std.mem.Allocator) []const u8 {
-        const executableName_str = qtc.struct_libqt_string{
+        const executableName_str = qtc.libqt_string{
             .len = executableName.len,
             .data = executableName.ptr,
         };
-        var paths_arr = allocator.alloc(qtc.struct_libqt_string, paths.len) catch @panic("qstandardpaths.FindExecutable2: Memory allocation failed");
+        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qstandardpaths.FindExecutable2: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -176,7 +176,7 @@ pub const qstandardpaths = struct {
                 .data = item.ptr,
             };
         }
-        const paths_list = qtc.struct_libqt_list{
+        const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };

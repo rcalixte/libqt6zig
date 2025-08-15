@@ -159,7 +159,7 @@ pub const qgraphicseffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicseffect.html#sourceChanged)
     ///
-    /// ``` self: QtC.QGraphicsEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -168,7 +168,7 @@ pub const qgraphicseffect = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEffect, slot: fn (self: QtC.QGraphicsEffect, flags: i32) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsEffect, slot: fn (self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
     pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QGraphicsEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -177,7 +177,7 @@ pub const qgraphicseffect = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QGraphicsEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -452,7 +452,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -555,7 +555,7 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicseffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -672,8 +672,8 @@ pub const qgraphicseffect = struct {
     ///
     /// ``` self: QtC.QGraphicsEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1436,7 +1436,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1539,7 +1539,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicscolorizeeffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1656,8 +1656,8 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsColorizeEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1833,7 +1833,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsColorizeEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -1844,7 +1844,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsColorizeEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -1855,7 +1855,7 @@ pub const qgraphicscolorizeeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsColorizeEffect, slot: fn (self: QtC.QGraphicsColorizeEffect, flags: i32) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsColorizeEffect, slot: fn (self: QtC.QGraphicsColorizeEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
     pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QGraphicsColorizeEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2506,6 +2506,8 @@ pub const qgraphicsblureffect = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHints)
     ///
     /// ``` self: QtC.QGraphicsBlurEffect ```
+    ///
+    /// Returns: ``` flag of qgraphicseffect_enums.BlurHint ```
     pub fn BlurHints(self: ?*anyopaque) i64 {
         return qtc.QGraphicsBlurEffect_BlurHints(@ptrCast(self));
     }
@@ -2519,7 +2521,7 @@ pub const qgraphicsblureffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#setBlurHints)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, hints: i32 ```
+    /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
     pub fn SetBlurHints(self: ?*anyopaque, hints: i64) void {
         qtc.QGraphicsBlurEffect_SetBlurHints(@ptrCast(self), @intCast(hints));
     }
@@ -2540,14 +2542,14 @@ pub const qgraphicsblureffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, hints: i32 ```
+    /// ``` self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint ```
     pub fn BlurHintsChanged(self: ?*anyopaque, hints: i64) void {
         qtc.QGraphicsBlurEffect_BlurHintsChanged(@ptrCast(self), @intCast(hints));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsblureffect.html#blurHintsChanged)
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, slot: fn (self: QtC.QGraphicsBlurEffect, hints: i32) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsBlurEffect, slot: fn (self: QtC.QGraphicsBlurEffect, hints: flag of qgraphicseffect_enums.BlurHint) callconv(.c) void ```
     pub fn OnBlurHintsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_Connect_BlurHintsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2676,7 +2678,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2779,7 +2781,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicsblureffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -2896,8 +2898,8 @@ pub const qgraphicsblureffect = struct {
     ///
     /// ``` self: QtC.QGraphicsBlurEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3040,7 +3042,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsBlurEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -3051,7 +3053,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsBlurEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -3062,7 +3064,7 @@ pub const qgraphicsblureffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsBlurEffect, slot: fn (self: QtC.QGraphicsBlurEffect, flags: i32) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsBlurEffect, slot: fn (self: QtC.QGraphicsBlurEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
     pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QGraphicsBlurEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3953,7 +3955,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -4056,7 +4058,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicsdropshadoweffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -4173,8 +4175,8 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// ``` self: QtC.QGraphicsDropShadowEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4317,7 +4319,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsDropShadowEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -4328,7 +4330,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsDropShadowEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -4339,7 +4341,7 @@ pub const qgraphicsdropshadoweffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsDropShadowEffect, slot: fn (self: QtC.QGraphicsDropShadowEffect, flags: i32) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsDropShadowEffect, slot: fn (self: QtC.QGraphicsDropShadowEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
     pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QGraphicsDropShadowEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -5135,7 +5137,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -5238,7 +5240,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgraphicsopacityeffect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -5355,8 +5357,8 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// ``` self: QtC.QGraphicsOpacityEffect, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -5532,7 +5534,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn SourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsOpacityEffect_SourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -5543,7 +5545,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, flags: i32 ```
+    /// ``` self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag ```
     pub fn QBaseSourceChanged(self: ?*anyopaque, flags: i64) void {
         qtc.QGraphicsOpacityEffect_QBaseSourceChanged(@ptrCast(self), @intCast(flags));
     }
@@ -5554,7 +5556,7 @@ pub const qgraphicsopacityeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsOpacityEffect, slot: fn (self: QtC.QGraphicsOpacityEffect, flags: i32) callconv(.c) void ```
+    /// ``` self: QtC.QGraphicsOpacityEffect, slot: fn (self: QtC.QGraphicsOpacityEffect, flags: flag of qgraphicseffect_enums.ChangeFlag) callconv(.c) void ```
     pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QGraphicsOpacityEffect_OnSourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

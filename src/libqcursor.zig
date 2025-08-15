@@ -91,6 +91,8 @@ pub const qcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#shape)
     ///
     /// ``` self: QtC.QCursor ```
+    ///
+    /// Returns: ``` qnamespace_enums.CursorShape ```
     pub fn Shape(self: ?*anyopaque) i64 {
         return qtc.QCursor_Shape(@ptrCast(self));
     }

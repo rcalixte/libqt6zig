@@ -44,7 +44,7 @@ pub const qlatin1string = struct {
     ///
     /// ``` s: []u8 ```
     pub fn New5(s: []u8) QtC.QLatin1String {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };

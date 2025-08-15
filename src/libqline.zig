@@ -390,6 +390,8 @@ pub const qlinef = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#intersects)
     ///
     /// ``` self: QtC.QLineF, l: QtC.QLineF ```
+    ///
+    /// Returns: ``` qline_enums.IntersectionType ```
     pub fn Intersects(self: ?*anyopaque, l: ?*anyopaque) i64 {
         return qtc.QLineF_Intersects(@ptrCast(self), @ptrCast(l));
     }
@@ -474,6 +476,8 @@ pub const qlinef = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlinef.html#intersects)
     ///
     /// ``` self: QtC.QLineF, l: QtC.QLineF, intersectionPoint: QtC.QPointF ```
+    ///
+    /// Returns: ``` qline_enums.IntersectionType ```
     pub fn Intersects2(self: ?*anyopaque, l: ?*anyopaque, intersectionPoint: ?*anyopaque) i64 {
         return qtc.QLineF_Intersects2(@ptrCast(self), @ptrCast(l), @ptrCast(intersectionPoint));
     }

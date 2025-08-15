@@ -122,7 +122,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = qtc.struct_libqt_string{
+        const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
@@ -182,11 +182,11 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: QtC.QIcon ```
     pub fn ShowMessage(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: ?*anyopaque) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -197,11 +197,11 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8 ```
     pub fn ShowMessage2(self: ?*anyopaque, title: []const u8, msg: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -291,11 +291,11 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: QtC.QIcon, msecs: i32 ```
     pub fn ShowMessage4(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: ?*anyopaque, msecs: i32) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -306,11 +306,11 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: qsystemtrayicon_enums.MessageIcon ```
     pub fn ShowMessage3(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: i64) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -321,11 +321,11 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, title: []const u8, msg: []const u8, icon: qsystemtrayicon_enums.MessageIcon, msecs: i32 ```
     pub fn ShowMessage42(self: ?*anyopaque, title: []const u8, msg: []const u8, icon: i64, msecs: i32) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        const msg_str = qtc.struct_libqt_string{
+        const msg_str = qtc.libqt_string{
             .len = msg.len,
             .data = msg.ptr,
         };
@@ -351,7 +351,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -454,7 +454,7 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsystemtrayicon.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -571,8 +571,8 @@ pub const qsystemtrayicon = struct {
     ///
     /// ``` self: QtC.QSystemTrayIcon, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

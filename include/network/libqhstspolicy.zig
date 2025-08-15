@@ -14,9 +14,9 @@ pub const qhstspolicy = struct {
 
     /// New2 constructs a new QHstsPolicy object.
     ///
-    /// ``` expiry: QtC.QDateTime, flags: i32, host: []const u8 ```
+    /// ``` expiry: QtC.QDateTime, flags: flag of qhstspolicy_enums.PolicyFlag, host: []const u8 ```
     pub fn New2(expiry: ?*anyopaque, flags: i64, host: []const u8) QtC.QHstsPolicy {
-        const host_str = qtc.struct_libqt_string{
+        const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
@@ -33,9 +33,9 @@ pub const qhstspolicy = struct {
 
     /// New4 constructs a new QHstsPolicy object.
     ///
-    /// ``` expiry: QtC.QDateTime, flags: i32, host: []const u8, mode: qurl_enums.ParsingMode ```
+    /// ``` expiry: QtC.QDateTime, flags: flag of qhstspolicy_enums.PolicyFlag, host: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn New4(expiry: ?*anyopaque, flags: i64, host: []const u8, mode: i64) QtC.QHstsPolicy {
-        const host_str = qtc.struct_libqt_string{
+        const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
@@ -61,7 +61,7 @@ pub const qhstspolicy = struct {
     ///
     /// ``` self: QtC.QHstsPolicy, host: []const u8 ```
     pub fn SetHost(self: ?*anyopaque, host: []const u8) void {
-        const host_str = qtc.struct_libqt_string{
+        const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
@@ -118,7 +118,7 @@ pub const qhstspolicy = struct {
     ///
     /// ``` self: QtC.QHstsPolicy, host: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i64) void {
-        const host_str = qtc.struct_libqt_string{
+        const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
         };
@@ -127,7 +127,7 @@ pub const qhstspolicy = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#host)
     ///
-    /// ``` self: QtC.QHstsPolicy, options: u32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QHstsPolicy, options: flag of qurl_enums.ComponentFormattingOption, allocator: std.mem.Allocator ```
     pub fn Host1(self: ?*anyopaque, options: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QHstsPolicy_Host1(@ptrCast(self), @intCast(options));
         defer qtc.libqt_string_free(&_str);

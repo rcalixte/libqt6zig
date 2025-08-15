@@ -90,7 +90,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, boxes: []QtC.QBoxSet ```
     pub fn Append2(self: ?*anyopaque, boxes: []?*anyopaque) bool {
-        const boxes_list = qtc.struct_libqt_list{
+        const boxes_list = qtc.libqt_list{
             .len = boxes.len,
             .data = @ptrCast(boxes.ptr),
         };
@@ -115,7 +115,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, allocator: std.mem.Allocator ```
     pub fn BoxSets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QBoxSet {
-        const _arr: qtc.struct_libqt_list = qtc.QBoxPlotSeries_BoxSets(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QBoxPlotSeries_BoxSets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QBoxSet, _arr.len) catch @panic("qboxplotseries.BoxSets: Memory allocation failed");
         const _data: [*]QtC.QBoxSet = @ptrCast(@alignCast(_arr.data));
@@ -133,6 +133,8 @@ pub const qboxplotseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#type)
     ///
     /// ``` self: QtC.QBoxPlotSeries ```
+    ///
+    /// Returns: ``` qabstractseries_enums.SeriesType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QBoxPlotSeries_Type(@ptrCast(self));
     }
@@ -151,6 +153,8 @@ pub const qboxplotseries = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QBoxPlotSeries ```
+    ///
+    /// Returns: ``` qabstractseries_enums.SeriesType ```
     pub fn QBaseType(self: ?*anyopaque) i64 {
         return qtc.QBoxPlotSeries_QBaseType(@ptrCast(self));
     }
@@ -355,7 +359,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, sets: []QtC.QBoxSet ```
     pub fn BoxsetsAdded(self: ?*anyopaque, sets: []?*anyopaque) void {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -373,7 +377,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, sets: []QtC.QBoxSet ```
     pub fn BoxsetsRemoved(self: ?*anyopaque, sets: []?*anyopaque) void {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -419,7 +423,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -526,7 +530,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, allocator: std.mem.Allocator ```
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qboxplotseries.AttachedAxes: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
@@ -661,7 +665,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -764,7 +768,7 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qboxplotseries.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -881,8 +885,8 @@ pub const qboxplotseries = struct {
     ///
     /// ``` self: QtC.QBoxPlotSeries, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

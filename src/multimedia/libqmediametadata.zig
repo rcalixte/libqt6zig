@@ -43,11 +43,13 @@ pub const qmediametadata = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediametadata.html#keys)
     ///
     /// ``` self: QtC.QMediaMetaData, allocator: std.mem.Allocator ```
-    pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QMediaMetaData_Keys(@ptrCast(self));
+    ///
+    /// Returns: ``` []qmediametadata_enums.Key ```
+    pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QMediaMetaData_Keys(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qmediametadata_enums.Key, _arr.len) catch @panic("qmediametadata.Keys: Memory allocation failed");
-        const _data: [*]qmediametadata_enums.Key = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediametadata.Keys: Memory allocation failed");
+        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }

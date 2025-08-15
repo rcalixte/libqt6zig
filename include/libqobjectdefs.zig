@@ -436,7 +436,7 @@ pub const qmetaobject = struct {
     /// ``` method: []const u8, allocator: std.mem.Allocator ```
     pub fn NormalizedSignature(method: []const u8, allocator: std.mem.Allocator) []u8 {
         const method_Cstring = method.ptr;
-        const _bytearray: qtc.struct_libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
+        const _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedSignature: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -448,7 +448,7 @@ pub const qmetaobject = struct {
     /// ``` typeVal: []const u8, allocator: std.mem.Allocator ```
     pub fn NormalizedType(typeVal: []const u8, allocator: std.mem.Allocator) []u8 {
         const typeVal_Cstring = typeVal.ptr;
-        const _bytearray: qtc.struct_libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
+        const _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -977,14 +977,14 @@ pub const qmetaobject__connection = struct {
         return qtc.QMetaObject__Connection_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__connection.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-connection.html#operator-eq)
     ///
     /// ``` self: QtC.QMetaObject__Connection, other: QtC.QMetaObject__Connection ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QMetaObject__Connection_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__connection.html#swap)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-connection.html#swap)
     ///
     /// ``` self: QtC.QMetaObject__Connection, other: QtC.QMetaObject__Connection ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
@@ -1022,21 +1022,21 @@ pub const qmetaobject__superdata = struct {
         return qtc.QMetaObject__SuperData_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator--gt)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator--gt)
     ///
     /// ``` self: QtC.QMetaObject__SuperData ```
     pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QMetaObject__SuperData_OperatorMinusGreater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator-2a)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator-2a)
     ///
     /// ``` self: QtC.QMetaObject__SuperData ```
     pub fn ToConstQMetaObjectMultiply(self: ?*anyopaque) QtC.QMetaObject {
         return qtc.QMetaObject__SuperData_ToConstQMetaObjectMultiply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__superdata.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator-eq)
     ///
     /// ``` self: QtC.QMetaObject__SuperData, param1: QtC.QMetaObject__SuperData ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1067,7 +1067,7 @@ pub const qmetaobject__data = struct {
         return qtc.QMetaObject__Data_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject__data.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#operator-eq)
     ///
     /// ``` self: QtC.QMetaObject__Data, param1: QtC.QMetaObject__Data ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

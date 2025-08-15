@@ -60,6 +60,8 @@ pub const qtextlength = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlength.html#type)
     ///
     /// ``` self: QtC.QTextLength ```
+    ///
+    /// Returns: ``` qtextformat_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QTextLength_Type(@ptrCast(self));
     }
@@ -280,7 +282,7 @@ pub const qtextformat = struct {
     ///
     /// ``` self: QtC.QTextFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -292,7 +294,7 @@ pub const qtextformat = struct {
     ///
     /// ``` self: QtC.QTextFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -303,7 +305,7 @@ pub const qtextformat = struct {
     ///
     /// ``` self: QtC.QTextFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -470,6 +472,8 @@ pub const qtextformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
@@ -560,7 +564,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
-        const family_str = qtc.struct_libqt_string{
+        const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
@@ -582,7 +586,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
-        var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtextcharformat.SetFontFamilies: Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qtextcharformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
             families_arr[i] = .{
@@ -590,7 +594,7 @@ pub const qtextcharformat = struct {
                 .data = item.ptr,
             };
         }
-        const families_list = qtc.struct_libqt_list{
+        const families_list = qtc.libqt_list{
             .len = families.len,
             .data = families_arr.ptr,
         };
@@ -608,7 +612,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, styleName: []const u8 ```
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
-        const styleName_str = qtc.struct_libqt_string{
+        const styleName_str = qtc.libqt_string{
             .len = styleName.len,
             .data = styleName.ptr,
         };
@@ -674,6 +678,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qfont_enums.Capitalization ```
     pub fn FontCapitalization(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
@@ -688,6 +694,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qfont_enums.SpacingType ```
     pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
@@ -821,6 +829,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qfont_enums.StyleHint ```
     pub fn FontStyleHint(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
@@ -828,6 +838,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qfont_enums.StyleStrategy ```
     pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
@@ -842,6 +854,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qfont_enums.HintingPreference ```
     pub fn FontHintingPreference(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
@@ -870,6 +884,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.UnderlineStyle ```
     pub fn UnderlineStyle(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
@@ -884,6 +900,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.VerticalAlignment ```
     pub fn VerticalAlignment(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
@@ -906,7 +924,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = qtc.struct_libqt_string{
+        const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
@@ -984,7 +1002,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, value: []const u8 ```
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -1006,7 +1024,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtextcharformat.SetAnchorNames: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qtextcharformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -1014,7 +1032,7 @@ pub const qtextcharformat = struct {
                 .data = item.ptr,
             };
         }
-        const names_list = qtc.struct_libqt_list{
+        const names_list = qtc.libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
@@ -1025,8 +1043,8 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1266,7 +1284,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextcharformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -1280,7 +1298,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -1293,7 +1311,7 @@ pub const qtextcharformat = struct {
     ///
     /// ``` self: QtC.QTextCharFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1504,6 +1522,8 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextCharFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
@@ -1590,7 +1610,7 @@ pub const qtextblockformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setAlignment)
     ///
-    /// ``` self: QtC.QTextBlockFormat, alignment: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
         qtc.QTextBlockFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
@@ -1598,6 +1618,8 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#alignment)
     ///
     /// ``` self: QtC.QTextBlockFormat ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QTextBlockFormat_Alignment(@ptrCast(self));
     }
@@ -1744,7 +1766,7 @@ pub const qtextblockformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setPageBreakPolicy)
     ///
-    /// ``` self: QtC.QTextBlockFormat, flags: i32 ```
+    /// ``` self: QtC.QTextBlockFormat, flags: flag of qtextformat_enums.PageBreakFlag ```
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
         qtc.QTextBlockFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
@@ -1752,6 +1774,8 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#pageBreakPolicy)
     ///
     /// ``` self: QtC.QTextBlockFormat ```
+    ///
+    /// Returns: ``` flag of qtextformat_enums.PageBreakFlag ```
     pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
         return qtc.QTextBlockFormat_PageBreakPolicy(@ptrCast(self));
     }
@@ -1760,7 +1784,7 @@ pub const qtextblockformat = struct {
     ///
     /// ``` self: QtC.QTextBlockFormat, tabs: []QtC.QTextOption__Tab ```
     pub fn SetTabPositions(self: ?*anyopaque, tabs: []QtC.QTextOption__Tab) void {
-        const tabs_list = qtc.struct_libqt_list{
+        const tabs_list = qtc.libqt_list{
             .len = tabs.len,
             .data = @ptrCast(tabs.ptr),
         };
@@ -1771,7 +1795,7 @@ pub const qtextblockformat = struct {
     ///
     /// ``` self: QtC.QTextBlockFormat, allocator: std.mem.Allocator ```
     pub fn TabPositions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextOption__Tab {
-        const _arr: qtc.struct_libqt_list = qtc.QTextBlockFormat_TabPositions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextBlockFormat_TabPositions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextOption__Tab, _arr.len) catch @panic("qtextblockformat.TabPositions: Memory allocation failed");
         const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
@@ -1789,6 +1813,8 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#marker)
     ///
     /// ``` self: QtC.QTextBlockFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.MarkerType ```
     pub fn Marker(self: ?*anyopaque) i64 {
         return qtc.QTextBlockFormat_Marker(@ptrCast(self));
     }
@@ -1974,7 +2000,7 @@ pub const qtextblockformat = struct {
     ///
     /// ``` self: QtC.QTextBlockFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextblockformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -1988,7 +2014,7 @@ pub const qtextblockformat = struct {
     ///
     /// ``` self: QtC.QTextBlockFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -2001,7 +2027,7 @@ pub const qtextblockformat = struct {
     ///
     /// ``` self: QtC.QTextBlockFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -2212,6 +2238,8 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextBlockFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
@@ -2306,6 +2334,8 @@ pub const qtextlistformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#style)
     ///
     /// ``` self: QtC.QTextListFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.Style ```
     pub fn Style(self: ?*anyopaque) i64 {
         return qtc.QTextListFormat_Style(@ptrCast(self));
     }
@@ -2328,7 +2358,7 @@ pub const qtextlistformat = struct {
     ///
     /// ``` self: QtC.QTextListFormat, numberPrefix: []const u8 ```
     pub fn SetNumberPrefix(self: ?*anyopaque, numberPrefix: []const u8) void {
-        const numberPrefix_str = qtc.struct_libqt_string{
+        const numberPrefix_str = qtc.libqt_string{
             .len = numberPrefix.len,
             .data = numberPrefix.ptr,
         };
@@ -2350,7 +2380,7 @@ pub const qtextlistformat = struct {
     ///
     /// ``` self: QtC.QTextListFormat, numberSuffix: []const u8 ```
     pub fn SetNumberSuffix(self: ?*anyopaque, numberSuffix: []const u8) void {
-        const numberSuffix_str = qtc.struct_libqt_string{
+        const numberSuffix_str = qtc.libqt_string{
             .len = numberSuffix.len,
             .data = numberSuffix.ptr,
         };
@@ -2563,7 +2593,7 @@ pub const qtextlistformat = struct {
     ///
     /// ``` self: QtC.QTextListFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextlistformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -2577,7 +2607,7 @@ pub const qtextlistformat = struct {
     ///
     /// ``` self: QtC.QTextListFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -2590,7 +2620,7 @@ pub const qtextlistformat = struct {
     ///
     /// ``` self: QtC.QTextListFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -2801,6 +2831,8 @@ pub const qtextlistformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextListFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
@@ -2889,7 +2921,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2994,7 +3026,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
-        const family_str = qtc.struct_libqt_string{
+        const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
@@ -3020,7 +3052,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
-        var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtextimageformat.SetFontFamilies: Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qtextimageformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
             families_arr[i] = .{
@@ -3028,7 +3060,7 @@ pub const qtextimageformat = struct {
                 .data = item.ptr,
             };
         }
-        const families_list = qtc.struct_libqt_list{
+        const families_list = qtc.libqt_list{
             .len = families.len,
             .data = families_arr.ptr,
         };
@@ -3050,7 +3082,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, styleName: []const u8 ```
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
-        const styleName_str = qtc.struct_libqt_string{
+        const styleName_str = qtc.libqt_string{
             .len = styleName.len,
             .data = styleName.ptr,
         };
@@ -3134,6 +3166,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qfont_enums.Capitalization ```
     pub fn FontCapitalization(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
@@ -3152,6 +3186,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qfont_enums.SpacingType ```
     pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
@@ -3323,6 +3359,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qfont_enums.StyleHint ```
     pub fn FontStyleHint(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
@@ -3332,6 +3370,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qfont_enums.StyleStrategy ```
     pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
@@ -3350,6 +3390,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qfont_enums.HintingPreference ```
     pub fn FontHintingPreference(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
@@ -3386,6 +3428,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.UnderlineStyle ```
     pub fn UnderlineStyle(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
@@ -3404,6 +3448,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.VerticalAlignment ```
     pub fn VerticalAlignment(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
@@ -3432,7 +3478,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = qtc.struct_libqt_string{
+        const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
@@ -3530,7 +3576,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, value: []const u8 ```
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -3556,7 +3602,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtextimageformat.SetAnchorNames: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qtextimageformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -3564,7 +3610,7 @@ pub const qtextimageformat = struct {
                 .data = item.ptr,
             };
         }
-        const names_list = qtc.struct_libqt_list{
+        const names_list = qtc.libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
@@ -3577,8 +3623,8 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3830,7 +3876,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextimageformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -3844,7 +3890,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -3857,7 +3903,7 @@ pub const qtextimageformat = struct {
     ///
     /// ``` self: QtC.QTextImageFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -4068,6 +4114,8 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextImageFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
@@ -4162,6 +4210,8 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#position)
     ///
     /// ``` self: QtC.QTextFrameFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.Position ```
     pub fn Position(self: ?*anyopaque) i64 {
         return qtc.QTextFrameFormat_Position(@ptrCast(self));
     }
@@ -4204,6 +4254,8 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#borderStyle)
     ///
     /// ``` self: QtC.QTextFrameFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.BorderStyle ```
     pub fn BorderStyle(self: ?*anyopaque) i64 {
         return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self));
     }
@@ -4336,7 +4388,7 @@ pub const qtextframeformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPageBreakPolicy)
     ///
-    /// ``` self: QtC.QTextFrameFormat, flags: i32 ```
+    /// ``` self: QtC.QTextFrameFormat, flags: flag of qtextformat_enums.PageBreakFlag ```
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
         qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
@@ -4344,6 +4396,8 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#pageBreakPolicy)
     ///
     /// ``` self: QtC.QTextFrameFormat ```
+    ///
+    /// Returns: ``` flag of qtextformat_enums.PageBreakFlag ```
     pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
         return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
     }
@@ -4529,7 +4583,7 @@ pub const qtextframeformat = struct {
     ///
     /// ``` self: QtC.QTextFrameFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtextframeformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -4543,7 +4597,7 @@ pub const qtextframeformat = struct {
     ///
     /// ``` self: QtC.QTextFrameFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -4556,7 +4610,7 @@ pub const qtextframeformat = struct {
     ///
     /// ``` self: QtC.QTextFrameFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -4767,6 +4821,8 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextFrameFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
@@ -4869,7 +4925,7 @@ pub const qtexttableformat = struct {
     ///
     /// ``` self: QtC.QTextTableFormat, constraints: []QtC.QTextLength ```
     pub fn SetColumnWidthConstraints(self: ?*anyopaque, constraints: []QtC.QTextLength) void {
-        const constraints_list = qtc.struct_libqt_list{
+        const constraints_list = qtc.libqt_list{
             .len = constraints.len,
             .data = @ptrCast(constraints.ptr),
         };
@@ -4880,7 +4936,7 @@ pub const qtexttableformat = struct {
     ///
     /// ``` self: QtC.QTextTableFormat, allocator: std.mem.Allocator ```
     pub fn ColumnWidthConstraints(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextTableFormat_ColumnWidthConstraints(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextTableFormat_ColumnWidthConstraints(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttableformat.ColumnWidthConstraints: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -4925,7 +4981,7 @@ pub const qtexttableformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#setAlignment)
     ///
-    /// ``` self: QtC.QTextTableFormat, alignment: i32 ```
+    /// ``` self: QtC.QTextTableFormat, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
         qtc.QTextTableFormat_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
@@ -4933,6 +4989,8 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttableformat.html#alignment)
     ///
     /// ``` self: QtC.QTextTableFormat ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QTextTableFormat_Alignment(@ptrCast(self));
     }
@@ -4979,6 +5037,8 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#position)
     ///
     /// ``` self: QtC.QTextTableFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.Position ```
     pub fn Position(self: ?*anyopaque) i64 {
         return qtc.QTextFrameFormat_Position(@ptrCast(self));
     }
@@ -5033,6 +5093,8 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#borderStyle)
     ///
     /// ``` self: QtC.QTextTableFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.BorderStyle ```
     pub fn BorderStyle(self: ?*anyopaque) i64 {
         return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self));
     }
@@ -5203,7 +5265,7 @@ pub const qtexttableformat = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPageBreakPolicy)
     ///
-    /// ``` self: QtC.QTextTableFormat, flags: i32 ```
+    /// ``` self: QtC.QTextTableFormat, flags: flag of qtextformat_enums.PageBreakFlag ```
     pub fn SetPageBreakPolicy(self: ?*anyopaque, flags: i64) void {
         qtc.QTextFrameFormat_SetPageBreakPolicy(@ptrCast(self), @intCast(flags));
     }
@@ -5213,6 +5275,8 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#pageBreakPolicy)
     ///
     /// ``` self: QtC.QTextTableFormat ```
+    ///
+    /// Returns: ``` flag of qtextformat_enums.PageBreakFlag ```
     pub fn PageBreakPolicy(self: ?*anyopaque) i64 {
         return qtc.QTextFrameFormat_PageBreakPolicy(@ptrCast(self));
     }
@@ -5398,7 +5462,7 @@ pub const qtexttableformat = struct {
     ///
     /// ``` self: QtC.QTextTableFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttableformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -5412,7 +5476,7 @@ pub const qtexttableformat = struct {
     ///
     /// ``` self: QtC.QTextTableFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -5425,7 +5489,7 @@ pub const qtexttableformat = struct {
     ///
     /// ``` self: QtC.QTextTableFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -5636,6 +5700,8 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextTableFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
@@ -5856,6 +5922,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#topBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.BorderStyle ```
     pub fn TopBorderStyle(self: ?*anyopaque) i64 {
         return qtc.QTextTableCellFormat_TopBorderStyle(@ptrCast(self));
     }
@@ -5870,6 +5938,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#bottomBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.BorderStyle ```
     pub fn BottomBorderStyle(self: ?*anyopaque) i64 {
         return qtc.QTextTableCellFormat_BottomBorderStyle(@ptrCast(self));
     }
@@ -5884,6 +5954,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#leftBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.BorderStyle ```
     pub fn LeftBorderStyle(self: ?*anyopaque) i64 {
         return qtc.QTextTableCellFormat_LeftBorderStyle(@ptrCast(self));
     }
@@ -5898,6 +5970,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#rightBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.BorderStyle ```
     pub fn RightBorderStyle(self: ?*anyopaque) i64 {
         return qtc.QTextTableCellFormat_RightBorderStyle(@ptrCast(self));
     }
@@ -5996,7 +6070,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, family: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, family: []const u8) void {
-        const family_str = qtc.struct_libqt_string{
+        const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
         };
@@ -6022,7 +6096,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFontFamilies(self: ?*anyopaque, families: [][]const u8, allocator: std.mem.Allocator) void {
-        var families_arr = allocator.alloc(qtc.struct_libqt_string, families.len) catch @panic("qtexttablecellformat.SetFontFamilies: Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qtexttablecellformat.SetFontFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
             families_arr[i] = .{
@@ -6030,7 +6104,7 @@ pub const qtexttablecellformat = struct {
                 .data = item.ptr,
             };
         }
-        const families_list = qtc.struct_libqt_list{
+        const families_list = qtc.libqt_list{
             .len = families.len,
             .data = families_arr.ptr,
         };
@@ -6052,7 +6126,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, styleName: []const u8 ```
     pub fn SetFontStyleName(self: ?*anyopaque, styleName: []const u8) void {
-        const styleName_str = qtc.struct_libqt_string{
+        const styleName_str = qtc.libqt_string{
             .len = styleName.len,
             .data = styleName.ptr,
         };
@@ -6136,6 +6210,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontCapitalization)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qfont_enums.Capitalization ```
     pub fn FontCapitalization(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
@@ -6154,6 +6230,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontLetterSpacingType)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qfont_enums.SpacingType ```
     pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
@@ -6325,6 +6403,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleHint)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qfont_enums.StyleHint ```
     pub fn FontStyleHint(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
@@ -6334,6 +6414,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontStyleStrategy)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qfont_enums.StyleStrategy ```
     pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
@@ -6352,6 +6434,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#fontHintingPreference)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qfont_enums.HintingPreference ```
     pub fn FontHintingPreference(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
@@ -6388,6 +6472,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#underlineStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.UnderlineStyle ```
     pub fn UnderlineStyle(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
@@ -6406,6 +6492,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#verticalAlignment)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qtextformat_enums.VerticalAlignment ```
     pub fn VerticalAlignment(self: ?*anyopaque) i64 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
@@ -6434,7 +6522,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = qtc.struct_libqt_string{
+        const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
@@ -6532,7 +6620,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, value: []const u8 ```
     pub fn SetAnchorHref(self: ?*anyopaque, value: []const u8) void {
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -6558,7 +6646,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAnchorNames(self: ?*anyopaque, names: [][]const u8, allocator: std.mem.Allocator) void {
-        var names_arr = allocator.alloc(qtc.struct_libqt_string, names.len) catch @panic("qtexttablecellformat.SetAnchorNames: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qtexttablecellformat.SetAnchorNames: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -6566,7 +6654,7 @@ pub const qtexttablecellformat = struct {
                 .data = item.ptr,
             };
         }
-        const names_list = qtc.struct_libqt_list{
+        const names_list = qtc.libqt_list{
             .len = names.len,
             .data = names_arr.ptr,
         };
@@ -6579,8 +6667,8 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn AnchorNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QTextCharFormat_AnchorNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -6832,7 +6920,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, propertyId: i32, allocator: std.mem.Allocator ```
     pub fn LengthVectorProperty(self: ?*anyopaque, propertyId: i32, allocator: std.mem.Allocator) []QtC.QTextLength {
-        const _arr: qtc.struct_libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
+        const _arr: qtc.libqt_list = qtc.QTextFormat_LengthVectorProperty(@ptrCast(self), @intCast(propertyId));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextLength, _arr.len) catch @panic("qtexttablecellformat.LengthVectorProperty: Memory allocation failed");
         const _data: [*]QtC.QTextLength = @ptrCast(@alignCast(_arr.data));
@@ -6846,7 +6934,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, propertyId: i32, lengths: []QtC.QTextLength ```
     pub fn SetProperty2(self: ?*anyopaque, propertyId: i32, lengths: []QtC.QTextLength) void {
-        const lengths_list = qtc.struct_libqt_list{
+        const lengths_list = qtc.libqt_list{
             .len = lengths.len,
             .data = @ptrCast(lengths.ptr),
         };
@@ -6859,7 +6947,7 @@ pub const qtexttablecellformat = struct {
     ///
     /// ``` self: QtC.QTextTableCellFormat, allocator: std.mem.Allocator ```
     pub fn Properties(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QTextFormat_Properties(@ptrCast(self));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -7070,6 +7158,8 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextTableCellFormat ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }

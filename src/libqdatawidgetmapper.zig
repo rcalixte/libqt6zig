@@ -117,6 +117,8 @@ pub const qdatawidgetmapper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#orientation)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
+    ///
+    /// Returns: ``` qnamespace_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QDataWidgetMapper_Orientation(@ptrCast(self));
     }
@@ -131,6 +133,8 @@ pub const qdatawidgetmapper = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatawidgetmapper.html#submitPolicy)
     ///
     /// ``` self: QtC.QDataWidgetMapper ```
+    ///
+    /// Returns: ``` qdatawidgetmapper_enums.SubmitPolicy ```
     pub fn SubmitPolicy(self: ?*anyopaque) i64 {
         return qtc.QDataWidgetMapper_SubmitPolicy(@ptrCast(self));
     }
@@ -146,7 +150,7 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, section: i32, propertyName: []u8 ```
     pub fn AddMapping2(self: ?*anyopaque, widget: ?*anyopaque, section: i32, propertyName: []u8) void {
-        const propertyName_str = qtc.struct_libqt_string{
+        const propertyName_str = qtc.libqt_string{
             .len = propertyName.len,
             .data = propertyName.ptr,
         };
@@ -171,7 +175,7 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ``` self: QtC.QDataWidgetMapper, widget: QtC.QWidget, allocator: std.mem.Allocator ```
     pub fn MappedPropertyName(self: ?*anyopaque, widget: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QDataWidgetMapper_MappedPropertyName(@ptrCast(self), @ptrCast(widget));
+        const _bytearray: qtc.libqt_string = qtc.QDataWidgetMapper_MappedPropertyName(@ptrCast(self), @ptrCast(widget));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdatawidgetmapper.MappedPropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -332,7 +336,7 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ``` self: QtC.QDataWidgetMapper, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -435,7 +439,7 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdatawidgetmapper.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -552,8 +556,8 @@ pub const qdatawidgetmapper = struct {
     ///
     /// ``` self: QtC.QDataWidgetMapper, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

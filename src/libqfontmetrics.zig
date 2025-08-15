@@ -149,7 +149,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, param1: []const u8 ```
     pub fn HorizontalAdvance(self: ?*anyopaque, param1: []const u8) i32 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -160,7 +160,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, param1: []const u8, textOption: QtC.QTextOption ```
     pub fn HorizontalAdvance2(self: ?*anyopaque, param1: []const u8, textOption: ?*anyopaque) i32 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -185,7 +185,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8 ```
     pub fn BoundingRect2(self: ?*anyopaque, text: []const u8) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -196,7 +196,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8, textOption: QtC.QTextOption ```
     pub fn BoundingRect3(self: ?*anyopaque, text: []const u8, textOption: ?*anyopaque) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -207,7 +207,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, r: QtC.QRect, flags: i32, text: []const u8 ```
     pub fn BoundingRect4(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -218,7 +218,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8 ```
     pub fn BoundingRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -229,7 +229,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, flags: i32, str: []const u8 ```
     pub fn Size(self: ?*anyopaque, flags: i32, str: []const u8) QtC.QSize {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -240,7 +240,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8 ```
     pub fn TightBoundingRect(self: ?*anyopaque, text: []const u8) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -251,7 +251,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8, textOption: QtC.QTextOption ```
     pub fn TightBoundingRect2(self: ?*anyopaque, text: []const u8, textOption: ?*anyopaque) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -262,7 +262,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8, mode: qnamespace_enums.TextElideMode, width: i32, allocator: std.mem.Allocator ```
     pub fn ElidedText(self: ?*anyopaque, text: []const u8, mode: i64, width: i32, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -326,7 +326,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, param1: []const u8, lenVal: i32 ```
     pub fn HorizontalAdvance22(self: ?*anyopaque, param1: []const u8, lenVal: i32) i32 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -337,7 +337,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, r: QtC.QRect, flags: i32, text: []const u8, tabstops: i32 ```
     pub fn BoundingRect42(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, tabstops: i32) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -348,7 +348,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, r: QtC.QRect, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32 ```
     pub fn BoundingRect52(self: ?*anyopaque, r: ?*anyopaque, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -359,7 +359,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32 ```
     pub fn BoundingRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -370,7 +370,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32 ```
     pub fn BoundingRect8(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, tabstops: i32, tabarray: *i32) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -381,7 +381,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, flags: i32, str: []const u8, tabstops: i32 ```
     pub fn Size3(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32) QtC.QSize {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -392,7 +392,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32 ```
     pub fn Size4(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QtC.QSize {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -403,7 +403,7 @@ pub const qfontmetrics = struct {
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8, mode: qnamespace_enums.TextElideMode, width: i32, flags: i32, allocator: std.mem.Allocator ```
     pub fn ElidedText4(self: ?*anyopaque, text: []const u8, mode: i64, width: i32, flags: i32, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -584,7 +584,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, stringVal: []const u8 ```
     pub fn HorizontalAdvance(self: ?*anyopaque, stringVal: []const u8) f64 {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -602,7 +602,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, stringVal: []const u8, textOption: QtC.QTextOption ```
     pub fn HorizontalAdvance3(self: ?*anyopaque, stringVal: []const u8, textOption: ?*anyopaque) f64 {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -613,7 +613,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, stringVal: []const u8 ```
     pub fn BoundingRect(self: ?*anyopaque, stringVal: []const u8) QtC.QRectF {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -624,7 +624,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, text: []const u8, textOption: QtC.QTextOption ```
     pub fn BoundingRect2(self: ?*anyopaque, text: []const u8, textOption: ?*anyopaque) QtC.QRectF {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -642,7 +642,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, r: QtC.QRectF, flags: i32, stringVal: []const u8 ```
     pub fn BoundingRect4(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8) QtC.QRectF {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -653,7 +653,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, flags: i32, str: []const u8 ```
     pub fn Size(self: ?*anyopaque, flags: i32, str: []const u8) QtC.QSizeF {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -664,7 +664,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, text: []const u8 ```
     pub fn TightBoundingRect(self: ?*anyopaque, text: []const u8) QtC.QRectF {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -675,7 +675,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, text: []const u8, textOption: QtC.QTextOption ```
     pub fn TightBoundingRect2(self: ?*anyopaque, text: []const u8, textOption: ?*anyopaque) QtC.QRectF {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -686,7 +686,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, text: []const u8, mode: qnamespace_enums.TextElideMode, width: f64, allocator: std.mem.Allocator ```
     pub fn ElidedText(self: ?*anyopaque, text: []const u8, mode: i64, width: f64, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -750,7 +750,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, stringVal: []const u8, length: i32 ```
     pub fn HorizontalAdvance22(self: ?*anyopaque, stringVal: []const u8, length: i32) f64 {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -761,7 +761,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, r: QtC.QRectF, flags: i32, stringVal: []const u8, tabstops: i32 ```
     pub fn BoundingRect42(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8, tabstops: i32) QtC.QRectF {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -772,7 +772,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, r: QtC.QRectF, flags: i32, stringVal: []const u8, tabstops: i32, tabarray: *i32 ```
     pub fn BoundingRect5(self: ?*anyopaque, r: ?*anyopaque, flags: i32, stringVal: []const u8, tabstops: i32, tabarray: *i32) QtC.QRectF {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -783,7 +783,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, flags: i32, str: []const u8, tabstops: i32 ```
     pub fn Size3(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32) QtC.QSizeF {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -794,7 +794,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32 ```
     pub fn Size4(self: ?*anyopaque, flags: i32, str: []const u8, tabstops: i32, tabarray: *i32) QtC.QSizeF {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -805,7 +805,7 @@ pub const qfontmetricsf = struct {
     ///
     /// ``` self: QtC.QFontMetricsF, text: []const u8, mode: qnamespace_enums.TextElideMode, width: f64, flags: i32, allocator: std.mem.Allocator ```
     pub fn ElidedText4(self: ?*anyopaque, text: []const u8, mode: i64, width: f64, flags: i32, allocator: std.mem.Allocator) []const u8 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };

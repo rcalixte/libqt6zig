@@ -39,7 +39,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` data: []u8 ```
     pub fn New5(data: []u8) QtC.QSslCertificate {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -51,7 +51,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` data: []u8, format: qssl_enums.EncodingFormat ```
     pub fn New6(data: []u8, format: i64) QtC.QSslCertificate {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -119,7 +119,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn Version(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslCertificate_Version(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QSslCertificate_Version(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.Version: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -130,7 +130,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn SerialNumber(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslCertificate_SerialNumber(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QSslCertificate_SerialNumber(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.SerialNumber: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -141,7 +141,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn Digest(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslCertificate_Digest(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QSslCertificate_Digest(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.Digest: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -152,8 +152,8 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, info: qsslcertificate_enums.SubjectInfo, allocator: std.mem.Allocator ```
     pub fn IssuerInfo(self: ?*anyopaque, info: i64, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_IssuerInfo(@ptrCast(self), @intCast(info));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_IssuerInfo(@ptrCast(self), @intCast(info));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -174,12 +174,12 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, attribute: []u8, allocator: std.mem.Allocator ```
     pub fn IssuerInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) [][]const u8 {
-        const attribute_str = qtc.struct_libqt_string{
+        const attribute_str = qtc.libqt_string{
             .len = attribute.len,
             .data = attribute.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_IssuerInfo2(@ptrCast(self), attribute_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_IssuerInfo2(@ptrCast(self), attribute_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -200,8 +200,8 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, info: qsslcertificate_enums.SubjectInfo, allocator: std.mem.Allocator ```
     pub fn SubjectInfo(self: ?*anyopaque, info: i64, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_SubjectInfo(@ptrCast(self), @intCast(info));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_SubjectInfo(@ptrCast(self), @intCast(info));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -222,12 +222,12 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, attribute: []u8, allocator: std.mem.Allocator ```
     pub fn SubjectInfo2(self: ?*anyopaque, attribute: []u8, allocator: std.mem.Allocator) [][]const u8 {
-        const attribute_str = qtc.struct_libqt_string{
+        const attribute_str = qtc.libqt_string{
             .len = attribute.len,
             .data = attribute.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_SubjectInfo2(@ptrCast(self), attribute_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_SubjectInfo2(@ptrCast(self), attribute_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -270,8 +270,8 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn SubjectInfoAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_SubjectInfoAttributes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_SubjectInfoAttributes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -292,8 +292,8 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn IssuerInfoAttributes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_IssuerInfoAttributes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_IssuerInfoAttributes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -335,7 +335,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn Extensions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificateExtension {
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_Extensions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_Extensions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificateExtension, _arr.len) catch @panic("qsslcertificate.Extensions: Memory allocation failed");
         const _data: [*]QtC.QSslCertificateExtension = @ptrCast(@alignCast(_arr.data));
@@ -347,7 +347,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn ToPem(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslCertificate_ToPem(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QSslCertificate_ToPem(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.ToPem: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -358,7 +358,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn ToDer(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslCertificate_ToDer(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QSslCertificate_ToDer(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.ToDer: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -380,11 +380,11 @@ pub const qsslcertificate = struct {
     ///
     /// ``` path: []const u8, allocator: std.mem.Allocator ```
     pub fn FromPath(path: []const u8, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_FromPath(path_str);
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_FromPath(path_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromPath: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
@@ -396,7 +396,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` device: QtC.QIODevice, allocator: std.mem.Allocator ```
     pub fn FromDevice(device: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_FromDevice(@ptrCast(device));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_FromDevice(@ptrCast(device));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromDevice: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
@@ -408,11 +408,11 @@ pub const qsslcertificate = struct {
     ///
     /// ``` data: []u8, allocator: std.mem.Allocator ```
     pub fn FromData(data: []u8, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_FromData(data_str);
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_FromData(data_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromData: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
@@ -424,11 +424,11 @@ pub const qsslcertificate = struct {
     ///
     /// ``` certificateChain: []QtC.QSslCertificate, allocator: std.mem.Allocator ```
     pub fn Verify(certificateChain: []QtC.QSslCertificate, allocator: std.mem.Allocator) []QtC.QSslError {
-        const certificateChain_list = qtc.struct_libqt_list{
+        const certificateChain_list = qtc.libqt_list{
             .len = certificateChain.len,
             .data = @ptrCast(certificateChain.ptr),
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_Verify(certificateChain_list);
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_Verify(certificateChain_list);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslError, _arr.len) catch @panic("qsslcertificate.Verify: Memory allocation failed");
         const _data: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
@@ -454,7 +454,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` self: QtC.QSslCertificate, algorithm: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
     pub fn Digest1(self: ?*anyopaque, algorithm: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslCertificate_Digest1(@ptrCast(self), @intCast(algorithm));
+        const _bytearray: qtc.libqt_string = qtc.QSslCertificate_Digest1(@ptrCast(self), @intCast(algorithm));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.Digest1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -465,11 +465,11 @@ pub const qsslcertificate = struct {
     ///
     /// ``` path: []const u8, format: qssl_enums.EncodingFormat, allocator: std.mem.Allocator ```
     pub fn FromPath2(path: []const u8, format: i64, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_FromPath2(path_str, @intCast(format));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_FromPath2(path_str, @intCast(format));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromPath2: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
@@ -481,11 +481,11 @@ pub const qsslcertificate = struct {
     ///
     /// ``` path: []const u8, format: qssl_enums.EncodingFormat, syntax: qsslcertificate_enums.PatternSyntax, allocator: std.mem.Allocator ```
     pub fn FromPath3(path: []const u8, format: i64, syntax: i64, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_FromPath3(path_str, @intCast(format), @intCast(syntax));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_FromPath3(path_str, @intCast(format), @intCast(syntax));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromPath3: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
@@ -497,7 +497,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` device: QtC.QIODevice, format: qssl_enums.EncodingFormat, allocator: std.mem.Allocator ```
     pub fn FromDevice2(device: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_FromDevice2(@ptrCast(device), @intCast(format));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_FromDevice2(@ptrCast(device), @intCast(format));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromDevice2: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
@@ -509,11 +509,11 @@ pub const qsslcertificate = struct {
     ///
     /// ``` data: []u8, format: qssl_enums.EncodingFormat, allocator: std.mem.Allocator ```
     pub fn FromData2(data: []u8, format: i64, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_FromData2(data_str, @intCast(format));
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_FromData2(data_str, @intCast(format));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromData2: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
@@ -525,15 +525,15 @@ pub const qsslcertificate = struct {
     ///
     /// ``` certificateChain: []QtC.QSslCertificate, hostName: []const u8, allocator: std.mem.Allocator ```
     pub fn Verify2(certificateChain: []QtC.QSslCertificate, hostName: []const u8, allocator: std.mem.Allocator) []QtC.QSslError {
-        const certificateChain_list = qtc.struct_libqt_list{
+        const certificateChain_list = qtc.libqt_list{
             .len = certificateChain.len,
             .data = @ptrCast(certificateChain.ptr),
         };
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QSslCertificate_Verify2(certificateChain_list, hostName_str);
+        const _arr: qtc.libqt_list = qtc.QSslCertificate_Verify2(certificateChain_list, hostName_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslError, _arr.len) catch @panic("qsslcertificate.Verify2: Memory allocation failed");
         const _data: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
@@ -545,7 +545,7 @@ pub const qsslcertificate = struct {
     ///
     /// ``` device: QtC.QIODevice, key: QtC.QSslKey, cert: QtC.QSslCertificate, caCertificates: []QtC.QSslCertificate ```
     pub fn ImportPkcs124(device: ?*anyopaque, key: ?*anyopaque, cert: ?*anyopaque, caCertificates: []QtC.QSslCertificate) bool {
-        const caCertificates_list = qtc.struct_libqt_list{
+        const caCertificates_list = qtc.libqt_list{
             .len = caCertificates.len,
             .data = @ptrCast(caCertificates.ptr),
         };
@@ -556,11 +556,11 @@ pub const qsslcertificate = struct {
     ///
     /// ``` device: QtC.QIODevice, key: QtC.QSslKey, cert: QtC.QSslCertificate, caCertificates: []QtC.QSslCertificate, passPhrase: []u8 ```
     pub fn ImportPkcs125(device: ?*anyopaque, key: ?*anyopaque, cert: ?*anyopaque, caCertificates: []QtC.QSslCertificate, passPhrase: []u8) bool {
-        const caCertificates_list = qtc.struct_libqt_list{
+        const caCertificates_list = qtc.libqt_list{
             .len = caCertificates.len,
             .data = @ptrCast(caCertificates.ptr),
         };
-        const passPhrase_str = qtc.struct_libqt_string{
+        const passPhrase_str = qtc.libqt_string{
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };

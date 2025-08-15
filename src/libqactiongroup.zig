@@ -69,7 +69,7 @@ pub const qactiongroup = struct {
     ///
     /// ``` self: QtC.QActionGroup, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -80,7 +80,7 @@ pub const qactiongroup = struct {
     ///
     /// ``` self: QtC.QActionGroup, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -98,7 +98,7 @@ pub const qactiongroup = struct {
     ///
     /// ``` self: QtC.QActionGroup, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QActionGroup_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QActionGroup_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qactiongroup.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -137,6 +137,8 @@ pub const qactiongroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qactiongroup.html#exclusionPolicy)
     ///
     /// ``` self: QtC.QActionGroup ```
+    ///
+    /// Returns: ``` qactiongroup_enums.ExclusionPolicy ```
     pub fn ExclusionPolicy(self: ?*anyopaque) i64 {
         return qtc.QActionGroup_ExclusionPolicy(@ptrCast(self));
     }
@@ -249,7 +251,7 @@ pub const qactiongroup = struct {
     ///
     /// ``` self: QtC.QActionGroup, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -352,7 +354,7 @@ pub const qactiongroup = struct {
     ///
     /// ``` self: QtC.QActionGroup, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qactiongroup.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -469,8 +471,8 @@ pub const qactiongroup = struct {
     ///
     /// ``` self: QtC.QActionGroup, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

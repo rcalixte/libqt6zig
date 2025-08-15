@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qgesturerecognizer_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 
 /// https://doc.qt.io/qt-6/qgesturerecognizer.html
@@ -39,6 +40,8 @@ pub const qgesturerecognizer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
     ///
     /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
+    ///
+    /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
     pub fn Recognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
         return qtc.QGestureRecognizer_Recognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
@@ -57,6 +60,8 @@ pub const qgesturerecognizer = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent ```
+    ///
+    /// Returns: ``` flag of qgesturerecognizer_enums.ResultFlag ```
     pub fn QBaseRecognize(self: ?*anyopaque, state: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) i64 {
         return qtc.QGestureRecognizer_QBaseRecognize(@ptrCast(self), @ptrCast(state), @ptrCast(watched), @ptrCast(event));
     }
@@ -89,6 +94,8 @@ pub const qgesturerecognizer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#registerRecognizer)
     ///
     /// ``` recognizer: QtC.QGestureRecognizer ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn RegisterRecognizer(recognizer: ?*anyopaque) i64 {
         return qtc.QGestureRecognizer_RegisterRecognizer(@ptrCast(recognizer));
     }

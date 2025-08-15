@@ -42,6 +42,8 @@ pub const qelapsedtimer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qelapsedtimer.html#clockType)
     ///
     ///
+    ///
+    /// Returns: ``` qelapsedtimer_enums.ClockType ```
     pub fn ClockType() i64 {
         return qtc.QElapsedTimer_ClockType();
     }

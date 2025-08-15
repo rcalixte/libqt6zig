@@ -51,7 +51,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` text: []const u8 ```
     pub fn New2(text: []const u8) QtC.QTextDocument {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -70,7 +70,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` text: []const u8, parent: QtC.QObject ```
     pub fn New4(text: []const u8, parent: ?*anyopaque) QtC.QTextDocument {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -228,7 +228,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, info: qtextdocument_enums.MetaInformation, param2: []const u8 ```
     pub fn SetMetaInformation(self: ?*anyopaque, info: i64, param2: []const u8) void {
-        const param2_str = qtc.struct_libqt_string{
+        const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
         };
@@ -261,7 +261,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, html: []const u8 ```
     pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
-        const html_str = qtc.struct_libqt_string{
+        const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
@@ -283,7 +283,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, markdown: []const u8 ```
     pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
-        const markdown_str = qtc.struct_libqt_string{
+        const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
@@ -316,7 +316,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, text: []const u8 ```
     pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -334,7 +334,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, subString: []const u8 ```
     pub fn Find(self: ?*anyopaque, subString: []const u8) QtC.QTextCursor {
-        const subString_str = qtc.struct_libqt_string{
+        const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
@@ -345,7 +345,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, subString: []const u8, cursor: QtC.QTextCursor ```
     pub fn Find2(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque) QtC.QTextCursor {
-        const subString_str = qtc.struct_libqt_string{
+        const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
@@ -552,7 +552,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn AllFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextFormat {
-        const _arr: qtc.struct_libqt_list = qtc.QTextDocument_AllFormats(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextDocument_AllFormats(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextFormat, _arr.len) catch @panic("qtextdocument.AllFormats: Memory allocation failed");
         const _data: [*]QtC.QTextFormat = @ptrCast(@alignCast(_arr.data));
@@ -690,7 +690,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, sheet: []const u8 ```
     pub fn SetDefaultStyleSheet(self: ?*anyopaque, sheet: []const u8) void {
-        const sheet_str = qtc.struct_libqt_string{
+        const sheet_str = qtc.libqt_string{
             .len = sheet.len,
             .data = sheet.ptr,
         };
@@ -774,6 +774,8 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#defaultCursorMoveStyle)
     ///
     /// ``` self: QtC.QTextDocument ```
+    ///
+    /// Returns: ``` qnamespace_enums.CursorMoveStyle ```
     pub fn DefaultCursorMoveStyle(self: ?*anyopaque) i64 {
         return qtc.QTextDocument_DefaultCursorMoveStyle(@ptrCast(self));
     }
@@ -1038,7 +1040,7 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#toMarkdown)
     ///
-    /// ``` self: QtC.QTextDocument, features: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextDocument, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
     pub fn ToMarkdown1(self: ?*anyopaque, features: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_ToMarkdown1(@ptrCast(self), @intCast(features));
         defer qtc.libqt_string_free(&_str);
@@ -1049,9 +1051,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#setMarkdown)
     ///
-    /// ``` self: QtC.QTextDocument, markdown: []const u8, features: i32 ```
+    /// ``` self: QtC.QTextDocument, markdown: []const u8, features: flag of qtextdocument_enums.MarkdownFeature ```
     pub fn SetMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i64) void {
-        const markdown_str = qtc.struct_libqt_string{
+        const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
@@ -1062,7 +1064,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, subString: []const u8, from: i32 ```
     pub fn Find22(self: ?*anyopaque, subString: []const u8, from: i32) QtC.QTextCursor {
-        const subString_str = qtc.struct_libqt_string{
+        const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
@@ -1071,9 +1073,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
-    /// ``` self: QtC.QTextDocument, subString: []const u8, from: i32, options: i32 ```
+    /// ``` self: QtC.QTextDocument, subString: []const u8, from: i32, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find32(self: ?*anyopaque, subString: []const u8, from: i32, options: i64) QtC.QTextCursor {
-        const subString_str = qtc.struct_libqt_string{
+        const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
@@ -1082,9 +1084,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
-    /// ``` self: QtC.QTextDocument, subString: []const u8, cursor: QtC.QTextCursor, options: i32 ```
+    /// ``` self: QtC.QTextDocument, subString: []const u8, cursor: QtC.QTextCursor, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find33(self: ?*anyopaque, subString: []const u8, cursor: ?*anyopaque, options: i64) QtC.QTextCursor {
-        const subString_str = qtc.struct_libqt_string{
+        const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
@@ -1100,14 +1102,14 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
-    /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression, from: i32, options: i32 ```
+    /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression, from: i32, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find34(self: ?*anyopaque, expr: ?*anyopaque, from: i32, options: i64) QtC.QTextCursor {
         return qtc.QTextDocument_Find34(@ptrCast(self), @ptrCast(expr), @intCast(from), @intCast(options));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#find)
     ///
-    /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression, cursor: QtC.QTextCursor, options: i32 ```
+    /// ``` self: QtC.QTextDocument, expr: QtC.QRegularExpression, cursor: QtC.QTextCursor, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find35(self: ?*anyopaque, expr: ?*anyopaque, cursor: ?*anyopaque, options: i64) QtC.QTextCursor {
         return qtc.QTextDocument_Find35(@ptrCast(self), @ptrCast(expr), @ptrCast(cursor), @intCast(options));
     }
@@ -1152,7 +1154,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1255,7 +1257,7 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextdocument.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1372,8 +1374,8 @@ pub const qtextdocument = struct {
     ///
     /// ``` self: QtC.QTextDocument, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -55,7 +55,7 @@ pub const qauthenticator = struct {
     ///
     /// ``` self: QtC.QAuthenticator, user: []const u8 ```
     pub fn SetUser(self: ?*anyopaque, user: []const u8) void {
-        const user_str = qtc.struct_libqt_string{
+        const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
         };
@@ -77,7 +77,7 @@ pub const qauthenticator = struct {
     ///
     /// ``` self: QtC.QAuthenticator, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
-        const password_str = qtc.struct_libqt_string{
+        const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
@@ -99,7 +99,7 @@ pub const qauthenticator = struct {
     ///
     /// ``` self: QtC.QAuthenticator, realm: []const u8 ```
     pub fn SetRealm(self: ?*anyopaque, realm: []const u8) void {
-        const realm_str = qtc.struct_libqt_string{
+        const realm_str = qtc.libqt_string{
             .len = realm.len,
             .data = realm.ptr,
         };
@@ -110,7 +110,7 @@ pub const qauthenticator = struct {
     ///
     /// ``` self: QtC.QAuthenticator, opt: []const u8 ```
     pub fn Option(self: ?*anyopaque, opt: []const u8) QtC.QVariant {
-        const opt_str = qtc.struct_libqt_string{
+        const opt_str = qtc.libqt_string{
             .len = opt.len,
             .data = opt.ptr,
         };
@@ -121,17 +121,17 @@ pub const qauthenticator = struct {
     ///
     /// ``` self: QtC.QAuthenticator, allocator: std.mem.Allocator ```
     pub fn Options(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QAuthenticator_Options(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QAuthenticator_Options(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
-            const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
-        const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
@@ -147,7 +147,7 @@ pub const qauthenticator = struct {
     ///
     /// ``` self: QtC.QAuthenticator, opt: []const u8, value: QtC.QVariant ```
     pub fn SetOption(self: ?*anyopaque, opt: []const u8, value: ?*anyopaque) void {
-        const opt_str = qtc.struct_libqt_string{
+        const opt_str = qtc.libqt_string{
             .len = opt.len,
             .data = opt.ptr,
         };

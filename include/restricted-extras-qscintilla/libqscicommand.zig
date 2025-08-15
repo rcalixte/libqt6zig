@@ -8,6 +8,8 @@ pub const qscicommand = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommand.html)
     ///
     /// ``` self: QtC.QsciCommand ```
+    ///
+    /// Returns: ``` qscicommand_enums.Command ```
     pub fn Command(self: ?*anyopaque) i64 {
         return qtc.QsciCommand_Command(@ptrCast(self));
     }

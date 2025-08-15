@@ -117,7 +117,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` ba: []u8 ```
     pub fn New9(ba: []u8) QtC.QCborValue {
-        const ba_str = qtc.struct_libqt_string{
+        const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
         };
@@ -129,7 +129,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` s: []const u8 ```
     pub fn New10(s: []const u8) QtC.QCborValue {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -240,6 +240,8 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#type)
     ///
     /// ``` self: QtC.QCborValue ```
+    ///
+    /// Returns: ``` qcborvalue_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QCborValue_Type(@ptrCast(self));
     }
@@ -387,6 +389,8 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValue ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
     pub fn ToSimpleType(self: ?*anyopaque) i64 {
         return qtc.QCborValue_ToSimpleType(@ptrCast(self));
     }
@@ -415,6 +419,8 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#tag)
     ///
     /// ``` self: QtC.QCborValue ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborTag ```
     pub fn Tag(self: ?*anyopaque) i64 {
         return qtc.QCborValue_Tag(@ptrCast(self));
     }
@@ -430,7 +436,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` self: QtC.QCborValue, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValue_ToByteArray(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -508,7 +514,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` self: QtC.QCborValue, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -533,7 +539,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` self: QtC.QCborValue, key: []const u8 ```
     pub fn OperatorSubscript6(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -586,7 +592,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` ba: []u8 ```
     pub fn FromCbor2(ba: []u8) QtC.QCborValue {
-        const ba_str = qtc.struct_libqt_string{
+        const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
         };
@@ -612,7 +618,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` self: QtC.QCborValue, allocator: std.mem.Allocator ```
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValue_ToCbor(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -640,6 +646,8 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: qcborcommon_enums.QCborSimpleType ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
     pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValue_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
@@ -668,6 +676,8 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#tag)
     ///
     /// ``` self: QtC.QCborValue, defaultValue: qcborcommon_enums.QCborTag ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborTag ```
     pub fn Tag1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValue_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
@@ -683,11 +693,11 @@ pub const qcborvalue = struct {
     ///
     /// ``` self: QtC.QCborValue, defaultValue: []u8, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValue_ToByteArray1(@ptrCast(self), defaultValue_str);
+        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -698,7 +708,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` self: QtC.QCborValue, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -741,7 +751,7 @@ pub const qcborvalue = struct {
     ///
     /// ``` ba: []u8, errorVal: QtC.QCborParserError ```
     pub fn FromCbor22(ba: []u8, errorVal: ?*anyopaque) QtC.QCborValue {
-        const ba_str = qtc.struct_libqt_string{
+        const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
         };
@@ -765,9 +775,9 @@ pub const qcborvalue = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
-    /// ``` self: QtC.QCborValue, opt: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QCborValue, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
     pub fn ToCbor1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValue_ToCbor1(@ptrCast(self), @intCast(opt));
+        const _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalue.ToCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -776,14 +786,14 @@ pub const qcborvalue = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
-    /// ``` self: QtC.QCborValue, writer: QtC.QCborStreamWriter, opt: i32 ```
+    /// ``` self: QtC.QCborValue, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
     pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i64) void {
         qtc.QCborValue_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
     ///
-    /// ``` self: QtC.QCborValue, opts: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QCborValue, opts: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opts: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCborValue_ToDiagnosticNotation1(@ptrCast(self), @intCast(opts));
         defer qtc.libqt_string_free(&_str);
@@ -828,6 +838,8 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#type)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
+    ///
+    /// Returns: ``` qcborvalue_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QCborValueConstRef_Type(@ptrCast(self));
     }
@@ -975,6 +987,8 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
     pub fn ToSimpleType(self: ?*anyopaque) i64 {
         return qtc.QCborValueConstRef_ToSimpleType(@ptrCast(self));
     }
@@ -982,6 +996,8 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
     ///
     /// ``` self: QtC.QCborValueConstRef ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborTag ```
     pub fn Tag(self: ?*anyopaque) i64 {
         return qtc.QCborValueConstRef_Tag(@ptrCast(self));
     }
@@ -1018,7 +1034,7 @@ pub const qcborvalueconstref = struct {
     ///
     /// ``` self: QtC.QCborValueConstRef, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueConstRef_ToByteArray(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1096,7 +1112,7 @@ pub const qcborvalueconstref = struct {
     ///
     /// ``` self: QtC.QCborValueConstRef, key: []const u8 ```
     pub fn OperatorSubscript(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -1135,7 +1151,7 @@ pub const qcborvalueconstref = struct {
     ///
     /// ``` self: QtC.QCborValueConstRef, allocator: std.mem.Allocator ```
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueConstRef_ToCbor(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1163,6 +1179,8 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: qcborcommon_enums.QCborSimpleType ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
     pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValueConstRef_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
@@ -1170,6 +1188,8 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: qcborcommon_enums.QCborTag ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborTag ```
     pub fn Tag1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValueConstRef_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
@@ -1206,11 +1226,11 @@ pub const qcborvalueconstref = struct {
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: []u8, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueConstRef_ToByteArray1(@ptrCast(self), defaultValue_str);
+        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1221,7 +1241,7 @@ pub const qcborvalueconstref = struct {
     ///
     /// ``` self: QtC.QCborValueConstRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -1262,9 +1282,9 @@ pub const qcborvalueconstref = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
-    /// ``` self: QtC.QCborValueConstRef, opt: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QCborValueConstRef, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
     pub fn ToCbor1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueConstRef_ToCbor1(@ptrCast(self), @intCast(opt));
+        const _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueconstref.ToCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1273,14 +1293,14 @@ pub const qcborvalueconstref = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
-    /// ``` self: QtC.QCborValueConstRef, writer: QtC.QCborStreamWriter, opt: i32 ```
+    /// ``` self: QtC.QCborValueConstRef, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
     pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i64) void {
         qtc.QCborValueConstRef_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
     ///
-    /// ``` self: QtC.QCborValueConstRef, opt: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QCborValueConstRef, opt: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCborValueConstRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_str);
@@ -1347,7 +1367,7 @@ pub const qcborvalueref = struct {
     ///
     /// ``` self: QtC.QCborValueRef, key: []const u8 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -1364,6 +1384,8 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#type)
     ///
     /// ``` self: QtC.QCborValueRef ```
+    ///
+    /// Returns: ``` qcborvalue_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QCborValueRef_Type(@ptrCast(self));
     }
@@ -1511,6 +1533,8 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueRef ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
     pub fn ToSimpleType(self: ?*anyopaque) i64 {
         return qtc.QCborValueRef_ToSimpleType(@ptrCast(self));
     }
@@ -1518,6 +1542,8 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
     ///
     /// ``` self: QtC.QCborValueRef ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborTag ```
     pub fn Tag(self: ?*anyopaque) i64 {
         return qtc.QCborValueRef_Tag(@ptrCast(self));
     }
@@ -1554,7 +1580,7 @@ pub const qcborvalueref = struct {
     ///
     /// ``` self: QtC.QCborValueRef, allocator: std.mem.Allocator ```
     pub fn ToByteArray(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueRef_ToByteArray(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1632,7 +1658,7 @@ pub const qcborvalueref = struct {
     ///
     /// ``` self: QtC.QCborValueRef, key: []const u8 ```
     pub fn OperatorSubscript4(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -1671,7 +1697,7 @@ pub const qcborvalueref = struct {
     ///
     /// ``` self: QtC.QCborValueRef, allocator: std.mem.Allocator ```
     pub fn ToCbor(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueRef_ToCbor(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1699,6 +1725,8 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: qcborcommon_enums.QCborSimpleType ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
     pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValueRef_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
@@ -1706,6 +1734,8 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: qcborcommon_enums.QCborTag ```
+    ///
+    /// Returns: ``` qcborcommon_enums.QCborTag ```
     pub fn Tag1(self: ?*anyopaque, defaultValue: i64) i64 {
         return qtc.QCborValueRef_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
@@ -1742,11 +1772,11 @@ pub const qcborvalueref = struct {
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: []u8, allocator: std.mem.Allocator ```
     pub fn ToByteArray1(self: ?*anyopaque, defaultValue: []u8, allocator: std.mem.Allocator) []u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueRef_ToByteArray1(@ptrCast(self), defaultValue_str);
+        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray1(@ptrCast(self), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1757,7 +1787,7 @@ pub const qcborvalueref = struct {
     ///
     /// ``` self: QtC.QCborValueRef, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString1(self: ?*anyopaque, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -1798,9 +1828,9 @@ pub const qcborvalueref = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
-    /// ``` self: QtC.QCborValueRef, opt: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QCborValueRef, opt: flag of qcborvalue_enums.EncodingOption, allocator: std.mem.Allocator ```
     pub fn ToCbor1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCborValueRef_ToCbor1(@ptrCast(self), @intCast(opt));
+        const _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborvalueref.ToCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1809,14 +1839,14 @@ pub const qcborvalueref = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
-    /// ``` self: QtC.QCborValueRef, writer: QtC.QCborStreamWriter, opt: i32 ```
+    /// ``` self: QtC.QCborValueRef, writer: QtC.QCborStreamWriter, opt: flag of qcborvalue_enums.EncodingOption ```
     pub fn ToCbor22(self: ?*anyopaque, writer: ?*anyopaque, opt: i64) void {
         qtc.QCborValueRef_ToCbor22(@ptrCast(self), @ptrCast(writer), @intCast(opt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
     ///
-    /// ``` self: QtC.QCborValueRef, opt: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QCborValueRef, opt: flag of qcborvalue_enums.DiagnosticNotationOption, allocator: std.mem.Allocator ```
     pub fn ToDiagnosticNotation1(self: ?*anyopaque, opt: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCborValueRef_ToDiagnosticNotation1(@ptrCast(self), @intCast(opt));
         defer qtc.libqt_string_free(&_str);

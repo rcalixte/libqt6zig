@@ -16,7 +16,7 @@ pub const qsslkey = struct {
     ///
     /// ``` encoded: []u8, algorithm: qssl_enums.KeyAlgorithm ```
     pub fn New2(encoded: []u8, algorithm: i64) QtC.QSslKey {
-        const encoded_str = qtc.struct_libqt_string{
+        const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
         };
@@ -49,7 +49,7 @@ pub const qsslkey = struct {
     ///
     /// ``` encoded: []u8, algorithm: qssl_enums.KeyAlgorithm, format: qssl_enums.EncodingFormat ```
     pub fn New6(encoded: []u8, algorithm: i64, format: i64) QtC.QSslKey {
-        const encoded_str = qtc.struct_libqt_string{
+        const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
         };
@@ -61,7 +61,7 @@ pub const qsslkey = struct {
     ///
     /// ``` encoded: []u8, algorithm: qssl_enums.KeyAlgorithm, format: qssl_enums.EncodingFormat, typeVal: qssl_enums.KeyType ```
     pub fn New7(encoded: []u8, algorithm: i64, format: i64, typeVal: i64) QtC.QSslKey {
-        const encoded_str = qtc.struct_libqt_string{
+        const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
         };
@@ -73,11 +73,11 @@ pub const qsslkey = struct {
     ///
     /// ``` encoded: []u8, algorithm: qssl_enums.KeyAlgorithm, format: qssl_enums.EncodingFormat, typeVal: qssl_enums.KeyType, passPhrase: []u8 ```
     pub fn New8(encoded: []u8, algorithm: i64, format: i64, typeVal: i64, passPhrase: []u8) QtC.QSslKey {
-        const encoded_str = qtc.struct_libqt_string{
+        const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
         };
-        const passPhrase_str = qtc.struct_libqt_string{
+        const passPhrase_str = qtc.libqt_string{
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };
@@ -103,7 +103,7 @@ pub const qsslkey = struct {
     ///
     /// ``` device: QtC.QIODevice, algorithm: qssl_enums.KeyAlgorithm, format: qssl_enums.EncodingFormat, typeVal: qssl_enums.KeyType, passPhrase: []u8 ```
     pub fn New11(device: ?*anyopaque, algorithm: i64, format: i64, typeVal: i64, passPhrase: []u8) QtC.QSslKey {
-        const passPhrase_str = qtc.struct_libqt_string{
+        const passPhrase_str = qtc.libqt_string{
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };
@@ -156,6 +156,8 @@ pub const qsslkey = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#type)
     ///
     /// ``` self: QtC.QSslKey ```
+    ///
+    /// Returns: ``` qssl_enums.KeyType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QSslKey_Type(@ptrCast(self));
     }
@@ -163,6 +165,8 @@ pub const qsslkey = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#algorithm)
     ///
     /// ``` self: QtC.QSslKey ```
+    ///
+    /// Returns: ``` qssl_enums.KeyAlgorithm ```
     pub fn Algorithm(self: ?*anyopaque) i64 {
         return qtc.QSslKey_Algorithm(@ptrCast(self));
     }
@@ -171,7 +175,7 @@ pub const qsslkey = struct {
     ///
     /// ``` self: QtC.QSslKey, allocator: std.mem.Allocator ```
     pub fn ToPem(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToPem(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToPem(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToPem: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -182,7 +186,7 @@ pub const qsslkey = struct {
     ///
     /// ``` self: QtC.QSslKey, allocator: std.mem.Allocator ```
     pub fn ToDer(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToDer(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToDer(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToDer: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -214,11 +218,11 @@ pub const qsslkey = struct {
     ///
     /// ``` self: QtC.QSslKey, passPhrase: []u8, allocator: std.mem.Allocator ```
     pub fn ToPem1(self: ?*anyopaque, passPhrase: []u8, allocator: std.mem.Allocator) []u8 {
-        const passPhrase_str = qtc.struct_libqt_string{
+        const passPhrase_str = qtc.libqt_string{
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToPem1(@ptrCast(self), passPhrase_str);
+        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToPem1(@ptrCast(self), passPhrase_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToPem1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -229,11 +233,11 @@ pub const qsslkey = struct {
     ///
     /// ``` self: QtC.QSslKey, passPhrase: []u8, allocator: std.mem.Allocator ```
     pub fn ToDer1(self: ?*anyopaque, passPhrase: []u8, allocator: std.mem.Allocator) []u8 {
-        const passPhrase_str = qtc.struct_libqt_string{
+        const passPhrase_str = qtc.libqt_string{
             .len = passPhrase.len,
             .data = passPhrase.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QSslKey_ToDer1(@ptrCast(self), passPhrase_str);
+        const _bytearray: qtc.libqt_string = qtc.QSslKey_ToDer1(@ptrCast(self), passPhrase_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslkey.ToDer1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

@@ -9,7 +9,7 @@ pub const qanystringview = struct {
     ///
     /// ``` other: []const u8 ```
     pub fn New(other: []const u8) QtC.QAnyStringView {
-        const other_str = qtc.struct_libqt_string{
+        const other_str = qtc.libqt_string{
             .len = other.len,
             .data = other.ptr,
         };
@@ -21,7 +21,7 @@ pub const qanystringview = struct {
     ///
     /// ``` other: []const u8 ```
     pub fn New2(other: []const u8) QtC.QAnyStringView {
-        const other_str = qtc.struct_libqt_string{
+        const other_str = qtc.libqt_string{
             .len = other.len,
             .data = other.ptr,
         };
@@ -40,7 +40,7 @@ pub const qanystringview = struct {
     ///
     /// ``` str: []u8 ```
     pub fn New4(str: []u8) QtC.QAnyStringView {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -52,7 +52,7 @@ pub const qanystringview = struct {
     ///
     /// ``` str: []const u8 ```
     pub fn New5(str: []const u8) QtC.QAnyStringView {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -64,7 +64,7 @@ pub const qanystringview = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn New6(param1: []const u8) QtC.QAnyStringView {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -239,11 +239,11 @@ pub const qanystringview = struct {
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Compare(lhs: []const u8, rhs: []const u8) i32 {
-        const lhs_str = qtc.struct_libqt_string{
+        const lhs_str = qtc.libqt_string{
             .len = lhs.len,
             .data = lhs.ptr,
         };
-        const rhs_str = qtc.struct_libqt_string{
+        const rhs_str = qtc.libqt_string{
             .len = rhs.len,
             .data = rhs.ptr,
         };
@@ -254,11 +254,11 @@ pub const qanystringview = struct {
     ///
     /// ``` lhs: []const u8, rhs: []const u8 ```
     pub fn Equal(lhs: []const u8, rhs: []const u8) bool {
-        const lhs_str = qtc.struct_libqt_string{
+        const lhs_str = qtc.libqt_string{
             .len = lhs.len,
             .data = lhs.ptr,
         };
-        const rhs_str = qtc.struct_libqt_string{
+        const rhs_str = qtc.libqt_string{
             .len = rhs.len,
             .data = rhs.ptr,
         };
@@ -336,11 +336,11 @@ pub const qanystringview = struct {
     ///
     /// ``` lhs: []const u8, rhs: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i64) i32 {
-        const lhs_str = qtc.struct_libqt_string{
+        const lhs_str = qtc.libqt_string{
             .len = lhs.len,
             .data = lhs.ptr,
         };
-        const rhs_str = qtc.struct_libqt_string{
+        const rhs_str = qtc.libqt_string{
             .len = rhs.len,
             .data = rhs.ptr,
         };

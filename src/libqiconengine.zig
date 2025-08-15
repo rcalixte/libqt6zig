@@ -116,7 +116,7 @@ pub const qiconengine = struct {
     ///
     /// ``` self: QtC.QIconEngine, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn AddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64, state: i64) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -138,7 +138,7 @@ pub const qiconengine = struct {
     ///
     /// ``` self: QtC.QIconEngine, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn QBaseAddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64, state: i64) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -257,7 +257,7 @@ pub const qiconengine = struct {
     ///
     /// ``` self: QtC.QIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State, allocator: std.mem.Allocator ```
     pub fn AvailableSizes(self: ?*anyopaque, mode: i64, state: i64, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.struct_libqt_list = qtc.QIconEngine_AvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
+        const _arr: qtc.libqt_list = qtc.QIconEngine_AvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -280,7 +280,7 @@ pub const qiconengine = struct {
     ///
     /// ``` self: QtC.QIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State, allocator: std.mem.Allocator ```
     pub fn QBaseAvailableSizes(self: ?*anyopaque, mode: i64, state: i64, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.struct_libqt_list = qtc.QIconEngine_QBaseAvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
+        const _arr: qtc.libqt_list = qtc.QIconEngine_QBaseAvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qiconengine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -415,7 +415,7 @@ pub const qiconengine__scaledpixmapargument = struct {
         return qtc.QIconEngine__ScaledPixmapArgument_new(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine__scaledpixmapargument.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#operator-eq)
     ///
     /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, param1: QtC.QIconEngine__ScaledPixmapArgument ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

@@ -94,7 +94,7 @@ pub const qclipboard = struct {
     ///
     /// ``` self: QtC.QClipboard, subtype: []const u8, allocator: std.mem.Allocator ```
     pub fn Text2(self: ?*anyopaque, subtype: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const subtype_str = qtc.struct_libqt_string{
+        const subtype_str = qtc.libqt_string{
             .len = subtype.len,
             .data = subtype.ptr,
         };
@@ -109,7 +109,7 @@ pub const qclipboard = struct {
     ///
     /// ``` self: QtC.QClipboard, param1: []const u8 ```
     pub fn SetText(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -262,7 +262,7 @@ pub const qclipboard = struct {
     ///
     /// ``` self: QtC.QClipboard, subtype: []const u8, mode: qclipboard_enums.Mode, allocator: std.mem.Allocator ```
     pub fn Text22(self: ?*anyopaque, subtype: []const u8, mode: i64, allocator: std.mem.Allocator) []const u8 {
-        const subtype_str = qtc.struct_libqt_string{
+        const subtype_str = qtc.libqt_string{
             .len = subtype.len,
             .data = subtype.ptr,
         };
@@ -277,7 +277,7 @@ pub const qclipboard = struct {
     ///
     /// ``` self: QtC.QClipboard, param1: []const u8, mode: qclipboard_enums.Mode ```
     pub fn SetText2(self: ?*anyopaque, param1: []const u8, mode: i64) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -363,7 +363,7 @@ pub const qclipboard = struct {
     ///
     /// ``` self: QtC.QClipboard, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -466,7 +466,7 @@ pub const qclipboard = struct {
     ///
     /// ``` self: QtC.QClipboard, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qclipboard.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -583,8 +583,8 @@ pub const qclipboard = struct {
     ///
     /// ``` self: QtC.QClipboard, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

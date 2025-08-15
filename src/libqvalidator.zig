@@ -82,8 +82,10 @@ pub const qvalidator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalidator.html#validate)
     ///
     /// ``` self: QtC.QValidator, param1: []const u8, param2: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -104,8 +106,10 @@ pub const qvalidator = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QValidator, param1: []const u8, param2: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -116,7 +120,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, param1: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -138,7 +142,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, param1: []const u8 ```
     pub fn QBaseFixup(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -204,7 +208,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -307,7 +311,7 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qvalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -424,8 +428,8 @@ pub const qvalidator = struct {
     ///
     /// ``` self: QtC.QValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1025,8 +1029,10 @@ pub const qintvalidator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qintvalidator.html#validate)
     ///
     /// ``` self: QtC.QIntValidator, param1: []const u8, param2: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -1047,8 +1053,10 @@ pub const qintvalidator = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIntValidator, param1: []const u8, param2: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -1059,7 +1067,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, input: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -1081,7 +1089,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, input: []const u8 ```
     pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -1232,7 +1240,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1335,7 +1343,7 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qintvalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1452,8 +1460,8 @@ pub const qintvalidator = struct {
     ///
     /// ``` self: QtC.QIntValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2053,8 +2061,10 @@ pub const qdoublevalidator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#validate)
     ///
     /// ``` self: QtC.QDoubleValidator, param1: []const u8, param2: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn Validate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -2075,8 +2085,10 @@ pub const qdoublevalidator = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QDoubleValidator, param1: []const u8, param2: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn QBaseValidate(self: ?*anyopaque, param1: []const u8, param2: *i32) i64 {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -2087,7 +2099,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, input: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, input: []const u8) void {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -2109,7 +2121,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, input: []const u8 ```
     pub fn QBaseFixup(self: ?*anyopaque, input: []const u8) void {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -2182,6 +2194,8 @@ pub const qdoublevalidator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublevalidator.html#notation)
     ///
     /// ``` self: QtC.QDoubleValidator ```
+    ///
+    /// Returns: ``` qvalidator_enums.Notation ```
     pub fn Notation(self: ?*anyopaque) i64 {
         return qtc.QDoubleValidator_Notation(@ptrCast(self));
     }
@@ -2323,7 +2337,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2426,7 +2440,7 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdoublevalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -2543,8 +2557,8 @@ pub const qdoublevalidator = struct {
     ///
     /// ``` self: QtC.QDoubleValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3144,8 +3158,10 @@ pub const qregularexpressionvalidator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionvalidator.html#validate)
     ///
     /// ``` self: QtC.QRegularExpressionValidator, input: []const u8, pos: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -3166,8 +3182,10 @@ pub const qregularexpressionvalidator = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QRegularExpressionValidator, input: []const u8, pos: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -3283,7 +3301,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -3386,7 +3404,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qregularexpressionvalidator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -3503,8 +3521,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3649,7 +3667,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, param1: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -3664,7 +3682,7 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// ``` self: QtC.QRegularExpressionValidator, param1: []const u8 ```
     pub fn QBaseFixup(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };

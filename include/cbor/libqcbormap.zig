@@ -66,7 +66,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, allocator: std.mem.Allocator ```
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QCborValue {
-        const _arr: qtc.struct_libqt_list = qtc.QCborMap_Keys(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QCborMap_Keys(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QCborValue, _arr.len) catch @panic("qcbormap.Keys: Memory allocation failed");
         const _data: [*]QtC.QCborValue = @ptrCast(@alignCast(_arr.data));
@@ -85,7 +85,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn Value3(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -110,7 +110,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn OperatorSubscript3(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -135,7 +135,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn OperatorSubscript7(self: ?*anyopaque, key: []const u8) QtC.QCborValueRef {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -160,7 +160,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn Take3(self: ?*anyopaque, key: []const u8) QtC.QCborValue {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -185,7 +185,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn Remove3(self: ?*anyopaque, key: []const u8) void {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -210,7 +210,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn Contains3(self: ?*anyopaque, key: []const u8) bool {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -333,7 +333,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn Find3(self: ?*anyopaque, key: []const u8) QtC.QCborMap__Iterator {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -358,7 +358,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn ConstFind3(self: ?*anyopaque, key: []const u8) QtC.QCborMap__ConstIterator {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -383,7 +383,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8 ```
     pub fn Find7(self: ?*anyopaque, key: []const u8) QtC.QCborMap__ConstIterator {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -408,7 +408,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, key: []const u8, value_: QtC.QCborValue ```
     pub fn Insert3(self: ?*anyopaque, key: []const u8, value_: ?*anyopaque) QtC.QCborMap__Iterator {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -426,7 +426,7 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, v: struct_qtcqcborvalue_qtcqcborvalue ```
     pub fn Insert5(self: ?*anyopaque, v: struct_qtcqcborvalue_qtcqcborvalue) QtC.QCborMap__Iterator {
-        const v_pair = qtc.struct_libqt_pair{
+        const v_pair = qtc.libqt_pair{
             .first = @ptrCast(v.first),
             .second = @ptrCast(v.second),
         };
@@ -437,7 +437,7 @@ pub const qcbormap = struct {
     ///
     /// ``` mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn FromVariantMap(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QCborMap {
-        const mapVal_keys = allocator.alloc(qtc.struct_libqt_string, mapVal.count()) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
+        const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal.count()) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
         defer allocator.free(mapVal_keys);
         const mapVal_values = allocator.alloc(QtC.QVariant, mapVal.count()) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
         defer allocator.free(mapVal_values);
@@ -445,14 +445,14 @@ pub const qcbormap = struct {
         var mapVal_it = mapVal.iterator();
         while (mapVal_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            mapVal_keys[i] = qtc.struct_libqt_string{
+            mapVal_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             mapVal_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const mapVal_map = qtc.struct_libqt_map{
+        const mapVal_map = qtc.libqt_map{
             .len = mapVal.count(),
             .keys = @ptrCast(mapVal_keys.ptr),
             .values = @ptrCast(mapVal_values.ptr),
@@ -464,7 +464,7 @@ pub const qcbormap = struct {
     ///
     /// ``` hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn FromVariantHash(hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QCborMap {
-        const hash_keys = allocator.alloc(qtc.struct_libqt_string, hash.count()) catch @panic("qcbormap.FromVariantHash: Memory allocation failed");
+        const hash_keys = allocator.alloc(qtc.libqt_string, hash.count()) catch @panic("qcbormap.FromVariantHash: Memory allocation failed");
         defer allocator.free(hash_keys);
         const hash_values = allocator.alloc(QtC.QVariant, hash.count()) catch @panic("qcbormap.FromVariantHash: Memory allocation failed");
         defer allocator.free(hash_values);
@@ -472,14 +472,14 @@ pub const qcbormap = struct {
         var hash_it = hash.iterator();
         while (hash_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            hash_keys[i] = qtc.struct_libqt_string{
+            hash_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             hash_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const hash_map = qtc.struct_libqt_map{
+        const hash_map = qtc.libqt_map{
             .len = hash.count(),
             .keys = @ptrCast(hash_keys.ptr),
             .values = @ptrCast(hash_values.ptr),
@@ -498,17 +498,17 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, allocator: std.mem.Allocator ```
     pub fn ToVariantMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QCborMap_ToVariantMap(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QCborMap_ToVariantMap(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
-            const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
-        const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
@@ -524,17 +524,17 @@ pub const qcbormap = struct {
     ///
     /// ``` self: QtC.QCborMap, allocator: std.mem.Allocator ```
     pub fn ToVariantHash(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QCborMap_ToVariantHash(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QCborMap_ToVariantHash(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
-            const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
-        const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
@@ -586,114 +586,120 @@ pub const qcbormap__iterator = struct {
         return qtc.QCborMap__Iterator_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-eq)
     ///
     /// ``` self: QtC.QCborMap__Iterator, other: QtC.QCborMap__Iterator ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborMap__Iterator_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-2a)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-2a)
     ///
     /// ``` self: QtC.QCborMap__Iterator ```
     pub fn OperatorMultiply(self: ?*anyopaque) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.struct_libqt_pair = qtc.QCborMap__Iterator_OperatorMultiply(@ptrCast(self));
-        return struct_qtcqcborvalue_qtcqcborvalue{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
+        const _pair: qtc.libqt_pair = qtc.QCborMap__Iterator_OperatorMultiply(@ptrCast(self));
+        return struct_qtcqcborvalue_qtcqcborvalue{
+            .first = @ptrCast(_pair.first),
+            .second = @ptrCast(_pair.second),
+        };
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-5b-5d)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborMap__Iterator, j: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.struct_libqt_pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
-        return struct_qtcqcborvalue_qtcqcborvalue{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
+        const _pair: qtc.libqt_pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+        return struct_qtcqcborvalue_qtcqcborvalue{
+            .first = @ptrCast(_pair.first),
+            .second = @ptrCast(_pair.second),
+        };
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator--gt)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--gt)
     ///
     /// ``` self: QtC.QCborMap__Iterator ```
     pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QCborValueRef {
         return qtc.QCborMap__Iterator_OperatorMinusGreater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator--gt)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--gt)
     ///
     /// ``` self: QtC.QCborMap__Iterator ```
     pub fn OperatorMinusGreater2(self: ?*anyopaque) QtC.QCborValueConstRef {
         return qtc.QCborMap__Iterator_OperatorMinusGreater2(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#key)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#key)
     ///
     /// ``` self: QtC.QCborMap__Iterator ```
     pub fn Key(self: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborMap__Iterator_Key(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#value)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#value)
     ///
     /// ``` self: QtC.QCborMap__Iterator ```
     pub fn Value(self: ?*anyopaque) QtC.QCborValueRef {
         return qtc.QCborMap__Iterator_Value(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborMap__Iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborMap__Iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--)
     ///
     /// ``` self: QtC.QCborMap__Iterator ```
     pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorMinusMinus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--)
     ///
     /// ``` self: QtC.QCborMap__Iterator, param1: i32 ```
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-2b-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QCborMap__Iterator, j: i64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator--eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--eq)
     ///
     /// ``` self: QtC.QCborMap__Iterator, j: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-2b)
     ///
     /// ``` self: QtC.QCborMap__Iterator, j: i64 ```
     pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorPlus(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-)
     ///
     /// ``` self: QtC.QCborMap__Iterator, j: i64 ```
     pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QCborMap__Iterator {
         return qtc.QCborMap__Iterator_OperatorMinus(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__iterator.html#operator-)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-)
     ///
     /// ``` self: QtC.QCborMap__Iterator, j: QtC.QCborMap__Iterator ```
     pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QCborMap__Iterator) i64 {
@@ -731,107 +737,113 @@ pub const qcbormap__constiterator = struct {
         return qtc.QCborMap__ConstIterator_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-eq)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, other: QtC.QCborMap__ConstIterator ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QCborMap__ConstIterator_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-2a)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-2a)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator ```
     pub fn OperatorMultiply(self: ?*anyopaque) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.struct_libqt_pair = qtc.QCborMap__ConstIterator_OperatorMultiply(@ptrCast(self));
-        return struct_qtcqcborvalue_qtcqcborvalue{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
+        const _pair: qtc.libqt_pair = qtc.QCborMap__ConstIterator_OperatorMultiply(@ptrCast(self));
+        return struct_qtcqcborvalue_qtcqcborvalue{
+            .first = @ptrCast(_pair.first),
+            .second = @ptrCast(_pair.second),
+        };
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-5b-5d)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, j: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) struct_qtcqcborvalue_qtcqcborvalue {
-        const _pair: qtc.struct_libqt_pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self), @intCast(j));
-        return struct_qtcqcborvalue_qtcqcborvalue{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
+        const _pair: qtc.libqt_pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self), @intCast(j));
+        return struct_qtcqcborvalue_qtcqcborvalue{
+            .first = @ptrCast(_pair.first),
+            .second = @ptrCast(_pair.second),
+        };
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator--gt)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--gt)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator ```
     pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QCborValueConstRef {
         return qtc.QCborMap__ConstIterator_OperatorMinusGreater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#key)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#key)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator ```
     pub fn Key(self: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborMap__ConstIterator_Key(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#value)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#value)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator ```
     pub fn Value(self: ?*anyopaque) QtC.QCborValueConstRef {
         return qtc.QCborMap__ConstIterator_Value(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator ```
     pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorMinusMinus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, param1: i32 ```
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-2b-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, j: i64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator--eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--eq)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, j: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-2b)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, j: i64 ```
     pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorPlus(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, j: i64 ```
     pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QCborMap__ConstIterator {
         return qtc.QCborMap__ConstIterator_OperatorMinus(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap__constiterator.html#operator-)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-)
     ///
     /// ``` self: QtC.QCborMap__ConstIterator, j: QtC.QCborMap__ConstIterator ```
     pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QCborMap__ConstIterator) i64 {

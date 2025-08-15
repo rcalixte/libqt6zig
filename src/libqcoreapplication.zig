@@ -74,8 +74,8 @@ pub const qcoreapplication = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Arguments(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QCoreApplication_Arguments();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCoreApplication_Arguments();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -110,7 +110,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` orgDomain: []const u8 ```
     pub fn SetOrganizationDomain(orgDomain: []const u8) void {
-        const orgDomain_str = qtc.struct_libqt_string{
+        const orgDomain_str = qtc.libqt_string{
             .len = orgDomain.len,
             .data = orgDomain.ptr,
         };
@@ -132,7 +132,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` orgName: []const u8 ```
     pub fn SetOrganizationName(orgName: []const u8) void {
-        const orgName_str = qtc.struct_libqt_string{
+        const orgName_str = qtc.libqt_string{
             .len = orgName.len,
             .data = orgName.ptr,
         };
@@ -154,7 +154,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` application: []const u8 ```
     pub fn SetApplicationName(application: []const u8) void {
-        const application_str = qtc.struct_libqt_string{
+        const application_str = qtc.libqt_string{
             .len = application.len,
             .data = application.ptr,
         };
@@ -176,7 +176,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` version: []const u8 ```
     pub fn SetApplicationVersion(version: []const u8) void {
-        const version_str = qtc.struct_libqt_string{
+        const version_str = qtc.libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
@@ -231,14 +231,14 @@ pub const qcoreapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
-    /// ``` flags: i32, maxtime: i32 ```
+    /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag, maxtime: i32 ```
     pub fn ProcessEvents2(flags: i64, maxtime: i32) void {
         qtc.QCoreApplication_ProcessEvents2(@intCast(flags), @intCast(maxtime));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
-    /// ``` flags: i32, deadline: QtC.QDeadlineTimer ```
+    /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
     pub fn ProcessEvents3(flags: i64, deadline: QtC.QDeadlineTimer) void {
         qtc.QCoreApplication_ProcessEvents3(@intCast(flags), @ptrCast(deadline));
     }
@@ -356,6 +356,8 @@ pub const qcoreapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#checkPermission)
     ///
     /// ``` self: QtC.QCoreApplication, permission: QtC.QPermission ```
+    ///
+    /// Returns: ``` qnamespace_enums.PermissionStatus ```
     pub fn CheckPermission(self: ?*anyopaque, permission: ?*anyopaque) i64 {
         return qtc.QCoreApplication_CheckPermission(@ptrCast(self), @ptrCast(permission));
     }
@@ -364,7 +366,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` libraryPaths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetLibraryPaths(libraryPaths: [][]const u8, allocator: std.mem.Allocator) void {
-        var libraryPaths_arr = allocator.alloc(qtc.struct_libqt_string, libraryPaths.len) catch @panic("qcoreapplication.SetLibraryPaths: Memory allocation failed");
+        var libraryPaths_arr = allocator.alloc(qtc.libqt_string, libraryPaths.len) catch @panic("qcoreapplication.SetLibraryPaths: Memory allocation failed");
         defer allocator.free(libraryPaths_arr);
         for (libraryPaths, 0..libraryPaths.len) |item, i| {
             libraryPaths_arr[i] = .{
@@ -372,7 +374,7 @@ pub const qcoreapplication = struct {
                 .data = item.ptr,
             };
         }
-        const libraryPaths_list = qtc.struct_libqt_list{
+        const libraryPaths_list = qtc.libqt_list{
             .len = libraryPaths.len,
             .data = libraryPaths_arr.ptr,
         };
@@ -383,8 +385,8 @@ pub const qcoreapplication = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn LibraryPaths(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QCoreApplication_LibraryPaths();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCoreApplication_LibraryPaths();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -405,7 +407,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn AddLibraryPath(param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -416,7 +418,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn RemoveLibraryPath(param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -649,7 +651,7 @@ pub const qcoreapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#processEvents)
     ///
-    /// ``` flags: i32 ```
+    /// ``` flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn ProcessEvents1(flags: i64) void {
         qtc.QCoreApplication_ProcessEvents1(@intCast(flags));
     }
@@ -736,7 +738,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` self: QtC.QCoreApplication, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -839,7 +841,7 @@ pub const qcoreapplication = struct {
     ///
     /// ``` self: QtC.QCoreApplication, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcoreapplication.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -956,8 +958,8 @@ pub const qcoreapplication = struct {
     ///
     /// ``` self: QtC.QCoreApplication, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

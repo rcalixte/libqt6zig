@@ -43,7 +43,7 @@ pub const qwebengineclientcertificateselection = struct {
     ///
     /// ``` self: QtC.QWebEngineClientCertificateSelection, allocator: std.mem.Allocator ```
     pub fn Certificates(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineClientCertificateSelection_Certificates(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWebEngineClientCertificateSelection_Certificates(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qwebengineclientcertificateselection.Certificates: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));

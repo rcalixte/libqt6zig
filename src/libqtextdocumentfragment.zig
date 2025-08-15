@@ -94,7 +94,7 @@ pub const qtextdocumentfragment = struct {
     ///
     /// ``` plainText: []const u8 ```
     pub fn FromPlainText(plainText: []const u8) QtC.QTextDocumentFragment {
-        const plainText_str = qtc.struct_libqt_string{
+        const plainText_str = qtc.libqt_string{
             .len = plainText.len,
             .data = plainText.ptr,
         };
@@ -105,7 +105,7 @@ pub const qtextdocumentfragment = struct {
     ///
     /// ``` html: []const u8 ```
     pub fn FromHtml(html: []const u8) QtC.QTextDocumentFragment {
-        const html_str = qtc.struct_libqt_string{
+        const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
@@ -116,7 +116,7 @@ pub const qtextdocumentfragment = struct {
     ///
     /// ``` markdown: []const u8 ```
     pub fn FromMarkdown(markdown: []const u8) QtC.QTextDocumentFragment {
-        const markdown_str = qtc.struct_libqt_string{
+        const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
@@ -125,7 +125,7 @@ pub const qtextdocumentfragment = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#toMarkdown)
     ///
-    /// ``` self: QtC.QTextDocumentFragment, features: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextDocumentFragment, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
     pub fn ToMarkdown1(self: ?*anyopaque, features: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocumentFragment_ToMarkdown1(@ptrCast(self), @intCast(features));
         defer qtc.libqt_string_free(&_str);
@@ -138,7 +138,7 @@ pub const qtextdocumentfragment = struct {
     ///
     /// ``` html: []const u8, resourceProvider: QtC.QTextDocument ```
     pub fn FromHtml2(html: []const u8, resourceProvider: ?*anyopaque) QtC.QTextDocumentFragment {
-        const html_str = qtc.struct_libqt_string{
+        const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
@@ -147,9 +147,9 @@ pub const qtextdocumentfragment = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocumentfragment.html#fromMarkdown)
     ///
-    /// ``` markdown: []const u8, features: i32 ```
+    /// ``` markdown: []const u8, features: flag of qtextdocument_enums.MarkdownFeature ```
     pub fn FromMarkdown2(markdown: []const u8, features: i64) QtC.QTextDocumentFragment {
-        const markdown_str = qtc.struct_libqt_string{
+        const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };

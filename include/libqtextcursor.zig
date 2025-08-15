@@ -94,7 +94,7 @@ pub const qtextcursor = struct {
     ///
     /// ``` self: QtC.QTextCursor, text: []const u8 ```
     pub fn InsertText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -105,7 +105,7 @@ pub const qtextcursor = struct {
     ///
     /// ``` self: QtC.QTextCursor, text: []const u8, format: QtC.QTextCharFormat ```
     pub fn InsertText2(self: ?*anyopaque, text: []const u8, format: ?*anyopaque) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -449,7 +449,7 @@ pub const qtextcursor = struct {
     ///
     /// ``` self: QtC.QTextCursor, html: []const u8 ```
     pub fn InsertHtml(self: ?*anyopaque, html: []const u8) void {
-        const html_str = qtc.struct_libqt_string{
+        const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
@@ -460,7 +460,7 @@ pub const qtextcursor = struct {
     ///
     /// ``` self: QtC.QTextCursor, markdown: []const u8 ```
     pub fn InsertMarkdown(self: ?*anyopaque, markdown: []const u8) void {
-        const markdown_str = qtc.struct_libqt_string{
+        const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
@@ -485,7 +485,7 @@ pub const qtextcursor = struct {
     ///
     /// ``` self: QtC.QTextCursor, name: []const u8 ```
     pub fn InsertImage3(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -613,9 +613,9 @@ pub const qtextcursor = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertMarkdown)
     ///
-    /// ``` self: QtC.QTextCursor, markdown: []const u8, features: i32 ```
+    /// ``` self: QtC.QTextCursor, markdown: []const u8, features: flag of qtextdocument_enums.MarkdownFeature ```
     pub fn InsertMarkdown2(self: ?*anyopaque, markdown: []const u8, features: i64) void {
-        const markdown_str = qtc.struct_libqt_string{
+        const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
@@ -626,7 +626,7 @@ pub const qtextcursor = struct {
     ///
     /// ``` self: QtC.QTextCursor, image: QtC.QImage, name: []const u8 ```
     pub fn InsertImage22(self: ?*anyopaque, image: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };

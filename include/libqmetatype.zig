@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qmetatype_enums = enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qmetatype.html
@@ -57,7 +58,7 @@ pub const qmetatype = struct {
     ///
     /// ``` normalizedTypeName: []u8, typeVal: QtC.QMetaType ```
     pub fn RegisterNormalizedTypedef(normalizedTypeName: []u8, typeVal: QtC.QMetaType) void {
-        const normalizedTypeName_str = qtc.struct_libqt_string{
+        const normalizedTypeName_str = qtc.libqt_string{
             .len = normalizedTypeName.len,
             .data = normalizedTypeName.ptr,
         };
@@ -76,7 +77,7 @@ pub const qmetatype = struct {
     ///
     /// ``` typeName: []u8 ```
     pub fn Type2(typeName: []u8) i32 {
-        const typeName_str = qtc.struct_libqt_string{
+        const typeName_str = qtc.libqt_string{
             .len = typeName.len,
             .data = typeName.ptr,
         };
@@ -101,6 +102,8 @@ pub const qmetatype = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#typeFlags)
     ///
     /// ``` typeVal: i32 ```
+    ///
+    /// Returns: ``` flag of qmetatype_enums.TypeFlag ```
     pub fn TypeFlags(typeVal: i32) i64 {
         return qtc.QMetaType_TypeFlags(@intCast(typeVal));
     }
@@ -192,6 +195,8 @@ pub const qmetatype = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#flags)
     ///
     /// ``` self: QtC.QMetaType ```
+    ///
+    /// Returns: ``` flag of qmetatype_enums.TypeFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QMetaType_Flags(@ptrCast(self));
     }

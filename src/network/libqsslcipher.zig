@@ -16,7 +16,7 @@ pub const qsslcipher = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New2(name: []const u8) QtC.QSslCipher {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -28,7 +28,7 @@ pub const qsslcipher = struct {
     ///
     /// ``` name: []const u8, protocol: qssl_enums.SslProtocol ```
     pub fn New3(name: []const u8, protocol: i64) QtC.QSslCipher {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -150,6 +150,8 @@ pub const qsslcipher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslcipher.html#protocol)
     ///
     /// ``` self: QtC.QSslCipher ```
+    ///
+    /// Returns: ``` qssl_enums.SslProtocol ```
     pub fn Protocol(self: ?*anyopaque) i64 {
         return qtc.QSslCipher_Protocol(@ptrCast(self));
     }

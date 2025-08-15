@@ -83,6 +83,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextbrowser.html#sourceType)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qtextdocument_enums.ResourceType ```
     pub fn SourceType(self: ?*anyopaque) i64 {
         return qtc.QTextBrowser_SourceType(@ptrCast(self));
     }
@@ -91,8 +93,8 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, allocator: std.mem.Allocator ```
     pub fn SearchPaths(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QTextBrowser_SearchPaths(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QTextBrowser_SearchPaths(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -113,7 +115,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, paths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetSearchPaths(self: ?*anyopaque, paths: [][]const u8, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.struct_libqt_string, paths.len) catch @panic("qtextbrowser.SetSearchPaths: Memory allocation failed");
+        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qtextbrowser.SetSearchPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -121,7 +123,7 @@ pub const qtextbrowser = struct {
                 .data = item.ptr,
             };
         }
-        const paths_list = qtc.struct_libqt_list{
+        const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };
@@ -707,7 +709,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, placeholderText: []const u8 ```
     pub fn SetPlaceholderText(self: ?*anyopaque, placeholderText: []const u8) void {
-        const placeholderText_str = qtc.struct_libqt_string{
+        const placeholderText_str = qtc.libqt_string{
             .len = placeholderText.len,
             .data = placeholderText.ptr,
         };
@@ -767,7 +769,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setTextInteractionFlags)
     ///
-    /// ``` self: QtC.QTextBrowser, flags: i32 ```
+    /// ``` self: QtC.QTextBrowser, flags: flag of qnamespace_enums.TextInteractionFlag ```
     pub fn SetTextInteractionFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self), @intCast(flags));
     }
@@ -777,6 +779,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textInteractionFlags)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.TextInteractionFlag ```
     pub fn TextInteractionFlags(self: ?*anyopaque) i64 {
         return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self));
     }
@@ -862,6 +866,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#alignment)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QTextEdit_Alignment(@ptrCast(self));
     }
@@ -898,6 +904,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#autoFormatting)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` flag of qtextedit_enums.AutoFormattingFlag ```
     pub fn AutoFormatting(self: ?*anyopaque) i64 {
         return qtc.QTextEdit_AutoFormatting(@ptrCast(self));
     }
@@ -906,7 +914,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAutoFormatting)
     ///
-    /// ``` self: QtC.QTextBrowser, features: i32 ```
+    /// ``` self: QtC.QTextBrowser, features: flag of qtextedit_enums.AutoFormattingFlag ```
     pub fn SetAutoFormatting(self: ?*anyopaque, features: i64) void {
         qtc.QTextEdit_SetAutoFormatting(@ptrCast(self), @intCast(features));
     }
@@ -935,7 +943,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, title: []const u8 ```
     pub fn SetDocumentTitle(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -978,6 +986,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#lineWrapMode)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qtextedit_enums.LineWrapMode ```
     pub fn LineWrapMode(self: ?*anyopaque) i64 {
         return qtc.QTextEdit_LineWrapMode(@ptrCast(self));
     }
@@ -1014,6 +1024,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#wordWrapMode)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qtextoption_enums.WrapMode ```
     pub fn WordWrapMode(self: ?*anyopaque) i64 {
         return qtc.QTextEdit_WordWrapMode(@ptrCast(self));
     }
@@ -1033,7 +1045,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, exp: []const u8 ```
     pub fn Find(self: ?*anyopaque, exp: []const u8) bool {
-        const exp_str = qtc.struct_libqt_string{
+        const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
@@ -1233,7 +1245,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, selections: []QtC.QTextEdit__ExtraSelection ```
     pub fn SetExtraSelections(self: ?*anyopaque, selections: []QtC.QTextEdit__ExtraSelection) void {
-        const selections_list = qtc.struct_libqt_list{
+        const selections_list = qtc.libqt_list{
             .len = selections.len,
             .data = @ptrCast(selections.ptr),
         };
@@ -1246,7 +1258,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, allocator: std.mem.Allocator ```
     pub fn ExtraSelections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextEdit__ExtraSelection {
-        const _arr: qtc.struct_libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextEdit__ExtraSelection, _arr.len) catch @panic("qtextbrowser.ExtraSelections: Memory allocation failed");
         const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
@@ -1305,7 +1317,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, fontFamily: []const u8 ```
     pub fn SetFontFamily(self: ?*anyopaque, fontFamily: []const u8) void {
-        const fontFamily_str = qtc.struct_libqt_string{
+        const fontFamily_str = qtc.libqt_string{
             .len = fontFamily.len,
             .data = fontFamily.ptr,
         };
@@ -1370,7 +1382,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#setAlignment)
     ///
-    /// ``` self: QtC.QTextBrowser, a: i32 ```
+    /// ``` self: QtC.QTextBrowser, a: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, a: i64) void {
         qtc.QTextEdit_SetAlignment(@ptrCast(self), @intCast(a));
     }
@@ -1381,7 +1393,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8 ```
     pub fn SetPlainText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1394,7 +1406,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8 ```
     pub fn SetHtml(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1407,7 +1419,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, markdown: []const u8 ```
     pub fn SetMarkdown(self: ?*anyopaque, markdown: []const u8) void {
-        const markdown_str = qtc.struct_libqt_string{
+        const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
@@ -1420,7 +1432,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1496,7 +1508,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8 ```
     pub fn InsertPlainText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1509,7 +1521,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8 ```
     pub fn InsertHtml(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1522,7 +1534,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8 ```
     pub fn Append(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1535,7 +1547,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, name: []const u8 ```
     pub fn ScrollToAnchor(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1690,9 +1702,9 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
-    /// ``` self: QtC.QTextBrowser, exp: []const u8, options: i32 ```
+    /// ``` self: QtC.QTextBrowser, exp: []const u8, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find22(self: ?*anyopaque, exp: []const u8, options: i64) bool {
-        const exp_str = qtc.struct_libqt_string{
+        const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
@@ -1703,7 +1715,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#find)
     ///
-    /// ``` self: QtC.QTextBrowser, exp: QtC.QRegularExpression, options: i32 ```
+    /// ``` self: QtC.QTextBrowser, exp: QtC.QRegularExpression, options: flag of qtextdocument_enums.FindFlag ```
     pub fn Find23(self: ?*anyopaque, exp: ?*anyopaque, options: i64) bool {
         return qtc.QTextEdit_Find23(@ptrCast(self), @ptrCast(exp), @intCast(options));
     }
@@ -1712,7 +1724,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#toMarkdown)
     ///
-    /// ``` self: QtC.QTextBrowser, features: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextBrowser, features: flag of qtextdocument_enums.MarkdownFeature, allocator: std.mem.Allocator ```
     pub fn ToMarkdown1(self: ?*anyopaque, features: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self), @intCast(features));
         defer qtc.libqt_string_free(&_str);
@@ -1753,6 +1765,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
@@ -1789,6 +1803,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
@@ -1842,7 +1858,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
-    /// ``` self: QtC.QTextBrowser, widget: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QTextBrowser, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
@@ -1851,9 +1867,9 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
-    /// ``` self: QtC.QTextBrowser, alignment: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QTextBrowser, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qtextbrowser.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -1893,6 +1909,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
@@ -1938,6 +1956,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qframe_enums.Shape ```
     pub fn FrameShape(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
@@ -1956,6 +1976,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qframe_enums.Shadow ```
     pub fn FrameShadow(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
@@ -2109,6 +2131,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
@@ -2667,6 +2691,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
@@ -2685,6 +2711,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
@@ -2902,7 +2930,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = qtc.struct_libqt_string{
+        const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
@@ -2915,7 +2943,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = qtc.struct_libqt_string{
+        const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
@@ -2972,7 +3000,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = qtc.struct_libqt_string{
+        const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
@@ -2998,7 +3026,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = qtc.struct_libqt_string{
+        const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
@@ -3024,7 +3052,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -3077,7 +3105,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -3121,7 +3149,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -3147,7 +3175,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -3186,7 +3214,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -3212,7 +3240,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -3233,6 +3261,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
@@ -3341,6 +3371,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
@@ -3395,6 +3427,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
@@ -3765,7 +3799,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtextbrowser.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -3778,7 +3812,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = qtc.struct_libqt_string{
+        const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
@@ -3853,6 +3887,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
@@ -3861,7 +3897,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.QTextBrowser, state: i32 ```
+    /// ``` self: QtC.QTextBrowser, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
@@ -3870,7 +3906,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.QTextBrowser, state: i32 ```
+    /// ``` self: QtC.QTextBrowser, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
@@ -3987,7 +4023,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.QTextBrowser, parent: QtC.QWidget, f: i32 ```
+    /// ``` self: QtC.QTextBrowser, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
@@ -4070,7 +4106,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -4083,7 +4119,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -4114,7 +4150,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qtextbrowser.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -4128,7 +4164,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4141,7 +4177,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4154,7 +4190,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4167,7 +4203,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4187,7 +4223,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QTextBrowser, typeVal: i32 ```
+    /// ``` self: QtC.QTextBrowser, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -4197,6 +4233,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
@@ -4214,7 +4252,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.QTextBrowser, typeVal: i32 ```
+    /// ``` self: QtC.QTextBrowser, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -4224,6 +4262,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
@@ -4360,7 +4400,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -4400,7 +4440,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = qtc.struct_libqt_string{
+        const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
@@ -4439,6 +4479,8 @@ pub const qtextbrowser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QTextBrowser ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
@@ -4447,7 +4489,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QTextBrowser, hints: i32 ```
+    /// ``` self: QtC.QTextBrowser, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -4474,7 +4516,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QTextBrowser, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QTextBrowser, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -4501,7 +4543,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QTextBrowser, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QTextBrowser, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -4519,7 +4561,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.QTextBrowser, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QTextBrowser, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -4582,7 +4624,7 @@ pub const qtextbrowser = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
@@ -4606,7 +4648,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -4709,7 +4751,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtextbrowser.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -4817,8 +4859,8 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -6367,7 +6409,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -6382,7 +6424,7 @@ pub const qtextbrowser = struct {
     ///
     /// ``` self: QtC.QTextBrowser, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };

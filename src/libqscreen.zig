@@ -175,7 +175,7 @@ pub const qscreen = struct {
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn VirtualSiblings(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QScreen {
-        const _arr: qtc.struct_libqt_list = qtc.QScreen_VirtualSiblings(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QScreen_VirtualSiblings(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QScreen, _arr.len) catch @panic("qscreen.VirtualSiblings: Memory allocation failed");
         const _data: [*]QtC.QScreen = @ptrCast(@alignCast(_arr.data));
@@ -221,6 +221,8 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#primaryOrientation)
     ///
     /// ``` self: QtC.QScreen ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScreenOrientation ```
     pub fn PrimaryOrientation(self: ?*anyopaque) i64 {
         return qtc.QScreen_PrimaryOrientation(@ptrCast(self));
     }
@@ -228,6 +230,8 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#orientation)
     ///
     /// ``` self: QtC.QScreen ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScreenOrientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QScreen_Orientation(@ptrCast(self));
     }
@@ -235,6 +239,8 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#nativeOrientation)
     ///
     /// ``` self: QtC.QScreen ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScreenOrientation ```
     pub fn NativeOrientation(self: ?*anyopaque) i64 {
         return qtc.QScreen_NativeOrientation(@ptrCast(self));
     }
@@ -512,7 +518,7 @@ pub const qscreen = struct {
     ///
     /// ``` self: QtC.QScreen, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -615,7 +621,7 @@ pub const qscreen = struct {
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qscreen.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -732,8 +738,8 @@ pub const qscreen = struct {
     ///
     /// ``` self: QtC.QScreen, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

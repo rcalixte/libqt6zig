@@ -75,6 +75,8 @@ pub const qoffscreensurface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qoffscreensurface.html#surfaceType)
     ///
     /// ``` self: QtC.QOffscreenSurface ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceType ```
     pub fn SurfaceType(self: ?*anyopaque) i64 {
         return qtc.QOffscreenSurface_SurfaceType(@ptrCast(self));
     }
@@ -93,6 +95,8 @@ pub const qoffscreensurface = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QOffscreenSurface ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceType ```
     pub fn QBaseSurfaceType(self: ?*anyopaque) i64 {
         return qtc.QOffscreenSurface_QBaseSurfaceType(@ptrCast(self));
     }
@@ -282,7 +286,7 @@ pub const qoffscreensurface = struct {
     ///
     /// ``` self: QtC.QOffscreenSurface, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -385,7 +389,7 @@ pub const qoffscreensurface = struct {
     ///
     /// ``` self: QtC.QOffscreenSurface, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qoffscreensurface.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -502,8 +506,8 @@ pub const qoffscreensurface = struct {
     ///
     /// ``` self: QtC.QOffscreenSurface, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -645,6 +649,8 @@ pub const qoffscreensurface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
     /// ``` self: QtC.QOffscreenSurface ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceClass ```
     pub fn SurfaceClass(self: ?*anyopaque) i64 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }

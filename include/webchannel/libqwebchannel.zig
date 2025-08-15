@@ -70,7 +70,7 @@ pub const qwebchannel = struct {
     ///
     /// ``` self: QtC.QWebChannel, objects: map_constu8_qtcqobject, allocator: std.mem.Allocator ```
     pub fn RegisterObjects(self: ?*anyopaque, objects: map_constu8_anyopaque, allocator: std.mem.Allocator) void {
-        const objects_keys = allocator.alloc(qtc.struct_libqt_string, objects.count()) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
+        const objects_keys = allocator.alloc(qtc.libqt_string, objects.count()) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
         defer allocator.free(objects_keys);
         const objects_values = allocator.alloc(QtC.QObject, objects.count()) catch @panic("qwebchannel.RegisterObjects: Memory allocation failed");
         defer allocator.free(objects_values);
@@ -78,14 +78,14 @@ pub const qwebchannel = struct {
         var objects_it = objects.iterator();
         while (objects_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            objects_keys[i] = qtc.struct_libqt_string{
+            objects_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             objects_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const objects_map = qtc.struct_libqt_map{
+        const objects_map = qtc.libqt_map{
             .len = objects.count(),
             .keys = @ptrCast(objects_keys.ptr),
             .values = @ptrCast(objects_values.ptr),
@@ -97,17 +97,17 @@ pub const qwebchannel = struct {
     ///
     /// ``` self: QtC.QWebChannel, allocator: std.mem.Allocator ```
     pub fn RegisteredObjects(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqobject {
-        const _map: qtc.struct_libqt_map = qtc.QWebChannel_RegisteredObjects(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QWebChannel_RegisteredObjects(@ptrCast(self));
         var _ret: map_constu8_qtcqobject = .empty;
         defer {
-            const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
-        const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]?*anyopaque = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
@@ -123,7 +123,7 @@ pub const qwebchannel = struct {
     ///
     /// ``` self: QtC.QWebChannel, id: []const u8, object: QtC.QObject ```
     pub fn RegisterObject(self: ?*anyopaque, id: []const u8, object: ?*anyopaque) void {
-        const id_str = qtc.struct_libqt_string{
+        const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
@@ -238,7 +238,7 @@ pub const qwebchannel = struct {
     ///
     /// ``` self: QtC.QWebChannel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -341,7 +341,7 @@ pub const qwebchannel = struct {
     ///
     /// ``` self: QtC.QWebChannel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebchannel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -458,8 +458,8 @@ pub const qwebchannel = struct {
     ///
     /// ``` self: QtC.QWebChannel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -47,7 +47,7 @@ pub const qpdfoutputintent = struct {
     ///
     /// ``` self: QtC.QPdfOutputIntent, identifier: []const u8 ```
     pub fn SetOutputConditionIdentifier(self: ?*anyopaque, identifier: []const u8) void {
-        const identifier_str = qtc.struct_libqt_string{
+        const identifier_str = qtc.libqt_string{
             .len = identifier.len,
             .data = identifier.ptr,
         };
@@ -69,7 +69,7 @@ pub const qpdfoutputintent = struct {
     ///
     /// ``` self: QtC.QPdfOutputIntent, condition: []const u8 ```
     pub fn SetOutputCondition(self: ?*anyopaque, condition: []const u8) void {
-        const condition_str = qtc.struct_libqt_string{
+        const condition_str = qtc.libqt_string{
             .len = condition.len,
             .data = condition.ptr,
         };

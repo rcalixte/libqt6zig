@@ -16,7 +16,7 @@ pub const qresource = struct {
     ///
     /// ``` file: []const u8 ```
     pub fn New2(file: []const u8) QtC.QResource {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -28,7 +28,7 @@ pub const qresource = struct {
     ///
     /// ``` file: []const u8, locale: QtC.QLocale ```
     pub fn New3(file: []const u8, locale: ?*anyopaque) QtC.QResource {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -40,7 +40,7 @@ pub const qresource = struct {
     ///
     /// ``` self: QtC.QResource, file: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, file: []const u8) void {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -93,6 +93,8 @@ pub const qresource = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qresource.html#compressionAlgorithm)
     ///
     /// ``` self: QtC.QResource ```
+    ///
+    /// Returns: ``` qresource_enums.Compression ```
     pub fn CompressionAlgorithm(self: ?*anyopaque) i64 {
         return qtc.QResource_CompressionAlgorithm(@ptrCast(self));
     }
@@ -122,7 +124,7 @@ pub const qresource = struct {
     ///
     /// ``` self: QtC.QResource, allocator: std.mem.Allocator ```
     pub fn UncompressedData(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QResource_UncompressedData(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QResource_UncompressedData(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qresource.UncompressedData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -140,7 +142,7 @@ pub const qresource = struct {
     ///
     /// ``` rccFilename: []const u8 ```
     pub fn RegisterResource(rccFilename: []const u8) bool {
-        const rccFilename_str = qtc.struct_libqt_string{
+        const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
         };
@@ -151,7 +153,7 @@ pub const qresource = struct {
     ///
     /// ``` rccFilename: []const u8 ```
     pub fn UnregisterResource(rccFilename: []const u8) bool {
-        const rccFilename_str = qtc.struct_libqt_string{
+        const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
         };
@@ -176,11 +178,11 @@ pub const qresource = struct {
     ///
     /// ``` rccFilename: []const u8, resourceRoot: []const u8 ```
     pub fn RegisterResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
-        const rccFilename_str = qtc.struct_libqt_string{
+        const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
         };
-        const resourceRoot_str = qtc.struct_libqt_string{
+        const resourceRoot_str = qtc.libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
@@ -191,11 +193,11 @@ pub const qresource = struct {
     ///
     /// ``` rccFilename: []const u8, resourceRoot: []const u8 ```
     pub fn UnregisterResource22(rccFilename: []const u8, resourceRoot: []const u8) bool {
-        const rccFilename_str = qtc.struct_libqt_string{
+        const rccFilename_str = qtc.libqt_string{
             .len = rccFilename.len,
             .data = rccFilename.ptr,
         };
-        const resourceRoot_str = qtc.struct_libqt_string{
+        const resourceRoot_str = qtc.libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
@@ -206,7 +208,7 @@ pub const qresource = struct {
     ///
     /// ``` rccData: *const u8, resourceRoot: []const u8 ```
     pub fn RegisterResource23(rccData: *const u8, resourceRoot: []const u8) bool {
-        const resourceRoot_str = qtc.struct_libqt_string{
+        const resourceRoot_str = qtc.libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };
@@ -217,7 +219,7 @@ pub const qresource = struct {
     ///
     /// ``` rccData: *const u8, resourceRoot: []const u8 ```
     pub fn UnregisterResource23(rccData: *const u8, resourceRoot: []const u8) bool {
-        const resourceRoot_str = qtc.struct_libqt_string{
+        const resourceRoot_str = qtc.libqt_string{
             .len = resourceRoot.len,
             .data = resourceRoot.ptr,
         };

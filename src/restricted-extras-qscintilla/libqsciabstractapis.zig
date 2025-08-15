@@ -69,7 +69,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, context: [][]const u8, list: [][]const u8, allocator: std.mem.Allocator ```
     pub fn UpdateAutoCompletionList(self: ?*anyopaque, context: [][]const u8, list: [][]const u8, allocator: std.mem.Allocator) void {
-        var context_arr = allocator.alloc(qtc.struct_libqt_string, context.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        var context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i| {
             context_arr[i] = .{
@@ -77,11 +77,11 @@ pub const qsciabstractapis = struct {
                 .data = item.ptr,
             };
         }
-        const context_list = qtc.struct_libqt_list{
+        const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
         };
-        var list_arr = allocator.alloc(qtc.struct_libqt_string, list.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{
@@ -89,7 +89,7 @@ pub const qsciabstractapis = struct {
                 .data = item.ptr,
             };
         }
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
@@ -111,7 +111,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, context: [][]const u8, list: [][]const u8, allocator: std.mem.Allocator ```
     pub fn QBaseUpdateAutoCompletionList(self: ?*anyopaque, context: [][]const u8, list: [][]const u8, allocator: std.mem.Allocator) void {
-        var context_arr = allocator.alloc(qtc.struct_libqt_string, context.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        var context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i| {
             context_arr[i] = .{
@@ -119,11 +119,11 @@ pub const qsciabstractapis = struct {
                 .data = item.ptr,
             };
         }
-        const context_list = qtc.struct_libqt_list{
+        const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
         };
-        var list_arr = allocator.alloc(qtc.struct_libqt_string, list.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{
@@ -131,7 +131,7 @@ pub const qsciabstractapis = struct {
                 .data = item.ptr,
             };
         }
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
@@ -142,7 +142,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, selection: []const u8 ```
     pub fn AutoCompletionSelected(self: ?*anyopaque, selection: []const u8) void {
-        const selection_str = qtc.struct_libqt_string{
+        const selection_str = qtc.libqt_string{
             .len = selection.len,
             .data = selection.ptr,
         };
@@ -164,7 +164,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, selection: []const u8 ```
     pub fn QBaseAutoCompletionSelected(self: ?*anyopaque, selection: []const u8) void {
-        const selection_str = qtc.struct_libqt_string{
+        const selection_str = qtc.libqt_string{
             .len = selection.len,
             .data = selection.ptr,
         };
@@ -175,7 +175,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, context: [][]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: []i32, allocator: std.mem.Allocator ```
     pub fn CallTips(self: ?*anyopaque, context: [][]const u8, commas: i32, style: i64, shifts: []i32, allocator: std.mem.Allocator) [][]const u8 {
-        var context_arr = allocator.alloc(qtc.struct_libqt_string, context.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+        var context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i| {
             context_arr[i] = .{
@@ -183,16 +183,16 @@ pub const qsciabstractapis = struct {
                 .data = item.ptr,
             };
         }
-        const context_list = qtc.struct_libqt_list{
+        const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
         };
-        const shifts_list = qtc.struct_libqt_list{
+        const shifts_list = qtc.libqt_list{
             .len = shifts.len,
             .data = shifts.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QsciAbstractAPIs_CallTips(@ptrCast(self), context_list, @intCast(commas), @intCast(style), shifts_list);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QsciAbstractAPIs_CallTips(@ptrCast(self), context_list, @intCast(commas), @intCast(style), shifts_list);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -224,7 +224,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, context: [][]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: []i32, allocator: std.mem.Allocator ```
     pub fn QBaseCallTips(self: ?*anyopaque, context: [][]const u8, commas: i32, style: i64, shifts: []i32, allocator: std.mem.Allocator) [][]const u8 {
-        var context_arr = allocator.alloc(qtc.struct_libqt_string, context.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+        var context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i| {
             context_arr[i] = .{
@@ -232,16 +232,16 @@ pub const qsciabstractapis = struct {
                 .data = item.ptr,
             };
         }
-        const context_list = qtc.struct_libqt_list{
+        const context_list = qtc.libqt_list{
             .len = context.len,
             .data = context_arr.ptr,
         };
-        const shifts_list = qtc.struct_libqt_list{
+        const shifts_list = qtc.libqt_list{
             .len = shifts.len,
             .data = shifts.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QsciAbstractAPIs_QBaseCallTips(@ptrCast(self), context_list, @intCast(commas), @intCast(style), shifts_list);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QsciAbstractAPIs_QBaseCallTips(@ptrCast(self), context_list, @intCast(commas), @intCast(style), shifts_list);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -303,7 +303,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -406,7 +406,7 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsciabstractapis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -523,8 +523,8 @@ pub const qsciabstractapis = struct {
     ///
     /// ``` self: QtC.QsciAbstractAPIs, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -68,7 +68,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn CookiesForUrl(self: ?*anyopaque, url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkCookieJar_CookiesForUrl(@ptrCast(self), @ptrCast(url));
+        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_CookiesForUrl(@ptrCast(self), @ptrCast(url));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkCookie, _arr.len) catch @panic("qnetworkcookiejar.CookiesForUrl: Memory allocation failed");
         const _data: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));
@@ -91,7 +91,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, url: QtC.QUrl, allocator: std.mem.Allocator ```
     pub fn QBaseCookiesForUrl(self: ?*anyopaque, url: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkCookieJar_QBaseCookiesForUrl(@ptrCast(self), @ptrCast(url));
+        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_QBaseCookiesForUrl(@ptrCast(self), @ptrCast(url));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkCookie, _arr.len) catch @panic("qnetworkcookiejar.CookiesForUrl: Memory allocation failed");
         const _data: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));
@@ -103,7 +103,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, cookieList: []QtC.QNetworkCookie, url: QtC.QUrl ```
     pub fn SetCookiesFromUrl(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie, url: ?*anyopaque) bool {
-        const cookieList_list = qtc.struct_libqt_list{
+        const cookieList_list = qtc.libqt_list{
             .len = cookieList.len,
             .data = @ptrCast(cookieList.ptr),
         };
@@ -125,7 +125,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, cookieList: []QtC.QNetworkCookie, url: QtC.QUrl ```
     pub fn QBaseSetCookiesFromUrl(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie, url: ?*anyopaque) bool {
-        const cookieList_list = qtc.struct_libqt_list{
+        const cookieList_list = qtc.libqt_list{
             .len = cookieList.len,
             .data = @ptrCast(cookieList.ptr),
         };
@@ -211,7 +211,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, allocator: std.mem.Allocator ```
     pub fn AllCookies(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkCookieJar_AllCookies(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_AllCookies(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkCookie, _arr.len) catch @panic("qnetworkcookiejar.AllCookies: Memory allocation failed");
         const _data: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));
@@ -234,7 +234,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, allocator: std.mem.Allocator ```
     pub fn QBaseAllCookies(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkCookieJar_QBaseAllCookies(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QNetworkCookieJar_QBaseAllCookies(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkCookie, _arr.len) catch @panic("qnetworkcookiejar.AllCookies: Memory allocation failed");
         const _data: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));
@@ -246,7 +246,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, cookieList: []QtC.QNetworkCookie ```
     pub fn SetAllCookies(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie) void {
-        const cookieList_list = qtc.struct_libqt_list{
+        const cookieList_list = qtc.libqt_list{
             .len = cookieList.len,
             .data = @ptrCast(cookieList.ptr),
         };
@@ -268,7 +268,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, cookieList: []QtC.QNetworkCookie ```
     pub fn QBaseSetAllCookies(self: ?*anyopaque, cookieList: []QtC.QNetworkCookie) void {
-        const cookieList_list = qtc.struct_libqt_list{
+        const cookieList_list = qtc.libqt_list{
             .len = cookieList.len,
             .data = @ptrCast(cookieList.ptr),
         };
@@ -345,7 +345,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -448,7 +448,7 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qnetworkcookiejar.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -565,8 +565,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// ``` self: QtC.QNetworkCookieJar, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

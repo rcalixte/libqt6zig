@@ -49,7 +49,7 @@ pub const qpixmapcache = struct {
     ///
     /// ``` key: []const u8, pixmap: QtC.QPixmap ```
     pub fn Find(key: []const u8, pixmap: ?*anyopaque) bool {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -67,7 +67,7 @@ pub const qpixmapcache = struct {
     ///
     /// ``` key: []const u8, pixmap: QtC.QPixmap ```
     pub fn Insert(key: []const u8, pixmap: ?*anyopaque) bool {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -92,7 +92,7 @@ pub const qpixmapcache = struct {
     ///
     /// ``` key: []const u8 ```
     pub fn Remove(key: []const u8) void {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
@@ -139,35 +139,35 @@ pub const qpixmapcache__key = struct {
         return qtc.QPixmapCache__Key_new2(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache__key.html#operator-eq-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache-key.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPixmapCache__Key, key: QtC.QPixmapCache__Key ```
     pub fn OperatorEqual(self: ?*anyopaque, key: ?*anyopaque) bool {
         return qtc.QPixmapCache__Key_OperatorEqual(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache__key.html#operator-not-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache-key.html#operator-not-eq)
     ///
     /// ``` self: QtC.QPixmapCache__Key, key: QtC.QPixmapCache__Key ```
     pub fn OperatorNotEqual(self: ?*anyopaque, key: ?*anyopaque) bool {
         return qtc.QPixmapCache__Key_OperatorNotEqual(@ptrCast(self), @ptrCast(key));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache__key.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache-key.html#operator-eq)
     ///
     /// ``` self: QtC.QPixmapCache__Key, other: QtC.QPixmapCache__Key ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPixmapCache__Key_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache__key.html#swap)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache-key.html#swap)
     ///
     /// ``` self: QtC.QPixmapCache__Key, other: QtC.QPixmapCache__Key ```
     pub fn Swap(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPixmapCache__Key_Swap(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache__key.html#isValid)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpixmapcache-key.html#isValid)
     ///
     /// ``` self: QtC.QPixmapCache__Key ```
     pub fn IsValid(self: ?*anyopaque) bool {

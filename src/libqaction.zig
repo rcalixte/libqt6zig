@@ -19,7 +19,7 @@ pub const qaction = struct {
     ///
     /// ``` text: []const u8 ```
     pub fn New2(text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -31,7 +31,7 @@ pub const qaction = struct {
     ///
     /// ``` icon: QtC.QIcon, text: []const u8 ```
     pub fn New3(icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -50,7 +50,7 @@ pub const qaction = struct {
     ///
     /// ``` text: []const u8, parent: QtC.QObject ```
     pub fn New5(text: []const u8, parent: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -62,7 +62,7 @@ pub const qaction = struct {
     ///
     /// ``` icon: QtC.QIcon, text: []const u8, parent: QtC.QObject ```
     pub fn New6(icon: ?*anyopaque, text: []const u8, parent: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -118,7 +118,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, allocator: std.mem.Allocator ```
     pub fn AssociatedObjects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qaction.AssociatedObjects: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -158,7 +158,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -180,7 +180,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, text: []const u8 ```
     pub fn SetIconText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -202,7 +202,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, tip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, tip: []const u8) void {
-        const tip_str = qtc.struct_libqt_string{
+        const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
@@ -224,7 +224,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -246,7 +246,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, what: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, what: []const u8) void {
-        const what_str = qtc.struct_libqt_string{
+        const what_str = qtc.libqt_string{
             .len = what.len,
             .data = what.ptr,
         };
@@ -274,6 +274,8 @@ pub const qaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#priority)
     ///
     /// ``` self: QtC.QAction ```
+    ///
+    /// Returns: ``` qaction_enums.Priority ```
     pub fn Priority(self: ?*anyopaque) i64 {
         return qtc.QAction_Priority(@ptrCast(self));
     }
@@ -310,7 +312,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, shortcuts: []QtC.QKeySequence ```
     pub fn SetShortcuts(self: ?*anyopaque, shortcuts: []QtC.QKeySequence) void {
-        const shortcuts_list = qtc.struct_libqt_list{
+        const shortcuts_list = qtc.libqt_list{
             .len = shortcuts.len,
             .data = @ptrCast(shortcuts.ptr),
         };
@@ -328,7 +330,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, allocator: std.mem.Allocator ```
     pub fn Shortcuts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QKeySequence {
-        const _arr: qtc.struct_libqt_list = qtc.QAction_Shortcuts(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qaction.Shortcuts: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
@@ -346,6 +348,8 @@ pub const qaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#shortcutContext)
     ///
     /// ``` self: QtC.QAction ```
+    ///
+    /// Returns: ``` qnamespace_enums.ShortcutContext ```
     pub fn ShortcutContext(self: ?*anyopaque) i64 {
         return qtc.QAction_ShortcutContext(@ptrCast(self));
     }
@@ -444,6 +448,8 @@ pub const qaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#menuRole)
     ///
     /// ``` self: QtC.QAction ```
+    ///
+    /// Returns: ``` qaction_enums.MenuRole ```
     pub fn MenuRole(self: ?*anyopaque) i64 {
         return qtc.QAction_MenuRole(@ptrCast(self));
     }
@@ -728,7 +734,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -831,7 +837,7 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qaction.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -948,8 +954,8 @@ pub const qaction = struct {
     ///
     /// ``` self: QtC.QAction, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

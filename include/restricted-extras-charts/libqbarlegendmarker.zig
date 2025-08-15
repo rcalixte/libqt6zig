@@ -69,6 +69,8 @@ pub const qbarlegendmarker = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarlegendmarker-qtcharts.html#type)
     ///
     /// ``` self: QtC.QBarLegendMarker ```
+    ///
+    /// Returns: ``` qlegendmarker_enums.LegendMarkerType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QBarLegendMarker_Type(@ptrCast(self));
     }
@@ -87,6 +89,8 @@ pub const qbarlegendmarker = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QBarLegendMarker ```
+    ///
+    /// Returns: ``` qlegendmarker_enums.LegendMarkerType ```
     pub fn QBaseType(self: ?*anyopaque) i64 {
         return qtc.QBarLegendMarker_QBaseType(@ptrCast(self));
     }
@@ -168,7 +172,7 @@ pub const qbarlegendmarker = struct {
     ///
     /// ``` self: QtC.QBarLegendMarker, label: []const u8 ```
     pub fn SetLabel(self: ?*anyopaque, label: []const u8) void {
-        const label_str = qtc.struct_libqt_string{
+        const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
@@ -270,6 +274,8 @@ pub const qbarlegendmarker = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker.html#shape)
     ///
     /// ``` self: QtC.QBarLegendMarker ```
+    ///
+    /// Returns: ``` qlegend_enums.MarkerShape ```
     pub fn Shape(self: ?*anyopaque) i64 {
         return qtc.QLegendMarker_Shape(@ptrCast(self));
     }
@@ -464,7 +470,7 @@ pub const qbarlegendmarker = struct {
     ///
     /// ``` self: QtC.QBarLegendMarker, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -567,7 +573,7 @@ pub const qbarlegendmarker = struct {
     ///
     /// ``` self: QtC.QBarLegendMarker, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qbarlegendmarker.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -684,8 +690,8 @@ pub const qbarlegendmarker = struct {
     ///
     /// ``` self: QtC.QBarLegendMarker, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

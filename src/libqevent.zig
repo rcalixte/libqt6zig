@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qcoreevent_enums = @import("libqcoreevent.zig").enums;
 const qevent_enums = enums;
+const qeventpoint_enums = @import("libqeventpoint.zig").enums;
 const qinputdevice_enums = @import("libqinputdevice.zig").enums;
 const qkeysequence_enums = @import("libqkeysequence.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
@@ -19,7 +20,7 @@ pub const qinputevent = struct {
 
     /// New2 constructs a new QInputEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, m_dev: QtC.QInputDevice, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, m_dev: QtC.QInputDevice, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New2(typeVal: i64, m_dev: ?*anyopaque, modifiers: i64) QtC.QInputEvent {
         return qtc.QInputEvent_new2(@intCast(typeVal), @ptrCast(m_dev), @intCast(modifiers));
     }
@@ -59,6 +60,8 @@ pub const qinputevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QInputEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -66,13 +69,15 @@ pub const qinputevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QInputEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QInputEvent, modifiers: i32 ```
+    /// ``` self: QtC.QInputEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -114,6 +119,8 @@ pub const qinputevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QInputEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -253,16 +260,16 @@ pub const qpointerevent = struct {
 
     /// New2 constructs a new QPointerEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New2(typeVal: i64, dev: ?*anyopaque, modifiers: i64) QtC.QPointerEvent {
         return qtc.QPointerEvent_new2(@intCast(typeVal), @ptrCast(dev), @intCast(modifiers));
     }
 
     /// New3 constructs a new QPointerEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: i32, points: []QtC.QEventPoint ```
+    /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, points: []QtC.QEventPoint ```
     pub fn New3(typeVal: i64, dev: ?*anyopaque, modifiers: i64, points: []QtC.QEventPoint) QtC.QPointerEvent {
-        const points_list = qtc.struct_libqt_list{
+        const points_list = qtc.libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
@@ -305,6 +312,8 @@ pub const qpointerevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QPointerEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -352,7 +361,7 @@ pub const qpointerevent = struct {
     ///
     /// ``` self: QtC.QPointerEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qpointerevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -530,6 +539,8 @@ pub const qpointerevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QPointerEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -539,6 +550,8 @@ pub const qpointerevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QPointerEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -547,7 +560,7 @@ pub const qpointerevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QPointerEvent, modifiers: i32 ```
+    /// ``` self: QtC.QPointerEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -566,6 +579,8 @@ pub const qpointerevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QPointerEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -673,6 +688,8 @@ pub const qsinglepointevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#button)
     ///
     /// ``` self: QtC.QSinglePointEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Button(@ptrCast(self));
     }
@@ -680,6 +697,8 @@ pub const qsinglepointevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#buttons)
     ///
     /// ``` self: QtC.QSinglePointEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Buttons(@ptrCast(self));
     }
@@ -754,6 +773,8 @@ pub const qsinglepointevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QSinglePointEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -791,7 +812,7 @@ pub const qsinglepointevent = struct {
     ///
     /// ``` self: QtC.QSinglePointEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qsinglepointevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -894,6 +915,8 @@ pub const qsinglepointevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QSinglePointEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -903,6 +926,8 @@ pub const qsinglepointevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QSinglePointEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -911,7 +936,7 @@ pub const qsinglepointevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QSinglePointEvent, modifiers: i32 ```
+    /// ``` self: QtC.QSinglePointEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -930,6 +955,8 @@ pub const qsinglepointevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QSinglePointEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -1134,6 +1161,8 @@ pub const qenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#button)
     ///
     /// ``` self: QtC.QEnterEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Button(@ptrCast(self));
     }
@@ -1143,6 +1172,8 @@ pub const qenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#buttons)
     ///
     /// ``` self: QtC.QEnterEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Buttons(@ptrCast(self));
     }
@@ -1206,6 +1237,8 @@ pub const qenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QEnterEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -1234,7 +1267,7 @@ pub const qenterevent = struct {
     ///
     /// ``` self: QtC.QEnterEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qenterevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -1328,6 +1361,8 @@ pub const qenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QEnterEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -1337,6 +1372,8 @@ pub const qenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QEnterEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -1345,7 +1382,7 @@ pub const qenterevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QEnterEvent, modifiers: i32 ```
+    /// ``` self: QtC.QEnterEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -1364,6 +1401,8 @@ pub const qenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QEnterEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -1628,56 +1667,56 @@ pub const qenterevent = struct {
 pub const qmouseevent = struct {
     /// New constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New(typeVal: i64, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New2 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New2(typeVal: i64, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new2(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New3 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New3(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new3(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New4 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, source: qnamespace_enums.MouseEventSource ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, source: qnamespace_enums.MouseEventSource ```
     pub fn New4(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new4(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source));
     }
 
     /// New5 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
     pub fn New5(typeVal: i64, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new5(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New6 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
     pub fn New6(typeVal: i64, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new6(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New7 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
     pub fn New7(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new7(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New8 constructs a new QMouseEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: i32, modifiers: i32, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
     pub fn New8(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new8(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source), @ptrCast(device));
     }
@@ -1773,6 +1812,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmouseevent.html#source)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseEventSource ```
     pub fn Source(self: ?*anyopaque) i64 {
         return qtc.QMouseEvent_Source(@ptrCast(self));
     }
@@ -1780,6 +1821,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmouseevent.html#flags)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseEventFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QMouseEvent_Flags(@ptrCast(self));
     }
@@ -1789,6 +1832,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#button)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Button(@ptrCast(self));
     }
@@ -1798,6 +1843,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#buttons)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Buttons(@ptrCast(self));
     }
@@ -1861,6 +1908,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -1889,7 +1938,7 @@ pub const qmouseevent = struct {
     ///
     /// ``` self: QtC.QMouseEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qmouseevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -1983,6 +2032,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -1992,6 +2043,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -2000,7 +2053,7 @@ pub const qmouseevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QMouseEvent, modifiers: i32 ```
+    /// ``` self: QtC.QMouseEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -2019,6 +2072,8 @@ pub const qmouseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QMouseEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -2297,28 +2352,28 @@ pub const qhoverevent = struct {
 
     /// New3 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New3(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
         return qtc.QHoverEvent_new3(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers));
     }
 
     /// New4 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
     pub fn New4(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new4(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New5 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New5(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
         return qtc.QHoverEvent_new5(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers));
     }
 
     /// New6 constructs a new QHoverEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: i32, device: QtC.QPointingDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
     pub fn New6(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new6(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
     }
@@ -2406,6 +2461,8 @@ pub const qhoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#button)
     ///
     /// ``` self: QtC.QHoverEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Button(@ptrCast(self));
     }
@@ -2415,6 +2472,8 @@ pub const qhoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#buttons)
     ///
     /// ``` self: QtC.QHoverEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Buttons(@ptrCast(self));
     }
@@ -2478,6 +2537,8 @@ pub const qhoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QHoverEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -2506,7 +2567,7 @@ pub const qhoverevent = struct {
     ///
     /// ``` self: QtC.QHoverEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qhoverevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -2600,6 +2661,8 @@ pub const qhoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QHoverEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -2609,6 +2672,8 @@ pub const qhoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QHoverEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -2617,7 +2682,7 @@ pub const qhoverevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QHoverEvent, modifiers: i32 ```
+    /// ``` self: QtC.QHoverEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -2636,6 +2701,8 @@ pub const qhoverevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QHoverEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -2867,21 +2934,21 @@ pub const qhoverevent = struct {
 pub const qwheelevent = struct {
     /// New constructs a new QWheelEvent object.
     ///
-    /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i32, modifiers: i32, phase: qnamespace_enums.ScrollPhase, inverted: bool ```
+    /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, phase: qnamespace_enums.ScrollPhase, inverted: bool ```
     pub fn New(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i64, inverted: bool) QtC.QWheelEvent {
         return qtc.QWheelEvent_new(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted);
     }
 
     /// New2 constructs a new QWheelEvent object.
     ///
-    /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i32, modifiers: i32, phase: qnamespace_enums.ScrollPhase, inverted: bool, source: qnamespace_enums.MouseEventSource ```
+    /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, phase: qnamespace_enums.ScrollPhase, inverted: bool, source: qnamespace_enums.MouseEventSource ```
     pub fn New2(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i64, inverted: bool, source: i64) QtC.QWheelEvent {
         return qtc.QWheelEvent_new2(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted, @intCast(source));
     }
 
     /// New3 constructs a new QWheelEvent object.
     ///
-    /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i32, modifiers: i32, phase: qnamespace_enums.ScrollPhase, inverted: bool, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
+    /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, phase: qnamespace_enums.ScrollPhase, inverted: bool, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
     pub fn New3(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i64, inverted: bool, source: i64, device: ?*anyopaque) QtC.QWheelEvent {
         return qtc.QWheelEvent_new3(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted, @intCast(source), @ptrCast(device));
     }
@@ -2928,6 +2995,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwheelevent.html#phase)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollPhase ```
     pub fn Phase(self: ?*anyopaque) i64 {
         return qtc.QWheelEvent_Phase(@ptrCast(self));
     }
@@ -3031,6 +3100,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwheelevent.html#source)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseEventSource ```
     pub fn Source(self: ?*anyopaque) i64 {
         return qtc.QWheelEvent_Source(@ptrCast(self));
     }
@@ -3040,6 +3111,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#button)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Button(@ptrCast(self));
     }
@@ -3049,6 +3122,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#buttons)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Buttons(@ptrCast(self));
     }
@@ -3112,6 +3187,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -3140,7 +3217,7 @@ pub const qwheelevent = struct {
     ///
     /// ``` self: QtC.QWheelEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qwheelevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -3234,6 +3311,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -3243,6 +3322,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -3251,7 +3332,7 @@ pub const qwheelevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QWheelEvent, modifiers: i32 ```
+    /// ``` self: QtC.QWheelEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -3270,6 +3351,8 @@ pub const qwheelevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QWheelEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -3435,7 +3518,7 @@ pub const qwheelevent = struct {
 pub const qtabletevent = struct {
     /// New constructs a new QTabletEvent object.
     ///
-    /// ``` t: qcoreevent_enums.Type, device: QtC.QPointingDevice, pos: QtC.QPointF, globalPos: QtC.QPointF, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i32, button: qnamespace_enums.MouseButton, buttons: i32 ```
+    /// ``` t: qcoreevent_enums.Type, device: QtC.QPointingDevice, pos: QtC.QPointF, globalPos: QtC.QPointF, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: flag of qnamespace_enums.KeyboardModifier, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton ```
     pub fn New(t: i64, device: ?*anyopaque, pos: ?*anyopaque, globalPos: ?*anyopaque, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i64, button: i64, buttons: i64) QtC.QTabletEvent {
         return qtc.QTabletEvent_new(@intCast(t), @ptrCast(device), @ptrCast(pos), @ptrCast(globalPos), @floatCast(pressure), @floatCast(xTilt), @floatCast(yTilt), @floatCast(tangentialPressure), @floatCast(rotation), @floatCast(z), @intCast(keyState), @intCast(button), @intCast(buttons));
     }
@@ -3589,6 +3672,8 @@ pub const qtabletevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#button)
     ///
     /// ``` self: QtC.QTabletEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Button(@ptrCast(self));
     }
@@ -3598,6 +3683,8 @@ pub const qtabletevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#buttons)
     ///
     /// ``` self: QtC.QTabletEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Buttons(@ptrCast(self));
     }
@@ -3661,6 +3748,8 @@ pub const qtabletevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QTabletEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -3689,7 +3778,7 @@ pub const qtabletevent = struct {
     ///
     /// ``` self: QtC.QTabletEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qtabletevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -3783,6 +3872,8 @@ pub const qtabletevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QTabletEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -3792,6 +3883,8 @@ pub const qtabletevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QTabletEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -3800,7 +3893,7 @@ pub const qtabletevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QTabletEvent, modifiers: i32 ```
+    /// ``` self: QtC.QTabletEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -3819,6 +3912,8 @@ pub const qtabletevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QTabletEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -4130,6 +4225,8 @@ pub const qnativegestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnativegestureevent.html#gestureType)
     ///
     /// ``` self: QtC.QNativeGestureEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.NativeGestureType ```
     pub fn GestureType(self: ?*anyopaque) i64 {
         return qtc.QNativeGestureEvent_GestureType(@ptrCast(self));
     }
@@ -4195,6 +4292,8 @@ pub const qnativegestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#button)
     ///
     /// ``` self: QtC.QNativeGestureEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.MouseButton ```
     pub fn Button(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Button(@ptrCast(self));
     }
@@ -4204,6 +4303,8 @@ pub const qnativegestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsinglepointevent.html#buttons)
     ///
     /// ``` self: QtC.QNativeGestureEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QSinglePointEvent_Buttons(@ptrCast(self));
     }
@@ -4267,6 +4368,8 @@ pub const qnativegestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QNativeGestureEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -4295,7 +4398,7 @@ pub const qnativegestureevent = struct {
     ///
     /// ``` self: QtC.QNativeGestureEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qnativegestureevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -4389,6 +4492,8 @@ pub const qnativegestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QNativeGestureEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -4398,6 +4503,8 @@ pub const qnativegestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QNativeGestureEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -4406,7 +4513,7 @@ pub const qnativegestureevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QNativeGestureEvent, modifiers: i32 ```
+    /// ``` self: QtC.QNativeGestureEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -4425,6 +4532,8 @@ pub const qnativegestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QNativeGestureEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -4689,23 +4798,23 @@ pub const qnativegestureevent = struct {
 pub const qkeyevent = struct {
     /// New constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New(typeVal: i64, key: i32, modifiers: i64) QtC.QKeyEvent {
         return qtc.QKeyEvent_new(@intCast(typeVal), @intCast(key), @intCast(modifiers));
     }
 
     /// New2 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32 ```
     pub fn New2(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32) QtC.QKeyEvent {
         return qtc.QKeyEvent_new2(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers));
     }
 
     /// New3 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, text: []const u8 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, text: []const u8 ```
     pub fn New3(typeVal: i64, key: i32, modifiers: i64, text: []const u8) QtC.QKeyEvent {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4715,9 +4824,9 @@ pub const qkeyevent = struct {
 
     /// New4 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, text: []const u8, autorep: bool ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, text: []const u8, autorep: bool ```
     pub fn New4(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool) QtC.QKeyEvent {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4727,9 +4836,9 @@ pub const qkeyevent = struct {
 
     /// New5 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, text: []const u8, autorep: bool, count: u16 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, text: []const u8, autorep: bool, count: u16 ```
     pub fn New5(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4739,9 +4848,9 @@ pub const qkeyevent = struct {
 
     /// New6 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8 ```
     pub fn New6(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8) QtC.QKeyEvent {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4751,9 +4860,9 @@ pub const qkeyevent = struct {
 
     /// New7 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool ```
     pub fn New7(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool) QtC.QKeyEvent {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4763,9 +4872,9 @@ pub const qkeyevent = struct {
 
     /// New8 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16 ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16 ```
     pub fn New8(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4775,9 +4884,9 @@ pub const qkeyevent = struct {
 
     /// New9 constructs a new QKeyEvent object.
     ///
-    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: i32, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: QtC.QInputDevice ```
+    /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: QtC.QInputDevice ```
     pub fn New9(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: ?*anyopaque) QtC.QKeyEvent {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -4827,6 +4936,8 @@ pub const qkeyevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeyevent.html#modifiers)
     ///
     /// ``` self: QtC.QKeyEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QKeyEvent_Modifiers(@ptrCast(self));
     }
@@ -4898,6 +5009,8 @@ pub const qkeyevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QKeyEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -4906,7 +5019,7 @@ pub const qkeyevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QKeyEvent, modifiers: i32 ```
+    /// ``` self: QtC.QKeyEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -4925,6 +5038,8 @@ pub const qkeyevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QKeyEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -5144,6 +5259,8 @@ pub const qfocusevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfocusevent.html#reason)
     ///
     /// ``` self: QtC.QFocusEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusReason ```
     pub fn Reason(self: ?*anyopaque) i64 {
         return qtc.QFocusEvent_Reason(@ptrCast(self));
     }
@@ -5153,6 +5270,8 @@ pub const qfocusevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QFocusEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -5341,6 +5460,8 @@ pub const qpaintevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QPaintEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -5522,6 +5643,8 @@ pub const qmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QMoveEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -5696,6 +5819,8 @@ pub const qexposeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QExposeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -5861,6 +5986,8 @@ pub const qplatformsurfaceevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qplatformsurfaceevent.html#surfaceEventType)
     ///
     /// ``` self: QtC.QPlatformSurfaceEvent ```
+    ///
+    /// Returns: ``` qevent_enums.SurfaceEventType ```
     pub fn SurfaceEventType(self: ?*anyopaque) i64 {
         return qtc.QPlatformSurfaceEvent_SurfaceEventType(@ptrCast(self));
     }
@@ -5870,6 +5997,8 @@ pub const qplatformsurfaceevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QPlatformSurfaceEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -6051,6 +6180,8 @@ pub const qresizeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QResizeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -6218,6 +6349,8 @@ pub const qcloseevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QCloseEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -6385,6 +6518,8 @@ pub const qicondragevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QIconDragEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -6552,6 +6687,8 @@ pub const qshowevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QShowEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -6719,6 +6856,8 @@ pub const qhideevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QHideEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -6865,7 +7004,7 @@ pub const qcontextmenuevent = struct {
 
     /// New3 constructs a new QContextMenuEvent object.
     ///
-    /// ``` reason: qevent_enums.Reason, pos: QtC.QPoint, globalPos: QtC.QPoint, modifiers: i32 ```
+    /// ``` reason: qevent_enums.Reason, pos: QtC.QPoint, globalPos: QtC.QPoint, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New3(reason: i64, pos: ?*anyopaque, globalPos: ?*anyopaque, modifiers: i64) QtC.QContextMenuEvent {
         return qtc.QContextMenuEvent_new3(@intCast(reason), @ptrCast(pos), @ptrCast(globalPos), @intCast(modifiers));
     }
@@ -6940,6 +7079,8 @@ pub const qcontextmenuevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcontextmenuevent.html#reason)
     ///
     /// ``` self: QtC.QContextMenuEvent ```
+    ///
+    /// Returns: ``` qevent_enums.Reason ```
     pub fn Reason(self: ?*anyopaque) i64 {
         return qtc.QContextMenuEvent_Reason(@ptrCast(self));
     }
@@ -6958,6 +7099,8 @@ pub const qcontextmenuevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QContextMenuEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -6967,6 +7110,8 @@ pub const qcontextmenuevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QContextMenuEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -6975,7 +7120,7 @@ pub const qcontextmenuevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QContextMenuEvent, modifiers: i32 ```
+    /// ``` self: QtC.QContextMenuEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -6994,6 +7139,8 @@ pub const qcontextmenuevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QContextMenuEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -7168,11 +7315,11 @@ pub const qinputmethodevent = struct {
     ///
     /// ``` preeditText: []const u8, attributes: []QtC.QInputMethodEvent__Attribute ```
     pub fn New2(preeditText: []const u8, attributes: []QtC.QInputMethodEvent__Attribute) QtC.QInputMethodEvent {
-        const preeditText_str = qtc.struct_libqt_string{
+        const preeditText_str = qtc.libqt_string{
             .len = preeditText.len,
             .data = preeditText.ptr,
         };
-        const attributes_list = qtc.struct_libqt_list{
+        const attributes_list = qtc.libqt_list{
             .len = attributes.len,
             .data = @ptrCast(attributes.ptr),
         };
@@ -7209,7 +7356,7 @@ pub const qinputmethodevent = struct {
     ///
     /// ``` self: QtC.QInputMethodEvent, commitString: []const u8 ```
     pub fn SetCommitString(self: ?*anyopaque, commitString: []const u8) void {
-        const commitString_str = qtc.struct_libqt_string{
+        const commitString_str = qtc.libqt_string{
             .len = commitString.len,
             .data = commitString.ptr,
         };
@@ -7220,7 +7367,7 @@ pub const qinputmethodevent = struct {
     ///
     /// ``` self: QtC.QInputMethodEvent, allocator: std.mem.Allocator ```
     pub fn Attributes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QInputMethodEvent__Attribute {
-        const _arr: qtc.struct_libqt_list = qtc.QInputMethodEvent_Attributes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QInputMethodEvent_Attributes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QInputMethodEvent__Attribute, _arr.len) catch @panic("qinputmethodevent.Attributes: Memory allocation failed");
         const _data: [*]QtC.QInputMethodEvent__Attribute = @ptrCast(@alignCast(_arr.data));
@@ -7268,7 +7415,7 @@ pub const qinputmethodevent = struct {
     ///
     /// ``` self: QtC.QInputMethodEvent, commitString: []const u8, replaceFrom: i32 ```
     pub fn SetCommitString2(self: ?*anyopaque, commitString: []const u8, replaceFrom: i32) void {
-        const commitString_str = qtc.struct_libqt_string{
+        const commitString_str = qtc.libqt_string{
             .len = commitString.len,
             .data = commitString.ptr,
         };
@@ -7279,7 +7426,7 @@ pub const qinputmethodevent = struct {
     ///
     /// ``` self: QtC.QInputMethodEvent, commitString: []const u8, replaceFrom: i32, replaceLength: i32 ```
     pub fn SetCommitString3(self: ?*anyopaque, commitString: []const u8, replaceFrom: i32, replaceLength: i32) void {
-        const commitString_str = qtc.struct_libqt_string{
+        const commitString_str = qtc.libqt_string{
             .len = commitString.len,
             .data = commitString.ptr,
         };
@@ -7291,6 +7438,8 @@ pub const qinputmethodevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QInputMethodEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -7423,7 +7572,7 @@ pub const qinputmethodevent = struct {
 pub const qinputmethodqueryevent = struct {
     /// New constructs a new QInputMethodQueryEvent object.
     ///
-    /// ``` queries: i32 ```
+    /// ``` queries: flag of qnamespace_enums.InputMethodQuery ```
     pub fn New(queries: i64) QtC.QInputMethodQueryEvent {
         return qtc.QInputMethodQueryEvent_new(@intCast(queries));
     }
@@ -7456,6 +7605,8 @@ pub const qinputmethodqueryevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodqueryevent.html#queries)
     ///
     /// ``` self: QtC.QInputMethodQueryEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodQuery ```
     pub fn Queries(self: ?*anyopaque) i64 {
         return qtc.QInputMethodQueryEvent_Queries(@ptrCast(self));
     }
@@ -7479,6 +7630,8 @@ pub const qinputmethodqueryevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QInputMethodQueryEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -7611,14 +7764,14 @@ pub const qinputmethodqueryevent = struct {
 pub const qdropevent = struct {
     /// New constructs a new QDropEvent object.
     ///
-    /// ``` pos: QtC.QPointF, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32 ```
+    /// ``` pos: QtC.QPointF, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDropEvent {
         return qtc.QDropEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New2 constructs a new QDropEvent object.
     ///
-    /// ``` pos: QtC.QPointF, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32, typeVal: qcoreevent_enums.Type ```
+    /// ``` pos: QtC.QPointF, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, typeVal: qcoreevent_enums.Type ```
     pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i64) QtC.QDropEvent {
         return qtc.QDropEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
@@ -7665,6 +7818,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#mouseButtons)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn MouseButtons(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_MouseButtons(@ptrCast(self));
     }
@@ -7672,6 +7827,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#keyboardModifiers)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn KeyboardModifiers(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_KeyboardModifiers(@ptrCast(self));
     }
@@ -7686,6 +7843,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#buttons)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_Buttons(@ptrCast(self));
     }
@@ -7693,6 +7852,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#modifiers)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_Modifiers(@ptrCast(self));
     }
@@ -7700,6 +7861,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#possibleActions)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn PossibleActions(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_PossibleActions(@ptrCast(self));
     }
@@ -7707,6 +7870,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#proposedAction)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn ProposedAction(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_ProposedAction(@ptrCast(self));
     }
@@ -7721,6 +7886,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#dropAction)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn DropAction(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_DropAction(@ptrCast(self));
     }
@@ -7751,6 +7918,8 @@ pub const qdropevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QDropEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -7883,14 +8052,14 @@ pub const qdropevent = struct {
 pub const qdragmoveevent = struct {
     /// New constructs a new QDragMoveEvent object.
     ///
-    /// ``` pos: QtC.QPoint, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32 ```
+    /// ``` pos: QtC.QPoint, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDragMoveEvent {
         return qtc.QDragMoveEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New2 constructs a new QDragMoveEvent object.
     ///
-    /// ``` pos: QtC.QPoint, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32, typeVal: qcoreevent_enums.Type ```
+    /// ``` pos: QtC.QPoint, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, typeVal: qcoreevent_enums.Type ```
     pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i64) QtC.QDragMoveEvent {
         return qtc.QDragMoveEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
@@ -7978,6 +8147,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#mouseButtons)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn MouseButtons(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_MouseButtons(@ptrCast(self));
     }
@@ -7987,6 +8158,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#keyboardModifiers)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn KeyboardModifiers(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_KeyboardModifiers(@ptrCast(self));
     }
@@ -8005,6 +8178,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#buttons)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_Buttons(@ptrCast(self));
     }
@@ -8014,6 +8189,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#modifiers)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_Modifiers(@ptrCast(self));
     }
@@ -8023,6 +8200,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#possibleActions)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn PossibleActions(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_PossibleActions(@ptrCast(self));
     }
@@ -8032,6 +8211,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#proposedAction)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn ProposedAction(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_ProposedAction(@ptrCast(self));
     }
@@ -8050,6 +8231,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#dropAction)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn DropAction(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_DropAction(@ptrCast(self));
     }
@@ -8086,6 +8269,8 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QDragMoveEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -8200,7 +8385,7 @@ pub const qdragmoveevent = struct {
 pub const qdragenterevent = struct {
     /// New constructs a new QDragEnterEvent object.
     ///
-    /// ``` pos: QtC.QPoint, actions: i32, data: QtC.QMimeData, buttons: i32, modifiers: i32 ```
+    /// ``` pos: QtC.QPoint, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64) QtC.QDragEnterEvent {
         return qtc.QDragEnterEvent_new(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers));
     }
@@ -8298,6 +8483,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#mouseButtons)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn MouseButtons(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_MouseButtons(@ptrCast(self));
     }
@@ -8307,6 +8494,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#keyboardModifiers)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn KeyboardModifiers(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_KeyboardModifiers(@ptrCast(self));
     }
@@ -8325,6 +8514,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#buttons)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.MouseButton ```
     pub fn Buttons(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_Buttons(@ptrCast(self));
     }
@@ -8334,6 +8525,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#modifiers)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_Modifiers(@ptrCast(self));
     }
@@ -8343,6 +8536,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#possibleActions)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn PossibleActions(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_PossibleActions(@ptrCast(self));
     }
@@ -8352,6 +8547,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#proposedAction)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn ProposedAction(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_ProposedAction(@ptrCast(self));
     }
@@ -8370,6 +8567,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#dropAction)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn DropAction(self: ?*anyopaque) i64 {
         return qtc.QDropEvent_DropAction(@ptrCast(self));
     }
@@ -8406,6 +8605,8 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QDragEnterEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -8555,6 +8756,8 @@ pub const qdragleaveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QDragLeaveEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -8764,6 +8967,8 @@ pub const qhelpevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QHelpEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -8898,7 +9103,7 @@ pub const qstatustipevent = struct {
     ///
     /// ``` tip: []const u8 ```
     pub fn New(tip: []const u8) QtC.QStatusTipEvent {
-        const tip_str = qtc.struct_libqt_string{
+        const tip_str = qtc.libqt_string{
             .len = tip.len,
             .data = tip.ptr,
         };
@@ -8947,6 +9152,8 @@ pub const qstatustipevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QStatusTipEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -9081,7 +9288,7 @@ pub const qwhatsthisclickedevent = struct {
     ///
     /// ``` href: []const u8 ```
     pub fn New(href: []const u8) QtC.QWhatsThisClickedEvent {
-        const href_str = qtc.struct_libqt_string{
+        const href_str = qtc.libqt_string{
             .len = href.len,
             .data = href.ptr,
         };
@@ -9130,6 +9337,8 @@ pub const qwhatsthisclickedevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QWhatsThisClickedEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -9318,6 +9527,8 @@ pub const qactionevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QActionEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -9452,7 +9663,7 @@ pub const qfileopenevent = struct {
     ///
     /// ``` file: []const u8 ```
     pub fn New(file: []const u8) QtC.QFileOpenEvent {
-        const file_str = qtc.struct_libqt_string{
+        const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
@@ -9512,7 +9723,7 @@ pub const qfileopenevent = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileopenevent.html#openFile)
     ///
-    /// ``` self: QtC.QFileOpenEvent, file: QtC.QFile, flags: i32 ```
+    /// ``` self: QtC.QFileOpenEvent, file: QtC.QFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn OpenFile(self: ?*anyopaque, file: ?*anyopaque, flags: i64) bool {
         return qtc.QFileOpenEvent_OpenFile(@ptrCast(self), @ptrCast(file), @intCast(flags));
     }
@@ -9522,6 +9733,8 @@ pub const qfileopenevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QFileOpenEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -9696,6 +9909,8 @@ pub const qtoolbarchangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QToolBarChangeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -9912,6 +10127,8 @@ pub const qshortcutevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QShortcutEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -10044,14 +10261,14 @@ pub const qshortcutevent = struct {
 pub const qwindowstatechangeevent = struct {
     /// New constructs a new QWindowStateChangeEvent object.
     ///
-    /// ``` oldState: i32 ```
+    /// ``` oldState: flag of qnamespace_enums.WindowState ```
     pub fn New(oldState: i64) QtC.QWindowStateChangeEvent {
         return qtc.QWindowStateChangeEvent_new(@intCast(oldState));
     }
 
     /// New2 constructs a new QWindowStateChangeEvent object.
     ///
-    /// ``` oldState: i32, isOverride: bool ```
+    /// ``` oldState: flag of qnamespace_enums.WindowState, isOverride: bool ```
     pub fn New2(oldState: i64, isOverride: bool) QtC.QWindowStateChangeEvent {
         return qtc.QWindowStateChangeEvent_new2(@intCast(oldState), isOverride);
     }
@@ -10084,6 +10301,8 @@ pub const qwindowstatechangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindowstatechangeevent.html#oldState)
     ///
     /// ``` self: QtC.QWindowStateChangeEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn OldState(self: ?*anyopaque) i64 {
         return qtc.QWindowStateChangeEvent_OldState(@ptrCast(self));
     }
@@ -10100,6 +10319,8 @@ pub const qwindowstatechangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QWindowStateChangeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -10239,7 +10460,7 @@ pub const qtouchevent = struct {
 
     /// New2 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPointStates: u8 ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPointStates: flag of qeventpoint_enums.State ```
     pub fn New2(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPointStates: i64) QtC.QTouchEvent {
         return qtc.QTouchEvent_new2(@intCast(eventType), @ptrCast(device), @intCast(modifiers), @intCast(touchPointStates));
     }
@@ -10253,16 +10474,16 @@ pub const qtouchevent = struct {
 
     /// New4 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32 ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New4(eventType: i64, device: ?*anyopaque, modifiers: i64) QtC.QTouchEvent {
         return qtc.QTouchEvent_new4(@intCast(eventType), @ptrCast(device), @intCast(modifiers));
     }
 
     /// New5 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPoints: []QtC.QEventPoint ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPoints: []QtC.QEventPoint ```
     pub fn New5(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
-        const touchPoints_list = qtc.struct_libqt_list{
+        const touchPoints_list = qtc.libqt_list{
             .len = touchPoints.len,
             .data = @ptrCast(touchPoints.ptr),
         };
@@ -10272,9 +10493,9 @@ pub const qtouchevent = struct {
 
     /// New6 constructs a new QTouchEvent object.
     ///
-    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: i32, touchPointStates: u8, touchPoints: []QtC.QEventPoint ```
+    /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPointStates: flag of qeventpoint_enums.State, touchPoints: []QtC.QEventPoint ```
     pub fn New6(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPointStates: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
-        const touchPoints_list = qtc.struct_libqt_list{
+        const touchPoints_list = qtc.libqt_list{
             .len = touchPoints.len,
             .data = @ptrCast(touchPoints.ptr),
         };
@@ -10317,6 +10538,8 @@ pub const qtouchevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtouchevent.html#touchPointStates)
     ///
     /// ``` self: QtC.QTouchEvent ```
+    ///
+    /// Returns: ``` flag of qeventpoint_enums.State ```
     pub fn TouchPointStates(self: ?*anyopaque) i64 {
         return qtc.QTouchEvent_TouchPointStates(@ptrCast(self));
     }
@@ -10325,7 +10548,7 @@ pub const qtouchevent = struct {
     ///
     /// ``` self: QtC.QTouchEvent, allocator: std.mem.Allocator ```
     pub fn TouchPoints(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QTouchEvent_TouchPoints(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTouchEvent_TouchPoints(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qtouchevent.TouchPoints: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -10422,6 +10645,8 @@ pub const qtouchevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointerevent.html#pointerType)
     ///
     /// ``` self: QtC.QTouchEvent ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
@@ -10450,7 +10675,7 @@ pub const qtouchevent = struct {
     ///
     /// ``` self: QtC.QTouchEvent, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QEventPoint {
-        const _arr: qtc.struct_libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QEventPoint, _arr.len) catch @panic("qtouchevent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
@@ -10544,6 +10769,8 @@ pub const qtouchevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#deviceType)
     ///
     /// ``` self: QtC.QTouchEvent ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn DeviceType(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
@@ -10553,6 +10780,8 @@ pub const qtouchevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#modifiers)
     ///
     /// ``` self: QtC.QTouchEvent ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn Modifiers(self: ?*anyopaque) i64 {
         return qtc.QInputEvent_Modifiers(@ptrCast(self));
     }
@@ -10561,7 +10790,7 @@ pub const qtouchevent = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputevent.html#setModifiers)
     ///
-    /// ``` self: QtC.QTouchEvent, modifiers: i32 ```
+    /// ``` self: QtC.QTouchEvent, modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn SetModifiers(self: ?*anyopaque, modifiers: i64) void {
         qtc.QInputEvent_SetModifiers(@ptrCast(self), @intCast(modifiers));
     }
@@ -10580,6 +10809,8 @@ pub const qtouchevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QTouchEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -10829,6 +11060,8 @@ pub const qscrollprepareevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QScrollPrepareEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -11008,6 +11241,8 @@ pub const qscrollevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscrollevent.html#scrollState)
     ///
     /// ``` self: QtC.QScrollEvent ```
+    ///
+    /// Returns: ``` qevent_enums.ScrollState ```
     pub fn ScrollState(self: ?*anyopaque) i64 {
         return qtc.QScrollEvent_ScrollState(@ptrCast(self));
     }
@@ -11017,6 +11252,8 @@ pub const qscrollevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QScrollEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -11189,6 +11426,8 @@ pub const qscreenorientationchangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreenorientationchangeevent.html#orientation)
     ///
     /// ``` self: QtC.QScreenOrientationChangeEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScreenOrientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QScreenOrientationChangeEvent_Orientation(@ptrCast(self));
     }
@@ -11198,6 +11437,8 @@ pub const qscreenorientationchangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QScreenOrientationChangeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -11363,6 +11604,8 @@ pub const qapplicationstatechangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qapplicationstatechangeevent.html#applicationState)
     ///
     /// ``` self: QtC.QApplicationStateChangeEvent ```
+    ///
+    /// Returns: ``` qnamespace_enums.ApplicationState ```
     pub fn ApplicationState(self: ?*anyopaque) i64 {
         return qtc.QApplicationStateChangeEvent_ApplicationState(@ptrCast(self));
     }
@@ -11372,6 +11615,8 @@ pub const qapplicationstatechangeevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QApplicationStateChangeEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -11546,6 +11791,8 @@ pub const qchildwindowevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QChildWindowEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
@@ -11690,7 +11937,7 @@ pub const qinputmethodevent__attribute = struct {
         return qtc.QInputMethodEvent__Attribute_new2(@intCast(typ), @intCast(s), @intCast(l));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent__attribute.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#operator-eq)
     ///
     /// ``` self: QtC.QInputMethodEvent__Attribute, param1: QtC.QInputMethodEvent__Attribute ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

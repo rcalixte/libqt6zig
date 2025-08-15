@@ -232,7 +232,7 @@ pub const qdebug = struct {
     ///
     /// ``` self: QtC.QDebug, t: []const u8 ```
     pub fn OperatorShiftLeft19(self: ?*anyopaque, t: []const u8) QtC.QDebug {
-        const t_str = qtc.struct_libqt_string{
+        const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
         };
@@ -243,7 +243,7 @@ pub const qdebug = struct {
     ///
     /// ``` self: QtC.QDebug, t: []u8 ```
     pub fn OperatorShiftLeft23(self: ?*anyopaque, t: []u8) QtC.QDebug {
-        const t_str = qtc.struct_libqt_string{
+        const t_str = qtc.libqt_string{
             .len = t.len,
             .data = t.ptr,
         };

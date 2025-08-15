@@ -18,7 +18,7 @@ pub const qrawfont = struct {
     ///
     /// ``` fileName: []const u8, pixelSize: f64 ```
     pub fn New2(fileName: []const u8, pixelSize: f64) QtC.QRawFont {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -30,7 +30,7 @@ pub const qrawfont = struct {
     ///
     /// ``` fontData: []u8, pixelSize: f64 ```
     pub fn New3(fontData: []u8, pixelSize: f64) QtC.QRawFont {
-        const fontData_str = qtc.struct_libqt_string{
+        const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
         };
@@ -49,7 +49,7 @@ pub const qrawfont = struct {
     ///
     /// ``` fileName: []const u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
     pub fn New5(fileName: []const u8, pixelSize: f64, hintingPreference: i64) QtC.QRawFont {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -61,7 +61,7 @@ pub const qrawfont = struct {
     ///
     /// ``` fontData: []u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
     pub fn New6(fontData: []u8, pixelSize: f64, hintingPreference: i64) QtC.QRawFont {
-        const fontData_str = qtc.struct_libqt_string{
+        const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
         };
@@ -129,6 +129,8 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#style)
     ///
     /// ``` self: QtC.QRawFont ```
+    ///
+    /// Returns: ``` qfont_enums.Style ```
     pub fn Style(self: ?*anyopaque) i64 {
         return qtc.QRawFont_Style(@ptrCast(self));
     }
@@ -144,11 +146,11 @@ pub const qrawfont = struct {
     ///
     /// ``` self: QtC.QRawFont, text: []const u8, allocator: std.mem.Allocator ```
     pub fn GlyphIndexesForString(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []u32 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QRawFont_GlyphIndexesForString(@ptrCast(self), text_str);
+        const _arr: qtc.libqt_list = qtc.QRawFont_GlyphIndexesForString(@ptrCast(self), text_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u32, _arr.len) catch @panic("qrawfont.GlyphIndexesForString: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
@@ -160,11 +162,11 @@ pub const qrawfont = struct {
     ///
     /// ``` self: QtC.QRawFont, glyphIndexes: []u32, allocator: std.mem.Allocator ```
     pub fn AdvancesForGlyphIndexes(self: ?*anyopaque, glyphIndexes: []u32, allocator: std.mem.Allocator) []QtC.QPointF {
-        const glyphIndexes_list = qtc.struct_libqt_list{
+        const glyphIndexes_list = qtc.libqt_list{
             .len = glyphIndexes.len,
             .data = glyphIndexes.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes(@ptrCast(self), glyphIndexes_list);
+        const _arr: qtc.libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes(@ptrCast(self), glyphIndexes_list);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qrawfont.AdvancesForGlyphIndexes: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
@@ -174,13 +176,13 @@ pub const qrawfont = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: []u32, layoutFlags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QRawFont, glyphIndexes: []u32, layoutFlags: flag of qrawfont_enums.LayoutFlag, allocator: std.mem.Allocator ```
     pub fn AdvancesForGlyphIndexes2(self: ?*anyopaque, glyphIndexes: []u32, layoutFlags: i64, allocator: std.mem.Allocator) []QtC.QPointF {
-        const glyphIndexes_list = qtc.struct_libqt_list{
+        const glyphIndexes_list = qtc.libqt_list{
             .len = glyphIndexes.len,
             .data = glyphIndexes.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes2(@ptrCast(self), glyphIndexes_list, @intCast(layoutFlags));
+        const _arr: qtc.libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes2(@ptrCast(self), glyphIndexes_list, @intCast(layoutFlags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qrawfont.AdvancesForGlyphIndexes2: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
@@ -204,7 +206,7 @@ pub const qrawfont = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#advancesForGlyphIndexes)
     ///
-    /// ``` self: QtC.QRawFont, glyphIndexes: *const u32, advances: QtC.QPointF, numGlyphs: i32, layoutFlags: i32 ```
+    /// ``` self: QtC.QRawFont, glyphIndexes: *const u32, advances: QtC.QPointF, numGlyphs: i32, layoutFlags: flag of qrawfont_enums.LayoutFlag ```
     pub fn AdvancesForGlyphIndexes4(self: ?*anyopaque, glyphIndexes: *const u32, advances: ?*anyopaque, numGlyphs: i32, layoutFlags: i64) bool {
         return qtc.QRawFont_AdvancesForGlyphIndexes4(@ptrCast(self), @ptrCast(glyphIndexes), @ptrCast(advances), @intCast(numGlyphs), @intCast(layoutFlags));
     }
@@ -247,6 +249,8 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#hintingPreference)
     ///
     /// ``` self: QtC.QRawFont ```
+    ///
+    /// Returns: ``` qfont_enums.HintingPreference ```
     pub fn HintingPreference(self: ?*anyopaque) i64 {
         return qtc.QRawFont_HintingPreference(@ptrCast(self));
     }
@@ -325,7 +329,7 @@ pub const qrawfont = struct {
     ///
     /// ``` self: QtC.QRawFont, fileName: []const u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
     pub fn LoadFromFile(self: ?*anyopaque, fileName: []const u8, pixelSize: f64, hintingPreference: i64) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -336,7 +340,7 @@ pub const qrawfont = struct {
     ///
     /// ``` self: QtC.QRawFont, fontData: []u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
     pub fn LoadFromData(self: ?*anyopaque, fontData: []u8, pixelSize: f64, hintingPreference: i64) void {
-        const fontData_str = qtc.struct_libqt_string{
+        const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
         };
@@ -360,11 +364,13 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#supportedWritingSystems)
     ///
     /// ``` self: QtC.QRawFont, allocator: std.mem.Allocator ```
-    pub fn SupportedWritingSystems(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QRawFont_SupportedWritingSystems(@ptrCast(self));
+    ///
+    /// Returns: ``` []qfontdatabase_enums.WritingSystem ```
+    pub fn SupportedWritingSystems(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QRawFont_SupportedWritingSystems(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qfontdatabase_enums.WritingSystem, _arr.len) catch @panic("qrawfont.SupportedWritingSystems: Memory allocation failed");
-        const _data: [*]qfontdatabase_enums.WritingSystem = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qrawfont.SupportedWritingSystems: Memory allocation failed");
+        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -374,7 +380,7 @@ pub const qrawfont = struct {
     /// ``` self: QtC.QRawFont, tagName: []const u8, allocator: std.mem.Allocator ```
     pub fn FontTable(self: ?*anyopaque, tagName: []const u8, allocator: std.mem.Allocator) []u8 {
         const tagName_Cstring = tagName.ptr;
-        const _bytearray: qtc.struct_libqt_string = qtc.QRawFont_FontTable(@ptrCast(self), tagName_Cstring);
+        const _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable(@ptrCast(self), tagName_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTable: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -385,7 +391,7 @@ pub const qrawfont = struct {
     ///
     /// ``` self: QtC.QRawFont, tag: QtC.QFont__Tag, allocator: std.mem.Allocator ```
     pub fn FontTable2(self: ?*anyopaque, tag: QtC.QFont__Tag, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self), @ptrCast(tag));
+        const _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self), @ptrCast(tag));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTable2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

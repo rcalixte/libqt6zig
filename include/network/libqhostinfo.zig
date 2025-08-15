@@ -55,7 +55,7 @@ pub const qhostinfo = struct {
     ///
     /// ``` self: QtC.QHostInfo, name: []const u8 ```
     pub fn SetHostName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -66,7 +66,7 @@ pub const qhostinfo = struct {
     ///
     /// ``` self: QtC.QHostInfo, allocator: std.mem.Allocator ```
     pub fn Addresses(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QHostAddress {
-        const _arr: qtc.struct_libqt_list = qtc.QHostInfo_Addresses(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QHostInfo_Addresses(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QHostAddress, _arr.len) catch @panic("qhostinfo.Addresses: Memory allocation failed");
         const _data: [*]QtC.QHostAddress = @ptrCast(@alignCast(_arr.data));
@@ -78,7 +78,7 @@ pub const qhostinfo = struct {
     ///
     /// ``` self: QtC.QHostInfo, addresses: []QtC.QHostAddress ```
     pub fn SetAddresses(self: ?*anyopaque, addresses: []QtC.QHostAddress) void {
-        const addresses_list = qtc.struct_libqt_list{
+        const addresses_list = qtc.libqt_list{
             .len = addresses.len,
             .data = @ptrCast(addresses.ptr),
         };
@@ -88,6 +88,8 @@ pub const qhostinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostinfo.html#error)
     ///
     /// ``` self: QtC.QHostInfo ```
+    ///
+    /// Returns: ``` qhostinfo_enums.HostInfoError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QHostInfo_Error(@ptrCast(self));
     }
@@ -114,7 +116,7 @@ pub const qhostinfo = struct {
     ///
     /// ``` self: QtC.QHostInfo, errorString: []const u8 ```
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -146,7 +148,7 @@ pub const qhostinfo = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromName(name: []const u8) QtC.QHostInfo {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };

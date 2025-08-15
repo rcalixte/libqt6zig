@@ -70,8 +70,8 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn SupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkAccessManager_SupportedSchemes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SupportedSchemes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -103,8 +103,8 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn QBaseSupportedSchemes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkAccessManager_QBaseSupportedSchemes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_QBaseSupportedSchemes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -223,7 +223,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, knownHosts: []QtC.QHstsPolicy ```
     pub fn AddStrictTransportSecurityHosts(self: ?*anyopaque, knownHosts: []QtC.QHstsPolicy) void {
-        const knownHosts_list = qtc.struct_libqt_list{
+        const knownHosts_list = qtc.libqt_list{
             .len = knownHosts.len,
             .data = @ptrCast(knownHosts.ptr),
         };
@@ -234,7 +234,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn StrictTransportSecurityHosts(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QHstsPolicy {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkAccessManager_StrictTransportSecurityHosts(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_StrictTransportSecurityHosts(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QHstsPolicy, _arr.len) catch @panic("qnetworkaccessmanager.StrictTransportSecurityHosts: Memory allocation failed");
         const _data: [*]QtC.QHstsPolicy = @ptrCast(@alignCast(_arr.data));
@@ -267,7 +267,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Get3(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -285,7 +285,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Post2(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -303,7 +303,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, data: []u8 ```
     pub fn Put2(self: ?*anyopaque, request: ?*anyopaque, data: []u8) QtC.QNetworkReply {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -321,7 +321,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8 ```
     pub fn SendCustomRequest(self: ?*anyopaque, request: ?*anyopaque, verb: []u8) QtC.QNetworkReply {
-        const verb_str = qtc.struct_libqt_string{
+        const verb_str = qtc.libqt_string{
             .len = verb.len,
             .data = verb.ptr,
         };
@@ -332,11 +332,11 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8, data: []u8 ```
     pub fn SendCustomRequest2(self: ?*anyopaque, request: ?*anyopaque, verb: []u8, data: []u8) QtC.QNetworkReply {
-        const verb_str = qtc.struct_libqt_string{
+        const verb_str = qtc.libqt_string{
             .len = verb.len,
             .data = verb.ptr,
         };
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -361,7 +361,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8, multiPart: QtC.QHttpMultiPart ```
     pub fn SendCustomRequest3(self: ?*anyopaque, request: ?*anyopaque, verb: []u8, multiPart: ?*anyopaque) QtC.QNetworkReply {
-        const verb_str = qtc.struct_libqt_string{
+        const verb_str = qtc.libqt_string{
             .len = verb.len,
             .data = verb.ptr,
         };
@@ -372,7 +372,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8 ```
     pub fn ConnectToHostEncrypted(self: ?*anyopaque, hostName: []const u8) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -383,11 +383,11 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: QtC.QSslConfiguration, peerName: []const u8 ```
     pub fn ConnectToHostEncrypted2(self: ?*anyopaque, hostName: []const u8, port: u16, sslConfiguration: ?*anyopaque, peerName: []const u8) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
-        const peerName_str = qtc.struct_libqt_string{
+        const peerName_str = qtc.libqt_string{
             .len = peerName.len,
             .data = peerName.ptr,
         };
@@ -398,7 +398,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8 ```
     pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -415,6 +415,8 @@ pub const qnetworkaccessmanager = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#redirectPolicy)
     ///
     /// ``` self: QtC.QNetworkAccessManager ```
+    ///
+    /// Returns: ``` qnetworkrequest_enums.RedirectPolicy ```
     pub fn RedirectPolicy(self: ?*anyopaque) i64 {
         return qtc.QNetworkAccessManager_RedirectPolicy(@ptrCast(self));
     }
@@ -514,7 +516,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, errors: []QtC.QSslError ```
     pub fn SslErrors(self: ?*anyopaque, reply: ?*anyopaque, errors: []QtC.QSslError) void {
-        const errors_list = qtc.struct_libqt_list{
+        const errors_list = qtc.libqt_list{
             .len = errors.len,
             .data = @ptrCast(errors.ptr),
         };
@@ -571,8 +573,8 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn SupportedSchemesImplementation(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkAccessManager_SupportedSchemesImplementation(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_SupportedSchemesImplementation(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -604,8 +606,8 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn QBaseSupportedSchemesImplementation(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkAccessManager_QBaseSupportedSchemesImplementation(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkAccessManager_QBaseSupportedSchemesImplementation(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -652,7 +654,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, enabled: bool, storeDir: []const u8 ```
     pub fn EnableStrictTransportSecurityStore2(self: ?*anyopaque, enabled: bool, storeDir: []const u8) void {
-        const storeDir_str = qtc.struct_libqt_string{
+        const storeDir_str = qtc.libqt_string{
             .len = storeDir.len,
             .data = storeDir.ptr,
         };
@@ -663,7 +665,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, request: QtC.QNetworkRequest, verb: []u8, data: QtC.QIODevice ```
     pub fn SendCustomRequest32(self: ?*anyopaque, request: ?*anyopaque, verb: []u8, data: ?*anyopaque) QtC.QNetworkReply {
-        const verb_str = qtc.struct_libqt_string{
+        const verb_str = qtc.libqt_string{
             .len = verb.len,
             .data = verb.ptr,
         };
@@ -674,7 +676,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16 ```
     pub fn ConnectToHostEncrypted22(self: ?*anyopaque, hostName: []const u8, port: u16) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -685,7 +687,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16, sslConfiguration: QtC.QSslConfiguration ```
     pub fn ConnectToHostEncrypted3(self: ?*anyopaque, hostName: []const u8, port: u16, sslConfiguration: ?*anyopaque) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -696,7 +698,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, hostName: []const u8, port: u16 ```
     pub fn ConnectToHost2(self: ?*anyopaque, hostName: []const u8, port: u16) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -722,7 +724,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -825,7 +827,7 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qnetworkaccessmanager.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -942,8 +944,8 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// ``` self: QtC.QNetworkAccessManager, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

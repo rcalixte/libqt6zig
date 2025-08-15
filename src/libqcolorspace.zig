@@ -30,7 +30,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` whitePoint: QtC.QPointF, transferFunctionTable: []u16 ```
     pub fn New4(whitePoint: QtC.QPointF, transferFunctionTable: []u16) QtC.QColorSpace {
-        const transferFunctionTable_list = qtc.struct_libqt_list{
+        const transferFunctionTable_list = qtc.libqt_list{
             .len = transferFunctionTable.len,
             .data = transferFunctionTable.ptr,
         };
@@ -56,7 +56,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` primaries: qcolorspace_enums.Primaries, transferFunctionTable: []u16 ```
     pub fn New7(primaries: i64, transferFunctionTable: []u16) QtC.QColorSpace {
-        const transferFunctionTable_list = qtc.struct_libqt_list{
+        const transferFunctionTable_list = qtc.libqt_list{
             .len = transferFunctionTable.len,
             .data = transferFunctionTable.ptr,
         };
@@ -75,7 +75,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, transferFunctionTable: []u16 ```
     pub fn New9(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, transferFunctionTable: []u16) QtC.QColorSpace {
-        const transferFunctionTable_list = qtc.struct_libqt_list{
+        const transferFunctionTable_list = qtc.libqt_list{
             .len = transferFunctionTable.len,
             .data = transferFunctionTable.ptr,
         };
@@ -87,15 +87,15 @@ pub const qcolorspace = struct {
     ///
     /// ``` whitePoint: QtC.QPointF, redPoint: QtC.QPointF, greenPoint: QtC.QPointF, bluePoint: QtC.QPointF, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16 ```
     pub fn New10(whitePoint: ?*anyopaque, redPoint: ?*anyopaque, greenPoint: ?*anyopaque, bluePoint: ?*anyopaque, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16) QtC.QColorSpace {
-        const redTransferFunctionTable_list = qtc.struct_libqt_list{
+        const redTransferFunctionTable_list = qtc.libqt_list{
             .len = redTransferFunctionTable.len,
             .data = redTransferFunctionTable.ptr,
         };
-        const greenTransferFunctionTable_list = qtc.struct_libqt_list{
+        const greenTransferFunctionTable_list = qtc.libqt_list{
             .len = greenTransferFunctionTable.len,
             .data = greenTransferFunctionTable.ptr,
         };
-        const blueTransferFunctionTable_list = qtc.struct_libqt_list{
+        const blueTransferFunctionTable_list = qtc.libqt_list{
             .len = blueTransferFunctionTable.len,
             .data = blueTransferFunctionTable.ptr,
         };
@@ -148,6 +148,8 @@ pub const qcolorspace = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#primaries)
     ///
     /// ``` self: QtC.QColorSpace ```
+    ///
+    /// Returns: ``` qcolorspace_enums.Primaries ```
     pub fn Primaries(self: ?*anyopaque) i64 {
         return qtc.QColorSpace_Primaries(@ptrCast(self));
     }
@@ -155,6 +157,8 @@ pub const qcolorspace = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#transferFunction)
     ///
     /// ``` self: QtC.QColorSpace ```
+    ///
+    /// Returns: ``` qcolorspace_enums.TransferFunction ```
     pub fn TransferFunction(self: ?*anyopaque) i64 {
         return qtc.QColorSpace_TransferFunction(@ptrCast(self));
     }
@@ -181,7 +185,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` self: QtC.QColorSpace, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -199,7 +203,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` self: QtC.QColorSpace, transferFunctionTable: []u16 ```
     pub fn SetTransferFunction2(self: ?*anyopaque, transferFunctionTable: []u16) void {
-        const transferFunctionTable_list = qtc.struct_libqt_list{
+        const transferFunctionTable_list = qtc.libqt_list{
             .len = transferFunctionTable.len,
             .data = transferFunctionTable.ptr,
         };
@@ -210,15 +214,15 @@ pub const qcolorspace = struct {
     ///
     /// ``` self: QtC.QColorSpace, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16 ```
     pub fn SetTransferFunctions(self: ?*anyopaque, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16) void {
-        const redTransferFunctionTable_list = qtc.struct_libqt_list{
+        const redTransferFunctionTable_list = qtc.libqt_list{
             .len = redTransferFunctionTable.len,
             .data = redTransferFunctionTable.ptr,
         };
-        const greenTransferFunctionTable_list = qtc.struct_libqt_list{
+        const greenTransferFunctionTable_list = qtc.libqt_list{
             .len = greenTransferFunctionTable.len,
             .data = greenTransferFunctionTable.ptr,
         };
-        const blueTransferFunctionTable_list = qtc.struct_libqt_list{
+        const blueTransferFunctionTable_list = qtc.libqt_list{
             .len = blueTransferFunctionTable.len,
             .data = blueTransferFunctionTable.ptr,
         };
@@ -236,7 +240,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` self: QtC.QColorSpace, transferFunctionTable: []u16 ```
     pub fn WithTransferFunction2(self: ?*anyopaque, transferFunctionTable: []u16) QtC.QColorSpace {
-        const transferFunctionTable_list = qtc.struct_libqt_list{
+        const transferFunctionTable_list = qtc.libqt_list{
             .len = transferFunctionTable.len,
             .data = transferFunctionTable.ptr,
         };
@@ -247,15 +251,15 @@ pub const qcolorspace = struct {
     ///
     /// ``` self: QtC.QColorSpace, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16 ```
     pub fn WithTransferFunctions(self: ?*anyopaque, redTransferFunctionTable: []u16, greenTransferFunctionTable: []u16, blueTransferFunctionTable: []u16) QtC.QColorSpace {
-        const redTransferFunctionTable_list = qtc.struct_libqt_list{
+        const redTransferFunctionTable_list = qtc.libqt_list{
             .len = redTransferFunctionTable.len,
             .data = redTransferFunctionTable.ptr,
         };
-        const greenTransferFunctionTable_list = qtc.struct_libqt_list{
+        const greenTransferFunctionTable_list = qtc.libqt_list{
             .len = greenTransferFunctionTable.len,
             .data = greenTransferFunctionTable.ptr,
         };
-        const blueTransferFunctionTable_list = qtc.struct_libqt_list{
+        const blueTransferFunctionTable_list = qtc.libqt_list{
             .len = blueTransferFunctionTable.len,
             .data = blueTransferFunctionTable.ptr,
         };
@@ -293,6 +297,8 @@ pub const qcolorspace = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#transformModel)
     ///
     /// ``` self: QtC.QColorSpace ```
+    ///
+    /// Returns: ``` qcolorspace_enums.TransformModel ```
     pub fn TransformModel(self: ?*anyopaque) i64 {
         return qtc.QColorSpace_TransformModel(@ptrCast(self));
     }
@@ -300,6 +306,8 @@ pub const qcolorspace = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolorspace.html#colorModel)
     ///
     /// ``` self: QtC.QColorSpace ```
+    ///
+    /// Returns: ``` qcolorspace_enums.ColorModel ```
     pub fn ColorModel(self: ?*anyopaque) i64 {
         return qtc.QColorSpace_ColorModel(@ptrCast(self));
     }
@@ -329,7 +337,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` iccProfile: []u8 ```
     pub fn FromIccProfile(iccProfile: []u8) QtC.QColorSpace {
-        const iccProfile_str = qtc.struct_libqt_string{
+        const iccProfile_str = qtc.libqt_string{
             .len = iccProfile.len,
             .data = iccProfile.ptr,
         };
@@ -340,7 +348,7 @@ pub const qcolorspace = struct {
     ///
     /// ``` self: QtC.QColorSpace, allocator: std.mem.Allocator ```
     pub fn IccProfile(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QColorSpace_IccProfile(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QColorSpace_IccProfile(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcolorspace.IccProfile: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);

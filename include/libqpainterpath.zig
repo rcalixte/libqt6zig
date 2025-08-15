@@ -198,7 +198,7 @@ pub const qpainterpath = struct {
     ///
     /// ``` self: QtC.QPainterPath, point: QtC.QPointF, f: QtC.QFont, text: []const u8 ```
     pub fn AddText(self: ?*anyopaque, point: ?*anyopaque, f: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -209,7 +209,7 @@ pub const qpainterpath = struct {
     ///
     /// ``` self: QtC.QPainterPath, x: f64, y: f64, f: QtC.QFont, text: []const u8 ```
     pub fn AddText2(self: ?*anyopaque, x: f64, y: f64, f: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -317,6 +317,8 @@ pub const qpainterpath = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#fillRule)
     ///
     /// ``` self: QtC.QPainterPath ```
+    ///
+    /// Returns: ``` qnamespace_enums.FillRule ```
     pub fn FillRule(self: ?*anyopaque) i64 {
         return qtc.QPainterPath_FillRule(@ptrCast(self));
     }
@@ -574,6 +576,8 @@ pub const qpainterpathstroker = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpathstroker.html#capStyle)
     ///
     /// ``` self: QtC.QPainterPathStroker ```
+    ///
+    /// Returns: ``` qnamespace_enums.PenCapStyle ```
     pub fn CapStyle(self: ?*anyopaque) i64 {
         return qtc.QPainterPathStroker_CapStyle(@ptrCast(self));
     }
@@ -588,6 +592,8 @@ pub const qpainterpathstroker = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpathstroker.html#joinStyle)
     ///
     /// ``` self: QtC.QPainterPathStroker ```
+    ///
+    /// Returns: ``` qnamespace_enums.PenJoinStyle ```
     pub fn JoinStyle(self: ?*anyopaque) i64 {
         return qtc.QPainterPathStroker_JoinStyle(@ptrCast(self));
     }
@@ -631,7 +637,7 @@ pub const qpainterpathstroker = struct {
     ///
     /// ``` self: QtC.QPainterPathStroker, dashPattern: []f64 ```
     pub fn SetDashPattern2(self: ?*anyopaque, dashPattern: []f64) void {
-        const dashPattern_list = qtc.struct_libqt_list{
+        const dashPattern_list = qtc.libqt_list{
             .len = dashPattern.len,
             .data = dashPattern.ptr,
         };
@@ -642,7 +648,7 @@ pub const qpainterpathstroker = struct {
     ///
     /// ``` self: QtC.QPainterPathStroker, allocator: std.mem.Allocator ```
     pub fn DashPattern(self: ?*anyopaque, allocator: std.mem.Allocator) []f64 {
-        const _arr: qtc.struct_libqt_list = qtc.QPainterPathStroker_DashPattern(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPainterPathStroker_DashPattern(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(f64, _arr.len) catch @panic("qpainterpathstroker.DashPattern: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
@@ -697,42 +703,42 @@ pub const qpainterpath__element = struct {
         return qtc.QPainterPath__Element_new2(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#isMoveTo)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#isMoveTo)
     ///
     /// ``` self: QtC.QPainterPath__Element ```
     pub fn IsMoveTo(self: ?*anyopaque) bool {
         return qtc.QPainterPath__Element_IsMoveTo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#isLineTo)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#isLineTo)
     ///
     /// ``` self: QtC.QPainterPath__Element ```
     pub fn IsLineTo(self: ?*anyopaque) bool {
         return qtc.QPainterPath__Element_IsLineTo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#isCurveTo)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#isCurveTo)
     ///
     /// ``` self: QtC.QPainterPath__Element ```
     pub fn IsCurveTo(self: ?*anyopaque) bool {
         return qtc.QPainterPath__Element_IsCurveTo(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#operator)
     ///
     /// ``` self: QtC.QPainterPath__Element ```
     pub fn ToQPointF(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPainterPath__Element_ToQPointF(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator-eq-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QPainterPath__Element, e: QtC.QPainterPath__Element ```
     pub fn OperatorEqual(self: ?*anyopaque, e: ?*anyopaque) bool {
         return qtc.QPainterPath__Element_OperatorEqual(@ptrCast(self), @ptrCast(e));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath__element.html#operator-not-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#operator-not-eq)
     ///
     /// ``` self: QtC.QPainterPath__Element, e: QtC.QPainterPath__Element ```
     pub fn OperatorNotEqual(self: ?*anyopaque, e: ?*anyopaque) bool {

@@ -17,7 +17,7 @@ pub const qlocale = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New2(name: []const u8) QtC.QLocale {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -77,6 +77,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#language)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` qlocale_enums.Language ```
     pub fn Language(self: ?*anyopaque) i64 {
         return qtc.QLocale_Language(@ptrCast(self));
     }
@@ -84,6 +86,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#script)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` qlocale_enums.Script ```
     pub fn Script(self: ?*anyopaque) i64 {
         return qtc.QLocale_Script(@ptrCast(self));
     }
@@ -91,6 +95,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#territory)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` qlocale_enums.Country ```
     pub fn Territory(self: ?*anyopaque) i64 {
         return qtc.QLocale_Territory(@ptrCast(self));
     }
@@ -98,6 +104,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#country)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` qlocale_enums.Country ```
     pub fn Country(self: ?*anyopaque) i64 {
         return qtc.QLocale_Country(@ptrCast(self));
     }
@@ -161,7 +169,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToShort(self: ?*anyopaque, s: []const u8) i16 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -172,7 +180,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToUShort(self: ?*anyopaque, s: []const u8) u16 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -183,7 +191,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToInt(self: ?*anyopaque, s: []const u8) i32 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -194,7 +202,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToUInt(self: ?*anyopaque, s: []const u8) u32 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -205,7 +213,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToLong(self: ?*anyopaque, s: []const u8) i64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -216,7 +224,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToULong(self: ?*anyopaque, s: []const u8) u64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -227,7 +235,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToLongLong(self: ?*anyopaque, s: []const u8) i64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -238,7 +246,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToULongLong(self: ?*anyopaque, s: []const u8) u64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -249,7 +257,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToFloat(self: ?*anyopaque, s: []const u8) f32 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -260,7 +268,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8 ```
     pub fn ToDouble(self: ?*anyopaque, s: []const u8) f64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -381,7 +389,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, date: QtC.QDate, format: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString11(self: ?*anyopaque, date: QtC.QDate, format: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -396,7 +404,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, time: QtC.QTime, format: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString12(self: ?*anyopaque, time: QtC.QTime, format: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -411,7 +419,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, dateTime: QtC.QDateTime, format: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString13(self: ?*anyopaque, dateTime: ?*anyopaque, format: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -514,7 +522,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8 ```
     pub fn ToTime(self: ?*anyopaque, stringVal: []const u8) QtC.QTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -525,11 +533,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8 ```
     pub fn ToTime2(self: ?*anyopaque, stringVal: []const u8, format: []const u8) QtC.QTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -540,7 +548,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8 ```
     pub fn ToDate(self: ?*anyopaque, stringVal: []const u8) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -551,11 +559,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8 ```
     pub fn ToDate2(self: ?*anyopaque, stringVal: []const u8, format: []const u8) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -566,7 +574,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8 ```
     pub fn ToDateTime(self: ?*anyopaque, stringVal: []const u8) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -577,11 +585,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8 ```
     pub fn ToDateTime2(self: ?*anyopaque, stringVal: []const u8, format: []const u8) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -592,7 +600,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: qlocale_enums.FormatType, cal: QtC.QCalendar ```
     pub fn ToDate3(self: ?*anyopaque, stringVal: []const u8, format: i64, cal: QtC.QCalendar) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -603,11 +611,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar ```
     pub fn ToDate4(self: ?*anyopaque, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -618,7 +626,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: qlocale_enums.FormatType, cal: QtC.QCalendar ```
     pub fn ToDateTime3(self: ?*anyopaque, stringVal: []const u8, format: i64, cal: QtC.QCalendar) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -629,11 +637,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar ```
     pub fn ToDateTime4(self: ?*anyopaque, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -764,6 +772,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#firstDayOfWeek)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` qnamespace_enums.DayOfWeek ```
     pub fn FirstDayOfWeek(self: ?*anyopaque) i64 {
         return qtc.QLocale_FirstDayOfWeek(@ptrCast(self));
     }
@@ -771,11 +781,13 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#weekdays)
     ///
     /// ``` self: QtC.QLocale, allocator: std.mem.Allocator ```
-    pub fn Weekdays(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QLocale_Weekdays(@ptrCast(self));
+    ///
+    /// Returns: ``` []qnamespace_enums.DayOfWeek ```
+    pub fn Weekdays(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.QLocale_Weekdays(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qnamespace_enums.DayOfWeek, _arr.len) catch @panic("qlocale.Weekdays: Memory allocation failed");
-        const _data: [*]qnamespace_enums.DayOfWeek = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qlocale.Weekdays: Memory allocation failed");
+        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -805,6 +817,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#measurementSystem)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` qlocale_enums.MeasurementSystem ```
     pub fn MeasurementSystem(self: ?*anyopaque) i64 {
         return qtc.QLocale_MeasurementSystem(@ptrCast(self));
     }
@@ -819,6 +833,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#textDirection)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn TextDirection(self: ?*anyopaque) i64 {
         return qtc.QLocale_TextDirection(@ptrCast(self));
     }
@@ -827,7 +843,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, str: []const u8, allocator: std.mem.Allocator ```
     pub fn ToUpper(self: ?*anyopaque, str: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -842,7 +858,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, str: []const u8, allocator: std.mem.Allocator ```
     pub fn ToLower(self: ?*anyopaque, str: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -967,8 +983,8 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, allocator: std.mem.Allocator ```
     pub fn UiLanguages(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QLocale_UiLanguages(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QLocale_UiLanguages(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1098,7 +1114,7 @@ pub const qlocale = struct {
     ///
     /// ``` language: qlocale_enums.Language, script: qlocale_enums.Script, territory: qlocale_enums.Country, allocator: std.mem.Allocator ```
     pub fn MatchingLocales(language: i64, script: i64, territory: i64, allocator: std.mem.Allocator) []QtC.QLocale {
-        const _arr: qtc.struct_libqt_list = qtc.QLocale_MatchingLocales(@intCast(language), @intCast(script), @intCast(territory));
+        const _arr: qtc.libqt_list = qtc.QLocale_MatchingLocales(@intCast(language), @intCast(script), @intCast(territory));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QLocale, _arr.len) catch @panic("qlocale.MatchingLocales: Memory allocation failed");
         const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
@@ -1109,18 +1125,20 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#countriesForLanguage)
     ///
     /// ``` lang: qlocale_enums.Language, allocator: std.mem.Allocator ```
-    pub fn CountriesForLanguage(lang: i64, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QLocale_CountriesForLanguage(@intCast(lang));
+    ///
+    /// Returns: ``` []qlocale_enums.Country ```
+    pub fn CountriesForLanguage(lang: i64, allocator: std.mem.Allocator) []u16 {
+        const _arr: qtc.libqt_list = qtc.QLocale_CountriesForLanguage(@intCast(lang));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qlocale_enums.Country, _arr.len) catch @panic("qlocale.CountriesForLanguage: Memory allocation failed");
-        const _data: [*]qlocale_enums.Country = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(u16, _arr.len) catch @panic("qlocale.CountriesForLanguage: Memory allocation failed");
+        const _data: [*]u16 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#setNumberOptions)
     ///
-    /// ``` self: QtC.QLocale, options: i32 ```
+    /// ``` self: QtC.QLocale, options: flag of qlocale_enums.NumberOption ```
     pub fn SetNumberOptions(self: ?*anyopaque, options: i64) void {
         qtc.QLocale_SetNumberOptions(@ptrCast(self), @intCast(options));
     }
@@ -1128,6 +1146,8 @@ pub const qlocale = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#numberOptions)
     ///
     /// ``` self: QtC.QLocale ```
+    ///
+    /// Returns: ``` flag of qlocale_enums.NumberOption ```
     pub fn NumberOptions(self: ?*anyopaque) i64 {
         return qtc.QLocale_NumberOptions(@ptrCast(self));
     }
@@ -1136,7 +1156,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, str: []const u8, allocator: std.mem.Allocator ```
     pub fn QuoteString(self: ?*anyopaque, str: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -1151,7 +1171,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, strl: [][]const u8, allocator: std.mem.Allocator ```
     pub fn CreateSeparatedList(self: ?*anyopaque, strl: [][]const u8, allocator: std.mem.Allocator) []const u8 {
-        var strl_arr = allocator.alloc(qtc.struct_libqt_string, strl.len) catch @panic("qlocale.CreateSeparatedList: Memory allocation failed");
+        var strl_arr = allocator.alloc(qtc.libqt_string, strl.len) catch @panic("qlocale.CreateSeparatedList: Memory allocation failed");
         defer allocator.free(strl_arr);
         for (strl, 0..strl.len) |item, i| {
             strl_arr[i] = .{
@@ -1159,7 +1179,7 @@ pub const qlocale = struct {
                 .data = item.ptr,
             };
         }
-        const strl_list = qtc.struct_libqt_list{
+        const strl_list = qtc.libqt_list{
             .len = strl.len,
             .data = strl_arr.ptr,
         };
@@ -1196,7 +1216,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToShort22(self: ?*anyopaque, s: []const u8, ok: *bool) i16 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1207,7 +1227,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToUShort22(self: ?*anyopaque, s: []const u8, ok: *bool) u16 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1218,7 +1238,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToInt22(self: ?*anyopaque, s: []const u8, ok: *bool) i32 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1229,7 +1249,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToUInt22(self: ?*anyopaque, s: []const u8, ok: *bool) u32 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1240,7 +1260,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToLong22(self: ?*anyopaque, s: []const u8, ok: *bool) i64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1251,7 +1271,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToULong22(self: ?*anyopaque, s: []const u8, ok: *bool) u64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1262,7 +1282,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToLongLong22(self: ?*anyopaque, s: []const u8, ok: *bool) i64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1273,7 +1293,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToULongLong22(self: ?*anyopaque, s: []const u8, ok: *bool) u64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1284,7 +1304,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToFloat22(self: ?*anyopaque, s: []const u8, ok: *bool) f32 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1295,7 +1315,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, s: []const u8, ok: bool ```
     pub fn ToDouble22(self: ?*anyopaque, s: []const u8, ok: *bool) f64 {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -1416,7 +1436,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, param2: qlocale_enums.FormatType ```
     pub fn ToTime22(self: ?*anyopaque, stringVal: []const u8, param2: i64) QtC.QTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1427,7 +1447,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, param2: qlocale_enums.FormatType ```
     pub fn ToDate22(self: ?*anyopaque, stringVal: []const u8, param2: i64) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1438,7 +1458,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, param2: qlocale_enums.FormatType, baseYear: i32 ```
     pub fn ToDate32(self: ?*anyopaque, stringVal: []const u8, param2: i64, baseYear: i32) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1449,11 +1469,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8, baseYear: i32 ```
     pub fn ToDate33(self: ?*anyopaque, stringVal: []const u8, format: []const u8, baseYear: i32) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1464,7 +1484,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: qlocale_enums.FormatType ```
     pub fn ToDateTime22(self: ?*anyopaque, stringVal: []const u8, format: i64) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1475,7 +1495,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: qlocale_enums.FormatType, baseYear: i32 ```
     pub fn ToDateTime32(self: ?*anyopaque, stringVal: []const u8, format: i64, baseYear: i32) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1486,11 +1506,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8, baseYear: i32 ```
     pub fn ToDateTime33(self: ?*anyopaque, stringVal: []const u8, format: []const u8, baseYear: i32) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1501,7 +1521,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: qlocale_enums.FormatType, cal: QtC.QCalendar, baseYear: i32 ```
     pub fn ToDate42(self: ?*anyopaque, stringVal: []const u8, format: i64, cal: QtC.QCalendar, baseYear: i32) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1512,11 +1532,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar, baseYear: i32 ```
     pub fn ToDate43(self: ?*anyopaque, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar, baseYear: i32) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1527,7 +1547,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: qlocale_enums.FormatType, cal: QtC.QCalendar, baseYear: i32 ```
     pub fn ToDateTime42(self: ?*anyopaque, stringVal: []const u8, format: i64, cal: QtC.QCalendar, baseYear: i32) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1538,11 +1558,11 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar, baseYear: i32 ```
     pub fn ToDateTime43(self: ?*anyopaque, stringVal: []const u8, format: []const u8, cal: QtC.QCalendar, baseYear: i32) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1608,7 +1628,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, param1: i64, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString22(self: ?*anyopaque, param1: i64, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1623,7 +1643,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, param1: u64, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString23(self: ?*anyopaque, param1: u64, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1638,7 +1658,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, i: i16, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString24(self: ?*anyopaque, i: i16, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1653,7 +1673,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, i: u16, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString25(self: ?*anyopaque, i: u16, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1668,7 +1688,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, i: i32, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString26(self: ?*anyopaque, i: i32, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1683,7 +1703,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, i: u32, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString27(self: ?*anyopaque, i: u32, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1698,7 +1718,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, param1: f64, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString28(self: ?*anyopaque, param1: f64, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1713,7 +1733,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, param1: f64, symbol: []const u8, precision: i32, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString32(self: ?*anyopaque, param1: f64, symbol: []const u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1728,7 +1748,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, i: f32, symbol: []const u8, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString29(self: ?*anyopaque, i: f32, symbol: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1743,7 +1763,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, i: f32, symbol: []const u8, precision: i32, allocator: std.mem.Allocator ```
     pub fn ToCurrencyString33(self: ?*anyopaque, i: f32, symbol: []const u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
-        const symbol_str = qtc.struct_libqt_string{
+        const symbol_str = qtc.libqt_string{
             .len = symbol.len,
             .data = symbol.ptr,
         };
@@ -1767,7 +1787,7 @@ pub const qlocale = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#formattedDataSize)
     ///
-    /// ``` self: QtC.QLocale, bytes: i64, precision: i32, format: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QLocale, bytes: i64, precision: i32, format: flag of qlocale_enums.DataSizeFormat, allocator: std.mem.Allocator ```
     pub fn FormattedDataSize3(self: ?*anyopaque, bytes: i64, precision: i32, format: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_FormattedDataSize3(@ptrCast(self), @intCast(bytes), @intCast(precision), @intCast(format));
         defer qtc.libqt_string_free(&_str);
@@ -1780,8 +1800,8 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, separator: qlocale_enums.TagSeparator, allocator: std.mem.Allocator ```
     pub fn UiLanguages1(self: ?*anyopaque, separator: i64, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QLocale_UiLanguages1(@ptrCast(self), @intCast(separator));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QLocale_UiLanguages1(@ptrCast(self), @intCast(separator));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1800,7 +1820,7 @@ pub const qlocale = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#languageToCode)
     ///
-    /// ``` language: qlocale_enums.Language, codeTypes: i32, allocator: std.mem.Allocator ```
+    /// ``` language: qlocale_enums.Language, codeTypes: flag of qlocale_enums.LanguageCodeType, allocator: std.mem.Allocator ```
     pub fn LanguageToCode2(language: i64, codeTypes: i64, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_LanguageToCode2(@intCast(language), @intCast(codeTypes));
         defer qtc.libqt_string_free(&_str);
@@ -1813,7 +1833,7 @@ pub const qlocale = struct {
     ///
     /// ``` self: QtC.QLocale, str: []const u8, style: qlocale_enums.QuotationStyle, allocator: std.mem.Allocator ```
     pub fn QuoteString22(self: ?*anyopaque, str: []const u8, style: i64, allocator: std.mem.Allocator) []const u8 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };

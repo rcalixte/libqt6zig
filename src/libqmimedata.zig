@@ -61,7 +61,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Urls(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QUrl {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeData_Urls(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QMimeData_Urls(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QUrl, _arr.len) catch @panic("qmimedata.Urls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
@@ -73,7 +73,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, urls: []QtC.QUrl ```
     pub fn SetUrls(self: ?*anyopaque, urls: []QtC.QUrl) void {
-        const urls_list = qtc.struct_libqt_list{
+        const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
@@ -102,7 +102,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -131,7 +131,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, html: []const u8 ```
     pub fn SetHtml(self: ?*anyopaque, html: []const u8) void {
-        const html_str = qtc.struct_libqt_string{
+        const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
@@ -191,11 +191,11 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8, allocator: std.mem.Allocator ```
     pub fn Data(self: ?*anyopaque, mimetype: []const u8, allocator: std.mem.Allocator) []u8 {
-        const mimetype_str = qtc.struct_libqt_string{
+        const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QMimeData_Data(@ptrCast(self), mimetype_str);
+        const _bytearray: qtc.libqt_string = qtc.QMimeData_Data(@ptrCast(self), mimetype_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmimedata.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -206,11 +206,11 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8, data: []u8 ```
     pub fn SetData(self: ?*anyopaque, mimetype: []const u8, data: []u8) void {
-        const mimetype_str = qtc.struct_libqt_string{
+        const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -221,7 +221,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8 ```
     pub fn RemoveFormat(self: ?*anyopaque, mimetype: []const u8) void {
-        const mimetype_str = qtc.struct_libqt_string{
+        const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
@@ -232,7 +232,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8 ```
     pub fn HasFormat(self: ?*anyopaque, mimetype: []const u8) bool {
-        const mimetype_str = qtc.struct_libqt_string{
+        const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
@@ -254,7 +254,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8 ```
     pub fn QBaseHasFormat(self: ?*anyopaque, mimetype: []const u8) bool {
-        const mimetype_str = qtc.struct_libqt_string{
+        const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
@@ -265,8 +265,8 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Formats(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeData_Formats(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMimeData_Formats(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -298,8 +298,8 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn QBaseFormats(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeData_QBaseFormats(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMimeData_QBaseFormats(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -327,7 +327,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8, preferredType: QtC.QMetaType ```
     pub fn RetrieveData(self: ?*anyopaque, mimetype: []const u8, preferredType: QtC.QMetaType) QtC.QVariant {
-        const mimetype_str = qtc.struct_libqt_string{
+        const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
@@ -349,7 +349,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, mimetype: []const u8, preferredType: QtC.QMetaType ```
     pub fn QBaseRetrieveData(self: ?*anyopaque, mimetype: []const u8, preferredType: QtC.QMetaType) QtC.QVariant {
-        const mimetype_str = qtc.struct_libqt_string{
+        const mimetype_str = qtc.libqt_string{
             .len = mimetype.len,
             .data = mimetype.ptr,
         };
@@ -401,7 +401,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -504,7 +504,7 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qmimedata.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -621,8 +621,8 @@ pub const qmimedata = struct {
     ///
     /// ``` self: QtC.QMimeData, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

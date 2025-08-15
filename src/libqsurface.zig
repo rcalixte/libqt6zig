@@ -7,6 +7,8 @@ pub const qsurface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
     /// ``` self: QtC.QSurface ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceClass ```
     pub fn SurfaceClass(self: ?*anyopaque) i64 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }
@@ -21,6 +23,8 @@ pub const qsurface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceType)
     ///
     /// ``` self: QtC.QSurface ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceType ```
     pub fn SurfaceType(self: ?*anyopaque) i64 {
         return qtc.QSurface_SurfaceType(@ptrCast(self));
     }

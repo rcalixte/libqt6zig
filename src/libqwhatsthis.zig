@@ -56,7 +56,7 @@ pub const qwhatsthis = struct {
     ///
     /// ``` pos: QtC.QPoint, text: []const u8 ```
     pub fn ShowText(pos: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -81,7 +81,7 @@ pub const qwhatsthis = struct {
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget ```
     pub fn ShowText3(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };

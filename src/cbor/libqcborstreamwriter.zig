@@ -50,7 +50,7 @@ pub const qcborstreamwriter = struct {
     ///
     /// ``` self: QtC.QCborStreamWriter, ba: []u8 ```
     pub fn Append4(self: ?*anyopaque, ba: []u8) void {
-        const ba_str = qtc.struct_libqt_string{
+        const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
         };

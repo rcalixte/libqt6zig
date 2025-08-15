@@ -2,7 +2,6 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const std = @import("std");
-pub const struct_qtcqaccessibleinterface_i32 = struct { first: QtC.QAccessibleInterface, second: i32 };
 pub const struct_qtcqaccessibleinterface_i64 = struct { first: QtC.QAccessibleInterface, second: i64 };
 
 /// https://doc.qt.io/qt-6/qaccessiblewidget.html
@@ -25,7 +24,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` o: QtC.QWidget, r: qaccessible_base_enums.Role, name: []const u8 ```
     pub fn New3(o: ?*anyopaque, r: i64, name: []const u8) QtC.QAccessibleWidget {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -135,19 +134,19 @@ pub const qaccessiblewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
     ///
-    /// ``` self: QtC.QAccessibleWidget, match: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
     pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleWidget_Relations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_Relations(@ptrCast(self), @intCast(match));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_free(_pair[i].first);
                 qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i64, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -156,7 +155,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, match: i32) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
+    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
     pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleWidget_OnRelations(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -165,19 +164,19 @@ pub const qaccessiblewidget = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QAccessibleWidget, match: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
     pub fn QBaseRelations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleWidget_QBaseRelations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_QBaseRelations(@ptrCast(self), @intCast(match));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_free(_pair[i].first);
                 qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i64, _arr.len) catch @panic("qaccessiblewidget.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -318,6 +317,8 @@ pub const qaccessiblewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
     ///
     /// ``` self: QtC.QAccessibleWidget ```
+    ///
+    /// Returns: ``` qaccessible_base_enums.Role ```
     pub fn Role(self: ?*anyopaque) i64 {
         return qtc.QAccessibleWidget_Role(@ptrCast(self));
     }
@@ -336,6 +337,8 @@ pub const qaccessiblewidget = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAccessibleWidget ```
+    ///
+    /// Returns: ``` qaccessible_base_enums.Role ```
     pub fn QBaseRole(self: ?*anyopaque) i64 {
         return qtc.QAccessibleWidget_QBaseRole(@ptrCast(self));
     }
@@ -444,8 +447,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, allocator: std.mem.Allocator ```
     pub fn ActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleWidget_ActionNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_ActionNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -477,8 +480,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, allocator: std.mem.Allocator ```
     pub fn QBaseActionNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleWidget_QBaseActionNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_QBaseActionNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -499,7 +502,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, actionName: []const u8 ```
     pub fn DoAction(self: ?*anyopaque, actionName: []const u8) void {
-        const actionName_str = qtc.struct_libqt_string{
+        const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
@@ -521,7 +524,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, actionName: []const u8 ```
     pub fn QBaseDoAction(self: ?*anyopaque, actionName: []const u8) void {
-        const actionName_str = qtc.struct_libqt_string{
+        const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
@@ -532,12 +535,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, actionName: []const u8, allocator: std.mem.Allocator ```
     pub fn KeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const actionName_str = qtc.struct_libqt_string{
+        const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleWidget_KeyBindingsForAction(@ptrCast(self), actionName_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_KeyBindingsForAction(@ptrCast(self), actionName_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -569,12 +572,12 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, actionName: []const u8, allocator: std.mem.Allocator ```
     pub fn QBaseKeyBindingsForAction(self: ?*anyopaque, actionName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
-        const actionName_str = qtc.struct_libqt_string{
+        const actionName_str = qtc.libqt_string{
             .len = actionName.len,
             .data = actionName.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleWidget_QBaseKeyBindingsForAction(@ptrCast(self), actionName_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QAccessibleWidget_QBaseKeyBindingsForAction(@ptrCast(self), actionName_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -645,7 +648,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, signal: []const u8 ```
     pub fn AddControllingSignal(self: ?*anyopaque, signal: []const u8) void {
-        const signal_str = qtc.struct_libqt_string{
+        const signal_str = qtc.libqt_string{
             .len = signal.len,
             .data = signal.ptr,
         };
@@ -667,7 +670,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, signal: []const u8 ```
     pub fn QBaseAddControllingSignal(self: ?*anyopaque, signal: []const u8) void {
-        const signal_str = qtc.struct_libqt_string{
+        const signal_str = qtc.libqt_string{
             .len = signal.len,
             .data = signal.ptr,
         };
@@ -1005,7 +1008,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1020,7 +1023,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: []const u8 ```
     pub fn QBaseSetText(self: ?*anyopaque, t: i64, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1112,7 +1115,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, name: []const u8, allocator: std.mem.Allocator ```
     pub fn LocalizedActionName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1131,7 +1134,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, name: []const u8, allocator: std.mem.Allocator ```
     pub fn QBaseLocalizedActionName(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1161,7 +1164,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, name: []const u8, allocator: std.mem.Allocator ```
     pub fn LocalizedActionDescription(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1180,7 +1183,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, name: []const u8, allocator: std.mem.Allocator ```
     pub fn QBaseLocalizedActionDescription(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };

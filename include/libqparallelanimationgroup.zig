@@ -293,6 +293,8 @@ pub const qparallelanimationgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#state)
     ///
     /// ``` self: QtC.QParallelAnimationGroup ```
+    ///
+    /// Returns: ``` qabstractanimation_enums.State ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QAbstractAnimation_State(@ptrCast(self));
     }
@@ -311,6 +313,8 @@ pub const qparallelanimationgroup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#direction)
     ///
     /// ``` self: QtC.QParallelAnimationGroup ```
+    ///
+    /// Returns: ``` qabstractanimation_enums.Direction ```
     pub fn Direction(self: ?*anyopaque) i64 {
         return qtc.QAbstractAnimation_Direction(@ptrCast(self));
     }
@@ -532,7 +536,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ``` self: QtC.QParallelAnimationGroup, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -635,7 +639,7 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ``` self: QtC.QParallelAnimationGroup, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qparallelanimationgroup.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -752,8 +756,8 @@ pub const qparallelanimationgroup = struct {
     ///
     /// ``` self: QtC.QParallelAnimationGroup, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

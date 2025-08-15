@@ -44,6 +44,8 @@ pub const qprintengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprintengine.html#printerState)
     ///
     /// ``` self: QtC.QPrintEngine ```
+    ///
+    /// Returns: ``` qprinter_enums.PrinterState ```
     pub fn PrinterState(self: ?*anyopaque) i64 {
         return qtc.QPrintEngine_PrinterState(@ptrCast(self));
     }

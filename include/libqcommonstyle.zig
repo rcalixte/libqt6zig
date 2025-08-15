@@ -164,6 +164,8 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#hitTestComplexControl)
     ///
     /// ``` self: QtC.QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, pt: QtC.QPoint, w: QtC.QWidget ```
+    ///
+    /// Returns: ``` qstyle_enums.SubControl ```
     pub fn HitTestComplexControl(self: ?*anyopaque, cc: i64, opt: ?*anyopaque, pt: ?*anyopaque, w: ?*anyopaque) i64 {
         return qtc.QCommonStyle_HitTestComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(w));
     }
@@ -182,6 +184,8 @@ pub const qcommonstyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCommonStyle, cc: qstyle_enums.ComplexControl, opt: QtC.QStyleOptionComplex, pt: QtC.QPoint, w: QtC.QWidget ```
+    ///
+    /// Returns: ``` qstyle_enums.SubControl ```
     pub fn QBaseHitTestComplexControl(self: ?*anyopaque, cc: i64, opt: ?*anyopaque, pt: ?*anyopaque, w: ?*anyopaque) i64 {
         return qtc.QCommonStyle_QBaseHitTestComplexControl(@ptrCast(self), @intCast(cc), @ptrCast(opt), @ptrCast(pt), @ptrCast(w));
     }
@@ -590,7 +594,9 @@ pub const qcommonstyle = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#visualAlignment)
     ///
-    /// ``` direction: qnamespace_enums.LayoutDirection, alignment: i32 ```
+    /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn VisualAlignment(direction: i64, alignment: i64) i64 {
         return qtc.QStyle_VisualAlignment(@intCast(direction), @intCast(alignment));
     }
@@ -599,7 +605,7 @@ pub const qcommonstyle = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#alignedRect)
     ///
-    /// ``` direction: qnamespace_enums.LayoutDirection, alignment: i32, size: QtC.QSize, rectangle: QtC.QRect ```
+    /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag, size: QtC.QSize, rectangle: QtC.QRect ```
     pub fn AlignedRect(direction: i64, alignment: i64, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_AlignedRect(@intCast(direction), @intCast(alignment), @ptrCast(size), @ptrCast(rectangle));
     }
@@ -608,7 +614,7 @@ pub const qcommonstyle = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
-    /// ``` self: QtC.QCommonStyle, controls1: i32, controls2: i32, orientation: qnamespace_enums.Orientation ```
+    /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation ```
     pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i64) i32 {
         return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation));
     }
@@ -644,7 +650,7 @@ pub const qcommonstyle = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
-    /// ``` self: QtC.QCommonStyle, controls1: i32, controls2: i32, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption ```
+    /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption ```
     pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i64, option: ?*anyopaque) i32 {
         return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option));
     }
@@ -653,7 +659,7 @@ pub const qcommonstyle = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
-    /// ``` self: QtC.QCommonStyle, controls1: i32, controls2: i32, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
+    /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
     pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i64, option: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
@@ -677,7 +683,7 @@ pub const qcommonstyle = struct {
     ///
     /// ``` self: QtC.QCommonStyle, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -780,7 +786,7 @@ pub const qcommonstyle = struct {
     ///
     /// ``` self: QtC.QCommonStyle, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcommonstyle.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -897,8 +903,8 @@ pub const qcommonstyle = struct {
     ///
     /// ``` self: QtC.QCommonStyle, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1043,7 +1049,7 @@ pub const qcommonstyle = struct {
     ///
     /// ``` self: QtC.QCommonStyle, fm: QtC.QFontMetrics, r: QtC.QRect, flags: i32, enabled: bool, text: []const u8 ```
     pub fn ItemTextRect(self: ?*anyopaque, fm: ?*anyopaque, r: ?*anyopaque, flags: i32, enabled: bool, text: []const u8) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1058,7 +1064,7 @@ pub const qcommonstyle = struct {
     ///
     /// ``` self: QtC.QCommonStyle, fm: QtC.QFontMetrics, r: QtC.QRect, flags: i32, enabled: bool, text: []const u8 ```
     pub fn QBaseItemTextRect(self: ?*anyopaque, fm: ?*anyopaque, r: ?*anyopaque, flags: i32, enabled: bool, text: []const u8) QtC.QRect {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1117,7 +1123,7 @@ pub const qcommonstyle = struct {
     ///
     /// ``` self: QtC.QCommonStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole ```
     pub fn DrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i64) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1132,7 +1138,7 @@ pub const qcommonstyle = struct {
     ///
     /// ``` self: QtC.QCommonStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole ```
     pub fn QBaseDrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i64) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };

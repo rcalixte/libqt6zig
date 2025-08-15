@@ -60,7 +60,7 @@ pub const qimage = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New8(fileName: []const u8) QtC.QImage {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -79,7 +79,7 @@ pub const qimage = struct {
     ///
     /// ``` fileName: []const u8, format: []const u8 ```
     pub fn New10(fileName: []const u8, format: []const u8) QtC.QImage {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -186,6 +186,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#format)
     ///
     /// ``` self: QtC.QImage ```
+    ///
+    /// Returns: ``` qimage_enums.Format ```
     pub fn Format(self: ?*anyopaque) i64 {
         return qtc.QImage_Format(@ptrCast(self));
     }
@@ -201,7 +203,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, f: qimage_enums.Format, colorTable: []u32 ```
     pub fn ConvertToFormat2(self: ?*anyopaque, f: i64, colorTable: []u32) QtC.QImage {
-        const colorTable_list = qtc.struct_libqt_list{
+        const colorTable_list = qtc.libqt_list{
             .len = colorTable.len,
             .data = colorTable.ptr,
         };
@@ -457,7 +459,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, allocator: std.mem.Allocator ```
     pub fn ColorTable(self: ?*anyopaque, allocator: std.mem.Allocator) []u32 {
-        const _arr: qtc.struct_libqt_list = qtc.QImage_ColorTable(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QImage_ColorTable(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u32, _arr.len) catch @panic("qimage.ColorTable: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
@@ -469,7 +471,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, colors: []u32 ```
     pub fn SetColorTable(self: ?*anyopaque, colors: []u32) void {
-        const colors_list = qtc.struct_libqt_list{
+        const colors_list = qtc.libqt_list{
             .len = colors.len,
             .data = colors.ptr,
         };
@@ -712,7 +714,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, fileName: []const u8 ```
     pub fn Load2(self: ?*anyopaque, fileName: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -737,7 +739,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, data: []u8 ```
     pub fn LoadFromData3(self: ?*anyopaque, data: []u8) bool {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -748,7 +750,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, fileName: []const u8 ```
     pub fn Save(self: ?*anyopaque, fileName: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -780,7 +782,7 @@ pub const qimage = struct {
     ///
     /// ``` data: []u8 ```
     pub fn FromData3(data: []u8) QtC.QImage {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -865,8 +867,8 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, allocator: std.mem.Allocator ```
     pub fn TextKeys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QImage_TextKeys(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QImage_TextKeys(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -898,11 +900,11 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, key: []const u8, value: []const u8 ```
     pub fn SetText(self: ?*anyopaque, key: []const u8, value: []const u8) void {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -926,6 +928,8 @@ pub const qimage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#toImageFormat)
     ///
     /// ``` format: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qimage_enums.Format ```
     pub fn ToImageFormat(format: QtC.QPixelFormat) i64 {
         return qtc.QImage_ToImageFormat(@ptrCast(format));
     }
@@ -1057,7 +1061,7 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper)
     ///
-    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertToFormatHelper(self: ?*anyopaque, format: i64, flags: i64) QtC.QImage {
         return qtc.QImage_ConvertToFormatHelper(@ptrCast(self), @intCast(format), @intCast(flags));
     }
@@ -1066,7 +1070,7 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: i32) callconv(.c) QtC.QImage ```
+    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QtC.QImage ```
     pub fn OnConvertToFormatHelper(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) QtC.QImage) void {
         qtc.QImage_OnConvertToFormatHelper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1075,14 +1079,14 @@ pub const qimage = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn QBaseConvertToFormatHelper(self: ?*anyopaque, format: i64, flags: i64) QtC.QImage {
         return qtc.QImage_QBaseConvertToFormatHelper(@ptrCast(self), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace)
     ///
-    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertToFormatInplace(self: ?*anyopaque, format: i64, flags: i64) bool {
         return qtc.QImage_ConvertToFormatInplace(@ptrCast(self), @intCast(format), @intCast(flags));
     }
@@ -1091,7 +1095,7 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: i32) callconv(.c) bool ```
+    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) bool ```
     pub fn OnConvertToFormatInplace(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) bool) void {
         qtc.QImage_OnConvertToFormatInplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1100,7 +1104,7 @@ pub const qimage = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn QBaseConvertToFormatInplace(self: ?*anyopaque, format: i64, flags: i64) bool {
         return qtc.QImage_QBaseConvertToFormatInplace(@ptrCast(self), @intCast(format), @intCast(flags));
     }
@@ -1164,16 +1168,16 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat)
     ///
-    /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertToFormat22(self: ?*anyopaque, f: i64, flags: i64) QtC.QImage {
         return qtc.QImage_ConvertToFormat22(@ptrCast(self), @intCast(f), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat)
     ///
-    /// ``` self: QtC.QImage, f: qimage_enums.Format, colorTable: []u32, flags: i32 ```
+    /// ``` self: QtC.QImage, f: qimage_enums.Format, colorTable: []u32, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertToFormat3(self: ?*anyopaque, f: i64, colorTable: []u32, flags: i64) QtC.QImage {
-        const colorTable_list = qtc.struct_libqt_list{
+        const colorTable_list = qtc.libqt_list{
             .len = colorTable.len,
             .data = colorTable.ptr,
         };
@@ -1182,21 +1186,21 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertedTo)
     ///
-    /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertedTo2(self: ?*anyopaque, f: i64, flags: i64) QtC.QImage {
         return qtc.QImage_ConvertedTo2(@ptrCast(self), @intCast(f), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertTo)
     ///
-    /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, f: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertTo2(self: ?*anyopaque, f: i64, flags: i64) void {
         qtc.QImage_ConvertTo2(@ptrCast(self), @intCast(f), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#createAlphaMask)
     ///
-    /// ``` self: QtC.QImage, flags: i32 ```
+    /// ``` self: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn CreateAlphaMask1(self: ?*anyopaque, flags: i64) QtC.QImage {
         return qtc.QImage_CreateAlphaMask1(@ptrCast(self), @intCast(flags));
     }
@@ -1301,28 +1305,28 @@ pub const qimage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertedToColorSpace)
     ///
-    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertedToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i64, flags: i64) QtC.QImage {
         return qtc.QImage_ConvertedToColorSpace3(@ptrCast(self), @ptrCast(colorSpace), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToColorSpace)
     ///
-    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, colorSpace: QtC.QColorSpace, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertToColorSpace3(self: ?*anyopaque, colorSpace: ?*anyopaque, format: i64, flags: i64) void {
         qtc.QImage_ConvertToColorSpace3(@ptrCast(self), @ptrCast(colorSpace), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#colorTransformed)
     ///
-    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ColorTransformed3(self: ?*anyopaque, transform: ?*anyopaque, format: i64, flags: i64) QtC.QImage {
         return qtc.QImage_ColorTransformed3(@ptrCast(self), @ptrCast(transform), @intCast(format), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#applyColorTransform)
     ///
-    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: i32 ```
+    /// ``` self: QtC.QImage, transform: QtC.QColorTransform, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ApplyColorTransform3(self: ?*anyopaque, transform: ?*anyopaque, format: i64, flags: i64) void {
         qtc.QImage_ApplyColorTransform3(@ptrCast(self), @ptrCast(transform), @intCast(format), @intCast(flags));
     }
@@ -1331,7 +1335,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, fileName: []const u8, format: []const u8 ```
     pub fn Load22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -1359,7 +1363,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, data: []u8, format: []const u8 ```
     pub fn LoadFromData23(self: ?*anyopaque, data: []u8, format: []const u8) bool {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -1371,7 +1375,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, fileName: []const u8, format: []const u8 ```
     pub fn Save22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -1383,7 +1387,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, fileName: []const u8, format: []const u8, quality: i32 ```
     pub fn Save3(self: ?*anyopaque, fileName: []const u8, format: []const u8, quality: i32) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -1427,7 +1431,7 @@ pub const qimage = struct {
     ///
     /// ``` data: []u8, format: []const u8 ```
     pub fn FromData23(data: []u8, format: []const u8) QtC.QImage {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -1439,7 +1443,7 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, key: []const u8, allocator: std.mem.Allocator ```
     pub fn Text1(self: ?*anyopaque, key: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };

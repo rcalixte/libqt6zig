@@ -28,6 +28,8 @@ pub const qocspresponse = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#certificateStatus)
     ///
     /// ``` self: QtC.QOcspResponse ```
+    ///
+    /// Returns: ``` qocspresponse_enums.QOcspCertificateStatus ```
     pub fn CertificateStatus(self: ?*anyopaque) i64 {
         return qtc.QOcspResponse_CertificateStatus(@ptrCast(self));
     }
@@ -35,6 +37,8 @@ pub const qocspresponse = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qocspresponse.html#revocationReason)
     ///
     /// ``` self: QtC.QOcspResponse ```
+    ///
+    /// Returns: ``` qocspresponse_enums.QOcspRevocationReason ```
     pub fn RevocationReason(self: ?*anyopaque) i64 {
         return qtc.QOcspResponse_RevocationReason(@ptrCast(self));
     }

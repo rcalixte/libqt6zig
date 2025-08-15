@@ -58,7 +58,7 @@ pub const qglyphrun = struct {
     ///
     /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
     pub fn GlyphIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []u32 {
-        const _arr: qtc.struct_libqt_list = qtc.QGlyphRun_GlyphIndexes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGlyphRun_GlyphIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(u32, _arr.len) catch @panic("qglyphrun.GlyphIndexes: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
@@ -70,7 +70,7 @@ pub const qglyphrun = struct {
     ///
     /// ``` self: QtC.QGlyphRun, glyphIndexes: []u32 ```
     pub fn SetGlyphIndexes(self: ?*anyopaque, glyphIndexes: []u32) void {
-        const glyphIndexes_list = qtc.struct_libqt_list{
+        const glyphIndexes_list = qtc.libqt_list{
             .len = glyphIndexes.len,
             .data = glyphIndexes.ptr,
         };
@@ -81,7 +81,7 @@ pub const qglyphrun = struct {
     ///
     /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
     pub fn Positions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
-        const _arr: qtc.struct_libqt_list = qtc.QGlyphRun_Positions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGlyphRun_Positions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qglyphrun.Positions: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
@@ -93,7 +93,7 @@ pub const qglyphrun = struct {
     ///
     /// ``` self: QtC.QGlyphRun, positions: []QtC.QPointF ```
     pub fn SetPositions(self: ?*anyopaque, positions: []QtC.QPointF) void {
-        const positions_list = qtc.struct_libqt_list{
+        const positions_list = qtc.libqt_list{
             .len = positions.len,
             .data = @ptrCast(positions.ptr),
         };
@@ -186,7 +186,7 @@ pub const qglyphrun = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#setFlags)
     ///
-    /// ``` self: QtC.QGlyphRun, flags: i32 ```
+    /// ``` self: QtC.QGlyphRun, flags: flag of qglyphrun_enums.GlyphRunFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QGlyphRun_SetFlags(@ptrCast(self), @intCast(flags));
     }
@@ -194,6 +194,8 @@ pub const qglyphrun = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#flags)
     ///
     /// ``` self: QtC.QGlyphRun ```
+    ///
+    /// Returns: ``` flag of qglyphrun_enums.GlyphRunFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QGlyphRun_Flags(@ptrCast(self));
     }
@@ -216,7 +218,7 @@ pub const qglyphrun = struct {
     ///
     /// ``` self: QtC.QGlyphRun, allocator: std.mem.Allocator ```
     pub fn StringIndexes(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QGlyphRun_StringIndexes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGlyphRun_StringIndexes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i64, _arr.len) catch @panic("qglyphrun.StringIndexes: Memory allocation failed");
         const _data: [*]i64 = @ptrCast(@alignCast(_arr.data));
@@ -228,7 +230,7 @@ pub const qglyphrun = struct {
     ///
     /// ``` self: QtC.QGlyphRun, stringIndexes: []i64 ```
     pub fn SetStringIndexes(self: ?*anyopaque, stringIndexes: []i64) void {
-        const stringIndexes_list = qtc.struct_libqt_list{
+        const stringIndexes_list = qtc.libqt_list{
             .len = stringIndexes.len,
             .data = stringIndexes.ptr,
         };
@@ -239,7 +241,7 @@ pub const qglyphrun = struct {
     ///
     /// ``` self: QtC.QGlyphRun, sourceString: []const u8 ```
     pub fn SetSourceString(self: ?*anyopaque, sourceString: []const u8) void {
-        const sourceString_str = qtc.struct_libqt_string{
+        const sourceString_str = qtc.libqt_string{
             .len = sourceString.len,
             .data = sourceString.ptr,
         };

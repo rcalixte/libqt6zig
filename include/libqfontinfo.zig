@@ -86,6 +86,8 @@ pub const qfontinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#style)
     ///
     /// ``` self: QtC.QFontInfo ```
+    ///
+    /// Returns: ``` qfont_enums.Style ```
     pub fn Style(self: ?*anyopaque) i64 {
         return qtc.QFontInfo_Style(@ptrCast(self));
     }
@@ -135,6 +137,8 @@ pub const qfontinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontinfo.html#styleHint)
     ///
     /// ``` self: QtC.QFontInfo ```
+    ///
+    /// Returns: ``` qfont_enums.StyleHint ```
     pub fn StyleHint(self: ?*anyopaque) i64 {
         return qtc.QFontInfo_StyleHint(@ptrCast(self));
     }

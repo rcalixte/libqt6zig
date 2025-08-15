@@ -106,6 +106,8 @@ pub const qdeadlinetimer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#timerType)
     ///
     /// ``` self: QtC.QDeadlineTimer ```
+    ///
+    /// Returns: ``` qnamespace_enums.TimerType ```
     pub fn TimerType(self: ?*anyopaque) i64 {
         return qtc.QDeadlineTimer_TimerType(@ptrCast(self));
     }

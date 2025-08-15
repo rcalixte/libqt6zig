@@ -58,8 +58,11 @@ pub const qarraydata = struct {
     ///
     /// ``` data: QtC.QArrayData, dataPointer: ?*anyopaque, objectSize: i64, newCapacity: i64, option: qarraydata_enums.AllocationOption ```
     pub fn ReallocateUnaligned(data: ?*anyopaque, dataPointer: ?*anyopaque, objectSize: i64, newCapacity: i64, option: i64) struct_qtcqarraydata_anyopaque {
-        const _pair: qtc.struct_libqt_pair = qtc.QArrayData_ReallocateUnaligned(@ptrCast(data), dataPointer, @intCast(objectSize), @intCast(newCapacity), @intCast(option));
-        return struct_qtcqarraydata_anyopaque{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
+        const _pair: qtc.libqt_pair = qtc.QArrayData_ReallocateUnaligned(@ptrCast(data), dataPointer, @intCast(objectSize), @intCast(newCapacity), @intCast(option));
+        return struct_qtcqarraydata_anyopaque{
+            .first = @ptrCast(_pair.first),
+            .second = _pair.second,
+        };
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#deallocate)

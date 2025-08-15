@@ -30,7 +30,7 @@ pub const qrestreply = struct {
     ///
     /// ``` self: QtC.QRestReply, allocator: std.mem.Allocator ```
     pub fn ReadBody(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QRestReply_ReadBody(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QRestReply_ReadBody(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrestreply.ReadBody: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -79,6 +79,8 @@ pub const qrestreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrestreply.html#error)
     ///
     /// ``` self: QtC.QRestReply ```
+    ///
+    /// Returns: ``` qnetworkreply_enums.NetworkError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QRestReply_Error(@ptrCast(self));
     }

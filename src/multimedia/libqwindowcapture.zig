@@ -69,7 +69,7 @@ pub const qwindowcapture = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn CapturableWindows(allocator: std.mem.Allocator) []QtC.QCapturableWindow {
-        const _arr: qtc.struct_libqt_list = qtc.QWindowCapture_CapturableWindows();
+        const _arr: qtc.libqt_list = qtc.QWindowCapture_CapturableWindows();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QCapturableWindow, _arr.len) catch @panic("qwindowcapture.CapturableWindows: Memory allocation failed");
         const _data: [*]QtC.QCapturableWindow = @ptrCast(@alignCast(_arr.data));
@@ -108,6 +108,8 @@ pub const qwindowcapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindowcapture.html#error)
     ///
     /// ``` self: QtC.QWindowCapture ```
+    ///
+    /// Returns: ``` qwindowcapture_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QWindowCapture_Error(@ptrCast(self));
     }
@@ -190,7 +192,7 @@ pub const qwindowcapture = struct {
     ///
     /// ``` self: QtC.QWindowCapture, errorVal: qwindowcapture_enums.Error, errorString: []const u8 ```
     pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i64, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -249,7 +251,7 @@ pub const qwindowcapture = struct {
     ///
     /// ``` self: QtC.QWindowCapture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -352,7 +354,7 @@ pub const qwindowcapture = struct {
     ///
     /// ``` self: QtC.QWindowCapture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwindowcapture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -469,8 +471,8 @@ pub const qwindowcapture = struct {
     ///
     /// ``` self: QtC.QWindowCapture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

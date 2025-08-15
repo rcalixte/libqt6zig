@@ -41,8 +41,8 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
     pub fn UserNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineWebAuthUxRequest_UserNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QWebEngineWebAuthUxRequest_UserNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -80,6 +80,8 @@ pub const qwebenginewebauthuxrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#state)
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    ///
+    /// Returns: ``` qwebenginewebauthuxrequest_enums.WebAuthUxState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QWebEngineWebAuthUxRequest_State(@ptrCast(self));
     }
@@ -87,6 +89,8 @@ pub const qwebenginewebauthuxrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#requestFailureReason)
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest ```
+    ///
+    /// Returns: ``` qwebenginewebauthuxrequest_enums.RequestFailureReason ```
     pub fn RequestFailureReason(self: ?*anyopaque) i64 {
         return qtc.QWebEngineWebAuthUxRequest_RequestFailureReason(@ptrCast(self));
     }
@@ -123,7 +127,7 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest, selectedAccount: []const u8 ```
     pub fn SetSelectedAccount(self: ?*anyopaque, selectedAccount: []const u8) void {
-        const selectedAccount_str = qtc.struct_libqt_string{
+        const selectedAccount_str = qtc.libqt_string{
             .len = selectedAccount.len,
             .data = selectedAccount.ptr,
         };
@@ -134,7 +138,7 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest, pin: []const u8 ```
     pub fn SetPin(self: ?*anyopaque, pin: []const u8) void {
-        const pin_str = qtc.struct_libqt_string{
+        const pin_str = qtc.libqt_string{
             .len = pin.len,
             .data = pin.ptr,
         };
@@ -204,7 +208,7 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -307,7 +311,7 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebenginewebauthuxrequest.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -424,8 +428,8 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineWebAuthUxRequest, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

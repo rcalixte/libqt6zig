@@ -54,6 +54,8 @@ pub const qoperatingsystemversionbase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#currentType)
     ///
     ///
+    ///
+    /// Returns: ``` qoperatingsystemversion_enums.OSType ```
     pub fn CurrentType() i64 {
         return qtc.QOperatingSystemVersionBase_CurrentType();
     }
@@ -96,6 +98,8 @@ pub const qoperatingsystemversionbase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#type)
     ///
     /// ``` self: QtC.QOperatingSystemVersionBase ```
+    ///
+    /// Returns: ``` qoperatingsystemversion_enums.OSType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QOperatingSystemVersionBase_Type(@ptrCast(self));
     }
@@ -171,6 +175,8 @@ pub const qoperatingsystemversionunexported = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#currentType)
     ///
     ///
+    ///
+    /// Returns: ``` qoperatingsystemversion_enums.OSType ```
     pub fn CurrentType() i64 {
         return qtc.QOperatingSystemVersionBase_CurrentType();
     }
@@ -225,6 +231,8 @@ pub const qoperatingsystemversionunexported = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversionbase.html#type)
     ///
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
+    ///
+    /// Returns: ``` qoperatingsystemversion_enums.OSType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QOperatingSystemVersionBase_Type(@ptrCast(self));
     }
@@ -292,6 +300,8 @@ pub const qoperatingsystemversion = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#currentType)
     ///
     ///
+    ///
+    /// Returns: ``` qoperatingsystemversion_enums.OSType ```
     pub fn CurrentType() i64 {
         return qtc.QOperatingSystemVersion_CurrentType();
     }
@@ -299,6 +309,8 @@ pub const qoperatingsystemversion = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qoperatingsystemversion.html#type)
     ///
     /// ``` self: QtC.QOperatingSystemVersion ```
+    ///
+    /// Returns: ``` qoperatingsystemversion_enums.OSType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QOperatingSystemVersion_Type(@ptrCast(self));
     }

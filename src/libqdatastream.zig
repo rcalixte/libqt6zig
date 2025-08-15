@@ -22,7 +22,7 @@ pub const qdatastream = struct {
     ///
     /// ``` param1: []u8 ```
     pub fn New3(param1: []u8) QtC.QDataStream {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -54,6 +54,8 @@ pub const qdatastream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#status)
     ///
     /// ``` self: QtC.QDataStream ```
+    ///
+    /// Returns: ``` qdatastream_enums.Status ```
     pub fn Status(self: ?*anyopaque) i64 {
         return qtc.QDataStream_Status(@ptrCast(self));
     }
@@ -75,6 +77,8 @@ pub const qdatastream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#floatingPointPrecision)
     ///
     /// ``` self: QtC.QDataStream ```
+    ///
+    /// Returns: ``` qdatastream_enums.FloatingPointPrecision ```
     pub fn FloatingPointPrecision(self: ?*anyopaque) i64 {
         return qtc.QDataStream_FloatingPointPrecision(@ptrCast(self));
     }
@@ -89,6 +93,8 @@ pub const qdatastream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#byteOrder)
     ///
     /// ``` self: QtC.QDataStream ```
+    ///
+    /// Returns: ``` qdatastream_enums.ByteOrder ```
     pub fn ByteOrder(self: ?*anyopaque) i64 {
         return qtc.QDataStream_ByteOrder(@ptrCast(self));
     }

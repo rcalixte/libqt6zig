@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qlibrary_enums = @import("libqlibrary.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -17,7 +18,7 @@ pub const qpluginloader = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New2(fileName: []const u8) QtC.QPluginLoader {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -36,7 +37,7 @@ pub const qpluginloader = struct {
     ///
     /// ``` fileName: []const u8, parent: QtC.QObject ```
     pub fn New4(fileName: []const u8, parent: ?*anyopaque) QtC.QPluginLoader {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -106,7 +107,7 @@ pub const qpluginloader = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn StaticInstances(allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QPluginLoader_StaticInstances();
+        const _arr: qtc.libqt_list = qtc.QPluginLoader_StaticInstances();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpluginloader.StaticInstances: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -118,7 +119,7 @@ pub const qpluginloader = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn StaticPlugins(allocator: std.mem.Allocator) []QtC.QStaticPlugin {
-        const _arr: qtc.struct_libqt_list = qtc.QPluginLoader_StaticPlugins();
+        const _arr: qtc.libqt_list = qtc.QPluginLoader_StaticPlugins();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStaticPlugin, _arr.len) catch @panic("qpluginloader.StaticPlugins: Memory allocation failed");
         const _data: [*]QtC.QStaticPlugin = @ptrCast(@alignCast(_arr.data));
@@ -151,7 +152,7 @@ pub const qpluginloader = struct {
     ///
     /// ``` self: QtC.QPluginLoader, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -182,7 +183,7 @@ pub const qpluginloader = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpluginloader.html#setLoadHints)
     ///
-    /// ``` self: QtC.QPluginLoader, loadHints: i32 ```
+    /// ``` self: QtC.QPluginLoader, loadHints: flag of qlibrary_enums.LoadHint ```
     pub fn SetLoadHints(self: ?*anyopaque, loadHints: i64) void {
         qtc.QPluginLoader_SetLoadHints(@ptrCast(self), @intCast(loadHints));
     }
@@ -190,6 +191,8 @@ pub const qpluginloader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpluginloader.html#loadHints)
     ///
     /// ``` self: QtC.QPluginLoader ```
+    ///
+    /// Returns: ``` flag of qlibrary_enums.LoadHint ```
     pub fn LoadHints(self: ?*anyopaque) i64 {
         return qtc.QPluginLoader_LoadHints(@ptrCast(self));
     }
@@ -239,7 +242,7 @@ pub const qpluginloader = struct {
     ///
     /// ``` self: QtC.QPluginLoader, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -342,7 +345,7 @@ pub const qpluginloader = struct {
     ///
     /// ``` self: QtC.QPluginLoader, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpluginloader.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -459,8 +462,8 @@ pub const qpluginloader = struct {
     ///
     /// ``` self: QtC.QPluginLoader, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

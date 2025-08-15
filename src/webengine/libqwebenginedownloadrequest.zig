@@ -47,6 +47,8 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#state)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
+    ///
+    /// Returns: ``` qwebenginedownloadrequest_enums.DownloadState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QWebEngineDownloadRequest_State(@ptrCast(self));
     }
@@ -100,6 +102,8 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormat)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
+    ///
+    /// Returns: ``` qwebenginedownloadrequest_enums.SavePageFormat ```
     pub fn SavePageFormat(self: ?*anyopaque) i64 {
         return qtc.QWebEngineDownloadRequest_SavePageFormat(@ptrCast(self));
     }
@@ -114,6 +118,8 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReason)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest ```
+    ///
+    /// Returns: ``` qwebenginedownloadrequest_enums.DownloadInterruptReason ```
     pub fn InterruptReason(self: ?*anyopaque) i64 {
         return qtc.QWebEngineDownloadRequest_InterruptReason(@ptrCast(self));
     }
@@ -162,7 +168,7 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, directory: []const u8 ```
     pub fn SetDownloadDirectory(self: ?*anyopaque, directory: []const u8) void {
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
@@ -184,7 +190,7 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, fileName: []const u8 ```
     pub fn SetDownloadFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -415,7 +421,7 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -518,7 +524,7 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebenginedownloadrequest.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -635,8 +641,8 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -83,7 +83,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
     pub fn Append2(self: ?*anyopaque, sets: []?*anyopaque) bool {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -94,7 +94,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
     pub fn Remove2(self: ?*anyopaque, sets: []?*anyopaque) bool {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -126,7 +126,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
     pub fn Sets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QCandlestickSet {
-        const _arr: qtc.struct_libqt_list = qtc.QCandlestickSeries_Sets(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QCandlestickSeries_Sets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QCandlestickSet, _arr.len) catch @panic("qcandlestickseries.Sets: Memory allocation failed");
         const _data: [*]QtC.QCandlestickSet = @ptrCast(@alignCast(_arr.data));
@@ -144,6 +144,8 @@ pub const qcandlestickseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
     ///
     /// ``` self: QtC.QCandlestickSeries ```
+    ///
+    /// Returns: ``` qabstractseries_enums.SeriesType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QCandlestickSeries_Type(@ptrCast(self));
     }
@@ -162,6 +164,8 @@ pub const qcandlestickseries = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCandlestickSeries ```
+    ///
+    /// Returns: ``` qabstractseries_enums.SeriesType ```
     pub fn QBaseType(self: ?*anyopaque) i64 {
         return qtc.QCandlestickSeries_QBaseType(@ptrCast(self));
     }
@@ -380,7 +384,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
     pub fn CandlestickSetsAdded(self: ?*anyopaque, sets: []?*anyopaque) void {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -398,7 +402,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet ```
     pub fn CandlestickSetsRemoved(self: ?*anyopaque, sets: []?*anyopaque) void {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -598,7 +602,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -705,7 +709,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qcandlestickseries.AttachedAxes: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
@@ -840,7 +844,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -943,7 +947,7 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qcandlestickseries.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1060,8 +1064,8 @@ pub const qcandlestickseries = struct {
     ///
     /// ``` self: QtC.QCandlestickSeries, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

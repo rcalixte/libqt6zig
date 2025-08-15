@@ -92,9 +92,9 @@ pub const qpointingdevice = struct {
 
     /// New2 constructs a new QPointingDevice object.
     ///
-    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: i32, maxPoints: i32, buttonCount: i32 ```
+    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32 ```
     pub fn New2(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32) QtC.QPointingDevice {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -111,13 +111,13 @@ pub const qpointingdevice = struct {
 
     /// New4 constructs a new QPointingDevice object.
     ///
-    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: i32, maxPoints: i32, buttonCount: i32, seatName: []const u8 ```
+    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8 ```
     pub fn New4(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8) QtC.QPointingDevice {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const seatName_str = qtc.struct_libqt_string{
+        const seatName_str = qtc.libqt_string{
             .len = seatName.len,
             .data = seatName.ptr,
         };
@@ -127,13 +127,13 @@ pub const qpointingdevice = struct {
 
     /// New5 constructs a new QPointingDevice object.
     ///
-    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: i32, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId ```
+    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId ```
     pub fn New5(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId) QtC.QPointingDevice {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const seatName_str = qtc.struct_libqt_string{
+        const seatName_str = qtc.libqt_string{
             .len = seatName.len,
             .data = seatName.ptr,
         };
@@ -143,13 +143,13 @@ pub const qpointingdevice = struct {
 
     /// New6 constructs a new QPointingDevice object.
     ///
-    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: i32, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: QtC.QObject ```
+    /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: QtC.QObject ```
     pub fn New6(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: ?*anyopaque) QtC.QPointingDevice {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const seatName_str = qtc.struct_libqt_string{
+        const seatName_str = qtc.libqt_string{
             .len = seatName.len,
             .data = seatName.ptr,
         };
@@ -210,7 +210,7 @@ pub const qpointingdevice = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#setCapabilities)
     ///
-    /// ``` self: QtC.QPointingDevice, caps: i32 ```
+    /// ``` self: QtC.QPointingDevice, caps: flag of qinputdevice_enums.Capability ```
     pub fn SetCapabilities(self: ?*anyopaque, caps: i64) void {
         qtc.QPointingDevice_SetCapabilities(@ptrCast(self), @intCast(caps));
     }
@@ -225,6 +225,8 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#pointerType)
     ///
     /// ``` self: QtC.QPointingDevice ```
+    ///
+    /// Returns: ``` qpointingdevice_enums.PointerType ```
     pub fn PointerType(self: ?*anyopaque) i64 {
         return qtc.QPointingDevice_PointerType(@ptrCast(self));
     }
@@ -308,7 +310,7 @@ pub const qpointingdevice = struct {
     ///
     /// ``` seatName: []const u8 ```
     pub fn PrimaryPointingDevice1(seatName: []const u8) QtC.QPointingDevice {
-        const seatName_str = qtc.struct_libqt_string{
+        const seatName_str = qtc.libqt_string{
             .len = seatName.len,
             .data = seatName.ptr,
         };
@@ -333,6 +335,8 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#type)
     ///
     /// ``` self: QtC.QPointingDevice ```
+    ///
+    /// Returns: ``` qinputdevice_enums.DeviceType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QInputDevice_Type(@ptrCast(self));
     }
@@ -342,6 +346,8 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#capabilities)
     ///
     /// ``` self: QtC.QPointingDevice ```
+    ///
+    /// Returns: ``` flag of qinputdevice_enums.Capability ```
     pub fn Capabilities(self: ?*anyopaque) i64 {
         return qtc.QInputDevice_Capabilities(@ptrCast(self));
     }
@@ -392,8 +398,8 @@ pub const qpointingdevice = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SeatNames(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QInputDevice_SeatNames();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QInputDevice_SeatNames();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -416,7 +422,7 @@ pub const qpointingdevice = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn Devices(allocator: std.mem.Allocator) []QtC.QInputDevice {
-        const _arr: qtc.struct_libqt_list = qtc.QInputDevice_Devices();
+        const _arr: qtc.libqt_list = qtc.QInputDevice_Devices();
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QInputDevice, _arr.len) catch @panic("qpointingdevice.Devices: Memory allocation failed");
         const _data: [*]QtC.QInputDevice = @ptrCast(@alignCast(_arr.data));
@@ -457,7 +463,7 @@ pub const qpointingdevice = struct {
     ///
     /// ``` seatName: []const u8 ```
     pub fn PrimaryKeyboard1(seatName: []const u8) QtC.QInputDevice {
-        const seatName_str = qtc.struct_libqt_string{
+        const seatName_str = qtc.libqt_string{
             .len = seatName.len,
             .data = seatName.ptr,
         };
@@ -483,7 +489,7 @@ pub const qpointingdevice = struct {
     ///
     /// ``` self: QtC.QPointingDevice, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -586,7 +592,7 @@ pub const qpointingdevice = struct {
     ///
     /// ``` self: QtC.QPointingDevice, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpointingdevice.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -703,8 +709,8 @@ pub const qpointingdevice = struct {
     ///
     /// ``` self: QtC.QPointingDevice, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

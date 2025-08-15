@@ -23,7 +23,7 @@ pub const qnativeipckey = struct {
     ///
     /// ``` k: []const u8 ```
     pub fn New3(k: []const u8) QtC.QNativeIpcKey {
-        const k_str = qtc.struct_libqt_string{
+        const k_str = qtc.libqt_string{
             .len = k.len,
             .data = k.ptr,
         };
@@ -42,7 +42,7 @@ pub const qnativeipckey = struct {
     ///
     /// ``` k: []const u8, typeVal: qtipccommon_enums.Type ```
     pub fn New5(k: []const u8, typeVal: i64) QtC.QNativeIpcKey {
-        const k_str = qtc.struct_libqt_string{
+        const k_str = qtc.libqt_string{
             .len = k.len,
             .data = k.ptr,
         };
@@ -53,6 +53,8 @@ pub const qnativeipckey = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#legacyDefaultTypeForOs)
     ///
     ///
+    ///
+    /// Returns: ``` qtipccommon_enums.Type ```
     pub fn LegacyDefaultTypeForOs() i64 {
         return qtc.QNativeIpcKey_LegacyDefaultTypeForOs();
     }
@@ -88,6 +90,8 @@ pub const qnativeipckey = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#type)
     ///
     /// ``` self: QtC.QNativeIpcKey ```
+    ///
+    /// Returns: ``` qtipccommon_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QNativeIpcKey_Type(@ptrCast(self));
     }
@@ -114,7 +118,7 @@ pub const qnativeipckey = struct {
     ///
     /// ``` self: QtC.QNativeIpcKey, newKey: []const u8 ```
     pub fn SetNativeKey(self: ?*anyopaque, newKey: []const u8) void {
-        const newKey_str = qtc.struct_libqt_string{
+        const newKey_str = qtc.libqt_string{
             .len = newKey.len,
             .data = newKey.ptr,
         };
@@ -136,7 +140,7 @@ pub const qnativeipckey = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString(stringVal: []const u8) QtC.QNativeIpcKey {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };

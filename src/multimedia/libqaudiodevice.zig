@@ -59,7 +59,7 @@ pub const qaudiodevice = struct {
     ///
     /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QAudioDevice_Id(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QAudioDevice_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qaudiodevice.Id: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -87,6 +87,8 @@ pub const qaudiodevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#mode)
     ///
     /// ``` self: QtC.QAudioDevice ```
+    ///
+    /// Returns: ``` qaudiodevice_enums.Mode ```
     pub fn Mode(self: ?*anyopaque) i64 {
         return qtc.QAudioDevice_Mode(@ptrCast(self));
     }
@@ -136,11 +138,13 @@ pub const qaudiodevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#supportedSampleFormats)
     ///
     /// ``` self: QtC.QAudioDevice, allocator: std.mem.Allocator ```
-    pub fn SupportedSampleFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QAudioDevice_SupportedSampleFormats(@ptrCast(self));
+    ///
+    /// Returns: ``` []qaudioformat_enums.SampleFormat ```
+    pub fn SupportedSampleFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []u16 {
+        const _arr: qtc.libqt_list = qtc.QAudioDevice_SupportedSampleFormats(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(qaudioformat_enums.SampleFormat, _arr.len) catch @panic("qaudiodevice.SupportedSampleFormats: Memory allocation failed");
-        const _data: [*]qaudioformat_enums.SampleFormat = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(u16, _arr.len) catch @panic("qaudiodevice.SupportedSampleFormats: Memory allocation failed");
+        const _data: [*]u16 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -148,6 +152,8 @@ pub const qaudiodevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudiodevice.html#channelConfiguration)
     ///
     /// ``` self: QtC.QAudioDevice ```
+    ///
+    /// Returns: ``` qaudioformat_enums.ChannelConfig ```
     pub fn ChannelConfiguration(self: ?*anyopaque) i64 {
         return qtc.QAudioDevice_ChannelConfiguration(@ptrCast(self));
     }

@@ -68,8 +68,10 @@ pub const qpdfdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#load)
     ///
     /// ``` self: QtC.QPdfDocument, fileName: []const u8 ```
+    ///
+    /// Returns: ``` qpdfdocument_enums.Error ```
     pub fn Load(self: ?*anyopaque, fileName: []const u8) i64 {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -79,6 +81,8 @@ pub const qpdfdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#status)
     ///
     /// ``` self: QtC.QPdfDocument ```
+    ///
+    /// Returns: ``` qpdfdocument_enums.Status ```
     pub fn Status(self: ?*anyopaque) i64 {
         return qtc.QPdfDocument_Status(@ptrCast(self));
     }
@@ -94,7 +98,7 @@ pub const qpdfdocument = struct {
     ///
     /// ``` self: QtC.QPdfDocument, password: []const u8 ```
     pub fn SetPassword(self: ?*anyopaque, password: []const u8) void {
-        const password_str = qtc.struct_libqt_string{
+        const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
         };
@@ -122,6 +126,8 @@ pub const qpdfdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocument.html#error)
     ///
     /// ``` self: QtC.QPdfDocument ```
+    ///
+    /// Returns: ``` qpdfdocument_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QPdfDocument_Error(@ptrCast(self));
     }
@@ -162,7 +168,7 @@ pub const qpdfdocument = struct {
     ///
     /// ``` self: QtC.QPdfDocument, label: []const u8 ```
     pub fn PageIndexForLabel(self: ?*anyopaque, label: []const u8) i32 {
-        const label_str = qtc.struct_libqt_string{
+        const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
@@ -326,7 +332,7 @@ pub const qpdfdocument = struct {
     ///
     /// ``` self: QtC.QPdfDocument, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -429,7 +435,7 @@ pub const qpdfdocument = struct {
     ///
     /// ``` self: QtC.QPdfDocument, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpdfdocument.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -546,8 +552,8 @@ pub const qpdfdocument = struct {
     ///
     /// ``` self: QtC.QPdfDocument, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

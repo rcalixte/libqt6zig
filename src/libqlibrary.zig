@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qlibrary_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -17,7 +18,7 @@ pub const qlibrary = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New2(fileName: []const u8) QtC.QLibrary {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -29,7 +30,7 @@ pub const qlibrary = struct {
     ///
     /// ``` fileName: []const u8, verNum: i32 ```
     pub fn New3(fileName: []const u8, verNum: i32) QtC.QLibrary {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -41,11 +42,11 @@ pub const qlibrary = struct {
     ///
     /// ``` fileName: []const u8, version: []const u8 ```
     pub fn New4(fileName: []const u8, version: []const u8) QtC.QLibrary {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const version_str = qtc.struct_libqt_string{
+        const version_str = qtc.libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
@@ -64,7 +65,7 @@ pub const qlibrary = struct {
     ///
     /// ``` fileName: []const u8, parent: QtC.QObject ```
     pub fn New6(fileName: []const u8, parent: ?*anyopaque) QtC.QLibrary {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -76,7 +77,7 @@ pub const qlibrary = struct {
     ///
     /// ``` fileName: []const u8, verNum: i32, parent: QtC.QObject ```
     pub fn New7(fileName: []const u8, verNum: i32, parent: ?*anyopaque) QtC.QLibrary {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -88,11 +89,11 @@ pub const qlibrary = struct {
     ///
     /// ``` fileName: []const u8, version: []const u8, parent: QtC.QObject ```
     pub fn New8(fileName: []const u8, version: []const u8, parent: ?*anyopaque) QtC.QLibrary {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const version_str = qtc.struct_libqt_string{
+        const version_str = qtc.libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
@@ -169,7 +170,7 @@ pub const qlibrary = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn IsLibrary(fileName: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -180,7 +181,7 @@ pub const qlibrary = struct {
     ///
     /// ``` self: QtC.QLibrary, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -202,7 +203,7 @@ pub const qlibrary = struct {
     ///
     /// ``` self: QtC.QLibrary, fileName: []const u8, verNum: i32 ```
     pub fn SetFileNameAndVersion(self: ?*anyopaque, fileName: []const u8, verNum: i32) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -213,11 +214,11 @@ pub const qlibrary = struct {
     ///
     /// ``` self: QtC.QLibrary, fileName: []const u8, version: []const u8 ```
     pub fn SetFileNameAndVersion2(self: ?*anyopaque, fileName: []const u8, version: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const version_str = qtc.struct_libqt_string{
+        const version_str = qtc.libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
@@ -237,7 +238,7 @@ pub const qlibrary = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlibrary.html#setLoadHints)
     ///
-    /// ``` self: QtC.QLibrary, hints: i32 ```
+    /// ``` self: QtC.QLibrary, hints: flag of qlibrary_enums.LoadHint ```
     pub fn SetLoadHints(self: ?*anyopaque, hints: i64) void {
         qtc.QLibrary_SetLoadHints(@ptrCast(self), @intCast(hints));
     }
@@ -245,6 +246,8 @@ pub const qlibrary = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlibrary.html#loadHints)
     ///
     /// ``` self: QtC.QLibrary ```
+    ///
+    /// Returns: ``` flag of qlibrary_enums.LoadHint ```
     pub fn LoadHints(self: ?*anyopaque) i64 {
         return qtc.QLibrary_LoadHints(@ptrCast(self));
     }
@@ -294,7 +297,7 @@ pub const qlibrary = struct {
     ///
     /// ``` self: QtC.QLibrary, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -397,7 +400,7 @@ pub const qlibrary = struct {
     ///
     /// ``` self: QtC.QLibrary, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qlibrary.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -514,8 +517,8 @@ pub const qlibrary = struct {
     ///
     /// ``` self: QtC.QLibrary, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

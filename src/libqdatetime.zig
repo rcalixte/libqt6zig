@@ -238,7 +238,7 @@ pub const qdate = struct {
     ///
     /// ``` self: QtC.QDate, format: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString2(self: ?*anyopaque, format: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -253,7 +253,7 @@ pub const qdate = struct {
     ///
     /// ``` self: QtC.QDate, format: []const u8, cal: QtC.QCalendar, allocator: std.mem.Allocator ```
     pub fn ToString3(self: ?*anyopaque, format: []const u8, cal: QtC.QCalendar, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -338,7 +338,7 @@ pub const qdate = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString2(stringVal: []const u8) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -349,11 +349,11 @@ pub const qdate = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8, cal: QtC.QCalendar ```
     pub fn FromString5(stringVal: []const u8, format: []const u8, cal: QtC.QCalendar) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -364,11 +364,11 @@ pub const qdate = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8 ```
     pub fn FromString10(stringVal: []const u8, format: []const u8) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -379,11 +379,11 @@ pub const qdate = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8, baseYear: i32, cal: QtC.QCalendar ```
     pub fn FromString11(stringVal: []const u8, format: []const u8, baseYear: i32, cal: QtC.QCalendar) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -454,7 +454,7 @@ pub const qdate = struct {
     ///
     /// ``` stringVal: []const u8, format: qnamespace_enums.DateFormat ```
     pub fn FromString23(stringVal: []const u8, format: i64) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -465,11 +465,11 @@ pub const qdate = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8, baseYear: i32 ```
     pub fn FromString34(stringVal: []const u8, format: []const u8, baseYear: i32) QtC.QDate {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -608,7 +608,7 @@ pub const qtime = struct {
     ///
     /// ``` self: QtC.QTime, format: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString2(self: ?*anyopaque, format: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -679,7 +679,7 @@ pub const qtime = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString4(stringVal: []const u8) QtC.QTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -690,11 +690,11 @@ pub const qtime = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8 ```
     pub fn FromString5(stringVal: []const u8, format: []const u8) QtC.QTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -730,7 +730,7 @@ pub const qtime = struct {
     ///
     /// ``` stringVal: []const u8, format: qnamespace_enums.DateFormat ```
     pub fn FromString23(stringVal: []const u8, format: i64) QtC.QTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -857,6 +857,8 @@ pub const qdatetime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#timeSpec)
     ///
     /// ``` self: QtC.QDateTime ```
+    ///
+    /// Returns: ``` qnamespace_enums.TimeSpec ```
     pub fn TimeSpec(self: ?*anyopaque) i64 {
         return qtc.QDateTime_TimeSpec(@ptrCast(self));
     }
@@ -978,7 +980,7 @@ pub const qdatetime = struct {
     ///
     /// ``` self: QtC.QDateTime, format: []const u8, allocator: std.mem.Allocator ```
     pub fn ToString2(self: ?*anyopaque, format: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -993,7 +995,7 @@ pub const qdatetime = struct {
     ///
     /// ``` self: QtC.QDateTime, format: []const u8, cal: QtC.QCalendar, allocator: std.mem.Allocator ```
     pub fn ToString3(self: ?*anyopaque, format: []const u8, cal: QtC.QCalendar, allocator: std.mem.Allocator) []const u8 {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1120,7 +1122,7 @@ pub const qdatetime = struct {
     ///
     /// ``` stringVal: []const u8 ```
     pub fn FromString2(stringVal: []const u8) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1131,11 +1133,11 @@ pub const qdatetime = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8, cal: QtC.QCalendar ```
     pub fn FromString5(stringVal: []const u8, format: []const u8, cal: QtC.QCalendar) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1146,11 +1148,11 @@ pub const qdatetime = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8 ```
     pub fn FromString10(stringVal: []const u8, format: []const u8) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1161,11 +1163,11 @@ pub const qdatetime = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8, baseYear: i32, cal: QtC.QCalendar ```
     pub fn FromString11(stringVal: []const u8, format: []const u8, baseYear: i32, cal: QtC.QCalendar) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1264,7 +1266,7 @@ pub const qdatetime = struct {
     ///
     /// ``` stringVal: []const u8, format: qnamespace_enums.DateFormat ```
     pub fn FromString23(stringVal: []const u8, format: i64) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -1275,11 +1277,11 @@ pub const qdatetime = struct {
     ///
     /// ``` stringVal: []const u8, format: []const u8, baseYear: i32 ```
     pub fn FromString34(stringVal: []const u8, format: []const u8, baseYear: i32) QtC.QDateTime {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };

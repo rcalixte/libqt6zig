@@ -14,7 +14,7 @@ pub const qsurfaceformat = struct {
 
     /// New2 constructs a new QSurfaceFormat object.
     ///
-    /// ``` options: i32 ```
+    /// ``` options: flag of qsurfaceformat_enums.FormatOption ```
     pub fn New2(options: i64) QtC.QSurfaceFormat {
         return qtc.QSurfaceFormat_new2(@intCast(options));
     }
@@ -141,6 +141,8 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#swapBehavior)
     ///
     /// ``` self: QtC.QSurfaceFormat ```
+    ///
+    /// Returns: ``` qsurfaceformat_enums.SwapBehavior ```
     pub fn SwapBehavior(self: ?*anyopaque) i64 {
         return qtc.QSurfaceFormat_SwapBehavior(@ptrCast(self));
     }
@@ -162,6 +164,8 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#profile)
     ///
     /// ``` self: QtC.QSurfaceFormat ```
+    ///
+    /// Returns: ``` qsurfaceformat_enums.OpenGLContextProfile ```
     pub fn Profile(self: ?*anyopaque) i64 {
         return qtc.QSurfaceFormat_Profile(@ptrCast(self));
     }
@@ -176,6 +180,8 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#renderableType)
     ///
     /// ``` self: QtC.QSurfaceFormat ```
+    ///
+    /// Returns: ``` qsurfaceformat_enums.RenderableType ```
     pub fn RenderableType(self: ?*anyopaque) i64 {
         return qtc.QSurfaceFormat_RenderableType(@ptrCast(self));
     }
@@ -212,8 +218,11 @@ pub const qsurfaceformat = struct {
     ///
     /// ``` self: QtC.QSurfaceFormat ```
     pub fn Version(self: ?*anyopaque) struct_i32_i32 {
-        const _pair: qtc.struct_libqt_pair = qtc.QSurfaceFormat_Version(@ptrCast(self));
-        return struct_i32_i32{ .first = @intCast(@intFromPtr(_pair.first)), .second = @intCast(@intFromPtr(_pair.second)) };
+        const _pair: qtc.libqt_pair = qtc.QSurfaceFormat_Version(@ptrCast(self));
+        return struct_i32_i32{
+            .first = @as(*i32, @ptrCast(@alignCast(_pair.first))).*,
+            .second = @as(*i32, @ptrCast(@alignCast(_pair.second))).*,
+        };
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setVersion)
@@ -239,7 +248,7 @@ pub const qsurfaceformat = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setOptions)
     ///
-    /// ``` self: QtC.QSurfaceFormat, options: i32 ```
+    /// ``` self: QtC.QSurfaceFormat, options: flag of qsurfaceformat_enums.FormatOption ```
     pub fn SetOptions(self: ?*anyopaque, options: i64) void {
         qtc.QSurfaceFormat_SetOptions(@ptrCast(self), @intCast(options));
     }
@@ -261,6 +270,8 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#options)
     ///
     /// ``` self: QtC.QSurfaceFormat ```
+    ///
+    /// Returns: ``` flag of qsurfaceformat_enums.FormatOption ```
     pub fn Options(self: ?*anyopaque) i64 {
         return qtc.QSurfaceFormat_Options(@ptrCast(self));
     }

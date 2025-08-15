@@ -2,7 +2,6 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const std = @import("std");
-pub const struct_qtcqaccessibleinterface_i32 = struct { first: QtC.QAccessibleInterface, second: i32 };
 pub const struct_qtcqaccessibleinterface_i64 = struct { first: QtC.QAccessibleInterface, second: i64 };
 
 /// https://doc.qt.io/qt-6/qaccessibleobject.html
@@ -93,7 +92,7 @@ pub const qaccessibleobject = struct {
     ///
     /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -115,7 +114,7 @@ pub const qaccessibleobject = struct {
     ///
     /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8 ```
     pub fn QBaseSetText(self: ?*anyopaque, t: i64, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -276,19 +275,19 @@ pub const qaccessibleobject = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, match: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
     pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleObject_Relations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleObject_Relations(@ptrCast(self), @intCast(match));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_free(_pair[i].first);
                 qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleobject.Relations: Memory allocation failed");
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i64, _arr.len) catch @panic("qaccessibleobject.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -299,19 +298,19 @@ pub const qaccessibleobject = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, match: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
     pub fn QBaseRelations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleObject_QBaseRelations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleObject_QBaseRelations(@ptrCast(self), @intCast(match));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_free(_pair[i].first);
                 qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleobject.Relations: Memory allocation failed");
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i64, _arr.len) catch @panic("qaccessibleobject.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -322,7 +321,7 @@ pub const qaccessibleobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, match: i32) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
+    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
     pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleObject_OnRelations(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -540,6 +539,8 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject ```
+    ///
+    /// Returns: ``` qaccessible_base_enums.Role ```
     pub fn Role(self: ?*anyopaque) i64 {
         return qtc.QAccessibleObject_Role(@ptrCast(self));
     }
@@ -551,6 +552,8 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject ```
+    ///
+    /// Returns: ``` qaccessible_base_enums.Role ```
     pub fn QBaseRole(self: ?*anyopaque) i64 {
         return qtc.QAccessibleObject_QBaseRole(@ptrCast(self));
     }
@@ -927,6 +930,8 @@ pub const qaccessibleapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleapplication.html#role)
     ///
     /// ``` self: QtC.QAccessibleApplication ```
+    ///
+    /// Returns: ``` qaccessible_base_enums.Role ```
     pub fn Role(self: ?*anyopaque) i64 {
         return qtc.QAccessibleApplication_Role(@ptrCast(self));
     }
@@ -945,6 +950,8 @@ pub const qaccessibleapplication = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAccessibleApplication ```
+    ///
+    /// Returns: ``` qaccessible_base_enums.Role ```
     pub fn QBaseRole(self: ?*anyopaque) i64 {
         return qtc.QAccessibleApplication_QBaseRole(@ptrCast(self));
     }
@@ -1171,7 +1178,7 @@ pub const qaccessibleapplication = struct {
     ///
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1186,7 +1193,7 @@ pub const qaccessibleapplication = struct {
     ///
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8 ```
     pub fn QBaseSetText(self: ?*anyopaque, t: i64, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1243,19 +1250,19 @@ pub const qaccessibleapplication = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, match: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
     pub fn Relations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleApplication_Relations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleApplication_Relations(@ptrCast(self), @intCast(match));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_free(_pair[i].first);
                 qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i64, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -1266,19 +1273,19 @@ pub const qaccessibleapplication = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, match: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag, allocator: std.mem.Allocator ```
     pub fn QBaseRelations(self: ?*anyopaque, match: i64, allocator: std.mem.Allocator) []struct_qtcqaccessibleinterface_i64 {
-        const _arr: qtc.struct_libqt_list = qtc.QAccessibleApplication_QBaseRelations(@ptrCast(self), @intCast(match));
+        const _arr: qtc.libqt_list = qtc.QAccessibleApplication_QBaseRelations(@ptrCast(self), @intCast(match));
         defer {
-            const _pair: [*]qtc.struct_libqt_pair = @ptrCast(@alignCast(_arr.data));
+            const _pair: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
             for (0.._arr.len) |i| {
                 qtc.libqt_free(_pair[i].first);
                 qtc.libqt_free(_pair[i].second);
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i32, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
-        const _data: [*]struct_qtcqaccessibleinterface_i32 = @ptrCast(@alignCast(_arr.data));
+        const _ret = allocator.alloc(struct_qtcqaccessibleinterface_i64, _arr.len) catch @panic("qaccessibleapplication.Relations: Memory allocation failed");
+        const _data: [*]struct_qtcqaccessibleinterface_i64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -1289,7 +1296,7 @@ pub const qaccessibleapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, match: i32) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
+    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
     pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleApplication_OnRelations(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

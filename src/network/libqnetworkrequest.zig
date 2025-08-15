@@ -100,7 +100,7 @@ pub const qnetworkrequest = struct {
     ///
     /// ``` self: QtC.QNetworkRequest, headerName: []const u8 ```
     pub fn HasRawHeader(self: ?*anyopaque, headerName: []const u8) bool {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
@@ -111,8 +111,8 @@ pub const qnetworkrequest = struct {
     ///
     /// ``` self: QtC.QNetworkRequest, allocator: std.mem.Allocator ```
     pub fn RawHeaderList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QNetworkRequest_RawHeaderList(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QNetworkRequest_RawHeaderList(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -133,11 +133,11 @@ pub const qnetworkrequest = struct {
     ///
     /// ``` self: QtC.QNetworkRequest, headerName: []const u8, allocator: std.mem.Allocator ```
     pub fn RawHeader(self: ?*anyopaque, headerName: []const u8, allocator: std.mem.Allocator) []u8 {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QNetworkRequest_RawHeader(@ptrCast(self), headerName_str);
+        const _bytearray: qtc.libqt_string = qtc.QNetworkRequest_RawHeader(@ptrCast(self), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkrequest.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -148,11 +148,11 @@ pub const qnetworkrequest = struct {
     ///
     /// ``` self: QtC.QNetworkRequest, headerName: []u8, value: []u8 ```
     pub fn SetRawHeader(self: ?*anyopaque, headerName: []u8, value: []u8) void {
-        const headerName_str = qtc.struct_libqt_string{
+        const headerName_str = qtc.libqt_string{
             .len = headerName.len,
             .data = headerName.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -204,6 +204,8 @@ pub const qnetworkrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#priority)
     ///
     /// ``` self: QtC.QNetworkRequest ```
+    ///
+    /// Returns: ``` qnetworkrequest_enums.Priority ```
     pub fn Priority(self: ?*anyopaque) i64 {
         return qtc.QNetworkRequest_Priority(@ptrCast(self));
     }
@@ -244,7 +246,7 @@ pub const qnetworkrequest = struct {
     ///
     /// ``` self: QtC.QNetworkRequest, peerName: []const u8 ```
     pub fn SetPeerVerifyName(self: ?*anyopaque, peerName: []const u8) void {
-        const peerName_str = qtc.struct_libqt_string{
+        const peerName_str = qtc.libqt_string{
             .len = peerName.len,
             .data = peerName.ptr,
         };

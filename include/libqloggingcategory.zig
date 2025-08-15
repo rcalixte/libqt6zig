@@ -74,7 +74,7 @@ pub const qloggingcategory = struct {
     ///
     /// ``` rules: []const u8 ```
     pub fn SetFilterRules(rules: []const u8) void {
-        const rules_str = qtc.struct_libqt_string{
+        const rules_str = qtc.libqt_string{
             .len = rules.len,
             .data = rules.ptr,
         };

@@ -68,7 +68,7 @@ pub const qfileselector = struct {
     ///
     /// ``` self: QtC.QFileSelector, filePath: []const u8, allocator: std.mem.Allocator ```
     pub fn Select(self: ?*anyopaque, filePath: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -90,8 +90,8 @@ pub const qfileselector = struct {
     ///
     /// ``` self: QtC.QFileSelector, allocator: std.mem.Allocator ```
     pub fn ExtraSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSelector_ExtraSelectors(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileSelector_ExtraSelectors(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -112,7 +112,7 @@ pub const qfileselector = struct {
     ///
     /// ``` self: QtC.QFileSelector, list: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetExtraSelectors(self: ?*anyopaque, list: [][]const u8, allocator: std.mem.Allocator) void {
-        var list_arr = allocator.alloc(qtc.struct_libqt_string, list.len) catch @panic("qfileselector.SetExtraSelectors: Memory allocation failed");
+        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qfileselector.SetExtraSelectors: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{
@@ -120,7 +120,7 @@ pub const qfileselector = struct {
                 .data = item.ptr,
             };
         }
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
@@ -131,8 +131,8 @@ pub const qfileselector = struct {
     ///
     /// ``` self: QtC.QFileSelector, allocator: std.mem.Allocator ```
     pub fn AllSelectors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSelector_AllSelectors(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileSelector_AllSelectors(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -194,7 +194,7 @@ pub const qfileselector = struct {
     ///
     /// ``` self: QtC.QFileSelector, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -297,7 +297,7 @@ pub const qfileselector = struct {
     ///
     /// ``` self: QtC.QFileSelector, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfileselector.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -414,8 +414,8 @@ pub const qfileselector = struct {
     ///
     /// ``` self: QtC.QFileSelector, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

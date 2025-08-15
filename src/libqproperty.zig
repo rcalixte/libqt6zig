@@ -103,7 +103,7 @@ pub const qpropertybindingerror = struct {
     ///
     /// ``` typeVal: qproperty_enums.Type, description: []const u8 ```
     pub fn New4(typeVal: i64, description: []const u8) QtC.QPropertyBindingError {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -128,6 +128,8 @@ pub const qpropertybindingerror = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingerror.html#type)
     ///
     /// ``` self: QtC.QPropertyBindingError ```
+    ///
+    /// Returns: ``` qproperty_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QPropertyBindingError_Type(@ptrCast(self));
     }

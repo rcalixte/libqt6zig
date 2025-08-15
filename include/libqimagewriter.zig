@@ -17,7 +17,7 @@ pub const qimagewriter = struct {
     ///
     /// ``` device: QtC.QIODevice, format: []u8 ```
     pub fn New2(device: ?*anyopaque, format: []u8) QtC.QImageWriter {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -29,7 +29,7 @@ pub const qimagewriter = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New3(fileName: []const u8) QtC.QImageWriter {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -41,11 +41,11 @@ pub const qimagewriter = struct {
     ///
     /// ``` fileName: []const u8, format: []u8 ```
     pub fn New4(fileName: []const u8, format: []u8) QtC.QImageWriter {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -69,7 +69,7 @@ pub const qimagewriter = struct {
     ///
     /// ``` self: QtC.QImageWriter, format: []u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -80,7 +80,7 @@ pub const qimagewriter = struct {
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QImageWriter_Format(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QImageWriter_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagewriter.Format: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -105,7 +105,7 @@ pub const qimagewriter = struct {
     ///
     /// ``` self: QtC.QImageWriter, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -155,7 +155,7 @@ pub const qimagewriter = struct {
     ///
     /// ``` self: QtC.QImageWriter, typeVal: []u8 ```
     pub fn SetSubType(self: ?*anyopaque, typeVal: []u8) void {
-        const typeVal_str = qtc.struct_libqt_string{
+        const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
             .data = typeVal.ptr,
         };
@@ -166,7 +166,7 @@ pub const qimagewriter = struct {
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn SubType(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QImageWriter_SubType(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QImageWriter_SubType(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagewriter.SubType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -177,8 +177,8 @@ pub const qimagewriter = struct {
     ///
     /// ``` self: QtC.QImageWriter, allocator: std.mem.Allocator ```
     pub fn SupportedSubTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QImageWriter_SupportedSubTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QImageWriter_SupportedSubTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -226,13 +226,15 @@ pub const qimagewriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#transformation)
     ///
     /// ``` self: QtC.QImageWriter ```
+    ///
+    /// Returns: ``` flag of qimageiohandler_enums.Transformation ```
     pub fn Transformation(self: ?*anyopaque) i64 {
         return qtc.QImageWriter_Transformation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#setTransformation)
     ///
-    /// ``` self: QtC.QImageWriter, orientation: i32 ```
+    /// ``` self: QtC.QImageWriter, orientation: flag of qimageiohandler_enums.Transformation ```
     pub fn SetTransformation(self: ?*anyopaque, orientation: i64) void {
         qtc.QImageWriter_SetTransformation(@ptrCast(self), @intCast(orientation));
     }
@@ -241,11 +243,11 @@ pub const qimagewriter = struct {
     ///
     /// ``` self: QtC.QImageWriter, key: []const u8, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, key: []const u8, text: []const u8) void {
-        const key_str = qtc.struct_libqt_string{
+        const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -269,6 +271,8 @@ pub const qimagewriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#error)
     ///
     /// ``` self: QtC.QImageWriter ```
+    ///
+    /// Returns: ``` qimagewriter_enums.ImageWriterError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QImageWriter_Error(@ptrCast(self));
     }
@@ -295,8 +299,8 @@ pub const qimagewriter = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedImageFormats(allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QImageWriter_SupportedImageFormats();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QImageWriter_SupportedImageFormats();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -317,8 +321,8 @@ pub const qimagewriter = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedMimeTypes(allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QImageWriter_SupportedMimeTypes();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QImageWriter_SupportedMimeTypes();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -339,12 +343,12 @@ pub const qimagewriter = struct {
     ///
     /// ``` mimeType: []u8, allocator: std.mem.Allocator ```
     pub fn ImageFormatsForMimeType(mimeType: []u8, allocator: std.mem.Allocator) [][]u8 {
-        const mimeType_str = qtc.struct_libqt_string{
+        const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QImageWriter_ImageFormatsForMimeType(mimeType_str);
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QImageWriter_ImageFormatsForMimeType(mimeType_str);
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

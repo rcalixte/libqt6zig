@@ -59,7 +59,7 @@ pub const qcolor = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New8(name: []const u8) QtC.QColor {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -129,7 +129,7 @@ pub const qcolor = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromString(name: []const u8) QtC.QColor {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -165,7 +165,7 @@ pub const qcolor = struct {
     ///
     /// ``` self: QtC.QColor, name: []const u8 ```
     pub fn SetNamedColor(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -176,8 +176,8 @@ pub const qcolor = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ColorNames(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QColor_ColorNames();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QColor_ColorNames();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -197,6 +197,8 @@ pub const qcolor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#spec)
     ///
     /// ``` self: QtC.QColor ```
+    ///
+    /// Returns: ``` qcolor_enums.Spec ```
     pub fn Spec(self: ?*anyopaque) i64 {
         return qtc.QColor_Spec(@ptrCast(self));
     }
@@ -800,7 +802,7 @@ pub const qcolor = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn IsValidColor(name: []const u8) bool {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -811,7 +813,7 @@ pub const qcolor = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn IsValidColorName(param1: []const u8) bool {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };

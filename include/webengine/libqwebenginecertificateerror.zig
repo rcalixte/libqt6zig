@@ -22,6 +22,8 @@ pub const qwebenginecertificateerror = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecertificateerror.html#type)
     ///
     /// ``` self: QtC.QWebEngineCertificateError ```
+    ///
+    /// Returns: ``` qwebenginecertificateerror_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QWebEngineCertificateError_Type(@ptrCast(self));
     }
@@ -83,7 +85,7 @@ pub const qwebenginecertificateerror = struct {
     ///
     /// ``` self: QtC.QWebEngineCertificateError, allocator: std.mem.Allocator ```
     pub fn CertificateChain(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslCertificate {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineCertificateError_CertificateChain(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWebEngineCertificateError_CertificateChain(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslCertificate, _arr.len) catch @panic("qwebenginecertificateerror.CertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));

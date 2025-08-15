@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const qprocess_enums = enums;
@@ -67,7 +68,7 @@ pub const qprocessenvironment = struct {
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8 ```
     pub fn Contains(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -78,11 +79,11 @@ pub const qprocessenvironment = struct {
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8, value: []const u8 ```
     pub fn Insert(self: ?*anyopaque, name: []const u8, value: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -93,7 +94,7 @@ pub const qprocessenvironment = struct {
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8 ```
     pub fn Remove(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -104,7 +105,7 @@ pub const qprocessenvironment = struct {
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8, allocator: std.mem.Allocator ```
     pub fn Value(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -119,8 +120,8 @@ pub const qprocessenvironment = struct {
     ///
     /// ``` self: QtC.QProcessEnvironment, allocator: std.mem.Allocator ```
     pub fn ToStringList(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QProcessEnvironment_ToStringList(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QProcessEnvironment_ToStringList(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -141,8 +142,8 @@ pub const qprocessenvironment = struct {
     ///
     /// ``` self: QtC.QProcessEnvironment, allocator: std.mem.Allocator ```
     pub fn Keys(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QProcessEnvironment_Keys(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QProcessEnvironment_Keys(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -177,11 +178,11 @@ pub const qprocessenvironment = struct {
     ///
     /// ``` self: QtC.QProcessEnvironment, name: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn Value2(self: ?*anyopaque, name: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const defaultValue_str = qtc.struct_libqt_string{
+        const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
@@ -266,7 +267,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, program: []const u8 ```
     pub fn Start(self: ?*anyopaque, program: []const u8) void {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
@@ -284,7 +285,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, command: []const u8 ```
     pub fn StartCommand(self: ?*anyopaque, command: []const u8) void {
-        const command_str = qtc.struct_libqt_string{
+        const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
         };
@@ -300,7 +301,7 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#open)
     ///
-    /// ``` self: QtC.QProcess, mode: i32 ```
+    /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, mode: i64) bool {
         return qtc.QProcess_Open(@ptrCast(self), @intCast(mode));
     }
@@ -309,7 +310,7 @@ pub const qprocess = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, mode: i32) callconv(.c) bool ```
+    /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
     pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
         qtc.QProcess_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -318,7 +319,7 @@ pub const qprocess = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QProcess, mode: i32 ```
+    /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn QBaseOpen(self: ?*anyopaque, mode: i64) bool {
         return qtc.QProcess_QBaseOpen(@ptrCast(self), @intCast(mode));
     }
@@ -338,7 +339,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, program: []const u8 ```
     pub fn SetProgram(self: ?*anyopaque, program: []const u8) void {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
@@ -349,8 +350,8 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn Arguments(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QProcess_Arguments(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QProcess_Arguments(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -371,7 +372,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetArguments(self: ?*anyopaque, arguments: [][]const u8, allocator: std.mem.Allocator) void {
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.SetArguments: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.SetArguments: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -379,7 +380,7 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const arguments_list = qtc.struct_libqt_list{
+        const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
@@ -389,6 +390,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#processChannelMode)
     ///
     /// ``` self: QtC.QProcess ```
+    ///
+    /// Returns: ``` qprocess_enums.ProcessChannelMode ```
     pub fn ProcessChannelMode(self: ?*anyopaque) i64 {
         return qtc.QProcess_ProcessChannelMode(@ptrCast(self));
     }
@@ -403,6 +406,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#inputChannelMode)
     ///
     /// ``` self: QtC.QProcess ```
+    ///
+    /// Returns: ``` qprocess_enums.InputChannelMode ```
     pub fn InputChannelMode(self: ?*anyopaque) i64 {
         return qtc.QProcess_InputChannelMode(@ptrCast(self));
     }
@@ -417,6 +422,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#readChannel)
     ///
     /// ``` self: QtC.QProcess ```
+    ///
+    /// Returns: ``` qprocess_enums.ProcessChannel ```
     pub fn ReadChannel(self: ?*anyopaque) i64 {
         return qtc.QProcess_ReadChannel(@ptrCast(self));
     }
@@ -446,7 +453,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8 ```
     pub fn SetStandardInputFile(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -457,7 +464,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8 ```
     pub fn SetStandardOutputFile(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -468,7 +475,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, fileName: []const u8 ```
     pub fn SetStandardErrorFile(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -506,7 +513,7 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setUnixProcessParameters)
     ///
-    /// ``` self: QtC.QProcess, flagsOnly: u32 ```
+    /// ``` self: QtC.QProcess, flagsOnly: flag of qprocess_enums.UnixProcessFlag ```
     pub fn SetUnixProcessParameters2(self: ?*anyopaque, flagsOnly: i64) void {
         qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self), @intCast(flagsOnly));
     }
@@ -526,7 +533,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, dir: []const u8 ```
     pub fn SetWorkingDirectory(self: ?*anyopaque, dir: []const u8) void {
-        const dir_str = qtc.struct_libqt_string{
+        const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
@@ -537,7 +544,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, environment: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetEnvironment(self: ?*anyopaque, environment: [][]const u8, allocator: std.mem.Allocator) void {
-        var environment_arr = allocator.alloc(qtc.struct_libqt_string, environment.len) catch @panic("qprocess.SetEnvironment: Memory allocation failed");
+        var environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("qprocess.SetEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
         for (environment, 0..environment.len) |item, i| {
             environment_arr[i] = .{
@@ -545,7 +552,7 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const environment_list = qtc.struct_libqt_list{
+        const environment_list = qtc.libqt_list{
             .len = environment.len,
             .data = environment_arr.ptr,
         };
@@ -556,8 +563,8 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn Environment(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QProcess_Environment(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QProcess_Environment(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -591,6 +598,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#error)
     ///
     /// ``` self: QtC.QProcess ```
+    ///
+    /// Returns: ``` qprocess_enums.ProcessError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QProcess_Error(@ptrCast(self));
     }
@@ -598,6 +607,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#state)
     ///
     /// ``` self: QtC.QProcess ```
+    ///
+    /// Returns: ``` qprocess_enums.ProcessState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QProcess_State(@ptrCast(self));
     }
@@ -677,7 +688,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadAllStandardOutput(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QProcess_ReadAllStandardOutput(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QProcess_ReadAllStandardOutput(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.ReadAllStandardOutput: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -688,7 +699,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadAllStandardError(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QProcess_ReadAllStandardError(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QProcess_ReadAllStandardError(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.ReadAllStandardError: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -705,6 +716,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#exitStatus)
     ///
     /// ``` self: QtC.QProcess ```
+    ///
+    /// Returns: ``` qprocess_enums.ExitStatus ```
     pub fn ExitStatus(self: ?*anyopaque) i64 {
         return qtc.QProcess_ExitStatus(@ptrCast(self));
     }
@@ -788,7 +801,7 @@ pub const qprocess = struct {
     ///
     /// ``` program: []const u8 ```
     pub fn Execute(program: []const u8) i32 {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
@@ -799,7 +812,7 @@ pub const qprocess = struct {
     ///
     /// ``` program: []const u8 ```
     pub fn StartDetached2(program: []const u8) bool {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
@@ -810,8 +823,8 @@ pub const qprocess = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SystemEnvironment(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QProcess_SystemEnvironment();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QProcess_SystemEnvironment();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -990,11 +1003,11 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Start22(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) void {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.Start22: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.Start22: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -1002,7 +1015,7 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const arguments_list = qtc.struct_libqt_list{
+        const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
@@ -1011,13 +1024,13 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
-    /// ``` self: QtC.QProcess, program: []const u8, arguments: [][]const u8, mode: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QProcess, program: []const u8, arguments: [][]const u8, mode: flag of qiodevicebase_enums.OpenModeFlag, allocator: std.mem.Allocator ```
     pub fn Start3(self: ?*anyopaque, program: []const u8, arguments: [][]const u8, mode: i64, allocator: std.mem.Allocator) void {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.Start3: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.Start3: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -1025,7 +1038,7 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const arguments_list = qtc.struct_libqt_list{
+        const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
@@ -1034,16 +1047,16 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#start)
     ///
-    /// ``` self: QtC.QProcess, mode: i32 ```
+    /// ``` self: QtC.QProcess, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Start1(self: ?*anyopaque, mode: i64) void {
         qtc.QProcess_Start1(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#startCommand)
     ///
-    /// ``` self: QtC.QProcess, command: []const u8, mode: i32 ```
+    /// ``` self: QtC.QProcess, command: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn StartCommand2(self: ?*anyopaque, command: []const u8, mode: i64) void {
-        const command_str = qtc.struct_libqt_string{
+        const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
         };
@@ -1059,9 +1072,9 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardOutputFile)
     ///
-    /// ``` self: QtC.QProcess, fileName: []const u8, mode: i32 ```
+    /// ``` self: QtC.QProcess, fileName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetStandardOutputFile2(self: ?*anyopaque, fileName: []const u8, mode: i64) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -1070,9 +1083,9 @@ pub const qprocess = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setStandardErrorFile)
     ///
-    /// ``` self: QtC.QProcess, fileName: []const u8, mode: i32 ```
+    /// ``` self: QtC.QProcess, fileName: []const u8, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetStandardErrorFile2(self: ?*anyopaque, fileName: []const u8, mode: i64) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -1105,11 +1118,11 @@ pub const qprocess = struct {
     ///
     /// ``` program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn Execute2(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) i32 {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.Execute2: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.Execute2: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -1117,7 +1130,7 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const arguments_list = qtc.struct_libqt_list{
+        const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
@@ -1128,11 +1141,11 @@ pub const qprocess = struct {
     ///
     /// ``` program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator ```
     pub fn StartDetached22(program: []const u8, arguments: [][]const u8, allocator: std.mem.Allocator) bool {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.StartDetached22: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.StartDetached22: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -1140,7 +1153,7 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const arguments_list = qtc.struct_libqt_list{
+        const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
@@ -1151,11 +1164,11 @@ pub const qprocess = struct {
     ///
     /// ``` program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, allocator: std.mem.Allocator ```
     pub fn StartDetached3(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, allocator: std.mem.Allocator) bool {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.StartDetached3: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.StartDetached3: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -1163,11 +1176,11 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const arguments_list = qtc.struct_libqt_list{
+        const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
-        const workingDirectory_str = qtc.struct_libqt_string{
+        const workingDirectory_str = qtc.libqt_string{
             .len = workingDirectory.len,
             .data = workingDirectory.ptr,
         };
@@ -1178,11 +1191,11 @@ pub const qprocess = struct {
     ///
     /// ``` program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator ```
     pub fn StartDetached4(program: []const u8, arguments: [][]const u8, workingDirectory: []const u8, pid: *i64, allocator: std.mem.Allocator) bool {
-        const program_str = qtc.struct_libqt_string{
+        const program_str = qtc.libqt_string{
             .len = program.len,
             .data = program.ptr,
         };
-        var arguments_arr = allocator.alloc(qtc.struct_libqt_string, arguments.len) catch @panic("qprocess.StartDetached4: Memory allocation failed");
+        var arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qprocess.StartDetached4: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i| {
             arguments_arr[i] = .{
@@ -1190,11 +1203,11 @@ pub const qprocess = struct {
                 .data = item.ptr,
             };
         }
-        const arguments_list = qtc.struct_libqt_list{
+        const arguments_list = qtc.libqt_list{
             .len = arguments.len,
             .data = arguments_arr.ptr,
         };
-        const workingDirectory_str = qtc.struct_libqt_string{
+        const workingDirectory_str = qtc.libqt_string{
             .len = workingDirectory.len,
             .data = workingDirectory.ptr,
         };
@@ -1220,6 +1233,8 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QProcess ```
+    ///
+    /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn OpenMode(self: ?*anyopaque) i64 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
@@ -1339,7 +1354,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1352,7 +1367,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1375,7 +1390,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1444,7 +1459,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -1467,7 +1482,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1638,7 +1653,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qprocess.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1664,7 +1679,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1767,7 +1782,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qprocess.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1884,8 +1899,8 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2558,7 +2573,7 @@ pub const qprocess = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QProcess, openMode: i32 ```
+    /// ``` self: QtC.QProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
         qtc.QProcess_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
@@ -2569,7 +2584,7 @@ pub const qprocess = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QProcess, openMode: i32 ```
+    /// ``` self: QtC.QProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
         qtc.QProcess_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
@@ -2580,7 +2595,7 @@ pub const qprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, openMode: i32) callconv(.c) void ```
+    /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
     pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QProcess_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2593,7 +2608,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, errorString: []const u8 ```
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -2608,7 +2623,7 @@ pub const qprocess = struct {
     ///
     /// ``` self: QtC.QProcess, errorString: []const u8 ```
     pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };

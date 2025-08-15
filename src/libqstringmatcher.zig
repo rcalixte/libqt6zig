@@ -16,7 +16,7 @@ pub const qstringmatcher = struct {
     ///
     /// ``` pattern: []const u8 ```
     pub fn New2(pattern: []const u8) QtC.QStringMatcher {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -42,7 +42,7 @@ pub const qstringmatcher = struct {
     ///
     /// ``` pattern: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn New5(pattern: []const u8, cs: i64) QtC.QStringMatcher {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -68,7 +68,7 @@ pub const qstringmatcher = struct {
     ///
     /// ``` self: QtC.QStringMatcher, pattern: []const u8 ```
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -86,7 +86,7 @@ pub const qstringmatcher = struct {
     ///
     /// ``` self: QtC.QStringMatcher, str: []const u8 ```
     pub fn IndexIn(self: ?*anyopaque, str: []const u8) i64 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -114,6 +114,8 @@ pub const qstringmatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#caseSensitivity)
     ///
     /// ``` self: QtC.QStringMatcher ```
+    ///
+    /// Returns: ``` qnamespace_enums.CaseSensitivity ```
     pub fn CaseSensitivity(self: ?*anyopaque) i64 {
         return qtc.QStringMatcher_CaseSensitivity(@ptrCast(self));
     }
@@ -122,7 +124,7 @@ pub const qstringmatcher = struct {
     ///
     /// ``` self: QtC.QStringMatcher, str: []const u8, from: i64 ```
     pub fn IndexIn22(self: ?*anyopaque, str: []const u8, from: i64) i64 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };

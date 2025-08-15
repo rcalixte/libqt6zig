@@ -22,6 +22,8 @@ pub const qpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpermission.html#status)
     ///
     /// ``` self: QtC.QPermission ```
+    ///
+    /// Returns: ``` qnamespace_enums.PermissionStatus ```
     pub fn Status(self: ?*anyopaque) i64 {
         return qtc.QPermission_Status(@ptrCast(self));
     }
@@ -69,6 +71,8 @@ pub const qlocationpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocationpermission.html#accuracy)
     ///
     /// ``` self: QtC.QLocationPermission ```
+    ///
+    /// Returns: ``` qpermissions_enums.Accuracy ```
     pub fn Accuracy(self: ?*anyopaque) i64 {
         return qtc.QLocationPermission_Accuracy(@ptrCast(self));
     }
@@ -83,6 +87,8 @@ pub const qlocationpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocationpermission.html#availability)
     ///
     /// ``` self: QtC.QLocationPermission ```
+    ///
+    /// Returns: ``` qpermissions_enums.Availability ```
     pub fn Availability(self: ?*anyopaque) i64 {
         return qtc.QLocationPermission_Availability(@ptrCast(self));
     }
@@ -137,6 +143,8 @@ pub const qcalendarpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendarpermission.html#accessMode)
     ///
     /// ``` self: QtC.QCalendarPermission ```
+    ///
+    /// Returns: ``` qpermissions_enums.AccessMode ```
     pub fn AccessMode(self: ?*anyopaque) i64 {
         return qtc.QCalendarPermission_AccessMode(@ptrCast(self));
     }
@@ -191,6 +199,8 @@ pub const qcontactspermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcontactspermission.html#accessMode)
     ///
     /// ``` self: QtC.QContactsPermission ```
+    ///
+    /// Returns: ``` qpermissions_enums.AccessMode ```
     pub fn AccessMode(self: ?*anyopaque) i64 {
         return qtc.QContactsPermission_AccessMode(@ptrCast(self));
     }
@@ -237,7 +247,7 @@ pub const qbluetoothpermission = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbluetoothpermission.html#setCommunicationModes)
     ///
-    /// ``` self: QtC.QBluetoothPermission, modes: u8 ```
+    /// ``` self: QtC.QBluetoothPermission, modes: flag of qpermissions_enums.CommunicationMode ```
     pub fn SetCommunicationModes(self: ?*anyopaque, modes: i64) void {
         qtc.QBluetoothPermission_SetCommunicationModes(@ptrCast(self), @intCast(modes));
     }
@@ -245,6 +255,8 @@ pub const qbluetoothpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbluetoothpermission.html#communicationModes)
     ///
     /// ``` self: QtC.QBluetoothPermission ```
+    ///
+    /// Returns: ``` flag of qpermissions_enums.CommunicationMode ```
     pub fn CommunicationModes(self: ?*anyopaque) i64 {
         return qtc.QBluetoothPermission_CommunicationModes(@ptrCast(self));
     }

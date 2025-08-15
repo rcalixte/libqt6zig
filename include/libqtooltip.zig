@@ -36,7 +36,7 @@ pub const qtooltip = struct {
     ///
     /// ``` pos: QtC.QPoint, text: []const u8 ```
     pub fn ShowText(pos: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -100,7 +100,7 @@ pub const qtooltip = struct {
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget ```
     pub fn ShowText3(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -111,7 +111,7 @@ pub const qtooltip = struct {
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget, rect: QtC.QRect ```
     pub fn ShowText4(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque, rect: ?*anyopaque) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -122,7 +122,7 @@ pub const qtooltip = struct {
     ///
     /// ``` pos: QtC.QPoint, text: []const u8, w: QtC.QWidget, rect: QtC.QRect, msecShowTime: i32 ```
     pub fn ShowText5(pos: ?*anyopaque, text: []const u8, w: ?*anyopaque, rect: ?*anyopaque, msecShowTime: i32) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };

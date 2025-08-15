@@ -30,7 +30,7 @@ pub const qicon = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New4(fileName: []const u8) QtC.QIcon {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -179,7 +179,7 @@ pub const qicon = struct {
     ///
     /// ``` self: QtC.QIcon, fileName: []const u8 ```
     pub fn AddFile(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -190,7 +190,7 @@ pub const qicon = struct {
     ///
     /// ``` self: QtC.QIcon, allocator: std.mem.Allocator ```
     pub fn AvailableSizes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.struct_libqt_list = qtc.QIcon_AvailableSizes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QIcon_AvailableSizes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qicon.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -216,7 +216,7 @@ pub const qicon = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromTheme(name: []const u8) QtC.QIcon {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -227,7 +227,7 @@ pub const qicon = struct {
     ///
     /// ``` name: []const u8, fallback: QtC.QIcon ```
     pub fn FromTheme2(name: []const u8, fallback: ?*anyopaque) QtC.QIcon {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -238,7 +238,7 @@ pub const qicon = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn HasThemeIcon(name: []const u8) bool {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -270,8 +270,8 @@ pub const qicon = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn ThemeSearchPaths(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QIcon_ThemeSearchPaths();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QIcon_ThemeSearchPaths();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -292,7 +292,7 @@ pub const qicon = struct {
     ///
     /// ``` searchpath: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetThemeSearchPaths(searchpath: [][]const u8, allocator: std.mem.Allocator) void {
-        var searchpath_arr = allocator.alloc(qtc.struct_libqt_string, searchpath.len) catch @panic("qicon.SetThemeSearchPaths: Memory allocation failed");
+        var searchpath_arr = allocator.alloc(qtc.libqt_string, searchpath.len) catch @panic("qicon.SetThemeSearchPaths: Memory allocation failed");
         defer allocator.free(searchpath_arr);
         for (searchpath, 0..searchpath.len) |item, i| {
             searchpath_arr[i] = .{
@@ -300,7 +300,7 @@ pub const qicon = struct {
                 .data = item.ptr,
             };
         }
-        const searchpath_list = qtc.struct_libqt_list{
+        const searchpath_list = qtc.libqt_list{
             .len = searchpath.len,
             .data = searchpath_arr.ptr,
         };
@@ -311,8 +311,8 @@ pub const qicon = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn FallbackSearchPaths(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QIcon_FallbackSearchPaths();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QIcon_FallbackSearchPaths();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -333,7 +333,7 @@ pub const qicon = struct {
     ///
     /// ``` paths: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetFallbackSearchPaths(paths: [][]const u8, allocator: std.mem.Allocator) void {
-        var paths_arr = allocator.alloc(qtc.struct_libqt_string, paths.len) catch @panic("qicon.SetFallbackSearchPaths: Memory allocation failed");
+        var paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qicon.SetFallbackSearchPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i| {
             paths_arr[i] = .{
@@ -341,7 +341,7 @@ pub const qicon = struct {
                 .data = item.ptr,
             };
         }
-        const paths_list = qtc.struct_libqt_list{
+        const paths_list = qtc.libqt_list{
             .len = paths.len,
             .data = paths_arr.ptr,
         };
@@ -363,7 +363,7 @@ pub const qicon = struct {
     ///
     /// ``` path: []const u8 ```
     pub fn SetThemeName(path: []const u8) void {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -385,7 +385,7 @@ pub const qicon = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn SetFallbackThemeName(name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -492,42 +492,42 @@ pub const qicon = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
-    /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: i32 ```
+    /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn Paint3(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i64) void {
         qtc.QIcon_Paint3(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
-    /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: i32, mode: qicon_enums.Mode ```
+    /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode ```
     pub fn Paint4(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i64, mode: i64) void {
         qtc.QIcon_Paint4(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
-    /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: i32, mode: qicon_enums.Mode, state: qicon_enums.State ```
+    /// ``` self: QtC.QIcon, painter: QtC.QPainter, rect: QtC.QRect, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Paint5(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, alignment: i64, mode: i64, state: i64) void {
         qtc.QIcon_Paint5(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(alignment), @intCast(mode), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
-    /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: i32 ```
+    /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn Paint6(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i64) void {
         qtc.QIcon_Paint6(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(alignment));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
-    /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: qicon_enums.Mode ```
+    /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode ```
     pub fn Paint7(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i64, mode: i64) void {
         qtc.QIcon_Paint7(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(alignment), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qicon.html#paint)
     ///
-    /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: i32, mode: qicon_enums.Mode, state: qicon_enums.State ```
+    /// ``` self: QtC.QIcon, painter: QtC.QPainter, x: i32, y: i32, w: i32, h: i32, alignment: flag of qnamespace_enums.AlignmentFlag, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn Paint8(self: ?*anyopaque, painter: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, alignment: i64, mode: i64, state: i64) void {
         qtc.QIcon_Paint8(@ptrCast(self), @ptrCast(painter), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(alignment), @intCast(mode), @intCast(state));
     }
@@ -550,7 +550,7 @@ pub const qicon = struct {
     ///
     /// ``` self: QtC.QIcon, fileName: []const u8, size: QtC.QSize ```
     pub fn AddFile2(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -561,7 +561,7 @@ pub const qicon = struct {
     ///
     /// ``` self: QtC.QIcon, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode ```
     pub fn AddFile3(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -572,7 +572,7 @@ pub const qicon = struct {
     ///
     /// ``` self: QtC.QIcon, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
     pub fn AddFile4(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64, state: i64) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -583,7 +583,7 @@ pub const qicon = struct {
     ///
     /// ``` self: QtC.QIcon, mode: qicon_enums.Mode, allocator: std.mem.Allocator ```
     pub fn AvailableSizes1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.struct_libqt_list = qtc.QIcon_AvailableSizes1(@ptrCast(self), @intCast(mode));
+        const _arr: qtc.libqt_list = qtc.QIcon_AvailableSizes1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qicon.AvailableSizes1: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -595,7 +595,7 @@ pub const qicon = struct {
     ///
     /// ``` self: QtC.QIcon, mode: qicon_enums.Mode, state: qicon_enums.State, allocator: std.mem.Allocator ```
     pub fn AvailableSizes2(self: ?*anyopaque, mode: i64, state: i64, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.struct_libqt_list = qtc.QIcon_AvailableSizes2(@ptrCast(self), @intCast(mode), @intCast(state));
+        const _arr: qtc.libqt_list = qtc.QIcon_AvailableSizes2(@ptrCast(self), @intCast(mode), @intCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qicon.AvailableSizes2: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));

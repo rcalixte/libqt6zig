@@ -83,6 +83,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceType ```
     pub fn SurfaceType(self: ?*anyopaque) i64 {
         return qtc.QWindow_SurfaceType(@ptrCast(self));
     }
@@ -101,6 +103,8 @@ pub const qwindow = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceType ```
     pub fn QBaseSurfaceType(self: ?*anyopaque) i64 {
         return qtc.QWindow_QBaseSurfaceType(@ptrCast(self));
     }
@@ -115,6 +119,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibility)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qwindow_enums.Visibility ```
     pub fn Visibility(self: ?*anyopaque) i64 {
         return qtc.QWindow_Visibility(@ptrCast(self));
     }
@@ -171,6 +177,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modality)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn Modality(self: ?*anyopaque) i64 {
         return qtc.QWindow_Modality(@ptrCast(self));
     }
@@ -223,7 +231,7 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setFlags)
     ///
-    /// ``` self: QtC.QWindow, flags: i32 ```
+    /// ``` self: QtC.QWindow, flags: flag of qnamespace_enums.WindowType ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QWindow_SetFlags(@ptrCast(self), @intCast(flags));
     }
@@ -231,6 +239,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#flags)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QWindow_Flags(@ptrCast(self));
     }
@@ -245,6 +255,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#type)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QWindow_Type(@ptrCast(self));
     }
@@ -305,6 +317,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientation)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScreenOrientation ```
     pub fn ContentOrientation(self: ?*anyopaque) i64 {
         return qtc.QWindow_ContentOrientation(@ptrCast(self));
     }
@@ -319,6 +333,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowState)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWindow_WindowState(@ptrCast(self));
     }
@@ -326,6 +342,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStates)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowStates(self: ?*anyopaque) i64 {
         return qtc.QWindow_WindowStates(@ptrCast(self));
     }
@@ -339,7 +357,7 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWindowStates)
     ///
-    /// ``` self: QtC.QWindow, states: i32 ```
+    /// ``` self: QtC.QWindow, states: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowStates(self: ?*anyopaque, states: i64) void {
         qtc.QWindow_SetWindowStates(@ptrCast(self), @intCast(states));
     }
@@ -583,7 +601,7 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, filePath: []const u8 ```
     pub fn SetFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -862,7 +880,7 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#startSystemResize)
     ///
-    /// ``` self: QtC.QWindow, edges: i32 ```
+    /// ``` self: QtC.QWindow, edges: flag of qnamespace_enums.Edge ```
     pub fn StartSystemResize(self: ?*anyopaque, edges: i64) bool {
         return qtc.QWindow_StartSystemResize(@ptrCast(self), @intCast(edges));
     }
@@ -878,7 +896,7 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -1015,7 +1033,7 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -1718,7 +1736,7 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -1740,7 +1758,7 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -1813,7 +1831,7 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1916,7 +1934,7 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwindow.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -2024,8 +2042,8 @@ pub const qwindow = struct {
     ///
     /// ``` self: QtC.QWindow, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2158,6 +2176,8 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurface.html#surfaceClass)
     ///
     /// ``` self: QtC.QWindow ```
+    ///
+    /// Returns: ``` qsurface_enums.SurfaceClass ```
     pub fn SurfaceClass(self: ?*anyopaque) i64 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }

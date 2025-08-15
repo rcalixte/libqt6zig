@@ -31,6 +31,8 @@ pub const qcameraformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcameraformat.html#pixelFormat)
     ///
     /// ``` self: QtC.QCameraFormat ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.PixelFormat ```
     pub fn PixelFormat(self: ?*anyopaque) i64 {
         return qtc.QCameraFormat_PixelFormat(@ptrCast(self));
     }
@@ -135,7 +137,7 @@ pub const qcameradevice = struct {
     ///
     /// ``` self: QtC.QCameraDevice, allocator: std.mem.Allocator ```
     pub fn Id(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QCameraDevice_Id(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QCameraDevice_Id(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcameradevice.Id: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -163,6 +165,8 @@ pub const qcameradevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#position)
     ///
     /// ``` self: QtC.QCameraDevice ```
+    ///
+    /// Returns: ``` qcameradevice_enums.Position ```
     pub fn Position(self: ?*anyopaque) i64 {
         return qtc.QCameraDevice_Position(@ptrCast(self));
     }
@@ -171,7 +175,7 @@ pub const qcameradevice = struct {
     ///
     /// ``` self: QtC.QCameraDevice, allocator: std.mem.Allocator ```
     pub fn PhotoResolutions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSize {
-        const _arr: qtc.struct_libqt_list = qtc.QCameraDevice_PhotoResolutions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QCameraDevice_PhotoResolutions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qcameradevice.PhotoResolutions: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
@@ -183,7 +187,7 @@ pub const qcameradevice = struct {
     ///
     /// ``` self: QtC.QCameraDevice, allocator: std.mem.Allocator ```
     pub fn VideoFormats(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QCameraFormat {
-        const _arr: qtc.struct_libqt_list = qtc.QCameraDevice_VideoFormats(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QCameraDevice_VideoFormats(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QCameraFormat, _arr.len) catch @panic("qcameradevice.VideoFormats: Memory allocation failed");
         const _data: [*]QtC.QCameraFormat = @ptrCast(@alignCast(_arr.data));
@@ -194,6 +198,8 @@ pub const qcameradevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcameradevice.html#correctionAngle)
     ///
     /// ``` self: QtC.QCameraDevice ```
+    ///
+    /// Returns: ``` qtvideo_enums.Rotation ```
     pub fn CorrectionAngle(self: ?*anyopaque) i64 {
         return qtc.QCameraDevice_CorrectionAngle(@ptrCast(self));
     }

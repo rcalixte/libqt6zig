@@ -2,6 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qabstractsocket_enums = @import("libqabstractsocket.zig").enums;
 const qhostaddress_enums = @import("libqhostaddress.zig").enums;
+const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -163,7 +164,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, datagram: []u8, host: QtC.QHostAddress, port: u16 ```
     pub fn WriteDatagram3(self: ?*anyopaque, datagram: []u8, host: ?*anyopaque, port: u16) i64 {
-        const datagram_str = qtc.struct_libqt_string{
+        const datagram_str = qtc.libqt_string{
             .len = datagram.len,
             .data = datagram.ptr,
         };
@@ -205,7 +206,7 @@ pub const qudpsocket = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qudpsocket.html#bind)
     ///
-    /// ``` self: QtC.QUdpSocket, addr: qhostaddress_enums.SpecialAddress, port: u16, mode: i32 ```
+    /// ``` self: QtC.QUdpSocket, addr: qhostaddress_enums.SpecialAddress, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
     pub fn Bind3(self: ?*anyopaque, addr: i64, port: u16, mode: i64) bool {
         return qtc.QUdpSocket_Bind3(@ptrCast(self), @intCast(addr), @intCast(port), @intCast(mode));
     }
@@ -238,6 +239,8 @@ pub const qudpsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#pauseMode)
     ///
     /// ``` self: QtC.QUdpSocket ```
+    ///
+    /// Returns: ``` flag of qabstractsocket_enums.PauseMode ```
     pub fn PauseMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_PauseMode(@ptrCast(self));
     }
@@ -246,7 +249,7 @@ pub const qudpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setPauseMode)
     ///
-    /// ``` self: QtC.QUdpSocket, pauseMode: i32 ```
+    /// ``` self: QtC.QUdpSocket, pauseMode: flag of qabstractsocket_enums.PauseMode ```
     pub fn SetPauseMode(self: ?*anyopaque, pauseMode: i64) void {
         qtc.QAbstractSocket_SetPauseMode(@ptrCast(self), @intCast(pauseMode));
     }
@@ -341,6 +344,8 @@ pub const qudpsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketType)
     ///
     /// ``` self: QtC.QUdpSocket ```
+    ///
+    /// Returns: ``` qabstractsocket_enums.SocketType ```
     pub fn SocketType(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_SocketType(@ptrCast(self));
     }
@@ -350,6 +355,8 @@ pub const qudpsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#state)
     ///
     /// ``` self: QtC.QUdpSocket ```
+    ///
+    /// Returns: ``` qabstractsocket_enums.SocketState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_State(@ptrCast(self));
     }
@@ -359,6 +366,8 @@ pub const qudpsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#error)
     ///
     /// ``` self: QtC.QUdpSocket ```
+    ///
+    /// Returns: ``` qabstractsocket_enums.SocketError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QAbstractSocket_Error(@ptrCast(self));
     }
@@ -409,7 +418,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, tag: []const u8 ```
     pub fn SetProtocolTag(self: ?*anyopaque, tag: []const u8) void {
-        const tag_str = qtc.struct_libqt_string{
+        const tag_str = qtc.libqt_string{
             .len = tag.len,
             .data = tag.ptr,
         };
@@ -537,7 +546,7 @@ pub const qudpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#bind)
     ///
-    /// ``` self: QtC.QUdpSocket, port: u16, mode: i32 ```
+    /// ``` self: QtC.QUdpSocket, port: u16, mode: flag of qabstractsocket_enums.BindFlag ```
     pub fn Bind22(self: ?*anyopaque, port: u16, mode: i64) bool {
         return qtc.QAbstractSocket_Bind22(@ptrCast(self), @intCast(port), @intCast(mode));
     }
@@ -546,7 +555,7 @@ pub const qudpsocket = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
-    /// ``` self: QtC.QUdpSocket, address: QtC.QHostAddress, port: u16, mode: i32 ```
+    /// ``` self: QtC.QUdpSocket, address: QtC.QHostAddress, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn ConnectToHost3(self: ?*anyopaque, address: ?*anyopaque, port: u16, mode: i64) void {
         qtc.QAbstractSocket_ConnectToHost3(@ptrCast(self), @ptrCast(address), @intCast(port), @intCast(mode));
     }
@@ -556,6 +565,8 @@ pub const qudpsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QUdpSocket ```
+    ///
+    /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn OpenMode(self: ?*anyopaque) i64 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
@@ -675,7 +686,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qudpsocket.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -688,7 +699,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qudpsocket.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -711,7 +722,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qudpsocket.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -780,7 +791,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -803,7 +814,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qudpsocket.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -974,7 +985,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qudpsocket.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1000,7 +1011,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1103,7 +1114,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qudpsocket.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1220,8 +1231,8 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1397,9 +1408,9 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, hostName: []const u8, port: u16, mode: i32, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
+    /// ``` self: QtC.QUdpSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
     pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i64) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -1412,9 +1423,9 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, hostName: []const u8, port: u16, mode: i32, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
+    /// ``` self: QtC.QUdpSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
     pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i64) void {
-        const hostName_str = qtc.struct_libqt_string{
+        const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
         };
@@ -1427,7 +1438,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, hostName: []const u8, port: u16, mode: i32, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
     pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, u16, i64, i64) callconv(.c) void) void {
         qtc.QUdpSocket_OnConnectToHost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1603,7 +1614,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: i32 ```
+    /// ``` self: QtC.QUdpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i64, openMode: i64) bool {
         return qtc.QUdpSocket_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
@@ -1614,7 +1625,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: i32 ```
+    /// ``` self: QtC.QUdpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn QBaseSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i64, openMode: i64) bool {
         return qtc.QUdpSocket_QBaseSetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
@@ -1625,7 +1636,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: i32) callconv(.c) bool ```
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
     pub fn OnSetSocketDescriptor(self: ?*anyopaque, slot: fn (?*anyopaque, isize, i64, i64) callconv(.c) bool) void {
         qtc.QUdpSocket_OnSetSocketDescriptor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2038,7 +2049,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, mode: i32 ```
+    /// ``` self: QtC.QUdpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, mode: i64) bool {
         return qtc.QUdpSocket_Open(@ptrCast(self), @intCast(mode));
     }
@@ -2049,7 +2060,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, mode: i32 ```
+    /// ``` self: QtC.QUdpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn QBaseOpen(self: ?*anyopaque, mode: i64) bool {
         return qtc.QUdpSocket_QBaseOpen(@ptrCast(self), @intCast(mode));
     }
@@ -2060,7 +2071,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, mode: i32) callconv(.c) bool ```
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
     pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
         qtc.QUdpSocket_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2700,7 +2711,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, name: []const u8 ```
     pub fn SetPeerName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2715,7 +2726,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, name: []const u8 ```
     pub fn QBaseSetPeerName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2739,7 +2750,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, openMode: i32 ```
+    /// ``` self: QtC.QUdpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
         qtc.QUdpSocket_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
@@ -2750,7 +2761,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, openMode: i32 ```
+    /// ``` self: QtC.QUdpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
         qtc.QUdpSocket_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
@@ -2761,7 +2772,7 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, openMode: i32) callconv(.c) void ```
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
     pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QUdpSocket_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2774,7 +2785,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, errorString: []const u8 ```
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -2789,7 +2800,7 @@ pub const qudpsocket = struct {
     ///
     /// ``` self: QtC.QUdpSocket, errorString: []const u8 ```
     pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };

@@ -35,6 +35,8 @@ pub const qbasictimer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasictimer.html#id)
     ///
     /// ``` self: QtC.QBasicTimer ```
+    ///
+    /// Returns: ``` qnamespace_enums.TimerId ```
     pub fn Id(self: ?*anyopaque) i64 {
         return qtc.QBasicTimer_Id(@ptrCast(self));
     }

@@ -94,7 +94,7 @@ pub const qpdflink = struct {
     ///
     /// ``` self: QtC.QPdfLink, allocator: std.mem.Allocator ```
     pub fn Rectangles(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QRectF {
-        const _arr: qtc.struct_libqt_list = qtc.QPdfLink_Rectangles(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPdfLink_Rectangles(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QRectF, _arr.len) catch @panic("qpdflink.Rectangles: Memory allocation failed");
         const _data: [*]QtC.QRectF = @ptrCast(@alignCast(_arr.data));

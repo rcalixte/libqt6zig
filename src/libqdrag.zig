@@ -116,13 +116,17 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#exec)
     ///
     /// ``` self: QtC.QDrag ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn Exec(self: ?*anyopaque) i64 {
         return qtc.QDrag_Exec(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#exec)
     ///
-    /// ``` self: QtC.QDrag, supportedActions: i32, defaultAction: qnamespace_enums.DropAction ```
+    /// ``` self: QtC.QDrag, supportedActions: flag of qnamespace_enums.DropAction, defaultAction: qnamespace_enums.DropAction ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn Exec2(self: ?*anyopaque, supportedActions: i64, defaultAction: i64) i64 {
         return qtc.QDrag_Exec2(@ptrCast(self), @intCast(supportedActions), @intCast(defaultAction));
     }
@@ -144,6 +148,8 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#supportedActions)
     ///
     /// ``` self: QtC.QDrag ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedActions(self: ?*anyopaque) i64 {
         return qtc.QDrag_SupportedActions(@ptrCast(self));
     }
@@ -151,6 +157,8 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#defaultAction)
     ///
     /// ``` self: QtC.QDrag ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn DefaultAction(self: ?*anyopaque) i64 {
         return qtc.QDrag_DefaultAction(@ptrCast(self));
     }
@@ -218,7 +226,9 @@ pub const qdrag = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#exec)
     ///
-    /// ``` self: QtC.QDrag, supportedActions: i32 ```
+    /// ``` self: QtC.QDrag, supportedActions: flag of qnamespace_enums.DropAction ```
+    ///
+    /// Returns: ``` qnamespace_enums.DropAction ```
     pub fn Exec1(self: ?*anyopaque, supportedActions: i64) i64 {
         return qtc.QDrag_Exec1(@ptrCast(self), @intCast(supportedActions));
     }
@@ -242,7 +252,7 @@ pub const qdrag = struct {
     ///
     /// ``` self: QtC.QDrag, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -345,7 +355,7 @@ pub const qdrag = struct {
     ///
     /// ``` self: QtC.QDrag, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdrag.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -462,8 +472,8 @@ pub const qdrag = struct {
     ///
     /// ``` self: QtC.QDrag, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

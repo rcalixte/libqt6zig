@@ -73,14 +73,14 @@ pub const qeventloop = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#processEvents)
     ///
-    /// ``` self: QtC.QEventLoop, flags: i32, maximumTime: i32 ```
+    /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag, maximumTime: i32 ```
     pub fn ProcessEvents2(self: ?*anyopaque, flags: i64, maximumTime: i32) void {
         qtc.QEventLoop_ProcessEvents2(@ptrCast(self), @intCast(flags), @intCast(maximumTime));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#processEvents)
     ///
-    /// ``` self: QtC.QEventLoop, flags: i32, deadline: QtC.QDeadlineTimer ```
+    /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
     pub fn ProcessEvents3(self: ?*anyopaque, flags: i64, deadline: QtC.QDeadlineTimer) void {
         qtc.QEventLoop_ProcessEvents3(@ptrCast(self), @intCast(flags), @ptrCast(deadline));
     }
@@ -173,14 +173,14 @@ pub const qeventloop = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#processEvents)
     ///
-    /// ``` self: QtC.QEventLoop, flags: i32 ```
+    /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn ProcessEvents1(self: ?*anyopaque, flags: i64) bool {
         return qtc.QEventLoop_ProcessEvents1(@ptrCast(self), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventloop.html#exec)
     ///
-    /// ``` self: QtC.QEventLoop, flags: i32 ```
+    /// ``` self: QtC.QEventLoop, flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn Exec1(self: ?*anyopaque, flags: i64) i32 {
         return qtc.QEventLoop_Exec1(@ptrCast(self), @intCast(flags));
     }
@@ -211,7 +211,7 @@ pub const qeventloop = struct {
     ///
     /// ``` self: QtC.QEventLoop, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -314,7 +314,7 @@ pub const qeventloop = struct {
     ///
     /// ``` self: QtC.QEventLoop, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qeventloop.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -431,8 +431,8 @@ pub const qeventloop = struct {
     ///
     /// ``` self: QtC.QEventLoop, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

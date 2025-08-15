@@ -120,6 +120,8 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#type)
     ///
     /// ``` self: QtC.QTransform ```
+    ///
+    /// Returns: ``` qtransform_enums.TransformationType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QTransform_Type(@ptrCast(self));
     }

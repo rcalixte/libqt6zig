@@ -69,6 +69,8 @@ pub const qgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GestureType(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
@@ -76,6 +78,8 @@ pub const qgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QGesture_State(@ptrCast(self));
     }
@@ -118,6 +122,8 @@ pub const qgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.GestureCancelPolicy ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
@@ -167,7 +173,7 @@ pub const qgesture = struct {
     ///
     /// ``` self: QtC.QGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -270,7 +276,7 @@ pub const qgesture = struct {
     ///
     /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qgesture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -387,8 +393,8 @@ pub const qgesture = struct {
     ///
     /// ``` self: QtC.QGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1051,6 +1057,8 @@ pub const qpangesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QPanGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GestureType(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
@@ -1060,6 +1068,8 @@ pub const qpangesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QPanGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QGesture_State(@ptrCast(self));
     }
@@ -1114,6 +1124,8 @@ pub const qpangesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QPanGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.GestureCancelPolicy ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
@@ -1137,7 +1149,7 @@ pub const qpangesture = struct {
     ///
     /// ``` self: QtC.QPanGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1240,7 +1252,7 @@ pub const qpangesture = struct {
     ///
     /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpangesture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1357,8 +1369,8 @@ pub const qpangesture = struct {
     ///
     /// ``` self: QtC.QPanGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1944,13 +1956,15 @@ pub const qpinchgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#totalChangeFlags)
     ///
     /// ``` self: QtC.QPinchGesture ```
+    ///
+    /// Returns: ``` flag of qgesture_enums.ChangeFlag ```
     pub fn TotalChangeFlags(self: ?*anyopaque) i64 {
         return qtc.QPinchGesture_TotalChangeFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setTotalChangeFlags)
     ///
-    /// ``` self: QtC.QPinchGesture, value: i32 ```
+    /// ``` self: QtC.QPinchGesture, value: flag of qgesture_enums.ChangeFlag ```
     pub fn SetTotalChangeFlags(self: ?*anyopaque, value: i64) void {
         qtc.QPinchGesture_SetTotalChangeFlags(@ptrCast(self), @intCast(value));
     }
@@ -1958,13 +1972,15 @@ pub const qpinchgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#changeFlags)
     ///
     /// ``` self: QtC.QPinchGesture ```
+    ///
+    /// Returns: ``` flag of qgesture_enums.ChangeFlag ```
     pub fn ChangeFlags(self: ?*anyopaque) i64 {
         return qtc.QPinchGesture_ChangeFlags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpinchgesture.html#setChangeFlags)
     ///
-    /// ``` self: QtC.QPinchGesture, value: i32 ```
+    /// ``` self: QtC.QPinchGesture, value: flag of qgesture_enums.ChangeFlag ```
     pub fn SetChangeFlags(self: ?*anyopaque, value: i64) void {
         qtc.QPinchGesture_SetChangeFlags(@ptrCast(self), @intCast(value));
     }
@@ -2126,6 +2142,8 @@ pub const qpinchgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QPinchGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GestureType(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
@@ -2135,6 +2153,8 @@ pub const qpinchgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QPinchGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QGesture_State(@ptrCast(self));
     }
@@ -2189,6 +2209,8 @@ pub const qpinchgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QPinchGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.GestureCancelPolicy ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
@@ -2212,7 +2234,7 @@ pub const qpinchgesture = struct {
     ///
     /// ``` self: QtC.QPinchGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2315,7 +2337,7 @@ pub const qpinchgesture = struct {
     ///
     /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpinchgesture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -2432,8 +2454,8 @@ pub const qpinchgesture = struct {
     ///
     /// ``` self: QtC.QPinchGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3019,6 +3041,8 @@ pub const qswipegesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#horizontalDirection)
     ///
     /// ``` self: QtC.QSwipeGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.SwipeDirection ```
     pub fn HorizontalDirection(self: ?*anyopaque) i64 {
         return qtc.QSwipeGesture_HorizontalDirection(@ptrCast(self));
     }
@@ -3026,6 +3050,8 @@ pub const qswipegesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qswipegesture.html#verticalDirection)
     ///
     /// ``` self: QtC.QSwipeGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.SwipeDirection ```
     pub fn VerticalDirection(self: ?*anyopaque) i64 {
         return qtc.QSwipeGesture_VerticalDirection(@ptrCast(self));
     }
@@ -3075,6 +3101,8 @@ pub const qswipegesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QSwipeGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GestureType(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
@@ -3084,6 +3112,8 @@ pub const qswipegesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QSwipeGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QGesture_State(@ptrCast(self));
     }
@@ -3138,6 +3168,8 @@ pub const qswipegesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QSwipeGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.GestureCancelPolicy ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
@@ -3161,7 +3193,7 @@ pub const qswipegesture = struct {
     ///
     /// ``` self: QtC.QSwipeGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -3264,7 +3296,7 @@ pub const qswipegesture = struct {
     ///
     /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qswipegesture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -3381,8 +3413,8 @@ pub const qswipegesture = struct {
     ///
     /// ``` self: QtC.QSwipeGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4010,6 +4042,8 @@ pub const qtapgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QTapGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GestureType(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
@@ -4019,6 +4053,8 @@ pub const qtapgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QTapGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QGesture_State(@ptrCast(self));
     }
@@ -4073,6 +4109,8 @@ pub const qtapgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QTapGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.GestureCancelPolicy ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
@@ -4096,7 +4134,7 @@ pub const qtapgesture = struct {
     ///
     /// ``` self: QtC.QTapGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -4199,7 +4237,7 @@ pub const qtapgesture = struct {
     ///
     /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtapgesture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -4316,8 +4354,8 @@ pub const qtapgesture = struct {
     ///
     /// ``` self: QtC.QTapGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4959,6 +4997,8 @@ pub const qtapandholdgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureType)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureType ```
     pub fn GestureType(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureType(@ptrCast(self));
     }
@@ -4968,6 +5008,8 @@ pub const qtapandholdgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#state)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
+    ///
+    /// Returns: ``` qnamespace_enums.GestureState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QGesture_State(@ptrCast(self));
     }
@@ -5022,6 +5064,8 @@ pub const qtapandholdgesture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesture.html#gestureCancelPolicy)
     ///
     /// ``` self: QtC.QTapAndHoldGesture ```
+    ///
+    /// Returns: ``` qgesture_enums.GestureCancelPolicy ```
     pub fn GestureCancelPolicy(self: ?*anyopaque) i64 {
         return qtc.QGesture_GestureCancelPolicy(@ptrCast(self));
     }
@@ -5045,7 +5089,7 @@ pub const qtapandholdgesture = struct {
     ///
     /// ``` self: QtC.QTapAndHoldGesture, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -5148,7 +5192,7 @@ pub const qtapandholdgesture = struct {
     ///
     /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtapandholdgesture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -5265,8 +5309,8 @@ pub const qtapandholdgesture = struct {
     ///
     /// ``` self: QtC.QTapAndHoldGesture, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -5795,7 +5839,7 @@ pub const qgestureevent = struct {
     ///
     /// ``` gestures: []QtC.QGesture ```
     pub fn New(gestures: []?*anyopaque) QtC.QGestureEvent {
-        const gestures_list = qtc.struct_libqt_list{
+        const gestures_list = qtc.libqt_list{
             .len = gestures.len,
             .data = @ptrCast(gestures.ptr),
         };
@@ -5814,7 +5858,7 @@ pub const qgestureevent = struct {
     ///
     /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
     pub fn Gestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
-        const _arr: qtc.struct_libqt_list = qtc.QGestureEvent_Gestures(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGestureEvent_Gestures(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGesture, _arr.len) catch @panic("qgestureevent.Gestures: Memory allocation failed");
         const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
@@ -5833,7 +5877,7 @@ pub const qgestureevent = struct {
     ///
     /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
     pub fn ActiveGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
-        const _arr: qtc.struct_libqt_list = qtc.QGestureEvent_ActiveGestures(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGestureEvent_ActiveGestures(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGesture, _arr.len) catch @panic("qgestureevent.ActiveGestures: Memory allocation failed");
         const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
@@ -5845,7 +5889,7 @@ pub const qgestureevent = struct {
     ///
     /// ``` self: QtC.QGestureEvent, allocator: std.mem.Allocator ```
     pub fn CanceledGestures(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGesture {
-        const _arr: qtc.struct_libqt_list = qtc.QGestureEvent_CanceledGestures(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QGestureEvent_CanceledGestures(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGesture, _arr.len) catch @panic("qgestureevent.CanceledGestures: Memory allocation failed");
         const _data: [*]QtC.QGesture = @ptrCast(@alignCast(_arr.data));
@@ -5935,6 +5979,8 @@ pub const qgestureevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#type)
     ///
     /// ``` self: QtC.QGestureEvent ```
+    ///
+    /// Returns: ``` qcoreevent_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QEvent_Type(@ptrCast(self));
     }

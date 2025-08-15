@@ -128,14 +128,14 @@ pub const qkeycombination = struct {
 
     /// New4 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: i32 ```
+    /// ``` modifiers: flag of qnamespace_enums.Modifier ```
     pub fn New4(modifiers: i64) QtC.QKeyCombination {
         return qtc.QKeyCombination_new4(@intCast(modifiers));
     }
 
     /// New5 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: i32 ```
+    /// ``` modifiers: flag of qnamespace_enums.KeyboardModifier ```
     pub fn New5(modifiers: i64) QtC.QKeyCombination {
         return qtc.QKeyCombination_new5(@intCast(modifiers));
     }
@@ -156,14 +156,14 @@ pub const qkeycombination = struct {
 
     /// New8 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: i32, key: qnamespace_enums.Key ```
+    /// ``` modifiers: flag of qnamespace_enums.Modifier, key: qnamespace_enums.Key ```
     pub fn New8(modifiers: i64, key: i64) QtC.QKeyCombination {
         return qtc.QKeyCombination_new8(@intCast(modifiers), @intCast(key));
     }
 
     /// New9 constructs a new QKeyCombination object.
     ///
-    /// ``` modifiers: i32, key: qnamespace_enums.Key ```
+    /// ``` modifiers: flag of qnamespace_enums.KeyboardModifier, key: qnamespace_enums.Key ```
     pub fn New9(modifiers: i64, key: i64) QtC.QKeyCombination {
         return qtc.QKeyCombination_new9(@intCast(modifiers), @intCast(key));
     }
@@ -185,6 +185,8 @@ pub const qkeycombination = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#keyboardModifiers)
     ///
     /// ``` self: QtC.QKeyCombination ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.KeyboardModifier ```
     pub fn KeyboardModifiers(self: ?*anyopaque) i64 {
         return qtc.QKeyCombination_KeyboardModifiers(@ptrCast(self));
     }
@@ -192,6 +194,8 @@ pub const qkeycombination = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeycombination.html#key)
     ///
     /// ``` self: QtC.QKeyCombination ```
+    ///
+    /// Returns: ``` qnamespace_enums.Key ```
     pub fn Key(self: ?*anyopaque) i64 {
         return qtc.QKeyCombination_Key(@ptrCast(self));
     }

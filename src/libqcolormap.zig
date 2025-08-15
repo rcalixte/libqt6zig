@@ -43,6 +43,8 @@ pub const qcolormap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolormap.html#mode)
     ///
     /// ``` self: QtC.QColormap ```
+    ///
+    /// Returns: ``` qcolormap_enums.Mode ```
     pub fn Mode(self: ?*anyopaque) i64 {
         return qtc.QColormap_Mode(@ptrCast(self));
     }
@@ -79,7 +81,7 @@ pub const qcolormap = struct {
     ///
     /// ``` self: QtC.QColormap, allocator: std.mem.Allocator ```
     pub fn Colormap(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QColor {
-        const _arr: qtc.struct_libqt_list = qtc.QColormap_Colormap(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QColormap_Colormap(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QColor, _arr.len) catch @panic("qcolormap.Colormap: Memory allocation failed");
         const _data: [*]QtC.QColor = @ptrCast(@alignCast(_arr.data));

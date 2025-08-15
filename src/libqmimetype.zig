@@ -94,8 +94,8 @@ pub const qmimetype = struct {
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn GlobPatterns(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeType_GlobPatterns(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMimeType_GlobPatterns(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -116,8 +116,8 @@ pub const qmimetype = struct {
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn ParentMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeType_ParentMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMimeType_ParentMimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -138,8 +138,8 @@ pub const qmimetype = struct {
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn AllAncestors(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeType_AllAncestors(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMimeType_AllAncestors(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -160,8 +160,8 @@ pub const qmimetype = struct {
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn Aliases(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeType_Aliases(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMimeType_Aliases(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -182,8 +182,8 @@ pub const qmimetype = struct {
     ///
     /// ``` self: QtC.QMimeType, allocator: std.mem.Allocator ```
     pub fn Suffixes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMimeType_Suffixes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMimeType_Suffixes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -215,7 +215,7 @@ pub const qmimetype = struct {
     ///
     /// ``` self: QtC.QMimeType, mimeTypeName: []const u8 ```
     pub fn Inherits(self: ?*anyopaque, mimeTypeName: []const u8) bool {
-        const mimeTypeName_str = qtc.struct_libqt_string{
+        const mimeTypeName_str = qtc.libqt_string{
             .len = mimeTypeName.len,
             .data = mimeTypeName.ptr,
         };

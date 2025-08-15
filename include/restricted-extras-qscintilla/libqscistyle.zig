@@ -16,7 +16,7 @@ pub const qscistyle = struct {
     ///
     /// ``` style: i32, description: []const u8, color: QtC.QColor, paper: QtC.QColor, font: QtC.QFont ```
     pub fn New2(style: i32, description: []const u8, color: ?*anyopaque, paper: ?*anyopaque, font: ?*anyopaque) QtC.QsciStyle {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -42,7 +42,7 @@ pub const qscistyle = struct {
     ///
     /// ``` style: i32, description: []const u8, color: QtC.QColor, paper: QtC.QColor, font: QtC.QFont, eolFill: bool ```
     pub fn New5(style: i32, description: []const u8, color: ?*anyopaque, paper: ?*anyopaque, font: ?*anyopaque, eolFill: bool) QtC.QsciStyle {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -75,7 +75,7 @@ pub const qscistyle = struct {
     ///
     /// ``` self: QtC.QsciStyle, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -159,6 +159,8 @@ pub const qscistyle = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle ```
+    ///
+    /// Returns: ``` qscistyle_enums.TextCase ```
     pub fn TextCase(self: ?*anyopaque) i64 {
         return qtc.QsciStyle_TextCase(@ptrCast(self));
     }

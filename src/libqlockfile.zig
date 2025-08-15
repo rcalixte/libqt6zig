@@ -9,7 +9,7 @@ pub const qlockfile = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New(fileName: []const u8) QtC.QLockFile {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -87,6 +87,8 @@ pub const qlockfile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlockfile.html#error)
     ///
     /// ``` self: QtC.QLockFile ```
+    ///
+    /// Returns: ``` qlockfile_enums.LockError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QLockFile_Error(@ptrCast(self));
     }

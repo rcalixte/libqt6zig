@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qfiledevice_enums = @import("libqfiledevice.zig").enums;
+const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -11,7 +12,7 @@ pub const qsavefile = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New(name: []const u8) QtC.QSaveFile {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -30,7 +31,7 @@ pub const qsavefile = struct {
     ///
     /// ``` name: []const u8, parent: QtC.QObject ```
     pub fn New3(name: []const u8, parent: ?*anyopaque) QtC.QSaveFile {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -126,7 +127,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, name: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -135,7 +136,7 @@ pub const qsavefile = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsavefile.html#open)
     ///
-    /// ``` self: QtC.QSaveFile, flags: i32 ```
+    /// ``` self: QtC.QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn Open(self: ?*anyopaque, flags: i64) bool {
         return qtc.QSaveFile_Open(@ptrCast(self), @intCast(flags));
     }
@@ -144,7 +145,7 @@ pub const qsavefile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, flags: i32) callconv(.c) bool ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
     pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
         qtc.QSaveFile_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -153,7 +154,7 @@ pub const qsavefile = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSaveFile, flags: i32 ```
+    /// ``` self: QtC.QSaveFile, flags: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn QBaseOpen(self: ?*anyopaque, flags: i64) bool {
         return qtc.QSaveFile_QBaseOpen(@ptrCast(self), @intCast(flags));
     }
@@ -244,6 +245,8 @@ pub const qsavefile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#error)
     ///
     /// ``` self: QtC.QSaveFile ```
+    ///
+    /// Returns: ``` qfiledevice_enums.FileError ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QFileDevice_Error(@ptrCast(self));
     }
@@ -324,7 +327,7 @@ pub const qsavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledevice.html#map)
     ///
-    /// ``` self: QtC.QSaveFile, offset: i64, size: i64, flags: i32 ```
+    /// ``` self: QtC.QSaveFile, offset: i64, size: i64, flags: flag of qfiledevice_enums.MemoryMapFlag ```
     pub fn Map3(self: ?*anyopaque, offset: i64, size: i64, flags: i64) ?*u8 {
         return @ptrCast(qtc.QFileDevice_Map3(@ptrCast(self), @intCast(offset), @intCast(size), @intCast(flags)));
     }
@@ -334,6 +337,8 @@ pub const qsavefile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#openMode)
     ///
     /// ``` self: QtC.QSaveFile ```
+    ///
+    /// Returns: ``` flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn OpenMode(self: ?*anyopaque) i64 {
         return qtc.QIODevice_OpenMode(@ptrCast(self));
     }
@@ -453,7 +458,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Read2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsavefile.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -466,7 +471,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn ReadAll(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsavefile.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -489,7 +494,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn ReadLine2(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsavefile.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -558,7 +563,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, data: []u8 ```
     pub fn Write3(self: ?*anyopaque, data: []u8) i64 {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -581,7 +586,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn Peek2(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsavefile.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -752,7 +757,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, maxlen: i64, allocator: std.mem.Allocator ```
     pub fn ReadLine1(self: ?*anyopaque, maxlen: i64, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
+        const _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self), @intCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsavefile.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -778,7 +783,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -881,7 +886,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsavefile.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -998,8 +1003,8 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1341,6 +1346,8 @@ pub const qsavefile = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile ```
+    ///
+    /// Returns: ``` flag of qfiledevice_enums.Permission ```
     pub fn Permissions(self: ?*anyopaque) i64 {
         return qtc.QSaveFile_Permissions(@ptrCast(self));
     }
@@ -1352,6 +1359,8 @@ pub const qsavefile = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSaveFile ```
+    ///
+    /// Returns: ``` flag of qfiledevice_enums.Permission ```
     pub fn QBasePermissions(self: ?*anyopaque) i64 {
         return qtc.QSaveFile_QBasePermissions(@ptrCast(self));
     }
@@ -1373,7 +1382,7 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSaveFile, permissionSpec: i32 ```
+    /// ``` self: QtC.QSaveFile, permissionSpec: flag of qfiledevice_enums.Permission ```
     pub fn SetPermissions(self: ?*anyopaque, permissionSpec: i64) bool {
         return qtc.QSaveFile_SetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
@@ -1384,7 +1393,7 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSaveFile, permissionSpec: i32 ```
+    /// ``` self: QtC.QSaveFile, permissionSpec: flag of qfiledevice_enums.Permission ```
     pub fn QBaseSetPermissions(self: ?*anyopaque, permissionSpec: i64) bool {
         return qtc.QSaveFile_QBaseSetPermissions(@ptrCast(self), @intCast(permissionSpec));
     }
@@ -1395,7 +1404,7 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, permissionSpec: i32) callconv(.c) bool ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool ```
     pub fn OnSetPermissions(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
         qtc.QSaveFile_OnSetPermissions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1938,7 +1947,7 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QSaveFile, openMode: i32 ```
+    /// ``` self: QtC.QSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn SetOpenMode(self: ?*anyopaque, openMode: i64) void {
         qtc.QSaveFile_SetOpenMode(@ptrCast(self), @intCast(openMode));
     }
@@ -1949,7 +1958,7 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QSaveFile, openMode: i32 ```
+    /// ``` self: QtC.QSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
     pub fn QBaseSetOpenMode(self: ?*anyopaque, openMode: i64) void {
         qtc.QSaveFile_QBaseSetOpenMode(@ptrCast(self), @intCast(openMode));
     }
@@ -1960,7 +1969,7 @@ pub const qsavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, openMode: i32) callconv(.c) void ```
+    /// ``` self: QtC.QSaveFile, slot: fn (self: QtC.QSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
     pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
         qtc.QSaveFile_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1973,7 +1982,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, errorString: []const u8 ```
     pub fn SetErrorString(self: ?*anyopaque, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };
@@ -1988,7 +1997,7 @@ pub const qsavefile = struct {
     ///
     /// ``` self: QtC.QSaveFile, errorString: []const u8 ```
     pub fn QBaseSetErrorString(self: ?*anyopaque, errorString: []const u8) void {
-        const errorString_str = qtc.struct_libqt_string{
+        const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
         };

@@ -86,7 +86,7 @@ pub const qdtlsclientverifier = struct {
     ///
     /// ``` self: QtC.QDtlsClientVerifier, socket: QtC.QUdpSocket, dgram: []u8, address: QtC.QHostAddress, port: u16 ```
     pub fn VerifyClient(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8, address: ?*anyopaque, port: u16) bool {
-        const dgram_str = qtc.struct_libqt_string{
+        const dgram_str = qtc.libqt_string{
             .len = dgram.len,
             .data = dgram.ptr,
         };
@@ -97,7 +97,7 @@ pub const qdtlsclientverifier = struct {
     ///
     /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
     pub fn VerifiedHello(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QDtlsClientVerifier_VerifiedHello(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier_VerifiedHello(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdtlsclientverifier.VerifiedHello: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -107,6 +107,8 @@ pub const qdtlsclientverifier = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier.html#dtlsError)
     ///
     /// ``` self: QtC.QDtlsClientVerifier ```
+    ///
+    /// Returns: ``` qdtls_enums.QDtlsError ```
     pub fn DtlsError(self: ?*anyopaque) i64 {
         return qtc.QDtlsClientVerifier_DtlsError(@ptrCast(self));
     }
@@ -167,7 +169,7 @@ pub const qdtlsclientverifier = struct {
     ///
     /// ``` self: QtC.QDtlsClientVerifier, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -270,7 +272,7 @@ pub const qdtlsclientverifier = struct {
     ///
     /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdtlsclientverifier.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -387,8 +389,8 @@ pub const qdtlsclientverifier = struct {
     ///
     /// ``` self: QtC.QDtlsClientVerifier, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -982,7 +984,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, name: []const u8 ```
     pub fn SetPeerVerificationName(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1017,6 +1019,8 @@ pub const qdtls = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdtls.html#sslMode)
     ///
     /// ``` self: QtC.QDtls ```
+    ///
+    /// Returns: ``` qsslsocket_enums.SslMode ```
     pub fn SslMode(self: ?*anyopaque) i64 {
         return qtc.QDtls_SslMode(@ptrCast(self));
     }
@@ -1066,6 +1070,8 @@ pub const qdtls = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdtls.html#handshakeState)
     ///
     /// ``` self: QtC.QDtls ```
+    ///
+    /// Returns: ``` qdtls_enums.HandshakeState ```
     pub fn HandshakeState(self: ?*anyopaque) i64 {
         return qtc.QDtls_HandshakeState(@ptrCast(self));
     }
@@ -1122,6 +1128,8 @@ pub const qdtls = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdtls.html#sessionProtocol)
     ///
     /// ``` self: QtC.QDtls ```
+    ///
+    /// Returns: ``` qssl_enums.SslProtocol ```
     pub fn SessionProtocol(self: ?*anyopaque) i64 {
         return qtc.QDtls_SessionProtocol(@ptrCast(self));
     }
@@ -1130,7 +1138,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket, dgram: []u8 ```
     pub fn WriteDatagramEncrypted(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8) i64 {
-        const dgram_str = qtc.struct_libqt_string{
+        const dgram_str = qtc.libqt_string{
             .len = dgram.len,
             .data = dgram.ptr,
         };
@@ -1141,11 +1149,11 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket, dgram: []u8, allocator: std.mem.Allocator ```
     pub fn DecryptDatagram(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8, allocator: std.mem.Allocator) []u8 {
-        const dgram_str = qtc.struct_libqt_string{
+        const dgram_str = qtc.libqt_string{
             .len = dgram.len,
             .data = dgram.ptr,
         };
-        const _bytearray: qtc.struct_libqt_string = qtc.QDtls_DecryptDatagram(@ptrCast(self), @ptrCast(socket), dgram_str);
+        const _bytearray: qtc.libqt_string = qtc.QDtls_DecryptDatagram(@ptrCast(self), @ptrCast(socket), dgram_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdtls.DecryptDatagram: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1155,6 +1163,8 @@ pub const qdtls = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdtls.html#dtlsError)
     ///
     /// ``` self: QtC.QDtls ```
+    ///
+    /// Returns: ``` qdtls_enums.QDtlsError ```
     pub fn DtlsError(self: ?*anyopaque) i64 {
         return qtc.QDtls_DtlsError(@ptrCast(self));
     }
@@ -1174,7 +1184,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
     pub fn PeerVerificationErrors(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QSslError {
-        const _arr: qtc.struct_libqt_list = qtc.QDtls_PeerVerificationErrors(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDtls_PeerVerificationErrors(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSslError, _arr.len) catch @panic("qdtls.PeerVerificationErrors: Memory allocation failed");
         const _data: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
@@ -1186,7 +1196,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, errorsToIgnore: []QtC.QSslError ```
     pub fn IgnoreVerificationErrors(self: ?*anyopaque, errorsToIgnore: []QtC.QSslError) void {
-        const errorsToIgnore_list = qtc.struct_libqt_list{
+        const errorsToIgnore_list = qtc.libqt_list{
             .len = errorsToIgnore.len,
             .data = @ptrCast(errorsToIgnore.ptr),
         };
@@ -1251,7 +1261,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, address: QtC.QHostAddress, port: u16, verificationName: []const u8 ```
     pub fn SetPeer3(self: ?*anyopaque, address: ?*anyopaque, port: u16, verificationName: []const u8) bool {
-        const verificationName_str = qtc.struct_libqt_string{
+        const verificationName_str = qtc.libqt_string{
             .len = verificationName.len,
             .data = verificationName.ptr,
         };
@@ -1262,7 +1272,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, socket: QtC.QUdpSocket, dgram: []u8 ```
     pub fn DoHandshake2(self: ?*anyopaque, socket: ?*anyopaque, dgram: []u8) bool {
-        const dgram_str = qtc.struct_libqt_string{
+        const dgram_str = qtc.libqt_string{
             .len = dgram.len,
             .data = dgram.ptr,
         };
@@ -1288,7 +1298,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1391,7 +1401,7 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdtls.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1508,8 +1518,8 @@ pub const qdtls = struct {
     ///
     /// ``` self: QtC.QDtls, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2045,7 +2055,7 @@ pub const qdtlsclientverifier__generatorparameters = struct {
     ///
     /// ``` a: qcryptographichash_enums.Algorithm, s: []u8 ```
     pub fn New2(a: i64, s: []u8) QtC.QDtlsClientVerifier__GeneratorParameters {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -2060,7 +2070,7 @@ pub const qdtlsclientverifier__generatorparameters = struct {
         return qtc.QDtlsClientVerifier__GeneratorParameters_new3(@ptrCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier__generatorparameters.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#operator-eq)
     ///
     /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, param1: QtC.QDtlsClientVerifier__GeneratorParameters ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

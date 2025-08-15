@@ -69,6 +69,8 @@ pub const qhorizontalstackedbarseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhorizontalstackedbarseries-qtcharts.html#type)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
+    ///
+    /// Returns: ``` qabstractseries_enums.SeriesType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QHorizontalStackedBarSeries_Type(@ptrCast(self));
     }
@@ -87,6 +89,8 @@ pub const qhorizontalstackedbarseries = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
+    ///
+    /// Returns: ``` qabstractseries_enums.SeriesType ```
     pub fn QBaseType(self: ?*anyopaque) i64 {
         return qtc.QHorizontalStackedBarSeries_QBaseType(@ptrCast(self));
     }
@@ -168,7 +172,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sets: []QtC.QBarSet ```
     pub fn Append2(self: ?*anyopaque, sets: []?*anyopaque) bool {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -199,7 +203,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn BarSets(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QBarSet {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractBarSeries_BarSets(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractBarSeries_BarSets(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QBarSet, _arr.len) catch @panic("qhorizontalstackedbarseries.BarSets: Memory allocation failed");
         const _data: [*]QtC.QBarSet = @ptrCast(@alignCast(_arr.data));
@@ -240,7 +244,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, format: []const u8 ```
     pub fn SetLabelsFormat(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -292,6 +296,8 @@ pub const qhorizontalstackedbarseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPosition)
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries ```
+    ///
+    /// Returns: ``` qabstractbarseries_enums.LabelsPosition ```
     pub fn LabelsPosition(self: ?*anyopaque) i64 {
         return qtc.QAbstractBarSeries_LabelsPosition(@ptrCast(self));
     }
@@ -446,7 +452,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, format: []const u8 ```
     pub fn LabelsFormatChanged(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -522,7 +528,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sets: []QtC.QBarSet ```
     pub fn BarsetsAdded(self: ?*anyopaque, sets: []?*anyopaque) void {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -544,7 +550,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, sets: []QtC.QBarSet ```
     pub fn BarsetsRemoved(self: ?*anyopaque, sets: []?*anyopaque) void {
-        const sets_list = qtc.struct_libqt_list{
+        const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
@@ -575,7 +581,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -682,7 +688,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qhorizontalstackedbarseries.AttachedAxes: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
@@ -817,7 +823,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -920,7 +926,7 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qhorizontalstackedbarseries.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1037,8 +1043,8 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// ``` self: QtC.QHorizontalStackedBarSeries, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

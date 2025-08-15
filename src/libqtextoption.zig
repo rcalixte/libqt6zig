@@ -15,7 +15,7 @@ pub const qtextoption = struct {
 
     /// New2 constructs a new QTextOption object.
     ///
-    /// ``` alignment: i32 ```
+    /// ``` alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn New2(alignment: i64) QtC.QTextOption {
         return qtc.QTextOption_new2(@intCast(alignment));
     }
@@ -36,7 +36,7 @@ pub const qtextoption = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setAlignment)
     ///
-    /// ``` self: QtC.QTextOption, alignment: i32 ```
+    /// ``` self: QtC.QTextOption, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, alignment: i64) void {
         qtc.QTextOption_SetAlignment(@ptrCast(self), @intCast(alignment));
     }
@@ -44,6 +44,8 @@ pub const qtextoption = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#alignment)
     ///
     /// ``` self: QtC.QTextOption ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QTextOption_Alignment(@ptrCast(self));
     }
@@ -58,6 +60,8 @@ pub const qtextoption = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#textDirection)
     ///
     /// ``` self: QtC.QTextOption ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn TextDirection(self: ?*anyopaque) i64 {
         return qtc.QTextOption_TextDirection(@ptrCast(self));
     }
@@ -72,13 +76,15 @@ pub const qtextoption = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#wrapMode)
     ///
     /// ``` self: QtC.QTextOption ```
+    ///
+    /// Returns: ``` qtextoption_enums.WrapMode ```
     pub fn WrapMode(self: ?*anyopaque) i64 {
         return qtc.QTextOption_WrapMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setFlags)
     ///
-    /// ``` self: QtC.QTextOption, flags: i32 ```
+    /// ``` self: QtC.QTextOption, flags: flag of qtextoption_enums.Flag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QTextOption_SetFlags(@ptrCast(self), @intCast(flags));
     }
@@ -86,6 +92,8 @@ pub const qtextoption = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#flags)
     ///
     /// ``` self: QtC.QTextOption ```
+    ///
+    /// Returns: ``` flag of qtextoption_enums.Flag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QTextOption_Flags(@ptrCast(self));
     }
@@ -108,7 +116,7 @@ pub const qtextoption = struct {
     ///
     /// ``` self: QtC.QTextOption, tabStops: []f64 ```
     pub fn SetTabArray(self: ?*anyopaque, tabStops: []f64) void {
-        const tabStops_list = qtc.struct_libqt_list{
+        const tabStops_list = qtc.libqt_list{
             .len = tabStops.len,
             .data = tabStops.ptr,
         };
@@ -119,7 +127,7 @@ pub const qtextoption = struct {
     ///
     /// ``` self: QtC.QTextOption, allocator: std.mem.Allocator ```
     pub fn TabArray(self: ?*anyopaque, allocator: std.mem.Allocator) []f64 {
-        const _arr: qtc.struct_libqt_list = qtc.QTextOption_TabArray(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextOption_TabArray(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(f64, _arr.len) catch @panic("qtextoption.TabArray: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
@@ -131,7 +139,7 @@ pub const qtextoption = struct {
     ///
     /// ``` self: QtC.QTextOption, tabStops: []QtC.QTextOption__Tab ```
     pub fn SetTabs(self: ?*anyopaque, tabStops: []QtC.QTextOption__Tab) void {
-        const tabStops_list = qtc.struct_libqt_list{
+        const tabStops_list = qtc.libqt_list{
             .len = tabStops.len,
             .data = @ptrCast(tabStops.ptr),
         };
@@ -142,7 +150,7 @@ pub const qtextoption = struct {
     ///
     /// ``` self: QtC.QTextOption, allocator: std.mem.Allocator ```
     pub fn Tabs(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QTextOption__Tab {
-        const _arr: qtc.struct_libqt_list = qtc.QTextOption_Tabs(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QTextOption_Tabs(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QTextOption__Tab, _arr.len) catch @panic("qtextoption.Tabs: Memory allocation failed");
         const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
@@ -225,14 +233,14 @@ pub const qtextoption__tab = struct {
         qtc.QTextOption__Tab_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption__tab.html#operator-eq-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QTextOption__Tab, other: QtC.QTextOption__Tab ```
     pub fn OperatorEqual(self: ?*anyopaque, other: ?*anyopaque) bool {
         return qtc.QTextOption__Tab_OperatorEqual(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption__tab.html#operator-not-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#operator-not-eq)
     ///
     /// ``` self: QtC.QTextOption__Tab, other: QtC.QTextOption__Tab ```
     pub fn OperatorNotEqual(self: ?*anyopaque, other: ?*anyopaque) bool {

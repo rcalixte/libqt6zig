@@ -121,17 +121,17 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn FullVersionList(self: ?*anyopaque, allocator: std.mem.Allocator) map_constu8_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QWebEngineClientHints_FullVersionList(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QWebEngineClientHints_FullVersionList(@ptrCast(self));
         var _ret: map_constu8_qtcqvariant = .empty;
         defer {
-            const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+            const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
                 qtc.libqt_free(_keys[i].data);
             }
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
         }
-        const _keys: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_map.keys));
+        const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
         const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
@@ -154,7 +154,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, arch: []const u8 ```
     pub fn SetArch(self: ?*anyopaque, arch: []const u8) void {
-        const arch_str = qtc.struct_libqt_string{
+        const arch_str = qtc.libqt_string{
             .len = arch.len,
             .data = arch.ptr,
         };
@@ -165,7 +165,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, platform: []const u8 ```
     pub fn SetPlatform(self: ?*anyopaque, platform: []const u8) void {
-        const platform_str = qtc.struct_libqt_string{
+        const platform_str = qtc.libqt_string{
             .len = platform.len,
             .data = platform.ptr,
         };
@@ -176,7 +176,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, model: []const u8 ```
     pub fn SetModel(self: ?*anyopaque, model: []const u8) void {
-        const model_str = qtc.struct_libqt_string{
+        const model_str = qtc.libqt_string{
             .len = model.len,
             .data = model.ptr,
         };
@@ -194,7 +194,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, fullVersion: []const u8 ```
     pub fn SetFullVersion(self: ?*anyopaque, fullVersion: []const u8) void {
-        const fullVersion_str = qtc.struct_libqt_string{
+        const fullVersion_str = qtc.libqt_string{
             .len = fullVersion.len,
             .data = fullVersion.ptr,
         };
@@ -205,7 +205,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, platformVersion: []const u8 ```
     pub fn SetPlatformVersion(self: ?*anyopaque, platformVersion: []const u8) void {
-        const platformVersion_str = qtc.struct_libqt_string{
+        const platformVersion_str = qtc.libqt_string{
             .len = platformVersion.len,
             .data = platformVersion.ptr,
         };
@@ -216,7 +216,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, bitness: []const u8 ```
     pub fn SetBitness(self: ?*anyopaque, bitness: []const u8) void {
-        const bitness_str = qtc.struct_libqt_string{
+        const bitness_str = qtc.libqt_string{
             .len = bitness.len,
             .data = bitness.ptr,
         };
@@ -227,7 +227,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, fullVersionList: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn SetFullVersionList(self: ?*anyopaque, fullVersionList: map_constu8_qtcqvariant, allocator: std.mem.Allocator) void {
-        const fullVersionList_keys = allocator.alloc(qtc.struct_libqt_string, fullVersionList.count()) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
+        const fullVersionList_keys = allocator.alloc(qtc.libqt_string, fullVersionList.count()) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_keys);
         const fullVersionList_values = allocator.alloc(QtC.QVariant, fullVersionList.count()) catch @panic("qwebengineclienthints.SetFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_values);
@@ -235,14 +235,14 @@ pub const qwebengineclienthints = struct {
         var fullVersionList_it = fullVersionList.iterator();
         while (fullVersionList_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            fullVersionList_keys[i] = qtc.struct_libqt_string{
+            fullVersionList_keys[i] = qtc.libqt_string{
                 .len = key.len,
                 .data = key.ptr,
             };
             fullVersionList_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const fullVersionList_map = qtc.struct_libqt_map{
+        const fullVersionList_map = qtc.libqt_map{
             .len = fullVersionList.count(),
             .keys = @ptrCast(fullVersionList_keys.ptr),
             .values = @ptrCast(fullVersionList_values.ptr),
@@ -341,7 +341,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -444,7 +444,7 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebengineclienthints.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -561,8 +561,8 @@ pub const qwebengineclienthints = struct {
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

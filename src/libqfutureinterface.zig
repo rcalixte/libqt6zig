@@ -135,7 +135,7 @@ pub const qfutureinterfacebase = struct {
     ///
     /// ``` self: QtC.QFutureInterfaceBase, progressValue: i32, progressText: []const u8 ```
     pub fn SetProgressValueAndText(self: ?*anyopaque, progressValue: i32, progressText: []const u8) void {
-        const progressText_str = qtc.struct_libqt_string{
+        const progressText_str = qtc.libqt_string{
             .len = progressText.len,
             .data = progressText.ptr,
         };

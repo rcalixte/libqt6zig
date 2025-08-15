@@ -8,6 +8,8 @@ pub const qcborerror = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#operator)
     ///
     /// ``` self: QtC.QCborError ```
+    ///
+    /// Returns: ``` qcborcommon_enums.Code ```
     pub fn ToQCborError__Code(self: ?*anyopaque) i64 {
         return qtc.QCborError_ToQCborError__Code(@ptrCast(self));
     }

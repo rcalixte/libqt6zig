@@ -74,8 +74,8 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator ```
     pub fn ApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QsciScintilla_ApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QsciScintilla_ApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -107,8 +107,8 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator ```
     pub fn QBaseApiContext(self: ?*anyopaque, pos: i32, context_start: *i32, last_word_start: *i32, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QsciScintilla_QBaseApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QsciScintilla_QBaseApiContext(@ptrCast(self), @intCast(pos), @ptrCast(context_start), @ptrCast(last_word_start));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -129,7 +129,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: i32 ```
     pub fn Annotate(self: ?*anyopaque, line: i32, text: []const u8, style: i32) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -140,7 +140,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: QtC.QsciStyle ```
     pub fn Annotate2(self: ?*anyopaque, line: i32, text: []const u8, style: ?*anyopaque) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -168,6 +168,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.AnnotationDisplay ```
     pub fn AnnotationDisplay(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_AnnotationDisplay(@ptrCast(self));
     }
@@ -210,6 +212,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.AutoCompletionSource ```
     pub fn AutoCompletionSource(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_AutoCompletionSource(@ptrCast(self));
     }
@@ -224,6 +228,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.AutoCompletionUseSingle ```
     pub fn AutoCompletionUseSingle(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_AutoCompletionUseSingle(@ptrCast(self));
     }
@@ -252,6 +258,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.BraceMatch ```
     pub fn BraceMatching(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_BraceMatching(@ptrCast(self));
     }
@@ -260,7 +268,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, start: i32, end: i32, allocator: std.mem.Allocator ```
     pub fn Bytes(self: ?*anyopaque, start: i32, end: i32, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QsciScintilla_Bytes(@ptrCast(self), @intCast(start), @intCast(end));
+        const _bytearray: qtc.libqt_string = qtc.QsciScintilla_Bytes(@ptrCast(self), @intCast(start), @intCast(end));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.Bytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -270,6 +278,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.CallTipsPosition ```
     pub fn CallTipsPosition(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_CallTipsPosition(@ptrCast(self));
     }
@@ -277,6 +287,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.CallTipsStyle ```
     pub fn CallTipsStyle(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_CallTipsStyle(@ptrCast(self));
     }
@@ -341,7 +353,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn ContractedFolds(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.struct_libqt_list = qtc.QsciScintilla_ContractedFolds(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QsciScintilla_ContractedFolds(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qsciscintilla.ContractedFolds: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -394,6 +406,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.EdgeMode ```
     pub fn EdgeMode(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_EdgeMode(@ptrCast(self));
     }
@@ -408,6 +422,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.EolMode ```
     pub fn EolMode(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_EolMode(@ptrCast(self));
     }
@@ -444,7 +460,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool ```
     pub fn FindFirst(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) bool {
-        const expr_str = qtc.struct_libqt_string{
+        const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
@@ -466,7 +482,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool ```
     pub fn QBaseFindFirst(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) bool {
-        const expr_str = qtc.struct_libqt_string{
+        const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
@@ -477,7 +493,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool ```
     pub fn FindFirstInSelection(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) bool {
-        const expr_str = qtc.struct_libqt_string{
+        const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
@@ -499,7 +515,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool ```
     pub fn QBaseFindFirstInSelection(self: ?*anyopaque, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) bool {
-        const expr_str = qtc.struct_libqt_string{
+        const expr_str = qtc.libqt_string{
             .len = expr.len,
             .data = expr.ptr,
         };
@@ -548,6 +564,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.FoldStyle ```
     pub fn Folding(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_Folding(@ptrCast(self));
     }
@@ -751,6 +769,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32 ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.MarginType ```
     pub fn MarginType(self: ?*anyopaque, margin: i32) i64 {
         return qtc.QsciScintilla_MarginType(@ptrCast(self), @intCast(margin));
     }
@@ -924,7 +944,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, replaceStr: []const u8 ```
     pub fn Replace(self: ?*anyopaque, replaceStr: []const u8) void {
-        const replaceStr_str = qtc.struct_libqt_string{
+        const replaceStr_str = qtc.libqt_string{
             .len = replaceStr.len,
             .data = replaceStr.ptr,
         };
@@ -946,7 +966,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, replaceStr: []const u8 ```
     pub fn QBaseReplace(self: ?*anyopaque, replaceStr: []const u8) void {
-        const replaceStr_str = qtc.struct_libqt_string{
+        const replaceStr_str = qtc.libqt_string{
             .len = replaceStr.len,
             .data = replaceStr.ptr,
         };
@@ -1021,7 +1041,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, separators: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetAutoCompletionWordSeparators(self: ?*anyopaque, separators: [][]const u8, allocator: std.mem.Allocator) void {
-        var separators_arr = allocator.alloc(qtc.struct_libqt_string, separators.len) catch @panic("qsciscintilla.SetAutoCompletionWordSeparators: Memory allocation failed");
+        var separators_arr = allocator.alloc(qtc.libqt_string, separators.len) catch @panic("qsciscintilla.SetAutoCompletionWordSeparators: Memory allocation failed");
         defer allocator.free(separators_arr);
         for (separators, 0..separators.len) |item, i| {
             separators_arr[i] = .{
@@ -1029,7 +1049,7 @@ pub const qsciscintilla = struct {
                 .data = item.ptr,
             };
         }
-        const separators_list = qtc.struct_libqt_list{
+        const separators_list = qtc.libqt_list{
             .len = separators.len,
             .data = separators_arr.ptr,
         };
@@ -1082,7 +1102,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, folds: []i32 ```
     pub fn SetContractedFolds(self: ?*anyopaque, folds: []i32) void {
-        const folds_list = qtc.struct_libqt_list{
+        const folds_list = qtc.libqt_list{
             .len = folds.len,
             .data = folds.ptr,
         };
@@ -1191,7 +1211,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: i32 ```
     pub fn SetMarginText(self: ?*anyopaque, line: i32, text: []const u8, style: i32) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1202,7 +1222,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, line: i32, text: []const u8, style: QtC.QsciStyle ```
     pub fn SetMarginText2(self: ?*anyopaque, line: i32, text: []const u8, style: ?*anyopaque) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1441,7 +1461,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, list: [][]const u8, allocator: std.mem.Allocator ```
     pub fn ShowUserList(self: ?*anyopaque, id: i32, list: [][]const u8, allocator: std.mem.Allocator) void {
-        var list_arr = allocator.alloc(qtc.struct_libqt_string, list.len) catch @panic("qsciscintilla.ShowUserList: Memory allocation failed");
+        var list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciscintilla.ShowUserList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i| {
             list_arr[i] = .{
@@ -1449,7 +1469,7 @@ pub const qsciscintilla = struct {
                 .data = item.ptr,
             };
         }
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list_arr.ptr,
         };
@@ -1466,6 +1486,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.TabDrawMode ```
     pub fn TabDrawMode(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_TabDrawMode(@ptrCast(self));
     }
@@ -1534,6 +1556,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.WhitespaceVisibility ```
     pub fn WhitespaceVisibility(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_WhitespaceVisibility(@ptrCast(self));
     }
@@ -1571,6 +1595,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.WrapMode ```
     pub fn WrapMode(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_WrapMode(@ptrCast(self));
     }
@@ -1578,6 +1604,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qsciscintilla_enums.WrapIndentMode ```
     pub fn WrapIndentMode(self: ?*anyopaque) i64 {
         return qtc.QsciScintilla_WrapIndentMode(@ptrCast(self));
     }
@@ -1593,7 +1621,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn Append(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1615,7 +1643,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn QBaseAppend(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1926,7 +1954,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn Insert(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1948,7 +1976,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn QBaseInsert(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1959,7 +1987,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8, line: i32, index: i32 ```
     pub fn InsertAt(self: ?*anyopaque, text: []const u8, line: i32, index: i32) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -1981,7 +2009,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8, line: i32, index: i32 ```
     pub fn QBaseInsertAt(self: ?*anyopaque, text: []const u8, line: i32, index: i32) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -2092,7 +2120,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn ReplaceSelectedText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -2114,7 +2142,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn QBaseReplaceSelectedText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3050,7 +3078,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, s: []const u8 ```
     pub fn SetMarginWidth2(self: ?*anyopaque, margin: i32, s: []const u8) void {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -3072,7 +3100,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, margin: i32, s: []const u8 ```
     pub fn QBaseSetMarginWidth2(self: ?*anyopaque, margin: i32, s: []const u8) void {
-        const s_str = qtc.struct_libqt_string{
+        const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
@@ -3283,7 +3311,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3305,7 +3333,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn QBaseSetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -3592,28 +3620,28 @@ pub const qsciscintilla = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, line: i32, index: i32, state: i32 ```
+    /// ``` self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn IndicatorClicked(self: ?*anyopaque, line: i32, index: i32, state: i64) void {
         qtc.QsciScintilla_IndicatorClicked(@ptrCast(self), @intCast(line), @intCast(index), @intCast(state));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, line: i32, index: i32, state: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnIndicatorClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, line: i32, index: i32, state: i32 ```
+    /// ``` self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn IndicatorReleased(self: ?*anyopaque, line: i32, index: i32, state: i64) void {
         qtc.QsciScintilla_IndicatorReleased(@ptrCast(self), @intCast(line), @intCast(index), @intCast(state));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, line: i32, index: i32, state: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, line: i32, index: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnIndicatorReleased(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_IndicatorReleased(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3634,28 +3662,28 @@ pub const qsciscintilla = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, margin: i32, line: i32, state: i32 ```
+    /// ``` self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MarginClicked(self: ?*anyopaque, margin: i32, line: i32, state: i64) void {
         qtc.QsciScintilla_MarginClicked(@ptrCast(self), @intCast(margin), @intCast(line), @intCast(state));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnMarginClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, margin: i32, line: i32, state: i32 ```
+    /// ``` self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier ```
     pub fn MarginRightClicked(self: ?*anyopaque, margin: i32, line: i32, state: i64) void {
         qtc.QsciScintilla_MarginRightClicked(@ptrCast(self), @intCast(margin), @intCast(line), @intCast(state));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: i32) callconv(.c) void ```
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, margin: i32, line: i32, state: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
     pub fn OnMarginRightClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i64) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_MarginRightClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3720,7 +3748,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, id: i32, stringVal: []const u8 ```
     pub fn UserListActivated(self: ?*anyopaque, id: i32, stringVal: []const u8) void {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };
@@ -4508,6 +4536,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#verticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
@@ -4544,6 +4574,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#horizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
     pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
@@ -4597,7 +4629,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#addScrollBarWidget)
     ///
-    /// ``` self: QtC.QsciScintilla, widget: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QsciScintilla, widget: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddScrollBarWidget(self: ?*anyopaque, widget: ?*anyopaque, alignment: i64) void {
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self), @ptrCast(widget), @intCast(alignment));
     }
@@ -4606,9 +4638,9 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#scrollBarWidgets)
     ///
-    /// ``` self: QtC.QsciScintilla, alignment: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QsciScintilla, alignment: flag of qnamespace_enums.AlignmentFlag, allocator: std.mem.Allocator ```
     pub fn ScrollBarWidgets(self: ?*anyopaque, alignment: i64, allocator: std.mem.Allocator) []QtC.QWidget {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self), @intCast(alignment));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWidget, _arr.len) catch @panic("qsciscintilla.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
@@ -4648,6 +4680,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#sizeAdjustPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
     pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
@@ -4693,6 +4727,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShape)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qframe_enums.Shape ```
     pub fn FrameShape(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
@@ -4711,6 +4747,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#frameShadow)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qframe_enums.Shadow ```
     pub fn FrameShadow(self: ?*anyopaque) i64 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
@@ -4864,6 +4902,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
@@ -5422,6 +5462,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
@@ -5440,6 +5482,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
@@ -5648,7 +5692,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = qtc.struct_libqt_string{
+        const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
@@ -5661,7 +5705,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = qtc.struct_libqt_string{
+        const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
@@ -5718,7 +5762,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = qtc.struct_libqt_string{
+        const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
@@ -5744,7 +5788,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = qtc.struct_libqt_string{
+        const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
@@ -5770,7 +5814,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -5823,7 +5867,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -5867,7 +5911,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -5893,7 +5937,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -5932,7 +5976,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -5958,7 +6002,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -5979,6 +6023,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
@@ -6087,6 +6133,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
@@ -6141,6 +6189,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
@@ -6511,7 +6561,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -6524,7 +6574,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = qtc.struct_libqt_string{
+        const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
@@ -6599,6 +6649,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
@@ -6607,7 +6659,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.QsciScintilla, state: i32 ```
+    /// ``` self: QtC.QsciScintilla, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
@@ -6616,7 +6668,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.QsciScintilla, state: i32 ```
+    /// ``` self: QtC.QsciScintilla, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
@@ -6733,7 +6785,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.QsciScintilla, parent: QtC.QWidget, f: i32 ```
+    /// ``` self: QtC.QsciScintilla, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
@@ -6816,7 +6868,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -6829,7 +6881,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -6860,7 +6912,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qsciscintilla.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -6874,7 +6926,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -6887,7 +6939,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -6900,7 +6952,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -6913,7 +6965,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -6933,7 +6985,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QsciScintilla, typeVal: i32 ```
+    /// ``` self: QtC.QsciScintilla, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -6943,6 +6995,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
@@ -6960,7 +7014,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.QsciScintilla, typeVal: i32 ```
+    /// ``` self: QtC.QsciScintilla, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -6970,6 +7024,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
@@ -7115,7 +7171,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -7155,7 +7211,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = qtc.struct_libqt_string{
+        const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
@@ -7194,6 +7250,8 @@ pub const qsciscintilla = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QsciScintilla ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
@@ -7202,7 +7260,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QsciScintilla, hints: i32 ```
+    /// ``` self: QtC.QsciScintilla, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -7229,7 +7287,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QsciScintilla, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QsciScintilla, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -7256,7 +7314,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QsciScintilla, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QsciScintilla, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -7274,7 +7332,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.QsciScintilla, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QsciScintilla, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -7337,7 +7395,7 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
@@ -7361,7 +7419,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -7464,7 +7522,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsciscintilla.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -7572,8 +7630,8 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -7868,7 +7926,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: bool, allocator: std.mem.Allocator ```
     pub fn FromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QsciScintilla_FromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
+        const _bytearray: qtc.libqt_string = qtc.QsciScintilla_FromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -7883,7 +7941,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: bool, allocator: std.mem.Allocator ```
     pub fn QBaseFromMimeData(self: ?*anyopaque, source: ?*anyopaque, rectangular: *bool, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QsciScintilla_QBaseFromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
+        const _bytearray: qtc.libqt_string = qtc.QsciScintilla_QBaseFromMimeData(@ptrCast(self), @ptrCast(source), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -7909,7 +7967,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []u8, rectangular: bool ```
     pub fn ToMimeData(self: ?*anyopaque, text: []u8, rectangular: bool) QtC.QMimeData {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -7924,7 +7982,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, text: []u8, rectangular: bool ```
     pub fn QBaseToMimeData(self: ?*anyopaque, text: []u8, rectangular: bool) QtC.QMimeData {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -9171,7 +9229,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -9186,7 +9244,7 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };

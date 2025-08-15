@@ -91,7 +91,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, prefix: []const u8 ```
     pub fn SetPrefix(self: ?*anyopaque, prefix: []const u8) void {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -113,7 +113,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, suffix: []const u8 ```
     pub fn SetSuffix(self: ?*anyopaque, suffix: []const u8) void {
-        const suffix_str = qtc.struct_libqt_string{
+        const suffix_str = qtc.libqt_string{
             .len = suffix.len,
             .data = suffix.ptr,
         };
@@ -183,6 +183,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qspinbox.html#stepType)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qabstractspinbox_enums.StepType ```
     pub fn StepType(self: ?*anyopaque) i64 {
         return qtc.QSpinBox_StepType(@ptrCast(self));
     }
@@ -236,8 +238,10 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qspinbox.html#validate)
     ///
     /// ``` self: QtC.QSpinBox, input: []const u8, pos: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -258,8 +262,10 @@ pub const qspinbox = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSpinBox, input: []const u8, pos: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -270,7 +276,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, text: []const u8 ```
     pub fn ValueFromText(self: ?*anyopaque, text: []const u8) i32 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -292,7 +298,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, text: []const u8 ```
     pub fn QBaseValueFromText(self: ?*anyopaque, text: []const u8) i32 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -336,7 +342,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, str: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, str: []const u8) void {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -358,7 +364,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, str: []const u8 ```
     pub fn QBaseFixup(self: ?*anyopaque, str: []const u8) void {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -390,7 +396,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, param1: []const u8 ```
     pub fn TextChanged(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -435,6 +441,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#buttonSymbols)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qabstractspinbox_enums.ButtonSymbols ```
     pub fn ButtonSymbols(self: ?*anyopaque) i64 {
         return qtc.QAbstractSpinBox_ButtonSymbols(@ptrCast(self));
     }
@@ -462,6 +470,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#correctionMode)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qabstractspinbox_enums.CorrectionMode ```
     pub fn CorrectionMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractSpinBox_CorrectionMode(@ptrCast(self));
     }
@@ -507,7 +517,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, txt: []const u8 ```
     pub fn SetSpecialValueText(self: ?*anyopaque, txt: []const u8) void {
-        const txt_str = qtc.struct_libqt_string{
+        const txt_str = qtc.libqt_string{
             .len = txt.len,
             .data = txt.ptr,
         };
@@ -572,7 +582,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setAlignment)
     ///
-    /// ``` self: QtC.QSpinBox, flag: i32 ```
+    /// ``` self: QtC.QSpinBox, flag: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, flag: i64) void {
         qtc.QAbstractSpinBox_SetAlignment(@ptrCast(self), @intCast(flag));
     }
@@ -582,6 +592,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#alignment)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QAbstractSpinBox_Alignment(@ptrCast(self));
     }
@@ -780,6 +792,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
@@ -1338,6 +1352,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
@@ -1356,6 +1372,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
@@ -1573,7 +1591,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = qtc.struct_libqt_string{
+        const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
@@ -1586,7 +1604,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = qtc.struct_libqt_string{
+        const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
@@ -1643,7 +1661,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = qtc.struct_libqt_string{
+        const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
@@ -1669,7 +1687,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = qtc.struct_libqt_string{
+        const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
@@ -1695,7 +1713,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -1748,7 +1766,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -1792,7 +1810,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -1818,7 +1836,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -1857,7 +1875,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1883,7 +1901,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -1904,6 +1922,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
@@ -2012,6 +2032,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
@@ -2066,6 +2088,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
@@ -2436,7 +2460,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qspinbox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -2449,7 +2473,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = qtc.struct_libqt_string{
+        const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
@@ -2524,6 +2548,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
@@ -2532,7 +2558,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.QSpinBox, state: i32 ```
+    /// ``` self: QtC.QSpinBox, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
@@ -2541,7 +2567,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.QSpinBox, state: i32 ```
+    /// ``` self: QtC.QSpinBox, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
@@ -2658,7 +2684,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.QSpinBox, parent: QtC.QWidget, f: i32 ```
+    /// ``` self: QtC.QSpinBox, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
@@ -2741,7 +2767,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -2754,7 +2780,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -2785,7 +2811,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qspinbox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -2799,7 +2825,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -2812,7 +2838,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -2825,7 +2851,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -2838,7 +2864,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -2858,7 +2884,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QSpinBox, typeVal: i32 ```
+    /// ``` self: QtC.QSpinBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -2868,6 +2894,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
@@ -2885,7 +2913,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.QSpinBox, typeVal: i32 ```
+    /// ``` self: QtC.QSpinBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -2895,6 +2923,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
@@ -3040,7 +3070,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -3080,7 +3110,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = qtc.struct_libqt_string{
+        const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
@@ -3119,6 +3149,8 @@ pub const qspinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
@@ -3127,7 +3159,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QSpinBox, hints: i32 ```
+    /// ``` self: QtC.QSpinBox, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -3154,7 +3186,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QSpinBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QSpinBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -3181,7 +3213,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QSpinBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QSpinBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -3199,7 +3231,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.QSpinBox, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QSpinBox, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -3262,7 +3294,7 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
@@ -3286,7 +3318,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -3389,7 +3421,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qspinbox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -3497,8 +3529,8 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -4485,6 +4517,8 @@ pub const qspinbox = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` flag of qabstractspinbox_enums.StepEnabledFlag ```
     pub fn StepEnabled(self: ?*anyopaque) i64 {
         return qtc.QSpinBox_StepEnabled(@ptrCast(self));
     }
@@ -4496,6 +4530,8 @@ pub const qspinbox = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSpinBox ```
+    ///
+    /// Returns: ``` flag of qabstractspinbox_enums.StepEnabledFlag ```
     pub fn QBaseStepEnabled(self: ?*anyopaque) i64 {
         return qtc.QSpinBox_QBaseStepEnabled(@ptrCast(self));
     }
@@ -5014,7 +5050,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -5029,7 +5065,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -5911,7 +5947,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, prefix: []const u8 ```
     pub fn SetPrefix(self: ?*anyopaque, prefix: []const u8) void {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -5933,7 +5969,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, suffix: []const u8 ```
     pub fn SetSuffix(self: ?*anyopaque, suffix: []const u8) void {
-        const suffix_str = qtc.struct_libqt_string{
+        const suffix_str = qtc.libqt_string{
             .len = suffix.len,
             .data = suffix.ptr,
         };
@@ -6003,6 +6039,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublespinbox.html#stepType)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qabstractspinbox_enums.StepType ```
     pub fn StepType(self: ?*anyopaque) i64 {
         return qtc.QDoubleSpinBox_StepType(@ptrCast(self));
     }
@@ -6031,8 +6069,10 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublespinbox.html#validate)
     ///
     /// ``` self: QtC.QDoubleSpinBox, input: []const u8, pos: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -6053,8 +6093,10 @@ pub const qdoublespinbox = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QDoubleSpinBox, input: []const u8, pos: *i32 ```
+    ///
+    /// Returns: ``` qvalidator_enums.State ```
     pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
-        const input_str = qtc.struct_libqt_string{
+        const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
@@ -6065,7 +6107,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, text: []const u8 ```
     pub fn ValueFromText(self: ?*anyopaque, text: []const u8) f64 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -6087,7 +6129,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, text: []const u8 ```
     pub fn QBaseValueFromText(self: ?*anyopaque, text: []const u8) f64 {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -6131,7 +6173,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, str: []const u8 ```
     pub fn Fixup(self: ?*anyopaque, str: []const u8) void {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -6153,7 +6195,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, str: []const u8 ```
     pub fn QBaseFixup(self: ?*anyopaque, str: []const u8) void {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -6185,7 +6227,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, param1: []const u8 ```
     pub fn TextChanged(self: ?*anyopaque, param1: []const u8) void {
-        const param1_str = qtc.struct_libqt_string{
+        const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
@@ -6230,6 +6272,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#buttonSymbols)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qabstractspinbox_enums.ButtonSymbols ```
     pub fn ButtonSymbols(self: ?*anyopaque) i64 {
         return qtc.QAbstractSpinBox_ButtonSymbols(@ptrCast(self));
     }
@@ -6257,6 +6301,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#correctionMode)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qabstractspinbox_enums.CorrectionMode ```
     pub fn CorrectionMode(self: ?*anyopaque) i64 {
         return qtc.QAbstractSpinBox_CorrectionMode(@ptrCast(self));
     }
@@ -6302,7 +6348,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, txt: []const u8 ```
     pub fn SetSpecialValueText(self: ?*anyopaque, txt: []const u8) void {
-        const txt_str = qtc.struct_libqt_string{
+        const txt_str = qtc.libqt_string{
             .len = txt.len,
             .data = txt.ptr,
         };
@@ -6367,7 +6413,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setAlignment)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, flag: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, flag: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, flag: i64) void {
         qtc.QAbstractSpinBox_SetAlignment(@ptrCast(self), @intCast(flag));
     }
@@ -6377,6 +6423,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#alignment)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QAbstractSpinBox_Alignment(@ptrCast(self));
     }
@@ -6575,6 +6623,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowModality)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowModality ```
     pub fn WindowModality(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
@@ -7133,6 +7183,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#backgroundRole)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn BackgroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
@@ -7151,6 +7203,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#foregroundRole)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qpalette_enums.ColorRole ```
     pub fn ForegroundRole(self: ?*anyopaque) i64 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
@@ -7368,7 +7422,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, windowTitle: []const u8 ```
     pub fn SetWindowTitle(self: ?*anyopaque, windowTitle: []const u8) void {
-        const windowTitle_str = qtc.struct_libqt_string{
+        const windowTitle_str = qtc.libqt_string{
             .len = windowTitle.len,
             .data = windowTitle.ptr,
         };
@@ -7381,7 +7435,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, styleSheet: []const u8 ```
     pub fn SetStyleSheet(self: ?*anyopaque, styleSheet: []const u8) void {
-        const styleSheet_str = qtc.struct_libqt_string{
+        const styleSheet_str = qtc.libqt_string{
             .len = styleSheet.len,
             .data = styleSheet.ptr,
         };
@@ -7438,7 +7492,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, windowIconText: []const u8 ```
     pub fn SetWindowIconText(self: ?*anyopaque, windowIconText: []const u8) void {
-        const windowIconText_str = qtc.struct_libqt_string{
+        const windowIconText_str = qtc.libqt_string{
             .len = windowIconText.len,
             .data = windowIconText.ptr,
         };
@@ -7464,7 +7518,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, windowRole: []const u8 ```
     pub fn SetWindowRole(self: ?*anyopaque, windowRole: []const u8) void {
-        const windowRole_str = qtc.struct_libqt_string{
+        const windowRole_str = qtc.libqt_string{
             .len = windowRole.len,
             .data = windowRole.ptr,
         };
@@ -7490,7 +7544,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, filePath: []const u8 ```
     pub fn SetWindowFilePath(self: ?*anyopaque, filePath: []const u8) void {
-        const filePath_str = qtc.struct_libqt_string{
+        const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
@@ -7543,7 +7597,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -7587,7 +7641,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -7613,7 +7667,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -7652,7 +7706,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, name: []const u8 ```
     pub fn SetAccessibleName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -7678,7 +7732,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, description: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -7699,6 +7753,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#layoutDirection)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.LayoutDirection ```
     pub fn LayoutDirection(self: ?*anyopaque) i64 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
@@ -7807,6 +7863,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#focusPolicy)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.FocusPolicy ```
     pub fn FocusPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
@@ -7861,6 +7919,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#contextMenuPolicy)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
     pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
@@ -8231,7 +8291,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, allocator: std.mem.Allocator ```
     pub fn SaveGeometry(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdoublespinbox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -8244,7 +8304,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, geometry: []u8 ```
     pub fn RestoreGeometry(self: ?*anyopaque, geometry: []u8) bool {
-        const geometry_str = qtc.struct_libqt_string{
+        const geometry_str = qtc.libqt_string{
             .len = geometry.len,
             .data = geometry.ptr,
         };
@@ -8319,6 +8379,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowState)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowState ```
     pub fn WindowState(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowState(@ptrCast(self));
     }
@@ -8327,7 +8389,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowState)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, state: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, state: flag of qnamespace_enums.WindowState ```
     pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_SetWindowState(@ptrCast(self), @intCast(state));
     }
@@ -8336,7 +8398,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowState)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, state: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, state: flag of qnamespace_enums.WindowState ```
     pub fn OverrideWindowState(self: ?*anyopaque, state: i64) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self), @intCast(state));
     }
@@ -8453,7 +8515,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setParent)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, parent: QtC.QWidget, f: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
     pub fn SetParent2(self: ?*anyopaque, parent: ?*anyopaque, f: i64) void {
         qtc.QWidget_SetParent2(@ptrCast(self), @ptrCast(parent), @intCast(f));
     }
@@ -8536,7 +8598,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, actions: []QtC.QAction ```
     pub fn AddActions(self: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -8549,7 +8611,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, before: QtC.QAction, actions: []QtC.QAction ```
     pub fn InsertActions(self: ?*anyopaque, before: ?*anyopaque, actions: []?*anyopaque) void {
-        const actions_list = qtc.struct_libqt_list{
+        const actions_list = qtc.libqt_list{
             .len = actions.len,
             .data = @ptrCast(actions.ptr),
         };
@@ -8580,7 +8642,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, allocator: std.mem.Allocator ```
     pub fn Actions(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAction {
-        const _arr: qtc.struct_libqt_list = qtc.QWidget_Actions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAction, _arr.len) catch @panic("qdoublespinbox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
@@ -8594,7 +8656,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, text: []const u8 ```
     pub fn AddAction2(self: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -8607,7 +8669,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, icon: QtC.QIcon, text: []const u8 ```
     pub fn AddAction3(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -8620,7 +8682,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction4(self: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -8633,7 +8695,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, icon: QtC.QIcon, text: []const u8, shortcut: QtC.QKeySequence ```
     pub fn AddAction5(self: ?*anyopaque, icon: ?*anyopaque, text: []const u8, shortcut: ?*anyopaque) QtC.QAction {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -8653,7 +8715,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowFlags)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, typeVal: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn SetWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -8663,6 +8725,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowFlags)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
     pub fn WindowFlags(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowFlags(@ptrCast(self));
     }
@@ -8680,7 +8744,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#overrideWindowFlags)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, typeVal: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, typeVal: flag of qnamespace_enums.WindowType ```
     pub fn OverrideWindowFlags(self: ?*anyopaque, typeVal: i64) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self), @intCast(typeVal));
     }
@@ -8690,6 +8754,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowType)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` qnamespace_enums.WindowType ```
     pub fn WindowType(self: ?*anyopaque) i64 {
         return qtc.QWidget_WindowType(@ptrCast(self));
     }
@@ -8835,7 +8901,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, title: []const u8 ```
     pub fn WindowTitleChanged(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -8875,7 +8941,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, iconText: []const u8 ```
     pub fn WindowIconTextChanged(self: ?*anyopaque, iconText: []const u8) void {
-        const iconText_str = qtc.struct_libqt_string{
+        const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
@@ -8914,6 +8980,8 @@ pub const qdoublespinbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodHints)
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.InputMethodHint ```
     pub fn InputMethodHints(self: ?*anyopaque) i64 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self));
     }
@@ -8922,7 +8990,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setInputMethodHints)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, hints: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, hints: flag of qnamespace_enums.InputMethodHint ```
     pub fn SetInputMethodHints(self: ?*anyopaque, hints: i64) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self), @intCast(hints));
     }
@@ -8949,7 +9017,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, target: QtC.QPaintDevice, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render4(self: ?*anyopaque, target: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render4(@ptrCast(self), @ptrCast(target), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -8976,7 +9044,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#render)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, painter: QtC.QPainter, targetOffset: QtC.QPoint, sourceRegion: QtC.QRegion, renderFlags: flag of qwidget_enums.RenderFlag ```
     pub fn Render42(self: ?*anyopaque, painter: ?*anyopaque, targetOffset: ?*anyopaque, sourceRegion: ?*anyopaque, renderFlags: i64) void {
         qtc.QWidget_Render42(@ptrCast(self), @ptrCast(painter), @ptrCast(targetOffset), @ptrCast(sourceRegion), @intCast(renderFlags));
     }
@@ -8994,7 +9062,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabGesture)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, typeVal: qnamespace_enums.GestureType, flags: i32 ```
+    /// ``` self: QtC.QDoubleSpinBox, typeVal: qnamespace_enums.GestureType, flags: flag of qnamespace_enums.GestureFlag ```
     pub fn GrabGesture2(self: ?*anyopaque, typeVal: i64, flags: i64) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self), @intCast(typeVal), @intCast(flags));
     }
@@ -9057,7 +9125,7 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
     ///
-    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: i32 ```
+    /// ``` window: QtC.QWindow, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
     pub fn CreateWindowContainer3(window: ?*anyopaque, parent: ?*anyopaque, flags: i64) QtC.QWidget {
         return qtc.QWidget_CreateWindowContainer3(@ptrCast(window), @ptrCast(parent), @intCast(flags));
     }
@@ -9081,7 +9149,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -9184,7 +9252,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdoublespinbox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -9292,8 +9360,8 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -10313,6 +10381,8 @@ pub const qdoublespinbox = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` flag of qabstractspinbox_enums.StepEnabledFlag ```
     pub fn StepEnabled(self: ?*anyopaque) i64 {
         return qtc.QDoubleSpinBox_StepEnabled(@ptrCast(self));
     }
@@ -10324,6 +10394,8 @@ pub const qdoublespinbox = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QDoubleSpinBox ```
+    ///
+    /// Returns: ``` flag of qabstractspinbox_enums.StepEnabledFlag ```
     pub fn QBaseStepEnabled(self: ?*anyopaque) i64 {
         return qtc.QDoubleSpinBox_QBaseStepEnabled(@ptrCast(self));
     }
@@ -10842,7 +10914,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn NativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -10857,7 +10929,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn QBaseNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };

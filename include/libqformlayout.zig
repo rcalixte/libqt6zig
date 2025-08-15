@@ -4,6 +4,7 @@ const qformlayout_enums = enums;
 const qlayout_enums = @import("libqlayout.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
+const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qformlayout.html
@@ -76,6 +77,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#fieldGrowthPolicy)
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` qformlayout_enums.FieldGrowthPolicy ```
     pub fn FieldGrowthPolicy(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_FieldGrowthPolicy(@ptrCast(self));
     }
@@ -90,13 +93,15 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#rowWrapPolicy)
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` qformlayout_enums.RowWrapPolicy ```
     pub fn RowWrapPolicy(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_RowWrapPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setLabelAlignment)
     ///
-    /// ``` self: QtC.QFormLayout, alignment: i32 ```
+    /// ``` self: QtC.QFormLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetLabelAlignment(self: ?*anyopaque, alignment: i64) void {
         qtc.QFormLayout_SetLabelAlignment(@ptrCast(self), @intCast(alignment));
     }
@@ -104,13 +109,15 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#labelAlignment)
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn LabelAlignment(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_LabelAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setFormAlignment)
     ///
-    /// ``` self: QtC.QFormLayout, alignment: i32 ```
+    /// ``` self: QtC.QFormLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetFormAlignment(self: ?*anyopaque, alignment: i64) void {
         qtc.QFormLayout_SetFormAlignment(@ptrCast(self), @intCast(alignment));
     }
@@ -118,6 +125,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#formAlignment)
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn FormAlignment(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_FormAlignment(@ptrCast(self));
     }
@@ -218,7 +227,7 @@ pub const qformlayout = struct {
     ///
     /// ``` self: QtC.QFormLayout, labelText: []const u8, field: QtC.QWidget ```
     pub fn AddRow3(self: ?*anyopaque, labelText: []const u8, field: ?*anyopaque) void {
-        const labelText_str = qtc.struct_libqt_string{
+        const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
         };
@@ -229,7 +238,7 @@ pub const qformlayout = struct {
     ///
     /// ``` self: QtC.QFormLayout, labelText: []const u8, field: QtC.QLayout ```
     pub fn AddRow4(self: ?*anyopaque, labelText: []const u8, field: ?*anyopaque) void {
-        const labelText_str = qtc.struct_libqt_string{
+        const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
         };
@@ -268,7 +277,7 @@ pub const qformlayout = struct {
     ///
     /// ``` self: QtC.QFormLayout, row: i32, labelText: []const u8, field: QtC.QWidget ```
     pub fn InsertRow3(self: ?*anyopaque, row: i32, labelText: []const u8, field: ?*anyopaque) void {
-        const labelText_str = qtc.struct_libqt_string{
+        const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
         };
@@ -279,7 +288,7 @@ pub const qformlayout = struct {
     ///
     /// ``` self: QtC.QFormLayout, row: i32, labelText: []const u8, field: QtC.QLayout ```
     pub fn InsertRow4(self: ?*anyopaque, row: i32, labelText: []const u8, field: ?*anyopaque) void {
-        const labelText_str = qtc.struct_libqt_string{
+        const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
         };
@@ -654,6 +663,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#expandingDirections)
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_ExpandingDirections(@ptrCast(self));
     }
@@ -672,6 +683,8 @@ pub const qformlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -792,7 +805,7 @@ pub const qformlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QFormLayout, w: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QFormLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
@@ -801,7 +814,7 @@ pub const qformlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QFormLayout, l: QtC.QLayout, alignment: i32 ```
+    /// ``` self: QtC.QFormLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
@@ -820,6 +833,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` qlayout_enums.SizeConstraint ```
     pub fn SizeConstraint(self: ?*anyopaque) i64 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
@@ -1018,7 +1033,7 @@ pub const qformlayout = struct {
     ///
     /// ``` self: QtC.QFormLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1121,7 +1136,7 @@ pub const qformlayout = struct {
     ///
     /// ``` self: QtC.QFormLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qformlayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1238,8 +1253,8 @@ pub const qformlayout = struct {
     ///
     /// ``` self: QtC.QFormLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1381,6 +1396,8 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -1524,6 +1541,8 @@ pub const qformlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_ControlTypes(@ptrCast(self));
     }
@@ -1535,6 +1554,8 @@ pub const qformlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QFormLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QFormLayout_QBaseControlTypes(@ptrCast(self));
     }
@@ -1556,7 +1577,7 @@ pub const qformlayout = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QFormLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QFormLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QFormLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -1567,7 +1588,7 @@ pub const qformlayout = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QFormLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QFormLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QFormLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -1578,7 +1599,7 @@ pub const qformlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFormLayout, slot: fn (self: QtC.QFormLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ``` self: QtC.QFormLayout, slot: fn (self: QtC.QFormLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
     pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) QtC.QLayoutItem) void {
         qtc.QFormLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }

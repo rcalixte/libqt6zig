@@ -252,6 +252,8 @@ pub const qeventpoint = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qeventpoint.html#state)
     ///
     /// ``` self: QtC.QEventPoint ```
+    ///
+    /// Returns: ``` qeventpoint_enums.State ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QEventPoint_State(@ptrCast(self));
     }

@@ -17,7 +17,7 @@ pub const qstatictext = struct {
     ///
     /// ``` text: []const u8 ```
     pub fn New2(text: []const u8) QtC.QStaticText {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -50,7 +50,7 @@ pub const qstatictext = struct {
     ///
     /// ``` self: QtC.QStaticText, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -78,6 +78,8 @@ pub const qstatictext = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#textFormat)
     ///
     /// ``` self: QtC.QStaticText ```
+    ///
+    /// Returns: ``` qnamespace_enums.TextFormat ```
     pub fn TextFormat(self: ?*anyopaque) i64 {
         return qtc.QStaticText_TextFormat(@ptrCast(self));
     }
@@ -134,6 +136,8 @@ pub const qstatictext = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#performanceHint)
     ///
     /// ``` self: QtC.QStaticText ```
+    ///
+    /// Returns: ``` qstatictext_enums.PerformanceHint ```
     pub fn PerformanceHint(self: ?*anyopaque) i64 {
         return qtc.QStaticText_PerformanceHint(@ptrCast(self));
     }

@@ -70,6 +70,8 @@ pub const qpixelformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#colorModel)
     ///
     /// ``` self: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qpixelformat_enums.ColorModel ```
     pub fn ColorModel(self: ?*anyopaque) i64 {
         return qtc.QPixelFormat_ColorModel(@ptrCast(self));
     }
@@ -175,6 +177,8 @@ pub const qpixelformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#alphaUsage)
     ///
     /// ``` self: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qpixelformat_enums.AlphaUsage ```
     pub fn AlphaUsage(self: ?*anyopaque) i64 {
         return qtc.QPixelFormat_AlphaUsage(@ptrCast(self));
     }
@@ -182,6 +186,8 @@ pub const qpixelformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#alphaPosition)
     ///
     /// ``` self: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qpixelformat_enums.AlphaPosition ```
     pub fn AlphaPosition(self: ?*anyopaque) i64 {
         return qtc.QPixelFormat_AlphaPosition(@ptrCast(self));
     }
@@ -189,6 +195,8 @@ pub const qpixelformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#premultiplied)
     ///
     /// ``` self: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qpixelformat_enums.AlphaPremultiplied ```
     pub fn Premultiplied(self: ?*anyopaque) i64 {
         return qtc.QPixelFormat_Premultiplied(@ptrCast(self));
     }
@@ -196,6 +204,8 @@ pub const qpixelformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#typeInterpretation)
     ///
     /// ``` self: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qpixelformat_enums.TypeInterpretation ```
     pub fn TypeInterpretation(self: ?*anyopaque) i64 {
         return qtc.QPixelFormat_TypeInterpretation(@ptrCast(self));
     }
@@ -203,6 +213,8 @@ pub const qpixelformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#byteOrder)
     ///
     /// ``` self: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qpixelformat_enums.ByteOrder ```
     pub fn ByteOrder(self: ?*anyopaque) i64 {
         return qtc.QPixelFormat_ByteOrder(@ptrCast(self));
     }
@@ -210,6 +222,8 @@ pub const qpixelformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixelformat.html#yuvLayout)
     ///
     /// ``` self: QtC.QPixelFormat ```
+    ///
+    /// Returns: ``` qpixelformat_enums.YUVLayout ```
     pub fn YuvLayout(self: ?*anyopaque) i64 {
         return qtc.QPixelFormat_YuvLayout(@ptrCast(self));
     }

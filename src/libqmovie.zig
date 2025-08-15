@@ -26,7 +26,7 @@ pub const qmovie = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New3(fileName: []const u8) QtC.QMovie {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -45,7 +45,7 @@ pub const qmovie = struct {
     ///
     /// ``` device: QtC.QIODevice, format: []u8 ```
     pub fn New5(device: ?*anyopaque, format: []u8) QtC.QMovie {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -57,7 +57,7 @@ pub const qmovie = struct {
     ///
     /// ``` device: QtC.QIODevice, format: []u8, parent: QtC.QObject ```
     pub fn New6(device: ?*anyopaque, format: []u8, parent: ?*anyopaque) QtC.QMovie {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -69,11 +69,11 @@ pub const qmovie = struct {
     ///
     /// ``` fileName: []const u8, format: []u8 ```
     pub fn New7(fileName: []const u8, format: []u8) QtC.QMovie {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -85,11 +85,11 @@ pub const qmovie = struct {
     ///
     /// ``` fileName: []const u8, format: []u8, parent: QtC.QObject ```
     pub fn New8(fileName: []const u8, format: []u8, parent: ?*anyopaque) QtC.QMovie {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -145,8 +145,8 @@ pub const qmovie = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn SupportedFormats(allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QMovie_SupportedFormats();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QMovie_SupportedFormats();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -181,7 +181,7 @@ pub const qmovie = struct {
     ///
     /// ``` self: QtC.QMovie, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -203,7 +203,7 @@ pub const qmovie = struct {
     ///
     /// ``` self: QtC.QMovie, format: []u8 ```
     pub fn SetFormat(self: ?*anyopaque, format: []u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -214,7 +214,7 @@ pub const qmovie = struct {
     ///
     /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn Format(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QMovie_Format(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QMovie_Format(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmovie.Format: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -238,6 +238,8 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#state)
     ///
     /// ``` self: QtC.QMovie ```
+    ///
+    /// Returns: ``` qmovie_enums.MovieState ```
     pub fn State(self: ?*anyopaque) i64 {
         return qtc.QMovie_State(@ptrCast(self));
     }
@@ -273,6 +275,8 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#lastError)
     ///
     /// ``` self: QtC.QMovie ```
+    ///
+    /// Returns: ``` qimagereader_enums.ImageReaderError ```
     pub fn LastError(self: ?*anyopaque) i64 {
         return qtc.QMovie_LastError(@ptrCast(self));
     }
@@ -347,6 +351,8 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#cacheMode)
     ///
     /// ``` self: QtC.QMovie ```
+    ///
+    /// Returns: ``` qmovie_enums.CacheMode ```
     pub fn CacheMode(self: ?*anyopaque) i64 {
         return qtc.QMovie_CacheMode(@ptrCast(self));
     }
@@ -536,7 +542,7 @@ pub const qmovie = struct {
     ///
     /// ``` self: QtC.QMovie, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -639,7 +645,7 @@ pub const qmovie = struct {
     ///
     /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qmovie.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -756,8 +762,8 @@ pub const qmovie = struct {
     ///
     /// ``` self: QtC.QMovie, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

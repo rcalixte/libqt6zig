@@ -14,7 +14,7 @@ pub const qpdfwriter = struct {
     ///
     /// ``` filename: []const u8 ```
     pub fn New(filename: []const u8) QtC.QPdfWriter {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -83,6 +83,8 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#pdfVersion)
     ///
     /// ``` self: QtC.QPdfWriter ```
+    ///
+    /// Returns: ``` qpagedpaintdevice_enums.PdfVersion ```
     pub fn PdfVersion(self: ?*anyopaque) i64 {
         return qtc.QPdfWriter_PdfVersion(@ptrCast(self));
     }
@@ -102,7 +104,7 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -124,7 +126,7 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, creator: []const u8 ```
     pub fn SetCreator(self: ?*anyopaque, creator: []const u8) void {
-        const creator_str = qtc.struct_libqt_string{
+        const creator_str = qtc.libqt_string{
             .len = creator.len,
             .data = creator.ptr,
         };
@@ -188,7 +190,7 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, xmpMetadata: []u8 ```
     pub fn SetDocumentXmpMetadata(self: ?*anyopaque, xmpMetadata: []u8) void {
-        const xmpMetadata_str = qtc.struct_libqt_string{
+        const xmpMetadata_str = qtc.libqt_string{
             .len = xmpMetadata.len,
             .data = xmpMetadata.ptr,
         };
@@ -199,7 +201,7 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, allocator: std.mem.Allocator ```
     pub fn DocumentXmpMetadata(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QPdfWriter_DocumentXmpMetadata(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QPdfWriter_DocumentXmpMetadata(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qpdfwriter.DocumentXmpMetadata: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -210,11 +212,11 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, fileName: []const u8, data: []u8 ```
     pub fn AddFileAttachment(self: ?*anyopaque, fileName: []const u8, data: []u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -224,6 +226,8 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#colorModel)
     ///
     /// ``` self: QtC.QPdfWriter ```
+    ///
+    /// Returns: ``` qpdfwriter_enums.ColorModel ```
     pub fn ColorModel(self: ?*anyopaque) i64 {
         return qtc.QPdfWriter_ColorModel(@ptrCast(self));
     }
@@ -329,15 +333,15 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, fileName: []const u8, data: []u8, mimeType: []const u8 ```
     pub fn AddFileAttachment3(self: ?*anyopaque, fileName: []const u8, data: []u8, mimeType: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
-        const mimeType_str = qtc.struct_libqt_string{
+        const mimeType_str = qtc.libqt_string{
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
@@ -363,7 +367,7 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -466,7 +470,7 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qpdfwriter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -583,8 +587,8 @@ pub const qpdfwriter = struct {
     ///
     /// ``` self: QtC.QPdfWriter, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

@@ -50,7 +50,7 @@ pub const qsslellipticcurve = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromShortName(name: []const u8) QtC.QSslEllipticCurve {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -61,7 +61,7 @@ pub const qsslellipticcurve = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromLongName(name: []const u8) QtC.QSslEllipticCurve {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };

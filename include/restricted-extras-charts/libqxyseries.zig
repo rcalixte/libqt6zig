@@ -59,7 +59,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, points: []QtC.QPointF ```
     pub fn Append3(self: ?*anyopaque, points: []QtC.QPointF) void {
-        const points_list = qtc.struct_libqt_list{
+        const points_list = qtc.libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
@@ -147,7 +147,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, allocator: std.mem.Allocator ```
     pub fn Points(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
-        const _arr: qtc.struct_libqt_list = qtc.QXYSeries_Points(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QXYSeries_Points(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qxyseries.Points: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
@@ -159,7 +159,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, allocator: std.mem.Allocator ```
     pub fn PointsVector(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPointF {
-        const _arr: qtc.struct_libqt_list = qtc.QXYSeries_PointsVector(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QXYSeries_PointsVector(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPointF, _arr.len) catch @panic("qxyseries.PointsVector: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
@@ -185,7 +185,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, points: []QtC.QPointF ```
     pub fn OperatorShiftLeft2(self: ?*anyopaque, points: []QtC.QPointF) QtC.QXYSeries {
-        const points_list = qtc.struct_libqt_list{
+        const points_list = qtc.libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
@@ -266,7 +266,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, format: []const u8 ```
     pub fn SetPointLabelsFormat(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -344,7 +344,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, points: []QtC.QPointF ```
     pub fn Replace5(self: ?*anyopaque, points: []QtC.QPointF) void {
-        const points_list = qtc.struct_libqt_list{
+        const points_list = qtc.libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
         };
@@ -397,7 +397,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, indexes: []i32 ```
     pub fn SelectPoints(self: ?*anyopaque, indexes: []i32) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
@@ -408,7 +408,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, indexes: []i32 ```
     pub fn DeselectPoints(self: ?*anyopaque, indexes: []i32) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
@@ -419,7 +419,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, indexes: []i32 ```
     pub fn ToggleSelection(self: ?*anyopaque, indexes: []i32) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
@@ -430,7 +430,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, allocator: std.mem.Allocator ```
     pub fn SelectedPoints(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.struct_libqt_list = qtc.QXYSeries_SelectedPoints(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QXYSeries_SelectedPoints(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qxyseries.SelectedPoints: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -498,8 +498,11 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, ok: bool ```
     pub fn BestFitLineEquation(self: ?*anyopaque, ok: *bool) struct_f64_f64 {
-        const _pair: qtc.struct_libqt_pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self), @ptrCast(ok));
-        return struct_f64_f64{ .first = @ptrCast(_pair.first), .second = @ptrCast(_pair.second) };
+        const _pair: qtc.libqt_pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self), @ptrCast(ok));
+        return struct_f64_f64{
+            .first = @as(*f64, @ptrCast(@alignCast(_pair.first))).*,
+            .second = @as(*f64, @ptrCast(@alignCast(_pair.second))).*,
+        };
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#setBestFitLinePen)
@@ -574,7 +577,7 @@ pub const qxyseries = struct {
             configuration_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const configuration_map = qtc.struct_libqt_map{
+        const configuration_map = qtc.libqt_map{
             .len = configuration.count(),
             .keys = @ptrCast(configuration_keys.ptr),
             .values = @ptrCast(configuration_values.ptr),
@@ -605,7 +608,7 @@ pub const qxyseries = struct {
             pointsConfiguration_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const pointsConfiguration_map = qtc.struct_libqt_map{
+        const pointsConfiguration_map = qtc.libqt_map{
             .len = pointsConfiguration.count(),
             .keys = @ptrCast(pointsConfiguration_keys.ptr),
             .values = @ptrCast(pointsConfiguration_values.ptr),
@@ -617,7 +620,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, index: i32, allocator: std.mem.Allocator ```
     pub fn PointConfiguration(self: ?*anyopaque, index: i32, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self), @intCast(index));
+        const _map: qtc.libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self), @intCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -638,7 +641,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, allocator: std.mem.Allocator ```
     pub fn PointsConfiguration(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_mapi32qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QXYSeries_PointsConfiguration(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QXYSeries_PointsConfiguration(@ptrCast(self));
         var _ret: map_i32_mapi32qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -659,7 +662,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, sourceData: []f64, minSize: f64, maxSize: f64 ```
     pub fn SizeBy(self: ?*anyopaque, sourceData: []f64, minSize: f64, maxSize: f64) void {
-        const sourceData_list = qtc.struct_libqt_list{
+        const sourceData_list = qtc.libqt_list{
             .len = sourceData.len,
             .data = sourceData.ptr,
         };
@@ -670,7 +673,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, sourceData: []f64 ```
     pub fn ColorBy(self: ?*anyopaque, sourceData: []f64) void {
-        const sourceData_list = qtc.struct_libqt_list{
+        const sourceData_list = qtc.libqt_list{
             .len = sourceData.len,
             .data = sourceData.ptr,
         };
@@ -835,7 +838,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, format: []const u8 ```
     pub fn PointLabelsFormatChanged(self: ?*anyopaque, format: []const u8) void {
-        const format_str = qtc.struct_libqt_string{
+        const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
@@ -1033,7 +1036,7 @@ pub const qxyseries = struct {
             configuration_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const configuration_map = qtc.struct_libqt_map{
+        const configuration_map = qtc.libqt_map{
             .len = configuration.count(),
             .keys = @ptrCast(configuration_keys.ptr),
             .values = @ptrCast(configuration_values.ptr),
@@ -1120,7 +1123,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, sourceData: []f64, gradient: QtC.QLinearGradient ```
     pub fn ColorBy2(self: ?*anyopaque, sourceData: []f64, gradient: ?*anyopaque) void {
-        const sourceData_list = qtc.struct_libqt_list{
+        const sourceData_list = qtc.libqt_list{
             .len = sourceData.len,
             .data = sourceData.ptr,
         };
@@ -1132,6 +1135,8 @@ pub const qxyseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#type)
     ///
     /// ``` self: QtC.QXYSeries ```
+    ///
+    /// Returns: ``` qabstractseries_enums.SeriesType ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QAbstractSeries_Type(@ptrCast(self));
     }
@@ -1142,7 +1147,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1249,7 +1254,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, allocator: std.mem.Allocator ```
     pub fn AttachedAxes(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractAxis {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractAxis, _arr.len) catch @panic("qxyseries.AttachedAxes: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
@@ -1402,7 +1407,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1505,7 +1510,7 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qxyseries.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1622,8 +1627,8 @@ pub const qxyseries = struct {
     ///
     /// ``` self: QtC.QXYSeries, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

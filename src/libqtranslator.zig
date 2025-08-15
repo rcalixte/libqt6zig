@@ -154,7 +154,7 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, filename: []const u8 ```
     pub fn Load(self: ?*anyopaque, filename: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -165,7 +165,7 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, locale: QtC.QLocale, filename: []const u8 ```
     pub fn Load2(self: ?*anyopaque, locale: ?*anyopaque, filename: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
@@ -209,11 +209,11 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, filename: []const u8, directory: []const u8 ```
     pub fn Load22(self: ?*anyopaque, filename: []const u8, directory: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
@@ -224,15 +224,15 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, filename: []const u8, directory: []const u8, search_delimiters: []const u8 ```
     pub fn Load32(self: ?*anyopaque, filename: []const u8, directory: []const u8, search_delimiters: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
-        const search_delimiters_str = qtc.struct_libqt_string{
+        const search_delimiters_str = qtc.libqt_string{
             .len = search_delimiters.len,
             .data = search_delimiters.ptr,
         };
@@ -243,19 +243,19 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, filename: []const u8, directory: []const u8, search_delimiters: []const u8, suffix: []const u8 ```
     pub fn Load4(self: ?*anyopaque, filename: []const u8, directory: []const u8, search_delimiters: []const u8, suffix: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
-        const search_delimiters_str = qtc.struct_libqt_string{
+        const search_delimiters_str = qtc.libqt_string{
             .len = search_delimiters.len,
             .data = search_delimiters.ptr,
         };
-        const suffix_str = qtc.struct_libqt_string{
+        const suffix_str = qtc.libqt_string{
             .len = suffix.len,
             .data = suffix.ptr,
         };
@@ -266,11 +266,11 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, locale: QtC.QLocale, filename: []const u8, prefix: []const u8 ```
     pub fn Load33(self: ?*anyopaque, locale: ?*anyopaque, filename: []const u8, prefix: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -281,15 +281,15 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, locale: QtC.QLocale, filename: []const u8, prefix: []const u8, directory: []const u8 ```
     pub fn Load42(self: ?*anyopaque, locale: ?*anyopaque, filename: []const u8, prefix: []const u8, directory: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
@@ -300,19 +300,19 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, locale: QtC.QLocale, filename: []const u8, prefix: []const u8, directory: []const u8, suffix: []const u8 ```
     pub fn Load5(self: ?*anyopaque, locale: ?*anyopaque, filename: []const u8, prefix: []const u8, directory: []const u8, suffix: []const u8) bool {
-        const filename_str = qtc.struct_libqt_string{
+        const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
         };
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
-        const suffix_str = qtc.struct_libqt_string{
+        const suffix_str = qtc.libqt_string{
             .len = suffix.len,
             .data = suffix.ptr,
         };
@@ -323,7 +323,7 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, data: *const u8, lenVal: i32, directory: []const u8 ```
     pub fn Load34(self: ?*anyopaque, data: *const u8, lenVal: i32, directory: []const u8) bool {
-        const directory_str = qtc.struct_libqt_string{
+        const directory_str = qtc.libqt_string{
             .len = directory.len,
             .data = directory.ptr,
         };
@@ -349,7 +349,7 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -452,7 +452,7 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qtranslator.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -569,8 +569,8 @@ pub const qtranslator = struct {
     ///
     /// ``` self: QtC.QTranslator, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

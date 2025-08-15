@@ -50,7 +50,7 @@ pub const qpageranges = struct {
     ///
     /// ``` self: QtC.QPageRanges, allocator: std.mem.Allocator ```
     pub fn ToRangeList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QPageRanges__Range {
-        const _arr: qtc.struct_libqt_list = qtc.QPageRanges_ToRangeList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPageRanges_ToRangeList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QPageRanges__Range, _arr.len) catch @panic("qpageranges.ToRangeList: Memory allocation failed");
         const _data: [*]QtC.QPageRanges__Range = @ptrCast(@alignCast(_arr.data));
@@ -80,7 +80,7 @@ pub const qpageranges = struct {
     ///
     /// ``` ranges: []const u8 ```
     pub fn FromString(ranges: []const u8) QtC.QPageRanges {
-        const ranges_str = qtc.struct_libqt_string{
+        const ranges_str = qtc.libqt_string{
             .len = ranges.len,
             .data = ranges.ptr,
         };
@@ -176,7 +176,7 @@ pub const qpageranges__range = struct {
         qtc.QPageRanges__Range_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges__range.html#contains)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges-range.html#contains)
     ///
     /// ``` self: QtC.QPageRanges__Range, pageNumber: i32 ```
     pub fn Contains(self: ?*anyopaque, pageNumber: i32) bool {

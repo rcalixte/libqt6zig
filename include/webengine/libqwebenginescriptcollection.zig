@@ -29,11 +29,11 @@ pub const qwebenginescriptcollection = struct {
     ///
     /// ``` self: QtC.QWebEngineScriptCollection, name: []const u8, allocator: std.mem.Allocator ```
     pub fn Find(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []QtC.QWebEngineScript {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineScriptCollection_Find(@ptrCast(self), name_str);
+        const _arr: qtc.libqt_list = qtc.QWebEngineScriptCollection_Find(@ptrCast(self), name_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineScript, _arr.len) catch @panic("qwebenginescriptcollection.Find: Memory allocation failed");
         const _data: [*]QtC.QWebEngineScript = @ptrCast(@alignCast(_arr.data));
@@ -52,7 +52,7 @@ pub const qwebenginescriptcollection = struct {
     ///
     /// ``` self: QtC.QWebEngineScriptCollection, list: []QtC.QWebEngineScript ```
     pub fn Insert2(self: ?*anyopaque, list: []QtC.QWebEngineScript) void {
-        const list_list = qtc.struct_libqt_list{
+        const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),
         };
@@ -77,7 +77,7 @@ pub const qwebenginescriptcollection = struct {
     ///
     /// ``` self: QtC.QWebEngineScriptCollection, allocator: std.mem.Allocator ```
     pub fn ToList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QWebEngineScript {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineScriptCollection_ToList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QWebEngineScriptCollection_ToList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEngineScript, _arr.len) catch @panic("qwebenginescriptcollection.ToList: Memory allocation failed");
         const _data: [*]QtC.QWebEngineScript = @ptrCast(@alignCast(_arr.data));

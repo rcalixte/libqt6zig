@@ -71,6 +71,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#outputFormat)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qprinter_enums.OutputFormat ```
     pub fn OutputFormat(self: ?*anyopaque) i64 {
         return qtc.QPrinter_OutputFormat(@ptrCast(self));
     }
@@ -85,6 +87,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#pdfVersion)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qpagedpaintdevice_enums.PdfVersion ```
     pub fn PdfVersion(self: ?*anyopaque) i64 {
         return qtc.QPrinter_PdfVersion(@ptrCast(self));
     }
@@ -93,7 +97,7 @@ pub const qprinter = struct {
     ///
     /// ``` self: QtC.QPrinter, printerName: []const u8 ```
     pub fn SetPrinterName(self: ?*anyopaque, printerName: []const u8) void {
-        const printerName_str = qtc.struct_libqt_string{
+        const printerName_str = qtc.libqt_string{
             .len = printerName.len,
             .data = printerName.ptr,
         };
@@ -122,7 +126,7 @@ pub const qprinter = struct {
     ///
     /// ``` self: QtC.QPrinter, outputFileName: []const u8 ```
     pub fn SetOutputFileName(self: ?*anyopaque, outputFileName: []const u8) void {
-        const outputFileName_str = qtc.struct_libqt_string{
+        const outputFileName_str = qtc.libqt_string{
             .len = outputFileName.len,
             .data = outputFileName.ptr,
         };
@@ -144,7 +148,7 @@ pub const qprinter = struct {
     ///
     /// ``` self: QtC.QPrinter, printProgram: []const u8 ```
     pub fn SetPrintProgram(self: ?*anyopaque, printProgram: []const u8) void {
-        const printProgram_str = qtc.struct_libqt_string{
+        const printProgram_str = qtc.libqt_string{
             .len = printProgram.len,
             .data = printProgram.ptr,
         };
@@ -166,7 +170,7 @@ pub const qprinter = struct {
     ///
     /// ``` self: QtC.QPrinter, docName: []const u8 ```
     pub fn SetDocName(self: ?*anyopaque, docName: []const u8) void {
-        const docName_str = qtc.struct_libqt_string{
+        const docName_str = qtc.libqt_string{
             .len = docName.len,
             .data = docName.ptr,
         };
@@ -188,7 +192,7 @@ pub const qprinter = struct {
     ///
     /// ``` self: QtC.QPrinter, creator: []const u8 ```
     pub fn SetCreator(self: ?*anyopaque, creator: []const u8) void {
-        const creator_str = qtc.struct_libqt_string{
+        const creator_str = qtc.libqt_string{
             .len = creator.len,
             .data = creator.ptr,
         };
@@ -216,6 +220,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#pageOrder)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qprinter_enums.PageOrder ```
     pub fn PageOrder(self: ?*anyopaque) i64 {
         return qtc.QPrinter_PageOrder(@ptrCast(self));
     }
@@ -244,6 +250,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#colorMode)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qprinter_enums.ColorMode ```
     pub fn ColorMode(self: ?*anyopaque) i64 {
         return qtc.QPrinter_ColorMode(@ptrCast(self));
     }
@@ -307,6 +315,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#paperSource)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qprinter_enums.PaperSource ```
     pub fn PaperSource(self: ?*anyopaque) i64 {
         return qtc.QPrinter_PaperSource(@ptrCast(self));
     }
@@ -321,6 +331,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#duplex)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qprinter_enums.DuplexMode ```
     pub fn Duplex(self: ?*anyopaque) i64 {
         return qtc.QPrinter_Duplex(@ptrCast(self));
     }
@@ -329,7 +341,7 @@ pub const qprinter = struct {
     ///
     /// ``` self: QtC.QPrinter, allocator: std.mem.Allocator ```
     pub fn SupportedResolutions(self: ?*anyopaque, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.struct_libqt_list = qtc.QPrinter_SupportedResolutions(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QPrinter_SupportedResolutions(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(i32, _arr.len) catch @panic("qprinter.SupportedResolutions: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
@@ -380,7 +392,7 @@ pub const qprinter = struct {
     ///
     /// ``` self: QtC.QPrinter, printerSelectionOption: []const u8 ```
     pub fn SetPrinterSelectionOption(self: ?*anyopaque, printerSelectionOption: []const u8) void {
-        const printerSelectionOption_str = qtc.struct_libqt_string{
+        const printerSelectionOption_str = qtc.libqt_string{
             .len = printerSelectionOption.len,
             .data = printerSelectionOption.ptr,
         };
@@ -422,6 +434,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printerState)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qprinter_enums.PrinterState ```
     pub fn PrinterState(self: ?*anyopaque) i64 {
         return qtc.QPrinter_PrinterState(@ptrCast(self));
     }
@@ -489,6 +503,8 @@ pub const qprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#printRange)
     ///
     /// ``` self: QtC.QPrinter ```
+    ///
+    /// Returns: ``` qprinter_enums.PrintRange ```
     pub fn PrintRange(self: ?*anyopaque) i64 {
         return qtc.QPrinter_PrintRange(@ptrCast(self));
     }

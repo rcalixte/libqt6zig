@@ -30,7 +30,7 @@ pub const qpixmap = struct {
     ///
     /// ``` fileName: []const u8 ```
     pub fn New4(fileName: []const u8) QtC.QPixmap {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -49,7 +49,7 @@ pub const qpixmap = struct {
     ///
     /// ``` fileName: []const u8, format: []const u8 ```
     pub fn New6(fileName: []const u8, format: []const u8) QtC.QPixmap {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -60,9 +60,9 @@ pub const qpixmap = struct {
 
     /// New7 constructs a new QPixmap object.
     ///
-    /// ``` fileName: []const u8, format: []const u8, flags: i32 ```
+    /// ``` fileName: []const u8, format: []const u8, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn New7(fileName: []const u8, format: []const u8, flags: i64) QtC.QPixmap {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -303,7 +303,7 @@ pub const qpixmap = struct {
     ///
     /// ``` self: QtC.QPixmap, fileName: []const u8 ```
     pub fn Load(self: ?*anyopaque, fileName: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -321,7 +321,7 @@ pub const qpixmap = struct {
     ///
     /// ``` self: QtC.QPixmap, data: []u8 ```
     pub fn LoadFromData2(self: ?*anyopaque, data: []u8) bool {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -332,7 +332,7 @@ pub const qpixmap = struct {
     ///
     /// ``` self: QtC.QPixmap, fileName: []const u8 ```
     pub fn Save(self: ?*anyopaque, fileName: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -538,14 +538,14 @@ pub const qpixmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#fromImage)
     ///
-    /// ``` image: QtC.QImage, flags: i32 ```
+    /// ``` image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn FromImage2(image: ?*anyopaque, flags: i64) QtC.QPixmap {
         return qtc.QPixmap_FromImage2(@ptrCast(image), @intCast(flags));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#fromImageReader)
     ///
-    /// ``` imageReader: QtC.QImageReader, flags: i32 ```
+    /// ``` imageReader: QtC.QImageReader, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn FromImageReader2(imageReader: ?*anyopaque, flags: i64) QtC.QPixmap {
         return qtc.QPixmap_FromImageReader2(@ptrCast(imageReader), @intCast(flags));
     }
@@ -554,7 +554,7 @@ pub const qpixmap = struct {
     ///
     /// ``` self: QtC.QPixmap, fileName: []const u8, format: []const u8 ```
     pub fn Load2(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -564,9 +564,9 @@ pub const qpixmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#load)
     ///
-    /// ``` self: QtC.QPixmap, fileName: []const u8, format: []const u8, flags: i32 ```
+    /// ``` self: QtC.QPixmap, fileName: []const u8, format: []const u8, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn Load3(self: ?*anyopaque, fileName: []const u8, format: []const u8, flags: i64) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -584,7 +584,7 @@ pub const qpixmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QPixmap, buf: *const u8, lenVal: u32, format: []const u8, flags: i32 ```
+    /// ``` self: QtC.QPixmap, buf: *const u8, lenVal: u32, format: []const u8, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn LoadFromData4(self: ?*anyopaque, buf: *const u8, lenVal: u32, format: []const u8, flags: i64) bool {
         const format_Cstring = format.ptr;
         return qtc.QPixmap_LoadFromData4(@ptrCast(self), @ptrCast(buf), @intCast(lenVal), format_Cstring, @intCast(flags));
@@ -594,7 +594,7 @@ pub const qpixmap = struct {
     ///
     /// ``` self: QtC.QPixmap, data: []u8, format: []const u8 ```
     pub fn LoadFromData22(self: ?*anyopaque, data: []u8, format: []const u8) bool {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -604,9 +604,9 @@ pub const qpixmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
     ///
-    /// ``` self: QtC.QPixmap, data: []u8, format: []const u8, flags: i32 ```
+    /// ``` self: QtC.QPixmap, data: []u8, format: []const u8, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn LoadFromData32(self: ?*anyopaque, data: []u8, format: []const u8, flags: i64) bool {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -618,7 +618,7 @@ pub const qpixmap = struct {
     ///
     /// ``` self: QtC.QPixmap, fileName: []const u8, format: []const u8 ```
     pub fn Save22(self: ?*anyopaque, fileName: []const u8, format: []const u8) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -630,7 +630,7 @@ pub const qpixmap = struct {
     ///
     /// ``` self: QtC.QPixmap, fileName: []const u8, format: []const u8, quality: i32 ```
     pub fn Save3(self: ?*anyopaque, fileName: []const u8, format: []const u8, quality: i32) bool {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -656,7 +656,7 @@ pub const qpixmap = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#convertFromImage)
     ///
-    /// ``` self: QtC.QPixmap, img: QtC.QImage, flags: i32 ```
+    /// ``` self: QtC.QPixmap, img: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag ```
     pub fn ConvertFromImage2(self: ?*anyopaque, img: ?*anyopaque, flags: i64) bool {
         return qtc.QPixmap_ConvertFromImage2(@ptrCast(self), @ptrCast(img), @intCast(flags));
     }

@@ -16,11 +16,11 @@ pub const qxmlstreamattribute = struct {
     ///
     /// ``` qualifiedName: []const u8, value: []const u8 ```
     pub fn New2(qualifiedName: []const u8, value: []const u8) QtC.QXmlStreamAttribute {
-        const qualifiedName_str = qtc.struct_libqt_string{
+        const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
             .data = qualifiedName.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -32,15 +32,15 @@ pub const qxmlstreamattribute = struct {
     ///
     /// ``` namespaceUri: []const u8, name: []const u8, value: []const u8 ```
     pub fn New3(namespaceUri: []const u8, name: []const u8, value: []const u8) QtC.QXmlStreamAttribute {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -87,15 +87,15 @@ pub const qxmlstreamattributes = struct {
     ///
     /// ``` self: QtC.QXmlStreamAttributes, namespaceUri: []const u8, name: []const u8, value: []const u8 ```
     pub fn Append(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, value: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -106,11 +106,11 @@ pub const qxmlstreamattributes = struct {
     ///
     /// ``` self: QtC.QXmlStreamAttributes, qualifiedName: []const u8, value: []const u8 ```
     pub fn Append2(self: ?*anyopaque, qualifiedName: []const u8, value: []const u8) void {
-        const qualifiedName_str = qtc.struct_libqt_string{
+        const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
             .data = qualifiedName.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -121,7 +121,7 @@ pub const qxmlstreamattributes = struct {
     ///
     /// ``` self: QtC.QXmlStreamAttributes, qualifiedName: []const u8 ```
     pub fn HasAttribute(self: ?*anyopaque, qualifiedName: []const u8) bool {
-        const qualifiedName_str = qtc.struct_libqt_string{
+        const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
             .data = qualifiedName.ptr,
         };
@@ -132,11 +132,11 @@ pub const qxmlstreamattributes = struct {
     ///
     /// ``` self: QtC.QXmlStreamAttributes, namespaceUri: []const u8, name: []const u8 ```
     pub fn HasAttribute2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) bool {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -166,11 +166,11 @@ pub const qxmlstreamnamespacedeclaration = struct {
     ///
     /// ``` prefix: []const u8, namespaceUri: []const u8 ```
     pub fn New2(prefix: []const u8, namespaceUri: []const u8) QtC.QXmlStreamNamespaceDeclaration {
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
@@ -260,11 +260,11 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// ``` self: QtC.QXmlStreamEntityResolver, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator ```
     pub fn ResolveEntity(self: ?*anyopaque, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const publicId_str = qtc.struct_libqt_string{
+        const publicId_str = qtc.libqt_string{
             .len = publicId.len,
             .data = publicId.ptr,
         };
-        const systemId_str = qtc.struct_libqt_string{
+        const systemId_str = qtc.libqt_string{
             .len = systemId.len,
             .data = systemId.ptr,
         };
@@ -290,11 +290,11 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// ``` self: QtC.QXmlStreamEntityResolver, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator ```
     pub fn QBaseResolveEntity(self: ?*anyopaque, publicId: []const u8, systemId: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const publicId_str = qtc.struct_libqt_string{
+        const publicId_str = qtc.libqt_string{
             .len = publicId.len,
             .data = publicId.ptr,
         };
-        const systemId_str = qtc.struct_libqt_string{
+        const systemId_str = qtc.libqt_string{
             .len = systemId.len,
             .data = systemId.ptr,
         };
@@ -309,7 +309,7 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// ``` self: QtC.QXmlStreamEntityResolver, name: []const u8, allocator: std.mem.Allocator ```
     pub fn ResolveUndeclaredEntity(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -335,7 +335,7 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// ``` self: QtC.QXmlStreamEntityResolver, name: []const u8, allocator: std.mem.Allocator ```
     pub fn QBaseResolveUndeclaredEntity(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -376,7 +376,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` data: []const u8 ```
     pub fn New3(data: []const u8) QtC.QXmlStreamReader {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -402,7 +402,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` self: QtC.QXmlStreamReader, data: []const u8 ```
     pub fn AddData(self: ?*anyopaque, data: []const u8) void {
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
@@ -426,6 +426,8 @@ pub const qxmlstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamreader.html#readNext)
     ///
     /// ``` self: QtC.QXmlStreamReader ```
+    ///
+    /// Returns: ``` qxmlstream_enums.TokenType ```
     pub fn ReadNext(self: ?*anyopaque) i64 {
         return qtc.QXmlStreamReader_ReadNext(@ptrCast(self));
     }
@@ -447,6 +449,8 @@ pub const qxmlstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamreader.html#tokenType)
     ///
     /// ``` self: QtC.QXmlStreamReader ```
+    ///
+    /// Returns: ``` qxmlstream_enums.TokenType ```
     pub fn TokenType(self: ?*anyopaque) i64 {
         return qtc.QXmlStreamReader_TokenType(@ptrCast(self));
     }
@@ -610,7 +614,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
     pub fn NamespaceDeclarations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QXmlStreamNamespaceDeclaration {
-        const _arr: qtc.struct_libqt_list = qtc.QXmlStreamReader_NamespaceDeclarations(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QXmlStreamReader_NamespaceDeclarations(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QXmlStreamNamespaceDeclaration, _arr.len) catch @panic("qxmlstreamreader.NamespaceDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamNamespaceDeclaration = @ptrCast(@alignCast(_arr.data));
@@ -629,7 +633,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` self: QtC.QXmlStreamReader, extraNamespaceDeclaractions: []QtC.QXmlStreamNamespaceDeclaration ```
     pub fn AddExtraNamespaceDeclarations(self: ?*anyopaque, extraNamespaceDeclaractions: []QtC.QXmlStreamNamespaceDeclaration) void {
-        const extraNamespaceDeclaractions_list = qtc.struct_libqt_list{
+        const extraNamespaceDeclaractions_list = qtc.libqt_list{
             .len = extraNamespaceDeclaractions.len,
             .data = @ptrCast(extraNamespaceDeclaractions.ptr),
         };
@@ -640,7 +644,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
     pub fn NotationDeclarations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QXmlStreamNotationDeclaration {
-        const _arr: qtc.struct_libqt_list = qtc.QXmlStreamReader_NotationDeclarations(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QXmlStreamReader_NotationDeclarations(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QXmlStreamNotationDeclaration, _arr.len) catch @panic("qxmlstreamreader.NotationDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamNotationDeclaration = @ptrCast(@alignCast(_arr.data));
@@ -652,7 +656,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` self: QtC.QXmlStreamReader, allocator: std.mem.Allocator ```
     pub fn EntityDeclarations(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QXmlStreamEntityDeclaration {
-        const _arr: qtc.struct_libqt_list = qtc.QXmlStreamReader_EntityDeclarations(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QXmlStreamReader_EntityDeclarations(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QXmlStreamEntityDeclaration, _arr.len) catch @panic("qxmlstreamreader.EntityDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamEntityDeclaration = @ptrCast(@alignCast(_arr.data));
@@ -695,6 +699,8 @@ pub const qxmlstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamreader.html#error)
     ///
     /// ``` self: QtC.QXmlStreamReader ```
+    ///
+    /// Returns: ``` qxmlstream_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QXmlStreamReader_Error(@ptrCast(self));
     }
@@ -735,7 +741,7 @@ pub const qxmlstreamreader = struct {
     ///
     /// ``` self: QtC.QXmlStreamReader, message: []const u8 ```
     pub fn RaiseError1(self: ?*anyopaque, message: []const u8) void {
-        const message_str = qtc.struct_libqt_string{
+        const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
@@ -814,11 +820,11 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8, value: []const u8 ```
     pub fn WriteAttribute(self: ?*anyopaque, qualifiedName: []const u8, value: []const u8) void {
-        const qualifiedName_str = qtc.struct_libqt_string{
+        const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
             .data = qualifiedName.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -829,15 +835,15 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8, value: []const u8 ```
     pub fn WriteAttribute2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, value: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const value_str = qtc.struct_libqt_string{
+        const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
@@ -862,7 +868,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, text: []const u8 ```
     pub fn WriteCDATA(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -873,7 +879,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, text: []const u8 ```
     pub fn WriteCharacters(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -884,7 +890,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, text: []const u8 ```
     pub fn WriteComment(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -895,7 +901,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, dtd: []const u8 ```
     pub fn WriteDTD(self: ?*anyopaque, dtd: []const u8) void {
-        const dtd_str = qtc.struct_libqt_string{
+        const dtd_str = qtc.libqt_string{
             .len = dtd.len,
             .data = dtd.ptr,
         };
@@ -906,7 +912,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8 ```
     pub fn WriteEmptyElement(self: ?*anyopaque, qualifiedName: []const u8) void {
-        const qualifiedName_str = qtc.struct_libqt_string{
+        const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
             .data = qualifiedName.ptr,
         };
@@ -917,11 +923,11 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8 ```
     pub fn WriteEmptyElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -932,11 +938,11 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8, text: []const u8 ```
     pub fn WriteTextElement(self: ?*anyopaque, qualifiedName: []const u8, text: []const u8) void {
-        const qualifiedName_str = qtc.struct_libqt_string{
+        const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
             .data = qualifiedName.ptr,
         };
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -947,15 +953,15 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8, text: []const u8 ```
     pub fn WriteTextElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8, text: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -980,7 +986,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, name: []const u8 ```
     pub fn WriteEntityReference(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -991,7 +997,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8 ```
     pub fn WriteNamespace(self: ?*anyopaque, namespaceUri: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
@@ -1002,7 +1008,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8 ```
     pub fn WriteDefaultNamespace(self: ?*anyopaque, namespaceUri: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
@@ -1013,7 +1019,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, target: []const u8 ```
     pub fn WriteProcessingInstruction(self: ?*anyopaque, target: []const u8) void {
-        const target_str = qtc.struct_libqt_string{
+        const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
         };
@@ -1031,7 +1037,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, version: []const u8 ```
     pub fn WriteStartDocument2(self: ?*anyopaque, version: []const u8) void {
-        const version_str = qtc.struct_libqt_string{
+        const version_str = qtc.libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
@@ -1042,7 +1048,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, version: []const u8, standalone: bool ```
     pub fn WriteStartDocument3(self: ?*anyopaque, version: []const u8, standalone: bool) void {
-        const version_str = qtc.struct_libqt_string{
+        const version_str = qtc.libqt_string{
             .len = version.len,
             .data = version.ptr,
         };
@@ -1053,7 +1059,7 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, qualifiedName: []const u8 ```
     pub fn WriteStartElement(self: ?*anyopaque, qualifiedName: []const u8) void {
-        const qualifiedName_str = qtc.struct_libqt_string{
+        const qualifiedName_str = qtc.libqt_string{
             .len = qualifiedName.len,
             .data = qualifiedName.ptr,
         };
@@ -1064,11 +1070,11 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, name: []const u8 ```
     pub fn WriteStartElement2(self: ?*anyopaque, namespaceUri: []const u8, name: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1093,11 +1099,11 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, namespaceUri: []const u8, prefix: []const u8 ```
     pub fn WriteNamespace2(self: ?*anyopaque, namespaceUri: []const u8, prefix: []const u8) void {
-        const namespaceUri_str = qtc.struct_libqt_string{
+        const namespaceUri_str = qtc.libqt_string{
             .len = namespaceUri.len,
             .data = namespaceUri.ptr,
         };
-        const prefix_str = qtc.struct_libqt_string{
+        const prefix_str = qtc.libqt_string{
             .len = prefix.len,
             .data = prefix.ptr,
         };
@@ -1108,11 +1114,11 @@ pub const qxmlstreamwriter = struct {
     ///
     /// ``` self: QtC.QXmlStreamWriter, target: []const u8, data: []const u8 ```
     pub fn WriteProcessingInstruction2(self: ?*anyopaque, target: []const u8, data: []const u8) void {
-        const target_str = qtc.struct_libqt_string{
+        const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
         };
-        const data_str = qtc.struct_libqt_string{
+        const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };

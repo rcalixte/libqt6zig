@@ -557,7 +557,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -660,7 +660,7 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstracttextdocumentlayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -777,8 +777,8 @@ pub const qabstracttextdocumentlayout = struct {
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1343,7 +1343,7 @@ pub const qabstracttextdocumentlayout__selection = struct {
         return qtc.QAbstractTextDocumentLayout__Selection_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__selection.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, param1: QtC.QAbstractTextDocumentLayout__Selection ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
@@ -1367,7 +1367,7 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
         return qtc.QAbstractTextDocumentLayout__PaintContext_new();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout__paintcontext.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, param1: QtC.QAbstractTextDocumentLayout__PaintContext ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

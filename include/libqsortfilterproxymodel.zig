@@ -216,6 +216,8 @@ pub const qsortfilterproxymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#filterCaseSensitivity)
     ///
     /// ``` self: QtC.QSortFilterProxyModel ```
+    ///
+    /// Returns: ``` qnamespace_enums.CaseSensitivity ```
     pub fn FilterCaseSensitivity(self: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_FilterCaseSensitivity(@ptrCast(self));
     }
@@ -230,6 +232,8 @@ pub const qsortfilterproxymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#sortCaseSensitivity)
     ///
     /// ``` self: QtC.QSortFilterProxyModel ```
+    ///
+    /// Returns: ``` qnamespace_enums.CaseSensitivity ```
     pub fn SortCaseSensitivity(self: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_SortCaseSensitivity(@ptrCast(self));
     }
@@ -265,6 +269,8 @@ pub const qsortfilterproxymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#sortOrder)
     ///
     /// ``` self: QtC.QSortFilterProxyModel ```
+    ///
+    /// Returns: ``` qnamespace_enums.SortOrder ```
     pub fn SortOrder(self: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_SortOrder(@ptrCast(self));
     }
@@ -343,7 +349,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, pattern: []const u8 ```
     pub fn SetFilterRegularExpression(self: ?*anyopaque, pattern: []const u8) void {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -361,7 +367,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, pattern: []const u8 ```
     pub fn SetFilterWildcard(self: ?*anyopaque, pattern: []const u8) void {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -372,7 +378,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, pattern: []const u8 ```
     pub fn SetFilterFixedString(self: ?*anyopaque, pattern: []const u8) void {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -790,7 +796,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -812,7 +818,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, indexes: []QtC.QModelIndex ```
     pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -997,6 +1003,8 @@ pub const qsortfilterproxymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#flags)
     ///
     /// ``` self: QtC.QSortFilterProxyModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_Flags(@ptrCast(self), @ptrCast(index));
     }
@@ -1015,6 +1023,8 @@ pub const qsortfilterproxymodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSortFilterProxyModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
@@ -1046,9 +1056,9 @@ pub const qsortfilterproxymodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#match)
     ///
-    /// ``` self: QtC.QSortFilterProxyModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QSortFilterProxyModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QSortFilterProxyModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QSortFilterProxyModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qsortfilterproxymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1060,7 +1070,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSortFilterProxyModel, slot: fn (self: QtC.QSortFilterProxyModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32) callconv(.c) []QtC.QModelIndex ```
+    /// ``` self: QtC.QSortFilterProxyModel, slot: fn (self: QtC.QSortFilterProxyModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) []QtC.QModelIndex ```
     pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) []QtC.QModelIndex) void {
         qtc.QSortFilterProxyModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -1069,9 +1079,9 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.QSortFilterProxyModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QSortFilterProxyModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QSortFilterProxyModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QSortFilterProxyModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qsortfilterproxymodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -1133,8 +1143,8 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QSortFilterProxyModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSortFilterProxyModel_MimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1166,8 +1176,8 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QSortFilterProxyModel_QBaseMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QSortFilterProxyModel_QBaseMimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1187,6 +1197,8 @@ pub const qsortfilterproxymodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsortfilterproxymodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QSortFilterProxyModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_SupportedDropActions(@ptrCast(self));
     }
@@ -1205,6 +1217,8 @@ pub const qsortfilterproxymodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSortFilterProxyModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_QBaseSupportedDropActions(@ptrCast(self));
     }
@@ -1549,7 +1563,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
-    /// ``` self: QtC.QSortFilterProxyModel, index: QtC.QModelIndex, options: i32 ```
+    /// ``` self: QtC.QSortFilterProxyModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
@@ -1560,7 +1574,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -1582,7 +1596,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1604,7 +1618,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1626,7 +1640,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1648,7 +1662,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1683,7 +1697,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1786,7 +1800,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qsortfilterproxymodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1903,8 +1917,8 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2106,7 +2120,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QSortFilterProxyModel_ItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QSortFilterProxyModel_ItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -2131,7 +2145,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QSortFilterProxyModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QSortFilterProxyModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -2179,7 +2193,7 @@ pub const qsortfilterproxymodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -2207,7 +2221,7 @@ pub const qsortfilterproxymodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -2299,6 +2313,8 @@ pub const qsortfilterproxymodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSortFilterProxyModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_SupportedDragActions(@ptrCast(self));
     }
@@ -2310,6 +2326,8 @@ pub const qsortfilterproxymodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSortFilterProxyModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QSortFilterProxyModel_QBaseSupportedDragActions(@ptrCast(self));
     }
@@ -2333,7 +2351,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QSortFilterProxyModel_RoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QSortFilterProxyModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -2358,7 +2376,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QSortFilterProxyModel_QBaseRoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QSortFilterProxyModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -2823,7 +2841,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -2838,7 +2856,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -3392,11 +3410,11 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -3411,11 +3429,11 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -3441,7 +3459,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QSortFilterProxyModel_PersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QSortFilterProxyModel_PersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qsortfilterproxymodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3457,7 +3475,7 @@ pub const qsortfilterproxymodel = struct {
     ///
     /// ``` self: QtC.QSortFilterProxyModel, allocator: std.mem.Allocator ```
     pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QSortFilterProxyModel_QBasePersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QSortFilterProxyModel_QBasePersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qsortfilterproxymodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));

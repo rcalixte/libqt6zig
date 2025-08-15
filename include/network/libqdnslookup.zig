@@ -357,8 +357,8 @@ pub const qdnstextrecord = struct {
     ///
     /// ``` self: QtC.QDnsTextRecord, allocator: std.mem.Allocator ```
     pub fn Values(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsTextRecord_Values(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QDnsTextRecord_Values(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -436,6 +436,8 @@ pub const qdnstlsassociationrecord = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#usage)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    ///
+    /// Returns: ``` qdnslookup_enums.CertificateUsage ```
     pub fn Usage(self: ?*anyopaque) i64 {
         return qtc.QDnsTlsAssociationRecord_Usage(@ptrCast(self));
     }
@@ -443,6 +445,8 @@ pub const qdnstlsassociationrecord = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#selector)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    ///
+    /// Returns: ``` qdnslookup_enums.Selector ```
     pub fn Selector(self: ?*anyopaque) i64 {
         return qtc.QDnsTlsAssociationRecord_Selector(@ptrCast(self));
     }
@@ -450,6 +454,8 @@ pub const qdnstlsassociationrecord = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#matchType)
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord ```
+    ///
+    /// Returns: ``` qdnslookup_enums.MatchingType ```
     pub fn MatchType(self: ?*anyopaque) i64 {
         return qtc.QDnsTlsAssociationRecord_MatchType(@ptrCast(self));
     }
@@ -458,7 +464,7 @@ pub const qdnstlsassociationrecord = struct {
     ///
     /// ``` self: QtC.QDnsTlsAssociationRecord, allocator: std.mem.Allocator ```
     pub fn Value(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
-        const _bytearray: qtc.struct_libqt_string = qtc.QDnsTlsAssociationRecord_Value(@ptrCast(self));
+        const _bytearray: qtc.libqt_string = qtc.QDnsTlsAssociationRecord_Value(@ptrCast(self));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdnstlsassociationrecord.Value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -488,7 +494,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8 ```
     pub fn New2(typeVal: i64, name: []const u8) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -500,7 +506,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress ```
     pub fn New3(typeVal: i64, name: []const u8, nameserver: ?*anyopaque) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -512,7 +518,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress, port: u16 ```
     pub fn New4(typeVal: i64, name: []const u8, nameserver: ?*anyopaque, port: u16) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -524,7 +530,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress ```
     pub fn New5(typeVal: i64, name: []const u8, protocol: i64, nameserver: ?*anyopaque) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -543,7 +549,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, parent: QtC.QObject ```
     pub fn New7(typeVal: i64, name: []const u8, parent: ?*anyopaque) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -555,7 +561,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress, parent: QtC.QObject ```
     pub fn New8(typeVal: i64, name: []const u8, nameserver: ?*anyopaque, parent: ?*anyopaque) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -567,7 +573,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, nameserver: QtC.QHostAddress, port: u16, parent: QtC.QObject ```
     pub fn New9(typeVal: i64, name: []const u8, nameserver: ?*anyopaque, port: u16, parent: ?*anyopaque) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -579,7 +585,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress, port: u16 ```
     pub fn New10(typeVal: i64, name: []const u8, protocol: i64, nameserver: ?*anyopaque, port: u16) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -591,7 +597,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` typeVal: qdnslookup_enums.Type, name: []const u8, protocol: qdnslookup_enums.Protocol, nameserver: QtC.QHostAddress, port: u16, parent: QtC.QObject ```
     pub fn New11(typeVal: i64, name: []const u8, protocol: i64, nameserver: ?*anyopaque, port: u16, parent: ?*anyopaque) QtC.QDnsLookup {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -653,6 +659,8 @@ pub const qdnslookup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#error)
     ///
     /// ``` self: QtC.QDnsLookup ```
+    ///
+    /// Returns: ``` qdnslookup_enums.Error ```
     pub fn Error(self: ?*anyopaque) i64 {
         return qtc.QDnsLookup_Error(@ptrCast(self));
     }
@@ -690,7 +698,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8 ```
     pub fn SetName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -700,6 +708,8 @@ pub const qdnslookup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#type)
     ///
     /// ``` self: QtC.QDnsLookup ```
+    ///
+    /// Returns: ``` qdnslookup_enums.Type ```
     pub fn Type(self: ?*anyopaque) i64 {
         return qtc.QDnsLookup_Type(@ptrCast(self));
     }
@@ -742,6 +752,8 @@ pub const qdnslookup = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocol)
     ///
     /// ``` self: QtC.QDnsLookup ```
+    ///
+    /// Returns: ``` qdnslookup_enums.Protocol ```
     pub fn NameserverProtocol(self: ?*anyopaque) i64 {
         return qtc.QDnsLookup_NameserverProtocol(@ptrCast(self));
     }
@@ -771,7 +783,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn CanonicalNameRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsDomainNameRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_CanonicalNameRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_CanonicalNameRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsDomainNameRecord, _arr.len) catch @panic("qdnslookup.CanonicalNameRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
@@ -783,7 +795,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn HostAddressRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsHostAddressRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_HostAddressRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_HostAddressRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsHostAddressRecord, _arr.len) catch @panic("qdnslookup.HostAddressRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsHostAddressRecord = @ptrCast(@alignCast(_arr.data));
@@ -795,7 +807,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn MailExchangeRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsMailExchangeRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_MailExchangeRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_MailExchangeRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsMailExchangeRecord, _arr.len) catch @panic("qdnslookup.MailExchangeRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsMailExchangeRecord = @ptrCast(@alignCast(_arr.data));
@@ -807,7 +819,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn NameServerRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsDomainNameRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_NameServerRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_NameServerRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsDomainNameRecord, _arr.len) catch @panic("qdnslookup.NameServerRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
@@ -819,7 +831,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn PointerRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsDomainNameRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_PointerRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_PointerRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsDomainNameRecord, _arr.len) catch @panic("qdnslookup.PointerRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
@@ -831,7 +843,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn ServiceRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsServiceRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_ServiceRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_ServiceRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsServiceRecord, _arr.len) catch @panic("qdnslookup.ServiceRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsServiceRecord = @ptrCast(@alignCast(_arr.data));
@@ -843,7 +855,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn TextRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsTextRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_TextRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_TextRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsTextRecord, _arr.len) catch @panic("qdnslookup.TextRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsTextRecord = @ptrCast(@alignCast(_arr.data));
@@ -855,7 +867,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn TlsAssociationRecords(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QDnsTlsAssociationRecord {
-        const _arr: qtc.struct_libqt_list = qtc.QDnsLookup_TlsAssociationRecords(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QDnsLookup_TlsAssociationRecords(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QDnsTlsAssociationRecord, _arr.len) catch @panic("qdnslookup.TlsAssociationRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsTlsAssociationRecord = @ptrCast(@alignCast(_arr.data));
@@ -923,7 +935,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8 ```
     pub fn NameChanged(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1045,7 +1057,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1148,7 +1160,7 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qdnslookup.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1265,8 +1277,8 @@ pub const qdnslookup = struct {
     ///
     /// ``` self: QtC.QDnsLookup, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

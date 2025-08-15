@@ -73,6 +73,8 @@ pub const qvideoframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#pixelFormat)
     ///
     /// ``` self: QtC.QVideoFrame ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.PixelFormat ```
     pub fn PixelFormat(self: ?*anyopaque) i64 {
         return qtc.QVideoFrame_PixelFormat(@ptrCast(self));
     }
@@ -87,6 +89,8 @@ pub const qvideoframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#handleType)
     ///
     /// ``` self: QtC.QVideoFrame ```
+    ///
+    /// Returns: ``` qvideoframe_enums.HandleType ```
     pub fn HandleType(self: ?*anyopaque) i64 {
         return qtc.QVideoFrame_HandleType(@ptrCast(self));
     }
@@ -136,6 +140,8 @@ pub const qvideoframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#mapMode)
     ///
     /// ``` self: QtC.QVideoFrame ```
+    ///
+    /// Returns: ``` qvideoframe_enums.MapMode ```
     pub fn MapMode(self: ?*anyopaque) i64 {
         return qtc.QVideoFrame_MapMode(@ptrCast(self));
     }
@@ -227,6 +233,8 @@ pub const qvideoframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#rotationAngle)
     ///
     /// ``` self: QtC.QVideoFrame ```
+    ///
+    /// Returns: ``` qvideoframe_enums.RotationAngle ```
     pub fn RotationAngle(self: ?*anyopaque) i64 {
         return qtc.QVideoFrame_RotationAngle(@ptrCast(self));
     }
@@ -241,6 +249,8 @@ pub const qvideoframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#rotation)
     ///
     /// ``` self: QtC.QVideoFrame ```
+    ///
+    /// Returns: ``` qtvideo_enums.Rotation ```
     pub fn Rotation(self: ?*anyopaque) i64 {
         return qtc.QVideoFrame_Rotation(@ptrCast(self));
     }
@@ -295,7 +305,7 @@ pub const qvideoframe = struct {
     ///
     /// ``` self: QtC.QVideoFrame, text: []const u8 ```
     pub fn SetSubtitleText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };

@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qsizepolicy_enums = enums;
 
 /// https://doc.qt.io/qt-6/qsizepolicy.html
@@ -63,6 +64,8 @@ pub const qsizepolicy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#horizontalPolicy)
     ///
     /// ``` self: QtC.QSizePolicy ```
+    ///
+    /// Returns: ``` qsizepolicy_enums.Policy ```
     pub fn HorizontalPolicy(self: ?*anyopaque) i64 {
         return qtc.QSizePolicy_HorizontalPolicy(@ptrCast(self));
     }
@@ -70,6 +73,8 @@ pub const qsizepolicy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#verticalPolicy)
     ///
     /// ``` self: QtC.QSizePolicy ```
+    ///
+    /// Returns: ``` qsizepolicy_enums.Policy ```
     pub fn VerticalPolicy(self: ?*anyopaque) i64 {
         return qtc.QSizePolicy_VerticalPolicy(@ptrCast(self));
     }
@@ -77,6 +82,8 @@ pub const qsizepolicy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#controlType)
     ///
     /// ``` self: QtC.QSizePolicy ```
+    ///
+    /// Returns: ``` qsizepolicy_enums.ControlType ```
     pub fn ControlType(self: ?*anyopaque) i64 {
         return qtc.QSizePolicy_ControlType(@ptrCast(self));
     }
@@ -105,6 +112,8 @@ pub const qsizepolicy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#expandingDirections)
     ///
     /// ``` self: QtC.QSizePolicy ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QSizePolicy_ExpandingDirections(@ptrCast(self));
     }

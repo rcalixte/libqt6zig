@@ -20,7 +20,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` text: []const u8 ```
     pub fn New2(text: []const u8) QtC.QStandardItem {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -32,7 +32,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` icon: QtC.QIcon, text: []const u8 ```
     pub fn New3(icon: ?*anyopaque, text: []const u8) QtC.QStandardItem {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -151,7 +151,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, text: []const u8 ```
     pub fn SetText(self: ?*anyopaque, text: []const u8) void {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
@@ -187,7 +187,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, toolTip: []const u8 ```
     pub fn SetToolTip(self: ?*anyopaque, toolTip: []const u8) void {
-        const toolTip_str = qtc.struct_libqt_string{
+        const toolTip_str = qtc.libqt_string{
             .len = toolTip.len,
             .data = toolTip.ptr,
         };
@@ -209,7 +209,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, statusTip: []const u8 ```
     pub fn SetStatusTip(self: ?*anyopaque, statusTip: []const u8) void {
-        const statusTip_str = qtc.struct_libqt_string{
+        const statusTip_str = qtc.libqt_string{
             .len = statusTip.len,
             .data = statusTip.ptr,
         };
@@ -231,7 +231,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, whatsThis: []const u8 ```
     pub fn SetWhatsThis(self: ?*anyopaque, whatsThis: []const u8) void {
-        const whatsThis_str = qtc.struct_libqt_string{
+        const whatsThis_str = qtc.libqt_string{
             .len = whatsThis.len,
             .data = whatsThis.ptr,
         };
@@ -269,13 +269,15 @@ pub const qstandarditem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#textAlignment)
     ///
     /// ``` self: QtC.QStandardItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn TextAlignment(self: ?*anyopaque) i64 {
         return qtc.QStandardItem_TextAlignment(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#setTextAlignment)
     ///
-    /// ``` self: QtC.QStandardItem, textAlignment: i32 ```
+    /// ``` self: QtC.QStandardItem, textAlignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetTextAlignment(self: ?*anyopaque, textAlignment: i64) void {
         qtc.QStandardItem_SetTextAlignment(@ptrCast(self), @intCast(textAlignment));
     }
@@ -311,6 +313,8 @@ pub const qstandarditem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#checkState)
     ///
     /// ``` self: QtC.QStandardItem ```
+    ///
+    /// Returns: ``` qnamespace_enums.CheckState ```
     pub fn CheckState(self: ?*anyopaque) i64 {
         return qtc.QStandardItem_CheckState(@ptrCast(self));
     }
@@ -337,7 +341,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, accessibleText: []const u8 ```
     pub fn SetAccessibleText(self: ?*anyopaque, accessibleText: []const u8) void {
-        const accessibleText_str = qtc.struct_libqt_string{
+        const accessibleText_str = qtc.libqt_string{
             .len = accessibleText.len,
             .data = accessibleText.ptr,
         };
@@ -359,7 +363,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, accessibleDescription: []const u8 ```
     pub fn SetAccessibleDescription(self: ?*anyopaque, accessibleDescription: []const u8) void {
-        const accessibleDescription_str = qtc.struct_libqt_string{
+        const accessibleDescription_str = qtc.libqt_string{
             .len = accessibleDescription.len,
             .data = accessibleDescription.ptr,
         };
@@ -369,13 +373,15 @@ pub const qstandarditem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#flags)
     ///
     /// ``` self: QtC.QStandardItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque) i64 {
         return qtc.QStandardItem_Flags(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#setFlags)
     ///
-    /// ``` self: QtC.QStandardItem, flags: i32 ```
+    /// ``` self: QtC.QStandardItem, flags: flag of qnamespace_enums.ItemFlag ```
     pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
         qtc.QStandardItem_SetFlags(@ptrCast(self), @intCast(flags));
     }
@@ -587,7 +593,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, row: i32, items: []QtC.QStandardItem ```
     pub fn InsertRow(self: ?*anyopaque, row: i32, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -598,7 +604,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, column: i32, items: []QtC.QStandardItem ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -609,7 +615,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, row: i32, items: []QtC.QStandardItem ```
     pub fn InsertRows(self: ?*anyopaque, row: i32, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -662,7 +668,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, items: []QtC.QStandardItem ```
     pub fn AppendRow(self: ?*anyopaque, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -673,7 +679,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, items: []QtC.QStandardItem ```
     pub fn AppendRows(self: ?*anyopaque, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -684,7 +690,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, items: []QtC.QStandardItem ```
     pub fn AppendColumn(self: ?*anyopaque, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -716,7 +722,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, row: i32, allocator: std.mem.Allocator ```
     pub fn TakeRow(self: ?*anyopaque, row: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItem_TakeRow(@ptrCast(self), @intCast(row));
+        const _arr: qtc.libqt_list = qtc.QStandardItem_TakeRow(@ptrCast(self), @intCast(row));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStandardItem, _arr.len) catch @panic("qstandarditem.TakeRow: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
@@ -728,7 +734,7 @@ pub const qstandarditem = struct {
     ///
     /// ``` self: QtC.QStandardItem, column: i32, allocator: std.mem.Allocator ```
     pub fn TakeColumn(self: ?*anyopaque, column: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItem_TakeColumn(@ptrCast(self), @intCast(column));
+        const _arr: qtc.libqt_list = qtc.QStandardItem_TakeColumn(@ptrCast(self), @intCast(column));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStandardItem, _arr.len) catch @panic("qstandarditem.TakeColumn: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
@@ -1039,7 +1045,7 @@ pub const qstandarditemmodel = struct {
             roleNames_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roleNames_map = qtc.struct_libqt_map{
+        const roleNames_map = qtc.libqt_map{
             .len = roleNames.count(),
             .keys = @ptrCast(roleNames_keys.ptr),
             .values = @ptrCast(roleNames_values.ptr),
@@ -1051,7 +1057,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QStandardItemModel_RoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QStandardItemModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1083,7 +1089,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QStandardItemModel_QBaseRoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QStandardItemModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1478,6 +1484,8 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#flags)
     ///
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QStandardItemModel_Flags(@ptrCast(self), @ptrCast(index));
     }
@@ -1496,6 +1504,8 @@ pub const qstandarditemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QStandardItemModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
@@ -1503,6 +1513,8 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QStandardItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QStandardItemModel_SupportedDropActions(@ptrCast(self));
     }
@@ -1521,6 +1533,8 @@ pub const qstandarditemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStandardItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QStandardItemModel_QBaseSupportedDropActions(@ptrCast(self));
     }
@@ -1529,7 +1543,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QStandardItemModel_ItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QStandardItemModel_ItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1561,7 +1575,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QStandardItemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QStandardItemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1594,7 +1608,7 @@ pub const qstandarditemmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -1629,7 +1643,7 @@ pub const qstandarditemmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -1743,7 +1757,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, labels: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetHorizontalHeaderLabels(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
-        var labels_arr = allocator.alloc(qtc.struct_libqt_string, labels.len) catch @panic("qstandarditemmodel.SetHorizontalHeaderLabels: Memory allocation failed");
+        var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetHorizontalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
             labels_arr[i] = .{
@@ -1751,7 +1765,7 @@ pub const qstandarditemmodel = struct {
                 .data = item.ptr,
             };
         }
-        const labels_list = qtc.struct_libqt_list{
+        const labels_list = qtc.libqt_list{
             .len = labels.len,
             .data = labels_arr.ptr,
         };
@@ -1762,7 +1776,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, labels: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetVerticalHeaderLabels(self: ?*anyopaque, labels: [][]const u8, allocator: std.mem.Allocator) void {
-        var labels_arr = allocator.alloc(qtc.struct_libqt_string, labels.len) catch @panic("qstandarditemmodel.SetVerticalHeaderLabels: Memory allocation failed");
+        var labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetVerticalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i| {
             labels_arr[i] = .{
@@ -1770,7 +1784,7 @@ pub const qstandarditemmodel = struct {
                 .data = item.ptr,
             };
         }
-        const labels_list = qtc.struct_libqt_list{
+        const labels_list = qtc.libqt_list{
             .len = labels.len,
             .data = labels_arr.ptr,
         };
@@ -1795,7 +1809,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, items: []QtC.QStandardItem ```
     pub fn AppendRow(self: ?*anyopaque, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -1806,7 +1820,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, items: []QtC.QStandardItem ```
     pub fn AppendColumn(self: ?*anyopaque, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -1824,7 +1838,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, row: i32, items: []QtC.QStandardItem ```
     pub fn InsertRow(self: ?*anyopaque, row: i32, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -1835,7 +1849,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, column: i32, items: []QtC.QStandardItem ```
     pub fn InsertColumn(self: ?*anyopaque, column: i32, items: []?*anyopaque) void {
-        const items_list = qtc.struct_libqt_list{
+        const items_list = qtc.libqt_list{
             .len = items.len,
             .data = @ptrCast(items.ptr),
         };
@@ -1874,7 +1888,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, row: i32, allocator: std.mem.Allocator ```
     pub fn TakeRow(self: ?*anyopaque, row: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_TakeRow(@ptrCast(self), @intCast(row));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_TakeRow(@ptrCast(self), @intCast(row));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStandardItem, _arr.len) catch @panic("qstandarditemmodel.TakeRow: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
@@ -1886,7 +1900,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, column: i32, allocator: std.mem.Allocator ```
     pub fn TakeColumn(self: ?*anyopaque, column: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_TakeColumn(@ptrCast(self), @intCast(column));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_TakeColumn(@ptrCast(self), @intCast(column));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStandardItem, _arr.len) catch @panic("qstandarditemmodel.TakeColumn: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
@@ -1926,11 +1940,11 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, text: []const u8, allocator: std.mem.Allocator ```
     pub fn FindItems(self: ?*anyopaque, text: []const u8, allocator: std.mem.Allocator) []QtC.QStandardItem {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_FindItems(@ptrCast(self), text_str);
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_FindItems(@ptrCast(self), text_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStandardItem, _arr.len) catch @panic("qstandarditemmodel.FindItems: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
@@ -1956,8 +1970,8 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_MimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1989,8 +2003,8 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_QBaseMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_QBaseMimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2011,7 +2025,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -2033,7 +2047,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, indexes: []QtC.QModelIndex ```
     pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -2135,13 +2149,13 @@ pub const qstandarditemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#findItems)
     ///
-    /// ``` self: QtC.QStandardItemModel, text: []const u8, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStandardItemModel, text: []const u8, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn FindItems2(self: ?*anyopaque, text: []const u8, flags: i64, allocator: std.mem.Allocator) []QtC.QStandardItem {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_FindItems2(@ptrCast(self), text_str, @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_FindItems2(@ptrCast(self), text_str, @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStandardItem, _arr.len) catch @panic("qstandarditemmodel.FindItems2: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
@@ -2151,13 +2165,13 @@ pub const qstandarditemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#findItems)
     ///
-    /// ``` self: QtC.QStandardItemModel, text: []const u8, flags: i32, column: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStandardItemModel, text: []const u8, flags: flag of qnamespace_enums.MatchFlag, column: i32, allocator: std.mem.Allocator ```
     pub fn FindItems3(self: ?*anyopaque, text: []const u8, flags: i64, column: i32, allocator: std.mem.Allocator) []QtC.QStandardItem {
-        const text_str = qtc.struct_libqt_string{
+        const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_FindItems3(@ptrCast(self), text_str, @intCast(flags), @intCast(column));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_FindItems3(@ptrCast(self), text_str, @intCast(flags), @intCast(column));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QStandardItem, _arr.len) catch @panic("qstandarditemmodel.FindItems3: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
@@ -2322,7 +2336,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
-    /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, options: i32 ```
+    /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
@@ -2333,7 +2347,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -2355,7 +2369,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2377,7 +2391,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2399,7 +2413,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2421,7 +2435,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -2456,7 +2470,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2559,7 +2573,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qstandarditemmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -2676,8 +2690,8 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -2878,6 +2892,8 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QStandardItemModel_SupportedDragActions(@ptrCast(self));
     }
@@ -2889,6 +2905,8 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QStandardItemModel_QBaseSupportedDragActions(@ptrCast(self));
     }
@@ -3075,9 +3093,9 @@ pub const qstandarditemmodel = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstandarditemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3091,9 +3109,9 @@ pub const qstandarditemmodel = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstandarditemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3107,7 +3125,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32) callconv(.c) []QtC.QModelIndex ```
+    /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) []QtC.QModelIndex ```
     pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) []QtC.QModelIndex) void {
         qtc.QStandardItemModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -3516,7 +3534,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -3531,7 +3549,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -4085,11 +4103,11 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -4104,11 +4122,11 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -4134,7 +4152,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_PersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_PersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstandarditemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -4150,7 +4168,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QStandardItemModel_QBasePersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QStandardItemModel_QBasePersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qstandarditemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));

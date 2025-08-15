@@ -43,6 +43,8 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#orientation)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout ```
+    ///
+    /// Returns: ``` qnamespace_enums.Orientation ```
     pub fn Orientation(self: ?*anyopaque) i64 {
         return qtc.QGraphicsLinearLayout_Orientation(@ptrCast(self));
     }
@@ -151,7 +153,7 @@ pub const qgraphicslinearlayout = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem, alignment: i32 ```
+    /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, item: ?*anyopaque, alignment: i64) void {
         qtc.QGraphicsLinearLayout_SetAlignment(@ptrCast(self), @ptrCast(item), @intCast(alignment));
     }
@@ -159,6 +161,8 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#alignment)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, item: QtC.QGraphicsLayoutItem ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque, item: ?*anyopaque) i64 {
         return qtc.QGraphicsLinearLayout_Alignment(@ptrCast(self), @ptrCast(item));
     }

@@ -96,6 +96,8 @@ pub const qcollator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcollator.html#caseSensitivity)
     ///
     /// ``` self: QtC.QCollator ```
+    ///
+    /// Returns: ``` qnamespace_enums.CaseSensitivity ```
     pub fn CaseSensitivity(self: ?*anyopaque) i64 {
         return qtc.QCollator_CaseSensitivity(@ptrCast(self));
     }
@@ -139,11 +141,11 @@ pub const qcollator = struct {
     ///
     /// ``` self: QtC.QCollator, s1: []const u8, s2: []const u8 ```
     pub fn Compare(self: ?*anyopaque, s1: []const u8, s2: []const u8) i32 {
-        const s1_str = qtc.struct_libqt_string{
+        const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
         };
-        const s2_str = qtc.struct_libqt_string{
+        const s2_str = qtc.libqt_string{
             .len = s2.len,
             .data = s2.ptr,
         };
@@ -161,11 +163,11 @@ pub const qcollator = struct {
     ///
     /// ``` self: QtC.QCollator, s1: []const u8, s2: []const u8 ```
     pub fn OperatorCall(self: ?*anyopaque, s1: []const u8, s2: []const u8) bool {
-        const s1_str = qtc.struct_libqt_string{
+        const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
         };
-        const s2_str = qtc.struct_libqt_string{
+        const s2_str = qtc.libqt_string{
             .len = s2.len,
             .data = s2.ptr,
         };
@@ -176,7 +178,7 @@ pub const qcollator = struct {
     ///
     /// ``` self: QtC.QCollator, stringVal: []const u8 ```
     pub fn SortKey(self: ?*anyopaque, stringVal: []const u8) QtC.QCollatorSortKey {
-        const stringVal_str = qtc.struct_libqt_string{
+        const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
         };

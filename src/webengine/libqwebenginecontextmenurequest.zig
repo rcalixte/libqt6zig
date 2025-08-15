@@ -83,6 +83,8 @@ pub const qwebenginecontextmenurequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#mediaType)
     ///
     /// ``` self: QtC.QWebEngineContextMenuRequest ```
+    ///
+    /// Returns: ``` qwebenginecontextmenurequest_enums.MediaType ```
     pub fn MediaType(self: ?*anyopaque) i64 {
         return qtc.QWebEngineContextMenuRequest_MediaType(@ptrCast(self));
     }
@@ -109,8 +111,8 @@ pub const qwebenginecontextmenurequest = struct {
     ///
     /// ``` self: QtC.QWebEngineContextMenuRequest, allocator: std.mem.Allocator ```
     pub fn SpellCheckerSuggestions(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QWebEngineContextMenuRequest_SpellCheckerSuggestions(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QWebEngineContextMenuRequest_SpellCheckerSuggestions(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -144,6 +146,8 @@ pub const qwebenginecontextmenurequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#mediaFlags)
     ///
     /// ``` self: QtC.QWebEngineContextMenuRequest ```
+    ///
+    /// Returns: ``` flag of qwebenginecontextmenurequest_enums.MediaFlag ```
     pub fn MediaFlags(self: ?*anyopaque) i64 {
         return qtc.QWebEngineContextMenuRequest_MediaFlags(@ptrCast(self));
     }
@@ -151,6 +155,8 @@ pub const qwebenginecontextmenurequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#editFlags)
     ///
     /// ``` self: QtC.QWebEngineContextMenuRequest ```
+    ///
+    /// Returns: ``` flag of qwebenginecontextmenurequest_enums.EditFlag ```
     pub fn EditFlags(self: ?*anyopaque) i64 {
         return qtc.QWebEngineContextMenuRequest_EditFlags(@ptrCast(self));
     }
@@ -218,7 +224,7 @@ pub const qwebenginecontextmenurequest = struct {
     ///
     /// ``` self: QtC.QWebEngineContextMenuRequest, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -321,7 +327,7 @@ pub const qwebenginecontextmenurequest = struct {
     ///
     /// ``` self: QtC.QWebEngineContextMenuRequest, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qwebenginecontextmenurequest.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -438,8 +444,8 @@ pub const qwebenginecontextmenurequest = struct {
     ///
     /// ``` self: QtC.QWebEngineContextMenuRequest, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));

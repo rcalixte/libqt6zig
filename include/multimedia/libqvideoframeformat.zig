@@ -73,6 +73,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#pixelFormat)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.PixelFormat ```
     pub fn PixelFormat(self: ?*anyopaque) i64 {
         return qtc.QVideoFrameFormat_PixelFormat(@ptrCast(self));
     }
@@ -136,6 +138,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#scanLineDirection)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.Direction ```
     pub fn ScanLineDirection(self: ?*anyopaque) i64 {
         return qtc.QVideoFrameFormat_ScanLineDirection(@ptrCast(self));
     }
@@ -178,6 +182,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#yCbCrColorSpace)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.YCbCrColorSpace ```
     pub fn YCbCrColorSpace(self: ?*anyopaque) i64 {
         return qtc.QVideoFrameFormat_YCbCrColorSpace(@ptrCast(self));
     }
@@ -192,6 +198,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#colorSpace)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.ColorSpace ```
     pub fn ColorSpace(self: ?*anyopaque) i64 {
         return qtc.QVideoFrameFormat_ColorSpace(@ptrCast(self));
     }
@@ -206,6 +214,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#colorTransfer)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.ColorTransfer ```
     pub fn ColorTransfer(self: ?*anyopaque) i64 {
         return qtc.QVideoFrameFormat_ColorTransfer(@ptrCast(self));
     }
@@ -220,6 +230,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#colorRange)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.ColorRange ```
     pub fn ColorRange(self: ?*anyopaque) i64 {
         return qtc.QVideoFrameFormat_ColorRange(@ptrCast(self));
     }
@@ -248,6 +260,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#rotation)
     ///
     /// ``` self: QtC.QVideoFrameFormat ```
+    ///
+    /// Returns: ``` qtvideo_enums.Rotation ```
     pub fn Rotation(self: ?*anyopaque) i64 {
         return qtc.QVideoFrameFormat_Rotation(@ptrCast(self));
     }
@@ -298,6 +312,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#pixelFormatFromImageFormat)
     ///
     /// ``` format: qimage_enums.Format ```
+    ///
+    /// Returns: ``` qvideoframeformat_enums.PixelFormat ```
     pub fn PixelFormatFromImageFormat(format: i64) i64 {
         return qtc.QVideoFrameFormat_PixelFormatFromImageFormat(@intCast(format));
     }
@@ -305,6 +321,8 @@ pub const qvideoframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframeformat.html#imageFormatFromPixelFormat)
     ///
     /// ``` format: qvideoframeformat_enums.PixelFormat ```
+    ///
+    /// Returns: ``` qimage_enums.Format ```
     pub fn ImageFormatFromPixelFormat(format: i64) i64 {
         return qtc.QVideoFrameFormat_ImageFormatFromPixelFormat(@intCast(format));
     }

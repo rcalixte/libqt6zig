@@ -15,7 +15,7 @@ pub const qdiriterator = struct {
     ///
     /// ``` path: []const u8 ```
     pub fn New2(path: []const u8) QtC.QDirIterator {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -25,9 +25,9 @@ pub const qdiriterator = struct {
 
     /// New3 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, filter: i32 ```
+    /// ``` path: []const u8, filter: flag of qdir_enums.Filter ```
     pub fn New3(path: []const u8, filter: i64) QtC.QDirIterator {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -39,11 +39,11 @@ pub const qdiriterator = struct {
     ///
     /// ``` path: []const u8, nameFilters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New4(path: []const u8, nameFilters: [][]const u8, allocator: std.mem.Allocator) QtC.QDirIterator {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.struct_libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
+        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{
@@ -51,7 +51,7 @@ pub const qdiriterator = struct {
                 .data = item.ptr,
             };
         }
-        const nameFilters_list = qtc.struct_libqt_list{
+        const nameFilters_list = qtc.libqt_list{
             .len = nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
@@ -61,16 +61,16 @@ pub const qdiriterator = struct {
 
     /// New5 constructs a new QDirIterator object.
     ///
-    /// ``` dir: QtC.QDir, flags: i32 ```
+    /// ``` dir: QtC.QDir, flags: flag of qdiriterator_enums.IteratorFlag ```
     pub fn New5(dir: ?*anyopaque, flags: i64) QtC.QDirIterator {
         return qtc.QDirIterator_new5(@ptrCast(dir), @intCast(flags));
     }
 
     /// New6 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, flags: i32 ```
+    /// ``` path: []const u8, flags: flag of qdiriterator_enums.IteratorFlag ```
     pub fn New6(path: []const u8, flags: i64) QtC.QDirIterator {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -80,9 +80,9 @@ pub const qdiriterator = struct {
 
     /// New7 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, filter: i32, flags: i32 ```
+    /// ``` path: []const u8, filter: flag of qdir_enums.Filter, flags: flag of qdiriterator_enums.IteratorFlag ```
     pub fn New7(path: []const u8, filter: i64, flags: i64) QtC.QDirIterator {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -92,13 +92,13 @@ pub const qdiriterator = struct {
 
     /// New8 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, nameFilters: [][]const u8, filters: i32, allocator: std.mem.Allocator ```
+    /// ``` path: []const u8, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, allocator: std.mem.Allocator ```
     pub fn New8(path: []const u8, nameFilters: [][]const u8, filters: i64, allocator: std.mem.Allocator) QtC.QDirIterator {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.struct_libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
+        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{
@@ -106,7 +106,7 @@ pub const qdiriterator = struct {
                 .data = item.ptr,
             };
         }
-        const nameFilters_list = qtc.struct_libqt_list{
+        const nameFilters_list = qtc.libqt_list{
             .len = nameFilters.len,
             .data = nameFilters_arr.ptr,
         };
@@ -116,13 +116,13 @@ pub const qdiriterator = struct {
 
     /// New9 constructs a new QDirIterator object.
     ///
-    /// ``` path: []const u8, nameFilters: [][]const u8, filters: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` path: []const u8, nameFilters: [][]const u8, filters: flag of qdir_enums.Filter, flags: flag of qdiriterator_enums.IteratorFlag, allocator: std.mem.Allocator ```
     pub fn New9(path: []const u8, nameFilters: [][]const u8, filters: i64, flags: i64, allocator: std.mem.Allocator) QtC.QDirIterator {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.struct_libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
+        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdiriterator.: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{
@@ -130,7 +130,7 @@ pub const qdiriterator = struct {
                 .data = item.ptr,
             };
         }
-        const nameFilters_list = qtc.struct_libqt_list{
+        const nameFilters_list = qtc.libqt_list{
             .len = nameFilters.len,
             .data = nameFilters_arr.ptr,
         };

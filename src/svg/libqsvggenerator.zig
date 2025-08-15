@@ -35,7 +35,7 @@ pub const qsvggenerator = struct {
     ///
     /// ``` self: QtC.QSvgGenerator, title: []const u8 ```
     pub fn SetTitle(self: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.struct_libqt_string{
+        const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
@@ -57,7 +57,7 @@ pub const qsvggenerator = struct {
     ///
     /// ``` self: QtC.QSvgGenerator, description: []const u8 ```
     pub fn SetDescription(self: ?*anyopaque, description: []const u8) void {
-        const description_str = qtc.struct_libqt_string{
+        const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
@@ -121,7 +121,7 @@ pub const qsvggenerator = struct {
     ///
     /// ``` self: QtC.QSvgGenerator, fileName: []const u8 ```
     pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
-        const fileName_str = qtc.struct_libqt_string{
+        const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
@@ -159,6 +159,8 @@ pub const qsvggenerator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#svgVersion)
     ///
     /// ``` self: QtC.QSvgGenerator ```
+    ///
+    /// Returns: ``` qsvggenerator_enums.SvgVersion ```
     pub fn SvgVersion(self: ?*anyopaque) i64 {
         return qtc.QSvgGenerator_SvgVersion(@ptrCast(self));
     }

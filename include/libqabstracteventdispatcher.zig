@@ -45,7 +45,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, flags: i32 ```
+    /// ``` self: QtC.QAbstractEventDispatcher, flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn ProcessEvents(self: ?*anyopaque, flags: i64) bool {
         return qtc.QAbstractEventDispatcher_ProcessEvents(@ptrCast(self), @intCast(flags));
     }
@@ -96,7 +96,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn RegisteredTimers(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfo {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractEventDispatcher_RegisteredTimers(@ptrCast(self), @ptrCast(object));
+        const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcher_RegisteredTimers(@ptrCast(self), @ptrCast(object));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractEventDispatcher__TimerInfo, _arr.len) catch @panic("qabstracteventdispatcher.RegisteredTimers: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfo = @ptrCast(@alignCast(_arr.data));
@@ -122,7 +122,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn TimersForObject(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfoV2 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractEventDispatcher_TimersForObject(@ptrCast(self), @ptrCast(object));
+        const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcher_TimersForObject(@ptrCast(self), @ptrCast(object));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractEventDispatcher__TimerInfoV2, _arr.len) catch @panic("qabstracteventdispatcher.TimersForObject: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfoV2 = @ptrCast(@alignCast(_arr.data));
@@ -176,7 +176,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -281,7 +281,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -384,7 +384,7 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstracteventdispatcher.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -501,8 +501,8 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcher, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -703,7 +703,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn TimersForObject(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfoV2 {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractEventDispatcherV2_TimersForObject(@ptrCast(self), @ptrCast(object));
+        const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcherV2_TimersForObject(@ptrCast(self), @ptrCast(object));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractEventDispatcher__TimerInfoV2, _arr.len) catch @panic("qabstracteventdispatcherv2.TimersForObject: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfoV2 = @ptrCast(@alignCast(_arr.data));
@@ -713,7 +713,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#processEventsWithDeadline)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, flags: i32, deadline: QtC.QDeadlineTimer ```
+    /// ``` self: QtC.QAbstractEventDispatcherV2, flags: flag of qeventloop_enums.ProcessEventsFlag, deadline: QtC.QDeadlineTimer ```
     pub fn ProcessEventsWithDeadline(self: ?*anyopaque, flags: i64, deadline: QtC.QDeadlineTimer) bool {
         return qtc.QAbstractEventDispatcherV2_ProcessEventsWithDeadline(@ptrCast(self), @intCast(flags), @ptrCast(deadline));
     }
@@ -757,7 +757,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#processEvents)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, flags: i32 ```
+    /// ``` self: QtC.QAbstractEventDispatcherV2, flags: flag of qeventloop_enums.ProcessEventsFlag ```
     pub fn ProcessEvents(self: ?*anyopaque, flags: i64) bool {
         return qtc.QAbstractEventDispatcher_ProcessEvents(@ptrCast(self), @intCast(flags));
     }
@@ -813,7 +813,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, object: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn RegisteredTimers(self: ?*anyopaque, object: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractEventDispatcher__TimerInfo {
-        const _arr: qtc.struct_libqt_list = qtc.QAbstractEventDispatcher_RegisteredTimers(@ptrCast(self), @ptrCast(object));
+        const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcher_RegisteredTimers(@ptrCast(self), @ptrCast(object));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QAbstractEventDispatcher__TimerInfo, _arr.len) catch @panic("qabstracteventdispatcherv2.RegisteredTimers: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfo = @ptrCast(@alignCast(_arr.data));
@@ -899,7 +899,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, eventType: []u8, message: ?*anyopaque, result: *isize ```
     pub fn FilterNativeEvent(self: ?*anyopaque, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
-        const eventType_str = qtc.struct_libqt_string{
+        const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
@@ -988,7 +988,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1091,7 +1091,7 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qabstracteventdispatcherv2.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1208,8 +1208,8 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// ``` self: QtC.QAbstractEventDispatcherV2, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1435,7 +1435,7 @@ pub const qabstracteventdispatcher__timerinfov2 = struct {
         return qtc.QAbstractEventDispatcher__TimerInfoV2_new2();
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher__timerinfov2.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2, param1: QtC.QAbstractEventDispatcher__TimerInfoV2 ```
     pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {

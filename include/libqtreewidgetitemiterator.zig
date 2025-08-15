@@ -26,14 +26,14 @@ pub const qtreewidgetitemiterator = struct {
 
     /// New4 constructs a new QTreeWidgetItemIterator object.
     ///
-    /// ``` widget: QtC.QTreeWidget, flags: i32 ```
+    /// ``` widget: QtC.QTreeWidget, flags: flag of qtreewidgetitemiterator_enums.IteratorFlag ```
     pub fn New4(widget: ?*anyopaque, flags: i64) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_new4(@ptrCast(widget), @intCast(flags));
     }
 
     /// New5 constructs a new QTreeWidgetItemIterator object.
     ///
-    /// ``` item: QtC.QTreeWidgetItem, flags: i32 ```
+    /// ``` item: QtC.QTreeWidgetItem, flags: flag of qtreewidgetitemiterator_enums.IteratorFlag ```
     pub fn New5(item: ?*anyopaque, flags: i64) QtC.QTreeWidgetItemIterator {
         return qtc.QTreeWidgetItemIterator_new5(@ptrCast(item), @intCast(flags));
     }

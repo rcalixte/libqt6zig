@@ -226,7 +226,7 @@ pub const qregion = struct {
     ///
     /// ``` self: QtC.QRegion, r: []QtC.QRect ```
     pub fn SetRects2(self: ?*anyopaque, r: []QtC.QRect) void {
-        const r_list = qtc.struct_libqt_list{
+        const r_list = qtc.libqt_list{
             .len = r.len,
             .data = @ptrCast(r.ptr),
         };
@@ -237,7 +237,7 @@ pub const qregion = struct {
     ///
     /// ``` self: QtC.QRegion, allocator: std.mem.Allocator ```
     pub fn Rects(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QRect {
-        const _arr: qtc.struct_libqt_list = qtc.QRegion_Rects(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QRegion_Rects(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QRect, _arr.len) catch @panic("qregion.Rects: Memory allocation failed");
         const _data: [*]QtC.QRect = @ptrCast(@alignCast(_arr.data));

@@ -23,7 +23,7 @@ pub const qscicommandset = struct {
     ///
     /// ``` self: QtC.QsciCommandSet, allocator: std.mem.Allocator ```
     pub fn Commands(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QsciCommand {
-        const _arr: qtc.struct_libqt_list = qtc.QsciCommandSet_Commands(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QsciCommandSet_Commands(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QsciCommand, _arr.len) catch @panic("qscicommandset.Commands: Memory allocation failed");
         const _data: [*]QtC.QsciCommand = @ptrCast(@alignCast(_arr.data));

@@ -16,7 +16,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` pattern: []const u8 ```
     pub fn New2(pattern: []const u8) QtC.QRegularExpression {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -33,9 +33,9 @@ pub const qregularexpression = struct {
 
     /// New4 constructs a new QRegularExpression object.
     ///
-    /// ``` pattern: []const u8, options: i32 ```
+    /// ``` pattern: []const u8, options: flag of qregularexpression_enums.PatternOption ```
     pub fn New4(pattern: []const u8, options: i64) QtC.QRegularExpression {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -46,13 +46,15 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#patternOptions)
     ///
     /// ``` self: QtC.QRegularExpression ```
+    ///
+    /// Returns: ``` flag of qregularexpression_enums.PatternOption ```
     pub fn PatternOptions(self: ?*anyopaque) i64 {
         return qtc.QRegularExpression_PatternOptions(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#setPatternOptions)
     ///
-    /// ``` self: QtC.QRegularExpression, options: i32 ```
+    /// ``` self: QtC.QRegularExpression, options: flag of qregularexpression_enums.PatternOption ```
     pub fn SetPatternOptions(self: ?*anyopaque, options: i64) void {
         qtc.QRegularExpression_SetPatternOptions(@ptrCast(self), @intCast(options));
     }
@@ -86,7 +88,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, pattern: []const u8 ```
     pub fn SetPattern(self: ?*anyopaque, pattern: []const u8) void {
-        const pattern_str = qtc.struct_libqt_string{
+        const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
         };
@@ -129,8 +131,8 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, allocator: std.mem.Allocator ```
     pub fn NamedCaptureGroups(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QRegularExpression_NamedCaptureGroups(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QRegularExpression_NamedCaptureGroups(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -151,7 +153,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8 ```
     pub fn Match(self: ?*anyopaque, subject: []const u8) QtC.QRegularExpressionMatch {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -162,7 +164,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8 ```
     pub fn GlobalMatch(self: ?*anyopaque, subject: []const u8) QtC.QRegularExpressionMatchIterator {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -180,7 +182,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` str: []const u8, allocator: std.mem.Allocator ```
     pub fn Escape(str: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -195,7 +197,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` str: []const u8, allocator: std.mem.Allocator ```
     pub fn WildcardToRegularExpression(str: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -210,7 +212,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` expression: []const u8, allocator: std.mem.Allocator ```
     pub fn AnchoredPattern(expression: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const expression_str = qtc.struct_libqt_string{
+        const expression_str = qtc.libqt_string{
             .len = expression.len,
             .data = expression.ptr,
         };
@@ -225,7 +227,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64 ```
     pub fn Match22(self: ?*anyopaque, subject: []const u8, offset: i64) QtC.QRegularExpressionMatch {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -236,7 +238,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType ```
     pub fn Match3(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64) QtC.QRegularExpressionMatch {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -245,9 +247,9 @@ pub const qregularexpression = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#match)
     ///
-    /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: i32 ```
+    /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: flag of qregularexpression_enums.MatchOption ```
     pub fn Match4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64, matchOptions: i64) QtC.QRegularExpressionMatch {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -258,7 +260,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64 ```
     pub fn GlobalMatch22(self: ?*anyopaque, subject: []const u8, offset: i64) QtC.QRegularExpressionMatchIterator {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -269,7 +271,7 @@ pub const qregularexpression = struct {
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType ```
     pub fn GlobalMatch3(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64) QtC.QRegularExpressionMatchIterator {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -278,9 +280,9 @@ pub const qregularexpression = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#globalMatch)
     ///
-    /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: i32 ```
+    /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: flag of qregularexpression_enums.MatchOption ```
     pub fn GlobalMatch4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64, matchOptions: i64) QtC.QRegularExpressionMatchIterator {
-        const subject_str = qtc.struct_libqt_string{
+        const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
         };
@@ -289,9 +291,9 @@ pub const qregularexpression = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#wildcardToRegularExpression)
     ///
-    /// ``` str: []const u8, options: i32, allocator: std.mem.Allocator ```
+    /// ``` str: []const u8, options: flag of qregularexpression_enums.WildcardConversionOption, allocator: std.mem.Allocator ```
     pub fn WildcardToRegularExpression22(str: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
-        const str_str = qtc.struct_libqt_string{
+        const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
@@ -352,6 +354,8 @@ pub const qregularexpressionmatch = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#matchType)
     ///
     /// ``` self: QtC.QRegularExpressionMatch ```
+    ///
+    /// Returns: ``` qregularexpression_enums.MatchType ```
     pub fn MatchType(self: ?*anyopaque) i64 {
         return qtc.QRegularExpressionMatch_MatchType(@ptrCast(self));
     }
@@ -359,6 +363,8 @@ pub const qregularexpressionmatch = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatch.html#matchOptions)
     ///
     /// ``` self: QtC.QRegularExpressionMatch ```
+    ///
+    /// Returns: ``` flag of qregularexpression_enums.MatchOption ```
     pub fn MatchOptions(self: ?*anyopaque) i64 {
         return qtc.QRegularExpressionMatch_MatchOptions(@ptrCast(self));
     }
@@ -395,7 +401,7 @@ pub const qregularexpressionmatch = struct {
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8 ```
     pub fn HasCaptured(self: ?*anyopaque, name: []const u8) bool {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -424,7 +430,7 @@ pub const qregularexpressionmatch = struct {
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8, allocator: std.mem.Allocator ```
     pub fn Captured2(self: ?*anyopaque, name: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -439,8 +445,8 @@ pub const qregularexpressionmatch = struct {
     ///
     /// ``` self: QtC.QRegularExpressionMatch, allocator: std.mem.Allocator ```
     pub fn CapturedTexts(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QRegularExpressionMatch_CapturedTexts(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QRegularExpressionMatch_CapturedTexts(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -482,7 +488,7 @@ pub const qregularexpressionmatch = struct {
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8 ```
     pub fn CapturedStart2(self: ?*anyopaque, name: []const u8) i64 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -493,7 +499,7 @@ pub const qregularexpressionmatch = struct {
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8 ```
     pub fn CapturedLength2(self: ?*anyopaque, name: []const u8) i64 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -504,7 +510,7 @@ pub const qregularexpressionmatch = struct {
     ///
     /// ``` self: QtC.QRegularExpressionMatch, name: []const u8 ```
     pub fn CapturedEnd2(self: ?*anyopaque, name: []const u8) i64 {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -621,6 +627,8 @@ pub const qregularexpressionmatchiterator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatchiterator.html#matchType)
     ///
     /// ``` self: QtC.QRegularExpressionMatchIterator ```
+    ///
+    /// Returns: ``` qregularexpression_enums.MatchType ```
     pub fn MatchType(self: ?*anyopaque) i64 {
         return qtc.QRegularExpressionMatchIterator_MatchType(@ptrCast(self));
     }
@@ -628,6 +636,8 @@ pub const qregularexpressionmatchiterator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpressionmatchiterator.html#matchOptions)
     ///
     /// ``` self: QtC.QRegularExpressionMatchIterator ```
+    ///
+    /// Returns: ``` flag of qregularexpression_enums.MatchOption ```
     pub fn MatchOptions(self: ?*anyopaque) i64 {
         return qtc.QRegularExpressionMatchIterator_MatchOptions(@ptrCast(self));
     }

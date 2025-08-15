@@ -1,6 +1,8 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qabstractitemmodel_enums = @import("libqabstractitemmodel.zig").enums;
+const qdir_enums = @import("libqdir.zig").enums;
+const qfiledevice_enums = @import("libqfiledevice.zig").enums;
 const qfilesystemmodel_enums = enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
@@ -72,7 +74,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, newPath: []const u8 ```
     pub fn RootPathChanged(self: ?*anyopaque, newPath: []const u8) void {
-        const newPath_str = qtc.struct_libqt_string{
+        const newPath_str = qtc.libqt_string{
             .len = newPath.len,
             .data = newPath.ptr,
         };
@@ -90,15 +92,15 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8, oldName: []const u8, newName: []const u8 ```
     pub fn FileRenamed(self: ?*anyopaque, path: []const u8, oldName: []const u8, newName: []const u8) void {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
-        const oldName_str = qtc.struct_libqt_string{
+        const oldName_str = qtc.libqt_string{
             .len = oldName.len,
             .data = oldName.ptr,
         };
-        const newName_str = qtc.struct_libqt_string{
+        const newName_str = qtc.libqt_string{
             .len = newName.len,
             .data = newName.ptr,
         };
@@ -116,7 +118,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8 ```
     pub fn DirectoryLoaded(self: ?*anyopaque, path: []const u8) void {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -159,7 +161,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8 ```
     pub fn Index2(self: ?*anyopaque, path: []const u8) QtC.QModelIndex {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -426,6 +428,8 @@ pub const qfilesystemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#flags)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn Flags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_Flags(@ptrCast(self), @ptrCast(index));
     }
@@ -444,6 +448,8 @@ pub const qfilesystemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.ItemFlag ```
     pub fn QBaseFlags(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_QBaseFlags(@ptrCast(self), @ptrCast(index));
     }
@@ -477,8 +483,8 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn MimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSystemModel_MimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_MimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -510,8 +516,8 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn QBaseMimeTypes(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSystemModel_QBaseMimeTypes(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_QBaseMimeTypes(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -532,7 +538,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, indexes: []QtC.QModelIndex ```
     pub fn MimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -554,7 +560,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, indexes: []QtC.QModelIndex ```
     pub fn QBaseMimeData(self: ?*anyopaque, indexes: []QtC.QModelIndex) QtC.QMimeData {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -589,6 +595,8 @@ pub const qfilesystemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#supportedDropActions)
     ///
     /// ``` self: QtC.QFileSystemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_SupportedDropActions(@ptrCast(self));
     }
@@ -607,6 +615,8 @@ pub const qfilesystemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFileSystemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDropActions(self: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_QBaseSupportedDropActions(@ptrCast(self));
     }
@@ -615,7 +625,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QFileSystemModel_RoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QFileSystemModel_RoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -647,7 +657,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.struct_libqt_map = qtc.QFileSystemModel_QBaseRoleNames(@ptrCast(self));
+        const _map: qtc.libqt_map = qtc.QFileSystemModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -668,7 +678,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8 ```
     pub fn SetRootPath(self: ?*anyopaque, path: []const u8) QtC.QModelIndex {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -709,7 +719,7 @@ pub const qfilesystemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setFilter)
     ///
-    /// ``` self: QtC.QFileSystemModel, filters: i32 ```
+    /// ``` self: QtC.QFileSystemModel, filters: flag of qdir_enums.Filter ```
     pub fn SetFilter(self: ?*anyopaque, filters: i64) void {
         qtc.QFileSystemModel_SetFilter(@ptrCast(self), @intCast(filters));
     }
@@ -717,6 +727,8 @@ pub const qfilesystemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#filter)
     ///
     /// ``` self: QtC.QFileSystemModel ```
+    ///
+    /// Returns: ``` flag of qdir_enums.Filter ```
     pub fn Filter(self: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_Filter(@ptrCast(self));
     }
@@ -767,7 +779,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, filters: [][]const u8, allocator: std.mem.Allocator ```
     pub fn SetNameFilters(self: ?*anyopaque, filters: [][]const u8, allocator: std.mem.Allocator) void {
-        var filters_arr = allocator.alloc(qtc.struct_libqt_string, filters.len) catch @panic("qfilesystemmodel.SetNameFilters: Memory allocation failed");
+        var filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfilesystemmodel.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i| {
             filters_arr[i] = .{
@@ -775,7 +787,7 @@ pub const qfilesystemmodel = struct {
                 .data = item.ptr,
             };
         }
-        const filters_list = qtc.struct_libqt_list{
+        const filters_list = qtc.libqt_list{
             .len = filters.len,
             .data = filters_arr.ptr,
         };
@@ -786,8 +798,8 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn NameFilters(self: ?*anyopaque, allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSystemModel_NameFilters(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_NameFilters(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -820,7 +832,7 @@ pub const qfilesystemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#setOptions)
     ///
-    /// ``` self: QtC.QFileSystemModel, options: i32 ```
+    /// ``` self: QtC.QFileSystemModel, options: flag of qfilesystemmodel_enums.Option ```
     pub fn SetOptions(self: ?*anyopaque, options: i64) void {
         qtc.QFileSystemModel_SetOptions(@ptrCast(self), @intCast(options));
     }
@@ -828,6 +840,8 @@ pub const qfilesystemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#options)
     ///
     /// ``` self: QtC.QFileSystemModel ```
+    ///
+    /// Returns: ``` flag of qfilesystemmodel_enums.Option ```
     pub fn Options(self: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_Options(@ptrCast(self));
     }
@@ -886,7 +900,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, parent: QtC.QModelIndex, name: []const u8 ```
     pub fn Mkdir(self: ?*anyopaque, parent: ?*anyopaque, name: []const u8) QtC.QModelIndex {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -921,6 +935,8 @@ pub const qfilesystemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#permissions)
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex ```
+    ///
+    /// Returns: ``` flag of qfiledevice_enums.Permission ```
     pub fn Permissions(self: ?*anyopaque, index: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_Permissions(@ptrCast(self), @ptrCast(index));
     }
@@ -1019,7 +1035,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, path: []const u8, column: i32 ```
     pub fn Index22(self: ?*anyopaque, path: []const u8, column: i32) QtC.QModelIndex {
-        const path_str = qtc.struct_libqt_string{
+        const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
@@ -1233,7 +1249,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#checkIndex)
     ///
-    /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, options: i32 ```
+    /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, options: flag of qabstractitemmodel_enums.CheckIndexOption ```
     pub fn CheckIndex2(self: ?*anyopaque, index: ?*anyopaque, options: i64) bool {
         return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self), @ptrCast(index), @intCast(options));
     }
@@ -1244,7 +1260,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: []i32 ```
     pub fn DataChanged3(self: ?*anyopaque, topLeft: ?*anyopaque, bottomRight: ?*anyopaque, roles: []i32) void {
-        const roles_list = qtc.struct_libqt_list{
+        const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
@@ -1266,7 +1282,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1288,7 +1304,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1310,7 +1326,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex ```
     pub fn LayoutAboutToBeChanged1(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1332,7 +1348,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
     pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
-        const parents_list = qtc.struct_libqt_list{
+        const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
@@ -1367,7 +1383,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1470,7 +1486,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qfilesystemmodel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1587,8 +1603,8 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1757,7 +1773,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn ItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QFileSystemModel_ItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QFileSystemModel_ItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1782,7 +1798,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
     pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.struct_libqt_map = qtc.QFileSystemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
+        const _map: qtc.libqt_map = qtc.QFileSystemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
         var _ret: map_i32_qtcqvariant = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1830,7 +1846,7 @@ pub const qfilesystemmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -1858,7 +1874,7 @@ pub const qfilesystemmodel = struct {
             roles_values[i] = entry.value_ptr.*;
             i += 1;
         }
-        const roles_map = qtc.struct_libqt_map{
+        const roles_map = qtc.libqt_map{
             .len = roles.count(),
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
@@ -1950,6 +1966,8 @@ pub const qfilesystemmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QFileSystemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn SupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_SupportedDragActions(@ptrCast(self));
     }
@@ -1961,6 +1979,8 @@ pub const qfilesystemmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QFileSystemModel ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.DropAction ```
     pub fn QBaseSupportedDragActions(self: ?*anyopaque) i64 {
         return qtc.QFileSystemModel_QBaseSupportedDragActions(@ptrCast(self));
     }
@@ -2213,9 +2233,9 @@ pub const qfilesystemmodel = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QFileSystemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QFileSystemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn Match(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSystemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_Match(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qfilesystemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2229,9 +2249,9 @@ pub const qfilesystemmodel = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileSystemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QFileSystemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag, allocator: std.mem.Allocator ```
     pub fn QBaseMatch(self: ?*anyopaque, start: ?*anyopaque, role: i32, value: ?*anyopaque, hits: i32, flags: i64, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSystemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_QBaseMatch(@ptrCast(self), @ptrCast(start), @intCast(role), @ptrCast(value), @intCast(hits), @intCast(flags));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qfilesystemmodel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -2245,7 +2265,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: i32) callconv(.c) []QtC.QModelIndex ```
+    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) []QtC.QModelIndex ```
     pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i64) callconv(.c) []QtC.QModelIndex) void {
         qtc.QFileSystemModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2621,7 +2641,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn EncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -2636,7 +2656,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, indexes: []QtC.QModelIndex, stream: QtC.QDataStream ```
     pub fn QBaseEncodeData(self: ?*anyopaque, indexes: []QtC.QModelIndex, stream: ?*anyopaque) void {
-        const indexes_list = qtc.struct_libqt_list{
+        const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
@@ -3190,11 +3210,11 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn ChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -3209,11 +3229,11 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, from: []QtC.QModelIndex, to: []QtC.QModelIndex ```
     pub fn QBaseChangePersistentIndexList(self: ?*anyopaque, from: []QtC.QModelIndex, to: []QtC.QModelIndex) void {
-        const from_list = qtc.struct_libqt_list{
+        const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
         };
-        const to_list = qtc.struct_libqt_list{
+        const to_list = qtc.libqt_list{
             .len = to.len,
             .data = @ptrCast(to.ptr),
         };
@@ -3239,7 +3259,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn PersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSystemModel_PersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_PersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qfilesystemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
@@ -3255,7 +3275,7 @@ pub const qfilesystemmodel = struct {
     ///
     /// ``` self: QtC.QFileSystemModel, allocator: std.mem.Allocator ```
     pub fn QBasePersistentIndexList(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QModelIndex {
-        const _arr: qtc.struct_libqt_list = qtc.QFileSystemModel_QBasePersistentIndexList(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QFileSystemModel_QBasePersistentIndexList(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QModelIndex, _arr.len) catch @panic("qfilesystemmodel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));

@@ -38,7 +38,7 @@ pub const qcalendar = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn New5(name: []const u8) QtC.QCalendar {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -266,8 +266,8 @@ pub const qcalendar = struct {
     ///
     /// ``` allocator: std.mem.Allocator ```
     pub fn AvailableCalendars(allocator: std.mem.Allocator) [][]const u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QCalendar_AvailableCalendars();
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QCalendar_AvailableCalendars();
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -425,7 +425,7 @@ pub const qcalendar__yearmonthday = struct {
         qtc.QCalendar__YearMonthDay_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar__yearmonthday.html#isValid)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#isValid)
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay ```
     pub fn IsValid(self: ?*anyopaque) bool {
@@ -477,14 +477,14 @@ pub const qcalendar__systemid = struct {
         qtc.QCalendar__SystemId_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar__systemid.html#index)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-systemid.html#index)
     ///
     /// ``` self: QtC.QCalendar__SystemId ```
     pub fn Index(self: ?*anyopaque) u64 {
         return qtc.QCalendar__SystemId_Index(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar__systemid.html#isValid)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-systemid.html#isValid)
     ///
     /// ``` self: QtC.QCalendar__SystemId ```
     pub fn IsValid(self: ?*anyopaque) bool {

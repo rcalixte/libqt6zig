@@ -174,6 +174,8 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#category)
     ///
     /// ``` self: QtC.QChar ```
+    ///
+    /// Returns: ``` qchar_enums.Category ```
     pub fn Category(self: ?*anyopaque) i64 {
         return qtc.QChar_Category(@ptrCast(self));
     }
@@ -181,6 +183,8 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#direction)
     ///
     /// ``` self: QtC.QChar ```
+    ///
+    /// Returns: ``` qchar_enums.Direction ```
     pub fn Direction(self: ?*anyopaque) i64 {
         return qtc.QChar_Direction(@ptrCast(self));
     }
@@ -188,6 +192,8 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#joiningType)
     ///
     /// ``` self: QtC.QChar ```
+    ///
+    /// Returns: ``` qchar_enums.JoiningType ```
     pub fn JoiningType(self: ?*anyopaque) i64 {
         return qtc.QChar_JoiningType(@ptrCast(self));
     }
@@ -227,6 +233,8 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#decompositionTag)
     ///
     /// ``` self: QtC.QChar ```
+    ///
+    /// Returns: ``` qchar_enums.Decomposition ```
     pub fn DecompositionTag(self: ?*anyopaque) i64 {
         return qtc.QChar_DecompositionTag(@ptrCast(self));
     }
@@ -269,6 +277,8 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#script)
     ///
     /// ``` self: QtC.QChar ```
+    ///
+    /// Returns: ``` qchar_enums.Script ```
     pub fn Script(self: ?*anyopaque) i64 {
         return qtc.QChar_Script(@ptrCast(self));
     }
@@ -276,6 +286,8 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#unicodeVersion)
     ///
     /// ``` self: QtC.QChar ```
+    ///
+    /// Returns: ``` qchar_enums.UnicodeVersion ```
     pub fn UnicodeVersion(self: ?*anyopaque) i64 {
         return qtc.QChar_UnicodeVersion(@ptrCast(self));
     }
@@ -444,6 +456,8 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#currentUnicodeVersion)
     ///
     ///
+    ///
+    /// Returns: ``` qchar_enums.UnicodeVersion ```
     pub fn CurrentUnicodeVersion() i64 {
         return qtc.QChar_CurrentUnicodeVersion();
     }

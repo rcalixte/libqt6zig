@@ -56,6 +56,8 @@ pub const qwebenginefilesystemaccessrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#handleType)
     ///
     /// ``` self: QtC.QWebEngineFileSystemAccessRequest ```
+    ///
+    /// Returns: ``` qwebenginefilesystemaccessrequest_enums.HandleType ```
     pub fn HandleType(self: ?*anyopaque) i64 {
         return qtc.QWebEngineFileSystemAccessRequest_HandleType(@ptrCast(self));
     }
@@ -63,6 +65,8 @@ pub const qwebenginefilesystemaccessrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#accessFlags)
     ///
     /// ``` self: QtC.QWebEngineFileSystemAccessRequest ```
+    ///
+    /// Returns: ``` flag of qwebenginefilesystemaccessrequest_enums.AccessFlag ```
     pub fn AccessFlags(self: ?*anyopaque) i64 {
         return qtc.QWebEngineFileSystemAccessRequest_AccessFlags(@ptrCast(self));
     }

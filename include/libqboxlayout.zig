@@ -4,6 +4,7 @@ const qboxlayout_enums = enums;
 const qlayout_enums = @import("libqlayout.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
+const qsizepolicy_enums = @import("libqsizepolicy.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qboxlayout.html
@@ -69,6 +70,8 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#direction)
     ///
     /// ``` self: QtC.QBoxLayout ```
+    ///
+    /// Returns: ``` qboxlayout_enums.Direction ```
     pub fn Direction(self: ?*anyopaque) i64 {
         return qtc.QBoxLayout_Direction(@ptrCast(self));
     }
@@ -420,6 +423,8 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
     ///
     /// ``` self: QtC.QBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QBoxLayout_ExpandingDirections(@ptrCast(self));
     }
@@ -438,6 +443,8 @@ pub const qboxlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QBoxLayout_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -609,7 +616,7 @@ pub const qboxlayout = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: i32 ```
+    /// ``` self: QtC.QBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32, alignment: i64) void {
         qtc.QBoxLayout_AddWidget3(@ptrCast(self), @ptrCast(param1), @intCast(stretch), @intCast(alignment));
     }
@@ -637,7 +644,7 @@ pub const qboxlayout = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
-    /// ``` self: QtC.QBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: i32 ```
+    /// ``` self: QtC.QBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn InsertWidget4(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32, alignment: i64) void {
         qtc.QBoxLayout_InsertWidget4(@ptrCast(self), @intCast(index), @ptrCast(widget), @intCast(stretch), @intCast(alignment));
     }
@@ -707,7 +714,7 @@ pub const qboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QBoxLayout, w: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QBoxLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
@@ -716,7 +723,7 @@ pub const qboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QBoxLayout, l: QtC.QLayout, alignment: i32 ```
+    /// ``` self: QtC.QBoxLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
@@ -735,6 +742,8 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QBoxLayout ```
+    ///
+    /// Returns: ``` qlayout_enums.SizeConstraint ```
     pub fn SizeConstraint(self: ?*anyopaque) i64 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
@@ -924,7 +933,7 @@ pub const qboxlayout = struct {
     ///
     /// ``` self: QtC.QBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -1027,7 +1036,7 @@ pub const qboxlayout = struct {
     ///
     /// ``` self: QtC.QBoxLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qboxlayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -1144,8 +1153,8 @@ pub const qboxlayout = struct {
     ///
     /// ``` self: QtC.QBoxLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -1287,6 +1296,8 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -1397,6 +1408,8 @@ pub const qboxlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QBoxLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QBoxLayout_ControlTypes(@ptrCast(self));
     }
@@ -1408,6 +1421,8 @@ pub const qboxlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QBoxLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QBoxLayout_QBaseControlTypes(@ptrCast(self));
     }
@@ -1429,7 +1444,7 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QBoxLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -1440,7 +1455,7 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QBoxLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -1451,7 +1466,7 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
     pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) QtC.QLayoutItem) void {
         qtc.QBoxLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -2197,6 +2212,8 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#direction)
     ///
     /// ``` self: QtC.QHBoxLayout ```
+    ///
+    /// Returns: ``` qboxlayout_enums.Direction ```
     pub fn Direction(self: ?*anyopaque) i64 {
         return qtc.QBoxLayout_Direction(@ptrCast(self));
     }
@@ -2376,7 +2393,7 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QHBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: i32 ```
+    /// ``` self: QtC.QHBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32, alignment: i64) void {
         qtc.QBoxLayout_AddWidget3(@ptrCast(self), @ptrCast(param1), @intCast(stretch), @intCast(alignment));
     }
@@ -2412,7 +2429,7 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
-    /// ``` self: QtC.QHBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: i32 ```
+    /// ``` self: QtC.QHBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn InsertWidget4(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32, alignment: i64) void {
         qtc.QBoxLayout_InsertWidget4(@ptrCast(self), @intCast(index), @ptrCast(widget), @intCast(stretch), @intCast(alignment));
     }
@@ -2484,7 +2501,7 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QHBoxLayout, w: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QHBoxLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
@@ -2493,7 +2510,7 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QHBoxLayout, l: QtC.QLayout, alignment: i32 ```
+    /// ``` self: QtC.QHBoxLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
@@ -2512,6 +2529,8 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QHBoxLayout ```
+    ///
+    /// Returns: ``` qlayout_enums.SizeConstraint ```
     pub fn SizeConstraint(self: ?*anyopaque) i64 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
@@ -2701,7 +2720,7 @@ pub const qhboxlayout = struct {
     ///
     /// ``` self: QtC.QHBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -2804,7 +2823,7 @@ pub const qhboxlayout = struct {
     ///
     /// ``` self: QtC.QHBoxLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qhboxlayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -2921,8 +2940,8 @@ pub const qhboxlayout = struct {
     ///
     /// ``` self: QtC.QHBoxLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -3064,6 +3083,8 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QHBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -3372,6 +3393,8 @@ pub const qhboxlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QHBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QHBoxLayout_ExpandingDirections(@ptrCast(self));
     }
@@ -3383,6 +3406,8 @@ pub const qhboxlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QHBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QHBoxLayout_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -3669,6 +3694,8 @@ pub const qhboxlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QHBoxLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QHBoxLayout_ControlTypes(@ptrCast(self));
     }
@@ -3680,6 +3707,8 @@ pub const qhboxlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QHBoxLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QHBoxLayout_QBaseControlTypes(@ptrCast(self));
     }
@@ -3701,7 +3730,7 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QHBoxLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -3712,7 +3741,7 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QHBoxLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -3723,7 +3752,7 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
     pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) QtC.QLayoutItem) void {
         qtc.QHBoxLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
@@ -4469,6 +4498,8 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#direction)
     ///
     /// ``` self: QtC.QVBoxLayout ```
+    ///
+    /// Returns: ``` qboxlayout_enums.Direction ```
     pub fn Direction(self: ?*anyopaque) i64 {
         return qtc.QBoxLayout_Direction(@ptrCast(self));
     }
@@ -4648,7 +4679,7 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addWidget)
     ///
-    /// ``` self: QtC.QVBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: i32 ```
+    /// ``` self: QtC.QVBoxLayout, param1: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn AddWidget3(self: ?*anyopaque, param1: ?*anyopaque, stretch: i32, alignment: i64) void {
         qtc.QBoxLayout_AddWidget3(@ptrCast(self), @ptrCast(param1), @intCast(stretch), @intCast(alignment));
     }
@@ -4684,7 +4715,7 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#insertWidget)
     ///
-    /// ``` self: QtC.QVBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: i32 ```
+    /// ``` self: QtC.QVBoxLayout, index: i32, widget: QtC.QWidget, stretch: i32, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn InsertWidget4(self: ?*anyopaque, index: i32, widget: ?*anyopaque, stretch: i32, alignment: i64) void {
         qtc.QBoxLayout_InsertWidget4(@ptrCast(self), @intCast(index), @ptrCast(widget), @intCast(stretch), @intCast(alignment));
     }
@@ -4756,7 +4787,7 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QVBoxLayout, w: QtC.QWidget, alignment: i32 ```
+    /// ``` self: QtC.QVBoxLayout, w: QtC.QWidget, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment(self: ?*anyopaque, w: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment(@ptrCast(self), @ptrCast(w), @intCast(alignment));
     }
@@ -4765,7 +4796,7 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setAlignment)
     ///
-    /// ``` self: QtC.QVBoxLayout, l: QtC.QLayout, alignment: i32 ```
+    /// ``` self: QtC.QVBoxLayout, l: QtC.QLayout, alignment: flag of qnamespace_enums.AlignmentFlag ```
     pub fn SetAlignment2(self: ?*anyopaque, l: ?*anyopaque, alignment: i64) bool {
         return qtc.QLayout_SetAlignment2(@ptrCast(self), @ptrCast(l), @intCast(alignment));
     }
@@ -4784,6 +4815,8 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#sizeConstraint)
     ///
     /// ``` self: QtC.QVBoxLayout ```
+    ///
+    /// Returns: ``` qlayout_enums.SizeConstraint ```
     pub fn SizeConstraint(self: ?*anyopaque) i64 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
@@ -4973,7 +5006,7 @@ pub const qvboxlayout = struct {
     ///
     /// ``` self: QtC.QVBoxLayout, name: []const u8 ```
     pub fn SetObjectName(self: ?*anyopaque, name: []const u8) void {
-        const name_str = qtc.struct_libqt_string{
+        const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
@@ -5076,7 +5109,7 @@ pub const qvboxlayout = struct {
     ///
     /// ``` self: QtC.QVBoxLayout, allocator: std.mem.Allocator ```
     pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_Children(@ptrCast(self));
+        const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QObject, _arr.len) catch @panic("qvboxlayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
@@ -5193,8 +5226,8 @@ pub const qvboxlayout = struct {
     ///
     /// ``` self: QtC.QVBoxLayout, allocator: std.mem.Allocator ```
     pub fn DynamicPropertyNames(self: ?*anyopaque, allocator: std.mem.Allocator) [][]u8 {
-        const _arr: qtc.struct_libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
-        const _str: [*]qtc.struct_libqt_string = @ptrCast(@alignCast(_arr.data));
+        const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self));
+        const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
@@ -5336,6 +5369,8 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#alignment)
     ///
     /// ``` self: QtC.QVBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
     pub fn Alignment(self: ?*anyopaque) i64 {
         return qtc.QLayoutItem_Alignment(@ptrCast(self));
     }
@@ -5644,6 +5679,8 @@ pub const qvboxlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QVBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn ExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QVBoxLayout_ExpandingDirections(@ptrCast(self));
     }
@@ -5655,6 +5692,8 @@ pub const qvboxlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QVBoxLayout ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.Orientation ```
     pub fn QBaseExpandingDirections(self: ?*anyopaque) i64 {
         return qtc.QVBoxLayout_QBaseExpandingDirections(@ptrCast(self));
     }
@@ -5941,6 +5980,8 @@ pub const qvboxlayout = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QVBoxLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn ControlTypes(self: ?*anyopaque) i64 {
         return qtc.QVBoxLayout_ControlTypes(@ptrCast(self));
     }
@@ -5952,6 +5993,8 @@ pub const qvboxlayout = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QVBoxLayout ```
+    ///
+    /// Returns: ``` flag of qsizepolicy_enums.ControlType ```
     pub fn QBaseControlTypes(self: ?*anyopaque) i64 {
         return qtc.QVBoxLayout_QBaseControlTypes(@ptrCast(self));
     }
@@ -5973,7 +6016,7 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn ReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QVBoxLayout_ReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -5984,7 +6027,7 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32 ```
+    /// ``` self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption ```
     pub fn QBaseReplaceWidget(self: ?*anyopaque, from: ?*anyopaque, to: ?*anyopaque, options: i64) QtC.QLayoutItem {
         return qtc.QVBoxLayout_QBaseReplaceWidget(@ptrCast(self), @ptrCast(from), @ptrCast(to), @intCast(options));
     }
@@ -5995,7 +6038,7 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: i32) callconv(.c) QtC.QLayoutItem ```
+    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
     pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) QtC.QLayoutItem) void {
         qtc.QVBoxLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
