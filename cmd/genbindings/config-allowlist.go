@@ -20,12 +20,12 @@ func InsertTypedefs() {
 func Widgets_AllowHeader(fullpath string) bool {
 	fname := filepath.Base(fullpath)
 
-	if strings.HasSuffix(fname, `_impl.h`) {
+	if strings.HasSuffix(fname, "_impl.h") {
 		return false // Not meant to be imported
 	}
 
 	fname_lc := strings.ToLower(fname)
-	if strings.Contains(fname_lc, `opengl`) || strings.Contains(fname_lc, `vulkan`) {
+	if strings.Contains(fname_lc, "opengl") || strings.Contains(fname_lc, "vulkan") {
 		return false // Too hard
 	}
 
@@ -59,7 +59,6 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"qatomic.h",                       // Qt 6 - broken inheritance QAtomicInt => QAtomicInteger
 		"qrhiwidget.h",                    // Qt 6 - broken QRhi* types, granular blocking might be fine
 		"qscreen_platform.h",              // Qt 6 - returns Wayland-specific wl_output type external to this library, a manual typedef does not work
-		"qtestsupport_widgets.h",          // Qt 6 - broken QTest types unneeded for this library
 		"____last____":
 		return false
 	}
@@ -114,7 +113,7 @@ func AllowClass(className string) bool {
 		return false
 	}
 
-	if strings.HasPrefix(className, `std::`) && !strings.HasPrefix(className, `std::pair`) {
+	if strings.HasPrefix(className, "std::") && !strings.HasPrefix(className, "std::pair") {
 		return false // Scintilla bindings find some of these
 	}
 
@@ -153,8 +152,8 @@ func AllowSignal(mm CppMethod) bool {
 	}
 
 	switch mm.MethodName {
-	case `metaObject`, `qt_metacast`,
-		`clone`: // Qt 6 - qcoreevent.h
+	case "metaObject", "qt_metacast",
+		"clone": // Qt 6 - qcoreevent.h
 		return false
 	default:
 		return true
@@ -276,7 +275,7 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex // Skip std::optional type
 	}
 
-	if strings.Contains(mm.MethodName, `QGADGET`) {
+	if strings.Contains(mm.MethodName, "QGADGET") {
 		return ErrTooComplex // Skipping method with weird QGADGET behaviour
 	}
 
@@ -347,7 +346,7 @@ func AllowMethod(className string, mm CppMethod) error {
 }
 
 func AllowCtor(className string) bool {
-	if className == `QStringConverterBase` {
+	if className == "QStringConverterBase" {
 		// Both the main ctor and the copy constructor were changed from public to protected between 6.8.1 and 6.8.2
 		// @ref https://github.com/qt/qtbase/commit/41679e0b4398c0de38a8107642dc643fe2c3554f
 		// @ref https://github.com/mappu/miqt/issues/168
@@ -409,7 +408,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // This whole class type has been blocked, not only as a parameter/return type
 	}
 
-	if strings.Contains(p.ParameterType, "(*)") { // Function pointer.
+	if strings.Contains(p.ParameterType, "(*)") || strings.Contains(p.ParameterType, "::*)(") { // Function pointer.
 		return ErrTooComplex // e.g. QAccessible_InstallFactory
 	}
 	if strings.Contains(p.ParameterType, "QJSValue") { // callback function pointer
@@ -458,7 +457,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		return ErrTooComplex // Function pointer types in QtWebEngine
 	}
 
-	if strings.HasPrefix(p.ParameterType, "std::") && !strings.HasPrefix(p.ParameterType, `std::pair<`) {
+	if strings.HasPrefix(p.ParameterType, "std::") && !strings.HasPrefix(p.ParameterType, "std::pair<") {
 		// std::initializer           e.g. qcborarray.h
 		// std::string                QByteArray->toStdString(). There are QString overloads already
 		// std::nullptr_t             Qcborstreamwriter
@@ -470,16 +469,16 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	if p.ParameterType == "QVersionNumber::It" {
 		return ErrTooComplex // e.g. Qt 6.8 qversionnumber.h
 	}
-	if strings.Contains(p.ParameterType, `::QPrivate`) {
+	if strings.Contains(p.ParameterType, "::QPrivate") {
 		return ErrTooComplex // e.g. QAbstractItemModel::QPrivateSignal
 	}
-	if strings.Contains(p.GetQtCppType().ParameterType, `DataPtr`) {
+	if strings.Contains(p.GetQtCppType().ParameterType, "DataPtr") {
 		return ErrTooComplex // e.g. QImage::data_ptr()
 	}
-	if strings.Contains(p.ParameterType, `::DataPointer`) {
+	if strings.Contains(p.ParameterType, "::DataPointer") {
 		return ErrTooComplex // Qt 6 qbytearray.h. This could probably be made to work
 	}
-	if strings.HasPrefix(p.ParameterType, `QArrayDataPointer<`) {
+	if strings.HasPrefix(p.ParameterType, "QArrayDataPointer<") {
 		return ErrTooComplex // Qt 6 qbytearray.h. This could probably be made to work
 	}
 
