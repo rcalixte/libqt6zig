@@ -117,6 +117,9 @@ nextTopLevel:
 				ret.AddContentFrom(contents)
 			}
 
+		case "EmptyDecl":
+			// Ignore
+
 		case "FunctionDecl":
 			// TODO
 
@@ -290,11 +293,6 @@ func (c *CppClass) IsRequiredProtectedMethod(m *CppMethod) bool {
 
 	// Brute force the removal of certain methods
 	if _, ok := bruteForceMethods[c.ClassName+"_"+m.MethodName]; ok {
-		return false
-	}
-
-	// and a class
-	if c.ClassName == "QTest::QTouchEventSequence" {
 		return false
 	}
 
