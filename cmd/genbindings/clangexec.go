@@ -10,12 +10,6 @@ import (
 	"os"
 	"os/exec"
 	"sync"
-	"time"
-)
-
-const (
-	ClangMaxRetries = 5
-	ClangRetryDelay = 3 * time.Second
 )
 
 type ClangMatcher func(astNodeFilename string) bool
@@ -26,9 +20,9 @@ func ClangMatchSameHeaderDefinitionOnly(astNodeFilename string) bool {
 
 func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) ([]interface{}, error) {
 
-	clangArgs := []string{`-x`, `c++`}
+	clangArgs := []string{"-x", "c++"}
 	clangArgs = append(clangArgs, cflags...)
-	clangArgs = append(clangArgs, `-Xclang`, `-ast-dump=json`, `-fsyntax-only`, inputHeader)
+	clangArgs = append(clangArgs, "-Xclang", "-ast-dump=json", "-fsyntax-only", inputHeader)
 
 	cmd := exec.CommandContext(ctx, clangBin, clangArgs...)
 	pr, err := cmd.StdoutPipe()
@@ -64,24 +58,15 @@ func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []strin
 }
 
 func mustClangExec(ctx context.Context, clangBin, inputHeader string, cflags []string, matcher ClangMatcher) []interface{} {
-
-	for i := 0; i < ClangMaxRetries; i++ {
-		astInner, err := clangExec(ctx, clangBin, inputHeader, cflags, matcher)
-		if err != nil {
-			// Log and continue with next retry
-			log.Printf("WARNING: Clang execution failed: %v", err)
-			time.Sleep(ClangRetryDelay)
-			log.Printf("Retrying...")
-			continue
-		}
-
-		// Success
-		return astInner
+	astInner, err := clangExec(ctx, clangBin, inputHeader, cflags, matcher)
+	if err != nil {
+		// Log and continue with next retry
+		log.Printf("WARNING: Clang execution failed: %v", err)
+		panic("Clang failed parsing file " + inputHeader)
 	}
 
-	// Failed 5x
-	// Panic
-	panic("Clang failed 5x parsing file " + inputHeader)
+	// Success
+	return astInner
 }
 
 // clangStripUpToFile strips all AST nodes from the clang output until we find
