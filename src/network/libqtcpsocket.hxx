@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -388,7 +387,7 @@ class VirtualQTcpSocket final : public QTcpSocket {
             QByteArray hostName_b = hostName_ret.toUtf8();
             libqt_string hostName_str;
             hostName_str.len = hostName_b.length();
-            hostName_str.data = static_cast<const char*>(malloc((hostName_str.len + 1) * sizeof(char)));
+            hostName_str.data = static_cast<const char*>(malloc(hostName_str.len + 1));
             memcpy((void*)hostName_str.data, hostName_b.data(), hostName_str.len);
             ((char*)hostName_str.data)[hostName_str.len] = '\0';
             libqt_string cbval1 = hostName_str;
@@ -964,7 +963,7 @@ class VirtualQTcpSocket final : public QTcpSocket {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
             memcpy((void*)name_str.data, name_b.data(), name_str.len);
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
@@ -1000,7 +999,7 @@ class VirtualQTcpSocket final : public QTcpSocket {
             QByteArray errorString_b = errorString_ret.toUtf8();
             libqt_string errorString_str;
             errorString_str.len = errorString_b.length();
-            errorString_str.data = static_cast<const char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+            errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
             memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
             ((char*)errorString_str.data)[errorString_str.len] = '\0';
             libqt_string cbval1 = errorString_str;

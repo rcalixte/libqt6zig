@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -223,13 +222,13 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             const QList<QString>& oldFiles_ret = oldFiles;
             // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* oldFiles_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * oldFiles_ret.size()));
-            for (size_t i = 0; i < oldFiles_ret.size(); ++i) {
+            for (qsizetype i = 0; i < oldFiles_ret.size(); ++i) {
                 QString oldFiles_lv_ret = oldFiles_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray oldFiles_lv_b = oldFiles_lv_ret.toUtf8();
                 libqt_string oldFiles_lv_str;
                 oldFiles_lv_str.len = oldFiles_lv_b.length();
-                oldFiles_lv_str.data = static_cast<const char*>(malloc((oldFiles_lv_str.len + 1) * sizeof(char)));
+                oldFiles_lv_str.data = static_cast<const char*>(malloc(oldFiles_lv_str.len + 1));
                 memcpy((void*)oldFiles_lv_str.data, oldFiles_lv_b.data(), oldFiles_lv_str.len);
                 ((char*)oldFiles_lv_str.data)[oldFiles_lv_str.len] = '\0';
                 oldFiles_arr[i] = oldFiles_lv_str;
@@ -241,13 +240,13 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             const QList<QString>& acceptedMimeTypes_ret = acceptedMimeTypes;
             // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * acceptedMimeTypes_ret.size()));
-            for (size_t i = 0; i < acceptedMimeTypes_ret.size(); ++i) {
+            for (qsizetype i = 0; i < acceptedMimeTypes_ret.size(); ++i) {
                 QString acceptedMimeTypes_lv_ret = acceptedMimeTypes_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray acceptedMimeTypes_lv_b = acceptedMimeTypes_lv_ret.toUtf8();
                 libqt_string acceptedMimeTypes_lv_str;
                 acceptedMimeTypes_lv_str.len = acceptedMimeTypes_lv_b.length();
-                acceptedMimeTypes_lv_str.data = static_cast<const char*>(malloc((acceptedMimeTypes_lv_str.len + 1) * sizeof(char)));
+                acceptedMimeTypes_lv_str.data = static_cast<const char*>(malloc(acceptedMimeTypes_lv_str.len + 1));
                 memcpy((void*)acceptedMimeTypes_lv_str.data, acceptedMimeTypes_lv_b.data(), acceptedMimeTypes_lv_str.len);
                 ((char*)acceptedMimeTypes_lv_str.data)[acceptedMimeTypes_lv_str.len] = '\0';
                 acceptedMimeTypes_arr[i] = acceptedMimeTypes_lv_str;
@@ -285,7 +284,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray msg_b = msg_ret.toUtf8();
             libqt_string msg_str;
             msg_str.len = msg_b.length();
-            msg_str.data = static_cast<const char*>(malloc((msg_str.len + 1) * sizeof(char)));
+            msg_str.data = static_cast<const char*>(malloc(msg_str.len + 1));
             memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
             ((char*)msg_str.data)[msg_str.len] = '\0';
             libqt_string cbval2 = msg_str;
@@ -310,7 +309,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray msg_b = msg_ret.toUtf8();
             libqt_string msg_str;
             msg_str.len = msg_b.length();
-            msg_str.data = static_cast<const char*>(malloc((msg_str.len + 1) * sizeof(char)));
+            msg_str.data = static_cast<const char*>(malloc(msg_str.len + 1));
             memcpy((void*)msg_str.data, msg_b.data(), msg_str.len);
             ((char*)msg_str.data)[msg_str.len] = '\0';
             libqt_string cbval2 = msg_str;
@@ -334,7 +333,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray message_b = message_ret.toUtf8();
             libqt_string message_str;
             message_str.len = message_b.length();
-            message_str.data = static_cast<const char*>(malloc((message_str.len + 1) * sizeof(char)));
+            message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
             memcpy((void*)message_str.data, message_b.data(), message_str.len);
             ((char*)message_str.data)[message_str.len] = '\0';
             libqt_string cbval2 = message_str;
@@ -344,7 +343,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             QByteArray sourceID_b = sourceID_ret.toUtf8();
             libqt_string sourceID_str;
             sourceID_str.len = sourceID_b.length();
-            sourceID_str.data = static_cast<const char*>(malloc((sourceID_str.len + 1) * sizeof(char)));
+            sourceID_str.data = static_cast<const char*>(malloc(sourceID_str.len + 1));
             memcpy((void*)sourceID_str.data, sourceID_b.data(), sourceID_str.len);
             ((char*)sourceID_str.data)[sourceID_str.len] = '\0';
             libqt_string cbval4 = sourceID_str;

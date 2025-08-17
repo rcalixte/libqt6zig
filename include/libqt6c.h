@@ -338,6 +338,7 @@
 #include "libqtableview.h"
 #include "libqtablewidget.h"
 #include "libqtabwidget.h"
+#include "libqtestsupport_widgets.h"
 #include "libqtextbrowser.h"
 #include "libqtextedit.h"
 #include "libqtoolbar.h"

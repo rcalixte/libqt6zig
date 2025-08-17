@@ -69,7 +69,7 @@ libqt_string QSslServer_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -108,7 +108,7 @@ void QSslServer_Connect_SslErrors(QSslServer* self, intptr_t slot) {
         const QList<QSslError>& errors_ret = errors;
         // Convert QList<> from C++ memory to manually-managed C memory
         QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * errors_ret.size()));
-        for (size_t i = 0; i < errors_ret.size(); ++i) {
+        for (qsizetype i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);
         }
         libqt_list errors_out;
@@ -176,7 +176,7 @@ void QSslServer_Connect_AlertSent(QSslServer* self, intptr_t slot) {
         QByteArray description_b = description_ret.toUtf8();
         libqt_string description_str;
         description_str.len = description_b.length();
-        description_str.data = static_cast<const char*>(malloc((description_str.len + 1) * sizeof(char)));
+        description_str.data = static_cast<const char*>(malloc(description_str.len + 1));
         memcpy((void*)description_str.data, description_b.data(), description_str.len);
         ((char*)description_str.data)[description_str.len] = '\0';
         libqt_string sigval4 = description_str;
@@ -200,7 +200,7 @@ void QSslServer_Connect_AlertReceived(QSslServer* self, intptr_t slot) {
         QByteArray description_b = description_ret.toUtf8();
         libqt_string description_str;
         description_str.len = description_b.length();
-        description_str.data = static_cast<const char*>(malloc((description_str.len + 1) * sizeof(char)));
+        description_str.data = static_cast<const char*>(malloc(description_str.len + 1));
         memcpy((void*)description_str.data, description_b.data(), description_str.len);
         ((char*)description_str.data)[description_str.len] = '\0';
         libqt_string sigval4 = description_str;
@@ -241,7 +241,7 @@ libqt_string QSslServer_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -253,7 +253,7 @@ libqt_string QSslServer_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

@@ -102,7 +102,7 @@ libqt_string QChart_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -124,7 +124,7 @@ libqt_list /* of QAbstractSeries* */ QChart_Series(const QChart* self) {
     QList<QAbstractSeries*> _ret = self->series();
     // Convert QList<> from C++ memory to manually-managed C memory
     QAbstractSeries** _arr = static_cast<QAbstractSeries**>(malloc(sizeof(QAbstractSeries*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -161,7 +161,7 @@ libqt_list /* of QAbstractAxis* */ QChart_Axes(const QChart* self) {
     QList<QAbstractAxis*> _ret = self->axes();
     // Convert QList<> from C++ memory to manually-managed C memory
     QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -193,7 +193,7 @@ libqt_string QChart_Title(const QChart* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -399,7 +399,7 @@ libqt_string QChart_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -411,7 +411,7 @@ libqt_string QChart_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -437,7 +437,7 @@ libqt_list /* of QAbstractAxis* */ QChart_Axes1(const QChart* self, int orientat
     QList<QAbstractAxis*> _ret = self->axes(static_cast<Qt::Orientations>(orientation));
     // Convert QList<> from C++ memory to manually-managed C memory
     QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -450,7 +450,7 @@ libqt_list /* of QAbstractAxis* */ QChart_Axes2(const QChart* self, int orientat
     QList<QAbstractAxis*> _ret = self->axes(static_cast<Qt::Orientations>(orientation), series);
     // Convert QList<> from C++ memory to manually-managed C memory
     QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;

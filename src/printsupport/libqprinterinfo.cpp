@@ -31,7 +31,7 @@ libqt_string QPrinterInfo_PrinterName(const QPrinterInfo* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -43,7 +43,7 @@ libqt_string QPrinterInfo_Description(const QPrinterInfo* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -55,7 +55,7 @@ libqt_string QPrinterInfo_Location(const QPrinterInfo* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -67,7 +67,7 @@ libqt_string QPrinterInfo_MakeAndModel(const QPrinterInfo* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -93,7 +93,7 @@ libqt_list /* of QPageSize* */ QPrinterInfo_SupportedPageSizes(const QPrinterInf
     QList<QPageSize> _ret = self->supportedPageSizes();
     // Convert QList<> from C++ memory to manually-managed C memory
     QPageSize** _arr = static_cast<QPageSize**>(malloc(sizeof(QPageSize*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPageSize(_ret[i]);
     }
     libqt_list _out;
@@ -122,7 +122,7 @@ libqt_list /* of int */ QPrinterInfo_SupportedResolutions(const QPrinterInfo* se
     QList<int> _ret = self->supportedResolutions();
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -139,7 +139,7 @@ libqt_list /* of int */ QPrinterInfo_SupportedDuplexModes(const QPrinterInfo* se
     QList<QPrinter::DuplexMode> _ret = self->supportedDuplexModes();
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
@@ -156,7 +156,7 @@ libqt_list /* of int */ QPrinterInfo_SupportedColorModes(const QPrinterInfo* sel
     QList<QPrinter::ColorMode> _ret = self->supportedColorModes();
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
@@ -169,13 +169,13 @@ libqt_list /* of libqt_string */ QPrinterInfo_AvailablePrinterNames() {
     QList<QString> _ret = QPrinterInfo::availablePrinterNames();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
         memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
         ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
@@ -190,7 +190,7 @@ libqt_list /* of QPrinterInfo* */ QPrinterInfo_AvailablePrinters() {
     QList<QPrinterInfo> _ret = QPrinterInfo::availablePrinters();
     // Convert QList<> from C++ memory to manually-managed C memory
     QPrinterInfo** _arr = static_cast<QPrinterInfo**>(malloc(sizeof(QPrinterInfo*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPrinterInfo(_ret[i]);
     }
     libqt_list _out;
@@ -205,7 +205,7 @@ libqt_string QPrinterInfo_DefaultPrinterName() {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

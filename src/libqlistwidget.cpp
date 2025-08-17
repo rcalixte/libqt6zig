@@ -139,7 +139,7 @@ libqt_string QListWidgetItem_Text(const QListWidgetItem* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -164,7 +164,7 @@ libqt_string QListWidgetItem_StatusTip(const QListWidgetItem* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -181,7 +181,7 @@ libqt_string QListWidgetItem_ToolTip(const QListWidgetItem* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -198,7 +198,7 @@ libqt_string QListWidgetItem_WhatsThis(const QListWidgetItem* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -501,7 +501,7 @@ libqt_string QListWidget_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -643,7 +643,7 @@ libqt_list /* of QListWidgetItem* */ QListWidget_SelectedItems(const QListWidget
     QList<QListWidgetItem*> _ret = self->selectedItems();
     // Convert QList<> from C++ memory to manually-managed C memory
     QListWidgetItem** _arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -657,7 +657,7 @@ libqt_list /* of QListWidgetItem* */ QListWidget_FindItems(const QListWidget* se
     QList<QListWidgetItem*> _ret = self->findItems(text_QString, static_cast<Qt::MatchFlags>(flags));
     // Convert QList<> from C++ memory to manually-managed C memory
     QListWidgetItem** _arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -670,7 +670,7 @@ libqt_list /* of QListWidgetItem* */ QListWidget_Items(const QListWidget* self, 
     QList<QListWidgetItem*> _ret = self->items(data);
     // Convert QList<> from C++ memory to manually-managed C memory
     QListWidgetItem** _arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -793,7 +793,7 @@ void QListWidget_Connect_CurrentTextChanged(QListWidget* self, intptr_t slot) {
         QByteArray currentText_b = currentText_ret.toUtf8();
         libqt_string currentText_str;
         currentText_str.len = currentText_b.length();
-        currentText_str.data = static_cast<const char*>(malloc((currentText_str.len + 1) * sizeof(char)));
+        currentText_str.data = static_cast<const char*>(malloc(currentText_str.len + 1));
         memcpy((void*)currentText_str.data, currentText_b.data(), currentText_str.len);
         ((char*)currentText_str.data)[currentText_str.len] = '\0';
         libqt_string sigval1 = currentText_str;
@@ -830,7 +830,7 @@ libqt_string QListWidget_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -842,7 +842,7 @@ libqt_string QListWidget_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -950,13 +950,13 @@ libqt_list /* of libqt_string */ QListWidget_MimeTypes(const QListWidget* self) 
         QList<QString> _ret = vqlistwidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -969,13 +969,13 @@ libqt_list /* of libqt_string */ QListWidget_MimeTypes(const QListWidget* self) 
         QList<QString> _ret = ((VirtualQListWidget*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -995,13 +995,13 @@ libqt_list /* of libqt_string */ QListWidget_QBaseMimeTypes(const QListWidget* s
         QList<QString> _ret = vqlistwidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -1014,13 +1014,13 @@ libqt_list /* of libqt_string */ QListWidget_QBaseMimeTypes(const QListWidget* s
         QList<QString> _ret = ((VirtualQListWidget*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -1879,7 +1879,7 @@ libqt_list /* of QModelIndex* */ QListWidget_SelectedIndexes(const QListWidget* 
         QList<QModelIndex> _ret = vqlistwidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -1890,7 +1890,7 @@ libqt_list /* of QModelIndex* */ QListWidget_SelectedIndexes(const QListWidget* 
         QList<QModelIndex> _ret = ((VirtualQListWidget*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -1908,7 +1908,7 @@ libqt_list /* of QModelIndex* */ QListWidget_QBaseSelectedIndexes(const QListWid
         QList<QModelIndex> _ret = vqlistwidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -1919,7 +1919,7 @@ libqt_list /* of QModelIndex* */ QListWidget_QBaseSelectedIndexes(const QListWid
         QList<QModelIndex> _ret = ((VirtualQListWidget*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;

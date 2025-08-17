@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -486,7 +485,7 @@ class VirtualQSpinBox final : public QSpinBox {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
             memcpy((void*)input_str.data, input_b.data(), input_str.len);
             ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
@@ -510,7 +509,7 @@ class VirtualQSpinBox final : public QSpinBox {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
             memcpy((void*)text_str.data, text_b.data(), text_str.len);
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
@@ -549,7 +548,7 @@ class VirtualQSpinBox final : public QSpinBox {
             QByteArray str_b = str_ret.toUtf8();
             libqt_string str_str;
             str_str.len = str_b.length();
-            str_str.data = static_cast<const char*>(malloc((str_str.len + 1) * sizeof(char)));
+            str_str.data = static_cast<const char*>(malloc(str_str.len + 1));
             memcpy((void*)str_str.data, str_b.data(), str_str.len);
             ((char*)str_str.data)[str_str.len] = '\0';
             libqt_string cbval1 = str_str;
@@ -1095,7 +1094,7 @@ class VirtualQSpinBox final : public QSpinBox {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
             ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
@@ -2011,7 +2010,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
             memcpy((void*)input_str.data, input_b.data(), input_str.len);
             ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
@@ -2035,7 +2034,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
             memcpy((void*)text_str.data, text_b.data(), text_str.len);
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
@@ -2074,7 +2073,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             QByteArray str_b = str_ret.toUtf8();
             libqt_string str_str;
             str_str.len = str_b.length();
-            str_str.data = static_cast<const char*>(malloc((str_str.len + 1) * sizeof(char)));
+            str_str.data = static_cast<const char*>(malloc(str_str.len + 1));
             memcpy((void*)str_str.data, str_b.data(), str_str.len);
             ((char*)str_str.data)[str_str.len] = '\0';
             libqt_string cbval1 = str_str;
@@ -2635,7 +2634,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
             ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;

@@ -64,7 +64,7 @@ libqt_list /* of int */ QMediaFormat_SupportedFileFormats(QMediaFormat* self, in
     QList<QMediaFormat::FileFormat> _ret = self->supportedFileFormats(static_cast<QMediaFormat::ConversionMode>(m));
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
@@ -77,7 +77,7 @@ libqt_list /* of int */ QMediaFormat_SupportedVideoCodecs(QMediaFormat* self, in
     QList<QMediaFormat::VideoCodec> _ret = self->supportedVideoCodecs(static_cast<QMediaFormat::ConversionMode>(m));
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
@@ -90,7 +90,7 @@ libqt_list /* of int */ QMediaFormat_SupportedAudioCodecs(QMediaFormat* self, in
     QList<QMediaFormat::AudioCodec> _ret = self->supportedAudioCodecs(static_cast<QMediaFormat::ConversionMode>(m));
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
@@ -105,7 +105,7 @@ libqt_string QMediaFormat_FileFormatName(int fileFormat) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -117,7 +117,7 @@ libqt_string QMediaFormat_AudioCodecName(int codec) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -129,7 +129,7 @@ libqt_string QMediaFormat_VideoCodecName(int codec) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -141,7 +141,7 @@ libqt_string QMediaFormat_FileFormatDescription(int fileFormat) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -153,7 +153,7 @@ libqt_string QMediaFormat_AudioCodecDescription(int codec) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -165,7 +165,7 @@ libqt_string QMediaFormat_VideoCodecDescription(int codec) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

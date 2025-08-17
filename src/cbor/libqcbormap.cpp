@@ -53,7 +53,7 @@ libqt_list /* of QCborValue* */ QCborMap_Keys(const QCborMap* self) {
     QList<QCborValue> _ret = self->keys();
     // Convert QList<> from C++ memory to manually-managed C memory
     QCborValue** _arr = static_cast<QCborValue**>(malloc(sizeof(QCborValue*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCborValue(_ret[i]);
     }
     libqt_list _out;
@@ -296,7 +296,7 @@ libqt_map /* of libqt_string to QVariant* */ QCborMap_ToVariantMap(const QCborMa
         QByteArray _mapkey_b = _mapkey_ret.toUtf8();
         libqt_string _mapkey_str;
         _mapkey_str.len = _mapkey_b.length();
-        _mapkey_str.data = static_cast<const char*>(malloc((_mapkey_str.len + 1) * sizeof(char)));
+        _mapkey_str.data = static_cast<const char*>(malloc(_mapkey_str.len + 1));
         memcpy((void*)_mapkey_str.data, _mapkey_b.data(), _mapkey_str.len);
         ((char*)_mapkey_str.data)[_mapkey_str.len] = '\0';
         _karr[_ctr] = _mapkey_str;
@@ -322,7 +322,7 @@ libqt_map /* of libqt_string to QVariant* */ QCborMap_ToVariantHash(const QCborM
         QByteArray _hashkey_b = _hashkey_ret.toUtf8();
         libqt_string _hashkey_str;
         _hashkey_str.len = _hashkey_b.length();
-        _hashkey_str.data = static_cast<const char*>(malloc((_hashkey_str.len + 1) * sizeof(char)));
+        _hashkey_str.data = static_cast<const char*>(malloc(_hashkey_str.len + 1));
         memcpy((void*)_hashkey_str.data, _hashkey_b.data(), _hashkey_str.len);
         ((char*)_hashkey_str.data)[_hashkey_str.len] = '\0';
         _karr[_ctr] = _hashkey_str;

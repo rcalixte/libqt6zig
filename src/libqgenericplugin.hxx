@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -138,7 +137,7 @@ class VirtualQGenericPlugin final : public QGenericPlugin {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
             memcpy((void*)name_str.data, name_b.data(), name_str.len);
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
@@ -147,7 +146,7 @@ class VirtualQGenericPlugin final : public QGenericPlugin {
             QByteArray spec_b = spec_ret.toUtf8();
             libqt_string spec_str;
             spec_str.len = spec_b.length();
-            spec_str.data = static_cast<const char*>(malloc((spec_str.len + 1) * sizeof(char)));
+            spec_str.data = static_cast<const char*>(malloc(spec_str.len + 1));
             memcpy((void*)spec_str.data, spec_b.data(), spec_str.len);
             ((char*)spec_str.data)[spec_str.len] = '\0';
             libqt_string cbval2 = spec_str;

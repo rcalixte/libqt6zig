@@ -65,7 +65,7 @@ libqt_string QPieSeries_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -116,7 +116,7 @@ libqt_list /* of QPieSlice* */ QPieSeries_Slices(const QPieSeries* self) {
     QList<QPieSlice*> _ret = self->slices();
     // Convert QList<> from C++ memory to manually-managed C memory
     QPieSlice** _arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -209,7 +209,7 @@ void QPieSeries_Connect_Added(QPieSeries* self, intptr_t slot) {
         const QList<QPieSlice*>& slices_ret = slices;
         // Convert QList<> from C++ memory to manually-managed C memory
         QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * slices_ret.size()));
-        for (size_t i = 0; i < slices_ret.size(); ++i) {
+        for (qsizetype i = 0; i < slices_ret.size(); ++i) {
             slices_arr[i] = slices_ret[i];
         }
         libqt_list slices_out;
@@ -236,7 +236,7 @@ void QPieSeries_Connect_Removed(QPieSeries* self, intptr_t slot) {
         const QList<QPieSlice*>& slices_ret = slices;
         // Convert QList<> from C++ memory to manually-managed C memory
         QPieSlice** slices_arr = static_cast<QPieSlice**>(malloc(sizeof(QPieSlice*) * slices_ret.size()));
-        for (size_t i = 0; i < slices_ret.size(); ++i) {
+        for (qsizetype i = 0; i < slices_ret.size(); ++i) {
             slices_arr[i] = slices_ret[i];
         }
         libqt_list slices_out;
@@ -336,7 +336,7 @@ libqt_string QPieSeries_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -348,7 +348,7 @@ libqt_string QPieSeries_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

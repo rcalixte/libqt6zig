@@ -75,7 +75,7 @@ libqt_string QSaveFile_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -108,7 +108,7 @@ libqt_string QSaveFile_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -120,7 +120,7 @@ libqt_string QSaveFile_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -135,7 +135,7 @@ libqt_string QSaveFile_FileName(const QSaveFile* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -145,7 +145,7 @@ libqt_string QSaveFile_FileName(const QSaveFile* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -162,7 +162,7 @@ libqt_string QSaveFile_QBaseFileName(const QSaveFile* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -172,7 +172,7 @@ libqt_string QSaveFile_QBaseFileName(const QSaveFile* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;

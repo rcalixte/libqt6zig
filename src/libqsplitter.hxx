@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -947,7 +946,7 @@ class VirtualQSplitter final : public QSplitter {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
             ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;
@@ -2300,7 +2299,7 @@ class VirtualQSplitterHandle final : public QSplitterHandle {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
             ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;

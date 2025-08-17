@@ -50,7 +50,7 @@ libqt_list /* of QVariant* */ QJsonArray_ToVariantList(const QJsonArray* self) {
     QList<QVariant> _ret = self->toVariantList();
     // Convert QList<> from C++ memory to manually-managed C memory
     QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }
     libqt_list _out;

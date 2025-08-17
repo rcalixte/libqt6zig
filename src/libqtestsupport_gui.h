@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -19,6 +18,7 @@ extern "C" {
 typedef QTest::QTouchEventSequence QTest__QTouchEventSequence;
 #endif
 #else
+typedef struct QEventPoint QEventPoint;
 typedef struct QPoint QPoint;
 typedef struct QTest__QTouchEventSequence QTest__QTouchEventSequence;
 typedef struct QWindow QWindow;

@@ -228,7 +228,7 @@ libqt_list /* of QEventPoint* */ QPointerEvent_Points(const QPointerEvent* self)
     const QList<QEventPoint>& _ret = self->points();
     // Convert QList<> from C++ memory to manually-managed C memory
     QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QEventPoint(_ret[i]);
     }
     libqt_list _out;
@@ -1948,7 +1948,7 @@ libqt_string QKeyEvent_Text(const QKeyEvent* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2950,7 +2950,7 @@ libqt_list /* of QInputMethodEvent__Attribute* */ QInputMethodEvent_Attributes(c
     const QList<QInputMethodEvent::Attribute>& _ret = self->attributes();
     // Convert QList<> from C++ memory to manually-managed C memory
     QInputMethodEvent__Attribute** _arr = static_cast<QInputMethodEvent__Attribute**>(malloc(sizeof(QInputMethodEvent__Attribute*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QInputMethodEvent::Attribute(_ret[i]);
     }
     libqt_list _out;
@@ -2965,7 +2965,7 @@ libqt_string QInputMethodEvent_PreeditString(const QInputMethodEvent* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2977,7 +2977,7 @@ libqt_string QInputMethodEvent_CommitString(const QInputMethodEvent* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -3594,7 +3594,7 @@ libqt_string QStatusTipEvent_Tip(const QStatusTipEvent* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -3673,7 +3673,7 @@ libqt_string QWhatsThisClickedEvent_Href(const QWhatsThisClickedEvent* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -3834,7 +3834,7 @@ libqt_string QFileOpenEvent_File(const QFileOpenEvent* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -4202,7 +4202,7 @@ libqt_list /* of QEventPoint* */ QTouchEvent_TouchPoints(const QTouchEvent* self
     const QList<QEventPoint>& _ret = self->touchPoints();
     // Convert QList<> from C++ memory to manually-managed C memory
     QEventPoint** _arr = static_cast<QEventPoint**>(malloc(sizeof(QEventPoint*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QEventPoint(_ret[i]);
     }
     libqt_list _out;

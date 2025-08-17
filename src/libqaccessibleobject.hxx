@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -201,7 +200,7 @@ class VirtualQAccessibleObject final : public QAccessibleObject {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
             memcpy((void*)text_str.data, text_b.data(), text_str.len);
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval2 = text_str;
@@ -727,7 +726,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
             memcpy((void*)text_str.data, text_b.data(), text_str.len);
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval2 = text_str;

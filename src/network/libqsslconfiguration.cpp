@@ -70,7 +70,7 @@ libqt_list /* of QSslCertificate* */ QSslConfiguration_LocalCertificateChain(con
     QList<QSslCertificate> _ret = self->localCertificateChain();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
     libqt_list _out;
@@ -105,7 +105,7 @@ libqt_list /* of QSslCertificate* */ QSslConfiguration_PeerCertificateChain(cons
     QList<QSslCertificate> _ret = self->peerCertificateChain();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
     libqt_list _out;
@@ -134,7 +134,7 @@ libqt_list /* of QSslCipher* */ QSslConfiguration_Ciphers(const QSslConfiguratio
     QList<QSslCipher> _ret = self->ciphers();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslCipher** _arr = static_cast<QSslCipher**>(malloc(sizeof(QSslCipher*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCipher(_ret[i]);
     }
     libqt_list _out;
@@ -162,7 +162,7 @@ libqt_list /* of QSslCipher* */ QSslConfiguration_SupportedCiphers() {
     QList<QSslCipher> _ret = QSslConfiguration::supportedCiphers();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslCipher** _arr = static_cast<QSslCipher**>(malloc(sizeof(QSslCipher*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCipher(_ret[i]);
     }
     libqt_list _out;
@@ -175,7 +175,7 @@ libqt_list /* of QSslCertificate* */ QSslConfiguration_CaCertificates(const QSsl
     QList<QSslCertificate> _ret = self->caCertificates();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
     libqt_list _out;
@@ -217,7 +217,7 @@ libqt_list /* of QSslCertificate* */ QSslConfiguration_SystemCaCertificates() {
     QList<QSslCertificate> _ret = QSslConfiguration::systemCaCertificates();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
     libqt_list _out;
@@ -238,7 +238,7 @@ libqt_string QSslConfiguration_SessionTicket(const QSslConfiguration* self) {
     QByteArray _qb = self->sessionTicket();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -261,7 +261,7 @@ libqt_list /* of QSslEllipticCurve* */ QSslConfiguration_EllipticCurves(const QS
     QList<QSslEllipticCurve> _ret = self->ellipticCurves();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslEllipticCurve** _arr = static_cast<QSslEllipticCurve**>(malloc(sizeof(QSslEllipticCurve*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslEllipticCurve(_ret[i]);
     }
     libqt_list _out;
@@ -284,7 +284,7 @@ libqt_list /* of QSslEllipticCurve* */ QSslConfiguration_SupportedEllipticCurves
     QList<QSslEllipticCurve> _ret = QSslConfiguration::supportedEllipticCurves();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSslEllipticCurve** _arr = static_cast<QSslEllipticCurve**>(malloc(sizeof(QSslEllipticCurve*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslEllipticCurve(_ret[i]);
     }
     libqt_list _out;
@@ -297,7 +297,7 @@ libqt_string QSslConfiguration_PreSharedKeyIdentityHint(const QSslConfiguration*
     QByteArray _qb = self->preSharedKeyIdentityHint();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -388,11 +388,11 @@ libqt_list /* of libqt_string */ QSslConfiguration_AllowedNextProtocols(const QS
     QList<QByteArray> _ret = self->allowedNextProtocols();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
         ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
@@ -407,7 +407,7 @@ libqt_string QSslConfiguration_NextNegotiatedProtocol(const QSslConfiguration* s
     QByteArray _qb = self->nextNegotiatedProtocol();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

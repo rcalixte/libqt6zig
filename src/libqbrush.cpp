@@ -191,7 +191,7 @@ libqt_list /* of libqt_pair  tuple of double and QColor*  */ QGradient_Stops(con
     QList<QPair<double, QColor>> _ret = self->stops();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and QColor* */* _arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(malloc(sizeof(libqt_pair /* tuple of double and QColor* */) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QColor> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         double* _lv_first = static_cast<double*>(malloc(sizeof(double)));

@@ -43,7 +43,7 @@ libqt_string QWebEngineHistoryItem_Title(const QWebEngineHistoryItem* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -87,7 +87,7 @@ libqt_string QWebEngineHistoryModel_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -112,7 +112,7 @@ libqt_map /* of int to libqt_string */ QWebEngineHistoryModel_RoleNames(const QW
         QByteArray _hashval_qb = _itr->second;
         libqt_string _hashval_str;
         _hashval_str.len = _hashval_qb.length();
-        _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+        _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
         memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
         ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
         _varr[_ctr] = _hashval_str;
@@ -135,7 +135,7 @@ libqt_string QWebEngineHistoryModel_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -147,7 +147,7 @@ libqt_string QWebEngineHistoryModel_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -171,7 +171,7 @@ libqt_string QWebEngineHistory_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -185,7 +185,7 @@ libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_Items(const QWebEng
     QList<QWebEngineHistoryItem> _ret = self->items();
     // Convert QList<> from C++ memory to manually-managed C memory
     QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
     libqt_list _out;
@@ -198,7 +198,7 @@ libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_BackItems(const QWe
     QList<QWebEngineHistoryItem> _ret = self->backItems(static_cast<int>(maxItems));
     // Convert QList<> from C++ memory to manually-managed C memory
     QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
     libqt_list _out;
@@ -211,7 +211,7 @@ libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_ForwardItems(const 
     QList<QWebEngineHistoryItem> _ret = self->forwardItems(static_cast<int>(maxItems));
     // Convert QList<> from C++ memory to manually-managed C memory
     QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
     libqt_list _out;
@@ -282,7 +282,7 @@ libqt_string QWebEngineHistory_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -294,7 +294,7 @@ libqt_string QWebEngineHistory_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

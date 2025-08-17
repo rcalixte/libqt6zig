@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -199,7 +198,7 @@ class VirtualQIconEngine final : public QIconEngine {
             QByteArray fileName_b = fileName_ret.toUtf8();
             libqt_string fileName_str;
             fileName_str.len = fileName_b.length();
-            fileName_str.data = static_cast<const char*>(malloc((fileName_str.len + 1) * sizeof(char)));
+            fileName_str.data = static_cast<const char*>(malloc(fileName_str.len + 1));
             memcpy((void*)fileName_str.data, fileName_b.data(), fileName_str.len);
             ((char*)fileName_str.data)[fileName_str.len] = '\0';
             libqt_string cbval1 = fileName_str;

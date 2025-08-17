@@ -59,7 +59,7 @@ libqt_list /* of double */ QPen_DashPattern(const QPen* self) {
     QList<double> _ret = self->dashPattern();
     // Convert QList<> from C++ memory to manually-managed C memory
     double* _arr = static_cast<double*>(malloc(sizeof(double) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;

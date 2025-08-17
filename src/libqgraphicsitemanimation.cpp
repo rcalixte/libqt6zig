@@ -68,7 +68,7 @@ libqt_string QGraphicsItemAnimation_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -98,7 +98,7 @@ libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnima
     QList<QPair<double, QPointF>> _ret = self->posList();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
@@ -132,7 +132,7 @@ libqt_list /* of libqt_pair  tuple of double and double  */ QGraphicsItemAnimati
     QList<QPair<double, double>> _ret = self->rotationList();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and double */* _arr = static_cast<libqt_pair /* tuple of double and double */*>(malloc(sizeof(libqt_pair /* tuple of double and double */) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, double> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
@@ -166,7 +166,7 @@ libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnima
     QList<QPair<double, QPointF>> _ret = self->translationList();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
@@ -200,7 +200,7 @@ libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnima
     QList<QPair<double, QPointF>> _ret = self->scaleList();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
@@ -234,7 +234,7 @@ libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnima
     QList<QPair<double, QPointF>> _ret = self->shearList();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         double* _lv_first = static_cast<double*>(malloc(sizeof(double)));
@@ -270,7 +270,7 @@ libqt_string QGraphicsItemAnimation_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -282,7 +282,7 @@ libqt_string QGraphicsItemAnimation_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

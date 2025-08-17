@@ -67,7 +67,7 @@ libqt_string QBoxPlotSeries_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -107,7 +107,7 @@ libqt_list /* of QBoxSet* */ QBoxPlotSeries_BoxSets(const QBoxPlotSeries* self) 
     QList<QBoxSet*> _ret = self->boxSets();
     // Convert QList<> from C++ memory to manually-managed C memory
     QBoxSet** _arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -284,7 +284,7 @@ void QBoxPlotSeries_Connect_BoxsetsAdded(QBoxPlotSeries* self, intptr_t slot) {
         const QList<QBoxSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
         QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * sets_ret.size()));
-        for (size_t i = 0; i < sets_ret.size(); ++i) {
+        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
         libqt_list sets_out;
@@ -311,7 +311,7 @@ void QBoxPlotSeries_Connect_BoxsetsRemoved(QBoxPlotSeries* self, intptr_t slot) 
         const QList<QBoxSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
         QBoxSet** sets_arr = static_cast<QBoxSet**>(malloc(sizeof(QBoxSet*) * sets_ret.size()));
-        for (size_t i = 0; i < sets_ret.size(); ++i) {
+        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
         libqt_list sets_out;
@@ -328,7 +328,7 @@ libqt_string QBoxPlotSeries_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -340,7 +340,7 @@ libqt_string QBoxPlotSeries_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

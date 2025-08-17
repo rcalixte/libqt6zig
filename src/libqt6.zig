@@ -1032,6 +1032,7 @@ pub const qtcpsocket = @import("network/libqtcpsocket.zig").qtcpsocket;
 pub const qtemporarydir = @import("libqtemporarydir.zig").qtemporarydir;
 pub const qtemporaryfile = @import("libqtemporaryfile.zig").qtemporaryfile;
 pub const qtest__qtoucheventsequence = @import("libqtestsupport_gui.zig").qtest__qtoucheventsequence;
+pub const qtest__qtoucheventwidgetsequence = @import("libqtestsupport_widgets.zig").qtest__qtoucheventwidgetsequence;
 pub const qtextblock = @import("libqtextobject.zig").qtextblock;
 pub const qtextblock__iterator = @import("libqtextobject.zig").qtextblock__iterator;
 pub const qtextblockformat = @import("libqtextformat.zig").qtextblockformat;

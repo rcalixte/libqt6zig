@@ -89,7 +89,7 @@ libqt_string QStatusBar_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -129,7 +129,7 @@ libqt_string QStatusBar_CurrentMessage(const QStatusBar* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -157,7 +157,7 @@ void QStatusBar_Connect_MessageChanged(QStatusBar* self, intptr_t slot) {
         QByteArray text_b = text_ret.toUtf8();
         libqt_string text_str;
         text_str.len = text_b.length();
-        text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+        text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
         memcpy((void*)text_str.data, text_b.data(), text_str.len);
         ((char*)text_str.data)[text_str.len] = '\0';
         libqt_string sigval1 = text_str;
@@ -171,7 +171,7 @@ libqt_string QStatusBar_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -183,7 +183,7 @@ libqt_string QStatusBar_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

@@ -711,6 +711,7 @@ pub const QTcpSocket = ?*C.QTcpSocket;
 pub const QTemporaryDir = ?*C.QTemporaryDir;
 pub const QTemporaryFile = ?*C.QTemporaryFile;
 pub const QTest__QTouchEventSequence = ?*C.QTest__QTouchEventSequence;
+pub const QTest__QTouchEventWidgetSequence = ?*C.QTest__QTouchEventWidgetSequence;
 pub const QTextBlock = ?*C.QTextBlock;
 pub const QTextBlockFormat = ?*C.QTextBlockFormat;
 pub const QTextBlockGroup = ?*C.QTextBlockGroup;

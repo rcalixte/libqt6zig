@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -1093,7 +1092,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
-            for (size_t i = 0; i < indexes_ret.size(); ++i) {
+            for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
             libqt_list indexes_out;
@@ -1422,7 +1421,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
-            for (size_t i = 0; i < indexes_ret.size(); ++i) {
+            for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
             libqt_list indexes_out;
@@ -1703,7 +1702,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
-            for (size_t i = 0; i < from_ret.size(); ++i) {
+            for (qsizetype i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
             }
             libqt_list from_out;
@@ -1713,7 +1712,7 @@ class VirtualQTransposeProxyModel final : public QTransposeProxyModel {
             const QList<QModelIndex>& to_ret = to;
             // Convert QList<> from C++ memory to manually-managed C memory
             QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
-            for (size_t i = 0; i < to_ret.size(); ++i) {
+            for (qsizetype i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);
             }
             libqt_list to_out;

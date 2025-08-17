@@ -150,7 +150,7 @@ libqt_list /* of QRect* */ QRegion_Rects(const QRegion* self) {
     QSpan<const QRect> _ret = self->rects();
     // Convert QSpan<> from C++ memory to manually-managed C memory
     QRect** _arr = static_cast<QRect**>(malloc(sizeof(QRect*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QRect(_ret[i]);
     }
     libqt_list _out;

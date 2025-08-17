@@ -74,7 +74,7 @@ libqt_string QAbstractProxyModel_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -90,7 +90,7 @@ libqt_string QAbstractProxyModel_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -102,7 +102,7 @@ libqt_string QAbstractProxyModel_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -920,13 +920,13 @@ libqt_list /* of libqt_string */ QAbstractProxyModel_MimeTypes(const QAbstractPr
         QList<QString> _ret = vqabstractproxymodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -939,13 +939,13 @@ libqt_list /* of libqt_string */ QAbstractProxyModel_MimeTypes(const QAbstractPr
         QList<QString> _ret = self->QAbstractProxyModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -965,13 +965,13 @@ libqt_list /* of libqt_string */ QAbstractProxyModel_QBaseMimeTypes(const QAbstr
         QList<QString> _ret = vqabstractproxymodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -984,13 +984,13 @@ libqt_list /* of libqt_string */ QAbstractProxyModel_QBaseMimeTypes(const QAbstr
         QList<QString> _ret = self->QAbstractProxyModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -1082,7 +1082,7 @@ libqt_map /* of int to libqt_string */ QAbstractProxyModel_RoleNames(const QAbst
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
             ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
@@ -1104,7 +1104,7 @@ libqt_map /* of int to libqt_string */ QAbstractProxyModel_RoleNames(const QAbst
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
             ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
@@ -1133,7 +1133,7 @@ libqt_map /* of int to libqt_string */ QAbstractProxyModel_QBaseRoleNames(const 
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
             ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
@@ -1155,7 +1155,7 @@ libqt_map /* of int to libqt_string */ QAbstractProxyModel_QBaseRoleNames(const 
             QByteArray _hashval_qb = _itr->second;
             libqt_string _hashval_str;
             _hashval_str.len = _hashval_qb.length();
-            _hashval_str.data = static_cast<const char*>(malloc((_hashval_str.len + 1) * sizeof(char)));
+            _hashval_str.data = static_cast<const char*>(malloc(_hashval_str.len + 1));
             memcpy((void*)_hashval_str.data, _hashval_qb.data(), _hashval_str.len);
             ((char*)_hashval_str.data)[_hashval_str.len] = '\0';
             _varr[_ctr] = _hashval_str;
@@ -1474,7 +1474,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_Match(const QAbstractProxyM
         QList<QModelIndex> _ret = vqabstractproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -1485,7 +1485,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_Match(const QAbstractProxyM
         QList<QModelIndex> _ret = self->QAbstractProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -1503,7 +1503,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_QBaseMatch(const QAbstractP
         QList<QModelIndex> _ret = vqabstractproxymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -1514,7 +1514,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_QBaseMatch(const QAbstractP
         QList<QModelIndex> _ret = self->QAbstractProxyModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -2412,7 +2412,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_PersistentIndexList(const Q
         QList<QModelIndex> _ret = vqabstractproxymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -2423,7 +2423,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_PersistentIndexList(const Q
         QList<QModelIndex> _ret = ((VirtualQAbstractProxyModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -2441,7 +2441,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_QBasePersistentIndexList(co
         QList<QModelIndex> _ret = vqabstractproxymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;
@@ -2452,7 +2452,7 @@ libqt_list /* of QModelIndex* */ QAbstractProxyModel_QBasePersistentIndexList(co
         QList<QModelIndex> _ret = ((VirtualQAbstractProxyModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
         QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
         libqt_list _out;

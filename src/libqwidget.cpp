@@ -129,7 +129,7 @@ libqt_string QWidget_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -545,7 +545,7 @@ libqt_string QWidget_StyleSheet(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -557,7 +557,7 @@ libqt_string QWidget_WindowTitle(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -582,7 +582,7 @@ libqt_string QWidget_WindowIconText(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -599,7 +599,7 @@ libqt_string QWidget_WindowRole(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -616,7 +616,7 @@ libqt_string QWidget_WindowFilePath(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -645,7 +645,7 @@ libqt_string QWidget_ToolTip(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -670,7 +670,7 @@ libqt_string QWidget_StatusTip(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -687,7 +687,7 @@ libqt_string QWidget_WhatsThis(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -699,7 +699,7 @@ libqt_string QWidget_AccessibleName(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -716,7 +716,7 @@ libqt_string QWidget_AccessibleDescription(const QWidget* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -971,7 +971,7 @@ libqt_string QWidget_SaveGeometry(const QWidget* self) {
     QByteArray _qb = self->saveGeometry();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -1138,7 +1138,7 @@ libqt_list /* of QAction* */ QWidget_Actions(const QWidget* self) {
     QList<QAction*> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
     QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -1264,7 +1264,7 @@ void QWidget_Connect_WindowTitleChanged(QWidget* self, intptr_t slot) {
         QByteArray title_b = title_ret.toUtf8();
         libqt_string title_str;
         title_str.len = title_b.length();
-        title_str.data = static_cast<const char*>(malloc((title_str.len + 1) * sizeof(char)));
+        title_str.data = static_cast<const char*>(malloc(title_str.len + 1));
         memcpy((void*)title_str.data, title_b.data(), title_str.len);
         ((char*)title_str.data)[title_str.len] = '\0';
         libqt_string sigval1 = title_str;
@@ -1299,7 +1299,7 @@ void QWidget_Connect_WindowIconTextChanged(QWidget* self, intptr_t slot) {
         QByteArray iconText_b = iconText_ret.toUtf8();
         libqt_string iconText_str;
         iconText_str.len = iconText_b.length();
-        iconText_str.data = static_cast<const char*>(malloc((iconText_str.len + 1) * sizeof(char)));
+        iconText_str.data = static_cast<const char*>(malloc(iconText_str.len + 1));
         memcpy((void*)iconText_str.data, iconText_b.data(), iconText_str.len);
         ((char*)iconText_str.data)[iconText_str.len] = '\0';
         libqt_string sigval1 = iconText_str;
@@ -1335,7 +1335,7 @@ libqt_string QWidget_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -1347,7 +1347,7 @@ libqt_string QWidget_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

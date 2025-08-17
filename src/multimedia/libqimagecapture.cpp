@@ -68,7 +68,7 @@ libqt_string QImageCapture_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -92,7 +92,7 @@ libqt_string QImageCapture_ErrorString(const QImageCapture* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -114,7 +114,7 @@ libqt_list /* of int */ QImageCapture_SupportedFormats() {
     QList<QImageCapture::FileFormat> _ret = QImageCapture::supportedFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
@@ -129,7 +129,7 @@ libqt_string QImageCapture_FileFormatName(int c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -141,7 +141,7 @@ libqt_string QImageCapture_FileFormatDescription(int c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -213,7 +213,7 @@ void QImageCapture_Connect_ErrorOccurred(QImageCapture* self, intptr_t slot) {
         QByteArray errorString_b = errorString_ret.toUtf8();
         libqt_string errorString_str;
         errorString_str.len = errorString_b.length();
-        errorString_str.data = static_cast<const char*>(malloc((errorString_str.len + 1) * sizeof(char)));
+        errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
         memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
         ((char*)errorString_str.data)[errorString_str.len] = '\0';
         libqt_string sigval3 = errorString_str;
@@ -348,7 +348,7 @@ void QImageCapture_Connect_ImageSaved(QImageCapture* self, intptr_t slot) {
         QByteArray fileName_b = fileName_ret.toUtf8();
         libqt_string fileName_str;
         fileName_str.len = fileName_b.length();
-        fileName_str.data = static_cast<const char*>(malloc((fileName_str.len + 1) * sizeof(char)));
+        fileName_str.data = static_cast<const char*>(malloc(fileName_str.len + 1));
         memcpy((void*)fileName_str.data, fileName_b.data(), fileName_str.len);
         ((char*)fileName_str.data)[fileName_str.len] = '\0';
         libqt_string sigval2 = fileName_str;
@@ -362,7 +362,7 @@ libqt_string QImageCapture_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -374,7 +374,7 @@ libqt_string QImageCapture_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

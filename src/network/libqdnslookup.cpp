@@ -44,7 +44,7 @@ libqt_string QDnsDomainNameRecord_Name(const QDnsDomainNameRecord* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -60,7 +60,7 @@ libqt_string QDnsDomainNameRecord_Value(const QDnsDomainNameRecord* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -92,7 +92,7 @@ libqt_string QDnsHostAddressRecord_Name(const QDnsHostAddressRecord* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -132,7 +132,7 @@ libqt_string QDnsMailExchangeRecord_Exchange(const QDnsMailExchangeRecord* self)
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -144,7 +144,7 @@ libqt_string QDnsMailExchangeRecord_Name(const QDnsMailExchangeRecord* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -184,7 +184,7 @@ libqt_string QDnsServiceRecord_Name(const QDnsServiceRecord* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -204,7 +204,7 @@ libqt_string QDnsServiceRecord_Target(const QDnsServiceRecord* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -244,7 +244,7 @@ libqt_string QDnsTextRecord_Name(const QDnsTextRecord* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -258,11 +258,11 @@ libqt_list /* of libqt_string */ QDnsTextRecord_Values(const QDnsTextRecord* sel
     QList<QByteArray> _ret = self->values();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
         ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
@@ -299,7 +299,7 @@ libqt_string QDnsTlsAssociationRecord_Name(const QDnsTlsAssociationRecord* self)
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -325,7 +325,7 @@ libqt_string QDnsTlsAssociationRecord_Value(const QDnsTlsAssociationRecord* self
     QByteArray _qb = self->value();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -430,7 +430,7 @@ libqt_string QDnsLookup_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -450,7 +450,7 @@ libqt_string QDnsLookup_ErrorString(const QDnsLookup* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -466,7 +466,7 @@ libqt_string QDnsLookup_Name(const QDnsLookup* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -521,7 +521,7 @@ libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_CanonicalNameRecords(const 
     QList<QDnsDomainNameRecord> _ret = self->canonicalNameRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsDomainNameRecord(_ret[i]);
     }
     libqt_list _out;
@@ -534,7 +534,7 @@ libqt_list /* of QDnsHostAddressRecord* */ QDnsLookup_HostAddressRecords(const Q
     QList<QDnsHostAddressRecord> _ret = self->hostAddressRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsHostAddressRecord** _arr = static_cast<QDnsHostAddressRecord**>(malloc(sizeof(QDnsHostAddressRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsHostAddressRecord(_ret[i]);
     }
     libqt_list _out;
@@ -547,7 +547,7 @@ libqt_list /* of QDnsMailExchangeRecord* */ QDnsLookup_MailExchangeRecords(const
     QList<QDnsMailExchangeRecord> _ret = self->mailExchangeRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsMailExchangeRecord** _arr = static_cast<QDnsMailExchangeRecord**>(malloc(sizeof(QDnsMailExchangeRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsMailExchangeRecord(_ret[i]);
     }
     libqt_list _out;
@@ -560,7 +560,7 @@ libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_NameServerRecords(const QDn
     QList<QDnsDomainNameRecord> _ret = self->nameServerRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsDomainNameRecord(_ret[i]);
     }
     libqt_list _out;
@@ -573,7 +573,7 @@ libqt_list /* of QDnsDomainNameRecord* */ QDnsLookup_PointerRecords(const QDnsLo
     QList<QDnsDomainNameRecord> _ret = self->pointerRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsDomainNameRecord** _arr = static_cast<QDnsDomainNameRecord**>(malloc(sizeof(QDnsDomainNameRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsDomainNameRecord(_ret[i]);
     }
     libqt_list _out;
@@ -586,7 +586,7 @@ libqt_list /* of QDnsServiceRecord* */ QDnsLookup_ServiceRecords(const QDnsLooku
     QList<QDnsServiceRecord> _ret = self->serviceRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsServiceRecord** _arr = static_cast<QDnsServiceRecord**>(malloc(sizeof(QDnsServiceRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsServiceRecord(_ret[i]);
     }
     libqt_list _out;
@@ -599,7 +599,7 @@ libqt_list /* of QDnsTextRecord* */ QDnsLookup_TextRecords(const QDnsLookup* sel
     QList<QDnsTextRecord> _ret = self->textRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsTextRecord** _arr = static_cast<QDnsTextRecord**>(malloc(sizeof(QDnsTextRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsTextRecord(_ret[i]);
     }
     libqt_list _out;
@@ -612,7 +612,7 @@ libqt_list /* of QDnsTlsAssociationRecord* */ QDnsLookup_TlsAssociationRecords(c
     QList<QDnsTlsAssociationRecord> _ret = self->tlsAssociationRecords();
     // Convert QList<> from C++ memory to manually-managed C memory
     QDnsTlsAssociationRecord** _arr = static_cast<QDnsTlsAssociationRecord**>(malloc(sizeof(QDnsTlsAssociationRecord*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QDnsTlsAssociationRecord(_ret[i]);
     }
     libqt_list _out;
@@ -669,7 +669,7 @@ void QDnsLookup_Connect_NameChanged(QDnsLookup* self, intptr_t slot) {
         QByteArray name_b = name_ret.toUtf8();
         libqt_string name_str;
         name_str.len = name_b.length();
-        name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+        name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
         memcpy((void*)name_str.data, name_b.data(), name_str.len);
         ((char*)name_str.data)[name_str.len] = '\0';
         libqt_string sigval1 = name_str;
@@ -733,7 +733,7 @@ libqt_string QDnsLookup_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -745,7 +745,7 @@ libqt_string QDnsLookup_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

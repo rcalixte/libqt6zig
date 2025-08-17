@@ -100,7 +100,7 @@ libqt_string QsciScintilla_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -126,7 +126,7 @@ libqt_string QsciScintilla_Annotation(const QsciScintilla* self, int line) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -188,7 +188,7 @@ libqt_string QsciScintilla_Bytes(const QsciScintilla* self, int start, int end) 
     QByteArray _qb = self->bytes(static_cast<int>(start), static_cast<int>(end));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -238,7 +238,7 @@ libqt_list /* of int */ QsciScintilla_ContractedFolds(const QsciScintilla* self)
     QList<int> _ret = self->contractedFolds();
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -732,7 +732,7 @@ libqt_string QsciScintilla_SelectedText(const QsciScintilla* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -823,7 +823,7 @@ libqt_string QsciScintilla_Text(const QsciScintilla* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -835,7 +835,7 @@ libqt_string QsciScintilla_Text2(const QsciScintilla* self, int line) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -847,7 +847,7 @@ libqt_string QsciScintilla_Text3(const QsciScintilla* self, int start, int end) 
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -871,7 +871,7 @@ libqt_string QsciScintilla_WordAtLineIndex(const QsciScintilla* self, int line, 
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -883,7 +883,7 @@ libqt_string QsciScintilla_WordAtPoint(const QsciScintilla* self, const QPoint* 
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -1056,7 +1056,7 @@ void QsciScintilla_Connect_UserListActivated(QsciScintilla* self, intptr_t slot)
         QByteArray stringVal_b = stringVal_ret.toUtf8();
         libqt_string stringVal_str;
         stringVal_str.len = stringVal_b.length();
-        stringVal_str.data = static_cast<const char*>(malloc((stringVal_str.len + 1) * sizeof(char)));
+        stringVal_str.data = static_cast<const char*>(malloc(stringVal_str.len + 1));
         memcpy((void*)stringVal_str.data, stringVal_b.data(), stringVal_str.len);
         ((char*)stringVal_str.data)[stringVal_str.len] = '\0';
         libqt_string sigval2 = stringVal_str;
@@ -1070,7 +1070,7 @@ libqt_string QsciScintilla_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -1082,7 +1082,7 @@ libqt_string QsciScintilla_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -1167,13 +1167,13 @@ libqt_list /* of libqt_string */ QsciScintilla_ApiContext(QsciScintilla* self, i
         QList<QString> _ret = vqsciscintilla->apiContext(static_cast<int>(pos), static_cast<int&>(*context_start), static_cast<int&>(*last_word_start));
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -1186,13 +1186,13 @@ libqt_list /* of libqt_string */ QsciScintilla_ApiContext(QsciScintilla* self, i
         QList<QString> _ret = self->QsciScintilla::apiContext(static_cast<int>(pos), static_cast<int&>(*context_start), static_cast<int&>(*last_word_start));
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -1212,13 +1212,13 @@ libqt_list /* of libqt_string */ QsciScintilla_QBaseApiContext(QsciScintilla* se
         QList<QString> _ret = vqsciscintilla->apiContext(static_cast<int>(pos), static_cast<int&>(*context_start), static_cast<int&>(*last_word_start));
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -1231,13 +1231,13 @@ libqt_list /* of libqt_string */ QsciScintilla_QBaseApiContext(QsciScintilla* se
         QList<QString> _ret = self->QsciScintilla::apiContext(static_cast<int>(pos), static_cast<int&>(*context_start), static_cast<int&>(*last_word_start));
         // Convert QList<> from C++ memory to manually-managed C memory
         libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
             QByteArray _lv_b = _lv_ret.toUtf8();
             libqt_string _lv_str;
             _lv_str.len = _lv_b.length();
-            _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+            _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
             memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
             ((char*)_lv_str.data)[_lv_str.len] = '\0';
             _arr[i] = _lv_str;
@@ -3805,7 +3805,7 @@ libqt_string QsciScintilla_FromMimeData(const QsciScintilla* self, const QMimeDa
         QByteArray _qb = vqsciscintilla->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -3813,7 +3813,7 @@ libqt_string QsciScintilla_FromMimeData(const QsciScintilla* self, const QMimeDa
         QByteArray _qb = ((VirtualQsciScintilla*)self)->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -3828,7 +3828,7 @@ libqt_string QsciScintilla_QBaseFromMimeData(const QsciScintilla* self, const QM
         QByteArray _qb = vqsciscintilla->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -3836,7 +3836,7 @@ libqt_string QsciScintilla_QBaseFromMimeData(const QsciScintilla* self, const QM
         QByteArray _qb = ((VirtualQsciScintilla*)self)->fromMimeData(source, *rectangular);
         libqt_string _str;
         _str.len = _qb.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _qb.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;

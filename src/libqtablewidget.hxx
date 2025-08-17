@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -1012,7 +1011,7 @@ class VirtualQTableWidget final : public QTableWidget {
             const QList<QTableWidgetItem*>& items_ret = items;
             // Convert QList<> from C++ memory to manually-managed C memory
             QTableWidgetItem** items_arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * items_ret.size()));
-            for (size_t i = 0; i < items_ret.size(); ++i) {
+            for (qsizetype i = 0; i < items_ret.size(); ++i) {
                 items_arr[i] = items_ret[i];
             }
             libqt_list items_out;
@@ -1466,7 +1465,7 @@ class VirtualQTableWidget final : public QTableWidget {
             QByteArray search_b = search_ret.toUtf8();
             libqt_string search_str;
             search_str.len = search_b.length();
-            search_str.data = static_cast<const char*>(malloc((search_str.len + 1) * sizeof(char)));
+            search_str.data = static_cast<const char*>(malloc(search_str.len + 1));
             memcpy((void*)search_str.data, search_b.data(), search_str.len);
             ((char*)search_str.data)[search_str.len] = '\0';
             libqt_string cbval1 = search_str;
@@ -1548,7 +1547,7 @@ class VirtualQTableWidget final : public QTableWidget {
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
             int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
-            for (size_t i = 0; i < roles_ret.size(); ++i) {
+            for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
             libqt_list roles_out;
@@ -2257,7 +2256,7 @@ class VirtualQTableWidget final : public QTableWidget {
             const QByteArray eventType_qb = eventType;
             libqt_string eventType_str;
             eventType_str.len = eventType_qb.length();
-            eventType_str.data = static_cast<const char*>(malloc((eventType_str.len + 1) * sizeof(char)));
+            eventType_str.data = static_cast<const char*>(malloc(eventType_str.len + 1));
             memcpy((void*)eventType_str.data, eventType_qb.data(), eventType_str.len);
             ((char*)eventType_str.data)[eventType_str.len] = '\0';
             libqt_string cbval1 = eventType_str;

@@ -76,7 +76,7 @@ libqt_list /* of double */ QTextOption_TabArray(const QTextOption* self) {
     QList<double> _ret = self->tabArray();
     // Convert QList<> from C++ memory to manually-managed C memory
     double* _arr = static_cast<double*>(malloc(sizeof(double) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -99,7 +99,7 @@ libqt_list /* of QTextOption__Tab* */ QTextOption_Tabs(const QTextOption* self) 
     QList<QTextOption::Tab> _ret = self->tabs();
     // Convert QList<> from C++ memory to manually-managed C memory
     QTextOption__Tab** _arr = static_cast<QTextOption__Tab**>(malloc(sizeof(QTextOption__Tab*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextOption::Tab(_ret[i]);
     }
     libqt_list _out;

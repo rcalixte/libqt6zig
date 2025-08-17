@@ -30,7 +30,7 @@ libqt_string QAbstractBarSeries_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -78,7 +78,7 @@ libqt_list /* of QBarSet* */ QAbstractBarSeries_BarSets(const QAbstractBarSeries
     QList<QBarSet*> _ret = self->barSets();
     // Convert QList<> from C++ memory to manually-managed C memory
     QBarSet** _arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -110,7 +110,7 @@ libqt_string QAbstractBarSeries_LabelsFormat(const QAbstractBarSeries* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -241,7 +241,7 @@ void QAbstractBarSeries_Connect_LabelsFormatChanged(QAbstractBarSeries* self, in
         QByteArray format_b = format_ret.toUtf8();
         libqt_string format_str;
         format_str.len = format_b.length();
-        format_str.data = static_cast<const char*>(malloc((format_str.len + 1) * sizeof(char)));
+        format_str.data = static_cast<const char*>(malloc(format_str.len + 1));
         memcpy((void*)format_str.data, format_b.data(), format_str.len);
         ((char*)format_str.data)[format_str.len] = '\0';
         libqt_string sigval1 = format_str;
@@ -301,7 +301,7 @@ void QAbstractBarSeries_Connect_BarsetsAdded(QAbstractBarSeries* self, intptr_t 
         const QList<QBarSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
         QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * sets_ret.size()));
-        for (size_t i = 0; i < sets_ret.size(); ++i) {
+        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
         libqt_list sets_out;
@@ -328,7 +328,7 @@ void QAbstractBarSeries_Connect_BarsetsRemoved(QAbstractBarSeries* self, intptr_
         const QList<QBarSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
         QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * sets_ret.size()));
-        for (size_t i = 0; i < sets_ret.size(); ++i) {
+        for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
         libqt_list sets_out;
@@ -345,7 +345,7 @@ libqt_string QAbstractBarSeries_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -357,7 +357,7 @@ libqt_string QAbstractBarSeries_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

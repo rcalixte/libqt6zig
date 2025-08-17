@@ -93,7 +93,7 @@ libqt_string QSpinBox_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -109,7 +109,7 @@ libqt_string QSpinBox_Prefix(const QSpinBox* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -126,7 +126,7 @@ libqt_string QSpinBox_Suffix(const QSpinBox* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -143,7 +143,7 @@ libqt_string QSpinBox_CleanText(const QSpinBox* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -222,7 +222,7 @@ void QSpinBox_Connect_TextChanged(QSpinBox* self, intptr_t slot) {
         QByteArray param1_b = param1_ret.toUtf8();
         libqt_string param1_str;
         param1_str.len = param1_b.length();
-        param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+        param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
         memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
         ((char*)param1_str.data)[param1_str.len] = '\0';
         libqt_string sigval1 = param1_str;
@@ -236,7 +236,7 @@ libqt_string QSpinBox_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -248,7 +248,7 @@ libqt_string QSpinBox_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -354,7 +354,7 @@ libqt_string QSpinBox_TextFromValue(const QSpinBox* self, int val) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -364,7 +364,7 @@ libqt_string QSpinBox_TextFromValue(const QSpinBox* self, int val) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -381,7 +381,7 @@ libqt_string QSpinBox_QBaseTextFromValue(const QSpinBox* self, int val) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -391,7 +391,7 @@ libqt_string QSpinBox_QBaseTextFromValue(const QSpinBox* self, int val) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -2291,7 +2291,7 @@ libqt_string QDoubleSpinBox_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2307,7 +2307,7 @@ libqt_string QDoubleSpinBox_Prefix(const QDoubleSpinBox* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2324,7 +2324,7 @@ libqt_string QDoubleSpinBox_Suffix(const QDoubleSpinBox* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2341,7 +2341,7 @@ libqt_string QDoubleSpinBox_CleanText(const QDoubleSpinBox* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2420,7 +2420,7 @@ void QDoubleSpinBox_Connect_TextChanged(QDoubleSpinBox* self, intptr_t slot) {
         QByteArray param1_b = param1_ret.toUtf8();
         libqt_string param1_str;
         param1_str.len = param1_b.length();
-        param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+        param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
         memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
         ((char*)param1_str.data)[param1_str.len] = '\0';
         libqt_string sigval1 = param1_str;
@@ -2434,7 +2434,7 @@ libqt_string QDoubleSpinBox_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2446,7 +2446,7 @@ libqt_string QDoubleSpinBox_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -2523,7 +2523,7 @@ libqt_string QDoubleSpinBox_TextFromValue(const QDoubleSpinBox* self, double val
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -2533,7 +2533,7 @@ libqt_string QDoubleSpinBox_TextFromValue(const QDoubleSpinBox* self, double val
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -2550,7 +2550,7 @@ libqt_string QDoubleSpinBox_QBaseTextFromValue(const QDoubleSpinBox* self, doubl
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -2560,7 +2560,7 @@ libqt_string QDoubleSpinBox_QBaseTextFromValue(const QDoubleSpinBox* self, doubl
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;

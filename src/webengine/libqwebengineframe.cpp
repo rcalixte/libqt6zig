@@ -23,7 +23,7 @@ libqt_string QWebEngineFrame_Name(const QWebEngineFrame* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -35,7 +35,7 @@ libqt_string QWebEngineFrame_HtmlName(const QWebEngineFrame* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -45,7 +45,7 @@ libqt_list /* of QWebEngineFrame* */ QWebEngineFrame_Children(const QWebEngineFr
     QList<QWebEngineFrame> _ret = self->children();
     // Convert QList<> from C++ memory to manually-managed C memory
     QWebEngineFrame** _arr = static_cast<QWebEngineFrame**>(malloc(sizeof(QWebEngineFrame*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineFrame(_ret[i]);
     }
     libqt_list _out;

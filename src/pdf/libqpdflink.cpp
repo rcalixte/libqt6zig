@@ -52,7 +52,7 @@ libqt_string QPdfLink_ContextBefore(const QPdfLink* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -64,7 +64,7 @@ libqt_string QPdfLink_ContextAfter(const QPdfLink* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -74,7 +74,7 @@ libqt_list /* of QRectF* */ QPdfLink_Rectangles(const QPdfLink* self) {
     QList<QRectF> _ret = self->rectangles();
     // Convert QList<> from C++ memory to manually-managed C memory
     QRectF** _arr = static_cast<QRectF**>(malloc(sizeof(QRectF*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QRectF(_ret[i]);
     }
     libqt_list _out;
@@ -89,7 +89,7 @@ libqt_string QPdfLink_ToString(const QPdfLink* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

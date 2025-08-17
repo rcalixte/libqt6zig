@@ -36,7 +36,7 @@ libqt_string QAbstractEventDispatcher_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -78,7 +78,7 @@ libqt_list /* of QAbstractEventDispatcher__TimerInfo* */ QAbstractEventDispatche
     QList<QAbstractEventDispatcher::TimerInfo> _ret = self->registeredTimers(object);
     // Convert QList<> from C++ memory to manually-managed C memory
     QAbstractEventDispatcher__TimerInfo** _arr = static_cast<QAbstractEventDispatcher__TimerInfo**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfo*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAbstractEventDispatcher::TimerInfo(_ret[i]);
     }
     libqt_list _out;
@@ -99,7 +99,7 @@ libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatc
     QList<QAbstractEventDispatcher::TimerInfoV2> _ret = self->timersForObject(object);
     // Convert QList<> from C++ memory to manually-managed C memory
     QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAbstractEventDispatcher::TimerInfoV2(_ret[i]);
     }
     libqt_list _out;
@@ -165,7 +165,7 @@ libqt_string QAbstractEventDispatcher_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -177,7 +177,7 @@ libqt_string QAbstractEventDispatcher_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -209,7 +209,7 @@ libqt_string QAbstractEventDispatcherV2_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -223,7 +223,7 @@ libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatc
     QList<QAbstractEventDispatcher::TimerInfoV2> _ret = self->timersForObject(object);
     // Convert QList<> from C++ memory to manually-managed C memory
     QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAbstractEventDispatcher::TimerInfoV2(_ret[i]);
     }
     libqt_list _out;
@@ -242,7 +242,7 @@ libqt_string QAbstractEventDispatcherV2_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -254,7 +254,7 @@ libqt_string QAbstractEventDispatcherV2_Tr3(const char* s, const char* c, int n)
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

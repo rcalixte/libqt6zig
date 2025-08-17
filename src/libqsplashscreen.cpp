@@ -108,7 +108,7 @@ libqt_string QSplashScreen_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -136,7 +136,7 @@ libqt_string QSplashScreen_Message(const QSplashScreen* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -164,7 +164,7 @@ void QSplashScreen_Connect_MessageChanged(QSplashScreen* self, intptr_t slot) {
         QByteArray message_b = message_ret.toUtf8();
         libqt_string message_str;
         message_str.len = message_b.length();
-        message_str.data = static_cast<const char*>(malloc((message_str.len + 1) * sizeof(char)));
+        message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
         memcpy((void*)message_str.data, message_b.data(), message_str.len);
         ((char*)message_str.data)[message_str.len] = '\0';
         libqt_string sigval1 = message_str;
@@ -178,7 +178,7 @@ libqt_string QSplashScreen_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -190,7 +190,7 @@ libqt_string QSplashScreen_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

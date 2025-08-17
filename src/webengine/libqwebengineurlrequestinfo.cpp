@@ -30,7 +30,7 @@ libqt_string QWebEngineUrlRequestInfo_RequestMethod(const QWebEngineUrlRequestIn
     QByteArray _qb = self->requestMethod();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

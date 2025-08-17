@@ -32,7 +32,7 @@ libqt_string QAbstractAxis_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -205,7 +205,7 @@ libqt_string QAbstractAxis_TitleText(const QAbstractAxis* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -506,7 +506,7 @@ void QAbstractAxis_Connect_TitleTextChanged(QAbstractAxis* self, intptr_t slot) 
         QByteArray title_b = title_ret.toUtf8();
         libqt_string title_str;
         title_str.len = title_b.length();
-        title_str.data = static_cast<const char*>(malloc((title_str.len + 1) * sizeof(char)));
+        title_str.data = static_cast<const char*>(malloc(title_str.len + 1));
         memcpy((void*)title_str.data, title_b.data(), title_str.len);
         ((char*)title_str.data)[title_str.len] = '\0';
         libqt_string sigval1 = title_str;
@@ -672,7 +672,7 @@ libqt_string QAbstractAxis_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -684,7 +684,7 @@ libqt_string QAbstractAxis_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -893,7 +892,7 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
             QByteArray prefix_b = prefix_ret.toUtf8();
             libqt_string prefix_str;
             prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
             memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
             ((char*)prefix_str.data)[prefix_str.len] = '\0';
             libqt_string cbval2 = prefix_str;
@@ -919,7 +918,7 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
             QByteArray prefix_b = prefix_ret.toUtf8();
             libqt_string prefix_str;
             prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
             memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
             ((char*)prefix_str.data)[prefix_str.len] = '\0';
             libqt_string cbval2 = prefix_str;
@@ -1047,7 +1046,7 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
             memcpy((void*)text_str.data, text_b.data(), text_str.len);
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;

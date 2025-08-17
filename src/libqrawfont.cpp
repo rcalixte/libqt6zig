@@ -70,7 +70,7 @@ libqt_string QRawFont_FamilyName(const QRawFont* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -82,7 +82,7 @@ libqt_string QRawFont_StyleName(const QRawFont* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -101,7 +101,7 @@ libqt_list /* of unsigned int */ QRawFont_GlyphIndexesForString(const QRawFont* 
     QList<unsigned int> _ret = self->glyphIndexesForString(text_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -120,7 +120,7 @@ libqt_list /* of QPointF* */ QRawFont_AdvancesForGlyphIndexes(const QRawFont* se
     QList<QPointF> _ret = self->advancesForGlyphIndexes(glyphIndexes_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
     QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
     libqt_list _out;
@@ -139,7 +139,7 @@ libqt_list /* of QPointF* */ QRawFont_AdvancesForGlyphIndexes2(const QRawFont* s
     QList<QPointF> _ret = self->advancesForGlyphIndexes(glyphIndexes_QList, static_cast<QRawFont::LayoutFlags>(layoutFlags));
     // Convert QList<> from C++ memory to manually-managed C memory
     QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
     libqt_list _out;
@@ -246,7 +246,7 @@ libqt_list /* of int */ QRawFont_SupportedWritingSystems(const QRawFont* self) {
     QList<QFontDatabase::WritingSystem> _ret = self->supportedWritingSystems();
     // Convert QList<> from C++ memory to manually-managed C memory
     int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
     libqt_list _out;
@@ -259,7 +259,7 @@ libqt_string QRawFont_FontTable(const QRawFont* self, const char* tagName) {
     QByteArray _qb = self->fontTable(tagName);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -269,7 +269,7 @@ libqt_string QRawFont_FontTable2(const QRawFont* self, QFont__Tag* tag) {
     QByteArray _qb = self->fontTable(*tag);
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

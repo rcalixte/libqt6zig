@@ -84,7 +84,7 @@ libqt_string QObject_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -96,7 +96,7 @@ libqt_string QObject_ObjectName(const QObject* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -151,7 +151,7 @@ libqt_list /* of QObject* */ QObject_Children(const QObject* self) {
     const QList<QObject*>& _ret = self->children();
     // Convert QList<> from C++ memory to manually-managed C memory
     QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;
@@ -208,11 +208,11 @@ libqt_list /* of libqt_string */ QObject_DynamicPropertyNames(const QObject* sel
     QList<QByteArray> _ret = self->dynamicPropertyNames();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
         ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
@@ -260,7 +260,7 @@ libqt_string QObject_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -272,7 +272,7 @@ libqt_string QObject_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -633,7 +633,7 @@ void QObject_Connect_ObjectNameChanged(QObject* self, intptr_t slot) {
         QByteArray objectName_b = objectName_ret.toUtf8();
         libqt_string objectName_str;
         objectName_str.len = objectName_b.length();
-        objectName_str.data = static_cast<const char*>(malloc((objectName_str.len + 1) * sizeof(char)));
+        objectName_str.data = static_cast<const char*>(malloc(objectName_str.len + 1));
         memcpy((void*)objectName_str.data, objectName_b.data(), objectName_str.len);
         ((char*)objectName_str.data)[objectName_str.len] = '\0';
         libqt_string sigval1 = objectName_str;

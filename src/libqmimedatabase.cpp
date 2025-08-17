@@ -35,7 +35,7 @@ libqt_list /* of QMimeType* */ QMimeDatabase_MimeTypesForFileName(const QMimeDat
     QList<QMimeType> _ret = self->mimeTypesForFileName(fileName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
     QMimeType** _arr = static_cast<QMimeType**>(malloc(sizeof(QMimeType*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMimeType(_ret[i]);
     }
     libqt_list _out;
@@ -75,7 +75,7 @@ libqt_string QMimeDatabase_SuffixForFileName(const QMimeDatabase* self, const li
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -85,7 +85,7 @@ libqt_list /* of QMimeType* */ QMimeDatabase_AllMimeTypes(const QMimeDatabase* s
     QList<QMimeType> _ret = self->allMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
     QMimeType** _arr = static_cast<QMimeType**>(malloc(sizeof(QMimeType*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMimeType(_ret[i]);
     }
     libqt_list _out;

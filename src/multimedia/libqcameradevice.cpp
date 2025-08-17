@@ -82,7 +82,7 @@ libqt_string QCameraDevice_Id(const QCameraDevice* self) {
     QByteArray _qb = self->id();
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -94,7 +94,7 @@ libqt_string QCameraDevice_Description(const QCameraDevice* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -112,7 +112,7 @@ libqt_list /* of QSize* */ QCameraDevice_PhotoResolutions(const QCameraDevice* s
     QList<QSize> _ret = self->photoResolutions();
     // Convert QList<> from C++ memory to manually-managed C memory
     QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSize(_ret[i]);
     }
     libqt_list _out;
@@ -125,7 +125,7 @@ libqt_list /* of QCameraFormat* */ QCameraDevice_VideoFormats(const QCameraDevic
     QList<QCameraFormat> _ret = self->videoFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
     QCameraFormat** _arr = static_cast<QCameraFormat**>(malloc(sizeof(QCameraFormat*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCameraFormat(_ret[i]);
     }
     libqt_list _out;

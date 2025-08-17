@@ -16,7 +16,7 @@ libqt_list /* of QsciCommand* */ QsciCommandSet_Commands(QsciCommandSet* self) {
     QList<QsciCommand*>& _ret = self->commands();
     // Convert QList<> from C++ memory to manually-managed C memory
     QsciCommand** _arr = static_cast<QsciCommand**>(malloc(sizeof(QsciCommand*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
     libqt_list _out;

@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -144,7 +143,7 @@ class VirtualQValidator final : public QValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
             memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
             ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
@@ -168,7 +167,7 @@ class VirtualQValidator final : public QValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
             memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
             ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
@@ -502,7 +501,7 @@ class VirtualQIntValidator final : public QIntValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
             memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
             ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
@@ -526,7 +525,7 @@ class VirtualQIntValidator final : public QIntValidator {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
             memcpy((void*)input_str.data, input_b.data(), input_str.len);
             ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
@@ -860,7 +859,7 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
             memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
             ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;
@@ -884,7 +883,7 @@ class VirtualQDoubleValidator final : public QDoubleValidator {
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
             memcpy((void*)input_str.data, input_b.data(), input_str.len);
             ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
@@ -1218,7 +1217,7 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             QByteArray input_b = input_ret.toUtf8();
             libqt_string input_str;
             input_str.len = input_b.length();
-            input_str.data = static_cast<const char*>(malloc((input_str.len + 1) * sizeof(char)));
+            input_str.data = static_cast<const char*>(malloc(input_str.len + 1));
             memcpy((void*)input_str.data, input_b.data(), input_str.len);
             ((char*)input_str.data)[input_str.len] = '\0';
             libqt_string cbval1 = input_str;
@@ -1242,7 +1241,7 @@ class VirtualQRegularExpressionValidator final : public QRegularExpressionValida
             QByteArray param1_b = param1_ret.toUtf8();
             libqt_string param1_str;
             param1_str.len = param1_b.length();
-            param1_str.data = static_cast<const char*>(malloc((param1_str.len + 1) * sizeof(char)));
+            param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
             memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
             ((char*)param1_str.data)[param1_str.len] = '\0';
             libqt_string cbval1 = param1_str;

@@ -84,7 +84,7 @@ libqt_string QWebEngineProfile_Tr(const char* s) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -96,7 +96,7 @@ libqt_string QWebEngineProfile_StorageName(const QWebEngineProfile* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -112,7 +112,7 @@ libqt_string QWebEngineProfile_PersistentStoragePath(const QWebEngineProfile* se
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -129,7 +129,7 @@ libqt_string QWebEngineProfile_CachePath(const QWebEngineProfile* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -146,7 +146,7 @@ libqt_string QWebEngineProfile_HttpUserAgent(const QWebEngineProfile* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -176,7 +176,7 @@ libqt_string QWebEngineProfile_HttpAcceptLanguage(const QWebEngineProfile* self)
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -286,13 +286,13 @@ libqt_list /* of libqt_string */ QWebEngineProfile_SpellCheckLanguages(const QWe
     QList<QString> _ret = self->spellCheckLanguages();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
         QByteArray _lv_b = _lv_ret.toUtf8();
         libqt_string _lv_str;
         _lv_str.len = _lv_b.length();
-        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
         memcpy((void*)_lv_str.data, _lv_b.data(), _lv_str.len);
         ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
@@ -317,7 +317,7 @@ libqt_string QWebEngineProfile_DownloadPath(const QWebEngineProfile* self) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -348,7 +348,7 @@ libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListAllPermissions(c
     QList<QWebEnginePermission> _ret = self->listAllPermissions();
     // Convert QList<> from C++ memory to manually-managed C memory
     QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEnginePermission(_ret[i]);
     }
     libqt_list _out;
@@ -361,7 +361,7 @@ libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForOr
     QList<QWebEnginePermission> _ret = self->listPermissionsForOrigin(*securityOrigin);
     // Convert QList<> from C++ memory to manually-managed C memory
     QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEnginePermission(_ret[i]);
     }
     libqt_list _out;
@@ -374,7 +374,7 @@ libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForPe
     QList<QWebEnginePermission> _ret = self->listPermissionsForPermissionType(static_cast<QWebEnginePermission::PermissionType>(permissionType));
     // Convert QList<> from C++ memory to manually-managed C memory
     QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEnginePermission(_ret[i]);
     }
     libqt_list _out;
@@ -416,7 +416,7 @@ libqt_string QWebEngineProfile_Tr2(const char* s, const char* c) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -428,7 +428,7 @@ libqt_string QWebEngineProfile_Tr3(const char* s, const char* c, int n) {
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
     _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;

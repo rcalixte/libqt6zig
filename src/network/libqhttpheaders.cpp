@@ -108,11 +108,11 @@ libqt_list /* of libqt_string */ QHttpHeaders_Values(const QHttpHeaders* self, l
     QList<QByteArray> _ret = self->values(QAnyStringView(name_QString));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
         ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
@@ -127,11 +127,11 @@ libqt_list /* of libqt_string */ QHttpHeaders_Values2(const QHttpHeaders* self, 
     QList<QByteArray> _ret = self->values(static_cast<QHttpHeaders::WellKnownHeader>(name));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
         _lv_str.len = _lv_qb.length();
-        _lv_str.data = static_cast<const char*>(malloc((_lv_str.len + 1) * sizeof(char)));
+        _lv_str.data = static_cast<const char*>(malloc(_lv_str.len + 1));
         memcpy((void*)_lv_str.data, _lv_qb.data(), _lv_str.len);
         ((char*)_lv_str.data)[_lv_str.len] = '\0';
         _arr[i] = _lv_str;
@@ -151,7 +151,7 @@ libqt_string QHttpHeaders_CombinedValue(const QHttpHeaders* self, libqt_string n
     QByteArray _qb = self->combinedValue(QAnyStringView(name_QString));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -161,7 +161,7 @@ libqt_string QHttpHeaders_CombinedValue2(const QHttpHeaders* self, int name) {
     QByteArray _qb = self->combinedValue(static_cast<QHttpHeaders::WellKnownHeader>(name));
     libqt_string _str;
     _str.len = _qb.length();
-    _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
     memcpy((void*)_str.data, _qb.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
@@ -204,7 +204,7 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QHttpHea
     QList<QPair<QByteArray, QByteArray>> _ret = self->toListOfPairs();
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<QByteArray, QByteArray> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
         libqt_string* _lv_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
@@ -212,14 +212,14 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QHttpHea
         QByteArray _lv_first_qb = _lv_ret.first;
         libqt_string _lv_first_str;
         _lv_first_str.len = _lv_first_qb.length();
-        _lv_first_str.data = static_cast<const char*>(malloc((_lv_first_str.len + 1) * sizeof(char)));
+        _lv_first_str.data = static_cast<const char*>(malloc(_lv_first_str.len + 1));
         memcpy((void*)_lv_first_str.data, _lv_first_qb.data(), _lv_first_str.len);
         ((char*)_lv_first_str.data)[_lv_first_str.len] = '\0';
         *_lv_first = _lv_first_str;
         QByteArray _lv_second_qb = _lv_ret.second;
         libqt_string _lv_second_str;
         _lv_second_str.len = _lv_second_qb.length();
-        _lv_second_str.data = static_cast<const char*>(malloc((_lv_second_str.len + 1) * sizeof(char)));
+        _lv_second_str.data = static_cast<const char*>(malloc(_lv_second_str.len + 1));
         memcpy((void*)_lv_second_str.data, _lv_second_qb.data(), _lv_second_str.len);
         ((char*)_lv_second_str.data)[_lv_second_str.len] = '\0';
         *_lv_second = _lv_second_str;

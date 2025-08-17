@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -204,7 +203,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             const QList<QNetworkCookie>& cookieList_ret = cookieList;
             // Convert QList<> from C++ memory to manually-managed C memory
             QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * cookieList_ret.size()));
-            for (size_t i = 0; i < cookieList_ret.size(); ++i) {
+            for (qsizetype i = 0; i < cookieList_ret.size(); ++i) {
                 cookieList_arr[i] = new QNetworkCookie(cookieList_ret[i]);
             }
             libqt_list cookieList_out;
@@ -426,7 +425,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             const QList<QNetworkCookie>& cookieList_ret = cookieList;
             // Convert QList<> from C++ memory to manually-managed C memory
             QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * cookieList_ret.size()));
-            for (size_t i = 0; i < cookieList_ret.size(); ++i) {
+            for (qsizetype i = 0; i < cookieList_ret.size(); ++i) {
                 cookieList_arr[i] = new QNetworkCookie(cookieList_ret[i]);
             }
             libqt_list cookieList_out;

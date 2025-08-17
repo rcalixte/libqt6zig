@@ -49,7 +49,7 @@ libqt_list /* of QMediaTimeRange__Interval* */ QMediaTimeRange_Intervals(const Q
     QList<QMediaTimeRange::Interval> _ret = self->intervals();
     // Convert QList<> from C++ memory to manually-managed C memory
     QMediaTimeRange__Interval** _arr = static_cast<QMediaTimeRange__Interval**>(malloc(sizeof(QMediaTimeRange__Interval*) * _ret.size()));
-    for (size_t i = 0; i < _ret.size(); ++i) {
+    for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QMediaTimeRange::Interval(_ret[i]);
     }
     libqt_list _out;

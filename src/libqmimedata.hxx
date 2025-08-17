@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -152,7 +151,7 @@ class VirtualQMimeData final : public QMimeData {
             QByteArray mimetype_b = mimetype_ret.toUtf8();
             libqt_string mimetype_str;
             mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<const char*>(malloc((mimetype_str.len + 1) * sizeof(char)));
+            mimetype_str.data = static_cast<const char*>(malloc(mimetype_str.len + 1));
             memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
             ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
             libqt_string cbval1 = mimetype_str;
@@ -195,7 +194,7 @@ class VirtualQMimeData final : public QMimeData {
             QByteArray mimetype_b = mimetype_ret.toUtf8();
             libqt_string mimetype_str;
             mimetype_str.len = mimetype_b.length();
-            mimetype_str.data = static_cast<const char*>(malloc((mimetype_str.len + 1) * sizeof(char)));
+            mimetype_str.data = static_cast<const char*>(malloc(mimetype_str.len + 1));
             memcpy((void*)mimetype_str.data, mimetype_b.data(), mimetype_str.len);
             ((char*)mimetype_str.data)[mimetype_str.len] = '\0';
             libqt_string cbval1 = mimetype_str;

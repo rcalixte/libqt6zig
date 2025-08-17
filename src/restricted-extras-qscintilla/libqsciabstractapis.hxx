@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -147,13 +146,13 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             const QList<QString>& context_ret = context;
             // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * context_ret.size()));
-            for (size_t i = 0; i < context_ret.size(); ++i) {
+            for (qsizetype i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray context_lv_b = context_lv_ret.toUtf8();
                 libqt_string context_lv_str;
                 context_lv_str.len = context_lv_b.length();
-                context_lv_str.data = static_cast<const char*>(malloc((context_lv_str.len + 1) * sizeof(char)));
+                context_lv_str.data = static_cast<const char*>(malloc(context_lv_str.len + 1));
                 memcpy((void*)context_lv_str.data, context_lv_b.data(), context_lv_str.len);
                 ((char*)context_lv_str.data)[context_lv_str.len] = '\0';
                 context_arr[i] = context_lv_str;
@@ -165,13 +164,13 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             QList<QString>& list_ret = list;
             // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* list_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * list_ret.size()));
-            for (size_t i = 0; i < list_ret.size(); ++i) {
+            for (qsizetype i = 0; i < list_ret.size(); ++i) {
                 QString list_lv_ret = list_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray list_lv_b = list_lv_ret.toUtf8();
                 libqt_string list_lv_str;
                 list_lv_str.len = list_lv_b.length();
-                list_lv_str.data = static_cast<const char*>(malloc((list_lv_str.len + 1) * sizeof(char)));
+                list_lv_str.data = static_cast<const char*>(malloc(list_lv_str.len + 1));
                 memcpy((void*)list_lv_str.data, list_lv_b.data(), list_lv_str.len);
                 ((char*)list_lv_str.data)[list_lv_str.len] = '\0';
                 list_arr[i] = list_lv_str;
@@ -196,7 +195,7 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             QByteArray selection_b = selection_ret.toUtf8();
             libqt_string selection_str;
             selection_str.len = selection_b.length();
-            selection_str.data = static_cast<const char*>(malloc((selection_str.len + 1) * sizeof(char)));
+            selection_str.data = static_cast<const char*>(malloc(selection_str.len + 1));
             memcpy((void*)selection_str.data, selection_b.data(), selection_str.len);
             ((char*)selection_str.data)[selection_str.len] = '\0';
             libqt_string cbval1 = selection_str;
@@ -213,13 +212,13 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             const QList<QString>& context_ret = context;
             // Convert QList<> from C++ memory to manually-managed C memory
             libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * context_ret.size()));
-            for (size_t i = 0; i < context_ret.size(); ++i) {
+            for (qsizetype i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
                 QByteArray context_lv_b = context_lv_ret.toUtf8();
                 libqt_string context_lv_str;
                 context_lv_str.len = context_lv_b.length();
-                context_lv_str.data = static_cast<const char*>(malloc((context_lv_str.len + 1) * sizeof(char)));
+                context_lv_str.data = static_cast<const char*>(malloc(context_lv_str.len + 1));
                 memcpy((void*)context_lv_str.data, context_lv_b.data(), context_lv_str.len);
                 ((char*)context_lv_str.data)[context_lv_str.len] = '\0';
                 context_arr[i] = context_lv_str;
@@ -233,7 +232,7 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             QList<int>& shifts_ret = shifts;
             // Convert QList<> from C++ memory to manually-managed C memory
             int* shifts_arr = static_cast<int*>(malloc(sizeof(int) * shifts_ret.size()));
-            for (size_t i = 0; i < shifts_ret.size(); ++i) {
+            for (qsizetype i = 0; i < shifts_ret.size(); ++i) {
                 shifts_arr[i] = shifts_ret[i];
             }
             libqt_list shifts_out;

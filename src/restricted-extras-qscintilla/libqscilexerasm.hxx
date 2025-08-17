@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -880,7 +879,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool readProperties(QSettings& qs, const QString& prefix) {
+    virtual bool readProperties(QSettings& qs, const QString& prefix) override {
         if (qscilexerasm_readproperties_isbase) {
             qscilexerasm_readproperties_isbase = false;
             return QsciLexerAsm::readProperties(qs, prefix);
@@ -893,7 +892,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
             QByteArray prefix_b = prefix_ret.toUtf8();
             libqt_string prefix_str;
             prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
             memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
             ((char*)prefix_str.data)[prefix_str.len] = '\0';
             libqt_string cbval2 = prefix_str;
@@ -906,7 +905,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool writeProperties(QSettings& qs, const QString& prefix) const {
+    virtual bool writeProperties(QSettings& qs, const QString& prefix) const override {
         if (qscilexerasm_writeproperties_isbase) {
             qscilexerasm_writeproperties_isbase = false;
             return QsciLexerAsm::writeProperties(qs, prefix);
@@ -919,7 +918,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
             QByteArray prefix_b = prefix_ret.toUtf8();
             libqt_string prefix_str;
             prefix_str.len = prefix_b.length();
-            prefix_str.data = static_cast<const char*>(malloc((prefix_str.len + 1) * sizeof(char)));
+            prefix_str.data = static_cast<const char*>(malloc(prefix_str.len + 1));
             memcpy((void*)prefix_str.data, prefix_b.data(), prefix_str.len);
             ((char*)prefix_str.data)[prefix_str.len] = '\0';
             libqt_string cbval2 = prefix_str;
@@ -963,7 +962,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void timerEvent(QTimerEvent* event) {
+    virtual void timerEvent(QTimerEvent* event) override {
         if (qscilexerasm_timerevent_isbase) {
             qscilexerasm_timerevent_isbase = false;
             QsciLexerAsm::timerEvent(event);
@@ -977,7 +976,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void childEvent(QChildEvent* event) {
+    virtual void childEvent(QChildEvent* event) override {
         if (qscilexerasm_childevent_isbase) {
             qscilexerasm_childevent_isbase = false;
             QsciLexerAsm::childEvent(event);
@@ -991,7 +990,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void customEvent(QEvent* event) {
+    virtual void customEvent(QEvent* event) override {
         if (qscilexerasm_customevent_isbase) {
             qscilexerasm_customevent_isbase = false;
             QsciLexerAsm::customEvent(event);
@@ -1005,7 +1004,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void connectNotify(const QMetaMethod& signal) {
+    virtual void connectNotify(const QMetaMethod& signal) override {
         if (qscilexerasm_connectnotify_isbase) {
             qscilexerasm_connectnotify_isbase = false;
             QsciLexerAsm::connectNotify(signal);
@@ -1021,7 +1020,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void disconnectNotify(const QMetaMethod& signal) {
+    virtual void disconnectNotify(const QMetaMethod& signal) override {
         if (qscilexerasm_disconnectnotify_isbase) {
             qscilexerasm_disconnectnotify_isbase = false;
             QsciLexerAsm::disconnectNotify(signal);
@@ -1047,7 +1046,7 @@ class VirtualQsciLexerAsm final : public QsciLexerAsm {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
             memcpy((void*)text_str.data, text_b.data(), text_str.len);
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;

@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -57,7 +56,7 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             QByteArray publicId_b = publicId_ret.toUtf8();
             libqt_string publicId_str;
             publicId_str.len = publicId_b.length();
-            publicId_str.data = static_cast<const char*>(malloc((publicId_str.len + 1) * sizeof(char)));
+            publicId_str.data = static_cast<const char*>(malloc(publicId_str.len + 1));
             memcpy((void*)publicId_str.data, publicId_b.data(), publicId_str.len);
             ((char*)publicId_str.data)[publicId_str.len] = '\0';
             libqt_string cbval1 = publicId_str;
@@ -66,7 +65,7 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             QByteArray systemId_b = systemId_ret.toUtf8();
             libqt_string systemId_str;
             systemId_str.len = systemId_b.length();
-            systemId_str.data = static_cast<const char*>(malloc((systemId_str.len + 1) * sizeof(char)));
+            systemId_str.data = static_cast<const char*>(malloc(systemId_str.len + 1));
             memcpy((void*)systemId_str.data, systemId_b.data(), systemId_str.len);
             ((char*)systemId_str.data)[systemId_str.len] = '\0';
             libqt_string cbval2 = systemId_str;
@@ -90,7 +89,7 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
             memcpy((void*)name_str.data, name_b.data(), name_str.len);
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;

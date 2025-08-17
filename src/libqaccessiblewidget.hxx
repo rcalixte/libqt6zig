@@ -4,7 +4,6 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
 
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
@@ -448,7 +447,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QByteArray actionName_b = actionName_ret.toUtf8();
             libqt_string actionName_str;
             actionName_str.len = actionName_b.length();
-            actionName_str.data = static_cast<const char*>(malloc((actionName_str.len + 1) * sizeof(char)));
+            actionName_str.data = static_cast<const char*>(malloc(actionName_str.len + 1));
             memcpy((void*)actionName_str.data, actionName_b.data(), actionName_str.len);
             ((char*)actionName_str.data)[actionName_str.len] = '\0';
             libqt_string cbval1 = actionName_str;
@@ -470,7 +469,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QByteArray actionName_b = actionName_ret.toUtf8();
             libqt_string actionName_str;
             actionName_str.len = actionName_b.length();
-            actionName_str.data = static_cast<const char*>(malloc((actionName_str.len + 1) * sizeof(char)));
+            actionName_str.data = static_cast<const char*>(malloc(actionName_str.len + 1));
             memcpy((void*)actionName_str.data, actionName_b.data(), actionName_str.len);
             ((char*)actionName_str.data)[actionName_str.len] = '\0';
             libqt_string cbval1 = actionName_str;
@@ -514,7 +513,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QByteArray text_b = text_ret.toUtf8();
             libqt_string text_str;
             text_str.len = text_b.length();
-            text_str.data = static_cast<const char*>(malloc((text_str.len + 1) * sizeof(char)));
+            text_str.data = static_cast<const char*>(malloc(text_str.len + 1));
             memcpy((void*)text_str.data, text_b.data(), text_str.len);
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval2 = text_str;
@@ -567,7 +566,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
             memcpy((void*)name_str.data, name_b.data(), name_str.len);
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
@@ -591,7 +590,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QByteArray name_b = name_ret.toUtf8();
             libqt_string name_str;
             name_str.len = name_b.length();
-            name_str.data = static_cast<const char*>(malloc((name_str.len + 1) * sizeof(char)));
+            name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
             memcpy((void*)name_str.data, name_b.data(), name_str.len);
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
@@ -641,7 +640,7 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             QByteArray signal_b = signal_ret.toUtf8();
             libqt_string signal_str;
             signal_str.len = signal_b.length();
-            signal_str.data = static_cast<const char*>(malloc((signal_str.len + 1) * sizeof(char)));
+            signal_str.data = static_cast<const char*>(malloc(signal_str.len + 1));
             memcpy((void*)signal_str.data, signal_b.data(), signal_str.len);
             ((char*)signal_str.data)[signal_str.len] = '\0';
             libqt_string cbval1 = signal_str;

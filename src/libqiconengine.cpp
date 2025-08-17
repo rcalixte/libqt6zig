@@ -173,7 +173,7 @@ libqt_string QIconEngine_Key(const QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -183,7 +183,7 @@ libqt_string QIconEngine_Key(const QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -200,7 +200,7 @@ libqt_string QIconEngine_QBaseKey(const QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -210,7 +210,7 @@ libqt_string QIconEngine_QBaseKey(const QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -319,7 +319,7 @@ libqt_list /* of QSize* */ QIconEngine_AvailableSizes(QIconEngine* self, int mod
         QList<QSize> _ret = vqiconengine->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
         QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
         libqt_list _out;
@@ -330,7 +330,7 @@ libqt_list /* of QSize* */ QIconEngine_AvailableSizes(QIconEngine* self, int mod
         QList<QSize> _ret = self->QIconEngine::availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
         QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
         libqt_list _out;
@@ -348,7 +348,7 @@ libqt_list /* of QSize* */ QIconEngine_QBaseAvailableSizes(QIconEngine* self, in
         QList<QSize> _ret = vqiconengine->availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
         QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
         libqt_list _out;
@@ -359,7 +359,7 @@ libqt_list /* of QSize* */ QIconEngine_QBaseAvailableSizes(QIconEngine* self, in
         QList<QSize> _ret = self->QIconEngine::availableSizes(static_cast<QIcon::Mode>(mode), static_cast<QIcon::State>(state));
         // Convert QList<> from C++ memory to manually-managed C memory
         QSize** _arr = static_cast<QSize**>(malloc(sizeof(QSize*) * _ret.size()));
-        for (size_t i = 0; i < _ret.size(); ++i) {
+        for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QSize(_ret[i]);
         }
         libqt_list _out;
@@ -386,7 +386,7 @@ libqt_string QIconEngine_IconName(QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -396,7 +396,7 @@ libqt_string QIconEngine_IconName(QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -413,7 +413,7 @@ libqt_string QIconEngine_QBaseIconName(QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
@@ -423,7 +423,7 @@ libqt_string QIconEngine_QBaseIconName(QIconEngine* self) {
         QByteArray _b = _ret.toUtf8();
         libqt_string _str;
         _str.len = _b.length();
-        _str.data = static_cast<const char*>(malloc((_str.len + 1) * sizeof(char)));
+        _str.data = static_cast<const char*>(malloc(_str.len + 1));
         memcpy((void*)_str.data, _b.data(), _str.len);
         ((char*)_str.data)[_str.len] = '\0';
         return _str;
