@@ -61,7 +61,7 @@ func (p *CppParameter) GetQtCppType() *CppParameter {
 }
 
 func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
-	if strings.HasPrefix(p.ParameterType, `QFlags<`) {
+	if strings.HasPrefix(p.ParameterType, "QFlags<") {
 		ret := parseSingleTypeString(p.ParameterType[7 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_qf"
 
@@ -79,7 +79,7 @@ func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
 	}
 
 	if under := p.QtCppOriginalType; under != nil {
-		if strings.HasPrefix(under.ParameterType, `QFlags<`) {
+		if strings.HasPrefix(under.ParameterType, "QFlags<") {
 			ret := parseSingleTypeString(under.ParameterType[7 : len(under.ParameterType)-1])
 			ret.ParameterName = under.ParameterName + "_qf"
 
@@ -142,19 +142,19 @@ func IsKnownTypeDef(className string) bool {
 }
 
 func (p CppParameter) QListOf() (CppParameter, string, bool) {
-	if strings.HasPrefix(p.ParameterType, "QList<") && strings.HasSuffix(p.ParameterType, `>`) {
+	if strings.HasPrefix(p.ParameterType, "QList<") && strings.HasSuffix(p.ParameterType, ">") {
 		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_lv"
 		return ret, "QList", true
 	}
 
-	if strings.HasPrefix(p.ParameterType, "QVector<") && strings.HasSuffix(p.ParameterType, `>`) {
+	if strings.HasPrefix(p.ParameterType, "QVector<") && strings.HasSuffix(p.ParameterType, ">") {
 		ret := parseSingleTypeString(p.ParameterType[8 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_vv"
 		return ret, "QVector", true
 	}
 
-	if strings.HasPrefix(p.ParameterType, "QSpan<") && strings.HasSuffix(p.ParameterType, `>`) {
+	if strings.HasPrefix(p.ParameterType, "QSpan<") && strings.HasSuffix(p.ParameterType, ">") {
 		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_sv"
 		return ret, "QSpan", true
@@ -166,7 +166,7 @@ func (p CppParameter) QListOf() (CppParameter, string, bool) {
 func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 	// n.b. Need to block QMap<k,v>::const_terator
 
-	if strings.HasPrefix(p.ParameterType, `QMap<`) && strings.HasSuffix(p.ParameterType, `>`) {
+	if strings.HasPrefix(p.ParameterType, "QMap<") && strings.HasSuffix(p.ParameterType, ">") {
 		interior := tokenizeMultipleParameters(p.ParameterType[5 : len(p.ParameterType)-1])
 		if len(interior) != 2 {
 			panic("QMap<> has unexpected number of template arguments")
@@ -179,7 +179,7 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 		return first, second, "QMap", true
 	}
 
-	if strings.HasPrefix(p.ParameterType, `QHash<`) && strings.HasSuffix(p.ParameterType, `>`) {
+	if strings.HasPrefix(p.ParameterType, "QHash<") && strings.HasSuffix(p.ParameterType, ">") {
 		interior := tokenizeMultipleParameters(p.ParameterType[6 : len(p.ParameterType)-1])
 		if len(interior) != 2 {
 			panic("QHash<> has unexpected number of template arguments")
@@ -196,10 +196,10 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 }
 
 func (p CppParameter) QPairOf() (CppParameter, CppParameter, bool) {
-	if (strings.HasPrefix(p.ParameterType, `QPair<`) || strings.HasPrefix(p.ParameterType, `std::pair<`)) &&
-		strings.HasSuffix(p.ParameterType, `>`) {
+	if (strings.HasPrefix(p.ParameterType, "QPair<") || strings.HasPrefix(p.ParameterType, "std::pair<")) &&
+		strings.HasSuffix(p.ParameterType, ">") {
 		index := 6 // QPair<
-		if strings.HasPrefix(p.ParameterType, `std::pair<`) {
+		if strings.HasPrefix(p.ParameterType, "std::pair<") {
 			index = 10 // std::pair<
 		}
 		interior := tokenizeMultipleParameters(p.ParameterType[index : len(p.ParameterType)-1])
@@ -218,7 +218,7 @@ func (p CppParameter) QPairOf() (CppParameter, CppParameter, bool) {
 }
 
 func (p CppParameter) QSetOf() (CppParameter, bool) {
-	if strings.HasPrefix(p.ParameterType, `QSet<`) {
+	if strings.HasPrefix(p.ParameterType, "QSet<") {
 		ret := parseSingleTypeString(p.ParameterType[5 : len(p.ParameterType)-1])
 		ret.ParameterName = p.ParameterName + "_sv"
 		return ret, true
@@ -228,8 +228,8 @@ func (p CppParameter) QSetOf() (CppParameter, bool) {
 }
 
 func (p CppParameter) QMultiMapOf() bool {
-	if strings.HasPrefix(p.ParameterType, `QMultiMap<`) ||
-		strings.HasPrefix(p.ParameterType, `QMultiHash<`) {
+	if strings.HasPrefix(p.ParameterType, "QMultiMap<") ||
+		strings.HasPrefix(p.ParameterType, "QMultiHash<") {
 		return true
 	}
 
@@ -366,52 +366,52 @@ func (nm CppMethod) SafeMethodName() string {
 	// languages. Replace more specific cases first
 	replacer := strings.NewReplacer(
 
-		// `operator ` with a trailing space only occurs in conversion operators
+		// "operator " with a trailing space only occurs in conversion operators
 		// Add a fake _ here, but it will be replaced with camelcase in the regex below
-		`operator `, `To `,
-		`::`, `__`, // e.g. `operator QCborError::Code`
+		"operator ", "To ",
+		"::", "__", // e.g. "operator QCborError::Code"
 
-		`==`, `Equal`,
-		`!=`, `NotEqual`,
-		`>=`, `GreaterOrEqual`,
-		`<=`, `LesserOrEqual`,
-		`=`, `Assign`,
+		"==", "Equal",
+		"!=", "NotEqual",
+		">=", "GreaterOrEqual",
+		"<=", "LesserOrEqual",
+		"=", "Assign",
 
-		`<<`, `ShiftLeft`, // Qt classes use it more for stream functions e.g. in QDataStream
-		`>>`, `ShiftRight`,
-		`>`, `Greater`,
-		`<`, `Lesser`,
+		"<<", "ShiftLeft", // Qt classes use it more for stream functions e.g. in QDataStream
+		">>", "ShiftRight",
+		">", "Greater",
+		"<", "Lesser",
 
-		`+`, `Plus`,
-		`-`, `Minus`,
-		`*`, `Multiply`,
-		`/`, `Divide`,
-		`%`, `Modulo`,
+		"+", "Plus",
+		"-", "Minus",
+		"*", "Multiply",
+		"/", "Divide",
+		"%", "Modulo",
 
-		`&&`, `LogicalAnd`,
-		`||`, `LogicalOr`,
-		`!`, `Not`,
-		`&`, `BitwiseAnd`,
-		`|`, `BitwiseOr`,
-		`~`, `BitwiseXor`,
-		`^`, `BitwiseNot`,
+		"&&", "LogicalAnd",
+		"||", "LogicalOr",
+		"!", "Not",
+		"&", "BitwiseAnd",
+		"|", "BitwiseOr",
+		"~", "BitwiseXor",
+		"^", "BitwiseNot",
 
-		`->`, `PointerDereference`,
-		`[]`, `Subscript`,
-		`()`, `Call`,
+		"->", "PointerDereference",
+		"[]", "Subscript",
+		"()", "Call",
 	)
 	tmp = replacer.Replace(tmp)
 
 	// Also make the first letter uppercase so it becomes public in Go
 	tmp = titleCase(tmp)
 
-	// Replace spaces (e.g. `operator long long` with CamelCase
-	tmp = regexp.MustCompile(` ([a-zA-Z])`).ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
+	// Replace spaces (e.g. "operator long long" with CamelCase
+	tmp = regexp.MustCompile(" ([a-zA-Z])").ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
 
 	// Also replace any underscore_case with CamelCase
 	// Only catch lowercase letters in this one, not uppercase, as it causes a
 	// lot of churn for Scintilla
-	tmp = regexp.MustCompile(`_([a-z])`).ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
+	tmp = regexp.MustCompile("_([a-z])").ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
 
 	return tmp
 }
@@ -440,23 +440,22 @@ type CppEnum struct {
 
 func (e CppEnum) ShortEnumName() string {
 	// Strip back one single :: pair from the generated variable name
-	if nameParts := strings.Split(e.EnumName, `::`); len(nameParts) > 1 {
-		nameParts = nameParts[0 : len(nameParts)-1]
-		return strings.Join(nameParts, `::`)
+	lastIndex := strings.LastIndex(e.EnumName, "::")
+	if lastIndex == -1 {
+		lastIndex = len(e.EnumName)
 	}
-
-	// No change
-	return e.EnumName
+	return e.EnumName[:lastIndex]
 }
 
 func (e CppEnum) CabiEnumName() string {
-	if nameParts := strings.Split(e.EnumName, `::`); len(nameParts) > 1 {
-		nameParts = nameParts[1:]
-		return strings.Join(nameParts, ``)
+	lastIndex := strings.LastIndex(e.EnumName, "::")
+	if lastIndex == -1 {
+		lastIndex = 0
+	} else {
+		lastIndex += 2
 	}
 
-	// No change
-	return e.EnumName
+	return e.EnumName[lastIndex:]
 }
 
 type CppClass struct {
@@ -661,8 +660,8 @@ func (c *CppClass) DirectInheritClassInfo() []lookupResultClass {
 
 	for _, inh := range c.DirectInherits {
 		cinfo, ok := KnownClassnames[inh]
-		if !ok {
-			if strings.HasPrefix(inh, `QList<`) {
+		if !ok && AllowClass(c.ClassName) {
+			if strings.HasPrefix(inh, "QList<") {
 				// OK, allow this one to slip through
 				// e.g. QItemSelection extends a QList<>
 				continue
