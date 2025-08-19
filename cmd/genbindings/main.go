@@ -362,7 +362,7 @@ func gatherTypes(name string, dirs []string, allowHeader func(string) bool, clan
 			class.IncludedClasses = append(class.IncludedClasses, refClasses...)
 
 			for _, enum := range class.ChildEnums {
-				shortName := enum.CabiEnumName()
+				shortName := enum.EnumClassName()
 
 				// Initialize maps if needed
 				if _, ok := EnumScopeRegistry[shortName]; !ok {
@@ -494,7 +494,7 @@ func generate(srcName string, srcDirs []string, allowHeaderFn func(string) bool,
 
 		{
 			// Save the IL file for debug inspection
-			jb, err := json.MarshalIndent(parsed, "", "\t")
+			jb, err := json.MarshalIndent(parsed, "", " ")
 			if err != nil {
 				panic(err)
 			}
@@ -634,7 +634,7 @@ func generateClangCaches(includeFiles []string, clangBin string, cflags []string
 				astInner := mustClangExec(ctx, clangBin, inputHeader, cflags, matcher)
 
 				// Write to cache
-				jb, err := json.MarshalIndent(astInner, "", "\t")
+				jb, err := json.MarshalIndent(astInner, "", " ")
 				if err != nil {
 					panic(err)
 				}
