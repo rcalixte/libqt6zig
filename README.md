@@ -298,7 +298,7 @@ Qt expects fixed OS threads to be used for each QObject. When you first call `qa
 
 - When accessing Qt objects from inside another thread, it's safest to use `Threading.Async()` (from this library) to access the Qt objects from Qt's main thread. The [Threading library](https://github.com/rcalixte/libqt6zig/tree/master/src/threading/libqt6zigthreading.zig) documents additional available strategies within the source code.
 
-Qt C++ enums are projected as Zig enum structs of `u8`, `i32`, or `i64` values with the same names. For example, `Qt::AlignmentFlag` is projected as `enums.AlignmentFlag` within the `libqnamespace` module and exported by default as `qnamespace_enums.AlignmentFlag` though developers are free to use whatever naming convention they prefer for imports. The value `Qt::AlignmentFlag::AlignLeft` or the shorthand equivalent `Qt::AlignLeft` is projected by default as `qnamespace_enums.AlignmentFlag.AlignLeft` which is of the type `i32` and value `1`. Enums are currently defined as `i64` when expected as a parameter or returned as a type by the Zig API.
+Qt C++ enums are projected as Zig enum structs of `i8`, `i32`, `i64`, `u8`, `u16`, `u32`, or `u64` values with the same names. For example, `Qt::AlignmentFlag` is projected as `enums.AlignmentFlag` within the `libqnamespace` module and exported by default as `qnamespace_enums.AlignmentFlag` though developers are free to use whatever naming convention they prefer for imports. The value `Qt::AlignmentFlag::AlignLeft` or the shorthand equivalent `Qt::AlignLeft` is projected by default as `qnamespace_enums.AlignmentFlag.AlignLeft` which is of the type `i32` and value `1`. Qt C++ [QFlags](https://doc.qt.io/qt-6/qflags.html) are projected as `i64` when expected as a parameter or returned as a type by the Zig API due to their bitmask usage and the potential to overflow.
 
 #### API at a glance
 
@@ -346,7 +346,8 @@ Qt::AlignmentFlag alignment = Qt::AlignmentFlag::AlignLeft | Qt::AlignmentFlag::
 const alignment = qnamespace_enums.AlignmentFlag.AlignLeft | qnamespace_enums.AlignmentFlag.AlignTop;
 ```
 
-Some C++ idioms that were difficult to project were omitted from the binding. This can be improved in the future.
+> [!IMPORTANT]
+> Some C++ idioms that were difficult to project were omitted from the binding. This can be improved in the future.
 
 ### Q4. What build modes are supported by the library?
 
