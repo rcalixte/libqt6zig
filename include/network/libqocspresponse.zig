@@ -30,7 +30,7 @@ pub const qocspresponse = struct {
     /// ``` self: QtC.QOcspResponse ```
     ///
     /// Returns: ``` qocspresponse_enums.QOcspCertificateStatus ```
-    pub fn CertificateStatus(self: ?*anyopaque) i64 {
+    pub fn CertificateStatus(self: ?*anyopaque) i32 {
         return qtc.QOcspResponse_CertificateStatus(@ptrCast(self));
     }
 
@@ -39,7 +39,7 @@ pub const qocspresponse = struct {
     /// ``` self: QtC.QOcspResponse ```
     ///
     /// Returns: ``` qocspresponse_enums.QOcspRevocationReason ```
-    pub fn RevocationReason(self: ?*anyopaque) i64 {
+    pub fn RevocationReason(self: ?*anyopaque) i32 {
         return qtc.QOcspResponse_RevocationReason(@ptrCast(self));
     }
 

@@ -20,7 +20,7 @@ pub const qscreen = struct {
     }
 
     /// ``` self: QtC.QScreen, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QScreen_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -223,7 +223,7 @@ pub const qscreen = struct {
     /// ``` self: QtC.QScreen ```
     ///
     /// Returns: ``` qnamespace_enums.ScreenOrientation ```
-    pub fn PrimaryOrientation(self: ?*anyopaque) i64 {
+    pub fn PrimaryOrientation(self: ?*anyopaque) i32 {
         return qtc.QScreen_PrimaryOrientation(@ptrCast(self));
     }
 
@@ -232,7 +232,7 @@ pub const qscreen = struct {
     /// ``` self: QtC.QScreen ```
     ///
     /// Returns: ``` qnamespace_enums.ScreenOrientation ```
-    pub fn Orientation(self: ?*anyopaque) i64 {
+    pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QScreen_Orientation(@ptrCast(self));
     }
 
@@ -241,42 +241,42 @@ pub const qscreen = struct {
     /// ``` self: QtC.QScreen ```
     ///
     /// Returns: ``` qnamespace_enums.ScreenOrientation ```
-    pub fn NativeOrientation(self: ?*anyopaque) i64 {
+    pub fn NativeOrientation(self: ?*anyopaque) i32 {
         return qtc.QScreen_NativeOrientation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#angleBetween)
     ///
     /// ``` self: QtC.QScreen, a: qnamespace_enums.ScreenOrientation, b: qnamespace_enums.ScreenOrientation ```
-    pub fn AngleBetween(self: ?*anyopaque, a: i64, b: i64) i32 {
+    pub fn AngleBetween(self: ?*anyopaque, a: i32, b: i32) i32 {
         return qtc.QScreen_AngleBetween(@ptrCast(self), @intCast(a), @intCast(b));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#transformBetween)
     ///
     /// ``` self: QtC.QScreen, a: qnamespace_enums.ScreenOrientation, b: qnamespace_enums.ScreenOrientation, target: QtC.QRect ```
-    pub fn TransformBetween(self: ?*anyopaque, a: i64, b: i64, target: ?*anyopaque) QtC.QTransform {
+    pub fn TransformBetween(self: ?*anyopaque, a: i32, b: i32, target: ?*anyopaque) QtC.QTransform {
         return qtc.QScreen_TransformBetween(@ptrCast(self), @intCast(a), @intCast(b), @ptrCast(target));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#mapBetween)
     ///
     /// ``` self: QtC.QScreen, a: qnamespace_enums.ScreenOrientation, b: qnamespace_enums.ScreenOrientation, rect: QtC.QRect ```
-    pub fn MapBetween(self: ?*anyopaque, a: i64, b: i64, rect: ?*anyopaque) QtC.QRect {
+    pub fn MapBetween(self: ?*anyopaque, a: i32, b: i32, rect: ?*anyopaque) QtC.QRect {
         return qtc.QScreen_MapBetween(@ptrCast(self), @intCast(a), @intCast(b), @ptrCast(rect));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#isPortrait)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
-    pub fn IsPortrait(self: ?*anyopaque, orientation: i64) bool {
+    pub fn IsPortrait(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QScreen_IsPortrait(@ptrCast(self), @intCast(orientation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#isLandscape)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
-    pub fn IsLandscape(self: ?*anyopaque, orientation: i64) bool {
+    pub fn IsLandscape(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QScreen_IsLandscape(@ptrCast(self), @intCast(orientation));
     }
 
@@ -381,28 +381,28 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#primaryOrientationChanged)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
-    pub fn PrimaryOrientationChanged(self: ?*anyopaque, orientation: i64) void {
+    pub fn PrimaryOrientationChanged(self: ?*anyopaque, orientation: i32) void {
         qtc.QScreen_PrimaryOrientationChanged(@ptrCast(self), @intCast(orientation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#primaryOrientationChanged)
     ///
     /// ``` self: QtC.QScreen, slot: fn (self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
-    pub fn OnPrimaryOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnPrimaryOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScreen_Connect_PrimaryOrientationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#orientationChanged)
     ///
     /// ``` self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
-    pub fn OrientationChanged(self: ?*anyopaque, orientation: i64) void {
+    pub fn OrientationChanged(self: ?*anyopaque, orientation: i32) void {
         qtc.QScreen_OrientationChanged(@ptrCast(self), @intCast(orientation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreen.html#orientationChanged)
     ///
     /// ``` self: QtC.QScreen, slot: fn (self: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
-    pub fn OnOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QScreen_Connect_OrientationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -611,7 +611,7 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QScreen, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -834,7 +834,7 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QScreen, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -843,7 +843,7 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -852,7 +852,7 @@ pub const qscreen = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QScreen, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

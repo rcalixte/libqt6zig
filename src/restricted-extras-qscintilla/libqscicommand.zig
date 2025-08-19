@@ -10,7 +10,7 @@ pub const qscicommand = struct {
     /// ``` self: QtC.QsciCommand ```
     ///
     /// Returns: ``` qscicommand_enums.Command ```
-    pub fn Command(self: ?*anyopaque) i64 {
+    pub fn Command(self: ?*anyopaque) i32 {
         return qtc.QsciCommand_Command(@ptrCast(self));
     }
 

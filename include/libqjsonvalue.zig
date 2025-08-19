@@ -85,7 +85,7 @@ pub const qjsonvalue = struct {
     /// New11 constructs a new QJsonValue object.
     ///
     /// ``` param1: qjsonvalue_enums.Type ```
-    pub fn New11(param1: i64) QtC.QJsonValue {
+    pub fn New11(param1: i32) QtC.QJsonValue {
         return qtc.QJsonValue_new11(@intCast(param1));
     }
 
@@ -122,7 +122,7 @@ pub const qjsonvalue = struct {
     /// ``` self: QtC.QJsonValue ```
     ///
     /// Returns: ``` qjsonvalue_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QJsonValue_Type(@ptrCast(self));
     }
 
@@ -348,7 +348,7 @@ pub const qjsonvalueconstref = struct {
     /// ``` self: QtC.QJsonValueConstRef ```
     ///
     /// Returns: ``` qjsonvalue_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QJsonValueConstRef_Type(@ptrCast(self));
     }
 
@@ -577,7 +577,7 @@ pub const qjsonvalueref = struct {
     /// ``` self: QtC.QJsonValueRef ```
     ///
     /// Returns: ``` qjsonvalue_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QJsonValueRef_Type(@ptrCast(self));
     }
 

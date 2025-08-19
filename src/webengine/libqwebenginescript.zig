@@ -89,14 +89,14 @@ pub const qwebenginescript = struct {
     /// ``` self: QtC.QWebEngineScript ```
     ///
     /// Returns: ``` qwebenginescript_enums.InjectionPoint ```
-    pub fn InjectionPoint(self: ?*anyopaque) i64 {
+    pub fn InjectionPoint(self: ?*anyopaque) i32 {
         return qtc.QWebEngineScript_InjectionPoint(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginescript.html#setInjectionPoint)
     ///
     /// ``` self: QtC.QWebEngineScript, injectionPoint: qwebenginescript_enums.InjectionPoint ```
-    pub fn SetInjectionPoint(self: ?*anyopaque, injectionPoint: i64) void {
+    pub fn SetInjectionPoint(self: ?*anyopaque, injectionPoint: i32) void {
         qtc.QWebEngineScript_SetInjectionPoint(@ptrCast(self), @intCast(injectionPoint));
     }
 

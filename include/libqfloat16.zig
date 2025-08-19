@@ -14,7 +14,7 @@ pub const qfloat16 = struct {
     /// New2 constructs a new qfloat16 object.
     ///
     /// ``` param1: qnamespace_enums.Initialization ```
-    pub fn New2(param1: i64) QtC.qfloat16 {
+    pub fn New2(param1: i32) QtC.qfloat16 {
         return qtc.qfloat16_new2(@intCast(param1));
     }
 

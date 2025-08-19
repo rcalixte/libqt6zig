@@ -70,7 +70,7 @@ pub const qaudioformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#setChannelConfig)
     ///
     /// ``` self: QtC.QAudioFormat, config: qaudioformat_enums.ChannelConfig ```
-    pub fn SetChannelConfig(self: ?*anyopaque, config: i64) void {
+    pub fn SetChannelConfig(self: ?*anyopaque, config: u32) void {
         qtc.QAudioFormat_SetChannelConfig(@ptrCast(self), @intCast(config));
     }
 
@@ -79,7 +79,7 @@ pub const qaudioformat = struct {
     /// ``` self: QtC.QAudioFormat ```
     ///
     /// Returns: ``` qaudioformat_enums.ChannelConfig ```
-    pub fn ChannelConfig(self: ?*anyopaque) i64 {
+    pub fn ChannelConfig(self: ?*anyopaque) u32 {
         return qtc.QAudioFormat_ChannelConfig(@ptrCast(self));
     }
 
@@ -100,14 +100,14 @@ pub const qaudioformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#channelOffset)
     ///
     /// ``` self: QtC.QAudioFormat, channel: qaudioformat_enums.AudioChannelPosition ```
-    pub fn ChannelOffset(self: ?*anyopaque, channel: i64) i32 {
+    pub fn ChannelOffset(self: ?*anyopaque, channel: i32) i32 {
         return qtc.QAudioFormat_ChannelOffset(@ptrCast(self), @intCast(channel));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#setSampleFormat)
     ///
     /// ``` self: QtC.QAudioFormat, f: qaudioformat_enums.SampleFormat ```
-    pub fn SetSampleFormat(self: ?*anyopaque, f: i64) void {
+    pub fn SetSampleFormat(self: ?*anyopaque, f: u16) void {
         qtc.QAudioFormat_SetSampleFormat(@ptrCast(self), @intCast(f));
     }
 
@@ -116,7 +116,7 @@ pub const qaudioformat = struct {
     /// ``` self: QtC.QAudioFormat ```
     ///
     /// Returns: ``` qaudioformat_enums.SampleFormat ```
-    pub fn SampleFormat(self: ?*anyopaque) i64 {
+    pub fn SampleFormat(self: ?*anyopaque) u16 {
         return qtc.QAudioFormat_SampleFormat(@ptrCast(self));
     }
 
@@ -188,7 +188,7 @@ pub const qaudioformat = struct {
     /// ``` channelCount: i32 ```
     ///
     /// Returns: ``` qaudioformat_enums.ChannelConfig ```
-    pub fn DefaultChannelConfigForChannelCount(channelCount: i32) i64 {
+    pub fn DefaultChannelConfigForChannelCount(channelCount: i32) u32 {
         return qtc.QAudioFormat_DefaultChannelConfigForChannelCount(@intCast(channelCount));
     }
 

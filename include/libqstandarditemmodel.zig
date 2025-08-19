@@ -315,14 +315,14 @@ pub const qstandarditem = struct {
     /// ``` self: QtC.QStandardItem ```
     ///
     /// Returns: ``` qnamespace_enums.CheckState ```
-    pub fn CheckState(self: ?*anyopaque) i64 {
+    pub fn CheckState(self: ?*anyopaque) i32 {
         return qtc.QStandardItem_CheckState(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#setCheckState)
     ///
     /// ``` self: QtC.QStandardItem, checkState: qnamespace_enums.CheckState ```
-    pub fn SetCheckState(self: ?*anyopaque, checkState: i64) void {
+    pub fn SetCheckState(self: ?*anyopaque, checkState: i32) void {
         qtc.QStandardItem_SetCheckState(@ptrCast(self), @intCast(checkState));
     }
 
@@ -941,7 +941,7 @@ pub const qstandarditem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditem.html#sortChildren)
     ///
     /// ``` self: QtC.QStandardItem, column: i32, order: qnamespace_enums.SortOrder ```
-    pub fn SortChildren2(self: ?*anyopaque, column: i32, order: i64) void {
+    pub fn SortChildren2(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QStandardItem_SortChildren2(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
@@ -999,21 +999,21 @@ pub const qstandarditemmodel = struct {
     }
 
     /// ``` self: QtC.QStandardItemModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QStandardItemModel_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStandardItemModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QStandardItemModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -1334,7 +1334,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#headerData)
     ///
     /// ``` self: QtC.QStandardItemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32 ```
-    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i64, role: i32) QtC.QVariant {
+    pub fn HeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
         return qtc.QStandardItemModel_HeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
@@ -1343,7 +1343,7 @@ pub const qstandarditemmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant ```
-    pub fn OnHeaderData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64, i32) callconv(.c) QtC.QVariant) void {
+    pub fn OnHeaderData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
         qtc.QStandardItemModel_OnHeaderData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1352,14 +1352,14 @@ pub const qstandarditemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStandardItemModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32 ```
-    pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i64, role: i32) QtC.QVariant {
+    pub fn QBaseHeaderData(self: ?*anyopaque, section: i32, orientation: i32, role: i32) QtC.QVariant {
         return qtc.QStandardItemModel_QBaseHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @intCast(role));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#setHeaderData)
     ///
     /// ``` self: QtC.QStandardItemModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32 ```
-    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i64, value: ?*anyopaque, role: i32) bool {
+    pub fn SetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
         return qtc.QStandardItemModel_SetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
     }
 
@@ -1368,7 +1368,7 @@ pub const qstandarditemmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool ```
-    pub fn OnSetHeaderData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64, ?*anyopaque, i32) callconv(.c) bool) void {
+    pub fn OnSetHeaderData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QStandardItemModel_OnSetHeaderData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1377,7 +1377,7 @@ pub const qstandarditemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStandardItemModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32 ```
-    pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i64, value: ?*anyopaque, role: i32) bool {
+    pub fn QBaseSetHeaderData(self: ?*anyopaque, section: i32, orientation: i32, value: ?*anyopaque, role: i32) bool {
         return qtc.QStandardItemModel_QBaseSetHeaderData(@ptrCast(self), @intCast(section), @intCast(orientation), @ptrCast(value), @intCast(role));
     }
 
@@ -1661,7 +1661,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#sort)
     ///
     /// ``` self: QtC.QStandardItemModel, column: i32, order: qnamespace_enums.SortOrder ```
-    pub fn Sort(self: ?*anyopaque, column: i32, order: i64) void {
+    pub fn Sort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QStandardItemModel_Sort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
@@ -1670,7 +1670,7 @@ pub const qstandarditemmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void ```
-    pub fn OnSort(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
+    pub fn OnSort(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QStandardItemModel_OnSort(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1679,7 +1679,7 @@ pub const qstandarditemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStandardItemModel, column: i32, order: qnamespace_enums.SortOrder ```
-    pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i64) void {
+    pub fn QBaseSort(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QStandardItemModel_QBaseSort(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
@@ -2057,7 +2057,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#dropMimeData)
     ///
     /// ``` self: QtC.QStandardItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
-    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i64, row: i32, column: i32, parent: ?*anyopaque) bool {
+    pub fn DropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QStandardItemModel_DropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
@@ -2066,7 +2066,7 @@ pub const qstandarditemmodel = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
         qtc.QStandardItemModel_OnDropMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2075,7 +2075,7 @@ pub const qstandarditemmodel = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QStandardItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
-    pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i64, row: i32, column: i32, parent: ?*anyopaque) bool {
+    pub fn QBaseDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QStandardItemModel_QBaseDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
@@ -2256,7 +2256,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QStandardItemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32 ```
-    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i64, first: i32, last: i32) void {
+    pub fn HeaderDataChanged(self: ?*anyopaque, orientation: i32, first: i32, last: i32) void {
         qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self), @intCast(orientation), @intCast(first), @intCast(last));
     }
 
@@ -2265,7 +2265,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, i32) callconv(.c) void) void {
+    pub fn OnHeaderDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2390,7 +2390,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
-    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
+    pub fn LayoutChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -2403,7 +2403,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
-    pub fn OnLayoutChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex, i64) callconv(.c) void) void {
+    pub fn OnLayoutChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2434,7 +2434,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint ```
-    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i64) void {
+    pub fn LayoutAboutToBeChanged2(self: ?*anyopaque, parents: []QtC.QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -2447,7 +2447,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, parents: []QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex, i64) callconv(.c) void) void {
+    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2563,7 +2563,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QStandardItemModel, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -2777,7 +2777,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QStandardItemModel, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -2786,7 +2786,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -2795,7 +2795,7 @@ pub const qstandarditemmodel = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QStandardItemModel, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -2859,7 +2859,7 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
-    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i64, row: i32, column: i32, parent: ?*anyopaque) bool {
+    pub fn CanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QStandardItemModel_CanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
@@ -2870,7 +2870,7 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex ```
-    pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i64, row: i32, column: i32, parent: ?*anyopaque) bool {
+    pub fn QBaseCanDropMimeData(self: ?*anyopaque, data: ?*anyopaque, action: i32, row: i32, column: i32, parent: ?*anyopaque) bool {
         return qtc.QStandardItemModel_QBaseCanDropMimeData(@ptrCast(self), @ptrCast(data), @intCast(action), @intCast(row), @intCast(column), @ptrCast(parent));
     }
 
@@ -2881,7 +2881,7 @@ pub const qstandarditemmodel = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QStandardItemModel, slot: fn (self: QtC.QStandardItemModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnCanDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnCanDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
         qtc.QStandardItemModel_OnCanDropMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

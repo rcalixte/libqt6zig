@@ -27,7 +27,7 @@ pub const qsslcipher = struct {
     /// New3 constructs a new QSslCipher object.
     ///
     /// ``` name: []const u8, protocol: qssl_enums.SslProtocol ```
-    pub fn New3(name: []const u8, protocol: i64) QtC.QSslCipher {
+    pub fn New3(name: []const u8, protocol: i32) QtC.QSslCipher {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -152,7 +152,7 @@ pub const qsslcipher = struct {
     /// ``` self: QtC.QSslCipher ```
     ///
     /// Returns: ``` qssl_enums.SslProtocol ```
-    pub fn Protocol(self: ?*anyopaque) i64 {
+    pub fn Protocol(self: ?*anyopaque) i32 {
         return qtc.QSslCipher_Protocol(@ptrCast(self));
     }
 

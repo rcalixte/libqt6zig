@@ -92,21 +92,21 @@ pub const qtextdocument = struct {
     }
 
     /// ``` self: QtC.QTextDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTextDocument_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QTextDocument_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QTextDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTextDocument_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -227,7 +227,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#setMetaInformation)
     ///
     /// ``` self: QtC.QTextDocument, info: qtextdocument_enums.MetaInformation, param2: []const u8 ```
-    pub fn SetMetaInformation(self: ?*anyopaque, info: i64, param2: []const u8) void {
+    pub fn SetMetaInformation(self: ?*anyopaque, info: i32, param2: []const u8) void {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
             .data = param2.ptr,
@@ -238,7 +238,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#metaInformation)
     ///
     /// ``` self: QtC.QTextDocument, info: qtextdocument_enums.MetaInformation, allocator: std.mem.Allocator ```
-    pub fn MetaInformation(self: ?*anyopaque, info: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn MetaInformation(self: ?*anyopaque, info: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTextDocument_MetaInformation(@ptrCast(self), @intCast(info));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.MetaInformation: Memory allocation failed");
@@ -776,14 +776,14 @@ pub const qtextdocument = struct {
     /// ``` self: QtC.QTextDocument ```
     ///
     /// Returns: ``` qnamespace_enums.CursorMoveStyle ```
-    pub fn DefaultCursorMoveStyle(self: ?*anyopaque) i64 {
+    pub fn DefaultCursorMoveStyle(self: ?*anyopaque) i32 {
         return qtc.QTextDocument_DefaultCursorMoveStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#setDefaultCursorMoveStyle)
     ///
     /// ``` self: QtC.QTextDocument, style: qnamespace_enums.CursorMoveStyle ```
-    pub fn SetDefaultCursorMoveStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetDefaultCursorMoveStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextDocument_SetDefaultCursorMoveStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -1124,7 +1124,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#clearUndoRedoStacks)
     ///
     /// ``` self: QtC.QTextDocument, historyToClear: qtextdocument_enums.Stacks ```
-    pub fn ClearUndoRedoStacks1(self: ?*anyopaque, historyToClear: i64) void {
+    pub fn ClearUndoRedoStacks1(self: ?*anyopaque, historyToClear: i32) void {
         qtc.QTextDocument_ClearUndoRedoStacks1(@ptrCast(self), @intCast(historyToClear));
     }
 
@@ -1247,7 +1247,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTextDocument, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1470,7 +1470,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTextDocument, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1479,7 +1479,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1488,7 +1488,7 @@ pub const qtextdocument = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTextDocument, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

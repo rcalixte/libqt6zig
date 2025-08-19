@@ -21,7 +21,7 @@ pub const qtilerules = struct {
     /// New3 constructs a new QTileRules object.
     ///
     /// ``` horizontalRule: qnamespace_enums.TileRule, verticalRule: qnamespace_enums.TileRule ```
-    pub fn New3(horizontalRule: i64, verticalRule: i64) QtC.QTileRules {
+    pub fn New3(horizontalRule: i32, verticalRule: i32) QtC.QTileRules {
         return qtc.QTileRules_new3(@intCast(horizontalRule), @intCast(verticalRule));
     }
 
@@ -42,7 +42,7 @@ pub const qtilerules = struct {
     /// New6 constructs a new QTileRules object.
     ///
     /// ``` rule: qnamespace_enums.TileRule ```
-    pub fn New6(rule: i64) QtC.QTileRules {
+    pub fn New6(rule: i32) QtC.QTileRules {
         return qtc.QTileRules_new6(@intCast(rule));
     }
 

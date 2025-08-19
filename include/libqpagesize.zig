@@ -15,7 +15,7 @@ pub const qpagesize = struct {
     /// New2 constructs a new QPageSize object.
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId ```
-    pub fn New2(pageSizeId: i64) QtC.QPageSize {
+    pub fn New2(pageSizeId: i32) QtC.QPageSize {
         return qtc.QPageSize_new2(@intCast(pageSizeId));
     }
 
@@ -29,7 +29,7 @@ pub const qpagesize = struct {
     /// New4 constructs a new QPageSize object.
     ///
     /// ``` size: QtC.QSizeF, units: qpagesize_enums.Unit ```
-    pub fn New4(size: ?*anyopaque, units: i64) QtC.QPageSize {
+    pub fn New4(size: ?*anyopaque, units: i32) QtC.QPageSize {
         return qtc.QPageSize_new4(@ptrCast(size), @intCast(units));
     }
 
@@ -55,7 +55,7 @@ pub const qpagesize = struct {
     /// New7 constructs a new QPageSize object.
     ///
     /// ``` pointSize: QtC.QSize, name: []const u8, matchPolicy: qpagesize_enums.SizeMatchPolicy ```
-    pub fn New7(pointSize: ?*anyopaque, name: []const u8, matchPolicy: i64) QtC.QPageSize {
+    pub fn New7(pointSize: ?*anyopaque, name: []const u8, matchPolicy: i32) QtC.QPageSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -67,7 +67,7 @@ pub const qpagesize = struct {
     /// New8 constructs a new QPageSize object.
     ///
     /// ``` size: QtC.QSizeF, units: qpagesize_enums.Unit, name: []const u8 ```
-    pub fn New8(size: ?*anyopaque, units: i64, name: []const u8) QtC.QPageSize {
+    pub fn New8(size: ?*anyopaque, units: i32, name: []const u8) QtC.QPageSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -79,7 +79,7 @@ pub const qpagesize = struct {
     /// New9 constructs a new QPageSize object.
     ///
     /// ``` size: QtC.QSizeF, units: qpagesize_enums.Unit, name: []const u8, matchPolicy: qpagesize_enums.SizeMatchPolicy ```
-    pub fn New9(size: ?*anyopaque, units: i64, name: []const u8, matchPolicy: i64) QtC.QPageSize {
+    pub fn New9(size: ?*anyopaque, units: i32, name: []const u8, matchPolicy: i32) QtC.QPageSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -143,7 +143,7 @@ pub const qpagesize = struct {
     /// ``` self: QtC.QPageSize ```
     ///
     /// Returns: ``` qpagesize_enums.PageSizeId ```
-    pub fn Id(self: ?*anyopaque) i64 {
+    pub fn Id(self: ?*anyopaque) i32 {
         return qtc.QPageSize_Id(@ptrCast(self));
     }
 
@@ -166,14 +166,14 @@ pub const qpagesize = struct {
     /// ``` self: QtC.QPageSize ```
     ///
     /// Returns: ``` qpagesize_enums.Unit ```
-    pub fn DefinitionUnits(self: ?*anyopaque) i64 {
+    pub fn DefinitionUnits(self: ?*anyopaque) i32 {
         return qtc.QPageSize_DefinitionUnits(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#size)
     ///
     /// ``` self: QtC.QPageSize, units: qpagesize_enums.Unit ```
-    pub fn Size(self: ?*anyopaque, units: i64) QtC.QSizeF {
+    pub fn Size(self: ?*anyopaque, units: i32) QtC.QSizeF {
         return qtc.QPageSize_Size(@ptrCast(self), @intCast(units));
     }
 
@@ -194,7 +194,7 @@ pub const qpagesize = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#rect)
     ///
     /// ``` self: QtC.QPageSize, units: qpagesize_enums.Unit ```
-    pub fn Rect(self: ?*anyopaque, units: i64) QtC.QRectF {
+    pub fn Rect(self: ?*anyopaque, units: i32) QtC.QRectF {
         return qtc.QPageSize_Rect(@ptrCast(self), @intCast(units));
     }
 
@@ -215,7 +215,7 @@ pub const qpagesize = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#key)
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId, allocator: std.mem.Allocator ```
-    pub fn Key2(pageSizeId: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Key2(pageSizeId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageSize_Key2(@intCast(pageSizeId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpagesize.Key2: Memory allocation failed");
@@ -226,7 +226,7 @@ pub const qpagesize = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#name)
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId, allocator: std.mem.Allocator ```
-    pub fn Name2(pageSizeId: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Name2(pageSizeId: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QPageSize_Name2(@intCast(pageSizeId));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qpagesize.Name2: Memory allocation failed");
@@ -239,7 +239,7 @@ pub const qpagesize = struct {
     /// ``` pointSize: QtC.QSize ```
     ///
     /// Returns: ``` qpagesize_enums.PageSizeId ```
-    pub fn Id2(pointSize: ?*anyopaque) i64 {
+    pub fn Id2(pointSize: ?*anyopaque) i32 {
         return qtc.QPageSize_Id2(@ptrCast(pointSize));
     }
 
@@ -248,7 +248,7 @@ pub const qpagesize = struct {
     /// ``` size: QtC.QSizeF, units: qpagesize_enums.Unit ```
     ///
     /// Returns: ``` qpagesize_enums.PageSizeId ```
-    pub fn Id3(size: ?*anyopaque, units: i64) i64 {
+    pub fn Id3(size: ?*anyopaque, units: i32) i32 {
         return qtc.QPageSize_Id3(@ptrCast(size), @intCast(units));
     }
 
@@ -257,21 +257,21 @@ pub const qpagesize = struct {
     /// ``` windowsId: i32 ```
     ///
     /// Returns: ``` qpagesize_enums.PageSizeId ```
-    pub fn Id4(windowsId: i32) i64 {
+    pub fn Id4(windowsId: i32) i32 {
         return qtc.QPageSize_Id4(@intCast(windowsId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#windowsId)
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId ```
-    pub fn WindowsId2(pageSizeId: i64) i32 {
+    pub fn WindowsId2(pageSizeId: i32) i32 {
         return qtc.QPageSize_WindowsId2(@intCast(pageSizeId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#definitionSize)
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId ```
-    pub fn DefinitionSize2(pageSizeId: i64) QtC.QSizeF {
+    pub fn DefinitionSize2(pageSizeId: i32) QtC.QSizeF {
         return qtc.QPageSize_DefinitionSize2(@intCast(pageSizeId));
     }
 
@@ -280,28 +280,28 @@ pub const qpagesize = struct {
     /// ``` pageSizeId: qpagesize_enums.PageSizeId ```
     ///
     /// Returns: ``` qpagesize_enums.Unit ```
-    pub fn DefinitionUnits2(pageSizeId: i64) i64 {
+    pub fn DefinitionUnits2(pageSizeId: i32) i32 {
         return qtc.QPageSize_DefinitionUnits2(@intCast(pageSizeId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#size)
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId, units: qpagesize_enums.Unit ```
-    pub fn Size2(pageSizeId: i64, units: i64) QtC.QSizeF {
+    pub fn Size2(pageSizeId: i32, units: i32) QtC.QSizeF {
         return qtc.QPageSize_Size2(@intCast(pageSizeId), @intCast(units));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#sizePoints)
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId ```
-    pub fn SizePoints2(pageSizeId: i64) QtC.QSize {
+    pub fn SizePoints2(pageSizeId: i32) QtC.QSize {
         return qtc.QPageSize_SizePoints2(@intCast(pageSizeId));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagesize.html#sizePixels)
     ///
     /// ``` pageSizeId: qpagesize_enums.PageSizeId, resolution: i32 ```
-    pub fn SizePixels2(pageSizeId: i64, resolution: i32) QtC.QSize {
+    pub fn SizePixels2(pageSizeId: i32, resolution: i32) QtC.QSize {
         return qtc.QPageSize_SizePixels2(@intCast(pageSizeId), @intCast(resolution));
     }
 
@@ -310,7 +310,7 @@ pub const qpagesize = struct {
     /// ``` pointSize: QtC.QSize, matchPolicy: qpagesize_enums.SizeMatchPolicy ```
     ///
     /// Returns: ``` qpagesize_enums.PageSizeId ```
-    pub fn Id22(pointSize: ?*anyopaque, matchPolicy: i64) i64 {
+    pub fn Id22(pointSize: ?*anyopaque, matchPolicy: i32) i32 {
         return qtc.QPageSize_Id22(@ptrCast(pointSize), @intCast(matchPolicy));
     }
 
@@ -319,7 +319,7 @@ pub const qpagesize = struct {
     /// ``` size: QtC.QSizeF, units: qpagesize_enums.Unit, matchPolicy: qpagesize_enums.SizeMatchPolicy ```
     ///
     /// Returns: ``` qpagesize_enums.PageSizeId ```
-    pub fn Id32(size: ?*anyopaque, units: i64, matchPolicy: i64) i64 {
+    pub fn Id32(size: ?*anyopaque, units: i32, matchPolicy: i32) i32 {
         return qtc.QPageSize_Id32(@ptrCast(size), @intCast(units), @intCast(matchPolicy));
     }
 

@@ -17,7 +17,7 @@ pub const qbrush = struct {
     /// New2 constructs a new QBrush object.
     ///
     /// ``` bs: qnamespace_enums.BrushStyle ```
-    pub fn New2(bs: i64) QtC.QBrush {
+    pub fn New2(bs: i32) QtC.QBrush {
         return qtc.QBrush_new2(@intCast(bs));
     }
 
@@ -31,7 +31,7 @@ pub const qbrush = struct {
     /// New4 constructs a new QBrush object.
     ///
     /// ``` color: qnamespace_enums.GlobalColor ```
-    pub fn New4(color: i64) QtC.QBrush {
+    pub fn New4(color: i32) QtC.QBrush {
         return qtc.QBrush_new4(@intCast(color));
     }
 
@@ -45,7 +45,7 @@ pub const qbrush = struct {
     /// New6 constructs a new QBrush object.
     ///
     /// ``` color: qnamespace_enums.GlobalColor, pixmap: QtC.QPixmap ```
-    pub fn New6(color: i64, pixmap: ?*anyopaque) QtC.QBrush {
+    pub fn New6(color: i32, pixmap: ?*anyopaque) QtC.QBrush {
         return qtc.QBrush_new6(@intCast(color), @ptrCast(pixmap));
     }
 
@@ -80,14 +80,14 @@ pub const qbrush = struct {
     /// New11 constructs a new QBrush object.
     ///
     /// ``` color: QtC.QColor, bs: qnamespace_enums.BrushStyle ```
-    pub fn New11(color: ?*anyopaque, bs: i64) QtC.QBrush {
+    pub fn New11(color: ?*anyopaque, bs: i32) QtC.QBrush {
         return qtc.QBrush_new11(@ptrCast(color), @intCast(bs));
     }
 
     /// New12 constructs a new QBrush object.
     ///
     /// ``` color: qnamespace_enums.GlobalColor, bs: qnamespace_enums.BrushStyle ```
-    pub fn New12(color: i64, bs: i64) QtC.QBrush {
+    pub fn New12(color: i32, bs: i32) QtC.QBrush {
         return qtc.QBrush_new12(@intCast(color), @intCast(bs));
     }
 
@@ -117,14 +117,14 @@ pub const qbrush = struct {
     /// ``` self: QtC.QBrush ```
     ///
     /// Returns: ``` qnamespace_enums.BrushStyle ```
-    pub fn Style(self: ?*anyopaque) i64 {
+    pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QBrush_Style(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#setStyle)
     ///
     /// ``` self: QtC.QBrush, style: qnamespace_enums.BrushStyle ```
-    pub fn SetStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.QBrush_SetStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -187,7 +187,7 @@ pub const qbrush = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbrush.html#setColor)
     ///
     /// ``` self: QtC.QBrush, color: qnamespace_enums.GlobalColor ```
-    pub fn SetColor2(self: ?*anyopaque, color: i64) void {
+    pub fn SetColor2(self: ?*anyopaque, color: i32) void {
         qtc.QBrush_SetColor2(@ptrCast(self), @intCast(color));
     }
 
@@ -274,7 +274,7 @@ pub const qgradient = struct {
     /// New2 constructs a new QGradient object.
     ///
     /// ``` param1: qbrush_enums.Preset ```
-    pub fn New2(param1: i64) QtC.QGradient {
+    pub fn New2(param1: i32) QtC.QGradient {
         return qtc.QGradient_new2(@intCast(param1));
     }
 
@@ -290,14 +290,14 @@ pub const qgradient = struct {
     /// ``` self: QtC.QGradient ```
     ///
     /// Returns: ``` qbrush_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
     /// ``` self: QtC.QGradient, spread: qbrush_enums.Spread ```
-    pub fn SetSpread(self: ?*anyopaque, spread: i64) void {
+    pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
@@ -306,7 +306,7 @@ pub const qgradient = struct {
     /// ``` self: QtC.QGradient ```
     ///
     /// Returns: ``` qbrush_enums.Spread ```
-    pub fn Spread(self: ?*anyopaque) i64 {
+    pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
@@ -341,14 +341,14 @@ pub const qgradient = struct {
     /// ``` self: QtC.QGradient ```
     ///
     /// Returns: ``` qbrush_enums.CoordinateMode ```
-    pub fn CoordinateMode(self: ?*anyopaque) i64 {
+    pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
     /// ``` self: QtC.QGradient, mode: qbrush_enums.CoordinateMode ```
-    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -357,14 +357,14 @@ pub const qgradient = struct {
     /// ``` self: QtC.QGradient ```
     ///
     /// Returns: ``` qbrush_enums.InterpolationMode ```
-    pub fn InterpolationMode(self: ?*anyopaque) i64 {
+    pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
     /// ``` self: QtC.QGradient, mode: qbrush_enums.InterpolationMode ```
-    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -471,7 +471,7 @@ pub const qlineargradient = struct {
     /// ``` self: QtC.QLinearGradient ```
     ///
     /// Returns: ``` qbrush_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
@@ -480,7 +480,7 @@ pub const qlineargradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
     /// ``` self: QtC.QLinearGradient, spread: qbrush_enums.Spread ```
-    pub fn SetSpread(self: ?*anyopaque, spread: i64) void {
+    pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
@@ -491,7 +491,7 @@ pub const qlineargradient = struct {
     /// ``` self: QtC.QLinearGradient ```
     ///
     /// Returns: ``` qbrush_enums.Spread ```
-    pub fn Spread(self: ?*anyopaque) i64 {
+    pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
@@ -532,7 +532,7 @@ pub const qlineargradient = struct {
     /// ``` self: QtC.QLinearGradient ```
     ///
     /// Returns: ``` qbrush_enums.CoordinateMode ```
-    pub fn CoordinateMode(self: ?*anyopaque) i64 {
+    pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
@@ -541,7 +541,7 @@ pub const qlineargradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
     /// ``` self: QtC.QLinearGradient, mode: qbrush_enums.CoordinateMode ```
-    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -552,7 +552,7 @@ pub const qlineargradient = struct {
     /// ``` self: QtC.QLinearGradient ```
     ///
     /// Returns: ``` qbrush_enums.InterpolationMode ```
-    pub fn InterpolationMode(self: ?*anyopaque) i64 {
+    pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
@@ -561,7 +561,7 @@ pub const qlineargradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
     /// ``` self: QtC.QLinearGradient, mode: qbrush_enums.InterpolationMode ```
-    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -742,7 +742,7 @@ pub const qradialgradient = struct {
     /// ``` self: QtC.QRadialGradient ```
     ///
     /// Returns: ``` qbrush_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
@@ -751,7 +751,7 @@ pub const qradialgradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
     /// ``` self: QtC.QRadialGradient, spread: qbrush_enums.Spread ```
-    pub fn SetSpread(self: ?*anyopaque, spread: i64) void {
+    pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
@@ -762,7 +762,7 @@ pub const qradialgradient = struct {
     /// ``` self: QtC.QRadialGradient ```
     ///
     /// Returns: ``` qbrush_enums.Spread ```
-    pub fn Spread(self: ?*anyopaque) i64 {
+    pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
@@ -803,7 +803,7 @@ pub const qradialgradient = struct {
     /// ``` self: QtC.QRadialGradient ```
     ///
     /// Returns: ``` qbrush_enums.CoordinateMode ```
-    pub fn CoordinateMode(self: ?*anyopaque) i64 {
+    pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
@@ -812,7 +812,7 @@ pub const qradialgradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
     /// ``` self: QtC.QRadialGradient, mode: qbrush_enums.CoordinateMode ```
-    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -823,7 +823,7 @@ pub const qradialgradient = struct {
     /// ``` self: QtC.QRadialGradient ```
     ///
     /// Returns: ``` qbrush_enums.InterpolationMode ```
-    pub fn InterpolationMode(self: ?*anyopaque) i64 {
+    pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
@@ -832,7 +832,7 @@ pub const qradialgradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
     /// ``` self: QtC.QRadialGradient, mode: qbrush_enums.InterpolationMode ```
-    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -936,7 +936,7 @@ pub const qconicalgradient = struct {
     /// ``` self: QtC.QConicalGradient ```
     ///
     /// Returns: ``` qbrush_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QGradient_Type(@ptrCast(self));
     }
 
@@ -945,7 +945,7 @@ pub const qconicalgradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
     /// ``` self: QtC.QConicalGradient, spread: qbrush_enums.Spread ```
-    pub fn SetSpread(self: ?*anyopaque, spread: i64) void {
+    pub fn SetSpread(self: ?*anyopaque, spread: i32) void {
         qtc.QGradient_SetSpread(@ptrCast(self), @intCast(spread));
     }
 
@@ -956,7 +956,7 @@ pub const qconicalgradient = struct {
     /// ``` self: QtC.QConicalGradient ```
     ///
     /// Returns: ``` qbrush_enums.Spread ```
-    pub fn Spread(self: ?*anyopaque) i64 {
+    pub fn Spread(self: ?*anyopaque) i32 {
         return qtc.QGradient_Spread(@ptrCast(self));
     }
 
@@ -997,7 +997,7 @@ pub const qconicalgradient = struct {
     /// ``` self: QtC.QConicalGradient ```
     ///
     /// Returns: ``` qbrush_enums.CoordinateMode ```
-    pub fn CoordinateMode(self: ?*anyopaque) i64 {
+    pub fn CoordinateMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self));
     }
 
@@ -1006,7 +1006,7 @@ pub const qconicalgradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
     /// ``` self: QtC.QConicalGradient, mode: qbrush_enums.CoordinateMode ```
-    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCoordinateMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -1017,7 +1017,7 @@ pub const qconicalgradient = struct {
     /// ``` self: QtC.QConicalGradient ```
     ///
     /// Returns: ``` qbrush_enums.InterpolationMode ```
-    pub fn InterpolationMode(self: ?*anyopaque) i64 {
+    pub fn InterpolationMode(self: ?*anyopaque) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self));
     }
 
@@ -1026,7 +1026,7 @@ pub const qconicalgradient = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
     /// ``` self: QtC.QConicalGradient, mode: qbrush_enums.InterpolationMode ```
-    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetInterpolationMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self), @intCast(mode));
     }
 

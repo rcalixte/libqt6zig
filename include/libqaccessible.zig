@@ -92,7 +92,7 @@ pub const qaccessibleinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#text)
     ///
     /// ``` self: QtC.QAccessibleInterface, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
-    pub fn Text(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleInterface_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleinterface.Text: Memory allocation failed");
@@ -103,7 +103,7 @@ pub const qaccessibleinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#setText)
     ///
     /// ``` self: QtC.QAccessibleInterface, t: qaccessible_base_enums.Text, text: []const u8 ```
-    pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
+    pub fn SetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -123,7 +123,7 @@ pub const qaccessibleinterface = struct {
     /// ``` self: QtC.QAccessibleInterface ```
     ///
     /// Returns: ``` qaccessible_base_enums.Role ```
-    pub fn Role(self: ?*anyopaque) i64 {
+    pub fn Role(self: ?*anyopaque) i32 {
         return qtc.QAccessibleInterface_Role(@ptrCast(self));
     }
 
@@ -228,7 +228,7 @@ pub const qaccessibleinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)
     ///
     /// ``` self: QtC.QAccessibleInterface, param1: qaccessible_base_enums.InterfaceType ```
-    pub fn InterfaceCast(self: ?*anyopaque, param1: i64) ?*anyopaque {
+    pub fn InterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleInterface_InterfaceCast(@ptrCast(self), @intCast(param1));
     }
 };
@@ -298,7 +298,7 @@ pub const qaccessibletextinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textBeforeOffset)
     ///
     /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator ```
-    pub fn TextBeforeOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn TextBeforeOffset(self: ?*anyopaque, offset: i32, boundaryType: i32, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleTextInterface_TextBeforeOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextBeforeOffset: Memory allocation failed");
@@ -309,7 +309,7 @@ pub const qaccessibletextinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textAfterOffset)
     ///
     /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator ```
-    pub fn TextAfterOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn TextAfterOffset(self: ?*anyopaque, offset: i32, boundaryType: i32, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleTextInterface_TextAfterOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAfterOffset: Memory allocation failed");
@@ -320,7 +320,7 @@ pub const qaccessibletextinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinterface.html#textAtOffset)
     ///
     /// ``` self: QtC.QAccessibleTextInterface, offset: i32, boundaryType: qaccessible_base_enums.TextBoundaryType, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator ```
-    pub fn TextAtOffset(self: ?*anyopaque, offset: i32, boundaryType: i64, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn TextAtOffset(self: ?*anyopaque, offset: i32, boundaryType: i32, startOffset: *i32, endOffset: *i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleTextInterface_TextAtOffset(@ptrCast(self), @intCast(offset), @intCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAtOffset: Memory allocation failed");
@@ -1229,7 +1229,7 @@ pub const qaccessibleattributesinterface = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleattributesinterface.html#attributeValue)
     ///
     /// ``` self: QtC.QAccessibleAttributesInterface, key: qaccessible_base_enums.Attribute ```
-    pub fn AttributeValue(self: ?*anyopaque, key: i64) QtC.QVariant {
+    pub fn AttributeValue(self: ?*anyopaque, key: i32) QtC.QVariant {
         return qtc.QAccessibleAttributesInterface_AttributeValue(@ptrCast(self), @intCast(key));
     }
 
@@ -1255,14 +1255,14 @@ pub const qaccessibleevent = struct {
     /// New constructs a new QAccessibleEvent object.
     ///
     /// ``` obj: QtC.QObject, typ: qaccessible_base_enums.Event ```
-    pub fn New(obj: ?*anyopaque, typ: i64) QtC.QAccessibleEvent {
+    pub fn New(obj: ?*anyopaque, typ: i32) QtC.QAccessibleEvent {
         return qtc.QAccessibleEvent_new(@ptrCast(obj), @intCast(typ));
     }
 
     /// New2 constructs a new QAccessibleEvent object.
     ///
     /// ``` iface: QtC.QAccessibleInterface, typ: qaccessible_base_enums.Event ```
-    pub fn New2(iface: ?*anyopaque, typ: i64) QtC.QAccessibleEvent {
+    pub fn New2(iface: ?*anyopaque, typ: i32) QtC.QAccessibleEvent {
         return qtc.QAccessibleEvent_new2(@ptrCast(iface), @intCast(typ));
     }
 
@@ -1271,7 +1271,7 @@ pub const qaccessibleevent = struct {
     /// ``` self: QtC.QAccessibleEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -1368,7 +1368,7 @@ pub const qaccessiblestatechangeevent = struct {
     /// ``` self: QtC.QAccessibleStateChangeEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -1488,7 +1488,7 @@ pub const qaccessibletextcursorevent = struct {
     /// ``` self: QtC.QAccessibleTextCursorEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -1633,7 +1633,7 @@ pub const qaccessibletextselectionevent = struct {
     /// ``` self: QtC.QAccessibleTextSelectionEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -1785,7 +1785,7 @@ pub const qaccessibletextinsertevent = struct {
     /// ``` self: QtC.QAccessibleTextInsertEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -1937,7 +1937,7 @@ pub const qaccessibletextremoveevent = struct {
     /// ``` self: QtC.QAccessibleTextRemoveEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -2108,7 +2108,7 @@ pub const qaccessibletextupdateevent = struct {
     /// ``` self: QtC.QAccessibleTextUpdateEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -2228,7 +2228,7 @@ pub const qaccessiblevaluechangeevent = struct {
     /// ``` self: QtC.QAccessibleValueChangeEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -2316,21 +2316,21 @@ pub const qaccessibletablemodelchangeevent = struct {
     /// New constructs a new QAccessibleTableModelChangeEvent object.
     ///
     /// ``` obj: QtC.QObject, changeType: qaccessible_enums.ModelChangeType ```
-    pub fn New(obj: ?*anyopaque, changeType: i64) QtC.QAccessibleTableModelChangeEvent {
+    pub fn New(obj: ?*anyopaque, changeType: i32) QtC.QAccessibleTableModelChangeEvent {
         return qtc.QAccessibleTableModelChangeEvent_new(@ptrCast(obj), @intCast(changeType));
     }
 
     /// New2 constructs a new QAccessibleTableModelChangeEvent object.
     ///
     /// ``` iface: QtC.QAccessibleInterface, changeType: qaccessible_enums.ModelChangeType ```
-    pub fn New2(iface: ?*anyopaque, changeType: i64) QtC.QAccessibleTableModelChangeEvent {
+    pub fn New2(iface: ?*anyopaque, changeType: i32) QtC.QAccessibleTableModelChangeEvent {
         return qtc.QAccessibleTableModelChangeEvent_new2(@ptrCast(iface), @intCast(changeType));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#setModelChangeType)
     ///
     /// ``` self: QtC.QAccessibleTableModelChangeEvent, changeType: qaccessible_enums.ModelChangeType ```
-    pub fn SetModelChangeType(self: ?*anyopaque, changeType: i64) void {
+    pub fn SetModelChangeType(self: ?*anyopaque, changeType: i32) void {
         qtc.QAccessibleTableModelChangeEvent_SetModelChangeType(@ptrCast(self), @intCast(changeType));
     }
 
@@ -2339,7 +2339,7 @@ pub const qaccessibletablemodelchangeevent = struct {
     /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     ///
     /// Returns: ``` qaccessible_enums.ModelChangeType ```
-    pub fn ModelChangeType(self: ?*anyopaque) i64 {
+    pub fn ModelChangeType(self: ?*anyopaque) i32 {
         return qtc.QAccessibleTableModelChangeEvent_ModelChangeType(@ptrCast(self));
     }
 
@@ -2406,7 +2406,7 @@ pub const qaccessibletablemodelchangeevent = struct {
     /// ``` self: QtC.QAccessibleTableModelChangeEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 
@@ -2531,14 +2531,14 @@ pub const qaccessibleannouncementevent = struct {
     /// ``` self: QtC.QAccessibleAnnouncementEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.AnnouncementPoliteness ```
-    pub fn Politeness(self: ?*anyopaque) i64 {
+    pub fn Politeness(self: ?*anyopaque) i32 {
         return qtc.QAccessibleAnnouncementEvent_Politeness(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleannouncementevent.html#setPoliteness)
     ///
     /// ``` self: QtC.QAccessibleAnnouncementEvent, politeness: qaccessible_base_enums.AnnouncementPoliteness ```
-    pub fn SetPoliteness(self: ?*anyopaque, politeness: i64) void {
+    pub fn SetPoliteness(self: ?*anyopaque, politeness: i32) void {
         qtc.QAccessibleAnnouncementEvent_SetPoliteness(@ptrCast(self), @intCast(politeness));
     }
 
@@ -2549,7 +2549,7 @@ pub const qaccessibleannouncementevent = struct {
     /// ``` self: QtC.QAccessibleAnnouncementEvent ```
     ///
     /// Returns: ``` qaccessible_base_enums.Event ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QAccessibleEvent_Type(@ptrCast(self));
     }
 

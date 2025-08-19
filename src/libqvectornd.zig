@@ -28,7 +28,7 @@ pub const qvector2d = struct {
     /// New4 constructs a new QVector2D object.
     ///
     /// ``` param1: qnamespace_enums.Initialization ```
-    pub fn New4(param1: i64) QtC.QVector2D {
+    pub fn New4(param1: i32) QtC.QVector2D {
         return qtc.QVector2D_new4(@intCast(param1));
     }
 
@@ -292,7 +292,7 @@ pub const qvector3d = struct {
     /// New4 constructs a new QVector3D object.
     ///
     /// ``` param1: qnamespace_enums.Initialization ```
-    pub fn New4(param1: i64) QtC.QVector3D {
+    pub fn New4(param1: i32) QtC.QVector3D {
         return qtc.QVector3D_new4(@intCast(param1));
     }
 
@@ -626,7 +626,7 @@ pub const qvector4d = struct {
     /// New4 constructs a new QVector4D object.
     ///
     /// ``` param1: qnamespace_enums.Initialization ```
-    pub fn New4(param1: i64) QtC.QVector4D {
+    pub fn New4(param1: i32) QtC.QVector4D {
         return qtc.QVector4D_new4(@intCast(param1));
     }
 

@@ -22,7 +22,7 @@ pub const qpalette = struct {
     /// New3 constructs a new QPalette object.
     ///
     /// ``` button: qnamespace_enums.GlobalColor ```
-    pub fn New3(button: i64) QtC.QPalette {
+    pub fn New3(button: i32) QtC.QPalette {
         return qtc.QPalette_new3(@intCast(button));
     }
 
@@ -80,91 +80,91 @@ pub const qpalette = struct {
     /// ``` self: QtC.QPalette ```
     ///
     /// Returns: ``` qpalette_enums.ColorGroup ```
-    pub fn CurrentColorGroup(self: ?*anyopaque) i64 {
+    pub fn CurrentColorGroup(self: ?*anyopaque) i32 {
         return qtc.QPalette_CurrentColorGroup(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#setCurrentColorGroup)
     ///
     /// ``` self: QtC.QPalette, cg: qpalette_enums.ColorGroup ```
-    pub fn SetCurrentColorGroup(self: ?*anyopaque, cg: i64) void {
+    pub fn SetCurrentColorGroup(self: ?*anyopaque, cg: i32) void {
         qtc.QPalette_SetCurrentColorGroup(@ptrCast(self), @intCast(cg));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#color)
     ///
     /// ``` self: QtC.QPalette, cg: qpalette_enums.ColorGroup, cr: qpalette_enums.ColorRole ```
-    pub fn Color(self: ?*anyopaque, cg: i64, cr: i64) QtC.QColor {
+    pub fn Color(self: ?*anyopaque, cg: i32, cr: i32) QtC.QColor {
         return qtc.QPalette_Color(@ptrCast(self), @intCast(cg), @intCast(cr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#brush)
     ///
     /// ``` self: QtC.QPalette, cg: qpalette_enums.ColorGroup, cr: qpalette_enums.ColorRole ```
-    pub fn Brush(self: ?*anyopaque, cg: i64, cr: i64) QtC.QBrush {
+    pub fn Brush(self: ?*anyopaque, cg: i32, cr: i32) QtC.QBrush {
         return qtc.QPalette_Brush(@ptrCast(self), @intCast(cg), @intCast(cr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#setColor)
     ///
     /// ``` self: QtC.QPalette, cg: qpalette_enums.ColorGroup, cr: qpalette_enums.ColorRole, color: QtC.QColor ```
-    pub fn SetColor(self: ?*anyopaque, cg: i64, cr: i64, color: ?*anyopaque) void {
+    pub fn SetColor(self: ?*anyopaque, cg: i32, cr: i32, color: ?*anyopaque) void {
         qtc.QPalette_SetColor(@ptrCast(self), @intCast(cg), @intCast(cr), @ptrCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#setColor)
     ///
     /// ``` self: QtC.QPalette, cr: qpalette_enums.ColorRole, color: QtC.QColor ```
-    pub fn SetColor2(self: ?*anyopaque, cr: i64, color: ?*anyopaque) void {
+    pub fn SetColor2(self: ?*anyopaque, cr: i32, color: ?*anyopaque) void {
         qtc.QPalette_SetColor2(@ptrCast(self), @intCast(cr), @ptrCast(color));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#setBrush)
     ///
     /// ``` self: QtC.QPalette, cr: qpalette_enums.ColorRole, brush: QtC.QBrush ```
-    pub fn SetBrush(self: ?*anyopaque, cr: i64, brush: ?*anyopaque) void {
+    pub fn SetBrush(self: ?*anyopaque, cr: i32, brush: ?*anyopaque) void {
         qtc.QPalette_SetBrush(@ptrCast(self), @intCast(cr), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#isBrushSet)
     ///
     /// ``` self: QtC.QPalette, cg: qpalette_enums.ColorGroup, cr: qpalette_enums.ColorRole ```
-    pub fn IsBrushSet(self: ?*anyopaque, cg: i64, cr: i64) bool {
+    pub fn IsBrushSet(self: ?*anyopaque, cg: i32, cr: i32) bool {
         return qtc.QPalette_IsBrushSet(@ptrCast(self), @intCast(cg), @intCast(cr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#setBrush)
     ///
     /// ``` self: QtC.QPalette, cg: qpalette_enums.ColorGroup, cr: qpalette_enums.ColorRole, brush: QtC.QBrush ```
-    pub fn SetBrush2(self: ?*anyopaque, cg: i64, cr: i64, brush: ?*anyopaque) void {
+    pub fn SetBrush2(self: ?*anyopaque, cg: i32, cr: i32, brush: ?*anyopaque) void {
         qtc.QPalette_SetBrush2(@ptrCast(self), @intCast(cg), @intCast(cr), @ptrCast(brush));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#setColorGroup)
     ///
     /// ``` self: QtC.QPalette, cr: qpalette_enums.ColorGroup, windowText: QtC.QBrush, button: QtC.QBrush, light: QtC.QBrush, dark: QtC.QBrush, mid: QtC.QBrush, text: QtC.QBrush, bright_text: QtC.QBrush, base: QtC.QBrush, window: QtC.QBrush ```
-    pub fn SetColorGroup(self: ?*anyopaque, cr: i64, windowText: ?*anyopaque, button: ?*anyopaque, light: ?*anyopaque, dark: ?*anyopaque, mid: ?*anyopaque, text: ?*anyopaque, bright_text: ?*anyopaque, base: ?*anyopaque, window: ?*anyopaque) void {
+    pub fn SetColorGroup(self: ?*anyopaque, cr: i32, windowText: ?*anyopaque, button: ?*anyopaque, light: ?*anyopaque, dark: ?*anyopaque, mid: ?*anyopaque, text: ?*anyopaque, bright_text: ?*anyopaque, base: ?*anyopaque, window: ?*anyopaque) void {
         qtc.QPalette_SetColorGroup(@ptrCast(self), @intCast(cr), @ptrCast(windowText), @ptrCast(button), @ptrCast(light), @ptrCast(dark), @ptrCast(mid), @ptrCast(text), @ptrCast(bright_text), @ptrCast(base), @ptrCast(window));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#isEqual)
     ///
     /// ``` self: QtC.QPalette, cr1: qpalette_enums.ColorGroup, cr2: qpalette_enums.ColorGroup ```
-    pub fn IsEqual(self: ?*anyopaque, cr1: i64, cr2: i64) bool {
+    pub fn IsEqual(self: ?*anyopaque, cr1: i32, cr2: i32) bool {
         return qtc.QPalette_IsEqual(@ptrCast(self), @intCast(cr1), @intCast(cr2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#color)
     ///
     /// ``` self: QtC.QPalette, cr: qpalette_enums.ColorRole ```
-    pub fn Color2(self: ?*anyopaque, cr: i64) QtC.QColor {
+    pub fn Color2(self: ?*anyopaque, cr: i32) QtC.QColor {
         return qtc.QPalette_Color2(@ptrCast(self), @intCast(cr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpalette.html#brush)
     ///
     /// ``` self: QtC.QPalette, cr: qpalette_enums.ColorRole ```
-    pub fn Brush2(self: ?*anyopaque, cr: i64) QtC.QBrush {
+    pub fn Brush2(self: ?*anyopaque, cr: i32) QtC.QBrush {
         return qtc.QPalette_Brush2(@ptrCast(self), @intCast(cr));
     }
 

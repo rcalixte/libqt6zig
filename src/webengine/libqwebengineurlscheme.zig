@@ -79,14 +79,14 @@ pub const qwebengineurlscheme = struct {
     /// ``` self: QtC.QWebEngineUrlScheme ```
     ///
     /// Returns: ``` qwebengineurlscheme_enums.Syntax ```
-    pub fn Syntax(self: ?*anyopaque) i64 {
+    pub fn Syntax(self: ?*anyopaque) i32 {
         return qtc.QWebEngineUrlScheme_Syntax(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineurlscheme.html#setSyntax)
     ///
     /// ``` self: QtC.QWebEngineUrlScheme, newValue: qwebengineurlscheme_enums.Syntax ```
-    pub fn SetSyntax(self: ?*anyopaque, newValue: i64) void {
+    pub fn SetSyntax(self: ?*anyopaque, newValue: i32) void {
         qtc.QWebEngineUrlScheme_SetSyntax(@ptrCast(self), @intCast(newValue));
     }
 

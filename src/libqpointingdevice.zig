@@ -93,7 +93,7 @@ pub const qpointingdevice = struct {
     /// New2 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32 ```
-    pub fn New2(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32) QtC.QPointingDevice {
+    pub fn New2(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -112,7 +112,7 @@ pub const qpointingdevice = struct {
     /// New4 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8 ```
-    pub fn New4(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8) QtC.QPointingDevice {
+    pub fn New4(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -128,7 +128,7 @@ pub const qpointingdevice = struct {
     /// New5 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId ```
-    pub fn New5(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId) QtC.QPointingDevice {
+    pub fn New5(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -144,7 +144,7 @@ pub const qpointingdevice = struct {
     /// New6 constructs a new QPointingDevice object.
     ///
     /// ``` name: []const u8, systemId: i64, devType: qinputdevice_enums.DeviceType, pType: qpointingdevice_enums.PointerType, caps: flag of qinputdevice_enums.Capability, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: QtC.QObject ```
-    pub fn New6(name: []const u8, systemId: i64, devType: i64, pType: i64, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: ?*anyopaque) QtC.QPointingDevice {
+    pub fn New6(name: []const u8, systemId: i64, devType: i32, pType: i32, caps: i64, maxPoints: i32, buttonCount: i32, seatName: []const u8, uniqueId: QtC.QPointingDeviceUniqueId, parent: ?*anyopaque) QtC.QPointingDevice {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -171,21 +171,21 @@ pub const qpointingdevice = struct {
     }
 
     /// ``` self: QtC.QPointingDevice, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPointingDevice_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPointingDevice, slot: fn (self: QtC.QPointingDevice, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QPointingDevice_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPointingDevice, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPointingDevice_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -204,7 +204,7 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#setType)
     ///
     /// ``` self: QtC.QPointingDevice, devType: qinputdevice_enums.DeviceType ```
-    pub fn SetType(self: ?*anyopaque, devType: i64) void {
+    pub fn SetType(self: ?*anyopaque, devType: i32) void {
         qtc.QPointingDevice_SetType(@ptrCast(self), @intCast(devType));
     }
 
@@ -227,7 +227,7 @@ pub const qpointingdevice = struct {
     /// ``` self: QtC.QPointingDevice ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointingDevice_PointerType(@ptrCast(self));
     }
 
@@ -269,14 +269,14 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#grabChanged)
     ///
     /// ``` self: QtC.QPointingDevice, grabber: QtC.QObject, transition: qpointingdevice_enums.GrabTransition, event: QtC.QPointerEvent, point: QtC.QEventPoint ```
-    pub fn GrabChanged(self: ?*anyopaque, grabber: ?*anyopaque, transition: i64, event: ?*anyopaque, point: ?*anyopaque) void {
+    pub fn GrabChanged(self: ?*anyopaque, grabber: ?*anyopaque, transition: i32, event: ?*anyopaque, point: ?*anyopaque) void {
         qtc.QPointingDevice_GrabChanged(@ptrCast(self), @ptrCast(grabber), @intCast(transition), @ptrCast(event), @ptrCast(point));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointingdevice.html#grabChanged)
     ///
     /// ``` self: QtC.QPointingDevice, slot: fn (self: QtC.QPointingDevice, grabber: QtC.QObject, transition: qpointingdevice_enums.GrabTransition, event: QtC.QPointerEvent, point: QtC.QEventPoint) callconv(.c) void ```
-    pub fn OnGrabChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnGrabChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QPointingDevice_Connect_GrabChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -337,7 +337,7 @@ pub const qpointingdevice = struct {
     /// ``` self: QtC.QPointingDevice ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QInputDevice_Type(@ptrCast(self));
     }
 
@@ -357,7 +357,7 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdevice.html#hasCapability)
     ///
     /// ``` self: QtC.QPointingDevice, cap: qinputdevice_enums.Capability ```
-    pub fn HasCapability(self: ?*anyopaque, cap: i64) bool {
+    pub fn HasCapability(self: ?*anyopaque, cap: i32) bool {
         return qtc.QInputDevice_HasCapability(@ptrCast(self), @intCast(cap));
     }
 
@@ -582,7 +582,7 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPointingDevice, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -805,7 +805,7 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPointingDevice, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -814,7 +814,7 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -823,7 +823,7 @@ pub const qpointingdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPointingDevice, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

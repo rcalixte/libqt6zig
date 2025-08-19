@@ -15,7 +15,7 @@ pub const qnativeipckey = struct {
     /// New2 constructs a new QNativeIpcKey object.
     ///
     /// ``` typeVal: qtipccommon_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QNativeIpcKey {
+    pub fn New2(typeVal: u16) QtC.QNativeIpcKey {
         return qtc.QNativeIpcKey_new2(@intCast(typeVal));
     }
 
@@ -41,7 +41,7 @@ pub const qnativeipckey = struct {
     /// New5 constructs a new QNativeIpcKey object.
     ///
     /// ``` k: []const u8, typeVal: qtipccommon_enums.Type ```
-    pub fn New5(k: []const u8, typeVal: i64) QtC.QNativeIpcKey {
+    pub fn New5(k: []const u8, typeVal: u16) QtC.QNativeIpcKey {
         const k_str = qtc.libqt_string{
             .len = k.len,
             .data = k.ptr,
@@ -55,7 +55,7 @@ pub const qnativeipckey = struct {
     ///
     ///
     /// Returns: ``` qtipccommon_enums.Type ```
-    pub fn LegacyDefaultTypeForOs() i64 {
+    pub fn LegacyDefaultTypeForOs() u16 {
         return qtc.QNativeIpcKey_LegacyDefaultTypeForOs();
     }
 
@@ -92,14 +92,14 @@ pub const qnativeipckey = struct {
     /// ``` self: QtC.QNativeIpcKey ```
     ///
     /// Returns: ``` qtipccommon_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) u16 {
         return qtc.QNativeIpcKey_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnativeipckey.html#setType)
     ///
     /// ``` self: QtC.QNativeIpcKey, typeVal: qtipccommon_enums.Type ```
-    pub fn SetType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetType(self: ?*anyopaque, typeVal: u16) void {
         qtc.QNativeIpcKey_SetType(@ptrCast(self), @intCast(typeVal));
     }
 

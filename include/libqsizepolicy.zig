@@ -29,7 +29,7 @@ pub const qsizepolicy = struct {
     /// New4 constructs a new QSizePolicy object.
     ///
     /// ``` horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn New4(horizontal: i64, vertical: i64) QtC.QSizePolicy {
+    pub fn New4(horizontal: i32, vertical: i32) QtC.QSizePolicy {
         return qtc.QSizePolicy_new4(@intCast(horizontal), @intCast(vertical));
     }
 
@@ -43,7 +43,7 @@ pub const qsizepolicy = struct {
     /// New6 constructs a new QSizePolicy object.
     ///
     /// ``` horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy, typeVal: qsizepolicy_enums.ControlType ```
-    pub fn New6(horizontal: i64, vertical: i64, typeVal: i64) QtC.QSizePolicy {
+    pub fn New6(horizontal: i32, vertical: i32, typeVal: i32) QtC.QSizePolicy {
         return qtc.QSizePolicy_new6(@intCast(horizontal), @intCast(vertical), @intCast(typeVal));
     }
 
@@ -66,7 +66,7 @@ pub const qsizepolicy = struct {
     /// ``` self: QtC.QSizePolicy ```
     ///
     /// Returns: ``` qsizepolicy_enums.Policy ```
-    pub fn HorizontalPolicy(self: ?*anyopaque) i64 {
+    pub fn HorizontalPolicy(self: ?*anyopaque) i32 {
         return qtc.QSizePolicy_HorizontalPolicy(@ptrCast(self));
     }
 
@@ -75,7 +75,7 @@ pub const qsizepolicy = struct {
     /// ``` self: QtC.QSizePolicy ```
     ///
     /// Returns: ``` qsizepolicy_enums.Policy ```
-    pub fn VerticalPolicy(self: ?*anyopaque) i64 {
+    pub fn VerticalPolicy(self: ?*anyopaque) i32 {
         return qtc.QSizePolicy_VerticalPolicy(@ptrCast(self));
     }
 
@@ -84,28 +84,28 @@ pub const qsizepolicy = struct {
     /// ``` self: QtC.QSizePolicy ```
     ///
     /// Returns: ``` qsizepolicy_enums.ControlType ```
-    pub fn ControlType(self: ?*anyopaque) i64 {
+    pub fn ControlType(self: ?*anyopaque) i32 {
         return qtc.QSizePolicy_ControlType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setHorizontalPolicy)
     ///
     /// ``` self: QtC.QSizePolicy, d: qsizepolicy_enums.Policy ```
-    pub fn SetHorizontalPolicy(self: ?*anyopaque, d: i64) void {
+    pub fn SetHorizontalPolicy(self: ?*anyopaque, d: i32) void {
         qtc.QSizePolicy_SetHorizontalPolicy(@ptrCast(self), @intCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setVerticalPolicy)
     ///
     /// ``` self: QtC.QSizePolicy, d: qsizepolicy_enums.Policy ```
-    pub fn SetVerticalPolicy(self: ?*anyopaque, d: i64) void {
+    pub fn SetVerticalPolicy(self: ?*anyopaque, d: i32) void {
         qtc.QSizePolicy_SetVerticalPolicy(@ptrCast(self), @intCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizepolicy.html#setControlType)
     ///
     /// ``` self: QtC.QSizePolicy, typeVal: qsizepolicy_enums.ControlType ```
-    pub fn SetControlType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetControlType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QSizePolicy_SetControlType(@ptrCast(self), @intCast(typeVal));
     }
 

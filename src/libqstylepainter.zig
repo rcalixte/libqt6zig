@@ -47,7 +47,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawPrimitive)
     ///
     /// ``` self: QtC.QStylePainter, pe: qstyle_enums.PrimitiveElement, opt: QtC.QStyleOption ```
-    pub fn DrawPrimitive(self: ?*anyopaque, pe: i64, opt: ?*anyopaque) void {
+    pub fn DrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque) void {
         qtc.QStylePainter_DrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt));
     }
 
@@ -93,7 +93,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylepainter.html#drawItemText)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole ```
-    pub fn DrawItemText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i64) void {
+    pub fn DrawItemText6(self: ?*anyopaque, r: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -133,7 +133,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setCompositionMode)
     ///
     /// ``` self: QtC.QStylePainter, mode: qpainter_enums.CompositionMode ```
-    pub fn SetCompositionMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCompositionMode(self: ?*anyopaque, mode: i32) void {
         qtc.QPainter_SetCompositionMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -144,7 +144,7 @@ pub const qstylepainter = struct {
     /// ``` self: QtC.QStylePainter ```
     ///
     /// Returns: ``` qpainter_enums.CompositionMode ```
-    pub fn CompositionMode(self: ?*anyopaque) i64 {
+    pub fn CompositionMode(self: ?*anyopaque) i32 {
         return qtc.QPainter_CompositionMode(@ptrCast(self));
     }
 
@@ -207,7 +207,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
     /// ``` self: QtC.QStylePainter, style: qnamespace_enums.PenStyle ```
-    pub fn SetPen3(self: ?*anyopaque, style: i64) void {
+    pub fn SetPen3(self: ?*anyopaque, style: i32) void {
         qtc.QPainter_SetPen3(@ptrCast(self), @intCast(style));
     }
 
@@ -234,7 +234,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBrush)
     ///
     /// ``` self: QtC.QStylePainter, style: qnamespace_enums.BrushStyle ```
-    pub fn SetBrush2(self: ?*anyopaque, style: i64) void {
+    pub fn SetBrush2(self: ?*anyopaque, style: i32) void {
         qtc.QPainter_SetBrush2(@ptrCast(self), @intCast(style));
     }
 
@@ -252,7 +252,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setBackgroundMode)
     ///
     /// ``` self: QtC.QStylePainter, mode: qnamespace_enums.BGMode ```
-    pub fn SetBackgroundMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetBackgroundMode(self: ?*anyopaque, mode: i32) void {
         qtc.QPainter_SetBackgroundMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -263,7 +263,7 @@ pub const qstylepainter = struct {
     /// ``` self: QtC.QStylePainter ```
     ///
     /// Returns: ``` qnamespace_enums.BGMode ```
-    pub fn BackgroundMode(self: ?*anyopaque) i64 {
+    pub fn BackgroundMode(self: ?*anyopaque) i32 {
         return qtc.QPainter_BackgroundMode(@ptrCast(self));
     }
 
@@ -1385,7 +1385,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QStylePainter, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QPainter_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -1396,7 +1396,7 @@ pub const qstylepainter = struct {
     /// ``` self: QtC.QStylePainter ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QPainter_LayoutDirection(@ptrCast(self));
     }
 
@@ -1678,7 +1678,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, c: qnamespace_enums.GlobalColor ```
-    pub fn FillRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, c: i64) void {
+    pub fn FillRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, c: i32) void {
         qtc.QPainter_FillRect7(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(c));
     }
 
@@ -1687,7 +1687,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, c: qnamespace_enums.GlobalColor ```
-    pub fn FillRect8(self: ?*anyopaque, r: ?*anyopaque, c: i64) void {
+    pub fn FillRect8(self: ?*anyopaque, r: ?*anyopaque, c: i32) void {
         qtc.QPainter_FillRect8(@ptrCast(self), @ptrCast(r), @intCast(c));
     }
 
@@ -1696,7 +1696,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, c: qnamespace_enums.GlobalColor ```
-    pub fn FillRect9(self: ?*anyopaque, r: ?*anyopaque, c: i64) void {
+    pub fn FillRect9(self: ?*anyopaque, r: ?*anyopaque, c: i32) void {
         qtc.QPainter_FillRect9(@ptrCast(self), @ptrCast(r), @intCast(c));
     }
 
@@ -1705,7 +1705,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, style: qnamespace_enums.BrushStyle ```
-    pub fn FillRect10(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, style: i64) void {
+    pub fn FillRect10(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, style: i32) void {
         qtc.QPainter_FillRect10(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(style));
     }
 
@@ -1714,7 +1714,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, style: qnamespace_enums.BrushStyle ```
-    pub fn FillRect11(self: ?*anyopaque, r: ?*anyopaque, style: i64) void {
+    pub fn FillRect11(self: ?*anyopaque, r: ?*anyopaque, style: i32) void {
         qtc.QPainter_FillRect11(@ptrCast(self), @ptrCast(r), @intCast(style));
     }
 
@@ -1723,7 +1723,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, style: qnamespace_enums.BrushStyle ```
-    pub fn FillRect12(self: ?*anyopaque, r: ?*anyopaque, style: i64) void {
+    pub fn FillRect12(self: ?*anyopaque, r: ?*anyopaque, style: i32) void {
         qtc.QPainter_FillRect12(@ptrCast(self), @ptrCast(r), @intCast(style));
     }
 
@@ -1732,7 +1732,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, preset: qbrush_enums.Preset ```
-    pub fn FillRect13(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, preset: i64) void {
+    pub fn FillRect13(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, preset: i32) void {
         qtc.QPainter_FillRect13(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(preset));
     }
 
@@ -1741,7 +1741,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRect, preset: qbrush_enums.Preset ```
-    pub fn FillRect14(self: ?*anyopaque, r: ?*anyopaque, preset: i64) void {
+    pub fn FillRect14(self: ?*anyopaque, r: ?*anyopaque, preset: i32) void {
         qtc.QPainter_FillRect14(@ptrCast(self), @ptrCast(r), @intCast(preset));
     }
 
@@ -1750,7 +1750,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ``` self: QtC.QStylePainter, r: QtC.QRectF, preset: qbrush_enums.Preset ```
-    pub fn FillRect15(self: ?*anyopaque, r: ?*anyopaque, preset: i64) void {
+    pub fn FillRect15(self: ?*anyopaque, r: ?*anyopaque, preset: i32) void {
         qtc.QPainter_FillRect15(@ptrCast(self), @ptrCast(r), @intCast(preset));
     }
 
@@ -1786,7 +1786,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
     ///
     /// ``` self: QtC.QStylePainter, hint: qpainter_enums.RenderHint ```
-    pub fn SetRenderHint(self: ?*anyopaque, hint: i64) void {
+    pub fn SetRenderHint(self: ?*anyopaque, hint: i32) void {
         qtc.QPainter_SetRenderHint(@ptrCast(self), @intCast(hint));
     }
 
@@ -1815,7 +1815,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#testRenderHint)
     ///
     /// ``` self: QtC.QStylePainter, hint: qpainter_enums.RenderHint ```
-    pub fn TestRenderHint(self: ?*anyopaque, hint: i64) bool {
+    pub fn TestRenderHint(self: ?*anyopaque, hint: i32) bool {
         return qtc.QPainter_TestRenderHint(@ptrCast(self), @intCast(hint));
     }
 
@@ -1851,7 +1851,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRectF, op: qnamespace_enums.ClipOperation ```
-    pub fn SetClipRect22(self: ?*anyopaque, param1: ?*anyopaque, op: i64) void {
+    pub fn SetClipRect22(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
         qtc.QPainter_SetClipRect22(@ptrCast(self), @ptrCast(param1), @intCast(op));
     }
 
@@ -1860,7 +1860,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRect, op: qnamespace_enums.ClipOperation ```
-    pub fn SetClipRect23(self: ?*anyopaque, param1: ?*anyopaque, op: i64) void {
+    pub fn SetClipRect23(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
         qtc.QPainter_SetClipRect23(@ptrCast(self), @ptrCast(param1), @intCast(op));
     }
 
@@ -1869,7 +1869,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, op: qnamespace_enums.ClipOperation ```
-    pub fn SetClipRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, op: i64) void {
+    pub fn SetClipRect5(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, op: i32) void {
         qtc.QPainter_SetClipRect5(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(op));
     }
 
@@ -1878,7 +1878,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
     ///
     /// ``` self: QtC.QStylePainter, param1: QtC.QRegion, op: qnamespace_enums.ClipOperation ```
-    pub fn SetClipRegion2(self: ?*anyopaque, param1: ?*anyopaque, op: i64) void {
+    pub fn SetClipRegion2(self: ?*anyopaque, param1: ?*anyopaque, op: i32) void {
         qtc.QPainter_SetClipRegion2(@ptrCast(self), @ptrCast(param1), @intCast(op));
     }
 
@@ -1887,7 +1887,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setClipPath)
     ///
     /// ``` self: QtC.QStylePainter, path: QtC.QPainterPath, op: qnamespace_enums.ClipOperation ```
-    pub fn SetClipPath2(self: ?*anyopaque, path: ?*anyopaque, op: i64) void {
+    pub fn SetClipPath2(self: ?*anyopaque, path: ?*anyopaque, op: i32) void {
         qtc.QPainter_SetClipPath2(@ptrCast(self), @ptrCast(path), @intCast(op));
     }
 
@@ -1914,7 +1914,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPointF, pointCount: i32, fillRule: qnamespace_enums.FillRule ```
-    pub fn DrawPolygon32(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i64) void {
+    pub fn DrawPolygon32(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i32) void {
         qtc.QPainter_DrawPolygon32(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(fillRule));
     }
 
@@ -1923,7 +1923,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ``` self: QtC.QStylePainter, points: QtC.QPoint, pointCount: i32, fillRule: qnamespace_enums.FillRule ```
-    pub fn DrawPolygon33(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i64) void {
+    pub fn DrawPolygon33(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, fillRule: i32) void {
         qtc.QPainter_DrawPolygon33(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(fillRule));
     }
 
@@ -1932,7 +1932,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRectF, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
-    pub fn DrawRoundedRect4(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i64) void {
+    pub fn DrawRoundedRect4(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainter_DrawRoundedRect4(@ptrCast(self), @ptrCast(rect), @floatCast(xRadius), @floatCast(yRadius), @intCast(mode));
     }
 
@@ -1941,7 +1941,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
-    pub fn DrawRoundedRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: i64) void {
+    pub fn DrawRoundedRect7(self: ?*anyopaque, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainter_DrawRoundedRect7(@ptrCast(self), @intCast(x), @intCast(y), @intCast(w), @intCast(h), @floatCast(xRadius), @floatCast(yRadius), @intCast(mode));
     }
 
@@ -1950,7 +1950,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
     /// ``` self: QtC.QStylePainter, rect: QtC.QRect, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
-    pub fn DrawRoundedRect42(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i64) void {
+    pub fn DrawRoundedRect42(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainter_DrawRoundedRect42(@ptrCast(self), @ptrCast(rect), @floatCast(xRadius), @floatCast(yRadius), @intCast(mode));
     }
 
@@ -2150,7 +2150,7 @@ pub const qstylepainter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
     ///
     /// ``` self: QtC.QStylePainter, hint: qpainter_enums.RenderHint, on: bool ```
-    pub fn SetRenderHint2(self: ?*anyopaque, hint: i64, on: bool) void {
+    pub fn SetRenderHint2(self: ?*anyopaque, hint: i32, on: bool) void {
         qtc.QPainter_SetRenderHint2(@ptrCast(self), @intCast(hint), on);
     }
 

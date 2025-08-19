@@ -89,7 +89,7 @@ pub const qinternal = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinternal.html#activateCallbacks)
     ///
     /// ``` param1: qnamespace_enums.Callback, param2: ?*anyopaque ```
-    pub fn ActivateCallbacks(param1: i64, param2: ?*anyopaque) bool {
+    pub fn ActivateCallbacks(param1: i32, param2: ?*anyopaque) bool {
         return qtc.QInternal_ActivateCallbacks(@intCast(param1), param2);
     }
 
@@ -150,21 +150,21 @@ pub const qkeycombination = struct {
     /// New7 constructs a new QKeyCombination object.
     ///
     /// ``` key: qnamespace_enums.Key ```
-    pub fn New7(key: i64) QtC.QKeyCombination {
+    pub fn New7(key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new7(@intCast(key));
     }
 
     /// New8 constructs a new QKeyCombination object.
     ///
     /// ``` modifiers: flag of qnamespace_enums.Modifier, key: qnamespace_enums.Key ```
-    pub fn New8(modifiers: i64, key: i64) QtC.QKeyCombination {
+    pub fn New8(modifiers: i64, key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new8(@intCast(modifiers), @intCast(key));
     }
 
     /// New9 constructs a new QKeyCombination object.
     ///
     /// ``` modifiers: flag of qnamespace_enums.KeyboardModifier, key: qnamespace_enums.Key ```
-    pub fn New9(modifiers: i64, key: i64) QtC.QKeyCombination {
+    pub fn New9(modifiers: i64, key: i32) QtC.QKeyCombination {
         return qtc.QKeyCombination_new9(@intCast(modifiers), @intCast(key));
     }
 
@@ -196,7 +196,7 @@ pub const qkeycombination = struct {
     /// ``` self: QtC.QKeyCombination ```
     ///
     /// Returns: ``` qnamespace_enums.Key ```
-    pub fn Key(self: ?*anyopaque) i64 {
+    pub fn Key(self: ?*anyopaque) i32 {
         return qtc.QKeyCombination_Key(@ptrCast(self));
     }
 

@@ -31,21 +31,21 @@ pub const qcommonstyle = struct {
     }
 
     /// ``` self: QtC.QCommonStyle, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCommonStyle_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QCommonStyle, slot: fn (self: QtC.QCommonStyle, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QCommonStyle_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCommonStyle, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCommonStyle_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -64,7 +64,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#drawPrimitive)
     ///
     /// ``` self: QtC.QCommonStyle, pe: qstyle_enums.PrimitiveElement, opt: QtC.QStyleOption, p: QtC.QPainter, w: QtC.QWidget ```
-    pub fn DrawPrimitive(self: ?*anyopaque, pe: i64, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
+    pub fn DrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QCommonStyle_DrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
@@ -73,7 +73,7 @@ pub const qcommonstyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QCommonStyle, slot: fn (self: QtC.QCommonStyle, pe: qstyle_enums.PrimitiveElement, opt: QtC.QStyleOption, p: QtC.QPainter, w: QtC.QWidget) callconv(.c) void ```
-    pub fn OnDrawPrimitive(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnDrawPrimitive(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QCommonStyle_OnDrawPrimitive(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -82,7 +82,7 @@ pub const qcommonstyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCommonStyle, pe: qstyle_enums.PrimitiveElement, opt: QtC.QStyleOption, p: QtC.QPainter, w: QtC.QWidget ```
-    pub fn QBaseDrawPrimitive(self: ?*anyopaque, pe: i64, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
+    pub fn QBaseDrawPrimitive(self: ?*anyopaque, pe: i32, opt: ?*anyopaque, p: ?*anyopaque, w: ?*anyopaque) void {
         qtc.QCommonStyle_QBaseDrawPrimitive(@ptrCast(self), @intCast(pe), @ptrCast(opt), @ptrCast(p), @ptrCast(w));
     }
 
@@ -343,7 +343,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#generatedIconPixmap)
     ///
     /// ``` self: QtC.QCommonStyle, iconMode: qicon_enums.Mode, pixmap: QtC.QPixmap, opt: QtC.QStyleOption ```
-    pub fn GeneratedIconPixmap(self: ?*anyopaque, iconMode: i64, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
+    pub fn GeneratedIconPixmap(self: ?*anyopaque, iconMode: i32, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
         return qtc.QCommonStyle_GeneratedIconPixmap(@ptrCast(self), @intCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
     }
 
@@ -352,7 +352,7 @@ pub const qcommonstyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QCommonStyle, slot: fn (self: QtC.QCommonStyle, iconMode: qicon_enums.Mode, pixmap: QtC.QPixmap, opt: QtC.QStyleOption) callconv(.c) QtC.QPixmap ```
-    pub fn OnGeneratedIconPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
+    pub fn OnGeneratedIconPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
         qtc.QCommonStyle_OnGeneratedIconPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -361,14 +361,14 @@ pub const qcommonstyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCommonStyle, iconMode: qicon_enums.Mode, pixmap: QtC.QPixmap, opt: QtC.QStyleOption ```
-    pub fn QBaseGeneratedIconPixmap(self: ?*anyopaque, iconMode: i64, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
+    pub fn QBaseGeneratedIconPixmap(self: ?*anyopaque, iconMode: i32, pixmap: ?*anyopaque, opt: ?*anyopaque) QtC.QPixmap {
         return qtc.QCommonStyle_QBaseGeneratedIconPixmap(@ptrCast(self), @intCast(iconMode), @ptrCast(pixmap), @ptrCast(opt));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommonstyle.html#layoutSpacing)
     ///
     /// ``` self: QtC.QCommonStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
-    pub fn LayoutSpacing(self: ?*anyopaque, control1: i64, control2: i64, orientation: i64, option: ?*anyopaque, widget: ?*anyopaque) i32 {
+    pub fn LayoutSpacing(self: ?*anyopaque, control1: i32, control2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QCommonStyle_LayoutSpacing(@ptrCast(self), @intCast(control1), @intCast(control2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
@@ -377,7 +377,7 @@ pub const qcommonstyle = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QCommonStyle, slot: fn (self: QtC.QCommonStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget) callconv(.c) i32 ```
-    pub fn OnLayoutSpacing(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64, i64, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnLayoutSpacing(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QCommonStyle_OnLayoutSpacing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -386,7 +386,7 @@ pub const qcommonstyle = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCommonStyle, control1: qsizepolicy_enums.ControlType, control2: qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
-    pub fn QBaseLayoutSpacing(self: ?*anyopaque, control1: i64, control2: i64, orientation: i64, option: ?*anyopaque, widget: ?*anyopaque) i32 {
+    pub fn QBaseLayoutSpacing(self: ?*anyopaque, control1: i32, control2: i32, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QCommonStyle_QBaseLayoutSpacing(@ptrCast(self), @intCast(control1), @intCast(control2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
@@ -559,7 +559,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#visualRect)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, boundingRect: QtC.QRect, logicalRect: QtC.QRect ```
-    pub fn VisualRect(direction: i64, boundingRect: ?*anyopaque, logicalRect: ?*anyopaque) QtC.QRect {
+    pub fn VisualRect(direction: i32, boundingRect: ?*anyopaque, logicalRect: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_VisualRect(@intCast(direction), @ptrCast(boundingRect), @ptrCast(logicalRect));
     }
 
@@ -568,7 +568,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#visualPos)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, boundingRect: QtC.QRect, logicalPos: QtC.QPoint ```
-    pub fn VisualPos(direction: i64, boundingRect: ?*anyopaque, logicalPos: ?*anyopaque) QtC.QPoint {
+    pub fn VisualPos(direction: i32, boundingRect: ?*anyopaque, logicalPos: ?*anyopaque) QtC.QPoint {
         return qtc.QStyle_VisualPos(@intCast(direction), @ptrCast(boundingRect), @ptrCast(logicalPos));
     }
 
@@ -597,7 +597,7 @@ pub const qcommonstyle = struct {
     /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag ```
     ///
     /// Returns: ``` flag of qnamespace_enums.AlignmentFlag ```
-    pub fn VisualAlignment(direction: i64, alignment: i64) i64 {
+    pub fn VisualAlignment(direction: i32, alignment: i64) i64 {
         return qtc.QStyle_VisualAlignment(@intCast(direction), @intCast(alignment));
     }
 
@@ -606,7 +606,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#alignedRect)
     ///
     /// ``` direction: qnamespace_enums.LayoutDirection, alignment: flag of qnamespace_enums.AlignmentFlag, size: QtC.QSize, rectangle: QtC.QRect ```
-    pub fn AlignedRect(direction: i64, alignment: i64, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
+    pub fn AlignedRect(direction: i32, alignment: i64, size: ?*anyopaque, rectangle: ?*anyopaque) QtC.QRect {
         return qtc.QStyle_AlignedRect(@intCast(direction), @intCast(alignment), @ptrCast(size), @ptrCast(rectangle));
     }
 
@@ -615,7 +615,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation ```
-    pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i64) i32 {
+    pub fn CombinedLayoutSpacing(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i32) i32 {
         return qtc.QStyle_CombinedLayoutSpacing(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation));
     }
 
@@ -651,7 +651,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption ```
-    pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i64, option: ?*anyopaque) i32 {
+    pub fn CombinedLayoutSpacing4(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i32, option: ?*anyopaque) i32 {
         return qtc.QStyle_CombinedLayoutSpacing4(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option));
     }
 
@@ -660,7 +660,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstyle.html#combinedLayoutSpacing)
     ///
     /// ``` self: QtC.QCommonStyle, controls1: flag of qsizepolicy_enums.ControlType, controls2: flag of qsizepolicy_enums.ControlType, orientation: qnamespace_enums.Orientation, option: QtC.QStyleOption, widget: QtC.QWidget ```
-    pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i64, option: ?*anyopaque, widget: ?*anyopaque) i32 {
+    pub fn CombinedLayoutSpacing5(self: ?*anyopaque, controls1: i64, controls2: i64, orientation: i32, option: ?*anyopaque, widget: ?*anyopaque) i32 {
         return qtc.QStyle_CombinedLayoutSpacing5(@ptrCast(self), @intCast(controls1), @intCast(controls2), @intCast(orientation), @ptrCast(option), @ptrCast(widget));
     }
 
@@ -776,7 +776,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCommonStyle, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -999,7 +999,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCommonStyle, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1008,7 +1008,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1017,7 +1017,7 @@ pub const qcommonstyle = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCommonStyle, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -1122,7 +1122,7 @@ pub const qcommonstyle = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QCommonStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole ```
-    pub fn DrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i64) void {
+    pub fn DrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1137,7 +1137,7 @@ pub const qcommonstyle = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QCommonStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole ```
-    pub fn QBaseDrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i64) void {
+    pub fn QBaseDrawItemText(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, flags: i32, pal: ?*anyopaque, enabled: bool, text: []const u8, textRole: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1152,7 +1152,7 @@ pub const qcommonstyle = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QCommonStyle, slot: fn (self: QtC.QCommonStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole) callconv(.c) void ```
-    pub fn OnDrawItemText(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque, bool, []const u8, i64) callconv(.c) void) void {
+    pub fn OnDrawItemText(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque, bool, []const u8, i32) callconv(.c) void) void {
         qtc.QCommonStyle_OnDrawItemText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -30,7 +30,7 @@ pub const qwebenginehttprequest = struct {
     /// New4 constructs a new QWebEngineHttpRequest object.
     ///
     /// ``` url: QtC.QUrl, method: *const qwebenginehttprequest_enums.Method ```
-    pub fn New4(url: ?*anyopaque, method: *const i64) QtC.QWebEngineHttpRequest {
+    pub fn New4(url: ?*anyopaque, method: *const i32) QtC.QWebEngineHttpRequest {
         return qtc.QWebEngineHttpRequest_new4(@ptrCast(url), @ptrCast(method));
     }
 
@@ -94,14 +94,14 @@ pub const qwebenginehttprequest = struct {
     /// ``` self: QtC.QWebEngineHttpRequest ```
     ///
     /// Returns: ``` qwebenginehttprequest_enums.Method ```
-    pub fn Method(self: ?*anyopaque) i64 {
+    pub fn Method(self: ?*anyopaque) i32 {
         return qtc.QWebEngineHttpRequest_Method(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginehttprequest.html#setMethod)
     ///
     /// ``` self: QtC.QWebEngineHttpRequest, method: qwebenginehttprequest_enums.Method ```
-    pub fn SetMethod(self: ?*anyopaque, method: i64) void {
+    pub fn SetMethod(self: ?*anyopaque, method: i32) void {
         qtc.QWebEngineHttpRequest_SetMethod(@ptrCast(self), @intCast(method));
     }
 

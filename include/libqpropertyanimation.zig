@@ -60,21 +60,21 @@ pub const qpropertyanimation = struct {
     }
 
     /// ``` self: QtC.QPropertyAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPropertyAnimation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPropertyAnimation, slot: fn (self: QtC.QPropertyAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QPropertyAnimation_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPropertyAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPropertyAnimation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -179,7 +179,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
     ///
     /// ``` self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
-    pub fn UpdateState(self: ?*anyopaque, newState: i64, oldState: i64) void {
+    pub fn UpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QPropertyAnimation_UpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
@@ -188,7 +188,7 @@ pub const qpropertyanimation = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPropertyAnimation, slot: fn (self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
-    pub fn OnUpdateState(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) void) void {
+    pub fn OnUpdateState(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnUpdateState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -197,7 +197,7 @@ pub const qpropertyanimation = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
-    pub fn QBaseUpdateState(self: ?*anyopaque, newState: i64, oldState: i64) void {
+    pub fn QBaseUpdateState(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QPropertyAnimation_QBaseUpdateState(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
@@ -376,7 +376,7 @@ pub const qpropertyanimation = struct {
     /// ``` self: QtC.QPropertyAnimation ```
     ///
     /// Returns: ``` qabstractanimation_enums.State ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_State(@ptrCast(self));
     }
 
@@ -396,7 +396,7 @@ pub const qpropertyanimation = struct {
     /// ``` self: QtC.QPropertyAnimation ```
     ///
     /// Returns: ``` qabstractanimation_enums.Direction ```
-    pub fn Direction(self: ?*anyopaque) i64 {
+    pub fn Direction(self: ?*anyopaque) i32 {
         return qtc.QAbstractAnimation_Direction(@ptrCast(self));
     }
 
@@ -405,7 +405,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#setDirection)
     ///
     /// ``` self: QtC.QPropertyAnimation, direction: qabstractanimation_enums.Direction ```
-    pub fn SetDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QAbstractAnimation_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -486,7 +486,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State ```
-    pub fn StateChanged(self: ?*anyopaque, newState: i64, oldState: i64) void {
+    pub fn StateChanged(self: ?*anyopaque, newState: i32, oldState: i32) void {
         qtc.QAbstractAnimation_StateChanged(@ptrCast(self), @intCast(newState), @intCast(oldState));
     }
 
@@ -495,7 +495,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#stateChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, slot: fn (self: QtC.QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) void) void {
+    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -522,7 +522,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, param1: qabstractanimation_enums.Direction ```
-    pub fn DirectionChanged(self: ?*anyopaque, param1: i64) void {
+    pub fn DirectionChanged(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self), @intCast(param1));
     }
 
@@ -531,7 +531,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#directionChanged)
     ///
     /// ``` self: QtC.QPropertyAnimation, slot: fn (self: QtC.QPropertyAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void ```
-    pub fn OnDirectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnDirectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -594,7 +594,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractanimation.html#start)
     ///
     /// ``` self: QtC.QPropertyAnimation, policy: qabstractanimation_enums.DeletionPolicy ```
-    pub fn Start1(self: ?*anyopaque, policy: i64) void {
+    pub fn Start1(self: ?*anyopaque, policy: i32) void {
         qtc.QAbstractAnimation_Start1(@ptrCast(self), @intCast(policy));
     }
 
@@ -710,7 +710,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPropertyAnimation, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -933,7 +933,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPropertyAnimation, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -942,7 +942,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -951,7 +951,7 @@ pub const qpropertyanimation = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPropertyAnimation, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -1081,7 +1081,7 @@ pub const qpropertyanimation = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPropertyAnimation, direction: qabstractanimation_enums.Direction ```
-    pub fn UpdateDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn UpdateDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QPropertyAnimation_UpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -1092,7 +1092,7 @@ pub const qpropertyanimation = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPropertyAnimation, direction: qabstractanimation_enums.Direction ```
-    pub fn QBaseUpdateDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn QBaseUpdateDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QPropertyAnimation_QBaseUpdateDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -1103,7 +1103,7 @@ pub const qpropertyanimation = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPropertyAnimation, slot: fn (self: QtC.QPropertyAnimation, direction: qabstractanimation_enums.Direction) callconv(.c) void ```
-    pub fn OnUpdateDirection(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnUpdateDirection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnUpdateDirection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

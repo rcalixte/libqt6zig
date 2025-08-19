@@ -8,14 +8,14 @@ pub const qmessageauthenticationcode = struct {
     /// New constructs a new QMessageAuthenticationCode object.
     ///
     /// ``` method: qcryptographichash_enums.Algorithm ```
-    pub fn New(method: i64) QtC.QMessageAuthenticationCode {
+    pub fn New(method: i32) QtC.QMessageAuthenticationCode {
         return qtc.QMessageAuthenticationCode_new(@intCast(method));
     }
 
     /// New2 constructs a new QMessageAuthenticationCode object.
     ///
     /// ``` method: qcryptographichash_enums.Algorithm, key: []const u8 ```
-    pub fn New2(method: i64, key: []const u8) QtC.QMessageAuthenticationCode {
+    pub fn New2(method: i32, key: []const u8) QtC.QMessageAuthenticationCode {
         return qtc.QMessageAuthenticationCode_new2(@intCast(method), key.ptr);
     }
 
@@ -87,7 +87,7 @@ pub const qmessageauthenticationcode = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hash)
     ///
     /// ``` message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn Hash(message: []const u8, key: []const u8, method: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Hash(message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QMessageAuthenticationCode_Hash(message.ptr, key.ptr, @intCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessageauthenticationcode.Hash: Memory allocation failed");
@@ -98,7 +98,7 @@ pub const qmessageauthenticationcode = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []i8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto(buffer: []i8, message: []const u8, key: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto(buffer: []i8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -113,7 +113,7 @@ pub const qmessageauthenticationcode = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []u8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto2(buffer: []u8, message: []const u8, key: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto2(buffer: []u8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -128,7 +128,7 @@ pub const qmessageauthenticationcode = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []i8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto4(buffer: []i8, messageParts: [][]const u8, key: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto4(buffer: []i8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -147,7 +147,7 @@ pub const qmessageauthenticationcode = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
     /// ``` buffer: []u8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto5(buffer: []u8, messageParts: [][]const u8, key: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto5(buffer: []u8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,

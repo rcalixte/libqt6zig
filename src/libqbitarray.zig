@@ -227,7 +227,7 @@ pub const qbitarray = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)
     ///
     /// ``` self: QtC.QBitArray, endianness: qsysinfo_enums.Endian ```
-    pub fn ToUInt32(self: ?*anyopaque, endianness: i64) u32 {
+    pub fn ToUInt32(self: ?*anyopaque, endianness: i32) u32 {
         return qtc.QBitArray_ToUInt32(@ptrCast(self), @intCast(endianness));
     }
 
@@ -240,8 +240,8 @@ pub const qbitarray = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)
     ///
-    /// ``` self: QtC.QBitArray, endianness: qsysinfo_enums.Endian, ok: bool ```
-    pub fn ToUInt322(self: ?*anyopaque, endianness: i64, ok: *bool) u32 {
+    /// ``` self: QtC.QBitArray, endianness: qsysinfo_enums.Endian, ok: *bool ```
+    pub fn ToUInt322(self: ?*anyopaque, endianness: i32, ok: *bool) u32 {
         return qtc.QBitArray_ToUInt322(@ptrCast(self), @intCast(endianness), @ptrCast(ok));
     }
 

@@ -434,7 +434,7 @@ pub const qdirlisting__direntry = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdirlisting-direntry.html#fileTime)
     ///
     /// ``` self: QtC.QDirListing__DirEntry, typeVal: qfiledevice_enums.FileTime, tz: QtC.QTimeZone ```
-    pub fn FileTime(self: ?*anyopaque, typeVal: i64, tz: ?*anyopaque) QtC.QDateTime {
+    pub fn FileTime(self: ?*anyopaque, typeVal: i32, tz: ?*anyopaque) QtC.QDateTime {
         return qtc.QDirListing__DirEntry_FileTime(@ptrCast(self), @intCast(typeVal), @ptrCast(tz));
     }
 

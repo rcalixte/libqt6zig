@@ -38,7 +38,7 @@ pub const qwebengineloadinginfo = struct {
     /// ``` self: QtC.QWebEngineLoadingInfo ```
     ///
     /// Returns: ``` qwebengineloadinginfo_enums.LoadStatus ```
-    pub fn Status(self: ?*anyopaque) i64 {
+    pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QWebEngineLoadingInfo_Status(@ptrCast(self));
     }
 
@@ -58,7 +58,7 @@ pub const qwebengineloadinginfo = struct {
     /// ``` self: QtC.QWebEngineLoadingInfo ```
     ///
     /// Returns: ``` qwebengineloadinginfo_enums.ErrorDomain ```
-    pub fn ErrorDomain(self: ?*anyopaque) i64 {
+    pub fn ErrorDomain(self: ?*anyopaque) i32 {
         return qtc.QWebEngineLoadingInfo_ErrorDomain(@ptrCast(self));
     }
 

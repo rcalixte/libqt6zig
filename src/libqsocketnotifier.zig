@@ -11,28 +11,28 @@ pub const qsocketnotifier = struct {
     /// New constructs a new QSocketNotifier object.
     ///
     /// ``` param1: qsocketnotifier_enums.Type ```
-    pub fn New(param1: i64) QtC.QSocketNotifier {
+    pub fn New(param1: i32) QtC.QSocketNotifier {
         return qtc.QSocketNotifier_new(@intCast(param1));
     }
 
     /// New2 constructs a new QSocketNotifier object.
     ///
     /// ``` socket: isize, param2: qsocketnotifier_enums.Type ```
-    pub fn New2(socket: isize, param2: i64) QtC.QSocketNotifier {
+    pub fn New2(socket: isize, param2: i32) QtC.QSocketNotifier {
         return qtc.QSocketNotifier_new2(@intCast(socket), @intCast(param2));
     }
 
     /// New3 constructs a new QSocketNotifier object.
     ///
     /// ``` param1: qsocketnotifier_enums.Type, parent: QtC.QObject ```
-    pub fn New3(param1: i64, parent: ?*anyopaque) QtC.QSocketNotifier {
+    pub fn New3(param1: i32, parent: ?*anyopaque) QtC.QSocketNotifier {
         return qtc.QSocketNotifier_new3(@intCast(param1), @ptrCast(parent));
     }
 
     /// New4 constructs a new QSocketNotifier object.
     ///
     /// ``` socket: isize, param2: qsocketnotifier_enums.Type, parent: QtC.QObject ```
-    pub fn New4(socket: isize, param2: i64, parent: ?*anyopaque) QtC.QSocketNotifier {
+    pub fn New4(socket: isize, param2: i32, parent: ?*anyopaque) QtC.QSocketNotifier {
         return qtc.QSocketNotifier_new4(@intCast(socket), @intCast(param2), @ptrCast(parent));
     }
 
@@ -50,21 +50,21 @@ pub const qsocketnotifier = struct {
     }
 
     /// ``` self: QtC.QSocketNotifier, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSocketNotifier_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QSocketNotifier, slot: fn (self: QtC.QSocketNotifier, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QSocketNotifier_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSocketNotifier, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSocketNotifier_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -99,7 +99,7 @@ pub const qsocketnotifier = struct {
     /// ``` self: QtC.QSocketNotifier ```
     ///
     /// Returns: ``` qsocketnotifier_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QSocketNotifier_Type(@ptrCast(self));
     }
 
@@ -287,7 +287,7 @@ pub const qsocketnotifier = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSocketNotifier, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -510,7 +510,7 @@ pub const qsocketnotifier = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSocketNotifier, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -519,7 +519,7 @@ pub const qsocketnotifier = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -528,7 +528,7 @@ pub const qsocketnotifier = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSocketNotifier, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -889,7 +889,7 @@ pub const qsocketnotifier = struct {
     /// Wrapper to allow calling private signal
     ///
     /// ``` self: QtC.QSocketNotifier, slot: fn (self: QtC.QSocketNotifier, socket: QtC.QSocketDescriptor, activationEvent: qsocketnotifier_enums.Type) callconv(.c) void ```
-    pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QSocketDescriptor, i64) callconv(.c) void) void {
+    pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QSocketDescriptor, i32) callconv(.c) void) void {
         qtc.QSocketNotifier_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

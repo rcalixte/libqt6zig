@@ -506,7 +506,7 @@ pub const qfileinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#fileTime)
     ///
     /// ``` self: QtC.QFileInfo, time: qfiledevice_enums.FileTime ```
-    pub fn FileTime(self: ?*anyopaque, time: i64) QtC.QDateTime {
+    pub fn FileTime(self: ?*anyopaque, time: i32) QtC.QDateTime {
         return qtc.QFileInfo_FileTime(@ptrCast(self), @intCast(time));
     }
 
@@ -541,7 +541,7 @@ pub const qfileinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileinfo.html#fileTime)
     ///
     /// ``` self: QtC.QFileInfo, time: qfiledevice_enums.FileTime, tz: QtC.QTimeZone ```
-    pub fn FileTime2(self: ?*anyopaque, time: i64, tz: ?*anyopaque) QtC.QDateTime {
+    pub fn FileTime2(self: ?*anyopaque, time: i32, tz: ?*anyopaque) QtC.QDateTime {
         return qtc.QFileInfo_FileTime2(@ptrCast(self), @intCast(time), @ptrCast(tz));
     }
 

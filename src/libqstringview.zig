@@ -141,7 +141,7 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#compare)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Compare5(self: ?*anyopaque, c: QtC.QChar, cs: i64) i32 {
+    pub fn Compare5(self: ?*anyopaque, c: QtC.QChar, cs: i32) i32 {
         return qtc.QStringView_Compare5(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
@@ -155,7 +155,7 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#startsWith)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn StartsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+    pub fn StartsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i32) bool {
         return qtc.QStringView_StartsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
@@ -169,7 +169,7 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#endsWith)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn EndsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+    pub fn EndsWith4(self: ?*anyopaque, c: QtC.QChar, cs: i32) bool {
         return qtc.QStringView_EndsWith4(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
@@ -456,35 +456,35 @@ pub const qstringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#indexOf)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, from: i64, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn IndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i64) i64 {
+    pub fn IndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
         return qtc.QStringView_IndexOf32(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#contains)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Contains22(self: ?*anyopaque, c: QtC.QChar, cs: i64) bool {
+    pub fn Contains22(self: ?*anyopaque, c: QtC.QChar, cs: i32) bool {
         return qtc.QStringView_Contains22(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#count)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Count22(self: ?*anyopaque, c: QtC.QChar, cs: i64) i64 {
+    pub fn Count22(self: ?*anyopaque, c: QtC.QChar, cs: i32) i64 {
         return qtc.QStringView_Count22(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn LastIndexOf22(self: ?*anyopaque, c: QtC.QChar, cs: i64) i64 {
+    pub fn LastIndexOf22(self: ?*anyopaque, c: QtC.QChar, cs: i32) i64 {
         return qtc.QStringView_LastIndexOf22(@ptrCast(self), @ptrCast(c), @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QStringView, c: QtC.QChar, from: i64, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn LastIndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i64) i64 {
+    pub fn LastIndexOf32(self: ?*anyopaque, c: QtC.QChar, from: i64, cs: i32) i64 {
         return qtc.QStringView_LastIndexOf32(@ptrCast(self), @ptrCast(c), @intCast(from), @intCast(cs));
     }
 
@@ -518,126 +518,126 @@ pub const qstringview = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toShort)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToShort1(self: ?*anyopaque, ok: *bool) i16 {
         return qtc.QStringView_ToShort1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toShort)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToShort2(self: ?*anyopaque, ok: *bool, base: i32) i16 {
         return qtc.QStringView_ToShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUShort)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToUShort1(self: ?*anyopaque, ok: *bool) u16 {
         return qtc.QStringView_ToUShort1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUShort)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToUShort2(self: ?*anyopaque, ok: *bool, base: i32) u16 {
         return qtc.QStringView_ToUShort2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toInt)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QStringView_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toInt)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToInt2(self: ?*anyopaque, ok: *bool, base: i32) i32 {
         return qtc.QStringView_ToInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUInt)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QStringView_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toUInt)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToUInt2(self: ?*anyopaque, ok: *bool, base: i32) u32 {
         return qtc.QStringView_ToUInt2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QStringView_ToLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QStringView_ToLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToULong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QStringView_ToULong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToULong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QStringView_ToULong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLongLong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QStringView_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toLongLong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToLongLong2(self: ?*anyopaque, ok: *bool, base: i32) i64 {
         return qtc.QStringView_ToLongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULongLong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QStringView_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toULongLong)
     ///
-    /// ``` self: QtC.QStringView, ok: bool, base: i32 ```
+    /// ``` self: QtC.QStringView, ok: *bool, base: i32 ```
     pub fn ToULongLong2(self: ?*anyopaque, ok: *bool, base: i32) u64 {
         return qtc.QStringView_ToULongLong2(@ptrCast(self), @ptrCast(ok), @intCast(base));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toFloat)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QStringView_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringview.html#toDouble)
     ///
-    /// ``` self: QtC.QStringView, ok: bool ```
+    /// ``` self: QtC.QStringView, ok: *bool ```
     pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QStringView_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }

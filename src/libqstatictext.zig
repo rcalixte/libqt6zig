@@ -71,7 +71,7 @@ pub const qstatictext = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#setTextFormat)
     ///
     /// ``` self: QtC.QStaticText, textFormat: qnamespace_enums.TextFormat ```
-    pub fn SetTextFormat(self: ?*anyopaque, textFormat: i64) void {
+    pub fn SetTextFormat(self: ?*anyopaque, textFormat: i32) void {
         qtc.QStaticText_SetTextFormat(@ptrCast(self), @intCast(textFormat));
     }
 
@@ -80,7 +80,7 @@ pub const qstatictext = struct {
     /// ``` self: QtC.QStaticText ```
     ///
     /// Returns: ``` qnamespace_enums.TextFormat ```
-    pub fn TextFormat(self: ?*anyopaque) i64 {
+    pub fn TextFormat(self: ?*anyopaque) i32 {
         return qtc.QStaticText_TextFormat(@ptrCast(self));
     }
 
@@ -129,7 +129,7 @@ pub const qstatictext = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstatictext.html#setPerformanceHint)
     ///
     /// ``` self: QtC.QStaticText, performanceHint: qstatictext_enums.PerformanceHint ```
-    pub fn SetPerformanceHint(self: ?*anyopaque, performanceHint: i64) void {
+    pub fn SetPerformanceHint(self: ?*anyopaque, performanceHint: i32) void {
         qtc.QStaticText_SetPerformanceHint(@ptrCast(self), @intCast(performanceHint));
     }
 
@@ -138,7 +138,7 @@ pub const qstatictext = struct {
     /// ``` self: QtC.QStaticText ```
     ///
     /// Returns: ``` qstatictext_enums.PerformanceHint ```
-    pub fn PerformanceHint(self: ?*anyopaque) i64 {
+    pub fn PerformanceHint(self: ?*anyopaque) i32 {
         return qtc.QStaticText_PerformanceHint(@ptrCast(self));
     }
 

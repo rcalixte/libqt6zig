@@ -35,21 +35,21 @@ pub const qmediarecorder = struct {
     }
 
     /// ``` self: QtC.QMediaRecorder, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QMediaRecorder, slot: fn (self: QtC.QMediaRecorder, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QMediaRecorder_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QMediaRecorder, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -112,7 +112,7 @@ pub const qmediarecorder = struct {
     /// ``` self: QtC.QMediaRecorder ```
     ///
     /// Returns: ``` qmediarecorder_enums.RecorderState ```
-    pub fn RecorderState(self: ?*anyopaque) i64 {
+    pub fn RecorderState(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_RecorderState(@ptrCast(self));
     }
 
@@ -121,7 +121,7 @@ pub const qmediarecorder = struct {
     /// ``` self: QtC.QMediaRecorder ```
     ///
     /// Returns: ``` qmediarecorder_enums.Error ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_Error(@ptrCast(self));
     }
 
@@ -162,14 +162,14 @@ pub const qmediarecorder = struct {
     /// ``` self: QtC.QMediaRecorder ```
     ///
     /// Returns: ``` qmediarecorder_enums.EncodingMode ```
-    pub fn EncodingMode(self: ?*anyopaque) i64 {
+    pub fn EncodingMode(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_EncodingMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setEncodingMode)
     ///
     /// ``` self: QtC.QMediaRecorder, encodingMode: qmediarecorder_enums.EncodingMode ```
-    pub fn SetEncodingMode(self: ?*anyopaque, encodingMode: i64) void {
+    pub fn SetEncodingMode(self: ?*anyopaque, encodingMode: i32) void {
         qtc.QMediaRecorder_SetEncodingMode(@ptrCast(self), @intCast(encodingMode));
     }
 
@@ -178,14 +178,14 @@ pub const qmediarecorder = struct {
     /// ``` self: QtC.QMediaRecorder ```
     ///
     /// Returns: ``` qmediarecorder_enums.Quality ```
-    pub fn Quality(self: ?*anyopaque) i64 {
+    pub fn Quality(self: ?*anyopaque) i32 {
         return qtc.QMediaRecorder_Quality(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#setQuality)
     ///
     /// ``` self: QtC.QMediaRecorder, quality: qmediarecorder_enums.Quality ```
-    pub fn SetQuality(self: ?*anyopaque, quality: i64) void {
+    pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
         qtc.QMediaRecorder_SetQuality(@ptrCast(self), @intCast(quality));
     }
 
@@ -346,14 +346,14 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, state: qmediarecorder_enums.RecorderState ```
-    pub fn RecorderStateChanged(self: ?*anyopaque, state: i64) void {
+    pub fn RecorderStateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QMediaRecorder_RecorderStateChanged(@ptrCast(self), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#recorderStateChanged)
     ///
     /// ``` self: QtC.QMediaRecorder, slot: fn (self: QtC.QMediaRecorder, state: qmediarecorder_enums.RecorderState) callconv(.c) void ```
-    pub fn OnRecorderStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnRecorderStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_RecorderStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -402,7 +402,7 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
     ///
     /// ``` self: QtC.QMediaRecorder, errorVal: qmediarecorder_enums.Error, errorString: []const u8 ```
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i64, errorString: []const u8) void {
+    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
@@ -413,7 +413,7 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediarecorder.html#errorOccurred)
     ///
     /// ``` self: QtC.QMediaRecorder, slot: fn (self: QtC.QMediaRecorder, errorVal: qmediarecorder_enums.Error, errorString: []const u8) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i64, []const u8) callconv(.c) void) void {
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
         qtc.QMediaRecorder_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -723,7 +723,7 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMediaRecorder, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -946,7 +946,7 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMediaRecorder, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -955,7 +955,7 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -964,7 +964,7 @@ pub const qmediarecorder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMediaRecorder, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

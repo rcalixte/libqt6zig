@@ -8,7 +8,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#writableLocation)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, allocator: std.mem.Allocator ```
-    pub fn WritableLocation(typeVal: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn WritableLocation(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStandardPaths_WritableLocation(@intCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandardpaths.WritableLocation: Memory allocation failed");
@@ -19,7 +19,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#standardLocations)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, allocator: std.mem.Allocator ```
-    pub fn StandardLocations(typeVal: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn StandardLocations(typeVal: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QStandardPaths_StandardLocations(@intCast(typeVal));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -41,7 +41,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, allocator: std.mem.Allocator ```
-    pub fn Locate(typeVal: i64, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn Locate(typeVal: i32, fileName: []const u8, allocator: std.mem.Allocator) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -56,7 +56,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, allocator: std.mem.Allocator ```
-    pub fn LocateAll(typeVal: i64, fileName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn LocateAll(typeVal: i32, fileName: []const u8, allocator: std.mem.Allocator) [][]const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -82,7 +82,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#displayName)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, allocator: std.mem.Allocator ```
-    pub fn DisplayName(typeVal: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn DisplayName(typeVal: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QStandardPaths_DisplayName(@intCast(typeVal));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandardpaths.DisplayName: Memory allocation failed");
@@ -122,7 +122,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locate)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
-    pub fn Locate3(typeVal: i64, fileName: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Locate3(typeVal: i32, fileName: []const u8, options: i64, allocator: std.mem.Allocator) []const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -137,7 +137,7 @@ pub const qstandardpaths = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandardpaths.html#locateAll)
     ///
     /// ``` typeVal: qstandardpaths_enums.StandardLocation, fileName: []const u8, options: flag of qstandardpaths_enums.LocateOption, allocator: std.mem.Allocator ```
-    pub fn LocateAll3(typeVal: i64, fileName: []const u8, options: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn LocateAll3(typeVal: i32, fileName: []const u8, options: i64, allocator: std.mem.Allocator) [][]const u8 {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,

@@ -23,7 +23,7 @@ pub const qlegend = struct {
     }
 
     /// ``` self: QtC.QLegend, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QLegend_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -254,14 +254,14 @@ pub const qlegend = struct {
     /// ``` self: QtC.QLegend ```
     ///
     /// Returns: ``` qlegend_enums.MarkerShape ```
-    pub fn MarkerShape(self: ?*anyopaque) i64 {
+    pub fn MarkerShape(self: ?*anyopaque) i32 {
         return qtc.QLegend_MarkerShape(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#setMarkerShape)
     ///
     /// ``` self: QtC.QLegend, shape: qlegend_enums.MarkerShape ```
-    pub fn SetMarkerShape(self: ?*anyopaque, shape: i64) void {
+    pub fn SetMarkerShape(self: ?*anyopaque, shape: i32) void {
         qtc.QLegend_SetMarkerShape(@ptrCast(self), @intCast(shape));
     }
 
@@ -366,14 +366,14 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#markerShapeChanged)
     ///
     /// ``` self: QtC.QLegend, shape: qlegend_enums.MarkerShape ```
-    pub fn MarkerShapeChanged(self: ?*anyopaque, shape: i64) void {
+    pub fn MarkerShapeChanged(self: ?*anyopaque, shape: i32) void {
         qtc.QLegend_MarkerShapeChanged(@ptrCast(self), @intCast(shape));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#markerShapeChanged)
     ///
     /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, shape: qlegend_enums.MarkerShape) callconv(.c) void ```
-    pub fn OnMarkerShapeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnMarkerShapeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QLegend_Connect_MarkerShapeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -491,7 +491,7 @@ pub const qlegend = struct {
     /// ``` self: QtC.QLegend ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -500,7 +500,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QLegend, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QGraphicsWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -775,7 +775,7 @@ pub const qlegend = struct {
     /// ``` self: QtC.QLegend ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -784,7 +784,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QLegend, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QGraphicsWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -914,7 +914,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QLegend, attribute: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, attribute: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, attribute: i32) void {
         qtc.QGraphicsWidget_SetAttribute(@ptrCast(self), @intCast(attribute));
     }
 
@@ -923,7 +923,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#testAttribute)
     ///
     /// ``` self: QtC.QLegend, attribute: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, attribute: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, attribute: i32) bool {
         return qtc.QGraphicsWidget_TestAttribute(@ptrCast(self), @intCast(attribute));
     }
 
@@ -1013,7 +1013,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QLegend, sequence: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, sequence: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, sequence: ?*anyopaque, context: i32) i32 {
         return qtc.QGraphicsWidget_GrabShortcut2(@ptrCast(self), @ptrCast(sequence), @intCast(context));
     }
 
@@ -1040,7 +1040,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QLegend, attribute: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, attribute: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, attribute: i32, on: bool) void {
         qtc.QGraphicsWidget_SetAttribute2(@ptrCast(self), @intCast(attribute), on);
     }
 
@@ -1408,7 +1408,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QLegend, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1631,7 +1631,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QLegend, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1640,7 +1640,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1649,7 +1649,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QLegend, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -1847,7 +1847,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QLegend, flag: qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlag(self: ?*anyopaque, flag: i64) void {
+    pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
         qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
     }
 
@@ -1867,7 +1867,7 @@ pub const qlegend = struct {
     /// ``` self: QtC.QLegend ```
     ///
     /// Returns: ``` qgraphicsitem_enums.CacheMode ```
-    pub fn CacheMode(self: ?*anyopaque) i64 {
+    pub fn CacheMode(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_CacheMode(@ptrCast(self));
     }
 
@@ -1876,7 +1876,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QLegend, mode: qgraphicsitem_enums.CacheMode ```
-    pub fn SetCacheMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -1887,7 +1887,7 @@ pub const qlegend = struct {
     /// ``` self: QtC.QLegend ```
     ///
     /// Returns: ``` qgraphicsitem_enums.PanelModality ```
-    pub fn PanelModality(self: ?*anyopaque) i64 {
+    pub fn PanelModality(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_PanelModality(@ptrCast(self));
     }
 
@@ -1896,7 +1896,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
     ///
     /// ``` self: QtC.QLegend, panelModality: qgraphicsitem_enums.PanelModality ```
-    pub fn SetPanelModality(self: ?*anyopaque, panelModality: i64) void {
+    pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
         qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
     }
 
@@ -2653,7 +2653,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
     ///
     /// ``` self: QtC.QLegend, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode ```
-    pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i64) bool {
+    pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
         return qtc.QGraphicsItem_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
     }
 
@@ -2662,7 +2662,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
     ///
     /// ``` self: QtC.QLegend, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode ```
-    pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i64) bool {
+    pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
         return qtc.QGraphicsItem_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
     }
 
@@ -3128,7 +3128,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QLegend, flag: qgraphicsitem_enums.GraphicsItemFlag, enabled: bool ```
-    pub fn SetFlag2(self: ?*anyopaque, flag: i64, enabled: bool) void {
+    pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
         qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
     }
 
@@ -3137,7 +3137,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QLegend, mode: qgraphicsitem_enums.CacheMode, cacheSize: QtC.QSize ```
-    pub fn SetCacheMode2(self: ?*anyopaque, mode: i64, cacheSize: ?*anyopaque) void {
+    pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
     }
 
@@ -3146,7 +3146,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QLegend, focusReason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus1(self: ?*anyopaque, focusReason: i64) void {
+    pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
         qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
     }
 
@@ -3199,7 +3199,7 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
-    /// ``` self: QtC.QLegend, other: QtC.QGraphicsItem, ok: bool ```
+    /// ``` self: QtC.QLegend, other: QtC.QGraphicsItem, ok: *bool ```
     pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
@@ -3218,7 +3218,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QLegend, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
-    pub fn CollidingItems1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qlegend.CollidingItems1: Memory allocation failed");
@@ -3268,7 +3268,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QLegend, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i64, vPolicy: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
     }
 
@@ -3493,7 +3493,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QLegend, which: qnamespace_enums.SizeHint ```
-    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i64) QtC.QSizeF {
+    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
     }
 
@@ -3556,7 +3556,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QLegend, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy, controlType: qsizepolicy_enums.ControlType ```
-    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i64, vPolicy: i64, controlType: i64) void {
+    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
     }
 
@@ -3565,7 +3565,7 @@ pub const qlegend = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QLegend, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 

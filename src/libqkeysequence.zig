@@ -48,14 +48,14 @@ pub const qkeysequence = struct {
     /// New6 constructs a new QKeySequence object.
     ///
     /// ``` key: qkeysequence_enums.StandardKey ```
-    pub fn New6(key: i64) QtC.QKeySequence {
+    pub fn New6(key: i32) QtC.QKeySequence {
         return qtc.QKeySequence_new6(@intCast(key));
     }
 
     /// New7 constructs a new QKeySequence object.
     ///
     /// ``` key: []const u8, format: qkeysequence_enums.SequenceFormat ```
-    pub fn New7(key: []const u8, format: i64) QtC.QKeySequence {
+    pub fn New7(key: []const u8, format: i32) QtC.QKeySequence {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -178,7 +178,7 @@ pub const qkeysequence = struct {
     /// ``` self: QtC.QKeySequence, seq: QtC.QKeySequence ```
     ///
     /// Returns: ``` qkeysequence_enums.SequenceMatch ```
-    pub fn Matches(self: ?*anyopaque, seq: ?*anyopaque) i64 {
+    pub fn Matches(self: ?*anyopaque, seq: ?*anyopaque) i32 {
         return qtc.QKeySequence_Matches(@ptrCast(self), @ptrCast(seq));
     }
 
@@ -196,7 +196,7 @@ pub const qkeysequence = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#keyBindings)
     ///
     /// ``` key: qkeysequence_enums.StandardKey, allocator: std.mem.Allocator ```
-    pub fn KeyBindings(key: i64, allocator: std.mem.Allocator) []QtC.QKeySequence {
+    pub fn KeyBindings(key: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
         const _arr: qtc.libqt_list = qtc.QKeySequence_KeyBindings(@intCast(key));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QKeySequence, _arr.len) catch @panic("qkeysequence.KeyBindings: Memory allocation failed");
@@ -285,7 +285,7 @@ pub const qkeysequence = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#toString)
     ///
     /// ``` self: QtC.QKeySequence, format: qkeysequence_enums.SequenceFormat, allocator: std.mem.Allocator ```
-    pub fn ToString1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QKeySequence_ToString1(@ptrCast(self), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ToString1: Memory allocation failed");
@@ -296,7 +296,7 @@ pub const qkeysequence = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#fromString)
     ///
     /// ``` str: []const u8, format: qkeysequence_enums.SequenceFormat ```
-    pub fn FromString2(str: []const u8, format: i64) QtC.QKeySequence {
+    pub fn FromString2(str: []const u8, format: i32) QtC.QKeySequence {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -307,7 +307,7 @@ pub const qkeysequence = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#listFromString)
     ///
     /// ``` str: []const u8, format: qkeysequence_enums.SequenceFormat, allocator: std.mem.Allocator ```
-    pub fn ListFromString2(str: []const u8, format: i64, allocator: std.mem.Allocator) []QtC.QKeySequence {
+    pub fn ListFromString2(str: []const u8, format: i32, allocator: std.mem.Allocator) []QtC.QKeySequence {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
@@ -323,7 +323,7 @@ pub const qkeysequence = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeysequence.html#listToString)
     ///
     /// ``` list: []QtC.QKeySequence, format: qkeysequence_enums.SequenceFormat, allocator: std.mem.Allocator ```
-    pub fn ListToString2(list: []QtC.QKeySequence, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ListToString2(list: []QtC.QKeySequence, format: i32, allocator: std.mem.Allocator) []const u8 {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = @ptrCast(list.ptr),

@@ -14,7 +14,7 @@ pub const qeventpoint = struct {
     /// New2 constructs a new QEventPoint object.
     ///
     /// ``` pointId: i32, state: qeventpoint_enums.State, scenePosition: QtC.QPointF, globalPosition: QtC.QPointF ```
-    pub fn New2(pointId: i32, state: i64, scenePosition: ?*anyopaque, globalPosition: ?*anyopaque) QtC.QEventPoint {
+    pub fn New2(pointId: i32, state: u8, scenePosition: ?*anyopaque, globalPosition: ?*anyopaque) QtC.QEventPoint {
         return qtc.QEventPoint_new2(@intCast(pointId), @intCast(state), @ptrCast(scenePosition), @ptrCast(globalPosition));
     }
 
@@ -254,7 +254,7 @@ pub const qeventpoint = struct {
     /// ``` self: QtC.QEventPoint ```
     ///
     /// Returns: ``` qeventpoint_enums.State ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) u8 {
         return qtc.QEventPoint_State(@ptrCast(self));
     }
 

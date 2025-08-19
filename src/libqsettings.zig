@@ -22,7 +22,7 @@ pub const qsettings = struct {
     /// New2 constructs a new QSettings object.
     ///
     /// ``` scope: qsettings_enums.Scope, organization: []const u8 ```
-    pub fn New2(scope: i64, organization: []const u8) QtC.QSettings {
+    pub fn New2(scope: i32, organization: []const u8) QtC.QSettings {
         const organization_str = qtc.libqt_string{
             .len = organization.len,
             .data = organization.ptr,
@@ -34,7 +34,7 @@ pub const qsettings = struct {
     /// New3 constructs a new QSettings object.
     ///
     /// ``` format: qsettings_enums.Format, scope: qsettings_enums.Scope, organization: []const u8 ```
-    pub fn New3(format: i64, scope: i64, organization: []const u8) QtC.QSettings {
+    pub fn New3(format: i32, scope: i32, organization: []const u8) QtC.QSettings {
         const organization_str = qtc.libqt_string{
             .len = organization.len,
             .data = organization.ptr,
@@ -46,7 +46,7 @@ pub const qsettings = struct {
     /// New4 constructs a new QSettings object.
     ///
     /// ``` fileName: []const u8, format: qsettings_enums.Format ```
-    pub fn New4(fileName: []const u8, format: i64) QtC.QSettings {
+    pub fn New4(fileName: []const u8, format: i32) QtC.QSettings {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -65,7 +65,7 @@ pub const qsettings = struct {
     /// New6 constructs a new QSettings object.
     ///
     /// ``` scope: qsettings_enums.Scope ```
-    pub fn New6(scope: i64) QtC.QSettings {
+    pub fn New6(scope: i32) QtC.QSettings {
         return qtc.QSettings_new6(@intCast(scope));
     }
 
@@ -104,7 +104,7 @@ pub const qsettings = struct {
     /// New9 constructs a new QSettings object.
     ///
     /// ``` scope: qsettings_enums.Scope, organization: []const u8, application: []const u8 ```
-    pub fn New9(scope: i64, organization: []const u8, application: []const u8) QtC.QSettings {
+    pub fn New9(scope: i32, organization: []const u8, application: []const u8) QtC.QSettings {
         const organization_str = qtc.libqt_string{
             .len = organization.len,
             .data = organization.ptr,
@@ -120,7 +120,7 @@ pub const qsettings = struct {
     /// New10 constructs a new QSettings object.
     ///
     /// ``` scope: qsettings_enums.Scope, organization: []const u8, application: []const u8, parent: QtC.QObject ```
-    pub fn New10(scope: i64, organization: []const u8, application: []const u8, parent: ?*anyopaque) QtC.QSettings {
+    pub fn New10(scope: i32, organization: []const u8, application: []const u8, parent: ?*anyopaque) QtC.QSettings {
         const organization_str = qtc.libqt_string{
             .len = organization.len,
             .data = organization.ptr,
@@ -136,7 +136,7 @@ pub const qsettings = struct {
     /// New11 constructs a new QSettings object.
     ///
     /// ``` format: qsettings_enums.Format, scope: qsettings_enums.Scope, organization: []const u8, application: []const u8 ```
-    pub fn New11(format: i64, scope: i64, organization: []const u8, application: []const u8) QtC.QSettings {
+    pub fn New11(format: i32, scope: i32, organization: []const u8, application: []const u8) QtC.QSettings {
         const organization_str = qtc.libqt_string{
             .len = organization.len,
             .data = organization.ptr,
@@ -152,7 +152,7 @@ pub const qsettings = struct {
     /// New12 constructs a new QSettings object.
     ///
     /// ``` format: qsettings_enums.Format, scope: qsettings_enums.Scope, organization: []const u8, application: []const u8, parent: QtC.QObject ```
-    pub fn New12(format: i64, scope: i64, organization: []const u8, application: []const u8, parent: ?*anyopaque) QtC.QSettings {
+    pub fn New12(format: i32, scope: i32, organization: []const u8, application: []const u8, parent: ?*anyopaque) QtC.QSettings {
         const organization_str = qtc.libqt_string{
             .len = organization.len,
             .data = organization.ptr,
@@ -168,7 +168,7 @@ pub const qsettings = struct {
     /// New13 constructs a new QSettings object.
     ///
     /// ``` fileName: []const u8, format: qsettings_enums.Format, parent: QtC.QObject ```
-    pub fn New13(fileName: []const u8, format: i64, parent: ?*anyopaque) QtC.QSettings {
+    pub fn New13(fileName: []const u8, format: i32, parent: ?*anyopaque) QtC.QSettings {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -187,7 +187,7 @@ pub const qsettings = struct {
     /// New15 constructs a new QSettings object.
     ///
     /// ``` scope: qsettings_enums.Scope, parent: QtC.QObject ```
-    pub fn New15(scope: i64, parent: ?*anyopaque) QtC.QSettings {
+    pub fn New15(scope: i32, parent: ?*anyopaque) QtC.QSettings {
         return qtc.QSettings_new15(@intCast(scope), @ptrCast(parent));
     }
 
@@ -205,21 +205,21 @@ pub const qsettings = struct {
     }
 
     /// ``` self: QtC.QSettings, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSettings_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QSettings, slot: fn (self: QtC.QSettings, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QSettings_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSettings, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSettings_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -254,7 +254,7 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings ```
     ///
     /// Returns: ``` qsettings_enums.Status ```
-    pub fn Status(self: ?*anyopaque) i64 {
+    pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QSettings_Status(@ptrCast(self));
     }
 
@@ -495,7 +495,7 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings ```
     ///
     /// Returns: ``` qsettings_enums.Format ```
-    pub fn Format(self: ?*anyopaque) i64 {
+    pub fn Format(self: ?*anyopaque) i32 {
         return qtc.QSettings_Format(@ptrCast(self));
     }
 
@@ -504,7 +504,7 @@ pub const qsettings = struct {
     /// ``` self: QtC.QSettings ```
     ///
     /// Returns: ``` qsettings_enums.Scope ```
-    pub fn Scope(self: ?*anyopaque) i64 {
+    pub fn Scope(self: ?*anyopaque) i32 {
         return qtc.QSettings_Scope(@ptrCast(self));
     }
 
@@ -533,7 +533,7 @@ pub const qsettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#setDefaultFormat)
     ///
     /// ``` format: qsettings_enums.Format ```
-    pub fn SetDefaultFormat(format: i64) void {
+    pub fn SetDefaultFormat(format: i32) void {
         qtc.QSettings_SetDefaultFormat(@intCast(format));
     }
 
@@ -542,14 +542,14 @@ pub const qsettings = struct {
     ///
     ///
     /// Returns: ``` qsettings_enums.Format ```
-    pub fn DefaultFormat() i64 {
+    pub fn DefaultFormat() i32 {
         return qtc.QSettings_DefaultFormat();
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsettings.html#setPath)
     ///
     /// ``` format: qsettings_enums.Format, scope: qsettings_enums.Scope, path: []const u8 ```
-    pub fn SetPath(format: i64, scope: i64, path: []const u8) void {
+    pub fn SetPath(format: i32, scope: i32, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -731,7 +731,7 @@ pub const qsettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSettings, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -954,7 +954,7 @@ pub const qsettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSettings, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -963,7 +963,7 @@ pub const qsettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -972,7 +972,7 @@ pub const qsettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSettings, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

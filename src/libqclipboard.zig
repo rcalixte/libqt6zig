@@ -21,7 +21,7 @@ pub const qclipboard = struct {
     }
 
     /// ``` self: QtC.QClipboard, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QClipboard_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -161,14 +161,14 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#changed)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
-    pub fn Changed(self: ?*anyopaque, mode: i64) void {
+    pub fn Changed(self: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_Changed(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#changed)
     ///
     /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard, mode: qclipboard_enums.Mode) callconv(.c) void ```
-    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QClipboard_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -243,14 +243,14 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#clear)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
-    pub fn Clear1(self: ?*anyopaque, mode: i64) void {
+    pub fn Clear1(self: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_Clear1(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode, allocator: std.mem.Allocator ```
-    pub fn Text1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QClipboard_Text1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qclipboard.Text1: Memory allocation failed");
@@ -261,7 +261,7 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#text)
     ///
     /// ``` self: QtC.QClipboard, subtype: []const u8, mode: qclipboard_enums.Mode, allocator: std.mem.Allocator ```
-    pub fn Text22(self: ?*anyopaque, subtype: []const u8, mode: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text22(self: ?*anyopaque, subtype: []const u8, mode: i32, allocator: std.mem.Allocator) []const u8 {
         const subtype_str = qtc.libqt_string{
             .len = subtype.len,
             .data = subtype.ptr,
@@ -276,7 +276,7 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setText)
     ///
     /// ``` self: QtC.QClipboard, param1: []const u8, mode: qclipboard_enums.Mode ```
-    pub fn SetText2(self: ?*anyopaque, param1: []const u8, mode: i64) void {
+    pub fn SetText2(self: ?*anyopaque, param1: []const u8, mode: i32) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -287,42 +287,42 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#mimeData)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
-    pub fn MimeData1(self: ?*anyopaque, mode: i64) QtC.QMimeData {
+    pub fn MimeData1(self: ?*anyopaque, mode: i32) QtC.QMimeData {
         return qtc.QClipboard_MimeData1(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setMimeData)
     ///
     /// ``` self: QtC.QClipboard, data: QtC.QMimeData, mode: qclipboard_enums.Mode ```
-    pub fn SetMimeData2(self: ?*anyopaque, data: ?*anyopaque, mode: i64) void {
+    pub fn SetMimeData2(self: ?*anyopaque, data: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_SetMimeData2(@ptrCast(self), @ptrCast(data), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#image)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
-    pub fn Image1(self: ?*anyopaque, mode: i64) QtC.QImage {
+    pub fn Image1(self: ?*anyopaque, mode: i32) QtC.QImage {
         return qtc.QClipboard_Image1(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#pixmap)
     ///
     /// ``` self: QtC.QClipboard, mode: qclipboard_enums.Mode ```
-    pub fn Pixmap1(self: ?*anyopaque, mode: i64) QtC.QPixmap {
+    pub fn Pixmap1(self: ?*anyopaque, mode: i32) QtC.QPixmap {
         return qtc.QClipboard_Pixmap1(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setImage)
     ///
     /// ``` self: QtC.QClipboard, param1: QtC.QImage, mode: qclipboard_enums.Mode ```
-    pub fn SetImage2(self: ?*anyopaque, param1: ?*anyopaque, mode: i64) void {
+    pub fn SetImage2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_SetImage2(@ptrCast(self), @ptrCast(param1), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#setPixmap)
     ///
     /// ``` self: QtC.QClipboard, param1: QtC.QPixmap, mode: qclipboard_enums.Mode ```
-    pub fn SetPixmap2(self: ?*anyopaque, param1: ?*anyopaque, mode: i64) void {
+    pub fn SetPixmap2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) void {
         qtc.QClipboard_SetPixmap2(@ptrCast(self), @ptrCast(param1), @intCast(mode));
     }
 
@@ -456,7 +456,7 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QClipboard, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -679,7 +679,7 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QClipboard, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -688,7 +688,7 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -697,7 +697,7 @@ pub const qclipboard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QClipboard, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

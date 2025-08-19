@@ -67,7 +67,7 @@ pub const qcborvalue = struct {
     /// New2 constructs a new QCborValue object.
     ///
     /// ``` t_: qcborvalue_enums.Type ```
-    pub fn New2(t_: i64) QtC.QCborValue {
+    pub fn New2(t_: i32) QtC.QCborValue {
         return qtc.QCborValue_new2(@intCast(t_));
     }
 
@@ -109,7 +109,7 @@ pub const qcborvalue = struct {
     /// New8 constructs a new QCborValue object.
     ///
     /// ``` st: qcborcommon_enums.QCborSimpleType ```
-    pub fn New8(st: i64) QtC.QCborValue {
+    pub fn New8(st: u8) QtC.QCborValue {
         return qtc.QCborValue_new8(@intCast(st));
     }
 
@@ -163,14 +163,14 @@ pub const qcborvalue = struct {
     /// New14 constructs a new QCborValue object.
     ///
     /// ``` tag: qcborcommon_enums.QCborTag ```
-    pub fn New14(tag: i64) QtC.QCborValue {
+    pub fn New14(tag: u64) QtC.QCborValue {
         return qtc.QCborValue_new14(@intCast(tag));
     }
 
     /// New15 constructs a new QCborValue object.
     ///
     /// ``` t_: qcborcommon_enums.QCborKnownTags ```
-    pub fn New15(t_: i64) QtC.QCborValue {
+    pub fn New15(t_: i32) QtC.QCborValue {
         return qtc.QCborValue_new15(@intCast(t_));
     }
 
@@ -212,14 +212,14 @@ pub const qcborvalue = struct {
     /// New21 constructs a new QCborValue object.
     ///
     /// ``` tag: qcborcommon_enums.QCborTag, taggedValue: QtC.QCborValue ```
-    pub fn New21(tag: i64, taggedValue: ?*anyopaque) QtC.QCborValue {
+    pub fn New21(tag: u64, taggedValue: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_new21(@intCast(tag), @ptrCast(taggedValue));
     }
 
     /// New22 constructs a new QCborValue object.
     ///
     /// ``` t_: qcborcommon_enums.QCborKnownTags, tv: QtC.QCborValue ```
-    pub fn New22(t_: i64, tv: ?*anyopaque) QtC.QCborValue {
+    pub fn New22(t_: i32, tv: ?*anyopaque) QtC.QCborValue {
         return qtc.QCborValue_new22(@intCast(t_), @ptrCast(tv));
     }
 
@@ -242,7 +242,7 @@ pub const qcborvalue = struct {
     /// ``` self: QtC.QCborValue ```
     ///
     /// Returns: ``` qcborvalue_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QCborValue_Type(@ptrCast(self));
     }
 
@@ -382,7 +382,7 @@ pub const qcborvalue = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalue.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValue, st: qcborcommon_enums.QCborSimpleType ```
-    pub fn IsSimpleType2(self: ?*anyopaque, st: i64) bool {
+    pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
         return qtc.QCborValue_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
@@ -391,7 +391,7 @@ pub const qcborvalue = struct {
     /// ``` self: QtC.QCborValue ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
-    pub fn ToSimpleType(self: ?*anyopaque) i64 {
+    pub fn ToSimpleType(self: ?*anyopaque) u8 {
         return qtc.QCborValue_ToSimpleType(@ptrCast(self));
     }
 
@@ -421,7 +421,7 @@ pub const qcborvalue = struct {
     /// ``` self: QtC.QCborValue ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborTag ```
-    pub fn Tag(self: ?*anyopaque) i64 {
+    pub fn Tag(self: ?*anyopaque) u64 {
         return qtc.QCborValue_Tag(@ptrCast(self));
     }
 
@@ -648,7 +648,7 @@ pub const qcborvalue = struct {
     /// ``` self: QtC.QCborValue, defaultValue: qcborcommon_enums.QCborSimpleType ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
-    pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: i64) i64 {
+    pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: u8) u8 {
         return qtc.QCborValue_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
 
@@ -678,7 +678,7 @@ pub const qcborvalue = struct {
     /// ``` self: QtC.QCborValue, defaultValue: qcborcommon_enums.QCborTag ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborTag ```
-    pub fn Tag1(self: ?*anyopaque, defaultValue: i64) i64 {
+    pub fn Tag1(self: ?*anyopaque, defaultValue: u64) u64 {
         return qtc.QCborValue_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
 
@@ -840,7 +840,7 @@ pub const qcborvalueconstref = struct {
     /// ``` self: QtC.QCborValueConstRef ```
     ///
     /// Returns: ``` qcborvalue_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QCborValueConstRef_Type(@ptrCast(self));
     }
 
@@ -980,7 +980,7 @@ pub const qcborvalueconstref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueconstref.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValueConstRef, st: qcborcommon_enums.QCborSimpleType ```
-    pub fn IsSimpleType2(self: ?*anyopaque, st: i64) bool {
+    pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
         return qtc.QCborValueConstRef_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
@@ -989,7 +989,7 @@ pub const qcborvalueconstref = struct {
     /// ``` self: QtC.QCborValueConstRef ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
-    pub fn ToSimpleType(self: ?*anyopaque) i64 {
+    pub fn ToSimpleType(self: ?*anyopaque) u8 {
         return qtc.QCborValueConstRef_ToSimpleType(@ptrCast(self));
     }
 
@@ -998,7 +998,7 @@ pub const qcborvalueconstref = struct {
     /// ``` self: QtC.QCborValueConstRef ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborTag ```
-    pub fn Tag(self: ?*anyopaque) i64 {
+    pub fn Tag(self: ?*anyopaque) u64 {
         return qtc.QCborValueConstRef_Tag(@ptrCast(self));
     }
 
@@ -1181,7 +1181,7 @@ pub const qcborvalueconstref = struct {
     /// ``` self: QtC.QCborValueConstRef, defaultValue: qcborcommon_enums.QCborSimpleType ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
-    pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: i64) i64 {
+    pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: u8) u8 {
         return qtc.QCborValueConstRef_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
 
@@ -1190,7 +1190,7 @@ pub const qcborvalueconstref = struct {
     /// ``` self: QtC.QCborValueConstRef, defaultValue: qcborcommon_enums.QCborTag ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborTag ```
-    pub fn Tag1(self: ?*anyopaque, defaultValue: i64) i64 {
+    pub fn Tag1(self: ?*anyopaque, defaultValue: u64) u64 {
         return qtc.QCborValueConstRef_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
 
@@ -1386,7 +1386,7 @@ pub const qcborvalueref = struct {
     /// ``` self: QtC.QCborValueRef ```
     ///
     /// Returns: ``` qcborvalue_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QCborValueRef_Type(@ptrCast(self));
     }
 
@@ -1526,7 +1526,7 @@ pub const qcborvalueref = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborvalueref.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborValueRef, st: qcborcommon_enums.QCborSimpleType ```
-    pub fn IsSimpleType2(self: ?*anyopaque, st: i64) bool {
+    pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
         return qtc.QCborValueRef_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
@@ -1535,7 +1535,7 @@ pub const qcborvalueref = struct {
     /// ``` self: QtC.QCborValueRef ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
-    pub fn ToSimpleType(self: ?*anyopaque) i64 {
+    pub fn ToSimpleType(self: ?*anyopaque) u8 {
         return qtc.QCborValueRef_ToSimpleType(@ptrCast(self));
     }
 
@@ -1544,7 +1544,7 @@ pub const qcborvalueref = struct {
     /// ``` self: QtC.QCborValueRef ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborTag ```
-    pub fn Tag(self: ?*anyopaque) i64 {
+    pub fn Tag(self: ?*anyopaque) u64 {
         return qtc.QCborValueRef_Tag(@ptrCast(self));
     }
 
@@ -1727,7 +1727,7 @@ pub const qcborvalueref = struct {
     /// ``` self: QtC.QCborValueRef, defaultValue: qcborcommon_enums.QCborSimpleType ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
-    pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: i64) i64 {
+    pub fn ToSimpleType1(self: ?*anyopaque, defaultValue: u8) u8 {
         return qtc.QCborValueRef_ToSimpleType1(@ptrCast(self), @intCast(defaultValue));
     }
 
@@ -1736,7 +1736,7 @@ pub const qcborvalueref = struct {
     /// ``` self: QtC.QCborValueRef, defaultValue: qcborcommon_enums.QCborTag ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborTag ```
-    pub fn Tag1(self: ?*anyopaque, defaultValue: i64) i64 {
+    pub fn Tag1(self: ?*anyopaque, defaultValue: u64) u64 {
         return qtc.QCborValueRef_Tag1(@ptrCast(self), @intCast(defaultValue));
     }
 

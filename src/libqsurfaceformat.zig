@@ -134,7 +134,7 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setSwapBehavior)
     ///
     /// ``` self: QtC.QSurfaceFormat, behavior: qsurfaceformat_enums.SwapBehavior ```
-    pub fn SetSwapBehavior(self: ?*anyopaque, behavior: i64) void {
+    pub fn SetSwapBehavior(self: ?*anyopaque, behavior: i32) void {
         qtc.QSurfaceFormat_SetSwapBehavior(@ptrCast(self), @intCast(behavior));
     }
 
@@ -143,7 +143,7 @@ pub const qsurfaceformat = struct {
     /// ``` self: QtC.QSurfaceFormat ```
     ///
     /// Returns: ``` qsurfaceformat_enums.SwapBehavior ```
-    pub fn SwapBehavior(self: ?*anyopaque) i64 {
+    pub fn SwapBehavior(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_SwapBehavior(@ptrCast(self));
     }
 
@@ -157,7 +157,7 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setProfile)
     ///
     /// ``` self: QtC.QSurfaceFormat, profile: qsurfaceformat_enums.OpenGLContextProfile ```
-    pub fn SetProfile(self: ?*anyopaque, profile: i64) void {
+    pub fn SetProfile(self: ?*anyopaque, profile: i32) void {
         qtc.QSurfaceFormat_SetProfile(@ptrCast(self), @intCast(profile));
     }
 
@@ -166,14 +166,14 @@ pub const qsurfaceformat = struct {
     /// ``` self: QtC.QSurfaceFormat ```
     ///
     /// Returns: ``` qsurfaceformat_enums.OpenGLContextProfile ```
-    pub fn Profile(self: ?*anyopaque) i64 {
+    pub fn Profile(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_Profile(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setRenderableType)
     ///
     /// ``` self: QtC.QSurfaceFormat, typeVal: qsurfaceformat_enums.RenderableType ```
-    pub fn SetRenderableType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetRenderableType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QSurfaceFormat_SetRenderableType(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -182,7 +182,7 @@ pub const qsurfaceformat = struct {
     /// ``` self: QtC.QSurfaceFormat ```
     ///
     /// Returns: ``` qsurfaceformat_enums.RenderableType ```
-    pub fn RenderableType(self: ?*anyopaque) i64 {
+    pub fn RenderableType(self: ?*anyopaque) i32 {
         return qtc.QSurfaceFormat_RenderableType(@ptrCast(self));
     }
 
@@ -256,14 +256,14 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
     ///
     /// ``` self: QtC.QSurfaceFormat, option: qsurfaceformat_enums.FormatOption ```
-    pub fn SetOption(self: ?*anyopaque, option: i64) void {
+    pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QSurfaceFormat_SetOption(@ptrCast(self), @intCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#testOption)
     ///
     /// ``` self: QtC.QSurfaceFormat, option: qsurfaceformat_enums.FormatOption ```
-    pub fn TestOption(self: ?*anyopaque, option: i64) bool {
+    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QSurfaceFormat_TestOption(@ptrCast(self), @intCast(option));
     }
 
@@ -307,7 +307,7 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setColorSpace)
     ///
     /// ``` self: QtC.QSurfaceFormat, colorSpace: qsurfaceformat_enums.ColorSpace ```
-    pub fn SetColorSpace2(self: ?*anyopaque, colorSpace: i64) void {
+    pub fn SetColorSpace2(self: ?*anyopaque, colorSpace: i32) void {
         qtc.QSurfaceFormat_SetColorSpace2(@ptrCast(self), @intCast(colorSpace));
     }
 
@@ -328,7 +328,7 @@ pub const qsurfaceformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsurfaceformat.html#setOption)
     ///
     /// ``` self: QtC.QSurfaceFormat, option: qsurfaceformat_enums.FormatOption, on: bool ```
-    pub fn SetOption2(self: ?*anyopaque, option: i64, on: bool) void {
+    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
         qtc.QSurfaceFormat_SetOption2(@ptrCast(self), @intCast(option), on);
     }
 

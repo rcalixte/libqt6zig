@@ -14,7 +14,7 @@ pub const qcursor = struct {
     /// New2 constructs a new QCursor object.
     ///
     /// ``` shape: qnamespace_enums.CursorShape ```
-    pub fn New2(shape: i64) QtC.QCursor {
+    pub fn New2(shape: i32) QtC.QCursor {
         return qtc.QCursor_new2(@intCast(shape));
     }
 
@@ -93,28 +93,28 @@ pub const qcursor = struct {
     /// ``` self: QtC.QCursor ```
     ///
     /// Returns: ``` qnamespace_enums.CursorShape ```
-    pub fn Shape(self: ?*anyopaque) i64 {
+    pub fn Shape(self: ?*anyopaque) i32 {
         return qtc.QCursor_Shape(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#setShape)
     ///
     /// ``` self: QtC.QCursor, newShape: qnamespace_enums.CursorShape ```
-    pub fn SetShape(self: ?*anyopaque, newShape: i64) void {
+    pub fn SetShape(self: ?*anyopaque, newShape: i32) void {
         qtc.QCursor_SetShape(@ptrCast(self), @intCast(newShape));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#bitmap)
     ///
     /// ``` self: QtC.QCursor, param1: qnamespace_enums.ReturnByValueConstant ```
-    pub fn Bitmap(self: ?*anyopaque, param1: i64) QtC.QBitmap {
+    pub fn Bitmap(self: ?*anyopaque, param1: i32) QtC.QBitmap {
         return qtc.QCursor_Bitmap(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcursor.html#mask)
     ///
     /// ``` self: QtC.QCursor, param1: qnamespace_enums.ReturnByValueConstant ```
-    pub fn Mask(self: ?*anyopaque, param1: i64) QtC.QBitmap {
+    pub fn Mask(self: ?*anyopaque, param1: i32) QtC.QBitmap {
         return qtc.QCursor_Mask(@ptrCast(self), @intCast(param1));
     }
 

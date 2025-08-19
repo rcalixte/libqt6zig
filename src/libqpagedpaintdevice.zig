@@ -29,14 +29,14 @@ pub const qpagedpaintdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageOrientation)
     ///
     /// ``` self: QtC.QPagedPaintDevice, orientation: qpagelayout_enums.Orientation ```
-    pub fn SetPageOrientation(self: ?*anyopaque, orientation: i64) bool {
+    pub fn SetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QPagedPaintDevice_SetPageOrientation(@ptrCast(self), @intCast(orientation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagedpaintdevice.html#setPageMargins)
     ///
     /// ``` self: QtC.QPagedPaintDevice, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
-    pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i64) bool {
+    pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
         return qtc.QPagedPaintDevice_SetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
     }
 
@@ -210,7 +210,7 @@ pub const qpagedpaintdevice = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 

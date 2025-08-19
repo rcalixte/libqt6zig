@@ -38,21 +38,21 @@ pub const qtabbar = struct {
     }
 
     /// ``` self: QtC.QTabBar, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTabBar_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QTabBar, slot: fn (self: QtC.QTabBar, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QTabBar_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QTabBar, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTabBar_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -73,14 +73,14 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qtabbar_enums.Shape ```
-    pub fn Shape(self: ?*anyopaque) i64 {
+    pub fn Shape(self: ?*anyopaque) i32 {
         return qtc.QTabBar_Shape(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabbar.html#setShape)
     ///
     /// ``` self: QtC.QTabBar, shape: qtabbar_enums.Shape ```
-    pub fn SetShape(self: ?*anyopaque, shape: i64) void {
+    pub fn SetShape(self: ?*anyopaque, shape: i32) void {
         qtc.QTabBar_SetShape(@ptrCast(self), @intCast(shape));
     }
 
@@ -225,14 +225,14 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qnamespace_enums.TextElideMode ```
-    pub fn ElideMode(self: ?*anyopaque) i64 {
+    pub fn ElideMode(self: ?*anyopaque) i32 {
         return qtc.QTabBar_ElideMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabbar.html#setElideMode)
     ///
     /// ``` self: QtC.QTabBar, mode: qnamespace_enums.TextElideMode ```
-    pub fn SetElideMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetElideMode(self: ?*anyopaque, mode: i32) void {
         qtc.QTabBar_SetElideMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -431,14 +431,14 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabbar.html#setTabButton)
     ///
     /// ``` self: QtC.QTabBar, index: i32, position: qtabbar_enums.ButtonPosition, widget: QtC.QWidget ```
-    pub fn SetTabButton(self: ?*anyopaque, index: i32, position: i64, widget: ?*anyopaque) void {
+    pub fn SetTabButton(self: ?*anyopaque, index: i32, position: i32, widget: ?*anyopaque) void {
         qtc.QTabBar_SetTabButton(@ptrCast(self), @intCast(index), @intCast(position), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabbar.html#tabButton)
     ///
     /// ``` self: QtC.QTabBar, index: i32, position: qtabbar_enums.ButtonPosition ```
-    pub fn TabButton(self: ?*anyopaque, index: i32, position: i64) QtC.QWidget {
+    pub fn TabButton(self: ?*anyopaque, index: i32, position: i32) QtC.QWidget {
         return qtc.QTabBar_TabButton(@ptrCast(self), @intCast(index), @intCast(position));
     }
 
@@ -447,14 +447,14 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qtabbar_enums.SelectionBehavior ```
-    pub fn SelectionBehaviorOnRemove(self: ?*anyopaque) i64 {
+    pub fn SelectionBehaviorOnRemove(self: ?*anyopaque) i32 {
         return qtc.QTabBar_SelectionBehaviorOnRemove(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtabbar.html#setSelectionBehaviorOnRemove)
     ///
     /// ``` self: QtC.QTabBar, behavior: qtabbar_enums.SelectionBehavior ```
-    pub fn SetSelectionBehaviorOnRemove(self: ?*anyopaque, behavior: i64) void {
+    pub fn SetSelectionBehaviorOnRemove(self: ?*anyopaque, behavior: i32) void {
         qtc.QTabBar_SetSelectionBehaviorOnRemove(@ptrCast(self), @intCast(behavior));
     }
 
@@ -1216,7 +1216,7 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -1225,7 +1225,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QTabBar, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -1765,7 +1765,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QTabBar, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -1776,7 +1776,7 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -1785,7 +1785,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QTabBar, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -1796,7 +1796,7 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -2335,7 +2335,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTabBar, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2346,7 +2346,7 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -2445,7 +2445,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTabBar, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -2456,7 +2456,7 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -2465,7 +2465,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QTabBar, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -2512,7 +2512,7 @@ pub const qtabbar = struct {
     /// ``` self: QtC.QTabBar ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -2521,7 +2521,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QTabBar, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3017,7 +3017,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QTabBar, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -3392,7 +3392,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTabBar, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3401,7 +3401,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QTabBar, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3663,7 +3663,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QTabBar, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -3699,7 +3699,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTabBar, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -3833,7 +3833,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTabBar, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -4047,7 +4047,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTabBar, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -4056,7 +4056,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -4065,7 +4065,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTabBar, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4202,7 +4202,7 @@ pub const qtabbar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -4881,7 +4881,7 @@ pub const qtabbar = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTabBar, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QTabBar_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -4892,7 +4892,7 @@ pub const qtabbar = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTabBar, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QTabBar_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -4903,7 +4903,7 @@ pub const qtabbar = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTabBar, slot: fn (self: QtC.QTabBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QTabBar_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5576,7 +5576,7 @@ pub const qtabbar = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTabBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QTabBar_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -5587,7 +5587,7 @@ pub const qtabbar = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTabBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QTabBar_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -5598,7 +5598,7 @@ pub const qtabbar = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTabBar, slot: fn (self: QtC.QTabBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QTabBar_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -49,7 +49,7 @@ pub const qnetworkproxyquery = struct {
     /// New6 constructs a new QNetworkProxyQuery object.
     ///
     /// ``` requestUrl: QtC.QUrl, queryType: qnetworkproxy_enums.QueryType ```
-    pub fn New6(requestUrl: ?*anyopaque, queryType: i64) QtC.QNetworkProxyQuery {
+    pub fn New6(requestUrl: ?*anyopaque, queryType: i32) QtC.QNetworkProxyQuery {
         return qtc.QNetworkProxyQuery_new6(@ptrCast(requestUrl), @intCast(queryType));
     }
 
@@ -72,7 +72,7 @@ pub const qnetworkproxyquery = struct {
     /// New8 constructs a new QNetworkProxyQuery object.
     ///
     /// ``` hostname: []const u8, port: i32, protocolTag: []const u8, queryType: qnetworkproxy_enums.QueryType ```
-    pub fn New8(hostname: []const u8, port: i32, protocolTag: []const u8, queryType: i64) QtC.QNetworkProxyQuery {
+    pub fn New8(hostname: []const u8, port: i32, protocolTag: []const u8, queryType: i32) QtC.QNetworkProxyQuery {
         const hostname_str = qtc.libqt_string{
             .len = hostname.len,
             .data = hostname.ptr,
@@ -100,7 +100,7 @@ pub const qnetworkproxyquery = struct {
     /// New10 constructs a new QNetworkProxyQuery object.
     ///
     /// ``` bindPort: u16, protocolTag: []const u8, queryType: qnetworkproxy_enums.QueryType ```
-    pub fn New10(bindPort: u16, protocolTag: []const u8, queryType: i64) QtC.QNetworkProxyQuery {
+    pub fn New10(bindPort: u16, protocolTag: []const u8, queryType: i32) QtC.QNetworkProxyQuery {
         const protocolTag_str = qtc.libqt_string{
             .len = protocolTag.len,
             .data = protocolTag.ptr,
@@ -142,14 +142,14 @@ pub const qnetworkproxyquery = struct {
     /// ``` self: QtC.QNetworkProxyQuery ```
     ///
     /// Returns: ``` qnetworkproxy_enums.QueryType ```
-    pub fn QueryType(self: ?*anyopaque) i64 {
+    pub fn QueryType(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxyQuery_QueryType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxyquery.html#setQueryType)
     ///
     /// ``` self: QtC.QNetworkProxyQuery, typeVal: qnetworkproxy_enums.QueryType ```
-    pub fn SetQueryType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetQueryType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QNetworkProxyQuery_SetQueryType(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -261,7 +261,7 @@ pub const qnetworkproxy = struct {
     /// New2 constructs a new QNetworkProxy object.
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType ```
-    pub fn New2(typeVal: i64) QtC.QNetworkProxy {
+    pub fn New2(typeVal: i32) QtC.QNetworkProxy {
         return qtc.QNetworkProxy_new2(@intCast(typeVal));
     }
 
@@ -275,7 +275,7 @@ pub const qnetworkproxy = struct {
     /// New4 constructs a new QNetworkProxy object.
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8 ```
-    pub fn New4(typeVal: i64, hostName: []const u8) QtC.QNetworkProxy {
+    pub fn New4(typeVal: i32, hostName: []const u8) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -287,7 +287,7 @@ pub const qnetworkproxy = struct {
     /// New5 constructs a new QNetworkProxy object.
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16 ```
-    pub fn New5(typeVal: i64, hostName: []const u8, port: u16) QtC.QNetworkProxy {
+    pub fn New5(typeVal: i32, hostName: []const u8, port: u16) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -299,7 +299,7 @@ pub const qnetworkproxy = struct {
     /// New6 constructs a new QNetworkProxy object.
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16, user: []const u8 ```
-    pub fn New6(typeVal: i64, hostName: []const u8, port: u16, user: []const u8) QtC.QNetworkProxy {
+    pub fn New6(typeVal: i32, hostName: []const u8, port: u16, user: []const u8) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -315,7 +315,7 @@ pub const qnetworkproxy = struct {
     /// New7 constructs a new QNetworkProxy object.
     ///
     /// ``` typeVal: qnetworkproxy_enums.ProxyType, hostName: []const u8, port: u16, user: []const u8, password: []const u8 ```
-    pub fn New7(typeVal: i64, hostName: []const u8, port: u16, user: []const u8, password: []const u8) QtC.QNetworkProxy {
+    pub fn New7(typeVal: i32, hostName: []const u8, port: u16, user: []const u8, password: []const u8) QtC.QNetworkProxy {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -363,7 +363,7 @@ pub const qnetworkproxy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#setType)
     ///
     /// ``` self: QtC.QNetworkProxy, typeVal: qnetworkproxy_enums.ProxyType ```
-    pub fn SetType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QNetworkProxy_SetType(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -372,7 +372,7 @@ pub const qnetworkproxy = struct {
     /// ``` self: QtC.QNetworkProxy ```
     ///
     /// Returns: ``` qnetworkproxy_enums.ProxyType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QNetworkProxy_Type(@ptrCast(self));
     }
 
@@ -517,14 +517,14 @@ pub const qnetworkproxy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#header)
     ///
     /// ``` self: QtC.QNetworkProxy, header: qnetworkrequest_enums.KnownHeaders ```
-    pub fn Header(self: ?*anyopaque, header: i64) QtC.QVariant {
+    pub fn Header(self: ?*anyopaque, header: i32) QtC.QVariant {
         return qtc.QNetworkProxy_Header(@ptrCast(self), @intCast(header));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkproxy.html#setHeader)
     ///
     /// ``` self: QtC.QNetworkProxy, header: qnetworkrequest_enums.KnownHeaders, value: QtC.QVariant ```
-    pub fn SetHeader(self: ?*anyopaque, header: i64, value: ?*anyopaque) void {
+    pub fn SetHeader(self: ?*anyopaque, header: i32, value: ?*anyopaque) void {
         qtc.QNetworkProxy_SetHeader(@ptrCast(self), @intCast(header), @ptrCast(value));
     }
 

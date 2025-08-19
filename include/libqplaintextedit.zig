@@ -66,21 +66,21 @@ pub const qplaintextedit = struct {
     }
 
     /// ``` self: QtC.QPlainTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPlainTextEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPlainTextEdit, slot: fn (self: QtC.QPlainTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPlainTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPlainTextEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -266,14 +266,14 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qplaintextedit_enums.LineWrapMode ```
-    pub fn LineWrapMode(self: ?*anyopaque) i64 {
+    pub fn LineWrapMode(self: ?*anyopaque) i32 {
         return qtc.QPlainTextEdit_LineWrapMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextedit.html#setLineWrapMode)
     ///
     /// ``` self: QtC.QPlainTextEdit, mode: qplaintextedit_enums.LineWrapMode ```
-    pub fn SetLineWrapMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetLineWrapMode(self: ?*anyopaque, mode: i32) void {
         qtc.QPlainTextEdit_SetLineWrapMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -282,14 +282,14 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qtextoption_enums.WrapMode ```
-    pub fn WordWrapMode(self: ?*anyopaque) i64 {
+    pub fn WordWrapMode(self: ?*anyopaque) i32 {
         return qtc.QPlainTextEdit_WordWrapMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextedit.html#setWordWrapMode)
     ///
     /// ``` self: QtC.QPlainTextEdit, policy: qtextoption_enums.WrapMode ```
-    pub fn SetWordWrapMode(self: ?*anyopaque, policy: i64) void {
+    pub fn SetWordWrapMode(self: ?*anyopaque, policy: i32) void {
         qtc.QPlainTextEdit_SetWordWrapMode(@ptrCast(self), @intCast(policy));
     }
 
@@ -496,7 +496,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextedit.html#moveCursor)
     ///
     /// ``` self: QtC.QPlainTextEdit, operation: qtextcursor_enums.MoveOperation ```
-    pub fn MoveCursor(self: ?*anyopaque, operation: i64) void {
+    pub fn MoveCursor(self: ?*anyopaque, operation: i32) void {
         qtc.QPlainTextEdit_MoveCursor(@ptrCast(self), @intCast(operation));
     }
 
@@ -1665,7 +1665,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextedit.html#moveCursor)
     ///
     /// ``` self: QtC.QPlainTextEdit, operation: qtextcursor_enums.MoveOperation, mode: qtextcursor_enums.MoveMode ```
-    pub fn MoveCursor2(self: ?*anyopaque, operation: i64, mode: i64) void {
+    pub fn MoveCursor2(self: ?*anyopaque, operation: i32, mode: i32) void {
         qtc.QPlainTextEdit_MoveCursor2(@ptrCast(self), @intCast(operation), @intCast(mode));
     }
 
@@ -1690,7 +1690,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
+    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
 
@@ -1699,7 +1699,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QPlainTextEdit, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i64) void {
+    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
     }
 
@@ -1728,7 +1728,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
+    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
 
@@ -1737,7 +1737,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QPlainTextEdit, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i64) void {
+    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
     }
 
@@ -1834,7 +1834,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
+    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
 
@@ -1843,7 +1843,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QPlainTextEdit, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -1881,7 +1881,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qframe_enums.Shape ```
-    pub fn FrameShape(self: ?*anyopaque) i64 {
+    pub fn FrameShape(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
 
@@ -1890,7 +1890,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QPlainTextEdit, frameShape: qframe_enums.Shape ```
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i64) void {
+    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
         qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
     }
 
@@ -1901,7 +1901,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qframe_enums.Shadow ```
-    pub fn FrameShadow(self: ?*anyopaque) i64 {
+    pub fn FrameShadow(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
 
@@ -1910,7 +1910,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QPlainTextEdit, frameShadow: qframe_enums.Shadow ```
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i64) void {
+    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
         qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
     }
 
@@ -2056,7 +2056,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -2065,7 +2065,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QPlainTextEdit, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -2605,7 +2605,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QPlainTextEdit, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -2616,7 +2616,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -2625,7 +2625,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QPlainTextEdit, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -2636,7 +2636,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -3175,7 +3175,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QPlainTextEdit, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -3186,7 +3186,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -3285,7 +3285,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QPlainTextEdit, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -3296,7 +3296,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -3305,7 +3305,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QPlainTextEdit, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3352,7 +3352,7 @@ pub const qplaintextedit = struct {
     /// ``` self: QtC.QPlainTextEdit ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -3361,7 +3361,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QPlainTextEdit, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3857,7 +3857,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QPlainTextEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -4223,7 +4223,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QPlainTextEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -4232,7 +4232,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QPlainTextEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -4494,7 +4494,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QPlainTextEdit, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -4530,7 +4530,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QPlainTextEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -4664,7 +4664,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPlainTextEdit, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -4878,7 +4878,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPlainTextEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -4887,7 +4887,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -4896,7 +4896,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPlainTextEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -5033,7 +5033,7 @@ pub const qplaintextedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -5712,7 +5712,7 @@ pub const qplaintextedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPlainTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QPlainTextEdit_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5723,7 +5723,7 @@ pub const qplaintextedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPlainTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QPlainTextEdit_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5734,7 +5734,7 @@ pub const qplaintextedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPlainTextEdit, slot: fn (self: QtC.QPlainTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6374,7 +6374,7 @@ pub const qplaintextedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPlainTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QPlainTextEdit_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6385,7 +6385,7 @@ pub const qplaintextedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPlainTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QPlainTextEdit_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6396,7 +6396,7 @@ pub const qplaintextedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPlainTextEdit, slot: fn (self: QtC.QPlainTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QPlainTextEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6444,21 +6444,21 @@ pub const qplaintextdocumentlayout = struct {
     }
 
     /// ``` self: QtC.QPlainTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPlainTextDocumentLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, slot: fn (self: QtC.QPlainTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPlainTextDocumentLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -6502,7 +6502,7 @@ pub const qplaintextdocumentlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#hitTest)
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, param1: QtC.QPointF, param2: qnamespace_enums.HitTestAccuracy ```
-    pub fn HitTest(self: ?*anyopaque, param1: ?*anyopaque, param2: i64) i32 {
+    pub fn HitTest(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) i32 {
         return qtc.QPlainTextDocumentLayout_HitTest(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
@@ -6511,7 +6511,7 @@ pub const qplaintextdocumentlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, slot: fn (self: QtC.QPlainTextDocumentLayout, param1: QtC.QPointF, param2: qnamespace_enums.HitTestAccuracy) callconv(.c) i32 ```
-    pub fn OnHitTest(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnHitTest(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnHitTest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6520,7 +6520,7 @@ pub const qplaintextdocumentlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, param1: QtC.QPointF, param2: qnamespace_enums.HitTestAccuracy ```
-    pub fn QBaseHitTest(self: ?*anyopaque, param1: ?*anyopaque, param2: i64) i32 {
+    pub fn QBaseHitTest(self: ?*anyopaque, param1: ?*anyopaque, param2: i32) i32 {
         return qtc.QPlainTextDocumentLayout_QBaseHitTest(@ptrCast(self), @ptrCast(param1), @intCast(param2));
     }
 
@@ -7012,7 +7012,7 @@ pub const qplaintextdocumentlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -7235,7 +7235,7 @@ pub const qplaintextdocumentlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -7244,7 +7244,7 @@ pub const qplaintextdocumentlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -7253,7 +7253,7 @@ pub const qplaintextdocumentlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPlainTextDocumentLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

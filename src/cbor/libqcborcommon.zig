@@ -10,7 +10,7 @@ pub const qcborerror = struct {
     /// ``` self: QtC.QCborError ```
     ///
     /// Returns: ``` qcborcommon_enums.Code ```
-    pub fn ToQCborError__Code(self: ?*anyopaque) i64 {
+    pub fn ToQCborError__Code(self: ?*anyopaque) i32 {
         return qtc.QCborError_ToQCborError__Code(@ptrCast(self));
     }
 

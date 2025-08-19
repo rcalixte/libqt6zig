@@ -320,7 +320,7 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemName)
     ///
     /// ``` writingSystem: qfontdatabase_enums.WritingSystem, allocator: std.mem.Allocator ```
-    pub fn WritingSystemName(writingSystem: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn WritingSystemName(writingSystem: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFontDatabase_WritingSystemName(@intCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.WritingSystemName: Memory allocation failed");
@@ -331,7 +331,7 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#writingSystemSample)
     ///
     /// ``` writingSystem: qfontdatabase_enums.WritingSystem, allocator: std.mem.Allocator ```
-    pub fn WritingSystemSample(writingSystem: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn WritingSystemSample(writingSystem: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QFontDatabase_WritingSystemSample(@intCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.WritingSystemSample: Memory allocation failed");
@@ -400,7 +400,7 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#addApplicationFallbackFontFamily)
     ///
     /// ``` script: qchar_enums.Script, familyName: []const u8 ```
-    pub fn AddApplicationFallbackFontFamily(script: i64, familyName: []const u8) void {
+    pub fn AddApplicationFallbackFontFamily(script: i32, familyName: []const u8) void {
         const familyName_str = qtc.libqt_string{
             .len = familyName.len,
             .data = familyName.ptr,
@@ -411,7 +411,7 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#removeApplicationFallbackFontFamily)
     ///
     /// ``` script: qchar_enums.Script, familyName: []const u8 ```
-    pub fn RemoveApplicationFallbackFontFamily(script: i64, familyName: []const u8) bool {
+    pub fn RemoveApplicationFallbackFontFamily(script: i32, familyName: []const u8) bool {
         const familyName_str = qtc.libqt_string{
             .len = familyName.len,
             .data = familyName.ptr,
@@ -422,7 +422,7 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#setApplicationFallbackFontFamilies)
     ///
     /// ``` param1: qchar_enums.Script, familyNames: [][]const u8, allocator: std.mem.Allocator ```
-    pub fn SetApplicationFallbackFontFamilies(param1: i64, familyNames: [][]const u8, allocator: std.mem.Allocator) void {
+    pub fn SetApplicationFallbackFontFamilies(param1: i32, familyNames: [][]const u8, allocator: std.mem.Allocator) void {
         var familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("qfontdatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
         defer allocator.free(familyNames_arr);
         for (familyNames, 0..familyNames.len) |item, i| {
@@ -441,7 +441,7 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#applicationFallbackFontFamilies)
     ///
     /// ``` script: qchar_enums.Script, allocator: std.mem.Allocator ```
-    pub fn ApplicationFallbackFontFamilies(script: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ApplicationFallbackFontFamilies(script: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_ApplicationFallbackFontFamilies(@intCast(script));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -463,14 +463,14 @@ pub const qfontdatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#systemFont)
     ///
     /// ``` typeVal: qfontdatabase_enums.SystemFont ```
-    pub fn SystemFont(typeVal: i64) QtC.QFont {
+    pub fn SystemFont(typeVal: i32) QtC.QFont {
         return qtc.QFontDatabase_SystemFont(@intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontdatabase.html#families)
     ///
     /// ``` writingSystem: qfontdatabase_enums.WritingSystem, allocator: std.mem.Allocator ```
-    pub fn Families1(writingSystem: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Families1(writingSystem: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_Families1(@intCast(writingSystem));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {

@@ -21,7 +21,7 @@ pub const qgraphicsanchor = struct {
     }
 
     /// ``` self: QtC.QGraphicsAnchor, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsAnchor_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -61,7 +61,7 @@ pub const qgraphicsanchor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchor.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsAnchor, policy: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetSizePolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QGraphicsAnchor_SetSizePolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -70,7 +70,7 @@ pub const qgraphicsanchor = struct {
     /// ``` self: QtC.QGraphicsAnchor ```
     ///
     /// Returns: ``` qsizepolicy_enums.Policy ```
-    pub fn SizePolicy(self: ?*anyopaque) i64 {
+    pub fn SizePolicy(self: ?*anyopaque) i32 {
         return qtc.QGraphicsAnchor_SizePolicy(@ptrCast(self));
     }
 
@@ -230,7 +230,7 @@ pub const qgraphicsanchor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsAnchor, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -453,7 +453,7 @@ pub const qgraphicsanchor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsAnchor, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -462,7 +462,7 @@ pub const qgraphicsanchor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -471,7 +471,7 @@ pub const qgraphicsanchor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsAnchor, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -535,21 +535,21 @@ pub const qgraphicsanchorlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#addAnchor)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, firstItem: QtC.QGraphicsLayoutItem, firstEdge: qnamespace_enums.AnchorPoint, secondItem: QtC.QGraphicsLayoutItem, secondEdge: qnamespace_enums.AnchorPoint ```
-    pub fn AddAnchor(self: ?*anyopaque, firstItem: ?*anyopaque, firstEdge: i64, secondItem: ?*anyopaque, secondEdge: i64) QtC.QGraphicsAnchor {
+    pub fn AddAnchor(self: ?*anyopaque, firstItem: ?*anyopaque, firstEdge: i32, secondItem: ?*anyopaque, secondEdge: i32) QtC.QGraphicsAnchor {
         return qtc.QGraphicsAnchorLayout_AddAnchor(@ptrCast(self), @ptrCast(firstItem), @intCast(firstEdge), @ptrCast(secondItem), @intCast(secondEdge));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#anchor)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, firstItem: QtC.QGraphicsLayoutItem, firstEdge: qnamespace_enums.AnchorPoint, secondItem: QtC.QGraphicsLayoutItem, secondEdge: qnamespace_enums.AnchorPoint ```
-    pub fn Anchor(self: ?*anyopaque, firstItem: ?*anyopaque, firstEdge: i64, secondItem: ?*anyopaque, secondEdge: i64) QtC.QGraphicsAnchor {
+    pub fn Anchor(self: ?*anyopaque, firstItem: ?*anyopaque, firstEdge: i32, secondItem: ?*anyopaque, secondEdge: i32) QtC.QGraphicsAnchor {
         return qtc.QGraphicsAnchorLayout_Anchor(@ptrCast(self), @ptrCast(firstItem), @intCast(firstEdge), @ptrCast(secondItem), @intCast(secondEdge));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#addCornerAnchors)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, firstItem: QtC.QGraphicsLayoutItem, firstCorner: qnamespace_enums.Corner, secondItem: QtC.QGraphicsLayoutItem, secondCorner: qnamespace_enums.Corner ```
-    pub fn AddCornerAnchors(self: ?*anyopaque, firstItem: ?*anyopaque, firstCorner: i64, secondItem: ?*anyopaque, secondCorner: i64) void {
+    pub fn AddCornerAnchors(self: ?*anyopaque, firstItem: ?*anyopaque, firstCorner: i32, secondItem: ?*anyopaque, secondCorner: i32) void {
         qtc.QGraphicsAnchorLayout_AddCornerAnchors(@ptrCast(self), @ptrCast(firstItem), @intCast(firstCorner), @ptrCast(secondItem), @intCast(secondCorner));
     }
 
@@ -723,7 +723,7 @@ pub const qgraphicsanchorlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#sizeHint)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn SizeHint(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsAnchorLayout_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
@@ -732,7 +732,7 @@ pub const qgraphicsanchorlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
+    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
         qtc.QGraphicsAnchorLayout_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -741,7 +741,7 @@ pub const qgraphicsanchorlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn QBaseSizeHint(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsAnchorLayout_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
@@ -811,7 +811,7 @@ pub const qgraphicsanchorlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i64, vPolicy: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
     }
 
@@ -1036,7 +1036,7 @@ pub const qgraphicsanchorlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint ```
-    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i64) QtC.QSizeF {
+    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
     }
 
@@ -1090,7 +1090,7 @@ pub const qgraphicsanchorlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy, controlType: qsizepolicy_enums.ControlType ```
-    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i64, vPolicy: i64, controlType: i64) void {
+    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
     }
 
@@ -1099,7 +1099,7 @@ pub const qgraphicsanchorlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 

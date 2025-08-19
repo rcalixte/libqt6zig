@@ -11,7 +11,7 @@ pub const qabstractsocket = struct {
     /// New constructs a new QAbstractSocket object.
     ///
     /// ``` socketType: qabstractsocket_enums.SocketType, parent: QtC.QObject ```
-    pub fn New(socketType: i64, parent: ?*anyopaque) QtC.QAbstractSocket {
+    pub fn New(socketType: i32, parent: ?*anyopaque) QtC.QAbstractSocket {
         return qtc.QAbstractSocket_new(@intCast(socketType), @ptrCast(parent));
     }
 
@@ -29,21 +29,21 @@ pub const qabstractsocket = struct {
     }
 
     /// ``` self: QtC.QAbstractSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractSocket_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractSocket, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -135,7 +135,7 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#connectToHost)
     ///
     /// ``` self: QtC.QAbstractSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
-    pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i64) void {
+    pub fn ConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -148,7 +148,7 @@ pub const qabstractsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
-    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, u16, i64, i64) callconv(.c) void) void {
+    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, u16, i64, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_OnConnectToHost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -157,7 +157,7 @@ pub const qabstractsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol ```
-    pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i64) void {
+    pub fn QBaseConnectToHost(self: ?*anyopaque, hostName: []const u8, port: u16, mode: i64, protocol: i32) void {
         const hostName_str = qtc.libqt_string{
             .len = hostName.len,
             .data = hostName.ptr,
@@ -360,7 +360,7 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketDescriptor)
     ///
     /// ``` self: QtC.QAbstractSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i64, openMode: i64) bool {
+    pub fn SetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i64) bool {
         return qtc.QAbstractSocket_SetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
@@ -369,7 +369,7 @@ pub const qabstractsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnSetSocketDescriptor(self: ?*anyopaque, slot: fn (?*anyopaque, isize, i64, i64) callconv(.c) bool) void {
+    pub fn OnSetSocketDescriptor(self: ?*anyopaque, slot: fn (?*anyopaque, isize, i32, i64) callconv(.c) bool) void {
         qtc.QAbstractSocket_OnSetSocketDescriptor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -378,14 +378,14 @@ pub const qabstractsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractSocket, socketDescriptor: isize, state: qabstractsocket_enums.SocketState, openMode: flag of qiodevicebase_enums.OpenModeFlag ```
-    pub fn QBaseSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i64, openMode: i64) bool {
+    pub fn QBaseSetSocketDescriptor(self: ?*anyopaque, socketDescriptor: isize, state: i32, openMode: i64) bool {
         return qtc.QAbstractSocket_QBaseSetSocketDescriptor(@ptrCast(self), @intCast(socketDescriptor), @intCast(state), @intCast(openMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketOption)
     ///
     /// ``` self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant ```
-    pub fn SetSocketOption(self: ?*anyopaque, option: i64, value: ?*anyopaque) void {
+    pub fn SetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QAbstractSocket_SetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
@@ -394,7 +394,7 @@ pub const qabstractsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetSocketOption(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetSocketOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractSocket_OnSetSocketOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -403,14 +403,14 @@ pub const qabstractsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption, value: QtC.QVariant ```
-    pub fn QBaseSetSocketOption(self: ?*anyopaque, option: i64, value: ?*anyopaque) void {
+    pub fn QBaseSetSocketOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QAbstractSocket_QBaseSetSocketOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#socketOption)
     ///
     /// ``` self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption ```
-    pub fn SocketOption(self: ?*anyopaque, option: i64) QtC.QVariant {
+    pub fn SocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QAbstractSocket_SocketOption(@ptrCast(self), @intCast(option));
     }
 
@@ -419,7 +419,7 @@ pub const qabstractsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption) callconv(.c) QtC.QVariant ```
-    pub fn OnSocketOption(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnSocketOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QAbstractSocket_OnSocketOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -428,7 +428,7 @@ pub const qabstractsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractSocket, option: qabstractsocket_enums.SocketOption ```
-    pub fn QBaseSocketOption(self: ?*anyopaque, option: i64) QtC.QVariant {
+    pub fn QBaseSocketOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QAbstractSocket_QBaseSocketOption(@ptrCast(self), @intCast(option));
     }
 
@@ -437,7 +437,7 @@ pub const qabstractsocket = struct {
     /// ``` self: QtC.QAbstractSocket ```
     ///
     /// Returns: ``` qabstractsocket_enums.SocketType ```
-    pub fn SocketType(self: ?*anyopaque) i64 {
+    pub fn SocketType(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_SocketType(@ptrCast(self));
     }
 
@@ -446,7 +446,7 @@ pub const qabstractsocket = struct {
     /// ``` self: QtC.QAbstractSocket ```
     ///
     /// Returns: ``` qabstractsocket_enums.SocketState ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_State(@ptrCast(self));
     }
 
@@ -455,7 +455,7 @@ pub const qabstractsocket = struct {
     /// ``` self: QtC.QAbstractSocket ```
     ///
     /// Returns: ``` qabstractsocket_enums.SocketError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QAbstractSocket_Error(@ptrCast(self));
     }
 
@@ -697,28 +697,28 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
     /// ``` self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketState ```
-    pub fn StateChanged(self: ?*anyopaque, param1: i64) void {
+    pub fn StateChanged(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractSocket_StateChanged(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#stateChanged)
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketState) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
     /// ``` self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketError ```
-    pub fn ErrorOccurred(self: ?*anyopaque, param1: i64) void {
+    pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
         qtc.QAbstractSocket_ErrorOccurred(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#errorOccurred)
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, param1: qabstractsocket_enums.SocketError) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -845,7 +845,7 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketState)
     ///
     /// ``` self: QtC.QAbstractSocket, state: qabstractsocket_enums.SocketState ```
-    pub fn SetSocketState(self: ?*anyopaque, state: i64) void {
+    pub fn SetSocketState(self: ?*anyopaque, state: i32) void {
         qtc.QAbstractSocket_SetSocketState(@ptrCast(self), @intCast(state));
     }
 
@@ -854,7 +854,7 @@ pub const qabstractsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, state: qabstractsocket_enums.SocketState) callconv(.c) void ```
-    pub fn OnSetSocketState(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetSocketState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_OnSetSocketState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -863,14 +863,14 @@ pub const qabstractsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractSocket, state: qabstractsocket_enums.SocketState ```
-    pub fn QBaseSetSocketState(self: ?*anyopaque, state: i64) void {
+    pub fn QBaseSetSocketState(self: ?*anyopaque, state: i32) void {
         qtc.QAbstractSocket_QBaseSetSocketState(@ptrCast(self), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractsocket.html#setSocketError)
     ///
     /// ``` self: QtC.QAbstractSocket, socketError: qabstractsocket_enums.SocketError ```
-    pub fn SetSocketError(self: ?*anyopaque, socketError: i64) void {
+    pub fn SetSocketError(self: ?*anyopaque, socketError: i32) void {
         qtc.QAbstractSocket_SetSocketError(@ptrCast(self), @intCast(socketError));
     }
 
@@ -879,7 +879,7 @@ pub const qabstractsocket = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractSocket, slot: fn (self: QtC.QAbstractSocket, socketError: qabstractsocket_enums.SocketError) callconv(.c) void ```
-    pub fn OnSetSocketError(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetSocketError(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractSocket_OnSetSocketError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -888,7 +888,7 @@ pub const qabstractsocket = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractSocket, socketError: qabstractsocket_enums.SocketError ```
-    pub fn QBaseSetSocketError(self: ?*anyopaque, socketError: i64) void {
+    pub fn QBaseSetSocketError(self: ?*anyopaque, socketError: i32) void {
         qtc.QAbstractSocket_QBaseSetSocketError(@ptrCast(self), @intCast(socketError));
     }
 
@@ -1616,7 +1616,7 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractSocket, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1839,7 +1839,7 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractSocket, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1848,7 +1848,7 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1857,7 +1857,7 @@ pub const qabstractsocket = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractSocket, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

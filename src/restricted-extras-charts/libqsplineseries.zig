@@ -39,21 +39,21 @@ pub const qsplineseries = struct {
     }
 
     /// ``` self: QtC.QSplineSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSplineSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QSplineSeries, slot: fn (self: QtC.QSplineSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QSplineSeries_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSplineSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QSplineSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -74,7 +74,7 @@ pub const qsplineseries = struct {
     /// ``` self: QtC.QSplineSeries ```
     ///
     /// Returns: ``` qabstractseries_enums.SeriesType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QSplineSeries_Type(@ptrCast(self));
     }
 
@@ -82,8 +82,8 @@ pub const qsplineseries = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSplineSeries, slot: fn () callconv(.c) i64 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QSplineSeries, slot: fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QSplineSeries_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -94,7 +94,7 @@ pub const qsplineseries = struct {
     /// ``` self: QtC.QSplineSeries ```
     ///
     /// Returns: ``` qabstractseries_enums.SeriesType ```
-    pub fn QBaseType(self: ?*anyopaque) i64 {
+    pub fn QBaseType(self: ?*anyopaque) i32 {
         return qtc.QSplineSeries_QBaseType(@ptrCast(self));
     }
 
@@ -661,7 +661,7 @@ pub const qsplineseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#bestFitLineEquation)
     ///
-    /// ``` self: QtC.QSplineSeries, ok: bool ```
+    /// ``` self: QtC.QSplineSeries, ok: *bool ```
     pub fn BestFitLineEquation(self: ?*anyopaque, ok: *bool) struct_f64_f64 {
         const _pair: qtc.libqt_pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self), @ptrCast(ok));
         return struct_f64_f64{
@@ -720,7 +720,7 @@ pub const qsplineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clearPointConfiguration)
     ///
     /// ``` self: QtC.QSplineSeries, index: i32, key: qxyseries_enums.PointConfiguration ```
-    pub fn ClearPointConfiguration2(self: ?*anyopaque, index: i32, key: i64) void {
+    pub fn ClearPointConfiguration2(self: ?*anyopaque, index: i32, key: i32) void {
         qtc.QXYSeries_ClearPointConfiguration2(@ptrCast(self), @intCast(index), @intCast(key));
     }
 
@@ -738,7 +738,7 @@ pub const qsplineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#clearPointsConfiguration)
     ///
     /// ``` self: QtC.QSplineSeries, key: qxyseries_enums.PointConfiguration ```
-    pub fn ClearPointsConfiguration2(self: ?*anyopaque, key: i64) void {
+    pub fn ClearPointsConfiguration2(self: ?*anyopaque, key: i32) void {
         qtc.QXYSeries_ClearPointsConfiguration2(@ptrCast(self), @intCast(key));
     }
 
@@ -773,7 +773,7 @@ pub const qsplineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#setPointConfiguration)
     ///
     /// ``` self: QtC.QSplineSeries, index: i32, key: qxyseries_enums.PointConfiguration, value: QtC.QVariant ```
-    pub fn SetPointConfiguration2(self: ?*anyopaque, index: i32, key: i64, value: ?*anyopaque) void {
+    pub fn SetPointConfiguration2(self: ?*anyopaque, index: i32, key: i32, value: ?*anyopaque) void {
         qtc.QXYSeries_SetPointConfiguration2(@ptrCast(self), @intCast(index), @intCast(key), @ptrCast(value));
     }
 
@@ -1754,7 +1754,7 @@ pub const qsplineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QSplineSeries, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1977,7 +1977,7 @@ pub const qsplineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QSplineSeries, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1986,7 +1986,7 @@ pub const qsplineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1995,7 +1995,7 @@ pub const qsplineseries = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QSplineSeries, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

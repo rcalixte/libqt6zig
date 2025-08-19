@@ -90,14 +90,14 @@ pub const qhostinfo = struct {
     /// ``` self: QtC.QHostInfo ```
     ///
     /// Returns: ``` qhostinfo_enums.HostInfoError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QHostInfo_Error(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostinfo.html#setError)
     ///
     /// ``` self: QtC.QHostInfo, errorVal: qhostinfo_enums.HostInfoError ```
-    pub fn SetError(self: ?*anyopaque, errorVal: i64) void {
+    pub fn SetError(self: ?*anyopaque, errorVal: i32) void {
         qtc.QHostInfo_SetError(@ptrCast(self), @intCast(errorVal));
     }
 

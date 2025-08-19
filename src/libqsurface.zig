@@ -9,7 +9,7 @@ pub const qsurface = struct {
     /// ``` self: QtC.QSurface ```
     ///
     /// Returns: ``` qsurface_enums.SurfaceClass ```
-    pub fn SurfaceClass(self: ?*anyopaque) i64 {
+    pub fn SurfaceClass(self: ?*anyopaque) i32 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }
 
@@ -25,7 +25,7 @@ pub const qsurface = struct {
     /// ``` self: QtC.QSurface ```
     ///
     /// Returns: ``` qsurface_enums.SurfaceType ```
-    pub fn SurfaceType(self: ?*anyopaque) i64 {
+    pub fn SurfaceType(self: ?*anyopaque) i32 {
         return qtc.QSurface_SurfaceType(@ptrCast(self));
     }
 

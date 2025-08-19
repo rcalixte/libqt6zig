@@ -88,7 +88,7 @@ pub const qfontinfo = struct {
     /// ``` self: QtC.QFontInfo ```
     ///
     /// Returns: ``` qfont_enums.Style ```
-    pub fn Style(self: ?*anyopaque) i64 {
+    pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QFontInfo_Style(@ptrCast(self));
     }
 
@@ -139,7 +139,7 @@ pub const qfontinfo = struct {
     /// ``` self: QtC.QFontInfo ```
     ///
     /// Returns: ``` qfont_enums.StyleHint ```
-    pub fn StyleHint(self: ?*anyopaque) i64 {
+    pub fn StyleHint(self: ?*anyopaque) i32 {
         return qtc.QFontInfo_StyleHint(@ptrCast(self));
     }
 

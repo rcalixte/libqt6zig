@@ -34,7 +34,7 @@ pub const qurl = struct {
     /// New4 constructs a new QUrl object.
     ///
     /// ``` url: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn New4(url: []const u8, mode: i64) QtC.QUrl {
+    pub fn New4(url: []const u8, mode: i32) QtC.QUrl {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -635,7 +635,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUrl)
     ///
     /// ``` self: QtC.QUrl, url: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetUrl2(self: ?*anyopaque, url: []const u8, mode: i64) void {
+    pub fn SetUrl2(self: ?*anyopaque, url: []const u8, mode: i32) void {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -646,7 +646,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromEncoded)
     ///
     /// ``` input: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn FromEncoded2(input: []const u8, mode: i64) QtC.QUrl {
+    pub fn FromEncoded2(input: []const u8, mode: i32) QtC.QUrl {
         return qtc.QUrl_FromEncoded2(input.ptr, @intCast(mode));
     }
 
@@ -683,7 +683,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setAuthority)
     ///
     /// ``` self: QtC.QUrl, authority: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetAuthority2(self: ?*anyopaque, authority: []const u8, mode: i64) void {
+    pub fn SetAuthority2(self: ?*anyopaque, authority: []const u8, mode: i32) void {
         const authority_str = qtc.libqt_string{
             .len = authority.len,
             .data = authority.ptr,
@@ -705,7 +705,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUserInfo)
     ///
     /// ``` self: QtC.QUrl, userInfo: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetUserInfo2(self: ?*anyopaque, userInfo: []const u8, mode: i64) void {
+    pub fn SetUserInfo2(self: ?*anyopaque, userInfo: []const u8, mode: i32) void {
         const userInfo_str = qtc.libqt_string{
             .len = userInfo.len,
             .data = userInfo.ptr,
@@ -727,7 +727,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setUserName)
     ///
     /// ``` self: QtC.QUrl, userName: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetUserName2(self: ?*anyopaque, userName: []const u8, mode: i64) void {
+    pub fn SetUserName2(self: ?*anyopaque, userName: []const u8, mode: i32) void {
         const userName_str = qtc.libqt_string{
             .len = userName.len,
             .data = userName.ptr,
@@ -749,7 +749,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setPassword)
     ///
     /// ``` self: QtC.QUrl, password: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetPassword2(self: ?*anyopaque, password: []const u8, mode: i64) void {
+    pub fn SetPassword2(self: ?*anyopaque, password: []const u8, mode: i32) void {
         const password_str = qtc.libqt_string{
             .len = password.len,
             .data = password.ptr,
@@ -771,7 +771,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setHost)
     ///
     /// ``` self: QtC.QUrl, host: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i64) void {
+    pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i32) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -800,7 +800,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setPath)
     ///
     /// ``` self: QtC.QUrl, path: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetPath2(self: ?*anyopaque, path: []const u8, mode: i64) void {
+    pub fn SetPath2(self: ?*anyopaque, path: []const u8, mode: i32) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -833,7 +833,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setQuery)
     ///
     /// ``` self: QtC.QUrl, query: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetQuery22(self: ?*anyopaque, query: []const u8, mode: i64) void {
+    pub fn SetQuery22(self: ?*anyopaque, query: []const u8, mode: i32) void {
         const query_str = qtc.libqt_string{
             .len = query.len,
             .data = query.ptr,
@@ -866,7 +866,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#setFragment)
     ///
     /// ``` self: QtC.QUrl, fragment: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetFragment2(self: ?*anyopaque, fragment: []const u8, mode: i64) void {
+    pub fn SetFragment2(self: ?*anyopaque, fragment: []const u8, mode: i32) void {
         const fragment_str = qtc.libqt_string{
             .len = fragment.len,
             .data = fragment.ptr,
@@ -949,7 +949,7 @@ pub const qurl = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromStringList)
     ///
     /// ``` uris: [][]const u8, mode: qurl_enums.ParsingMode, allocator: std.mem.Allocator ```
-    pub fn FromStringList2(uris: [][]const u8, mode: i64, allocator: std.mem.Allocator) []QtC.QUrl {
+    pub fn FromStringList2(uris: [][]const u8, mode: i32, allocator: std.mem.Allocator) []QtC.QUrl {
         var uris_arr = allocator.alloc(qtc.libqt_string, uris.len) catch @panic("qurl.FromStringList2: Memory allocation failed");
         defer allocator.free(uris_arr);
         for (uris, 0..uris.len) |item, i| {

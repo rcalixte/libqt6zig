@@ -16,7 +16,7 @@ pub const qsvggenerator = struct {
     /// New2 constructs a new QSvgGenerator object.
     ///
     /// ``` version: qsvggenerator_enums.SvgVersion ```
-    pub fn New2(version: i64) QtC.QSvgGenerator {
+    pub fn New2(version: i32) QtC.QSvgGenerator {
         return qtc.QSvgGenerator_new2(@intCast(version));
     }
 
@@ -161,7 +161,7 @@ pub const qsvggenerator = struct {
     /// ``` self: QtC.QSvgGenerator ```
     ///
     /// Returns: ``` qsvggenerator_enums.SvgVersion ```
-    pub fn SvgVersion(self: ?*anyopaque) i64 {
+    pub fn SvgVersion(self: ?*anyopaque) i32 {
         return qtc.QSvgGenerator_SvgVersion(@ptrCast(self));
     }
 
@@ -193,7 +193,7 @@ pub const qsvggenerator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsvggenerator.html#metric)
     ///
     /// ``` self: QtC.QSvgGenerator, metric: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, metric: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, metric: i32) i32 {
         return qtc.QSvgGenerator_Metric(@ptrCast(self), @intCast(metric));
     }
 
@@ -202,7 +202,7 @@ pub const qsvggenerator = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QSvgGenerator, slot: fn (self: QtC.QSvgGenerator, metric: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QSvgGenerator_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -211,7 +211,7 @@ pub const qsvggenerator = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QSvgGenerator, metric: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, metric: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, metric: i32) i32 {
         return qtc.QSvgGenerator_QBaseMetric(@ptrCast(self), @intCast(metric));
     }
 
@@ -346,7 +346,7 @@ pub const qsvggenerator = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -489,7 +489,7 @@ pub const qsvggenerator = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QSvgGenerator_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -500,7 +500,7 @@ pub const qsvggenerator = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QSvgGenerator_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -511,7 +511,7 @@ pub const qsvggenerator = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QSvgGenerator, slot: fn (self: QtC.QSvgGenerator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QSvgGenerator_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

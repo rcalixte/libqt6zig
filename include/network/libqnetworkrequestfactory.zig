@@ -236,7 +236,7 @@ pub const qnetworkrequestfactory = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#setPriority)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, priority: qnetworkrequest_enums.Priority ```
-    pub fn SetPriority(self: ?*anyopaque, priority: i64) void {
+    pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
         qtc.QNetworkRequestFactory_SetPriority(@ptrCast(self), @intCast(priority));
     }
 
@@ -245,35 +245,35 @@ pub const qnetworkrequestfactory = struct {
     /// ``` self: QtC.QNetworkRequestFactory ```
     ///
     /// Returns: ``` qnetworkrequest_enums.Priority ```
-    pub fn Priority(self: ?*anyopaque) i64 {
+    pub fn Priority(self: ?*anyopaque) i32 {
         return qtc.QNetworkRequestFactory_Priority(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#attribute)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, attribute: qnetworkrequest_enums.Attribute ```
-    pub fn Attribute(self: ?*anyopaque, attribute: i64) QtC.QVariant {
+    pub fn Attribute(self: ?*anyopaque, attribute: i32) QtC.QVariant {
         return qtc.QNetworkRequestFactory_Attribute(@ptrCast(self), @intCast(attribute));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#attribute)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, attribute: qnetworkrequest_enums.Attribute, defaultValue: QtC.QVariant ```
-    pub fn Attribute2(self: ?*anyopaque, attribute: i64, defaultValue: ?*anyopaque) QtC.QVariant {
+    pub fn Attribute2(self: ?*anyopaque, attribute: i32, defaultValue: ?*anyopaque) QtC.QVariant {
         return qtc.QNetworkRequestFactory_Attribute2(@ptrCast(self), @intCast(attribute), @ptrCast(defaultValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#setAttribute)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, attribute: qnetworkrequest_enums.Attribute, value: QtC.QVariant ```
-    pub fn SetAttribute(self: ?*anyopaque, attribute: i64, value: ?*anyopaque) void {
+    pub fn SetAttribute(self: ?*anyopaque, attribute: i32, value: ?*anyopaque) void {
         qtc.QNetworkRequestFactory_SetAttribute(@ptrCast(self), @intCast(attribute), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequestfactory.html#clearAttribute)
     ///
     /// ``` self: QtC.QNetworkRequestFactory, attribute: qnetworkrequest_enums.Attribute ```
-    pub fn ClearAttribute(self: ?*anyopaque, attribute: i64) void {
+    pub fn ClearAttribute(self: ?*anyopaque, attribute: i32) void {
         qtc.QNetworkRequestFactory_ClearAttribute(@ptrCast(self), @intCast(attribute));
     }
 

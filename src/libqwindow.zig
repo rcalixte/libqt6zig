@@ -43,21 +43,21 @@ pub const qwindow = struct {
     }
 
     /// ``` self: QtC.QWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWindow_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QWindow_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWindow_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -76,7 +76,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setSurfaceType)
     ///
     /// ``` self: QtC.QWindow, surfaceType: qsurface_enums.SurfaceType ```
-    pub fn SetSurfaceType(self: ?*anyopaque, surfaceType: i64) void {
+    pub fn SetSurfaceType(self: ?*anyopaque, surfaceType: i32) void {
         qtc.QWindow_SetSurfaceType(@ptrCast(self), @intCast(surfaceType));
     }
 
@@ -85,7 +85,7 @@ pub const qwindow = struct {
     /// ``` self: QtC.QWindow ```
     ///
     /// Returns: ``` qsurface_enums.SurfaceType ```
-    pub fn SurfaceType(self: ?*anyopaque) i64 {
+    pub fn SurfaceType(self: ?*anyopaque) i32 {
         return qtc.QWindow_SurfaceType(@ptrCast(self));
     }
 
@@ -93,8 +93,8 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) i64 ```
-    pub fn OnSurfaceType(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) i32 ```
+    pub fn OnSurfaceType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QWindow_OnSurfaceType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -105,7 +105,7 @@ pub const qwindow = struct {
     /// ``` self: QtC.QWindow ```
     ///
     /// Returns: ``` qsurface_enums.SurfaceType ```
-    pub fn QBaseSurfaceType(self: ?*anyopaque) i64 {
+    pub fn QBaseSurfaceType(self: ?*anyopaque) i32 {
         return qtc.QWindow_QBaseSurfaceType(@ptrCast(self));
     }
 
@@ -121,14 +121,14 @@ pub const qwindow = struct {
     /// ``` self: QtC.QWindow ```
     ///
     /// Returns: ``` qwindow_enums.Visibility ```
-    pub fn Visibility(self: ?*anyopaque) i64 {
+    pub fn Visibility(self: ?*anyopaque) i32 {
         return qtc.QWindow_Visibility(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setVisibility)
     ///
     /// ``` self: QtC.QWindow, v: qwindow_enums.Visibility ```
-    pub fn SetVisibility(self: ?*anyopaque, v: i64) void {
+    pub fn SetVisibility(self: ?*anyopaque, v: i32) void {
         qtc.QWindow_SetVisibility(@ptrCast(self), @intCast(v));
     }
 
@@ -179,14 +179,14 @@ pub const qwindow = struct {
     /// ``` self: QtC.QWindow ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn Modality(self: ?*anyopaque) i64 {
+    pub fn Modality(self: ?*anyopaque) i32 {
         return qtc.QWindow_Modality(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setModality)
     ///
     /// ``` self: QtC.QWindow, modality: qnamespace_enums.WindowModality ```
-    pub fn SetModality(self: ?*anyopaque, modality: i64) void {
+    pub fn SetModality(self: ?*anyopaque, modality: i32) void {
         qtc.QWindow_SetModality(@ptrCast(self), @intCast(modality));
     }
 
@@ -310,7 +310,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#reportContentOrientationChange)
     ///
     /// ``` self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation ```
-    pub fn ReportContentOrientationChange(self: ?*anyopaque, orientation: i64) void {
+    pub fn ReportContentOrientationChange(self: ?*anyopaque, orientation: i32) void {
         qtc.QWindow_ReportContentOrientationChange(@ptrCast(self), @intCast(orientation));
     }
 
@@ -319,7 +319,7 @@ pub const qwindow = struct {
     /// ``` self: QtC.QWindow ```
     ///
     /// Returns: ``` qnamespace_enums.ScreenOrientation ```
-    pub fn ContentOrientation(self: ?*anyopaque) i64 {
+    pub fn ContentOrientation(self: ?*anyopaque) i32 {
         return qtc.QWindow_ContentOrientation(@ptrCast(self));
     }
 
@@ -335,7 +335,7 @@ pub const qwindow = struct {
     /// ``` self: QtC.QWindow ```
     ///
     /// Returns: ``` qnamespace_enums.WindowState ```
-    pub fn WindowState(self: ?*anyopaque) i64 {
+    pub fn WindowState(self: ?*anyopaque) i32 {
         return qtc.QWindow_WindowState(@ptrCast(self));
     }
 
@@ -351,7 +351,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#setWindowState)
     ///
     /// ``` self: QtC.QWindow, state: qnamespace_enums.WindowState ```
-    pub fn SetWindowState(self: ?*anyopaque, state: i64) void {
+    pub fn SetWindowState(self: ?*anyopaque, state: i32) void {
         qtc.QWindow_SetWindowState(@ptrCast(self), @intCast(state));
     }
 
@@ -1004,28 +1004,28 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
     /// ``` self: QtC.QWindow, modality: qnamespace_enums.WindowModality ```
-    pub fn ModalityChanged(self: ?*anyopaque, modality: i64) void {
+    pub fn ModalityChanged(self: ?*anyopaque, modality: i32) void {
         qtc.QWindow_ModalityChanged(@ptrCast(self), @intCast(modality));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
     /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void ```
-    pub fn OnModalityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnModalityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ModalityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QWindow, windowState: qnamespace_enums.WindowState ```
-    pub fn WindowStateChanged(self: ?*anyopaque, windowState: i64) void {
+    pub fn WindowStateChanged(self: ?*anyopaque, windowState: i32) void {
         qtc.QWindow_WindowStateChanged(@ptrCast(self), @intCast(windowState));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
     /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void ```
-    pub fn OnWindowStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnWindowStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1176,14 +1176,14 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
     /// ``` self: QtC.QWindow, visibility: qwindow_enums.Visibility ```
-    pub fn VisibilityChanged(self: ?*anyopaque, visibility: i64) void {
+    pub fn VisibilityChanged(self: ?*anyopaque, visibility: i32) void {
         qtc.QWindow_VisibilityChanged(@ptrCast(self), @intCast(visibility));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
     /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, visibility: qwindow_enums.Visibility) callconv(.c) void ```
-    pub fn OnVisibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnVisibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_VisibilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1204,14 +1204,14 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
     /// ``` self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation ```
-    pub fn ContentOrientationChanged(self: ?*anyopaque, orientation: i64) void {
+    pub fn ContentOrientationChanged(self: ?*anyopaque, orientation: i32) void {
         qtc.QWindow_ContentOrientationChanged(@ptrCast(self), @intCast(orientation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
     /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
-    pub fn OnContentOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnContentOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWindow_Connect_ContentOrientationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1794,7 +1794,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#parent)
     ///
     /// ``` self: QtC.QWindow, mode: qwindow_enums.AncestorMode ```
-    pub fn Parent1(self: ?*anyopaque, mode: i64) QtC.QWindow {
+    pub fn Parent1(self: ?*anyopaque, mode: i32) QtC.QWindow {
         return qtc.QWindow_Parent1(@ptrCast(self), @intCast(mode));
     }
 
@@ -1808,7 +1808,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#isAncestorOf)
     ///
     /// ``` self: QtC.QWindow, child: QtC.QWindow, mode: qwindow_enums.AncestorMode ```
-    pub fn IsAncestorOf2(self: ?*anyopaque, child: ?*anyopaque, mode: i64) bool {
+    pub fn IsAncestorOf2(self: ?*anyopaque, child: ?*anyopaque, mode: i32) bool {
         return qtc.QWindow_IsAncestorOf2(@ptrCast(self), @ptrCast(child), @intCast(mode));
     }
 
@@ -1924,7 +1924,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWindow, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -2129,7 +2129,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWindow, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -2138,7 +2138,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -2147,7 +2147,7 @@ pub const qwindow = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWindow, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -2178,7 +2178,7 @@ pub const qwindow = struct {
     /// ``` self: QtC.QWindow ```
     ///
     /// Returns: ``` qsurface_enums.SurfaceClass ```
-    pub fn SurfaceClass(self: ?*anyopaque) i64 {
+    pub fn SurfaceClass(self: ?*anyopaque) i32 {
         return qtc.QSurface_SurfaceClass(@ptrCast(self));
     }
 

@@ -15,7 +15,7 @@ pub const qstringencoder = struct {
     /// New2 constructs a new QStringEncoder object.
     ///
     /// ``` encoding: qstringconverter_base_enums.Encoding ```
-    pub fn New2(encoding: i64) QtC.QStringEncoder {
+    pub fn New2(encoding: i32) QtC.QStringEncoder {
         return qtc.QStringEncoder_new2(@intCast(encoding));
     }
 
@@ -34,7 +34,7 @@ pub const qstringencoder = struct {
     /// New4 constructs a new QStringEncoder object.
     ///
     /// ``` encoding: qstringconverter_base_enums.Encoding, flags: flag of qstringconverter_base_enums.Flag ```
-    pub fn New4(encoding: i64, flags: i64) QtC.QStringEncoder {
+    pub fn New4(encoding: i32, flags: i64) QtC.QStringEncoder {
         return qtc.QStringEncoder_new4(@intCast(encoding), @intCast(flags));
     }
 
@@ -99,7 +99,7 @@ pub const qstringencoder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
     /// ``` e: qstringconverter_base_enums.Encoding ```
-    pub fn NameForEncoding(e: i64) []const u8 {
+    pub fn NameForEncoding(e: i32) []const u8 {
         const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
         return std.mem.span(_ret);
     }
@@ -143,7 +143,7 @@ pub const qstringdecoder = struct {
     /// New constructs a new QStringDecoder object.
     ///
     /// ``` encoding: qstringconverter_base_enums.Encoding ```
-    pub fn New(encoding: i64) QtC.QStringDecoder {
+    pub fn New(encoding: i32) QtC.QStringDecoder {
         return qtc.QStringDecoder_new(@intCast(encoding));
     }
 
@@ -169,7 +169,7 @@ pub const qstringdecoder = struct {
     /// New4 constructs a new QStringDecoder object.
     ///
     /// ``` encoding: qstringconverter_base_enums.Encoding, flags: flag of qstringconverter_base_enums.Flag ```
-    pub fn New4(encoding: i64, flags: i64) QtC.QStringDecoder {
+    pub fn New4(encoding: i32, flags: i64) QtC.QStringDecoder {
         return qtc.QStringDecoder_new4(@intCast(encoding), @intCast(flags));
     }
 
@@ -248,7 +248,7 @@ pub const qstringdecoder = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)
     ///
     /// ``` e: qstringconverter_base_enums.Encoding ```
-    pub fn NameForEncoding(e: i64) []const u8 {
+    pub fn NameForEncoding(e: i32) []const u8 {
         const _ret = qtc.QStringConverter_NameForEncoding(@intCast(e));
         return std.mem.span(_ret);
     }

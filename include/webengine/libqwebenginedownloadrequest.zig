@@ -21,7 +21,7 @@ pub const qwebenginedownloadrequest = struct {
     }
 
     /// ``` self: QtC.QWebEngineDownloadRequest, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEngineDownloadRequest_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -49,7 +49,7 @@ pub const qwebenginedownloadrequest = struct {
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     ///
     /// Returns: ``` qwebenginedownloadrequest_enums.DownloadState ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QWebEngineDownloadRequest_State(@ptrCast(self));
     }
 
@@ -104,14 +104,14 @@ pub const qwebenginedownloadrequest = struct {
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     ///
     /// Returns: ``` qwebenginedownloadrequest_enums.SavePageFormat ```
-    pub fn SavePageFormat(self: ?*anyopaque) i64 {
+    pub fn SavePageFormat(self: ?*anyopaque) i32 {
         return qtc.QWebEngineDownloadRequest_SavePageFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#setSavePageFormat)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, format: qwebenginedownloadrequest_enums.SavePageFormat ```
-    pub fn SetSavePageFormat(self: ?*anyopaque, format: i64) void {
+    pub fn SetSavePageFormat(self: ?*anyopaque, format: i32) void {
         qtc.QWebEngineDownloadRequest_SetSavePageFormat(@ptrCast(self), @intCast(format));
     }
 
@@ -120,7 +120,7 @@ pub const qwebenginedownloadrequest = struct {
     /// ``` self: QtC.QWebEngineDownloadRequest ```
     ///
     /// Returns: ``` qwebenginedownloadrequest_enums.DownloadInterruptReason ```
-    pub fn InterruptReason(self: ?*anyopaque) i64 {
+    pub fn InterruptReason(self: ?*anyopaque) i32 {
         return qtc.QWebEngineDownloadRequest_InterruptReason(@ptrCast(self));
     }
 
@@ -235,14 +235,14 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#stateChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, state: qwebenginedownloadrequest_enums.DownloadState ```
-    pub fn StateChanged(self: ?*anyopaque, state: i64) void {
+    pub fn StateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QWebEngineDownloadRequest_StateChanged(@ptrCast(self), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#stateChanged)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest, state: qwebenginedownloadrequest_enums.DownloadState) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEngineDownloadRequest_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -514,7 +514,7 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -737,7 +737,7 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -746,7 +746,7 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -755,7 +755,7 @@ pub const qwebenginedownloadrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineDownloadRequest, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

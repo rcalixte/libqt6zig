@@ -335,7 +335,7 @@ pub const qanystringview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qanystringview.html#compare)
     ///
     /// ``` lhs: []const u8, rhs: []const u8, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i64) i32 {
+    pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i32) i32 {
         const lhs_str = qtc.libqt_string{
             .len = lhs.len,
             .data = lhs.ptr,

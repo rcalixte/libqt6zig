@@ -32,7 +32,7 @@ pub const qtextlength = struct {
     /// New4 constructs a new QTextLength object.
     ///
     /// ``` typeVal: qtextformat_enums.Type, value: f64 ```
-    pub fn New4(typeVal: i64, value: f64) QtC.QTextLength {
+    pub fn New4(typeVal: i32, value: f64) QtC.QTextLength {
         return qtc.QTextLength_new4(@intCast(typeVal), @floatCast(value));
     }
 
@@ -62,7 +62,7 @@ pub const qtextlength = struct {
     /// ``` self: QtC.QTextLength ```
     ///
     /// Returns: ``` qtextformat_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QTextLength_Type(@ptrCast(self));
     }
 
@@ -465,7 +465,7 @@ pub const qtextformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -474,7 +474,7 @@ pub const qtextformat = struct {
     /// ``` self: QtC.QTextFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
@@ -671,7 +671,7 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
     /// ``` self: QtC.QTextCharFormat, capitalization: qfont_enums.Capitalization ```
-    pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i64) void {
+    pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
         qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
     }
 
@@ -680,14 +680,14 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qfont_enums.Capitalization ```
-    pub fn FontCapitalization(self: ?*anyopaque) i64 {
+    pub fn FontCapitalization(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
     /// ``` self: QtC.QTextCharFormat, letterSpacingType: qfont_enums.SpacingType ```
-    pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i64) void {
+    pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
         qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
     }
 
@@ -696,7 +696,7 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qfont_enums.SpacingType ```
-    pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
+    pub fn FontLetterSpacingType(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
 
@@ -815,14 +815,14 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.QTextCharFormat, hint: qfont_enums.StyleHint ```
-    pub fn SetFontStyleHint(self: ?*anyopaque, hint: i64) void {
+    pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
     /// ``` self: QtC.QTextCharFormat, strategy: qfont_enums.StyleStrategy ```
-    pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i64) void {
+    pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
     }
 
@@ -831,7 +831,7 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qfont_enums.StyleHint ```
-    pub fn FontStyleHint(self: ?*anyopaque) i64 {
+    pub fn FontStyleHint(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
 
@@ -840,14 +840,14 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qfont_enums.StyleStrategy ```
-    pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
+    pub fn FontStyleStrategy(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
     /// ``` self: QtC.QTextCharFormat, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i64) void {
+    pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
         qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
     }
 
@@ -856,7 +856,7 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qfont_enums.HintingPreference ```
-    pub fn FontHintingPreference(self: ?*anyopaque) i64 {
+    pub fn FontHintingPreference(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
 
@@ -877,7 +877,7 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
     /// ``` self: QtC.QTextCharFormat, style: qtextformat_enums.UnderlineStyle ```
-    pub fn SetUnderlineStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -886,14 +886,14 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qtextformat_enums.UnderlineStyle ```
-    pub fn UnderlineStyle(self: ?*anyopaque) i64 {
+    pub fn UnderlineStyle(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
     /// ``` self: QtC.QTextCharFormat, alignment: qtextformat_enums.VerticalAlignment ```
-    pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -902,7 +902,7 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qtextformat_enums.VerticalAlignment ```
-    pub fn VerticalAlignment(self: ?*anyopaque) i64 {
+    pub fn VerticalAlignment(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
 
@@ -1092,14 +1092,14 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
     /// ``` self: QtC.QTextCharFormat, font: QtC.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
-    pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i64) void {
+    pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
         qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.QTextCharFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
-    pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i64, strategy: i64) void {
+    pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
     }
 
@@ -1513,7 +1513,7 @@ pub const qtextcharformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextCharFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -1524,7 +1524,7 @@ pub const qtextcharformat = struct {
     /// ``` self: QtC.QTextCharFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
@@ -1806,7 +1806,7 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextblockformat.html#setMarker)
     ///
     /// ``` self: QtC.QTextBlockFormat, marker: qtextformat_enums.MarkerType ```
-    pub fn SetMarker(self: ?*anyopaque, marker: i64) void {
+    pub fn SetMarker(self: ?*anyopaque, marker: i32) void {
         qtc.QTextBlockFormat_SetMarker(@ptrCast(self), @intCast(marker));
     }
 
@@ -1815,7 +1815,7 @@ pub const qtextblockformat = struct {
     /// ``` self: QtC.QTextBlockFormat ```
     ///
     /// Returns: ``` qtextformat_enums.MarkerType ```
-    pub fn Marker(self: ?*anyopaque) i64 {
+    pub fn Marker(self: ?*anyopaque) i32 {
         return qtc.QTextBlockFormat_Marker(@ptrCast(self));
     }
 
@@ -2229,7 +2229,7 @@ pub const qtextblockformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextBlockFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2240,7 +2240,7 @@ pub const qtextblockformat = struct {
     /// ``` self: QtC.QTextBlockFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
@@ -2327,7 +2327,7 @@ pub const qtextlistformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlistformat.html#setStyle)
     ///
     /// ``` self: QtC.QTextListFormat, style: qtextformat_enums.Style ```
-    pub fn SetStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextListFormat_SetStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -2336,7 +2336,7 @@ pub const qtextlistformat = struct {
     /// ``` self: QtC.QTextListFormat ```
     ///
     /// Returns: ``` qtextformat_enums.Style ```
-    pub fn Style(self: ?*anyopaque) i64 {
+    pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QTextListFormat_Style(@ptrCast(self));
     }
 
@@ -2822,7 +2822,7 @@ pub const qtextlistformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextListFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2833,7 +2833,7 @@ pub const qtextlistformat = struct {
     /// ``` self: QtC.QTextListFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
@@ -3157,7 +3157,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
     /// ``` self: QtC.QTextImageFormat, capitalization: qfont_enums.Capitalization ```
-    pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i64) void {
+    pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
         qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
     }
 
@@ -3168,7 +3168,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qfont_enums.Capitalization ```
-    pub fn FontCapitalization(self: ?*anyopaque) i64 {
+    pub fn FontCapitalization(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
 
@@ -3177,7 +3177,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
     /// ``` self: QtC.QTextImageFormat, letterSpacingType: qfont_enums.SpacingType ```
-    pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i64) void {
+    pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
         qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
     }
 
@@ -3188,7 +3188,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qfont_enums.SpacingType ```
-    pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
+    pub fn FontLetterSpacingType(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
 
@@ -3341,7 +3341,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.QTextImageFormat, hint: qfont_enums.StyleHint ```
-    pub fn SetFontStyleHint(self: ?*anyopaque, hint: i64) void {
+    pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
     }
 
@@ -3350,7 +3350,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
     /// ``` self: QtC.QTextImageFormat, strategy: qfont_enums.StyleStrategy ```
-    pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i64) void {
+    pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
     }
 
@@ -3361,7 +3361,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qfont_enums.StyleHint ```
-    pub fn FontStyleHint(self: ?*anyopaque) i64 {
+    pub fn FontStyleHint(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
 
@@ -3372,7 +3372,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qfont_enums.StyleStrategy ```
-    pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
+    pub fn FontStyleStrategy(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
 
@@ -3381,7 +3381,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
     /// ``` self: QtC.QTextImageFormat, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i64) void {
+    pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
         qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
     }
 
@@ -3392,7 +3392,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qfont_enums.HintingPreference ```
-    pub fn FontHintingPreference(self: ?*anyopaque) i64 {
+    pub fn FontHintingPreference(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
 
@@ -3419,7 +3419,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
     /// ``` self: QtC.QTextImageFormat, style: qtextformat_enums.UnderlineStyle ```
-    pub fn SetUnderlineStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -3430,7 +3430,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qtextformat_enums.UnderlineStyle ```
-    pub fn UnderlineStyle(self: ?*anyopaque) i64 {
+    pub fn UnderlineStyle(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
 
@@ -3439,7 +3439,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
     /// ``` self: QtC.QTextImageFormat, alignment: qtextformat_enums.VerticalAlignment ```
-    pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -3450,7 +3450,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qtextformat_enums.VerticalAlignment ```
-    pub fn VerticalAlignment(self: ?*anyopaque) i64 {
+    pub fn VerticalAlignment(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
 
@@ -3682,7 +3682,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
     /// ``` self: QtC.QTextImageFormat, font: QtC.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
-    pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i64) void {
+    pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
         qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
     }
 
@@ -3691,7 +3691,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.QTextImageFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
-    pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i64, strategy: i64) void {
+    pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
     }
 
@@ -4105,7 +4105,7 @@ pub const qtextimageformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextImageFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -4116,7 +4116,7 @@ pub const qtextimageformat = struct {
     /// ``` self: QtC.QTextImageFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
@@ -4203,7 +4203,7 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPosition)
     ///
     /// ``` self: QtC.QTextFrameFormat, f: qtextformat_enums.Position ```
-    pub fn SetPosition(self: ?*anyopaque, f: i64) void {
+    pub fn SetPosition(self: ?*anyopaque, f: i32) void {
         qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
     }
 
@@ -4212,7 +4212,7 @@ pub const qtextframeformat = struct {
     /// ``` self: QtC.QTextFrameFormat ```
     ///
     /// Returns: ``` qtextformat_enums.Position ```
-    pub fn Position(self: ?*anyopaque) i64 {
+    pub fn Position(self: ?*anyopaque) i32 {
         return qtc.QTextFrameFormat_Position(@ptrCast(self));
     }
 
@@ -4247,7 +4247,7 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderStyle)
     ///
     /// ``` self: QtC.QTextFrameFormat, style: qtextformat_enums.BorderStyle ```
-    pub fn SetBorderStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetBorderStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -4256,7 +4256,7 @@ pub const qtextframeformat = struct {
     /// ``` self: QtC.QTextFrameFormat ```
     ///
     /// Returns: ``` qtextformat_enums.BorderStyle ```
-    pub fn BorderStyle(self: ?*anyopaque) i64 {
+    pub fn BorderStyle(self: ?*anyopaque) i32 {
         return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self));
     }
 
@@ -4812,7 +4812,7 @@ pub const qtextframeformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextFrameFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -4823,7 +4823,7 @@ pub const qtextframeformat = struct {
     /// ``` self: QtC.QTextFrameFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
@@ -5028,7 +5028,7 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setPosition)
     ///
     /// ``` self: QtC.QTextTableFormat, f: qtextformat_enums.Position ```
-    pub fn SetPosition(self: ?*anyopaque, f: i64) void {
+    pub fn SetPosition(self: ?*anyopaque, f: i32) void {
         qtc.QTextFrameFormat_SetPosition(@ptrCast(self), @intCast(f));
     }
 
@@ -5039,7 +5039,7 @@ pub const qtexttableformat = struct {
     /// ``` self: QtC.QTextTableFormat ```
     ///
     /// Returns: ``` qtextformat_enums.Position ```
-    pub fn Position(self: ?*anyopaque) i64 {
+    pub fn Position(self: ?*anyopaque) i32 {
         return qtc.QTextFrameFormat_Position(@ptrCast(self));
     }
 
@@ -5084,7 +5084,7 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextframeformat.html#setBorderStyle)
     ///
     /// ``` self: QtC.QTextTableFormat, style: qtextformat_enums.BorderStyle ```
-    pub fn SetBorderStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetBorderStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextFrameFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -5095,7 +5095,7 @@ pub const qtexttableformat = struct {
     /// ``` self: QtC.QTextTableFormat ```
     ///
     /// Returns: ``` qtextformat_enums.BorderStyle ```
-    pub fn BorderStyle(self: ?*anyopaque) i64 {
+    pub fn BorderStyle(self: ?*anyopaque) i32 {
         return qtc.QTextFrameFormat_BorderStyle(@ptrCast(self));
     }
 
@@ -5691,7 +5691,7 @@ pub const qtexttableformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextTableFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -5702,7 +5702,7 @@ pub const qtexttableformat = struct {
     /// ``` self: QtC.QTextTableFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 
@@ -5915,7 +5915,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setTopBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
-    pub fn SetTopBorderStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetTopBorderStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextTableCellFormat_SetTopBorderStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -5924,14 +5924,14 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qtextformat_enums.BorderStyle ```
-    pub fn TopBorderStyle(self: ?*anyopaque) i64 {
+    pub fn TopBorderStyle(self: ?*anyopaque) i32 {
         return qtc.QTextTableCellFormat_TopBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBottomBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
-    pub fn SetBottomBorderStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetBottomBorderStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextTableCellFormat_SetBottomBorderStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -5940,14 +5940,14 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qtextformat_enums.BorderStyle ```
-    pub fn BottomBorderStyle(self: ?*anyopaque) i64 {
+    pub fn BottomBorderStyle(self: ?*anyopaque) i32 {
         return qtc.QTextTableCellFormat_BottomBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setLeftBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
-    pub fn SetLeftBorderStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetLeftBorderStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextTableCellFormat_SetLeftBorderStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -5956,14 +5956,14 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qtextformat_enums.BorderStyle ```
-    pub fn LeftBorderStyle(self: ?*anyopaque) i64 {
+    pub fn LeftBorderStyle(self: ?*anyopaque) i32 {
         return qtc.QTextTableCellFormat_LeftBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setRightBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
-    pub fn SetRightBorderStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetRightBorderStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextTableCellFormat_SetRightBorderStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -5972,14 +5972,14 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qtextformat_enums.BorderStyle ```
-    pub fn RightBorderStyle(self: ?*anyopaque) i64 {
+    pub fn RightBorderStyle(self: ?*anyopaque) i32 {
         return qtc.QTextTableCellFormat_RightBorderStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtexttablecellformat.html#setBorderStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.BorderStyle ```
-    pub fn SetBorderStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetBorderStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextTableCellFormat_SetBorderStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -6201,7 +6201,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontCapitalization)
     ///
     /// ``` self: QtC.QTextTableCellFormat, capitalization: qfont_enums.Capitalization ```
-    pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i64) void {
+    pub fn SetFontCapitalization(self: ?*anyopaque, capitalization: i32) void {
         qtc.QTextCharFormat_SetFontCapitalization(@ptrCast(self), @intCast(capitalization));
     }
 
@@ -6212,7 +6212,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qfont_enums.Capitalization ```
-    pub fn FontCapitalization(self: ?*anyopaque) i64 {
+    pub fn FontCapitalization(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontCapitalization(@ptrCast(self));
     }
 
@@ -6221,7 +6221,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontLetterSpacingType)
     ///
     /// ``` self: QtC.QTextTableCellFormat, letterSpacingType: qfont_enums.SpacingType ```
-    pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i64) void {
+    pub fn SetFontLetterSpacingType(self: ?*anyopaque, letterSpacingType: i32) void {
         qtc.QTextCharFormat_SetFontLetterSpacingType(@ptrCast(self), @intCast(letterSpacingType));
     }
 
@@ -6232,7 +6232,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qfont_enums.SpacingType ```
-    pub fn FontLetterSpacingType(self: ?*anyopaque) i64 {
+    pub fn FontLetterSpacingType(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontLetterSpacingType(@ptrCast(self));
     }
 
@@ -6385,7 +6385,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.QTextTableCellFormat, hint: qfont_enums.StyleHint ```
-    pub fn SetFontStyleHint(self: ?*anyopaque, hint: i64) void {
+    pub fn SetFontStyleHint(self: ?*anyopaque, hint: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint(@ptrCast(self), @intCast(hint));
     }
 
@@ -6394,7 +6394,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleStrategy)
     ///
     /// ``` self: QtC.QTextTableCellFormat, strategy: qfont_enums.StyleStrategy ```
-    pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i64) void {
+    pub fn SetFontStyleStrategy(self: ?*anyopaque, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleStrategy(@ptrCast(self), @intCast(strategy));
     }
 
@@ -6405,7 +6405,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qfont_enums.StyleHint ```
-    pub fn FontStyleHint(self: ?*anyopaque) i64 {
+    pub fn FontStyleHint(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontStyleHint(@ptrCast(self));
     }
 
@@ -6416,7 +6416,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qfont_enums.StyleStrategy ```
-    pub fn FontStyleStrategy(self: ?*anyopaque) i64 {
+    pub fn FontStyleStrategy(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontStyleStrategy(@ptrCast(self));
     }
 
@@ -6425,7 +6425,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontHintingPreference)
     ///
     /// ``` self: QtC.QTextTableCellFormat, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i64) void {
+    pub fn SetFontHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
         qtc.QTextCharFormat_SetFontHintingPreference(@ptrCast(self), @intCast(hintingPreference));
     }
 
@@ -6436,7 +6436,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qfont_enums.HintingPreference ```
-    pub fn FontHintingPreference(self: ?*anyopaque) i64 {
+    pub fn FontHintingPreference(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_FontHintingPreference(@ptrCast(self));
     }
 
@@ -6463,7 +6463,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setUnderlineStyle)
     ///
     /// ``` self: QtC.QTextTableCellFormat, style: qtextformat_enums.UnderlineStyle ```
-    pub fn SetUnderlineStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetUnderlineStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextCharFormat_SetUnderlineStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -6474,7 +6474,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qtextformat_enums.UnderlineStyle ```
-    pub fn UnderlineStyle(self: ?*anyopaque) i64 {
+    pub fn UnderlineStyle(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_UnderlineStyle(@ptrCast(self));
     }
 
@@ -6483,7 +6483,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setVerticalAlignment)
     ///
     /// ``` self: QtC.QTextTableCellFormat, alignment: qtextformat_enums.VerticalAlignment ```
-    pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetVerticalAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextCharFormat_SetVerticalAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -6494,7 +6494,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qtextformat_enums.VerticalAlignment ```
-    pub fn VerticalAlignment(self: ?*anyopaque) i64 {
+    pub fn VerticalAlignment(self: ?*anyopaque) i32 {
         return qtc.QTextCharFormat_VerticalAlignment(@ptrCast(self));
     }
 
@@ -6726,7 +6726,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFont)
     ///
     /// ``` self: QtC.QTextTableCellFormat, font: QtC.QFont, behavior: qtextformat_enums.FontPropertiesInheritanceBehavior ```
-    pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i64) void {
+    pub fn SetFont2(self: ?*anyopaque, font: ?*anyopaque, behavior: i32) void {
         qtc.QTextCharFormat_SetFont2(@ptrCast(self), @ptrCast(font), @intCast(behavior));
     }
 
@@ -6735,7 +6735,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcharformat.html#setFontStyleHint)
     ///
     /// ``` self: QtC.QTextTableCellFormat, hint: qfont_enums.StyleHint, strategy: qfont_enums.StyleStrategy ```
-    pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i64, strategy: i64) void {
+    pub fn SetFontStyleHint2(self: ?*anyopaque, hint: i32, strategy: i32) void {
         qtc.QTextCharFormat_SetFontStyleHint2(@ptrCast(self), @intCast(hint), @intCast(strategy));
     }
 
@@ -7149,7 +7149,7 @@ pub const qtexttablecellformat = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextformat.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTextTableCellFormat, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QTextFormat_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -7160,7 +7160,7 @@ pub const qtexttablecellformat = struct {
     /// ``` self: QtC.QTextTableCellFormat ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QTextFormat_LayoutDirection(@ptrCast(self));
     }
 

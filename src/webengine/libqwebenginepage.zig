@@ -50,21 +50,21 @@ pub const qwebenginepage = struct {
     }
 
     /// ``` self: QtC.QWebEnginePage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QWebEnginePage_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWebEnginePage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -115,14 +115,14 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#action)
     ///
     /// ``` self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction ```
-    pub fn Action(self: ?*anyopaque, action: i64) QtC.QAction {
+    pub fn Action(self: ?*anyopaque, action: i32) QtC.QAction {
         return qtc.QWebEnginePage_Action(@ptrCast(self), @intCast(action));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#triggerAction)
     ///
     /// ``` self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction, checked: bool ```
-    pub fn TriggerAction(self: ?*anyopaque, action: i64, checked: bool) void {
+    pub fn TriggerAction(self: ?*anyopaque, action: i32, checked: bool) void {
         qtc.QWebEnginePage_TriggerAction(@ptrCast(self), @intCast(action), checked);
     }
 
@@ -131,7 +131,7 @@ pub const qwebenginepage = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction, checked: bool) callconv(.c) void ```
-    pub fn OnTriggerAction(self: ?*anyopaque, slot: fn (?*anyopaque, i64, bool) callconv(.c) void) void {
+    pub fn OnTriggerAction(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_OnTriggerAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -140,7 +140,7 @@ pub const qwebenginepage = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWebEnginePage, action: qwebenginepage_enums.WebAction, checked: bool ```
-    pub fn QBaseTriggerAction(self: ?*anyopaque, action: i64, checked: bool) void {
+    pub fn QBaseTriggerAction(self: ?*anyopaque, action: i32, checked: bool) void {
         qtc.QWebEnginePage_QBaseTriggerAction(@ptrCast(self), @intCast(action), checked);
     }
 
@@ -447,14 +447,14 @@ pub const qwebenginepage = struct {
     /// ``` self: QtC.QWebEnginePage ```
     ///
     /// Returns: ``` qwebenginepage_enums.LifecycleState ```
-    pub fn LifecycleState(self: ?*anyopaque) i64 {
+    pub fn LifecycleState(self: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_LifecycleState(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#setLifecycleState)
     ///
     /// ``` self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState ```
-    pub fn SetLifecycleState(self: ?*anyopaque, state: i64) void {
+    pub fn SetLifecycleState(self: ?*anyopaque, state: i32) void {
         qtc.QWebEnginePage_SetLifecycleState(@ptrCast(self), @intCast(state));
     }
 
@@ -463,7 +463,7 @@ pub const qwebenginepage = struct {
     /// ``` self: QtC.QWebEnginePage ```
     ///
     /// Returns: ``` qwebenginepage_enums.LifecycleState ```
-    pub fn RecommendedState(self: ?*anyopaque) i64 {
+    pub fn RecommendedState(self: ?*anyopaque) i32 {
         return qtc.QWebEnginePage_RecommendedState(@ptrCast(self));
     }
 
@@ -614,28 +614,28 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequested)
     ///
     /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature ```
-    pub fn FeaturePermissionRequested(self: ?*anyopaque, securityOrigin: ?*anyopaque, feature: i64) void {
+    pub fn FeaturePermissionRequested(self: ?*anyopaque, securityOrigin: ?*anyopaque, feature: i32) void {
         qtc.QWebEnginePage_FeaturePermissionRequested(@ptrCast(self), @ptrCast(securityOrigin), @intCast(feature));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequested)
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void ```
-    pub fn OnFeaturePermissionRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnFeaturePermissionRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FeaturePermissionRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequestCanceled)
     ///
     /// ``` self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature ```
-    pub fn FeaturePermissionRequestCanceled(self: ?*anyopaque, securityOrigin: ?*anyopaque, feature: i64) void {
+    pub fn FeaturePermissionRequestCanceled(self: ?*anyopaque, securityOrigin: ?*anyopaque, feature: i32) void {
         qtc.QWebEnginePage_FeaturePermissionRequestCanceled(@ptrCast(self), @ptrCast(securityOrigin), @intCast(feature));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#featurePermissionRequestCanceled)
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, feature: qwebenginepage_enums.Feature) callconv(.c) void ```
-    pub fn OnFeaturePermissionRequestCanceled(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnFeaturePermissionRequestCanceled(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_FeaturePermissionRequestCanceled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -758,14 +758,14 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessTerminated)
     ///
     /// ``` self: QtC.QWebEnginePage, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32 ```
-    pub fn RenderProcessTerminated(self: ?*anyopaque, terminationStatus: i64, exitCode: i32) void {
+    pub fn RenderProcessTerminated(self: ?*anyopaque, terminationStatus: i32, exitCode: i32) void {
         qtc.QWebEnginePage_RenderProcessTerminated(@ptrCast(self), @intCast(terminationStatus), @intCast(exitCode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#renderProcessTerminated)
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void ```
-    pub fn OnRenderProcessTerminated(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32) callconv(.c) void) void {
+    pub fn OnRenderProcessTerminated(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RenderProcessTerminated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1032,28 +1032,28 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleStateChanged)
     ///
     /// ``` self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState ```
-    pub fn LifecycleStateChanged(self: ?*anyopaque, state: i64) void {
+    pub fn LifecycleStateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QWebEnginePage_LifecycleStateChanged(@ptrCast(self), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#lifecycleStateChanged)
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState) callconv(.c) void ```
-    pub fn OnLifecycleStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnLifecycleStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LifecycleStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedStateChanged)
     ///
     /// ``` self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState ```
-    pub fn RecommendedStateChanged(self: ?*anyopaque, state: i64) void {
+    pub fn RecommendedStateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QWebEnginePage_RecommendedStateChanged(@ptrCast(self), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#recommendedStateChanged)
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, state: qwebenginepage_enums.LifecycleState) callconv(.c) void ```
-    pub fn OnRecommendedStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnRecommendedStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_RecommendedStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1102,7 +1102,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#createWindow)
     ///
     /// ``` self: QtC.QWebEnginePage, typeVal: qwebenginepage_enums.WebWindowType ```
-    pub fn CreateWindow(self: ?*anyopaque, typeVal: i64) QtC.QWebEnginePage {
+    pub fn CreateWindow(self: ?*anyopaque, typeVal: i32) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_CreateWindow(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -1111,7 +1111,7 @@ pub const qwebenginepage = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, typeVal: qwebenginepage_enums.WebWindowType) callconv(.c) QtC.QWebEnginePage ```
-    pub fn OnCreateWindow(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QWebEnginePage) void {
+    pub fn OnCreateWindow(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QWebEnginePage) void {
         qtc.QWebEnginePage_OnCreateWindow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1120,14 +1120,14 @@ pub const qwebenginepage = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWebEnginePage, typeVal: qwebenginepage_enums.WebWindowType ```
-    pub fn QBaseCreateWindow(self: ?*anyopaque, typeVal: i64) QtC.QWebEnginePage {
+    pub fn QBaseCreateWindow(self: ?*anyopaque, typeVal: i32) QtC.QWebEnginePage {
         return qtc.QWebEnginePage_QBaseCreateWindow(@ptrCast(self), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#chooseFiles)
     ///
     /// ``` self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator ```
-    pub fn ChooseFiles(self: ?*anyopaque, mode: i64, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn ChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
@@ -1175,7 +1175,7 @@ pub const qwebenginepage = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8) callconv(.c) [][]const u8 ```
-    pub fn OnChooseFiles(self: ?*anyopaque, slot: fn (?*anyopaque, i64, [][]const u8, [][]const u8) callconv(.c) [][]const u8) void {
+    pub fn OnChooseFiles(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [][]const u8, [][]const u8) callconv(.c) [][]const u8) void {
         qtc.QWebEnginePage_OnChooseFiles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1184,7 +1184,7 @@ pub const qwebenginepage = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator ```
-    pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i64, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn QBaseChooseFiles(self: ?*anyopaque, mode: i32, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8, allocator: std.mem.Allocator) [][]const u8 {
         var oldFiles_arr = allocator.alloc(qtc.libqt_string, oldFiles.len) catch @panic("qwebenginepage.ChooseFiles: Memory allocation failed");
         defer allocator.free(oldFiles_arr);
         for (oldFiles, 0..oldFiles.len) |item, i| {
@@ -1296,7 +1296,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#javaScriptConsoleMessage)
     ///
     /// ``` self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8 ```
-    pub fn JavaScriptConsoleMessage(self: ?*anyopaque, level: i64, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
+    pub fn JavaScriptConsoleMessage(self: ?*anyopaque, level: i32, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -1313,7 +1313,7 @@ pub const qwebenginepage = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8) callconv(.c) void ```
-    pub fn OnJavaScriptConsoleMessage(self: ?*anyopaque, slot: fn (?*anyopaque, i64, []const u8, i32, []const u8) callconv(.c) void) void {
+    pub fn OnJavaScriptConsoleMessage(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8, i32, []const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_OnJavaScriptConsoleMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1322,7 +1322,7 @@ pub const qwebenginepage = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8 ```
-    pub fn QBaseJavaScriptConsoleMessage(self: ?*anyopaque, level: i64, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
+    pub fn QBaseJavaScriptConsoleMessage(self: ?*anyopaque, level: i32, message: []const u8, lineNumber: i32, sourceID: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -1337,7 +1337,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#acceptNavigationRequest)
     ///
     /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl, typeVal: qwebenginepage_enums.NavigationType, isMainFrame: bool ```
-    pub fn AcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i64, isMainFrame: bool) bool {
+    pub fn AcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i32, isMainFrame: bool) bool {
         return qtc.QWebEnginePage_AcceptNavigationRequest(@ptrCast(self), @ptrCast(url), @intCast(typeVal), isMainFrame);
     }
 
@@ -1346,7 +1346,7 @@ pub const qwebenginepage = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, url: QtC.QUrl, typeVal: qwebenginepage_enums.NavigationType, isMainFrame: bool) callconv(.c) bool ```
-    pub fn OnAcceptNavigationRequest(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, bool) callconv(.c) bool) void {
+    pub fn OnAcceptNavigationRequest(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, bool) callconv(.c) bool) void {
         qtc.QWebEnginePage_OnAcceptNavigationRequest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1355,7 +1355,7 @@ pub const qwebenginepage = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWebEnginePage, url: QtC.QUrl, typeVal: qwebenginepage_enums.NavigationType, isMainFrame: bool ```
-    pub fn QBaseAcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i64, isMainFrame: bool) bool {
+    pub fn QBaseAcceptNavigationRequest(self: ?*anyopaque, url: ?*anyopaque, typeVal: i32, isMainFrame: bool) bool {
         return qtc.QWebEnginePage_QBaseAcceptNavigationRequest(@ptrCast(self), @ptrCast(url), @intCast(typeVal), isMainFrame);
     }
 
@@ -1447,7 +1447,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#save)
     ///
     /// ``` self: QtC.QWebEnginePage, filePath: []const u8, format: qwebenginedownloadrequest_enums.SavePageFormat ```
-    pub fn Save2(self: ?*anyopaque, filePath: []const u8, format: i64) void {
+    pub fn Save2(self: ?*anyopaque, filePath: []const u8, format: i32) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
@@ -1589,7 +1589,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEnginePage, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1812,7 +1812,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEnginePage, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1821,7 +1821,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1830,7 +1830,7 @@ pub const qwebenginepage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEnginePage, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

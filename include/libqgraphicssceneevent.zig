@@ -9,7 +9,7 @@ pub const qgraphicssceneevent = struct {
     /// New constructs a new QGraphicsSceneEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New(typeVal: i64) QtC.QGraphicsSceneEvent {
+    pub fn New(typeVal: i32) QtC.QGraphicsSceneEvent {
         return qtc.QGraphicsSceneEvent_new(@intCast(typeVal));
     }
 
@@ -48,7 +48,7 @@ pub const qgraphicssceneevent = struct {
     /// ``` self: QtC.QGraphicsSceneEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -221,7 +221,7 @@ pub const qgraphicsscenemouseevent = struct {
     /// New2 constructs a new QGraphicsSceneMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QGraphicsSceneMouseEvent {
+    pub fn New2(typeVal: i32) QtC.QGraphicsSceneMouseEvent {
         return qtc.QGraphicsSceneMouseEvent_new2(@intCast(typeVal));
     }
 
@@ -404,14 +404,14 @@ pub const qgraphicsscenemouseevent = struct {
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
     /// Returns: ``` qnamespace_enums.MouseEventSource ```
-    pub fn Source(self: ?*anyopaque) i64 {
+    pub fn Source(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneMouseEvent_Source(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setSource)
     ///
     /// ``` self: QtC.QGraphicsSceneMouseEvent, source: qnamespace_enums.MouseEventSource ```
-    pub fn SetSource(self: ?*anyopaque, source: i64) void {
+    pub fn SetSource(self: ?*anyopaque, source: i32) void {
         qtc.QGraphicsSceneMouseEvent_SetSource(@ptrCast(self), @intCast(source));
     }
 
@@ -474,7 +474,7 @@ pub const qgraphicsscenemouseevent = struct {
     /// ``` self: QtC.QGraphicsSceneMouseEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -647,7 +647,7 @@ pub const qgraphicsscenewheelevent = struct {
     /// New2 constructs a new QGraphicsSceneWheelEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QGraphicsSceneWheelEvent {
+    pub fn New2(typeVal: i32) QtC.QGraphicsSceneWheelEvent {
         return qtc.QGraphicsSceneWheelEvent_new2(@intCast(typeVal));
     }
 
@@ -744,14 +744,14 @@ pub const qgraphicsscenewheelevent = struct {
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
     /// Returns: ``` qnamespace_enums.Orientation ```
-    pub fn Orientation(self: ?*anyopaque) i64 {
+    pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneWheelEvent_Orientation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setOrientation)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, orientation: qnamespace_enums.Orientation ```
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i64) void {
+    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -760,14 +760,14 @@ pub const qgraphicsscenewheelevent = struct {
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollPhase ```
-    pub fn Phase(self: ?*anyopaque) i64 {
+    pub fn Phase(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneWheelEvent_Phase(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPhase)
     ///
     /// ``` self: QtC.QGraphicsSceneWheelEvent, scrollPhase: qnamespace_enums.ScrollPhase ```
-    pub fn SetPhase(self: ?*anyopaque, scrollPhase: i64) void {
+    pub fn SetPhase(self: ?*anyopaque, scrollPhase: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetPhase(@ptrCast(self), @intCast(scrollPhase));
     }
 
@@ -842,7 +842,7 @@ pub const qgraphicsscenewheelevent = struct {
     /// ``` self: QtC.QGraphicsSceneWheelEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -1015,7 +1015,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
     /// New2 constructs a new QGraphicsSceneContextMenuEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QGraphicsSceneContextMenuEvent {
+    pub fn New2(typeVal: i32) QtC.QGraphicsSceneContextMenuEvent {
         return qtc.QGraphicsSceneContextMenuEvent_new2(@intCast(typeVal));
     }
 
@@ -1082,14 +1082,14 @@ pub const qgraphicsscenecontextmenuevent = struct {
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     ///
     /// Returns: ``` qgraphicssceneevent_enums.Reason ```
-    pub fn Reason(self: ?*anyopaque) i64 {
+    pub fn Reason(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneContextMenuEvent_Reason(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setReason)
     ///
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent, reason: qgraphicssceneevent_enums.Reason ```
-    pub fn SetReason(self: ?*anyopaque, reason: i64) void {
+    pub fn SetReason(self: ?*anyopaque, reason: i32) void {
         qtc.QGraphicsSceneContextMenuEvent_SetReason(@ptrCast(self), @intCast(reason));
     }
 
@@ -1136,7 +1136,7 @@ pub const qgraphicsscenecontextmenuevent = struct {
     /// ``` self: QtC.QGraphicsSceneContextMenuEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -1309,7 +1309,7 @@ pub const qgraphicsscenehoverevent = struct {
     /// New2 constructs a new QGraphicsSceneHoverEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QGraphicsSceneHoverEvent {
+    pub fn New2(typeVal: i32) QtC.QGraphicsSceneHoverEvent {
         return qtc.QGraphicsSceneHoverEvent_new2(@intCast(typeVal));
     }
 
@@ -1456,7 +1456,7 @@ pub const qgraphicsscenehoverevent = struct {
     /// ``` self: QtC.QGraphicsSceneHoverEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -1629,7 +1629,7 @@ pub const qgraphicsscenehelpevent = struct {
     /// New2 constructs a new QGraphicsSceneHelpEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QGraphicsSceneHelpEvent {
+    pub fn New2(typeVal: i32) QtC.QGraphicsSceneHelpEvent {
         return qtc.QGraphicsSceneHelpEvent_new2(@intCast(typeVal));
     }
 
@@ -1704,7 +1704,7 @@ pub const qgraphicsscenehelpevent = struct {
     /// ``` self: QtC.QGraphicsSceneHelpEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -1877,7 +1877,7 @@ pub const qgraphicsscenedragdropevent = struct {
     /// New2 constructs a new QGraphicsSceneDragDropEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QGraphicsSceneDragDropEvent {
+    pub fn New2(typeVal: i32) QtC.QGraphicsSceneDragDropEvent {
         return qtc.QGraphicsSceneDragDropEvent_new2(@intCast(typeVal));
     }
 
@@ -1976,14 +1976,14 @@ pub const qgraphicsscenedragdropevent = struct {
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn ProposedAction(self: ?*anyopaque) i64 {
+    pub fn ProposedAction(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneDragDropEvent_ProposedAction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setProposedAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
-    pub fn SetProposedAction(self: ?*anyopaque, action: i64) void {
+    pub fn SetProposedAction(self: ?*anyopaque, action: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetProposedAction(@ptrCast(self), @intCast(action));
     }
 
@@ -1999,14 +1999,14 @@ pub const qgraphicsscenedragdropevent = struct {
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn DropAction(self: ?*anyopaque) i64 {
+    pub fn DropAction(self: ?*anyopaque) i32 {
         return qtc.QGraphicsSceneDragDropEvent_DropAction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setDropAction)
     ///
     /// ``` self: QtC.QGraphicsSceneDragDropEvent, action: qnamespace_enums.DropAction ```
-    pub fn SetDropAction(self: ?*anyopaque, action: i64) void {
+    pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
     }
 
@@ -2081,7 +2081,7 @@ pub const qgraphicsscenedragdropevent = struct {
     /// ``` self: QtC.QGraphicsSceneDragDropEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -2322,7 +2322,7 @@ pub const qgraphicssceneresizeevent = struct {
     /// ``` self: QtC.QGraphicsSceneResizeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -2563,7 +2563,7 @@ pub const qgraphicsscenemoveevent = struct {
     /// ``` self: QtC.QGraphicsSceneMoveEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 

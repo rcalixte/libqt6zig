@@ -138,7 +138,7 @@ pub const qmimedatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForFile)
     ///
     /// ``` self: QtC.QMimeDatabase, fileName: []const u8, mode: qmimedatabase_enums.MatchMode ```
-    pub fn MimeTypeForFile22(self: ?*anyopaque, fileName: []const u8, mode: i64) QtC.QMimeType {
+    pub fn MimeTypeForFile22(self: ?*anyopaque, fileName: []const u8, mode: i32) QtC.QMimeType {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -149,7 +149,7 @@ pub const qmimedatabase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmimedatabase.html#mimeTypeForFile)
     ///
     /// ``` self: QtC.QMimeDatabase, fileInfo: QtC.QFileInfo, mode: qmimedatabase_enums.MatchMode ```
-    pub fn MimeTypeForFile23(self: ?*anyopaque, fileInfo: ?*anyopaque, mode: i64) QtC.QMimeType {
+    pub fn MimeTypeForFile23(self: ?*anyopaque, fileInfo: ?*anyopaque, mode: i32) QtC.QMimeType {
         return qtc.QMimeDatabase_MimeTypeForFile23(@ptrCast(self), @ptrCast(fileInfo), @intCast(mode));
     }
 

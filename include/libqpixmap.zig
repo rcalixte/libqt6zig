@@ -444,7 +444,7 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#metric)
     ///
     /// ``` self: QtC.QPixmap, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QPixmap_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -453,7 +453,7 @@ pub const qpixmap = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPixmap, slot: fn (self: QtC.QPixmap, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QPixmap_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -462,7 +462,7 @@ pub const qpixmap = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPixmap, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QPixmap_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -483,56 +483,56 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#createMaskFromColor)
     ///
     /// ``` self: QtC.QPixmap, maskColor: QtC.QColor, mode: qnamespace_enums.MaskMode ```
-    pub fn CreateMaskFromColor2(self: ?*anyopaque, maskColor: ?*anyopaque, mode: i64) QtC.QBitmap {
+    pub fn CreateMaskFromColor2(self: ?*anyopaque, maskColor: ?*anyopaque, mode: i32) QtC.QBitmap {
         return qtc.QPixmap_CreateMaskFromColor2(@ptrCast(self), @ptrCast(maskColor), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QPixmap, w: i32, h: i32, aspectMode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled3(self: ?*anyopaque, w: i32, h: i32, aspectMode: i64) QtC.QPixmap {
+    pub fn Scaled3(self: ?*anyopaque, w: i32, h: i32, aspectMode: i32) QtC.QPixmap {
         return qtc.QPixmap_Scaled3(@ptrCast(self), @intCast(w), @intCast(h), @intCast(aspectMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QPixmap, w: i32, h: i32, aspectMode: qnamespace_enums.AspectRatioMode, mode: qnamespace_enums.TransformationMode ```
-    pub fn Scaled4(self: ?*anyopaque, w: i32, h: i32, aspectMode: i64, mode: i64) QtC.QPixmap {
+    pub fn Scaled4(self: ?*anyopaque, w: i32, h: i32, aspectMode: i32, mode: i32) QtC.QPixmap {
         return qtc.QPixmap_Scaled4(@ptrCast(self), @intCast(w), @intCast(h), @intCast(aspectMode), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QPixmap, s: QtC.QSize, aspectMode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled22(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i64) QtC.QPixmap {
+    pub fn Scaled22(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i32) QtC.QPixmap {
         return qtc.QPixmap_Scaled22(@ptrCast(self), @ptrCast(s), @intCast(aspectMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaled)
     ///
     /// ``` self: QtC.QPixmap, s: QtC.QSize, aspectMode: qnamespace_enums.AspectRatioMode, mode: qnamespace_enums.TransformationMode ```
-    pub fn Scaled32(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i64, mode: i64) QtC.QPixmap {
+    pub fn Scaled32(self: ?*anyopaque, s: ?*anyopaque, aspectMode: i32, mode: i32) QtC.QPixmap {
         return qtc.QPixmap_Scaled32(@ptrCast(self), @ptrCast(s), @intCast(aspectMode), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaledToWidth)
     ///
     /// ``` self: QtC.QPixmap, w: i32, mode: qnamespace_enums.TransformationMode ```
-    pub fn ScaledToWidth2(self: ?*anyopaque, w: i32, mode: i64) QtC.QPixmap {
+    pub fn ScaledToWidth2(self: ?*anyopaque, w: i32, mode: i32) QtC.QPixmap {
         return qtc.QPixmap_ScaledToWidth2(@ptrCast(self), @intCast(w), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#scaledToHeight)
     ///
     /// ``` self: QtC.QPixmap, h: i32, mode: qnamespace_enums.TransformationMode ```
-    pub fn ScaledToHeight2(self: ?*anyopaque, h: i32, mode: i64) QtC.QPixmap {
+    pub fn ScaledToHeight2(self: ?*anyopaque, h: i32, mode: i32) QtC.QPixmap {
         return qtc.QPixmap_ScaledToHeight2(@ptrCast(self), @intCast(h), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpixmap.html#transformed)
     ///
     /// ``` self: QtC.QPixmap, param1: QtC.QTransform, mode: qnamespace_enums.TransformationMode ```
-    pub fn Transformed2(self: ?*anyopaque, param1: ?*anyopaque, mode: i64) QtC.QPixmap {
+    pub fn Transformed2(self: ?*anyopaque, param1: ?*anyopaque, mode: i32) QtC.QPixmap {
         return qtc.QPixmap_Transformed2(@ptrCast(self), @ptrCast(param1), @intCast(mode));
     }
 
@@ -777,7 +777,7 @@ pub const qpixmap = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -887,7 +887,7 @@ pub const qpixmap = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QPixmap_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -898,7 +898,7 @@ pub const qpixmap = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QPixmap_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -909,7 +909,7 @@ pub const qpixmap = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPixmap, slot: fn (self: QtC.QPixmap, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QPixmap_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

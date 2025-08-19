@@ -27,7 +27,7 @@ pub const qdialogbuttonbox = struct {
     /// New3 constructs a new QDialogButtonBox object.
     ///
     /// ``` orientation: qnamespace_enums.Orientation ```
-    pub fn New3(orientation: i64) QtC.QDialogButtonBox {
+    pub fn New3(orientation: i32) QtC.QDialogButtonBox {
         return qtc.QDialogButtonBox_new3(@intCast(orientation));
     }
 
@@ -41,14 +41,14 @@ pub const qdialogbuttonbox = struct {
     /// New5 constructs a new QDialogButtonBox object.
     ///
     /// ``` buttons: flag of qdialogbuttonbox_enums.StandardButton, orientation: qnamespace_enums.Orientation ```
-    pub fn New5(buttons: i64, orientation: i64) QtC.QDialogButtonBox {
+    pub fn New5(buttons: i64, orientation: i32) QtC.QDialogButtonBox {
         return qtc.QDialogButtonBox_new5(@intCast(buttons), @intCast(orientation));
     }
 
     /// New6 constructs a new QDialogButtonBox object.
     ///
     /// ``` orientation: qnamespace_enums.Orientation, parent: QtC.QWidget ```
-    pub fn New6(orientation: i64, parent: ?*anyopaque) QtC.QDialogButtonBox {
+    pub fn New6(orientation: i32, parent: ?*anyopaque) QtC.QDialogButtonBox {
         return qtc.QDialogButtonBox_new6(@intCast(orientation), @ptrCast(parent));
     }
 
@@ -62,7 +62,7 @@ pub const qdialogbuttonbox = struct {
     /// New8 constructs a new QDialogButtonBox object.
     ///
     /// ``` buttons: flag of qdialogbuttonbox_enums.StandardButton, orientation: qnamespace_enums.Orientation, parent: QtC.QWidget ```
-    pub fn New8(buttons: i64, orientation: i64, parent: ?*anyopaque) QtC.QDialogButtonBox {
+    pub fn New8(buttons: i64, orientation: i32, parent: ?*anyopaque) QtC.QDialogButtonBox {
         return qtc.QDialogButtonBox_new8(@intCast(buttons), @intCast(orientation), @ptrCast(parent));
     }
 
@@ -80,21 +80,21 @@ pub const qdialogbuttonbox = struct {
     }
 
     /// ``` self: QtC.QDialogButtonBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDialogButtonBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QDialogButtonBox, slot: fn (self: QtC.QDialogButtonBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QDialogButtonBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDialogButtonBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -113,7 +113,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialogbuttonbox.html#setOrientation)
     ///
     /// ``` self: QtC.QDialogButtonBox, orientation: qnamespace_enums.Orientation ```
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i64) void {
+    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QDialogButtonBox_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -122,21 +122,21 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox ```
     ///
     /// Returns: ``` qnamespace_enums.Orientation ```
-    pub fn Orientation(self: ?*anyopaque) i64 {
+    pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QDialogButtonBox_Orientation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialogbuttonbox.html#addButton)
     ///
     /// ``` self: QtC.QDialogButtonBox, button: QtC.QAbstractButton, role: qdialogbuttonbox_enums.ButtonRole ```
-    pub fn AddButton(self: ?*anyopaque, button: ?*anyopaque, role: i64) void {
+    pub fn AddButton(self: ?*anyopaque, button: ?*anyopaque, role: i32) void {
         qtc.QDialogButtonBox_AddButton(@ptrCast(self), @ptrCast(button), @intCast(role));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialogbuttonbox.html#addButton)
     ///
     /// ``` self: QtC.QDialogButtonBox, text: []const u8, role: qdialogbuttonbox_enums.ButtonRole ```
-    pub fn AddButton2(self: ?*anyopaque, text: []const u8, role: i64) QtC.QPushButton {
+    pub fn AddButton2(self: ?*anyopaque, text: []const u8, role: i32) QtC.QPushButton {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -147,7 +147,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialogbuttonbox.html#addButton)
     ///
     /// ``` self: QtC.QDialogButtonBox, button: qdialogbuttonbox_enums.StandardButton ```
-    pub fn AddButton3(self: ?*anyopaque, button: i64) QtC.QPushButton {
+    pub fn AddButton3(self: ?*anyopaque, button: i32) QtC.QPushButton {
         return qtc.QDialogButtonBox_AddButton3(@ptrCast(self), @intCast(button));
     }
 
@@ -182,7 +182,7 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox, button: QtC.QAbstractButton ```
     ///
     /// Returns: ``` qdialogbuttonbox_enums.ButtonRole ```
-    pub fn ButtonRole(self: ?*anyopaque, button: ?*anyopaque) i64 {
+    pub fn ButtonRole(self: ?*anyopaque, button: ?*anyopaque) i32 {
         return qtc.QDialogButtonBox_ButtonRole(@ptrCast(self), @ptrCast(button));
     }
 
@@ -207,14 +207,14 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox, button: QtC.QAbstractButton ```
     ///
     /// Returns: ``` qdialogbuttonbox_enums.StandardButton ```
-    pub fn StandardButton(self: ?*anyopaque, button: ?*anyopaque) i64 {
+    pub fn StandardButton(self: ?*anyopaque, button: ?*anyopaque) i32 {
         return qtc.QDialogButtonBox_StandardButton(@ptrCast(self), @ptrCast(button));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialogbuttonbox.html#button)
     ///
     /// ``` self: QtC.QDialogButtonBox, which: qdialogbuttonbox_enums.StandardButton ```
-    pub fn Button(self: ?*anyopaque, which: i64) QtC.QPushButton {
+    pub fn Button(self: ?*anyopaque, which: i32) QtC.QPushButton {
         return qtc.QDialogButtonBox_Button(@ptrCast(self), @intCast(which));
     }
 
@@ -452,7 +452,7 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -461,7 +461,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QDialogButtonBox, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -1001,7 +1001,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QDialogButtonBox, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -1012,7 +1012,7 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -1021,7 +1021,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QDialogButtonBox, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -1032,7 +1032,7 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -1571,7 +1571,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QDialogButtonBox, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -1582,7 +1582,7 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -1681,7 +1681,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QDialogButtonBox, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -1692,7 +1692,7 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -1701,7 +1701,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QDialogButtonBox, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -1748,7 +1748,7 @@ pub const qdialogbuttonbox = struct {
     /// ``` self: QtC.QDialogButtonBox ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -1757,7 +1757,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QDialogButtonBox, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -2253,7 +2253,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QDialogButtonBox, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -2628,7 +2628,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QDialogButtonBox, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -2637,7 +2637,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QDialogButtonBox, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -2899,7 +2899,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QDialogButtonBox, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -2935,7 +2935,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QDialogButtonBox, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -3069,7 +3069,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDialogButtonBox, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -3283,7 +3283,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDialogButtonBox, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -3292,7 +3292,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -3301,7 +3301,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDialogButtonBox, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -3438,7 +3438,7 @@ pub const qdialogbuttonbox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -4513,7 +4513,7 @@ pub const qdialogbuttonbox = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QDialogButtonBox, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QDialogButtonBox_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -4524,7 +4524,7 @@ pub const qdialogbuttonbox = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QDialogButtonBox, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QDialogButtonBox_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -4535,7 +4535,7 @@ pub const qdialogbuttonbox = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QDialogButtonBox, slot: fn (self: QtC.QDialogButtonBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QDialogButtonBox_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5241,7 +5241,7 @@ pub const qdialogbuttonbox = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QDialogButtonBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QDialogButtonBox_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -5252,7 +5252,7 @@ pub const qdialogbuttonbox = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QDialogButtonBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QDialogButtonBox_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -5263,7 +5263,7 @@ pub const qdialogbuttonbox = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QDialogButtonBox, slot: fn (self: QtC.QDialogButtonBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QDialogButtonBox_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

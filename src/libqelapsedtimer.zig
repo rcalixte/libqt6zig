@@ -44,7 +44,7 @@ pub const qelapsedtimer = struct {
     ///
     ///
     /// Returns: ``` qelapsedtimer_enums.ClockType ```
-    pub fn ClockType() i64 {
+    pub fn ClockType() i32 {
         return qtc.QElapsedTimer_ClockType();
     }
 

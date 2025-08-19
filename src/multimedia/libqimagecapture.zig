@@ -35,21 +35,21 @@ pub const qimagecapture = struct {
     }
 
     /// ``` self: QtC.QImageCapture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QImageCapture_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QImageCapture_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QImageCapture, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QImageCapture_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -84,7 +84,7 @@ pub const qimagecapture = struct {
     /// ``` self: QtC.QImageCapture ```
     ///
     /// Returns: ``` qimagecapture_enums.Error ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QImageCapture_Error(@ptrCast(self));
     }
 
@@ -111,14 +111,14 @@ pub const qimagecapture = struct {
     /// ``` self: QtC.QImageCapture ```
     ///
     /// Returns: ``` qimagecapture_enums.FileFormat ```
-    pub fn FileFormat(self: ?*anyopaque) i64 {
+    pub fn FileFormat(self: ?*anyopaque) i32 {
         return qtc.QImageCapture_FileFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#setFileFormat)
     ///
     /// ``` self: QtC.QImageCapture, format: qimagecapture_enums.FileFormat ```
-    pub fn SetFileFormat(self: ?*anyopaque, format: i64) void {
+    pub fn SetFileFormat(self: ?*anyopaque, format: i32) void {
         qtc.QImageCapture_SetFileFormat(@ptrCast(self), @intCast(format));
     }
 
@@ -139,7 +139,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatName)
     ///
     /// ``` c: qimagecapture_enums.FileFormat, allocator: std.mem.Allocator ```
-    pub fn FileFormatName(c: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn FileFormatName(c: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QImageCapture_FileFormatName(@intCast(c));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.FileFormatName: Memory allocation failed");
@@ -150,7 +150,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#fileFormatDescription)
     ///
     /// ``` c: qimagecapture_enums.FileFormat, allocator: std.mem.Allocator ```
-    pub fn FileFormatDescription(c: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn FileFormatDescription(c: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QImageCapture_FileFormatDescription(@intCast(c));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.FileFormatDescription: Memory allocation failed");
@@ -184,14 +184,14 @@ pub const qimagecapture = struct {
     /// ``` self: QtC.QImageCapture ```
     ///
     /// Returns: ``` qimagecapture_enums.Quality ```
-    pub fn Quality(self: ?*anyopaque) i64 {
+    pub fn Quality(self: ?*anyopaque) i32 {
         return qtc.QImageCapture_Quality(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#setQuality)
     ///
     /// ``` self: QtC.QImageCapture, quality: qimagecapture_enums.Quality ```
-    pub fn SetQuality(self: ?*anyopaque, quality: i64) void {
+    pub fn SetQuality(self: ?*anyopaque, quality: i32) void {
         qtc.QImageCapture_SetQuality(@ptrCast(self), @intCast(quality));
     }
 
@@ -247,7 +247,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorOccurred)
     ///
     /// ``` self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: []const u8 ```
-    pub fn ErrorOccurred(self: ?*anyopaque, id: i32, errorVal: i64, errorString: []const u8) void {
+    pub fn ErrorOccurred(self: ?*anyopaque, id: i32, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
@@ -258,7 +258,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorOccurred)
     ///
     /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: []const u8) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64, []const u8) callconv(.c) void) void {
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, []const u8) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -555,7 +555,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QImageCapture, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -778,7 +778,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QImageCapture, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -787,7 +787,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -796,7 +796,7 @@ pub const qimagecapture = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QImageCapture, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

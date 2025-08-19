@@ -22,7 +22,7 @@ pub const qfutureinterfacebase = struct {
     /// New3 constructs a new QFutureInterfaceBase object.
     ///
     /// ``` initialState: qfutureinterface_enums.State ```
-    pub fn New3(initialState: i64) QtC.QFutureInterfaceBase {
+    pub fn New3(initialState: i32) QtC.QFutureInterfaceBase {
         return qtc.QFutureInterfaceBase_new3(@intCast(initialState));
     }
 
@@ -177,7 +177,7 @@ pub const qfutureinterfacebase = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfutureinterfacebase.html#queryState)
     ///
     /// ``` self: QtC.QFutureInterfaceBase, state: qfutureinterface_enums.State ```
-    pub fn QueryState(self: ?*anyopaque, state: i64) bool {
+    pub fn QueryState(self: ?*anyopaque, state: i32) bool {
         return qtc.QFutureInterfaceBase_QueryState(@ptrCast(self), @intCast(state));
     }
 

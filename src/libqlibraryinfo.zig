@@ -65,7 +65,7 @@ pub const qlibraryinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#path)
     ///
     /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
-    pub fn Path(p: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Path(p: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLibraryInfo_Path(@intCast(p));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlibraryinfo.Path: Memory allocation failed");
@@ -76,7 +76,7 @@ pub const qlibraryinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#paths)
     ///
     /// ``` p: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
-    pub fn Paths(p: i64, allocator: std.mem.Allocator) [][]const u8 {
+    pub fn Paths(p: i32, allocator: std.mem.Allocator) [][]const u8 {
         const _arr: qtc.libqt_list = qtc.QLibraryInfo_Paths(@intCast(p));
         const _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -98,7 +98,7 @@ pub const qlibraryinfo = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlibraryinfo.html#location)
     ///
     /// ``` location: qlibraryinfo_enums.LibraryPath, allocator: std.mem.Allocator ```
-    pub fn Location(location: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Location(location: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLibraryInfo_Location(@intCast(location));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlibraryinfo.Location: Memory allocation failed");

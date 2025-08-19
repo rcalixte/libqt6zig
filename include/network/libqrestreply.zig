@@ -81,7 +81,7 @@ pub const qrestreply = struct {
     /// ``` self: QtC.QRestReply ```
     ///
     /// Returns: ``` qnetworkreply_enums.NetworkError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QRestReply_Error(@ptrCast(self));
     }
 

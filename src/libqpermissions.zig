@@ -24,7 +24,7 @@ pub const qpermission = struct {
     /// ``` self: QtC.QPermission ```
     ///
     /// Returns: ``` qnamespace_enums.PermissionStatus ```
-    pub fn Status(self: ?*anyopaque) i64 {
+    pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QPermission_Status(@ptrCast(self));
     }
 
@@ -64,7 +64,7 @@ pub const qlocationpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocationpermission.html#setAccuracy)
     ///
     /// ``` self: QtC.QLocationPermission, accuracy: qpermissions_enums.Accuracy ```
-    pub fn SetAccuracy(self: ?*anyopaque, accuracy: i64) void {
+    pub fn SetAccuracy(self: ?*anyopaque, accuracy: u8) void {
         qtc.QLocationPermission_SetAccuracy(@ptrCast(self), @intCast(accuracy));
     }
 
@@ -73,14 +73,14 @@ pub const qlocationpermission = struct {
     /// ``` self: QtC.QLocationPermission ```
     ///
     /// Returns: ``` qpermissions_enums.Accuracy ```
-    pub fn Accuracy(self: ?*anyopaque) i64 {
+    pub fn Accuracy(self: ?*anyopaque) u8 {
         return qtc.QLocationPermission_Accuracy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocationpermission.html#setAvailability)
     ///
     /// ``` self: QtC.QLocationPermission, availability: qpermissions_enums.Availability ```
-    pub fn SetAvailability(self: ?*anyopaque, availability: i64) void {
+    pub fn SetAvailability(self: ?*anyopaque, availability: u8) void {
         qtc.QLocationPermission_SetAvailability(@ptrCast(self), @intCast(availability));
     }
 
@@ -89,7 +89,7 @@ pub const qlocationpermission = struct {
     /// ``` self: QtC.QLocationPermission ```
     ///
     /// Returns: ``` qpermissions_enums.Availability ```
-    pub fn Availability(self: ?*anyopaque) i64 {
+    pub fn Availability(self: ?*anyopaque) u8 {
         return qtc.QLocationPermission_Availability(@ptrCast(self));
     }
 
@@ -136,7 +136,7 @@ pub const qcalendarpermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendarpermission.html#setAccessMode)
     ///
     /// ``` self: QtC.QCalendarPermission, mode: qpermissions_enums.AccessMode ```
-    pub fn SetAccessMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetAccessMode(self: ?*anyopaque, mode: u8) void {
         qtc.QCalendarPermission_SetAccessMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -145,7 +145,7 @@ pub const qcalendarpermission = struct {
     /// ``` self: QtC.QCalendarPermission ```
     ///
     /// Returns: ``` qpermissions_enums.AccessMode ```
-    pub fn AccessMode(self: ?*anyopaque) i64 {
+    pub fn AccessMode(self: ?*anyopaque) u8 {
         return qtc.QCalendarPermission_AccessMode(@ptrCast(self));
     }
 
@@ -192,7 +192,7 @@ pub const qcontactspermission = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcontactspermission.html#setAccessMode)
     ///
     /// ``` self: QtC.QContactsPermission, mode: qpermissions_enums.AccessMode ```
-    pub fn SetAccessMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetAccessMode(self: ?*anyopaque, mode: u8) void {
         qtc.QContactsPermission_SetAccessMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -201,7 +201,7 @@ pub const qcontactspermission = struct {
     /// ``` self: QtC.QContactsPermission ```
     ///
     /// Returns: ``` qpermissions_enums.AccessMode ```
-    pub fn AccessMode(self: ?*anyopaque) i64 {
+    pub fn AccessMode(self: ?*anyopaque) u8 {
         return qtc.QContactsPermission_AccessMode(@ptrCast(self));
     }
 

@@ -42,7 +42,7 @@ pub const qcborstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, n: qcborcommon_enums.QCborNegativeInteger ```
-    pub fn Append3(self: ?*anyopaque, n: i64) void {
+    pub fn Append3(self: ?*anyopaque, n: u64) void {
         qtc.QCborStreamWriter_Append3(@ptrCast(self), @intCast(n));
     }
 
@@ -60,21 +60,21 @@ pub const qcborstreamwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, tag: qcborcommon_enums.QCborTag ```
-    pub fn Append7(self: ?*anyopaque, tag: i64) void {
+    pub fn Append7(self: ?*anyopaque, tag: u64) void {
         qtc.QCborStreamWriter_Append7(@ptrCast(self), @intCast(tag));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, tag: qcborcommon_enums.QCborKnownTags ```
-    pub fn Append8(self: ?*anyopaque, tag: i64) void {
+    pub fn Append8(self: ?*anyopaque, tag: i32) void {
         qtc.QCborStreamWriter_Append8(@ptrCast(self), @intCast(tag));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)
     ///
     /// ``` self: QtC.QCborStreamWriter, st: qcborcommon_enums.QCborSimpleType ```
-    pub fn Append9(self: ?*anyopaque, st: i64) void {
+    pub fn Append9(self: ?*anyopaque, st: u8) void {
         qtc.QCborStreamWriter_Append9(@ptrCast(self), @intCast(st));
     }
 

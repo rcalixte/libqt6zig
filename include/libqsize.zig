@@ -119,28 +119,28 @@ pub const qsize = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scale)
     ///
     /// ``` self: QtC.QSize, w: i32, h: i32, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scale(self: ?*anyopaque, w: i32, h: i32, mode: i64) void {
+    pub fn Scale(self: ?*anyopaque, w: i32, h: i32, mode: i32) void {
         qtc.QSize_Scale(@ptrCast(self), @intCast(w), @intCast(h), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scale)
     ///
     /// ``` self: QtC.QSize, s: QtC.QSize, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i64) void {
+    pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) void {
         qtc.QSize_Scale2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scaled)
     ///
     /// ``` self: QtC.QSize, w: i32, h: i32, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled(self: ?*anyopaque, w: i32, h: i32, mode: i64) QtC.QSize {
+    pub fn Scaled(self: ?*anyopaque, w: i32, h: i32, mode: i32) QtC.QSize {
         return qtc.QSize_Scaled(@ptrCast(self), @intCast(w), @intCast(h), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#scaled)
     ///
     /// ``` self: QtC.QSize, s: QtC.QSize, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i64) QtC.QSize {
+    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) QtC.QSize {
         return qtc.QSize_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 
@@ -341,28 +341,28 @@ pub const qsizef = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scale)
     ///
     /// ``` self: QtC.QSizeF, w: f64, h: f64, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scale(self: ?*anyopaque, w: f64, h: f64, mode: i64) void {
+    pub fn Scale(self: ?*anyopaque, w: f64, h: f64, mode: i32) void {
         qtc.QSizeF_Scale(@ptrCast(self), @floatCast(w), @floatCast(h), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scale)
     ///
     /// ``` self: QtC.QSizeF, s: QtC.QSizeF, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i64) void {
+    pub fn Scale2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) void {
         qtc.QSizeF_Scale2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scaled)
     ///
     /// ``` self: QtC.QSizeF, w: f64, h: f64, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled(self: ?*anyopaque, w: f64, h: f64, mode: i64) QtC.QSizeF {
+    pub fn Scaled(self: ?*anyopaque, w: f64, h: f64, mode: i32) QtC.QSizeF {
         return qtc.QSizeF_Scaled(@ptrCast(self), @floatCast(w), @floatCast(h), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#scaled)
     ///
     /// ``` self: QtC.QSizeF, s: QtC.QSizeF, mode: qnamespace_enums.AspectRatioMode ```
-    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i64) QtC.QSizeF {
+    pub fn Scaled2(self: ?*anyopaque, s: ?*anyopaque, mode: i32) QtC.QSizeF {
         return qtc.QSizeF_Scaled2(@ptrCast(self), @ptrCast(s), @intCast(mode));
     }
 

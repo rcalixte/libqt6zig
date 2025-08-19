@@ -180,7 +180,7 @@ pub const qglyphrun = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#setFlag)
     ///
     /// ``` self: QtC.QGlyphRun, flag: qglyphrun_enums.GlyphRunFlag ```
-    pub fn SetFlag(self: ?*anyopaque, flag: i64) void {
+    pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
         qtc.QGlyphRun_SetFlag(@ptrCast(self), @intCast(flag));
     }
 
@@ -269,7 +269,7 @@ pub const qglyphrun = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qglyphrun.html#setFlag)
     ///
     /// ``` self: QtC.QGlyphRun, flag: qglyphrun_enums.GlyphRunFlag, enabled: bool ```
-    pub fn SetFlag2(self: ?*anyopaque, flag: i64, enabled: bool) void {
+    pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
         qtc.QGlyphRun_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
     }
 

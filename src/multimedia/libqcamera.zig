@@ -25,7 +25,7 @@ pub const qcamera = struct {
     /// New3 constructs a new QCamera object.
     ///
     /// ``` position: qcameradevice_enums.Position ```
-    pub fn New3(position: i64) QtC.QCamera {
+    pub fn New3(position: i32) QtC.QCamera {
         return qtc.QCamera_new3(@intCast(position));
     }
 
@@ -46,7 +46,7 @@ pub const qcamera = struct {
     /// New6 constructs a new QCamera object.
     ///
     /// ``` position: qcameradevice_enums.Position, parent: QtC.QObject ```
-    pub fn New6(position: i64, parent: ?*anyopaque) QtC.QCamera {
+    pub fn New6(position: i32, parent: ?*anyopaque) QtC.QCamera {
         return qtc.QCamera_new6(@intCast(position), @ptrCast(parent));
     }
 
@@ -64,21 +64,21 @@ pub const qcamera = struct {
     }
 
     /// ``` self: QtC.QCamera, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCamera_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QCamera_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QCamera, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QCamera_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -148,7 +148,7 @@ pub const qcamera = struct {
     /// ``` self: QtC.QCamera ```
     ///
     /// Returns: ``` qcamera_enums.Error ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QCamera_Error(@ptrCast(self));
     }
 
@@ -177,21 +177,21 @@ pub const qcamera = struct {
     /// ``` self: QtC.QCamera ```
     ///
     /// Returns: ``` qcamera_enums.FocusMode ```
-    pub fn FocusMode(self: ?*anyopaque) i64 {
+    pub fn FocusMode(self: ?*anyopaque) i32 {
         return qtc.QCamera_FocusMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#setFocusMode)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.FocusMode ```
-    pub fn SetFocusMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetFocusMode(self: ?*anyopaque, mode: i32) void {
         qtc.QCamera_SetFocusMode(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#isFocusModeSupported)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.FocusMode ```
-    pub fn IsFocusModeSupported(self: ?*anyopaque, mode: i64) bool {
+    pub fn IsFocusModeSupported(self: ?*anyopaque, mode: i32) bool {
         return qtc.QCamera_IsFocusModeSupported(@ptrCast(self), @intCast(mode));
     }
 
@@ -263,14 +263,14 @@ pub const qcamera = struct {
     /// ``` self: QtC.QCamera ```
     ///
     /// Returns: ``` qcamera_enums.FlashMode ```
-    pub fn FlashMode(self: ?*anyopaque) i64 {
+    pub fn FlashMode(self: ?*anyopaque) i32 {
         return qtc.QCamera_FlashMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#isFlashModeSupported)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.FlashMode ```
-    pub fn IsFlashModeSupported(self: ?*anyopaque, mode: i64) bool {
+    pub fn IsFlashModeSupported(self: ?*anyopaque, mode: i32) bool {
         return qtc.QCamera_IsFlashModeSupported(@ptrCast(self), @intCast(mode));
     }
 
@@ -286,14 +286,14 @@ pub const qcamera = struct {
     /// ``` self: QtC.QCamera ```
     ///
     /// Returns: ``` qcamera_enums.TorchMode ```
-    pub fn TorchMode(self: ?*anyopaque) i64 {
+    pub fn TorchMode(self: ?*anyopaque) i32 {
         return qtc.QCamera_TorchMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#isTorchModeSupported)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.TorchMode ```
-    pub fn IsTorchModeSupported(self: ?*anyopaque, mode: i64) bool {
+    pub fn IsTorchModeSupported(self: ?*anyopaque, mode: i32) bool {
         return qtc.QCamera_IsTorchModeSupported(@ptrCast(self), @intCast(mode));
     }
 
@@ -302,14 +302,14 @@ pub const qcamera = struct {
     /// ``` self: QtC.QCamera ```
     ///
     /// Returns: ``` qcamera_enums.ExposureMode ```
-    pub fn ExposureMode(self: ?*anyopaque) i64 {
+    pub fn ExposureMode(self: ?*anyopaque) i32 {
         return qtc.QCamera_ExposureMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#isExposureModeSupported)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.ExposureMode ```
-    pub fn IsExposureModeSupported(self: ?*anyopaque, mode: i64) bool {
+    pub fn IsExposureModeSupported(self: ?*anyopaque, mode: i32) bool {
         return qtc.QCamera_IsExposureModeSupported(@ptrCast(self), @intCast(mode));
     }
 
@@ -381,14 +381,14 @@ pub const qcamera = struct {
     /// ``` self: QtC.QCamera ```
     ///
     /// Returns: ``` qcamera_enums.WhiteBalanceMode ```
-    pub fn WhiteBalanceMode(self: ?*anyopaque) i64 {
+    pub fn WhiteBalanceMode(self: ?*anyopaque) i32 {
         return qtc.QCamera_WhiteBalanceMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#isWhiteBalanceModeSupported)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.WhiteBalanceMode ```
-    pub fn IsWhiteBalanceModeSupported(self: ?*anyopaque, mode: i64) bool {
+    pub fn IsWhiteBalanceModeSupported(self: ?*anyopaque, mode: i32) bool {
         return qtc.QCamera_IsWhiteBalanceModeSupported(@ptrCast(self), @intCast(mode));
     }
 
@@ -430,21 +430,21 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#setFlashMode)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.FlashMode ```
-    pub fn SetFlashMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetFlashMode(self: ?*anyopaque, mode: i32) void {
         qtc.QCamera_SetFlashMode(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#setTorchMode)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.TorchMode ```
-    pub fn SetTorchMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetTorchMode(self: ?*anyopaque, mode: i32) void {
         qtc.QCamera_SetTorchMode(@ptrCast(self), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#setExposureMode)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.ExposureMode ```
-    pub fn SetExposureMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetExposureMode(self: ?*anyopaque, mode: i32) void {
         qtc.QCamera_SetExposureMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -486,7 +486,7 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#setWhiteBalanceMode)
     ///
     /// ``` self: QtC.QCamera, mode: qcamera_enums.WhiteBalanceMode ```
-    pub fn SetWhiteBalanceMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetWhiteBalanceMode(self: ?*anyopaque, mode: i32) void {
         qtc.QCamera_SetWhiteBalanceMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -528,7 +528,7 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#errorOccurred)
     ///
     /// ``` self: QtC.QCamera, errorVal: qcamera_enums.Error, errorString: []const u8 ```
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i64, errorString: []const u8) void {
+    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32, errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
             .data = errorString.ptr,
@@ -539,7 +539,7 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#errorOccurred)
     ///
     /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, errorVal: qcamera_enums.Error, errorString: []const u8) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i64, []const u8) callconv(.c) void) void {
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
         qtc.QCamera_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1031,7 +1031,7 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QCamera, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1254,7 +1254,7 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QCamera, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1263,7 +1263,7 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1272,7 +1272,7 @@ pub const qcamera = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QCamera, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

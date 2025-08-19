@@ -48,7 +48,7 @@ pub const qrawfont = struct {
     /// New5 constructs a new QRawFont object.
     ///
     /// ``` fileName: []const u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn New5(fileName: []const u8, pixelSize: f64, hintingPreference: i64) QtC.QRawFont {
+    pub fn New5(fileName: []const u8, pixelSize: f64, hintingPreference: i32) QtC.QRawFont {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -60,7 +60,7 @@ pub const qrawfont = struct {
     /// New6 constructs a new QRawFont object.
     ///
     /// ``` fontData: []u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn New6(fontData: []u8, pixelSize: f64, hintingPreference: i64) QtC.QRawFont {
+    pub fn New6(fontData: []u8, pixelSize: f64, hintingPreference: i32) QtC.QRawFont {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
@@ -131,7 +131,7 @@ pub const qrawfont = struct {
     /// ``` self: QtC.QRawFont ```
     ///
     /// Returns: ``` qfont_enums.Style ```
-    pub fn Style(self: ?*anyopaque) i64 {
+    pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QRawFont_Style(@ptrCast(self));
     }
 
@@ -251,7 +251,7 @@ pub const qrawfont = struct {
     /// ``` self: QtC.QRawFont ```
     ///
     /// Returns: ``` qfont_enums.HintingPreference ```
-    pub fn HintingPreference(self: ?*anyopaque) i64 {
+    pub fn HintingPreference(self: ?*anyopaque) i32 {
         return qtc.QRawFont_HintingPreference(@ptrCast(self));
     }
 
@@ -328,7 +328,7 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#loadFromFile)
     ///
     /// ``` self: QtC.QRawFont, fileName: []const u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn LoadFromFile(self: ?*anyopaque, fileName: []const u8, pixelSize: f64, hintingPreference: i64) void {
+    pub fn LoadFromFile(self: ?*anyopaque, fileName: []const u8, pixelSize: f64, hintingPreference: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -339,7 +339,7 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#loadFromData)
     ///
     /// ``` self: QtC.QRawFont, fontData: []u8, pixelSize: f64, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn LoadFromData(self: ?*anyopaque, fontData: []u8, pixelSize: f64, hintingPreference: i64) void {
+    pub fn LoadFromData(self: ?*anyopaque, fontData: []u8, pixelSize: f64, hintingPreference: i32) void {
         const fontData_str = qtc.libqt_string{
             .len = fontData.len,
             .data = fontData.ptr,
@@ -408,21 +408,21 @@ pub const qrawfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
     ///
     /// ``` self: QtC.QRawFont, glyphIndex: u32, antialiasingType: qrawfont_enums.AntialiasingType ```
-    pub fn AlphaMapForGlyph2(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i64) QtC.QImage {
+    pub fn AlphaMapForGlyph2(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i32) QtC.QImage {
         return qtc.QRawFont_AlphaMapForGlyph2(@ptrCast(self), @intCast(glyphIndex), @intCast(antialiasingType));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#alphaMapForGlyph)
     ///
     /// ``` self: QtC.QRawFont, glyphIndex: u32, antialiasingType: qrawfont_enums.AntialiasingType, transform: QtC.QTransform ```
-    pub fn AlphaMapForGlyph3(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i64, transform: ?*anyopaque) QtC.QImage {
+    pub fn AlphaMapForGlyph3(self: ?*anyopaque, glyphIndex: u32, antialiasingType: i32, transform: ?*anyopaque) QtC.QImage {
         return qtc.QRawFont_AlphaMapForGlyph3(@ptrCast(self), @intCast(glyphIndex), @intCast(antialiasingType), @ptrCast(transform));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrawfont.html#fromFont)
     ///
     /// ``` font: QtC.QFont, writingSystem: qfontdatabase_enums.WritingSystem ```
-    pub fn FromFont2(font: ?*anyopaque, writingSystem: i64) QtC.QRawFont {
+    pub fn FromFont2(font: ?*anyopaque, writingSystem: i32) QtC.QRawFont {
         return qtc.QRawFont_FromFont2(@ptrCast(font), @intCast(writingSystem));
     }
 

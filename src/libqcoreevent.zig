@@ -9,7 +9,7 @@ pub const qevent = struct {
     /// New constructs a new QEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New(typeVal: i64) QtC.QEvent {
+    pub fn New(typeVal: i32) QtC.QEvent {
         return qtc.QEvent_new(@intCast(typeVal));
     }
 
@@ -18,7 +18,7 @@ pub const qevent = struct {
     /// ``` self: QtC.QEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -157,7 +157,7 @@ pub const qtimerevent = struct {
     /// New2 constructs a new QTimerEvent object.
     ///
     /// ``` timerId: qnamespace_enums.TimerId ```
-    pub fn New2(timerId: i64) QtC.QTimerEvent {
+    pub fn New2(timerId: i32) QtC.QTimerEvent {
         return qtc.QTimerEvent_new2(@intCast(timerId));
     }
 
@@ -198,7 +198,7 @@ pub const qtimerevent = struct {
     /// ``` self: QtC.QTimerEvent ```
     ///
     /// Returns: ``` qnamespace_enums.TimerId ```
-    pub fn Id(self: ?*anyopaque) i64 {
+    pub fn Id(self: ?*anyopaque) i32 {
         return qtc.QTimerEvent_Id(@ptrCast(self));
     }
 
@@ -209,7 +209,7 @@ pub const qtimerevent = struct {
     /// ``` self: QtC.QTimerEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -342,7 +342,7 @@ pub const qchildevent = struct {
     /// New constructs a new QChildEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, child: QtC.QObject ```
-    pub fn New(typeVal: i64, child: ?*anyopaque) QtC.QChildEvent {
+    pub fn New(typeVal: i32, child: ?*anyopaque) QtC.QChildEvent {
         return qtc.QChildEvent_new(@intCast(typeVal), @ptrCast(child));
     }
 
@@ -406,7 +406,7 @@ pub const qchildevent = struct {
     /// ``` self: QtC.QChildEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -591,7 +591,7 @@ pub const qdynamicpropertychangeevent = struct {
     /// ``` self: QtC.QDynamicPropertyChangeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 

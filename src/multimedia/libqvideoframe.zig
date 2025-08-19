@@ -75,7 +75,7 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame ```
     ///
     /// Returns: ``` qvideoframeformat_enums.PixelFormat ```
-    pub fn PixelFormat(self: ?*anyopaque) i64 {
+    pub fn PixelFormat(self: ?*anyopaque) i32 {
         return qtc.QVideoFrame_PixelFormat(@ptrCast(self));
     }
 
@@ -91,7 +91,7 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame ```
     ///
     /// Returns: ``` qvideoframe_enums.HandleType ```
-    pub fn HandleType(self: ?*anyopaque) i64 {
+    pub fn HandleType(self: ?*anyopaque) i32 {
         return qtc.QVideoFrame_HandleType(@ptrCast(self));
     }
 
@@ -142,14 +142,14 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame ```
     ///
     /// Returns: ``` qvideoframe_enums.MapMode ```
-    pub fn MapMode(self: ?*anyopaque) i64 {
+    pub fn MapMode(self: ?*anyopaque) i32 {
         return qtc.QVideoFrame_MapMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#map)
     ///
     /// ``` self: QtC.QVideoFrame, mode: qvideoframe_enums.MapMode ```
-    pub fn Map(self: ?*anyopaque, mode: i64) bool {
+    pub fn Map(self: ?*anyopaque, mode: i32) bool {
         return qtc.QVideoFrame_Map(@ptrCast(self), @intCast(mode));
     }
 
@@ -226,7 +226,7 @@ pub const qvideoframe = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#setRotationAngle)
     ///
     /// ``` self: QtC.QVideoFrame, angle: qvideoframe_enums.RotationAngle ```
-    pub fn SetRotationAngle(self: ?*anyopaque, angle: i64) void {
+    pub fn SetRotationAngle(self: ?*anyopaque, angle: i32) void {
         qtc.QVideoFrame_SetRotationAngle(@ptrCast(self), @intCast(angle));
     }
 
@@ -235,14 +235,14 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame ```
     ///
     /// Returns: ``` qvideoframe_enums.RotationAngle ```
-    pub fn RotationAngle(self: ?*anyopaque) i64 {
+    pub fn RotationAngle(self: ?*anyopaque) i32 {
         return qtc.QVideoFrame_RotationAngle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#setRotation)
     ///
     /// ``` self: QtC.QVideoFrame, angle: qtvideo_enums.Rotation ```
-    pub fn SetRotation(self: ?*anyopaque, angle: i64) void {
+    pub fn SetRotation(self: ?*anyopaque, angle: i32) void {
         qtc.QVideoFrame_SetRotation(@ptrCast(self), @intCast(angle));
     }
 
@@ -251,7 +251,7 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame ```
     ///
     /// Returns: ``` qtvideo_enums.Rotation ```
-    pub fn Rotation(self: ?*anyopaque) i64 {
+    pub fn Rotation(self: ?*anyopaque) i32 {
         return qtc.QVideoFrame_Rotation(@ptrCast(self));
     }
 

@@ -43,21 +43,21 @@ pub const qgraphicswidget = struct {
     }
 
     /// ``` self: QtC.QGraphicsWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsWidget_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -99,14 +99,14 @@ pub const qgraphicswidget = struct {
     /// ``` self: QtC.QGraphicsWidget ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_LayoutDirection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QGraphicsWidget, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QGraphicsWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -373,14 +373,14 @@ pub const qgraphicswidget = struct {
     /// ``` self: QtC.QGraphicsWidget ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_FocusPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QGraphicsWidget, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QGraphicsWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -484,14 +484,14 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QGraphicsWidget, attribute: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, attribute: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, attribute: i32) void {
         qtc.QGraphicsWidget_SetAttribute(@ptrCast(self), @intCast(attribute));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#testAttribute)
     ///
     /// ``` self: QtC.QGraphicsWidget, attribute: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, attribute: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, attribute: i32) bool {
         return qtc.QGraphicsWidget_TestAttribute(@ptrCast(self), @intCast(attribute));
     }
 
@@ -683,7 +683,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#sizeHint)
     ///
     /// ``` self: QtC.QGraphicsWidget, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn SizeHint(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsWidget_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
@@ -692,7 +692,7 @@ pub const qgraphicswidget = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
+    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
         qtc.QGraphicsWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -701,7 +701,7 @@ pub const qgraphicswidget = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsWidget, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn QBaseSizeHint(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsWidget_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
@@ -733,7 +733,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#itemChange)
     ///
     /// ``` self: QtC.QGraphicsWidget, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant ```
-    pub fn ItemChange(self: ?*anyopaque, change: i64, value: ?*anyopaque) QtC.QVariant {
+    pub fn ItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
         return qtc.QGraphicsWidget_ItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
     }
 
@@ -742,7 +742,7 @@ pub const qgraphicswidget = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
         qtc.QGraphicsWidget_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -751,7 +751,7 @@ pub const qgraphicswidget = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsWidget, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant ```
-    pub fn QBaseItemChange(self: ?*anyopaque, change: i64, value: ?*anyopaque) QtC.QVariant {
+    pub fn QBaseItemChange(self: ?*anyopaque, change: i32, value: ?*anyopaque) QtC.QVariant {
         return qtc.QGraphicsWidget_QBaseItemChange(@ptrCast(self), @intCast(change), @ptrCast(value));
     }
 
@@ -843,7 +843,7 @@ pub const qgraphicswidget = struct {
     /// ``` self: QtC.QGraphicsWidget, pos: QtC.QPointF ```
     ///
     /// Returns: ``` qnamespace_enums.WindowFrameSection ```
-    pub fn WindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i64 {
+    pub fn WindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_WindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
 
@@ -851,8 +851,8 @@ pub const qgraphicswidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, pos: QtC.QPointF) callconv(.c) i64 ```
-    pub fn OnWindowFrameSectionAt(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i64) void {
+    /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, pos: QtC.QPointF) callconv(.c) i32 ```
+    pub fn OnWindowFrameSectionAt(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsWidget_OnWindowFrameSectionAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -863,7 +863,7 @@ pub const qgraphicswidget = struct {
     /// ``` self: QtC.QGraphicsWidget, pos: QtC.QPointF ```
     ///
     /// Returns: ``` qnamespace_enums.WindowFrameSection ```
-    pub fn QBaseWindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i64 {
+    pub fn QBaseWindowFrameSectionAt(self: ?*anyopaque, pos: ?*anyopaque) i32 {
         return qtc.QGraphicsWidget_QBaseWindowFrameSectionAt(@ptrCast(self), @ptrCast(pos));
     }
 
@@ -1321,7 +1321,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QGraphicsWidget, sequence: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, sequence: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, sequence: ?*anyopaque, context: i32) i32 {
         return qtc.QGraphicsWidget_GrabShortcut2(@ptrCast(self), @ptrCast(sequence), @intCast(context));
     }
 
@@ -1342,7 +1342,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#setAttribute)
     ///
     /// ``` self: QtC.QGraphicsWidget, attribute: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, attribute: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, attribute: i32, on: bool) void {
         qtc.QGraphicsWidget_SetAttribute2(@ptrCast(self), @intCast(attribute), on);
     }
 
@@ -1701,7 +1701,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsWidget, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1924,7 +1924,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsWidget, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1933,7 +1933,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1942,7 +1942,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsWidget, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -2140,7 +2140,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QGraphicsWidget, flag: qgraphicsitem_enums.GraphicsItemFlag ```
-    pub fn SetFlag(self: ?*anyopaque, flag: i64) void {
+    pub fn SetFlag(self: ?*anyopaque, flag: i32) void {
         qtc.QGraphicsItem_SetFlag(@ptrCast(self), @intCast(flag));
     }
 
@@ -2160,7 +2160,7 @@ pub const qgraphicswidget = struct {
     /// ``` self: QtC.QGraphicsWidget ```
     ///
     /// Returns: ``` qgraphicsitem_enums.CacheMode ```
-    pub fn CacheMode(self: ?*anyopaque) i64 {
+    pub fn CacheMode(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_CacheMode(@ptrCast(self));
     }
 
@@ -2169,7 +2169,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QGraphicsWidget, mode: qgraphicsitem_enums.CacheMode ```
-    pub fn SetCacheMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
         qtc.QGraphicsItem_SetCacheMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -2180,7 +2180,7 @@ pub const qgraphicswidget = struct {
     /// ``` self: QtC.QGraphicsWidget ```
     ///
     /// Returns: ``` qgraphicsitem_enums.PanelModality ```
-    pub fn PanelModality(self: ?*anyopaque) i64 {
+    pub fn PanelModality(self: ?*anyopaque) i32 {
         return qtc.QGraphicsItem_PanelModality(@ptrCast(self));
     }
 
@@ -2189,7 +2189,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setPanelModality)
     ///
     /// ``` self: QtC.QGraphicsWidget, panelModality: qgraphicsitem_enums.PanelModality ```
-    pub fn SetPanelModality(self: ?*anyopaque, panelModality: i64) void {
+    pub fn SetPanelModality(self: ?*anyopaque, panelModality: i32) void {
         qtc.QGraphicsItem_SetPanelModality(@ptrCast(self), @intCast(panelModality));
     }
 
@@ -3367,7 +3367,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFlag)
     ///
     /// ``` self: QtC.QGraphicsWidget, flag: qgraphicsitem_enums.GraphicsItemFlag, enabled: bool ```
-    pub fn SetFlag2(self: ?*anyopaque, flag: i64, enabled: bool) void {
+    pub fn SetFlag2(self: ?*anyopaque, flag: i32, enabled: bool) void {
         qtc.QGraphicsItem_SetFlag2(@ptrCast(self), @intCast(flag), enabled);
     }
 
@@ -3376,7 +3376,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setCacheMode)
     ///
     /// ``` self: QtC.QGraphicsWidget, mode: qgraphicsitem_enums.CacheMode, cacheSize: QtC.QSize ```
-    pub fn SetCacheMode2(self: ?*anyopaque, mode: i64, cacheSize: ?*anyopaque) void {
+    pub fn SetCacheMode2(self: ?*anyopaque, mode: i32, cacheSize: ?*anyopaque) void {
         qtc.QGraphicsItem_SetCacheMode2(@ptrCast(self), @intCast(mode), @ptrCast(cacheSize));
     }
 
@@ -3385,7 +3385,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setFocus)
     ///
     /// ``` self: QtC.QGraphicsWidget, focusReason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus1(self: ?*anyopaque, focusReason: i64) void {
+    pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
         qtc.QGraphicsItem_SetFocus1(@ptrCast(self), @intCast(focusReason));
     }
 
@@ -3438,7 +3438,7 @@ pub const qgraphicswidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemTransform)
     ///
-    /// ``` self: QtC.QGraphicsWidget, other: QtC.QGraphicsItem, ok: bool ```
+    /// ``` self: QtC.QGraphicsWidget, other: QtC.QGraphicsItem, ok: *bool ```
     pub fn ItemTransform2(self: ?*anyopaque, other: ?*anyopaque, ok: *bool) QtC.QTransform {
         return qtc.QGraphicsItem_ItemTransform2(@ptrCast(self), @ptrCast(other), @ptrCast(ok));
     }
@@ -3457,7 +3457,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidingItems)
     ///
     /// ``` self: QtC.QGraphicsWidget, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
-    pub fn CollidingItems1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn CollidingItems1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicswidget.CollidingItems1: Memory allocation failed");
@@ -3507,7 +3507,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsWidget, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i64, vPolicy: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
     }
 
@@ -3732,7 +3732,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsWidget, which: qnamespace_enums.SizeHint ```
-    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i64) QtC.QSizeF {
+    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
     }
 
@@ -3786,7 +3786,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsWidget, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy, controlType: qsizepolicy_enums.ControlType ```
-    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i64, vPolicy: i64, controlType: i64) void {
+    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
     }
 
@@ -3795,7 +3795,7 @@ pub const qgraphicswidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsWidget, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
@@ -4070,7 +4070,7 @@ pub const qgraphicswidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsWidget, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode ```
-    pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i64) bool {
+    pub fn CollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
         return qtc.QGraphicsWidget_CollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
     }
 
@@ -4081,7 +4081,7 @@ pub const qgraphicswidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsWidget, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode ```
-    pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i64) bool {
+    pub fn QBaseCollidesWithItem(self: ?*anyopaque, other: ?*anyopaque, mode: i32) bool {
         return qtc.QGraphicsWidget_QBaseCollidesWithItem(@ptrCast(self), @ptrCast(other), @intCast(mode));
     }
 
@@ -4092,7 +4092,7 @@ pub const qgraphicswidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsWidget_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4103,7 +4103,7 @@ pub const qgraphicswidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsWidget, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode ```
-    pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i64) bool {
+    pub fn CollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
         return qtc.QGraphicsWidget_CollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
     }
 
@@ -4114,7 +4114,7 @@ pub const qgraphicswidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsWidget, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode ```
-    pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i64) bool {
+    pub fn QBaseCollidesWithPath(self: ?*anyopaque, path: ?*anyopaque, mode: i32) bool {
         return qtc.QGraphicsWidget_QBaseCollidesWithPath(@ptrCast(self), @ptrCast(path), @intCast(mode));
     }
 
@@ -4125,7 +4125,7 @@ pub const qgraphicswidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QGraphicsWidget, slot: fn (self: QtC.QGraphicsWidget, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QGraphicsWidget_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

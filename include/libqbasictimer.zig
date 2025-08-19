@@ -37,7 +37,7 @@ pub const qbasictimer = struct {
     /// ``` self: QtC.QBasicTimer ```
     ///
     /// Returns: ``` qnamespace_enums.TimerId ```
-    pub fn Id(self: ?*anyopaque) i64 {
+    pub fn Id(self: ?*anyopaque) i32 {
         return qtc.QBasicTimer_Id(@ptrCast(self));
     }
 
@@ -51,7 +51,7 @@ pub const qbasictimer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qbasictimer.html#start)
     ///
     /// ``` self: QtC.QBasicTimer, msec: i32, timerType: qnamespace_enums.TimerType, obj: QtC.QObject ```
-    pub fn Start2(self: ?*anyopaque, msec: i32, timerType: i64, obj: ?*anyopaque) void {
+    pub fn Start2(self: ?*anyopaque, msec: i32, timerType: i32, obj: ?*anyopaque) void {
         qtc.QBasicTimer_Start2(@ptrCast(self), @intCast(msec), @intCast(timerType), @ptrCast(obj));
     }
 

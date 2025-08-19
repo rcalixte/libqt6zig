@@ -88,7 +88,7 @@ pub const qtextinlineobject = struct {
     /// ``` self: QtC.QTextInlineObject ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn TextDirection(self: ?*anyopaque) i64 {
+    pub fn TextDirection(self: ?*anyopaque) i32 {
         return qtc.QTextInlineObject_TextDirection(@ptrCast(self));
     }
 
@@ -329,7 +329,7 @@ pub const qtextlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout.html#setCursorMoveStyle)
     ///
     /// ``` self: QtC.QTextLayout, style: qnamespace_enums.CursorMoveStyle ```
-    pub fn SetCursorMoveStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetCursorMoveStyle(self: ?*anyopaque, style: i32) void {
         qtc.QTextLayout_SetCursorMoveStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -338,7 +338,7 @@ pub const qtextlayout = struct {
     /// ``` self: QtC.QTextLayout ```
     ///
     /// Returns: ``` qnamespace_enums.CursorMoveStyle ```
-    pub fn CursorMoveStyle(self: ?*anyopaque) i64 {
+    pub fn CursorMoveStyle(self: ?*anyopaque) i32 {
         return qtc.QTextLayout_CursorMoveStyle(@ptrCast(self));
     }
 
@@ -516,14 +516,14 @@ pub const qtextlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout.html#nextCursorPosition)
     ///
     /// ``` self: QtC.QTextLayout, oldPos: i32, mode: qtextlayout_enums.CursorMode ```
-    pub fn NextCursorPosition2(self: ?*anyopaque, oldPos: i32, mode: i64) i32 {
+    pub fn NextCursorPosition2(self: ?*anyopaque, oldPos: i32, mode: i32) i32 {
         return qtc.QTextLayout_NextCursorPosition2(@ptrCast(self), @intCast(oldPos), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout.html#previousCursorPosition)
     ///
     /// ``` self: QtC.QTextLayout, oldPos: i32, mode: qtextlayout_enums.CursorMode ```
-    pub fn PreviousCursorPosition2(self: ?*anyopaque, oldPos: i32, mode: i64) i32 {
+    pub fn PreviousCursorPosition2(self: ?*anyopaque, oldPos: i32, mode: i32) i32 {
         return qtc.QTextLayout_PreviousCursorPosition2(@ptrCast(self), @intCast(oldPos), @intCast(mode));
     }
 
@@ -829,21 +829,21 @@ pub const qtextline = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#cursorToX)
     ///
     /// ``` self: QtC.QTextLine, cursorPos: *i32, edge: qtextlayout_enums.Edge ```
-    pub fn CursorToX22(self: ?*anyopaque, cursorPos: *i32, edge: i64) f64 {
+    pub fn CursorToX22(self: ?*anyopaque, cursorPos: *i32, edge: i32) f64 {
         return qtc.QTextLine_CursorToX22(@ptrCast(self), @ptrCast(cursorPos), @intCast(edge));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#cursorToX)
     ///
     /// ``` self: QtC.QTextLine, cursorPos: i32, edge: qtextlayout_enums.Edge ```
-    pub fn CursorToX23(self: ?*anyopaque, cursorPos: i32, edge: i64) f64 {
+    pub fn CursorToX23(self: ?*anyopaque, cursorPos: i32, edge: i32) f64 {
         return qtc.QTextLine_CursorToX23(@ptrCast(self), @intCast(cursorPos), @intCast(edge));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextline.html#xToCursor)
     ///
     /// ``` self: QtC.QTextLine, x: f64, param2: qtextlayout_enums.CursorPosition ```
-    pub fn XToCursor2(self: ?*anyopaque, x: f64, param2: i64) i32 {
+    pub fn XToCursor2(self: ?*anyopaque, x: f64, param2: i32) i32 {
         return qtc.QTextLine_XToCursor2(@ptrCast(self), @floatCast(x), @intCast(param2));
     }
 

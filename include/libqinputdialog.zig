@@ -46,21 +46,21 @@ pub const qinputdialog = struct {
     }
 
     /// ``` self: QtC.QInputDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QInputDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QInputDialog, slot: fn (self: QtC.QInputDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QInputDialog_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QInputDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QInputDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -79,7 +79,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#setInputMode)
     ///
     /// ``` self: QtC.QInputDialog, mode: qinputdialog_enums.InputMode ```
-    pub fn SetInputMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetInputMode(self: ?*anyopaque, mode: i32) void {
         qtc.QInputDialog_SetInputMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -88,7 +88,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qinputdialog_enums.InputMode ```
-    pub fn InputMode(self: ?*anyopaque) i64 {
+    pub fn InputMode(self: ?*anyopaque) i32 {
         return qtc.QInputDialog_InputMode(@ptrCast(self));
     }
 
@@ -117,14 +117,14 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#setOption)
     ///
     /// ``` self: QtC.QInputDialog, option: qinputdialog_enums.InputDialogOption ```
-    pub fn SetOption(self: ?*anyopaque, option: i64) void {
+    pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QInputDialog_SetOption(@ptrCast(self), @intCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#testOption)
     ///
     /// ``` self: QtC.QInputDialog, option: qinputdialog_enums.InputDialogOption ```
-    pub fn TestOption(self: ?*anyopaque, option: i64) bool {
+    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QInputDialog_TestOption(@ptrCast(self), @intCast(option));
     }
 
@@ -169,7 +169,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#setTextEchoMode)
     ///
     /// ``` self: QtC.QInputDialog, mode: qlineedit_enums.EchoMode ```
-    pub fn SetTextEchoMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetTextEchoMode(self: ?*anyopaque, mode: i32) void {
         qtc.QInputDialog_SetTextEchoMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -178,7 +178,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qlineedit_enums.EchoMode ```
-    pub fn TextEchoMode(self: ?*anyopaque) i64 {
+    pub fn TextEchoMode(self: ?*anyopaque) i32 {
         return qtc.QInputDialog_TextEchoMode(@ptrCast(self));
     }
 
@@ -741,14 +741,14 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#setOption)
     ///
     /// ``` self: QtC.QInputDialog, option: qinputdialog_enums.InputDialogOption, on: bool ```
-    pub fn SetOption2(self: ?*anyopaque, option: i64, on: bool) void {
+    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
         qtc.QInputDialog_SetOption2(@ptrCast(self), @intCast(option), on);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, allocator: std.mem.Allocator ```
-    pub fn GetText4(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText4(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -767,7 +767,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, allocator: std.mem.Allocator ```
-    pub fn GetText5(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, allocator: std.mem.Allocator) []const u8 {
+    pub fn GetText5(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -789,8 +789,8 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: bool, allocator: std.mem.Allocator ```
-    pub fn GetText6(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: *bool, allocator: std.mem.Allocator) []const u8 {
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: *bool, allocator: std.mem.Allocator ```
+    pub fn GetText6(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -812,8 +812,8 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: bool, flags: flag of qnamespace_enums.WindowType, allocator: std.mem.Allocator ```
-    pub fn GetText7(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: *bool, flags: i64, allocator: std.mem.Allocator) []const u8 {
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: *bool, flags: flag of qnamespace_enums.WindowType, allocator: std.mem.Allocator ```
+    pub fn GetText7(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, flags: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -835,8 +835,8 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getText)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: bool, flags: flag of qnamespace_enums.WindowType, inputMethodHints: flag of qnamespace_enums.InputMethodHint, allocator: std.mem.Allocator ```
-    pub fn GetText8(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i64, text: []const u8, ok: *bool, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, echo: qlineedit_enums.EchoMode, text: []const u8, ok: *bool, flags: flag of qnamespace_enums.WindowType, inputMethodHints: flag of qnamespace_enums.InputMethodHint, allocator: std.mem.Allocator ```
+    pub fn GetText8(parent: ?*anyopaque, title: []const u8, label: []const u8, echo: i32, text: []const u8, ok: *bool, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -881,7 +881,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getMultiLineText)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: bool, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: *bool, allocator: std.mem.Allocator ```
     pub fn GetMultiLineText5(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -904,7 +904,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getMultiLineText)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: bool, flags: flag of qnamespace_enums.WindowType, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: flag of qnamespace_enums.WindowType, allocator: std.mem.Allocator ```
     pub fn GetMultiLineText6(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -927,7 +927,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getMultiLineText)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: bool, flags: flag of qnamespace_enums.WindowType, inputMethodHints: flag of qnamespace_enums.InputMethodHint, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: flag of qnamespace_enums.WindowType, inputMethodHints: flag of qnamespace_enums.InputMethodHint, allocator: std.mem.Allocator ```
     pub fn GetMultiLineText7(parent: ?*anyopaque, title: []const u8, label: []const u8, text: []const u8, ok: *bool, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1012,7 +1012,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getItem)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: bool, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, allocator: std.mem.Allocator ```
     pub fn GetItem7(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1043,7 +1043,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getItem)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: bool, flags: flag of qnamespace_enums.WindowType, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: flag of qnamespace_enums.WindowType, allocator: std.mem.Allocator ```
     pub fn GetItem8(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1074,7 +1074,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getItem)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: bool, flags: flag of qnamespace_enums.WindowType, inputMethodHints: flag of qnamespace_enums.InputMethodHint, allocator: std.mem.Allocator ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: flag of qnamespace_enums.WindowType, inputMethodHints: flag of qnamespace_enums.InputMethodHint, allocator: std.mem.Allocator ```
     pub fn GetItem9(parent: ?*anyopaque, title: []const u8, label: []const u8, items: [][]const u8, current: i32, editable: bool, ok: *bool, flags: i64, inputMethodHints: i64, allocator: std.mem.Allocator) []const u8 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1165,7 +1165,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: bool ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool ```
     pub fn GetInt8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1180,7 +1180,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getInt)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: bool, flags: flag of qnamespace_enums.WindowType ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool, flags: flag of qnamespace_enums.WindowType ```
     pub fn GetInt9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: i32, minValue: i32, maxValue: i32, step: i32, ok: *bool, flags: i64) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1255,7 +1255,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: bool ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool ```
     pub fn GetDouble8(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool) f64 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1270,7 +1270,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: bool, flags: flag of qnamespace_enums.WindowType ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: flag of qnamespace_enums.WindowType ```
     pub fn GetDouble9(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i64) f64 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1285,7 +1285,7 @@ pub const qinputdialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputdialog.html#getDouble)
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: bool, flags: flag of qnamespace_enums.WindowType, step: f64 ```
+    /// ``` parent: QtC.QWidget, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: flag of qnamespace_enums.WindowType, step: f64 ```
     pub fn GetDouble10(parent: ?*anyopaque, title: []const u8, label: []const u8, value: f64, minValue: f64, maxValue: f64, decimals: i32, ok: *bool, flags: i64, step: f64) f64 {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -1485,7 +1485,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -1494,7 +1494,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QInputDialog, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -2034,7 +2034,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QInputDialog, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -2045,7 +2045,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -2054,7 +2054,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QInputDialog, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -2065,7 +2065,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -2604,7 +2604,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QInputDialog, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2615,7 +2615,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -2714,7 +2714,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QInputDialog, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -2725,7 +2725,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -2734,7 +2734,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QInputDialog, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -2781,7 +2781,7 @@ pub const qinputdialog = struct {
     /// ``` self: QtC.QInputDialog ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -2790,7 +2790,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QInputDialog, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3286,7 +3286,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QInputDialog, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -3661,7 +3661,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QInputDialog, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3670,7 +3670,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QInputDialog, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3932,7 +3932,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QInputDialog, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -3968,7 +3968,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QInputDialog, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -4102,7 +4102,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QInputDialog, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -4316,7 +4316,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QInputDialog, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -4325,7 +4325,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -4334,7 +4334,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QInputDialog, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4471,7 +4471,7 @@ pub const qinputdialog = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -5678,7 +5678,7 @@ pub const qinputdialog = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QInputDialog, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QInputDialog_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5689,7 +5689,7 @@ pub const qinputdialog = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QInputDialog, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QInputDialog_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5700,7 +5700,7 @@ pub const qinputdialog = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QInputDialog, slot: fn (self: QtC.QInputDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QInputDialog_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6406,7 +6406,7 @@ pub const qinputdialog = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QInputDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QInputDialog_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6417,7 +6417,7 @@ pub const qinputdialog = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QInputDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QInputDialog_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6428,7 +6428,7 @@ pub const qinputdialog = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QInputDialog, slot: fn (self: QtC.QInputDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QInputDialog_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

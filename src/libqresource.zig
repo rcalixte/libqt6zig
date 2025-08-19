@@ -95,7 +95,7 @@ pub const qresource = struct {
     /// ``` self: QtC.QResource ```
     ///
     /// Returns: ``` qresource_enums.Compression ```
-    pub fn CompressionAlgorithm(self: ?*anyopaque) i64 {
+    pub fn CompressionAlgorithm(self: ?*anyopaque) i32 {
         return qtc.QResource_CompressionAlgorithm(@ptrCast(self));
     }
 

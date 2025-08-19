@@ -30,7 +30,7 @@ pub const qcolor = struct {
     /// New4 constructs a new QColor object.
     ///
     /// ``` color: qnamespace_enums.GlobalColor ```
-    pub fn New4(color: i64) QtC.QColor {
+    pub fn New4(color: i32) QtC.QColor {
         return qtc.QColor_new4(@intCast(color));
     }
 
@@ -79,14 +79,14 @@ pub const qcolor = struct {
     /// New10 constructs a new QColor object.
     ///
     /// ``` spec: qcolor_enums.Spec ```
-    pub fn New10(spec: i64) QtC.QColor {
+    pub fn New10(spec: i32) QtC.QColor {
         return qtc.QColor_new10(@intCast(spec));
     }
 
     /// New11 constructs a new QColor object.
     ///
     /// ``` spec: qcolor_enums.Spec, a1: u16, a2: u16, a3: u16, a4: u16 ```
-    pub fn New11(spec: i64, a1: u16, a2: u16, a3: u16, a4: u16) QtC.QColor {
+    pub fn New11(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16) QtC.QColor {
         return qtc.QColor_new11(@intCast(spec), @intCast(a1), @intCast(a2), @intCast(a3), @intCast(a4));
     }
 
@@ -107,7 +107,7 @@ pub const qcolor = struct {
     /// New14 constructs a new QColor object.
     ///
     /// ``` spec: qcolor_enums.Spec, a1: u16, a2: u16, a3: u16, a4: u16, a5: u16 ```
-    pub fn New14(spec: i64, a1: u16, a2: u16, a3: u16, a4: u16, a5: u16) QtC.QColor {
+    pub fn New14(spec: i32, a1: u16, a2: u16, a3: u16, a4: u16, a5: u16) QtC.QColor {
         return qtc.QColor_new14(@intCast(spec), @intCast(a1), @intCast(a2), @intCast(a3), @intCast(a4), @intCast(a5));
     }
 
@@ -139,7 +139,7 @@ pub const qcolor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#operator-eq)
     ///
     /// ``` self: QtC.QColor, color: qnamespace_enums.GlobalColor ```
-    pub fn OperatorAssign(self: ?*anyopaque, color: i64) void {
+    pub fn OperatorAssign(self: ?*anyopaque, color: i32) void {
         qtc.QColor_OperatorAssign(@ptrCast(self), @intCast(color));
     }
 
@@ -199,7 +199,7 @@ pub const qcolor = struct {
     /// ``` self: QtC.QColor ```
     ///
     /// Returns: ``` qcolor_enums.Spec ```
-    pub fn Spec(self: ?*anyopaque) i64 {
+    pub fn Spec(self: ?*anyopaque) i32 {
         return qtc.QColor_Spec(@ptrCast(self));
     }
 
@@ -675,7 +675,7 @@ pub const qcolor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#convertTo)
     ///
     /// ``` self: QtC.QColor, colorSpec: qcolor_enums.Spec ```
-    pub fn ConvertTo(self: ?*anyopaque, colorSpec: i64) QtC.QColor {
+    pub fn ConvertTo(self: ?*anyopaque, colorSpec: i32) QtC.QColor {
         return qtc.QColor_ConvertTo(@ptrCast(self), @intCast(colorSpec));
     }
 
@@ -823,7 +823,7 @@ pub const qcolor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcolor.html#name)
     ///
     /// ``` self: QtC.QColor, format: qcolor_enums.NameFormat, allocator: std.mem.Allocator ```
-    pub fn Name1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Name1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QColor_Name1(@ptrCast(self), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcolor.Name1: Memory allocation failed");

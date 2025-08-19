@@ -15,7 +15,7 @@ pub const qgraphicslinearlayout = struct {
     /// New2 constructs a new QGraphicsLinearLayout object.
     ///
     /// ``` orientation: qnamespace_enums.Orientation ```
-    pub fn New2(orientation: i64) QtC.QGraphicsLinearLayout {
+    pub fn New2(orientation: i32) QtC.QGraphicsLinearLayout {
         return qtc.QGraphicsLinearLayout_new2(@intCast(orientation));
     }
 
@@ -29,14 +29,14 @@ pub const qgraphicslinearlayout = struct {
     /// New4 constructs a new QGraphicsLinearLayout object.
     ///
     /// ``` orientation: qnamespace_enums.Orientation, parent: QtC.QGraphicsLayoutItem ```
-    pub fn New4(orientation: i64, parent: ?*anyopaque) QtC.QGraphicsLinearLayout {
+    pub fn New4(orientation: i32, parent: ?*anyopaque) QtC.QGraphicsLinearLayout {
         return qtc.QGraphicsLinearLayout_new4(@intCast(orientation), @ptrCast(parent));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#setOrientation)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, orientation: qnamespace_enums.Orientation ```
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i64) void {
+    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QGraphicsLinearLayout_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -45,7 +45,7 @@ pub const qgraphicslinearlayout = struct {
     /// ``` self: QtC.QGraphicsLinearLayout ```
     ///
     /// Returns: ``` qnamespace_enums.Orientation ```
-    pub fn Orientation(self: ?*anyopaque) i64 {
+    pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QGraphicsLinearLayout_Orientation(@ptrCast(self));
     }
 
@@ -270,7 +270,7 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslinearlayout.html#sizeHint)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn SizeHint(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn SizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsLinearLayout_SizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
@@ -279,7 +279,7 @@ pub const qgraphicslinearlayout = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, slot: fn (self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
+    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
         qtc.QGraphicsLinearLayout_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -288,7 +288,7 @@ pub const qgraphicslinearlayout = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn QBaseSizeHint(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn QBaseSizeHint(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsLinearLayout_QBaseSizeHint(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 
@@ -379,7 +379,7 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i64, vPolicy: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, hPolicy: i32, vPolicy: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy2(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy));
     }
 
@@ -604,7 +604,7 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint ```
-    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i64) QtC.QSizeF {
+    pub fn EffectiveSizeHint(self: ?*anyopaque, which: i32) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint(@ptrCast(self), @intCast(which));
     }
 
@@ -658,7 +658,7 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setSizePolicy)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, hPolicy: qsizepolicy_enums.Policy, vPolicy: qsizepolicy_enums.Policy, controlType: qsizepolicy_enums.ControlType ```
-    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i64, vPolicy: i64, controlType: i64) void {
+    pub fn SetSizePolicy3(self: ?*anyopaque, hPolicy: i32, vPolicy: i32, controlType: i32) void {
         qtc.QGraphicsLayoutItem_SetSizePolicy3(@ptrCast(self), @intCast(hPolicy), @intCast(vPolicy), @intCast(controlType));
     }
 
@@ -667,7 +667,7 @@ pub const qgraphicslinearlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#effectiveSizeHint)
     ///
     /// ``` self: QtC.QGraphicsLinearLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF ```
-    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i64, constraint: ?*anyopaque) QtC.QSizeF {
+    pub fn EffectiveSizeHint2(self: ?*anyopaque, which: i32, constraint: ?*anyopaque) QtC.QSizeF {
         return qtc.QGraphicsLayoutItem_EffectiveSizeHint2(@ptrCast(self), @intCast(which), @ptrCast(constraint));
     }
 

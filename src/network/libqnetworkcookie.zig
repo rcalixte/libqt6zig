@@ -108,14 +108,14 @@ pub const qnetworkcookie = struct {
     /// ``` self: QtC.QNetworkCookie ```
     ///
     /// Returns: ``` qnetworkcookie_enums.SameSite ```
-    pub fn SameSitePolicy(self: ?*anyopaque) i64 {
+    pub fn SameSitePolicy(self: ?*anyopaque) i32 {
         return qtc.QNetworkCookie_SameSitePolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#setSameSitePolicy)
     ///
     /// ``` self: QtC.QNetworkCookie, sameSite: qnetworkcookie_enums.SameSite ```
-    pub fn SetSameSitePolicy(self: ?*anyopaque, sameSite: i64) void {
+    pub fn SetSameSitePolicy(self: ?*anyopaque, sameSite: i32) void {
         qtc.QNetworkCookie_SetSameSitePolicy(@ptrCast(self), @intCast(sameSite));
     }
 
@@ -268,7 +268,7 @@ pub const qnetworkcookie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcookie.html#toRawForm)
     ///
     /// ``` self: QtC.QNetworkCookie, form: qnetworkcookie_enums.RawForm, allocator: std.mem.Allocator ```
-    pub fn ToRawForm1(self: ?*anyopaque, form: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn ToRawForm1(self: ?*anyopaque, form: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QNetworkCookie_ToRawForm1(@ptrCast(self), @intCast(form));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkcookie.ToRawForm1: Memory allocation failed");

@@ -63,21 +63,21 @@ pub const qgraphicsscene = struct {
     }
 
     /// ``` self: QtC.QGraphicsScene, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsScene_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QGraphicsScene, slot: fn (self: QtC.QGraphicsScene, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QGraphicsScene_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QGraphicsScene, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QGraphicsScene_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -140,14 +140,14 @@ pub const qgraphicsscene = struct {
     /// ``` self: QtC.QGraphicsScene ```
     ///
     /// Returns: ``` qgraphicsscene_enums.ItemIndexMethod ```
-    pub fn ItemIndexMethod(self: ?*anyopaque) i64 {
+    pub fn ItemIndexMethod(self: ?*anyopaque) i32 {
         return qtc.QGraphicsScene_ItemIndexMethod(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setItemIndexMethod)
     ///
     /// ``` self: QtC.QGraphicsScene, method: qgraphicsscene_enums.ItemIndexMethod ```
-    pub fn SetItemIndexMethod(self: ?*anyopaque, method: i64) void {
+    pub fn SetItemIndexMethod(self: ?*anyopaque, method: i32) void {
         qtc.QGraphicsScene_SetItemIndexMethod(@ptrCast(self), @intCast(method));
     }
 
@@ -223,7 +223,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, x: f64, y: f64, w: f64, h: f64, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items6(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, mode: i32, order: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items6(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items6: Memory allocation failed");
@@ -1264,14 +1264,14 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#focusItemChanged)
     ///
     /// ``` self: QtC.QGraphicsScene, newFocus: QtC.QGraphicsItem, oldFocus: QtC.QGraphicsItem, reason: qnamespace_enums.FocusReason ```
-    pub fn FocusItemChanged(self: ?*anyopaque, newFocus: ?*anyopaque, oldFocus: ?*anyopaque, reason: i64) void {
+    pub fn FocusItemChanged(self: ?*anyopaque, newFocus: ?*anyopaque, oldFocus: ?*anyopaque, reason: i32) void {
         qtc.QGraphicsScene_FocusItemChanged(@ptrCast(self), @ptrCast(newFocus), @ptrCast(oldFocus), @intCast(reason));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#focusItemChanged)
     ///
     /// ``` self: QtC.QGraphicsScene, slot: fn (self: QtC.QGraphicsScene, newFocus: QtC.QGraphicsItem, oldFocus: QtC.QGraphicsItem, reason: qnamespace_enums.FocusReason) callconv(.c) void ```
-    pub fn OnFocusItemChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnFocusItemChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QGraphicsScene_Connect_FocusItemChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1318,14 +1318,14 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#render)
     ///
     /// ``` self: QtC.QGraphicsScene, painter: QtC.QPainter, target: QtC.QRectF, source: QtC.QRectF, aspectRatioMode: qnamespace_enums.AspectRatioMode ```
-    pub fn Render4(self: ?*anyopaque, painter: ?*anyopaque, target: ?*anyopaque, source: ?*anyopaque, aspectRatioMode: i64) void {
+    pub fn Render4(self: ?*anyopaque, painter: ?*anyopaque, target: ?*anyopaque, source: ?*anyopaque, aspectRatioMode: i32) void {
         qtc.QGraphicsScene_Render4(@ptrCast(self), @ptrCast(painter), @ptrCast(target), @ptrCast(source), @intCast(aspectRatioMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items1(self: ?*anyopaque, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items1(self: ?*anyopaque, order: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items1(@ptrCast(self), @intCast(order));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items1: Memory allocation failed");
@@ -1337,7 +1337,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, pos: QtC.QPointF, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
-    pub fn Items22(self: ?*anyopaque, pos: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items22(self: ?*anyopaque, pos: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items22(@ptrCast(self), @ptrCast(pos), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items22: Memory allocation failed");
@@ -1349,7 +1349,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, pos: QtC.QPointF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items32(self: ?*anyopaque, pos: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items32(self: ?*anyopaque, pos: ?*anyopaque, mode: i32, order: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items32(@ptrCast(self), @ptrCast(pos), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items32: Memory allocation failed");
@@ -1361,7 +1361,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, pos: QtC.QPointF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, deviceTransform: QtC.QTransform, allocator: std.mem.Allocator ```
-    pub fn Items42(self: ?*anyopaque, pos: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items42(self: ?*anyopaque, pos: ?*anyopaque, mode: i32, order: i32, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items42(@ptrCast(self), @ptrCast(pos), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items42: Memory allocation failed");
@@ -1373,7 +1373,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, rect: QtC.QRectF, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
-    pub fn Items23(self: ?*anyopaque, rect: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items23(self: ?*anyopaque, rect: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items23(@ptrCast(self), @ptrCast(rect), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items23: Memory allocation failed");
@@ -1385,7 +1385,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, rect: QtC.QRectF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items33(self: ?*anyopaque, rect: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items33(self: ?*anyopaque, rect: ?*anyopaque, mode: i32, order: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items33(@ptrCast(self), @ptrCast(rect), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items33: Memory allocation failed");
@@ -1397,7 +1397,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, rect: QtC.QRectF, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, deviceTransform: QtC.QTransform, allocator: std.mem.Allocator ```
-    pub fn Items43(self: ?*anyopaque, rect: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items43(self: ?*anyopaque, rect: ?*anyopaque, mode: i32, order: i32, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items43(@ptrCast(self), @ptrCast(rect), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items43: Memory allocation failed");
@@ -1409,7 +1409,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
-    pub fn Items25(self: ?*anyopaque, path: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items25(self: ?*anyopaque, path: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items25(@ptrCast(self), @ptrCast(path), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items25: Memory allocation failed");
@@ -1421,7 +1421,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, allocator: std.mem.Allocator ```
-    pub fn Items35(self: ?*anyopaque, path: ?*anyopaque, mode: i64, order: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items35(self: ?*anyopaque, path: ?*anyopaque, mode: i32, order: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items35(@ptrCast(self), @ptrCast(path), @intCast(mode), @intCast(order));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items35: Memory allocation failed");
@@ -1433,7 +1433,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, deviceTransform: QtC.QTransform, allocator: std.mem.Allocator ```
-    pub fn Items45(self: ?*anyopaque, path: ?*anyopaque, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items45(self: ?*anyopaque, path: ?*anyopaque, mode: i32, order: i32, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items45(@ptrCast(self), @ptrCast(path), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items45: Memory allocation failed");
@@ -1445,7 +1445,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#items)
     ///
     /// ``` self: QtC.QGraphicsScene, x: f64, y: f64, w: f64, h: f64, mode: qnamespace_enums.ItemSelectionMode, order: qnamespace_enums.SortOrder, deviceTransform: QtC.QTransform, allocator: std.mem.Allocator ```
-    pub fn Items7(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, mode: i64, order: i64, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn Items7(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, mode: i32, order: i32, deviceTransform: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_Items7(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @intCast(mode), @intCast(order), @ptrCast(deviceTransform));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.Items7: Memory allocation failed");
@@ -1457,7 +1457,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#collidingItems)
     ///
     /// ``` self: QtC.QGraphicsScene, item: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode, allocator: std.mem.Allocator ```
-    pub fn CollidingItems2(self: ?*anyopaque, item: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
+    pub fn CollidingItems2(self: ?*anyopaque, item: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []QtC.QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsScene_CollidingItems2(@ptrCast(self), @ptrCast(item), @intCast(mode));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QGraphicsItem, _arr.len) catch @panic("qgraphicsscene.CollidingItems2: Memory allocation failed");
@@ -1469,21 +1469,21 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setSelectionArea)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, selectionOperation: qnamespace_enums.ItemSelectionOperation ```
-    pub fn SetSelectionArea22(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i64) void {
+    pub fn SetSelectionArea22(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i32) void {
         qtc.QGraphicsScene_SetSelectionArea22(@ptrCast(self), @ptrCast(path), @intCast(selectionOperation));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setSelectionArea)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, selectionOperation: qnamespace_enums.ItemSelectionOperation, mode: qnamespace_enums.ItemSelectionMode ```
-    pub fn SetSelectionArea3(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i64, mode: i64) void {
+    pub fn SetSelectionArea3(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i32, mode: i32) void {
         qtc.QGraphicsScene_SetSelectionArea3(@ptrCast(self), @ptrCast(path), @intCast(selectionOperation), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setSelectionArea)
     ///
     /// ``` self: QtC.QGraphicsScene, path: QtC.QPainterPath, selectionOperation: qnamespace_enums.ItemSelectionOperation, mode: qnamespace_enums.ItemSelectionMode, deviceTransform: QtC.QTransform ```
-    pub fn SetSelectionArea4(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i64, mode: i64, deviceTransform: ?*anyopaque) void {
+    pub fn SetSelectionArea4(self: ?*anyopaque, path: ?*anyopaque, selectionOperation: i32, mode: i32, deviceTransform: ?*anyopaque) void {
         qtc.QGraphicsScene_SetSelectionArea4(@ptrCast(self), @ptrCast(path), @intCast(selectionOperation), @intCast(mode), @ptrCast(deviceTransform));
     }
 
@@ -1603,14 +1603,14 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setFocusItem)
     ///
     /// ``` self: QtC.QGraphicsScene, item: QtC.QGraphicsItem, focusReason: qnamespace_enums.FocusReason ```
-    pub fn SetFocusItem2(self: ?*anyopaque, item: ?*anyopaque, focusReason: i64) void {
+    pub fn SetFocusItem2(self: ?*anyopaque, item: ?*anyopaque, focusReason: i32) void {
         qtc.QGraphicsScene_SetFocusItem2(@ptrCast(self), @ptrCast(item), @intCast(focusReason));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#setFocus)
     ///
     /// ``` self: QtC.QGraphicsScene, focusReason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus1(self: ?*anyopaque, focusReason: i64) void {
+    pub fn SetFocus1(self: ?*anyopaque, focusReason: i32) void {
         qtc.QGraphicsScene_SetFocus1(@ptrCast(self), @intCast(focusReason));
     }
 
@@ -1754,7 +1754,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QGraphicsScene, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1977,7 +1977,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QGraphicsScene, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1986,7 +1986,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1995,7 +1995,7 @@ pub const qgraphicsscene = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QGraphicsScene, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

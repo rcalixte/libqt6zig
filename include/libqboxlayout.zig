@@ -12,14 +12,14 @@ pub const qboxlayout = struct {
     /// New constructs a new QBoxLayout object.
     ///
     /// ``` param1: qboxlayout_enums.Direction ```
-    pub fn New(param1: i64) QtC.QBoxLayout {
+    pub fn New(param1: i32) QtC.QBoxLayout {
         return qtc.QBoxLayout_new(@intCast(param1));
     }
 
     /// New2 constructs a new QBoxLayout object.
     ///
     /// ``` param1: qboxlayout_enums.Direction, parent: QtC.QWidget ```
-    pub fn New2(param1: i64, parent: ?*anyopaque) QtC.QBoxLayout {
+    pub fn New2(param1: i32, parent: ?*anyopaque) QtC.QBoxLayout {
         return qtc.QBoxLayout_new2(@intCast(param1), @ptrCast(parent));
     }
 
@@ -37,21 +37,21 @@ pub const qboxlayout = struct {
     }
 
     /// ``` self: QtC.QBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QBoxLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -72,14 +72,14 @@ pub const qboxlayout = struct {
     /// ``` self: QtC.QBoxLayout ```
     ///
     /// Returns: ``` qboxlayout_enums.Direction ```
-    pub fn Direction(self: ?*anyopaque) i64 {
+    pub fn Direction(self: ?*anyopaque) i32 {
         return qtc.QBoxLayout_Direction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
     ///
     /// ``` self: QtC.QBoxLayout, direction: qboxlayout_enums.Direction ```
-    pub fn SetDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QBoxLayout_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -733,7 +733,7 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QBoxLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
-    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i64) void {
+    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
         qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
     }
 
@@ -744,7 +744,7 @@ pub const qboxlayout = struct {
     /// ``` self: QtC.QBoxLayout ```
     ///
     /// Returns: ``` qlayout_enums.SizeConstraint ```
-    pub fn SizeConstraint(self: ?*anyopaque) i64 {
+    pub fn SizeConstraint(self: ?*anyopaque) i32 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
 
@@ -1026,7 +1026,7 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QBoxLayout, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1249,7 +1249,7 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QBoxLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1258,7 +1258,7 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1267,7 +1267,7 @@ pub const qboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -2151,21 +2151,21 @@ pub const qhboxlayout = struct {
     }
 
     /// ``` self: QtC.QHBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QHBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QHBoxLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QHBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QHBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -2214,7 +2214,7 @@ pub const qhboxlayout = struct {
     /// ``` self: QtC.QHBoxLayout ```
     ///
     /// Returns: ``` qboxlayout_enums.Direction ```
-    pub fn Direction(self: ?*anyopaque) i64 {
+    pub fn Direction(self: ?*anyopaque) i32 {
         return qtc.QBoxLayout_Direction(@ptrCast(self));
     }
 
@@ -2223,7 +2223,7 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
     ///
     /// ``` self: QtC.QHBoxLayout, direction: qboxlayout_enums.Direction ```
-    pub fn SetDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QBoxLayout_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2520,7 +2520,7 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QHBoxLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
-    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i64) void {
+    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
         qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
     }
 
@@ -2531,7 +2531,7 @@ pub const qhboxlayout = struct {
     /// ``` self: QtC.QHBoxLayout ```
     ///
     /// Returns: ``` qlayout_enums.SizeConstraint ```
-    pub fn SizeConstraint(self: ?*anyopaque) i64 {
+    pub fn SizeConstraint(self: ?*anyopaque) i32 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
 
@@ -2813,7 +2813,7 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QHBoxLayout, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -3036,7 +3036,7 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QHBoxLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -3045,7 +3045,7 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -3054,7 +3054,7 @@ pub const qhboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QHBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4437,21 +4437,21 @@ pub const qvboxlayout = struct {
     }
 
     /// ``` self: QtC.QVBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QVBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QVBoxLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QVBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QVBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -4500,7 +4500,7 @@ pub const qvboxlayout = struct {
     /// ``` self: QtC.QVBoxLayout ```
     ///
     /// Returns: ``` qboxlayout_enums.Direction ```
-    pub fn Direction(self: ?*anyopaque) i64 {
+    pub fn Direction(self: ?*anyopaque) i32 {
         return qtc.QBoxLayout_Direction(@ptrCast(self));
     }
 
@@ -4509,7 +4509,7 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setDirection)
     ///
     /// ``` self: QtC.QVBoxLayout, direction: qboxlayout_enums.Direction ```
-    pub fn SetDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QBoxLayout_SetDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -4806,7 +4806,7 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QVBoxLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
-    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i64) void {
+    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
         qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
     }
 
@@ -4817,7 +4817,7 @@ pub const qvboxlayout = struct {
     /// ``` self: QtC.QVBoxLayout ```
     ///
     /// Returns: ``` qlayout_enums.SizeConstraint ```
-    pub fn SizeConstraint(self: ?*anyopaque) i64 {
+    pub fn SizeConstraint(self: ?*anyopaque) i32 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
 
@@ -5099,7 +5099,7 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QVBoxLayout, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -5322,7 +5322,7 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QVBoxLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -5331,7 +5331,7 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -5340,7 +5340,7 @@ pub const qvboxlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QVBoxLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

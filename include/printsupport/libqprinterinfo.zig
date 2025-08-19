@@ -103,7 +103,7 @@ pub const qprinterinfo = struct {
     /// ``` self: QtC.QPrinterInfo ```
     ///
     /// Returns: ``` qprinter_enums.PrinterState ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QPrinterInfo_State(@ptrCast(self));
     }
 
@@ -164,7 +164,7 @@ pub const qprinterinfo = struct {
     /// ``` self: QtC.QPrinterInfo ```
     ///
     /// Returns: ``` qprinter_enums.DuplexMode ```
-    pub fn DefaultDuplexMode(self: ?*anyopaque) i64 {
+    pub fn DefaultDuplexMode(self: ?*anyopaque) i32 {
         return qtc.QPrinterInfo_DefaultDuplexMode(@ptrCast(self));
     }
 
@@ -187,7 +187,7 @@ pub const qprinterinfo = struct {
     /// ``` self: QtC.QPrinterInfo ```
     ///
     /// Returns: ``` qprinter_enums.ColorMode ```
-    pub fn DefaultColorMode(self: ?*anyopaque) i64 {
+    pub fn DefaultColorMode(self: ?*anyopaque) i32 {
         return qtc.QPrinterInfo_DefaultColorMode(@ptrCast(self));
     }
 

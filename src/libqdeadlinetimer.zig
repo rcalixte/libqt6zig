@@ -29,14 +29,14 @@ pub const qdeadlinetimer = struct {
     /// New4 constructs a new QDeadlineTimer object.
     ///
     /// ``` type_: qnamespace_enums.TimerType ```
-    pub fn New4(type_: i64) QtC.QDeadlineTimer {
+    pub fn New4(type_: i32) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_new4(@intCast(type_));
     }
 
     /// New5 constructs a new QDeadlineTimer object.
     ///
     /// ``` param1: qdeadlinetimer_enums.ForeverConstant ```
-    pub fn New5(param1: i64) QtC.QDeadlineTimer {
+    pub fn New5(param1: i32) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_new5(@intCast(param1));
     }
 
@@ -57,14 +57,14 @@ pub const qdeadlinetimer = struct {
     /// New8 constructs a new QDeadlineTimer object.
     ///
     /// ``` param1: qdeadlinetimer_enums.ForeverConstant, type_: qnamespace_enums.TimerType ```
-    pub fn New8(param1: i64, type_: i64) QtC.QDeadlineTimer {
+    pub fn New8(param1: i32, type_: i32) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_new8(@intCast(param1), @intCast(type_));
     }
 
     /// New9 constructs a new QDeadlineTimer object.
     ///
     /// ``` msecs: i64, typeVal: qnamespace_enums.TimerType ```
-    pub fn New9(msecs: i64, typeVal: i64) QtC.QDeadlineTimer {
+    pub fn New9(msecs: i64, typeVal: i32) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_new9(@intCast(msecs), @intCast(typeVal));
     }
 
@@ -108,14 +108,14 @@ pub const qdeadlinetimer = struct {
     /// ``` self: QtC.QDeadlineTimer ```
     ///
     /// Returns: ``` qnamespace_enums.TimerType ```
-    pub fn TimerType(self: ?*anyopaque) i64 {
+    pub fn TimerType(self: ?*anyopaque) i32 {
         return qtc.QDeadlineTimer_TimerType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setTimerType)
     ///
     /// ``` self: QtC.QDeadlineTimer, typeVal: qnamespace_enums.TimerType ```
-    pub fn SetTimerType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetTimerType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QDeadlineTimer_SetTimerType(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -206,7 +206,7 @@ pub const qdeadlinetimer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setRemainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64, typeVal: qnamespace_enums.TimerType ```
-    pub fn SetRemainingTime2(self: ?*anyopaque, msecs: i64, typeVal: i64) void {
+    pub fn SetRemainingTime2(self: ?*anyopaque, msecs: i64, typeVal: i32) void {
         qtc.QDeadlineTimer_SetRemainingTime2(@ptrCast(self), @intCast(msecs), @intCast(typeVal));
     }
 
@@ -220,14 +220,14 @@ pub const qdeadlinetimer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseRemainingTime)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64, nsecs: i64, typeVal: qnamespace_enums.TimerType ```
-    pub fn SetPreciseRemainingTime3(self: ?*anyopaque, secs: i64, nsecs: i64, typeVal: i64) void {
+    pub fn SetPreciseRemainingTime3(self: ?*anyopaque, secs: i64, nsecs: i64, typeVal: i32) void {
         qtc.QDeadlineTimer_SetPreciseRemainingTime3(@ptrCast(self), @intCast(secs), @intCast(nsecs), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setDeadline)
     ///
     /// ``` self: QtC.QDeadlineTimer, msecs: i64, timerType: qnamespace_enums.TimerType ```
-    pub fn SetDeadline2(self: ?*anyopaque, msecs: i64, timerType: i64) void {
+    pub fn SetDeadline2(self: ?*anyopaque, msecs: i64, timerType: i32) void {
         qtc.QDeadlineTimer_SetDeadline2(@ptrCast(self), @intCast(msecs), @intCast(timerType));
     }
 
@@ -241,14 +241,14 @@ pub const qdeadlinetimer = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#setPreciseDeadline)
     ///
     /// ``` self: QtC.QDeadlineTimer, secs: i64, nsecs: i64, typeVal: qnamespace_enums.TimerType ```
-    pub fn SetPreciseDeadline3(self: ?*anyopaque, secs: i64, nsecs: i64, typeVal: i64) void {
+    pub fn SetPreciseDeadline3(self: ?*anyopaque, secs: i64, nsecs: i64, typeVal: i32) void {
         qtc.QDeadlineTimer_SetPreciseDeadline3(@ptrCast(self), @intCast(secs), @intCast(nsecs), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdeadlinetimer.html#current)
     ///
     /// ``` timerType: qnamespace_enums.TimerType ```
-    pub fn Current1(timerType: i64) QtC.QDeadlineTimer {
+    pub fn Current1(timerType: i32) QtC.QDeadlineTimer {
         return qtc.QDeadlineTimer_Current1(@intCast(timerType));
     }
 

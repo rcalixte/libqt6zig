@@ -14,14 +14,14 @@ pub const qinputevent = struct {
     /// New constructs a new QInputEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, m_dev: QtC.QInputDevice ```
-    pub fn New(typeVal: i64, m_dev: ?*anyopaque) QtC.QInputEvent {
+    pub fn New(typeVal: i32, m_dev: ?*anyopaque) QtC.QInputEvent {
         return qtc.QInputEvent_new(@intCast(typeVal), @ptrCast(m_dev));
     }
 
     /// New2 constructs a new QInputEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, m_dev: QtC.QInputDevice, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New2(typeVal: i64, m_dev: ?*anyopaque, modifiers: i64) QtC.QInputEvent {
+    pub fn New2(typeVal: i32, m_dev: ?*anyopaque, modifiers: i64) QtC.QInputEvent {
         return qtc.QInputEvent_new2(@intCast(typeVal), @ptrCast(m_dev), @intCast(modifiers));
     }
 
@@ -62,7 +62,7 @@ pub const qinputevent = struct {
     /// ``` self: QtC.QInputEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -121,7 +121,7 @@ pub const qinputevent = struct {
     /// ``` self: QtC.QInputEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -254,21 +254,21 @@ pub const qpointerevent = struct {
     /// New constructs a new QPointerEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice ```
-    pub fn New(typeVal: i64, dev: ?*anyopaque) QtC.QPointerEvent {
+    pub fn New(typeVal: i32, dev: ?*anyopaque) QtC.QPointerEvent {
         return qtc.QPointerEvent_new(@intCast(typeVal), @ptrCast(dev));
     }
 
     /// New2 constructs a new QPointerEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New2(typeVal: i64, dev: ?*anyopaque, modifiers: i64) QtC.QPointerEvent {
+    pub fn New2(typeVal: i32, dev: ?*anyopaque, modifiers: i64) QtC.QPointerEvent {
         return qtc.QPointerEvent_new2(@intCast(typeVal), @ptrCast(dev), @intCast(modifiers));
     }
 
     /// New3 constructs a new QPointerEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, dev: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, points: []QtC.QEventPoint ```
-    pub fn New3(typeVal: i64, dev: ?*anyopaque, modifiers: i64, points: []QtC.QEventPoint) QtC.QPointerEvent {
+    pub fn New3(typeVal: i32, dev: ?*anyopaque, modifiers: i64, points: []QtC.QEventPoint) QtC.QPointerEvent {
         const points_list = qtc.libqt_list{
             .len = points.len,
             .data = @ptrCast(points.ptr),
@@ -314,7 +314,7 @@ pub const qpointerevent = struct {
     /// ``` self: QtC.QPointerEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -541,7 +541,7 @@ pub const qpointerevent = struct {
     /// ``` self: QtC.QPointerEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -581,7 +581,7 @@ pub const qpointerevent = struct {
     /// ``` self: QtC.QPointerEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -775,7 +775,7 @@ pub const qsinglepointevent = struct {
     /// ``` self: QtC.QSinglePointEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -917,7 +917,7 @@ pub const qsinglepointevent = struct {
     /// ``` self: QtC.QSinglePointEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -957,7 +957,7 @@ pub const qsinglepointevent = struct {
     /// ``` self: QtC.QSinglePointEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -1239,7 +1239,7 @@ pub const qenterevent = struct {
     /// ``` self: QtC.QEnterEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -1363,7 +1363,7 @@ pub const qenterevent = struct {
     /// ``` self: QtC.QEnterEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -1403,7 +1403,7 @@ pub const qenterevent = struct {
     /// ``` self: QtC.QEnterEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -1668,56 +1668,56 @@ pub const qmouseevent = struct {
     /// New constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New(typeVal: i64, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
+    pub fn New(typeVal: i32, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New2 constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New2(typeVal: i64, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
+    pub fn New2(typeVal: i32, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new2(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New3 constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New3(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
+    pub fn New3(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64) QtC.QMouseEvent {
         return qtc.QMouseEvent_new3(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers));
     }
 
     /// New4 constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, source: qnamespace_enums.MouseEventSource ```
-    pub fn New4(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i64) QtC.QMouseEvent {
+    pub fn New4(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i32) QtC.QMouseEvent {
         return qtc.QMouseEvent_new4(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source));
     }
 
     /// New5 constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
-    pub fn New5(typeVal: i64, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
+    pub fn New5(typeVal: i32, localPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new5(@intCast(typeVal), @ptrCast(localPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New6 constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
-    pub fn New6(typeVal: i64, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
+    pub fn New6(typeVal: i32, localPos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new6(@intCast(typeVal), @ptrCast(localPos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New7 constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
-    pub fn New7(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
+    pub fn New7(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new7(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New8 constructs a new QMouseEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
-    pub fn New8(typeVal: i64, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i64, device: ?*anyopaque) QtC.QMouseEvent {
+    pub fn New8(typeVal: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, button: i64, buttons: i64, modifiers: i64, source: i32, device: ?*anyopaque) QtC.QMouseEvent {
         return qtc.QMouseEvent_new8(@intCast(typeVal), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @intCast(button), @intCast(buttons), @intCast(modifiers), @intCast(source), @ptrCast(device));
     }
 
@@ -1814,7 +1814,7 @@ pub const qmouseevent = struct {
     /// ``` self: QtC.QMouseEvent ```
     ///
     /// Returns: ``` qnamespace_enums.MouseEventSource ```
-    pub fn Source(self: ?*anyopaque) i64 {
+    pub fn Source(self: ?*anyopaque) i32 {
         return qtc.QMouseEvent_Source(@ptrCast(self));
     }
 
@@ -1910,7 +1910,7 @@ pub const qmouseevent = struct {
     /// ``` self: QtC.QMouseEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -2034,7 +2034,7 @@ pub const qmouseevent = struct {
     /// ``` self: QtC.QMouseEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -2074,7 +2074,7 @@ pub const qmouseevent = struct {
     /// ``` self: QtC.QMouseEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -2339,42 +2339,42 @@ pub const qhoverevent = struct {
     /// New constructs a new QHoverEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF ```
-    pub fn New(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
+    pub fn New(typeVal: i32, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos));
     }
 
     /// New2 constructs a new QHoverEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF ```
-    pub fn New2(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
+    pub fn New2(typeVal: i32, pos: ?*anyopaque, oldPos: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new2(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos));
     }
 
     /// New3 constructs a new QHoverEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New3(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
+    pub fn New3(typeVal: i32, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
         return qtc.QHoverEvent_new3(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers));
     }
 
     /// New4 constructs a new QHoverEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, scenePos: QtC.QPointF, globalPos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
-    pub fn New4(typeVal: i64, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
+    pub fn New4(typeVal: i32, scenePos: ?*anyopaque, globalPos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new4(@intCast(typeVal), @ptrCast(scenePos), @ptrCast(globalPos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
     }
 
     /// New5 constructs a new QHoverEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New5(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
+    pub fn New5(typeVal: i32, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64) QtC.QHoverEvent {
         return qtc.QHoverEvent_new5(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers));
     }
 
     /// New6 constructs a new QHoverEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPointF, oldPos: QtC.QPointF, modifiers: flag of qnamespace_enums.KeyboardModifier, device: QtC.QPointingDevice ```
-    pub fn New6(typeVal: i64, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
+    pub fn New6(typeVal: i32, pos: ?*anyopaque, oldPos: ?*anyopaque, modifiers: i64, device: ?*anyopaque) QtC.QHoverEvent {
         return qtc.QHoverEvent_new6(@intCast(typeVal), @ptrCast(pos), @ptrCast(oldPos), @intCast(modifiers), @ptrCast(device));
     }
 
@@ -2539,7 +2539,7 @@ pub const qhoverevent = struct {
     /// ``` self: QtC.QHoverEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -2663,7 +2663,7 @@ pub const qhoverevent = struct {
     /// ``` self: QtC.QHoverEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -2703,7 +2703,7 @@ pub const qhoverevent = struct {
     /// ``` self: QtC.QHoverEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -2935,21 +2935,21 @@ pub const qwheelevent = struct {
     /// New constructs a new QWheelEvent object.
     ///
     /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, phase: qnamespace_enums.ScrollPhase, inverted: bool ```
-    pub fn New(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i64, inverted: bool) QtC.QWheelEvent {
+    pub fn New(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i32, inverted: bool) QtC.QWheelEvent {
         return qtc.QWheelEvent_new(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted);
     }
 
     /// New2 constructs a new QWheelEvent object.
     ///
     /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, phase: qnamespace_enums.ScrollPhase, inverted: bool, source: qnamespace_enums.MouseEventSource ```
-    pub fn New2(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i64, inverted: bool, source: i64) QtC.QWheelEvent {
+    pub fn New2(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i32, inverted: bool, source: i32) QtC.QWheelEvent {
         return qtc.QWheelEvent_new2(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted, @intCast(source));
     }
 
     /// New3 constructs a new QWheelEvent object.
     ///
     /// ``` pos: QtC.QPointF, globalPos: QtC.QPointF, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, phase: qnamespace_enums.ScrollPhase, inverted: bool, source: qnamespace_enums.MouseEventSource, device: QtC.QPointingDevice ```
-    pub fn New3(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i64, inverted: bool, source: i64, device: ?*anyopaque) QtC.QWheelEvent {
+    pub fn New3(pos: ?*anyopaque, globalPos: ?*anyopaque, pixelDelta: QtC.QPoint, angleDelta: QtC.QPoint, buttons: i64, modifiers: i64, phase: i32, inverted: bool, source: i32, device: ?*anyopaque) QtC.QWheelEvent {
         return qtc.QWheelEvent_new3(@ptrCast(pos), @ptrCast(globalPos), @ptrCast(pixelDelta), @ptrCast(angleDelta), @intCast(buttons), @intCast(modifiers), @intCast(phase), inverted, @intCast(source), @ptrCast(device));
     }
 
@@ -2997,7 +2997,7 @@ pub const qwheelevent = struct {
     /// ``` self: QtC.QWheelEvent ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollPhase ```
-    pub fn Phase(self: ?*anyopaque) i64 {
+    pub fn Phase(self: ?*anyopaque) i32 {
         return qtc.QWheelEvent_Phase(@ptrCast(self));
     }
 
@@ -3102,7 +3102,7 @@ pub const qwheelevent = struct {
     /// ``` self: QtC.QWheelEvent ```
     ///
     /// Returns: ``` qnamespace_enums.MouseEventSource ```
-    pub fn Source(self: ?*anyopaque) i64 {
+    pub fn Source(self: ?*anyopaque) i32 {
         return qtc.QWheelEvent_Source(@ptrCast(self));
     }
 
@@ -3189,7 +3189,7 @@ pub const qwheelevent = struct {
     /// ``` self: QtC.QWheelEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -3313,7 +3313,7 @@ pub const qwheelevent = struct {
     /// ``` self: QtC.QWheelEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -3353,7 +3353,7 @@ pub const qwheelevent = struct {
     /// ``` self: QtC.QWheelEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -3519,7 +3519,7 @@ pub const qtabletevent = struct {
     /// New constructs a new QTabletEvent object.
     ///
     /// ``` t: qcoreevent_enums.Type, device: QtC.QPointingDevice, pos: QtC.QPointF, globalPos: QtC.QPointF, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: flag of qnamespace_enums.KeyboardModifier, button: qnamespace_enums.MouseButton, buttons: flag of qnamespace_enums.MouseButton ```
-    pub fn New(t: i64, device: ?*anyopaque, pos: ?*anyopaque, globalPos: ?*anyopaque, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i64, button: i64, buttons: i64) QtC.QTabletEvent {
+    pub fn New(t: i32, device: ?*anyopaque, pos: ?*anyopaque, globalPos: ?*anyopaque, pressure: f64, xTilt: f32, yTilt: f32, tangentialPressure: f32, rotation: f64, z: f32, keyState: i64, button: i64, buttons: i64) QtC.QTabletEvent {
         return qtc.QTabletEvent_new(@intCast(t), @ptrCast(device), @ptrCast(pos), @ptrCast(globalPos), @floatCast(pressure), @floatCast(xTilt), @floatCast(yTilt), @floatCast(tangentialPressure), @floatCast(rotation), @floatCast(z), @intCast(keyState), @intCast(button), @intCast(buttons));
     }
 
@@ -3750,7 +3750,7 @@ pub const qtabletevent = struct {
     /// ``` self: QtC.QTabletEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -3874,7 +3874,7 @@ pub const qtabletevent = struct {
     /// ``` self: QtC.QTabletEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -3914,7 +3914,7 @@ pub const qtabletevent = struct {
     /// ``` self: QtC.QTabletEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -4179,21 +4179,21 @@ pub const qnativegestureevent = struct {
     /// New constructs a new QNativeGestureEvent object.
     ///
     /// ``` typeVal: qnamespace_enums.NativeGestureType, dev: QtC.QPointingDevice, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, value: f64, sequenceId: u64, intArgument: u64 ```
-    pub fn New(typeVal: i64, dev: ?*anyopaque, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, sequenceId: u64, intArgument: u64) QtC.QNativeGestureEvent {
+    pub fn New(typeVal: i32, dev: ?*anyopaque, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, sequenceId: u64, intArgument: u64) QtC.QNativeGestureEvent {
         return qtc.QNativeGestureEvent_new(@intCast(typeVal), @ptrCast(dev), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @floatCast(value), @intCast(sequenceId), @intCast(intArgument));
     }
 
     /// New2 constructs a new QNativeGestureEvent object.
     ///
     /// ``` typeVal: qnamespace_enums.NativeGestureType, dev: QtC.QPointingDevice, fingerCount: i32, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, value: f64, delta: QtC.QPointF ```
-    pub fn New2(typeVal: i64, dev: ?*anyopaque, fingerCount: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, delta: ?*anyopaque) QtC.QNativeGestureEvent {
+    pub fn New2(typeVal: i32, dev: ?*anyopaque, fingerCount: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, delta: ?*anyopaque) QtC.QNativeGestureEvent {
         return qtc.QNativeGestureEvent_new2(@intCast(typeVal), @ptrCast(dev), @intCast(fingerCount), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @floatCast(value), @ptrCast(delta));
     }
 
     /// New3 constructs a new QNativeGestureEvent object.
     ///
     /// ``` typeVal: qnamespace_enums.NativeGestureType, dev: QtC.QPointingDevice, fingerCount: i32, localPos: QtC.QPointF, scenePos: QtC.QPointF, globalPos: QtC.QPointF, value: f64, delta: QtC.QPointF, sequenceId: u64 ```
-    pub fn New3(typeVal: i64, dev: ?*anyopaque, fingerCount: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, delta: ?*anyopaque, sequenceId: u64) QtC.QNativeGestureEvent {
+    pub fn New3(typeVal: i32, dev: ?*anyopaque, fingerCount: i32, localPos: ?*anyopaque, scenePos: ?*anyopaque, globalPos: ?*anyopaque, value: f64, delta: ?*anyopaque, sequenceId: u64) QtC.QNativeGestureEvent {
         return qtc.QNativeGestureEvent_new3(@intCast(typeVal), @ptrCast(dev), @intCast(fingerCount), @ptrCast(localPos), @ptrCast(scenePos), @ptrCast(globalPos), @floatCast(value), @ptrCast(delta), @intCast(sequenceId));
     }
 
@@ -4227,7 +4227,7 @@ pub const qnativegestureevent = struct {
     /// ``` self: QtC.QNativeGestureEvent ```
     ///
     /// Returns: ``` qnamespace_enums.NativeGestureType ```
-    pub fn GestureType(self: ?*anyopaque) i64 {
+    pub fn GestureType(self: ?*anyopaque) i32 {
         return qtc.QNativeGestureEvent_GestureType(@ptrCast(self));
     }
 
@@ -4370,7 +4370,7 @@ pub const qnativegestureevent = struct {
     /// ``` self: QtC.QNativeGestureEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -4494,7 +4494,7 @@ pub const qnativegestureevent = struct {
     /// ``` self: QtC.QNativeGestureEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -4534,7 +4534,7 @@ pub const qnativegestureevent = struct {
     /// ``` self: QtC.QNativeGestureEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -4799,21 +4799,21 @@ pub const qkeyevent = struct {
     /// New constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New(typeVal: i64, key: i32, modifiers: i64) QtC.QKeyEvent {
+    pub fn New(typeVal: i32, key: i32, modifiers: i64) QtC.QKeyEvent {
         return qtc.QKeyEvent_new(@intCast(typeVal), @intCast(key), @intCast(modifiers));
     }
 
     /// New2 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32 ```
-    pub fn New2(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32) QtC.QKeyEvent {
+    pub fn New2(typeVal: i32, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32) QtC.QKeyEvent {
         return qtc.QKeyEvent_new2(@intCast(typeVal), @intCast(key), @intCast(modifiers), @intCast(nativeScanCode), @intCast(nativeVirtualKey), @intCast(nativeModifiers));
     }
 
     /// New3 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, text: []const u8 ```
-    pub fn New3(typeVal: i64, key: i32, modifiers: i64, text: []const u8) QtC.QKeyEvent {
+    pub fn New3(typeVal: i32, key: i32, modifiers: i64, text: []const u8) QtC.QKeyEvent {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4825,7 +4825,7 @@ pub const qkeyevent = struct {
     /// New4 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, text: []const u8, autorep: bool ```
-    pub fn New4(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool) QtC.QKeyEvent {
+    pub fn New4(typeVal: i32, key: i32, modifiers: i64, text: []const u8, autorep: bool) QtC.QKeyEvent {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4837,7 +4837,7 @@ pub const qkeyevent = struct {
     /// New5 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, text: []const u8, autorep: bool, count: u16 ```
-    pub fn New5(typeVal: i64, key: i32, modifiers: i64, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
+    pub fn New5(typeVal: i32, key: i32, modifiers: i64, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4849,7 +4849,7 @@ pub const qkeyevent = struct {
     /// New6 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8 ```
-    pub fn New6(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8) QtC.QKeyEvent {
+    pub fn New6(typeVal: i32, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8) QtC.QKeyEvent {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4861,7 +4861,7 @@ pub const qkeyevent = struct {
     /// New7 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool ```
-    pub fn New7(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool) QtC.QKeyEvent {
+    pub fn New7(typeVal: i32, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool) QtC.QKeyEvent {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4873,7 +4873,7 @@ pub const qkeyevent = struct {
     /// New8 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16 ```
-    pub fn New8(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
+    pub fn New8(typeVal: i32, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16) QtC.QKeyEvent {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4885,7 +4885,7 @@ pub const qkeyevent = struct {
     /// New9 constructs a new QKeyEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, key: i32, modifiers: flag of qnamespace_enums.KeyboardModifier, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: QtC.QInputDevice ```
-    pub fn New9(typeVal: i64, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: ?*anyopaque) QtC.QKeyEvent {
+    pub fn New9(typeVal: i32, key: i32, modifiers: i64, nativeScanCode: u32, nativeVirtualKey: u32, nativeModifiers: u32, text: []const u8, autorep: bool, count: u16, device: ?*anyopaque) QtC.QKeyEvent {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4929,7 +4929,7 @@ pub const qkeyevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qkeyevent.html#matches)
     ///
     /// ``` self: QtC.QKeyEvent, key: qkeysequence_enums.StandardKey ```
-    pub fn Matches(self: ?*anyopaque, key: i64) bool {
+    pub fn Matches(self: ?*anyopaque, key: i32) bool {
         return qtc.QKeyEvent_Matches(@ptrCast(self), @intCast(key));
     }
 
@@ -5011,7 +5011,7 @@ pub const qkeyevent = struct {
     /// ``` self: QtC.QKeyEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -5040,7 +5040,7 @@ pub const qkeyevent = struct {
     /// ``` self: QtC.QKeyEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -5206,14 +5206,14 @@ pub const qfocusevent = struct {
     /// New constructs a new QFocusEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type ```
-    pub fn New(typeVal: i64) QtC.QFocusEvent {
+    pub fn New(typeVal: i32) QtC.QFocusEvent {
         return qtc.QFocusEvent_new(@intCast(typeVal));
     }
 
     /// New2 constructs a new QFocusEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, reason: qnamespace_enums.FocusReason ```
-    pub fn New2(typeVal: i64, reason: i64) QtC.QFocusEvent {
+    pub fn New2(typeVal: i32, reason: i32) QtC.QFocusEvent {
         return qtc.QFocusEvent_new2(@intCast(typeVal), @intCast(reason));
     }
 
@@ -5261,7 +5261,7 @@ pub const qfocusevent = struct {
     /// ``` self: QtC.QFocusEvent ```
     ///
     /// Returns: ``` qnamespace_enums.FocusReason ```
-    pub fn Reason(self: ?*anyopaque) i64 {
+    pub fn Reason(self: ?*anyopaque) i32 {
         return qtc.QFocusEvent_Reason(@ptrCast(self));
     }
 
@@ -5272,7 +5272,7 @@ pub const qfocusevent = struct {
     /// ``` self: QtC.QFocusEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -5462,7 +5462,7 @@ pub const qpaintevent = struct {
     /// ``` self: QtC.QPaintEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -5645,7 +5645,7 @@ pub const qmoveevent = struct {
     /// ``` self: QtC.QMoveEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -5821,7 +5821,7 @@ pub const qexposeevent = struct {
     /// ``` self: QtC.QExposeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -5954,7 +5954,7 @@ pub const qplatformsurfaceevent = struct {
     /// New constructs a new QPlatformSurfaceEvent object.
     ///
     /// ``` surfaceEventType: qevent_enums.SurfaceEventType ```
-    pub fn New(surfaceEventType: i64) QtC.QPlatformSurfaceEvent {
+    pub fn New(surfaceEventType: i32) QtC.QPlatformSurfaceEvent {
         return qtc.QPlatformSurfaceEvent_new(@intCast(surfaceEventType));
     }
 
@@ -5988,7 +5988,7 @@ pub const qplatformsurfaceevent = struct {
     /// ``` self: QtC.QPlatformSurfaceEvent ```
     ///
     /// Returns: ``` qevent_enums.SurfaceEventType ```
-    pub fn SurfaceEventType(self: ?*anyopaque) i64 {
+    pub fn SurfaceEventType(self: ?*anyopaque) i32 {
         return qtc.QPlatformSurfaceEvent_SurfaceEventType(@ptrCast(self));
     }
 
@@ -5999,7 +5999,7 @@ pub const qplatformsurfaceevent = struct {
     /// ``` self: QtC.QPlatformSurfaceEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -6182,7 +6182,7 @@ pub const qresizeevent = struct {
     /// ``` self: QtC.QResizeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -6351,7 +6351,7 @@ pub const qcloseevent = struct {
     /// ``` self: QtC.QCloseEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -6520,7 +6520,7 @@ pub const qicondragevent = struct {
     /// ``` self: QtC.QIconDragEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -6689,7 +6689,7 @@ pub const qshowevent = struct {
     /// ``` self: QtC.QShowEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -6858,7 +6858,7 @@ pub const qhideevent = struct {
     /// ``` self: QtC.QHideEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -6991,21 +6991,21 @@ pub const qcontextmenuevent = struct {
     /// New constructs a new QContextMenuEvent object.
     ///
     /// ``` reason: qevent_enums.Reason, pos: QtC.QPoint, globalPos: QtC.QPoint ```
-    pub fn New(reason: i64, pos: ?*anyopaque, globalPos: ?*anyopaque) QtC.QContextMenuEvent {
+    pub fn New(reason: i32, pos: ?*anyopaque, globalPos: ?*anyopaque) QtC.QContextMenuEvent {
         return qtc.QContextMenuEvent_new(@intCast(reason), @ptrCast(pos), @ptrCast(globalPos));
     }
 
     /// New2 constructs a new QContextMenuEvent object.
     ///
     /// ``` reason: qevent_enums.Reason, pos: QtC.QPoint ```
-    pub fn New2(reason: i64, pos: ?*anyopaque) QtC.QContextMenuEvent {
+    pub fn New2(reason: i32, pos: ?*anyopaque) QtC.QContextMenuEvent {
         return qtc.QContextMenuEvent_new2(@intCast(reason), @ptrCast(pos));
     }
 
     /// New3 constructs a new QContextMenuEvent object.
     ///
     /// ``` reason: qevent_enums.Reason, pos: QtC.QPoint, globalPos: QtC.QPoint, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New3(reason: i64, pos: ?*anyopaque, globalPos: ?*anyopaque, modifiers: i64) QtC.QContextMenuEvent {
+    pub fn New3(reason: i32, pos: ?*anyopaque, globalPos: ?*anyopaque, modifiers: i64) QtC.QContextMenuEvent {
         return qtc.QContextMenuEvent_new3(@intCast(reason), @ptrCast(pos), @ptrCast(globalPos), @intCast(modifiers));
     }
 
@@ -7081,7 +7081,7 @@ pub const qcontextmenuevent = struct {
     /// ``` self: QtC.QContextMenuEvent ```
     ///
     /// Returns: ``` qevent_enums.Reason ```
-    pub fn Reason(self: ?*anyopaque) i64 {
+    pub fn Reason(self: ?*anyopaque) i32 {
         return qtc.QContextMenuEvent_Reason(@ptrCast(self));
     }
 
@@ -7101,7 +7101,7 @@ pub const qcontextmenuevent = struct {
     /// ``` self: QtC.QContextMenuEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -7141,7 +7141,7 @@ pub const qcontextmenuevent = struct {
     /// ``` self: QtC.QContextMenuEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -7440,7 +7440,7 @@ pub const qinputmethodevent = struct {
     /// ``` self: QtC.QInputMethodEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -7632,7 +7632,7 @@ pub const qinputmethodqueryevent = struct {
     /// ``` self: QtC.QInputMethodQueryEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -7772,7 +7772,7 @@ pub const qdropevent = struct {
     /// New2 constructs a new QDropEvent object.
     ///
     /// ``` pos: QtC.QPointF, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, typeVal: qcoreevent_enums.Type ```
-    pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i64) QtC.QDropEvent {
+    pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i32) QtC.QDropEvent {
         return qtc.QDropEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
 
@@ -7872,7 +7872,7 @@ pub const qdropevent = struct {
     /// ``` self: QtC.QDropEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn ProposedAction(self: ?*anyopaque) i64 {
+    pub fn ProposedAction(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_ProposedAction(@ptrCast(self));
     }
 
@@ -7888,14 +7888,14 @@ pub const qdropevent = struct {
     /// ``` self: QtC.QDropEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn DropAction(self: ?*anyopaque) i64 {
+    pub fn DropAction(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_DropAction(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#setDropAction)
     ///
     /// ``` self: QtC.QDropEvent, action: qnamespace_enums.DropAction ```
-    pub fn SetDropAction(self: ?*anyopaque, action: i64) void {
+    pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
         qtc.QDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
     }
 
@@ -7920,7 +7920,7 @@ pub const qdropevent = struct {
     /// ``` self: QtC.QDropEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -8060,7 +8060,7 @@ pub const qdragmoveevent = struct {
     /// New2 constructs a new QDragMoveEvent object.
     ///
     /// ``` pos: QtC.QPoint, actions: flag of qnamespace_enums.DropAction, data: QtC.QMimeData, buttons: flag of qnamespace_enums.MouseButton, modifiers: flag of qnamespace_enums.KeyboardModifier, typeVal: qcoreevent_enums.Type ```
-    pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i64) QtC.QDragMoveEvent {
+    pub fn New2(pos: ?*anyopaque, actions: i64, data: ?*anyopaque, buttons: i64, modifiers: i64, typeVal: i32) QtC.QDragMoveEvent {
         return qtc.QDragMoveEvent_new2(@ptrCast(pos), @intCast(actions), @ptrCast(data), @intCast(buttons), @intCast(modifiers), @intCast(typeVal));
     }
 
@@ -8213,7 +8213,7 @@ pub const qdragmoveevent = struct {
     /// ``` self: QtC.QDragMoveEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn ProposedAction(self: ?*anyopaque) i64 {
+    pub fn ProposedAction(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_ProposedAction(@ptrCast(self));
     }
 
@@ -8233,7 +8233,7 @@ pub const qdragmoveevent = struct {
     /// ``` self: QtC.QDragMoveEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn DropAction(self: ?*anyopaque) i64 {
+    pub fn DropAction(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_DropAction(@ptrCast(self));
     }
 
@@ -8242,7 +8242,7 @@ pub const qdragmoveevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#setDropAction)
     ///
     /// ``` self: QtC.QDragMoveEvent, action: qnamespace_enums.DropAction ```
-    pub fn SetDropAction(self: ?*anyopaque, action: i64) void {
+    pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
         qtc.QDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
     }
 
@@ -8271,7 +8271,7 @@ pub const qdragmoveevent = struct {
     /// ``` self: QtC.QDragMoveEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -8549,7 +8549,7 @@ pub const qdragenterevent = struct {
     /// ``` self: QtC.QDragEnterEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn ProposedAction(self: ?*anyopaque) i64 {
+    pub fn ProposedAction(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_ProposedAction(@ptrCast(self));
     }
 
@@ -8569,7 +8569,7 @@ pub const qdragenterevent = struct {
     /// ``` self: QtC.QDragEnterEvent ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn DropAction(self: ?*anyopaque) i64 {
+    pub fn DropAction(self: ?*anyopaque) i32 {
         return qtc.QDropEvent_DropAction(@ptrCast(self));
     }
 
@@ -8578,7 +8578,7 @@ pub const qdragenterevent = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdropevent.html#setDropAction)
     ///
     /// ``` self: QtC.QDragEnterEvent, action: qnamespace_enums.DropAction ```
-    pub fn SetDropAction(self: ?*anyopaque, action: i64) void {
+    pub fn SetDropAction(self: ?*anyopaque, action: i32) void {
         qtc.QDropEvent_SetDropAction(@ptrCast(self), @intCast(action));
     }
 
@@ -8607,7 +8607,7 @@ pub const qdragenterevent = struct {
     /// ``` self: QtC.QDragEnterEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -8758,7 +8758,7 @@ pub const qdragleaveevent = struct {
     /// ``` self: QtC.QDragLeaveEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -8891,7 +8891,7 @@ pub const qhelpevent = struct {
     /// New constructs a new QHelpEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, pos: QtC.QPoint, globalPos: QtC.QPoint ```
-    pub fn New(typeVal: i64, pos: ?*anyopaque, globalPos: ?*anyopaque) QtC.QHelpEvent {
+    pub fn New(typeVal: i32, pos: ?*anyopaque, globalPos: ?*anyopaque) QtC.QHelpEvent {
         return qtc.QHelpEvent_new(@intCast(typeVal), @ptrCast(pos), @ptrCast(globalPos));
     }
 
@@ -8969,7 +8969,7 @@ pub const qhelpevent = struct {
     /// ``` self: QtC.QHelpEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -9154,7 +9154,7 @@ pub const qstatustipevent = struct {
     /// ``` self: QtC.QStatusTipEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -9339,7 +9339,7 @@ pub const qwhatsthisclickedevent = struct {
     /// ``` self: QtC.QWhatsThisClickedEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -9529,7 +9529,7 @@ pub const qactionevent = struct {
     /// ``` self: QtC.QActionEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -9735,7 +9735,7 @@ pub const qfileopenevent = struct {
     /// ``` self: QtC.QFileOpenEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -9911,7 +9911,7 @@ pub const qtoolbarchangeevent = struct {
     /// ``` self: QtC.QToolBarChangeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -10129,7 +10129,7 @@ pub const qshortcutevent = struct {
     /// ``` self: QtC.QShortcutEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -10321,7 +10321,7 @@ pub const qwindowstatechangeevent = struct {
     /// ``` self: QtC.QWindowStateChangeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -10454,35 +10454,35 @@ pub const qtouchevent = struct {
     /// New constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type ```
-    pub fn New(eventType: i64) QtC.QTouchEvent {
+    pub fn New(eventType: i32) QtC.QTouchEvent {
         return qtc.QTouchEvent_new(@intCast(eventType));
     }
 
     /// New2 constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPointStates: flag of qeventpoint_enums.State ```
-    pub fn New2(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPointStates: i64) QtC.QTouchEvent {
+    pub fn New2(eventType: i32, device: ?*anyopaque, modifiers: i64, touchPointStates: i64) QtC.QTouchEvent {
         return qtc.QTouchEvent_new2(@intCast(eventType), @ptrCast(device), @intCast(modifiers), @intCast(touchPointStates));
     }
 
     /// New3 constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice ```
-    pub fn New3(eventType: i64, device: ?*anyopaque) QtC.QTouchEvent {
+    pub fn New3(eventType: i32, device: ?*anyopaque) QtC.QTouchEvent {
         return qtc.QTouchEvent_new3(@intCast(eventType), @ptrCast(device));
     }
 
     /// New4 constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn New4(eventType: i64, device: ?*anyopaque, modifiers: i64) QtC.QTouchEvent {
+    pub fn New4(eventType: i32, device: ?*anyopaque, modifiers: i64) QtC.QTouchEvent {
         return qtc.QTouchEvent_new4(@intCast(eventType), @ptrCast(device), @intCast(modifiers));
     }
 
     /// New5 constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPoints: []QtC.QEventPoint ```
-    pub fn New5(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
+    pub fn New5(eventType: i32, device: ?*anyopaque, modifiers: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
         const touchPoints_list = qtc.libqt_list{
             .len = touchPoints.len,
             .data = @ptrCast(touchPoints.ptr),
@@ -10494,7 +10494,7 @@ pub const qtouchevent = struct {
     /// New6 constructs a new QTouchEvent object.
     ///
     /// ``` eventType: qcoreevent_enums.Type, device: QtC.QPointingDevice, modifiers: flag of qnamespace_enums.KeyboardModifier, touchPointStates: flag of qeventpoint_enums.State, touchPoints: []QtC.QEventPoint ```
-    pub fn New6(eventType: i64, device: ?*anyopaque, modifiers: i64, touchPointStates: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
+    pub fn New6(eventType: i32, device: ?*anyopaque, modifiers: i64, touchPointStates: i64, touchPoints: []QtC.QEventPoint) QtC.QTouchEvent {
         const touchPoints_list = qtc.libqt_list{
             .len = touchPoints.len,
             .data = @ptrCast(touchPoints.ptr),
@@ -10647,7 +10647,7 @@ pub const qtouchevent = struct {
     /// ``` self: QtC.QTouchEvent ```
     ///
     /// Returns: ``` qpointingdevice_enums.PointerType ```
-    pub fn PointerType(self: ?*anyopaque) i64 {
+    pub fn PointerType(self: ?*anyopaque) i32 {
         return qtc.QPointerEvent_PointerType(@ptrCast(self));
     }
 
@@ -10771,7 +10771,7 @@ pub const qtouchevent = struct {
     /// ``` self: QtC.QTouchEvent ```
     ///
     /// Returns: ``` qinputdevice_enums.DeviceType ```
-    pub fn DeviceType(self: ?*anyopaque) i64 {
+    pub fn DeviceType(self: ?*anyopaque) i32 {
         return qtc.QInputEvent_DeviceType(@ptrCast(self));
     }
 
@@ -10811,7 +10811,7 @@ pub const qtouchevent = struct {
     /// ``` self: QtC.QTouchEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -11062,7 +11062,7 @@ pub const qscrollprepareevent = struct {
     /// ``` self: QtC.QScrollPrepareEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -11195,7 +11195,7 @@ pub const qscrollevent = struct {
     /// New constructs a new QScrollEvent object.
     ///
     /// ``` contentPos: QtC.QPointF, overshoot: QtC.QPointF, scrollState: qevent_enums.ScrollState ```
-    pub fn New(contentPos: ?*anyopaque, overshoot: ?*anyopaque, scrollState: i64) QtC.QScrollEvent {
+    pub fn New(contentPos: ?*anyopaque, overshoot: ?*anyopaque, scrollState: i32) QtC.QScrollEvent {
         return qtc.QScrollEvent_new(@ptrCast(contentPos), @ptrCast(overshoot), @intCast(scrollState));
     }
 
@@ -11243,7 +11243,7 @@ pub const qscrollevent = struct {
     /// ``` self: QtC.QScrollEvent ```
     ///
     /// Returns: ``` qevent_enums.ScrollState ```
-    pub fn ScrollState(self: ?*anyopaque) i64 {
+    pub fn ScrollState(self: ?*anyopaque) i32 {
         return qtc.QScrollEvent_ScrollState(@ptrCast(self));
     }
 
@@ -11254,7 +11254,7 @@ pub const qscrollevent = struct {
     /// ``` self: QtC.QScrollEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -11387,7 +11387,7 @@ pub const qscreenorientationchangeevent = struct {
     /// New constructs a new QScreenOrientationChangeEvent object.
     ///
     /// ``` screen: QtC.QScreen, orientation: qnamespace_enums.ScreenOrientation ```
-    pub fn New(screen: ?*anyopaque, orientation: i64) QtC.QScreenOrientationChangeEvent {
+    pub fn New(screen: ?*anyopaque, orientation: i32) QtC.QScreenOrientationChangeEvent {
         return qtc.QScreenOrientationChangeEvent_new(@ptrCast(screen), @intCast(orientation));
     }
 
@@ -11428,7 +11428,7 @@ pub const qscreenorientationchangeevent = struct {
     /// ``` self: QtC.QScreenOrientationChangeEvent ```
     ///
     /// Returns: ``` qnamespace_enums.ScreenOrientation ```
-    pub fn Orientation(self: ?*anyopaque) i64 {
+    pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QScreenOrientationChangeEvent_Orientation(@ptrCast(self));
     }
 
@@ -11439,7 +11439,7 @@ pub const qscreenorientationchangeevent = struct {
     /// ``` self: QtC.QScreenOrientationChangeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -11572,7 +11572,7 @@ pub const qapplicationstatechangeevent = struct {
     /// New constructs a new QApplicationStateChangeEvent object.
     ///
     /// ``` state: qnamespace_enums.ApplicationState ```
-    pub fn New(state: i64) QtC.QApplicationStateChangeEvent {
+    pub fn New(state: i32) QtC.QApplicationStateChangeEvent {
         return qtc.QApplicationStateChangeEvent_new(@intCast(state));
     }
 
@@ -11606,7 +11606,7 @@ pub const qapplicationstatechangeevent = struct {
     /// ``` self: QtC.QApplicationStateChangeEvent ```
     ///
     /// Returns: ``` qnamespace_enums.ApplicationState ```
-    pub fn ApplicationState(self: ?*anyopaque) i64 {
+    pub fn ApplicationState(self: ?*anyopaque) i32 {
         return qtc.QApplicationStateChangeEvent_ApplicationState(@ptrCast(self));
     }
 
@@ -11617,7 +11617,7 @@ pub const qapplicationstatechangeevent = struct {
     /// ``` self: QtC.QApplicationStateChangeEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -11750,7 +11750,7 @@ pub const qchildwindowevent = struct {
     /// New constructs a new QChildWindowEvent object.
     ///
     /// ``` typeVal: qcoreevent_enums.Type, childWindow: QtC.QWindow ```
-    pub fn New(typeVal: i64, childWindow: ?*anyopaque) QtC.QChildWindowEvent {
+    pub fn New(typeVal: i32, childWindow: ?*anyopaque) QtC.QChildWindowEvent {
         return qtc.QChildWindowEvent_new(@intCast(typeVal), @ptrCast(childWindow));
     }
 
@@ -11793,7 +11793,7 @@ pub const qchildwindowevent = struct {
     /// ``` self: QtC.QChildWindowEvent ```
     ///
     /// Returns: ``` qcoreevent_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEvent_Type(@ptrCast(self));
     }
 
@@ -11926,14 +11926,14 @@ pub const qinputmethodevent__attribute = struct {
     /// New constructs a new QInputMethodEvent::Attribute object.
     ///
     /// ``` typ: qevent_enums.AttributeType, s: i32, l: i32, val: QtC.QVariant ```
-    pub fn New(typ: i64, s: i32, l: i32, val: QtC.QVariant) QtC.QInputMethodEvent__Attribute {
+    pub fn New(typ: i32, s: i32, l: i32, val: QtC.QVariant) QtC.QInputMethodEvent__Attribute {
         return qtc.QInputMethodEvent__Attribute_new(@intCast(typ), @intCast(s), @intCast(l), @ptrCast(val));
     }
 
     /// New2 constructs a new QInputMethodEvent::Attribute object.
     ///
     /// ``` typ: qevent_enums.AttributeType, s: i32, l: i32 ```
-    pub fn New2(typ: i64, s: i32, l: i32) QtC.QInputMethodEvent__Attribute {
+    pub fn New2(typ: i32, s: i32, l: i32) QtC.QInputMethodEvent__Attribute {
         return qtc.QInputMethodEvent__Attribute_new2(@intCast(typ), @intCast(s), @intCast(l));
     }
 

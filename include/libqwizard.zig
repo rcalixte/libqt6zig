@@ -45,21 +45,21 @@ pub const qwizard = struct {
     }
 
     /// ``` self: QtC.QWizard, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWizard_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QWizard_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWizard, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWizard_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -237,7 +237,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setWizardStyle)
     ///
     /// ``` self: QtC.QWizard, style: qwizard_enums.WizardStyle ```
-    pub fn SetWizardStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetWizardStyle(self: ?*anyopaque, style: i32) void {
         qtc.QWizard_SetWizardStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -246,21 +246,21 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qwizard_enums.WizardStyle ```
-    pub fn WizardStyle(self: ?*anyopaque) i64 {
+    pub fn WizardStyle(self: ?*anyopaque) i32 {
         return qtc.QWizard_WizardStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setOption)
     ///
     /// ``` self: QtC.QWizard, option: qwizard_enums.WizardOption ```
-    pub fn SetOption(self: ?*anyopaque, option: i64) void {
+    pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QWizard_SetOption(@ptrCast(self), @intCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#testOption)
     ///
     /// ``` self: QtC.QWizard, option: qwizard_enums.WizardOption ```
-    pub fn TestOption(self: ?*anyopaque, option: i64) bool {
+    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QWizard_TestOption(@ptrCast(self), @intCast(option));
     }
 
@@ -283,7 +283,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setButtonText)
     ///
     /// ``` self: QtC.QWizard, which: qwizard_enums.WizardButton, text: []const u8 ```
-    pub fn SetButtonText(self: ?*anyopaque, which: i64, text: []const u8) void {
+    pub fn SetButtonText(self: ?*anyopaque, which: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -294,7 +294,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#buttonText)
     ///
     /// ``` self: QtC.QWizard, which: qwizard_enums.WizardButton, allocator: std.mem.Allocator ```
-    pub fn ButtonText(self: ?*anyopaque, which: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ButtonText(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWizard_ButtonText(@ptrCast(self), @intCast(which));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizard.ButtonText: Memory allocation failed");
@@ -316,21 +316,21 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setButton)
     ///
     /// ``` self: QtC.QWizard, which: qwizard_enums.WizardButton, button: QtC.QAbstractButton ```
-    pub fn SetButton(self: ?*anyopaque, which: i64, button: ?*anyopaque) void {
+    pub fn SetButton(self: ?*anyopaque, which: i32, button: ?*anyopaque) void {
         qtc.QWizard_SetButton(@ptrCast(self), @intCast(which), @ptrCast(button));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#button)
     ///
     /// ``` self: QtC.QWizard, which: qwizard_enums.WizardButton ```
-    pub fn Button(self: ?*anyopaque, which: i64) QtC.QAbstractButton {
+    pub fn Button(self: ?*anyopaque, which: i32) QtC.QAbstractButton {
         return qtc.QWizard_Button(@ptrCast(self), @intCast(which));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setTitleFormat)
     ///
     /// ``` self: QtC.QWizard, format: qnamespace_enums.TextFormat ```
-    pub fn SetTitleFormat(self: ?*anyopaque, format: i64) void {
+    pub fn SetTitleFormat(self: ?*anyopaque, format: i32) void {
         qtc.QWizard_SetTitleFormat(@ptrCast(self), @intCast(format));
     }
 
@@ -339,14 +339,14 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qnamespace_enums.TextFormat ```
-    pub fn TitleFormat(self: ?*anyopaque) i64 {
+    pub fn TitleFormat(self: ?*anyopaque) i32 {
         return qtc.QWizard_TitleFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setSubTitleFormat)
     ///
     /// ``` self: QtC.QWizard, format: qnamespace_enums.TextFormat ```
-    pub fn SetSubTitleFormat(self: ?*anyopaque, format: i64) void {
+    pub fn SetSubTitleFormat(self: ?*anyopaque, format: i32) void {
         qtc.QWizard_SetSubTitleFormat(@ptrCast(self), @intCast(format));
     }
 
@@ -355,21 +355,21 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qnamespace_enums.TextFormat ```
-    pub fn SubTitleFormat(self: ?*anyopaque) i64 {
+    pub fn SubTitleFormat(self: ?*anyopaque) i32 {
         return qtc.QWizard_SubTitleFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setPixmap)
     ///
     /// ``` self: QtC.QWizard, which: qwizard_enums.WizardPixmap, pixmap: QtC.QPixmap ```
-    pub fn SetPixmap(self: ?*anyopaque, which: i64, pixmap: ?*anyopaque) void {
+    pub fn SetPixmap(self: ?*anyopaque, which: i32, pixmap: ?*anyopaque) void {
         qtc.QWizard_SetPixmap(@ptrCast(self), @intCast(which), @ptrCast(pixmap));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#pixmap)
     ///
     /// ``` self: QtC.QWizard, which: qwizard_enums.WizardPixmap ```
-    pub fn Pixmap(self: ?*anyopaque, which: i64) QtC.QPixmap {
+    pub fn Pixmap(self: ?*anyopaque, which: i32) QtC.QPixmap {
         return qtc.QWizard_Pixmap(@ptrCast(self), @intCast(which));
     }
 
@@ -724,7 +724,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizard.html#setOption)
     ///
     /// ``` self: QtC.QWizard, option: qwizard_enums.WizardOption, on: bool ```
-    pub fn SetOption2(self: ?*anyopaque, option: i64, on: bool) void {
+    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
         qtc.QWizard_SetOption2(@ptrCast(self), @intCast(option), on);
     }
 
@@ -915,7 +915,7 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -924,7 +924,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QWizard, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -1464,7 +1464,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QWizard, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -1475,7 +1475,7 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -1484,7 +1484,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QWizard, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -1495,7 +1495,7 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -2034,7 +2034,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QWizard, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2045,7 +2045,7 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -2144,7 +2144,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QWizard, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -2155,7 +2155,7 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -2164,7 +2164,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QWizard, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -2211,7 +2211,7 @@ pub const qwizard = struct {
     /// ``` self: QtC.QWizard ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -2220,7 +2220,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QWizard, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -2716,7 +2716,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QWizard, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -3091,7 +3091,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QWizard, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3100,7 +3100,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QWizard, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3362,7 +3362,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QWizard, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -3398,7 +3398,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QWizard, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -3532,7 +3532,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWizard, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -3746,7 +3746,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWizard, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -3755,7 +3755,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -3764,7 +3764,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWizard, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -3901,7 +3901,7 @@ pub const qwizard = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -5042,7 +5042,7 @@ pub const qwizard = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QWizard, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWizard_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5053,7 +5053,7 @@ pub const qwizard = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QWizard, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWizard_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5064,7 +5064,7 @@ pub const qwizard = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QWizard_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5770,7 +5770,7 @@ pub const qwizard = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QWizard, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QWizard_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -5781,7 +5781,7 @@ pub const qwizard = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QWizard, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QWizard_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -5792,7 +5792,7 @@ pub const qwizard = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QWizard_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5847,21 +5847,21 @@ pub const qwizardpage = struct {
     }
 
     /// ``` self: QtC.QWizardPage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWizardPage_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QWizardPage_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWizardPage, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWizardPage_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -5924,14 +5924,14 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizardpage.html#setPixmap)
     ///
     /// ``` self: QtC.QWizardPage, which: qwizard_enums.WizardPixmap, pixmap: QtC.QPixmap ```
-    pub fn SetPixmap(self: ?*anyopaque, which: i64, pixmap: ?*anyopaque) void {
+    pub fn SetPixmap(self: ?*anyopaque, which: i32, pixmap: ?*anyopaque) void {
         qtc.QWizardPage_SetPixmap(@ptrCast(self), @intCast(which), @ptrCast(pixmap));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizardpage.html#pixmap)
     ///
     /// ``` self: QtC.QWizardPage, which: qwizard_enums.WizardPixmap ```
-    pub fn Pixmap(self: ?*anyopaque, which: i64) QtC.QPixmap {
+    pub fn Pixmap(self: ?*anyopaque, which: i32) QtC.QPixmap {
         return qtc.QWizardPage_Pixmap(@ptrCast(self), @intCast(which));
     }
 
@@ -5966,7 +5966,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizardpage.html#setButtonText)
     ///
     /// ``` self: QtC.QWizardPage, which: qwizard_enums.WizardButton, text: []const u8 ```
-    pub fn SetButtonText(self: ?*anyopaque, which: i64, text: []const u8) void {
+    pub fn SetButtonText(self: ?*anyopaque, which: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5977,7 +5977,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwizardpage.html#buttonText)
     ///
     /// ``` self: QtC.QWizardPage, which: qwizard_enums.WizardButton, allocator: std.mem.Allocator ```
-    pub fn ButtonText(self: ?*anyopaque, which: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ButtonText(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWizardPage_ButtonText(@ptrCast(self), @intCast(which));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwizardpage.ButtonText: Memory allocation failed");
@@ -6434,7 +6434,7 @@ pub const qwizardpage = struct {
     /// ``` self: QtC.QWizardPage ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -6443,7 +6443,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QWizardPage, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -6983,7 +6983,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QWizardPage, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -6994,7 +6994,7 @@ pub const qwizardpage = struct {
     /// ``` self: QtC.QWizardPage ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -7003,7 +7003,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QWizardPage, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -7014,7 +7014,7 @@ pub const qwizardpage = struct {
     /// ``` self: QtC.QWizardPage ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -7553,7 +7553,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QWizardPage, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -7564,7 +7564,7 @@ pub const qwizardpage = struct {
     /// ``` self: QtC.QWizardPage ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -7663,7 +7663,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QWizardPage, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -7674,7 +7674,7 @@ pub const qwizardpage = struct {
     /// ``` self: QtC.QWizardPage ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -7683,7 +7683,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QWizardPage, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -7730,7 +7730,7 @@ pub const qwizardpage = struct {
     /// ``` self: QtC.QWizardPage ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -7739,7 +7739,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QWizardPage, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -8235,7 +8235,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QWizardPage, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -8610,7 +8610,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QWizardPage, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -8619,7 +8619,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QWizardPage, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -8881,7 +8881,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QWizardPage, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -8917,7 +8917,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QWizardPage, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -9051,7 +9051,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWizardPage, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -9265,7 +9265,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWizardPage, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -9274,7 +9274,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -9283,7 +9283,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWizardPage, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -9420,7 +9420,7 @@ pub const qwizardpage = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -10561,7 +10561,7 @@ pub const qwizardpage = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QWizardPage, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWizardPage_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -10572,7 +10572,7 @@ pub const qwizardpage = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QWizardPage, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QWizardPage_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -10583,7 +10583,7 @@ pub const qwizardpage = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QWizardPage_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -11289,7 +11289,7 @@ pub const qwizardpage = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QWizardPage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QWizardPage_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -11300,7 +11300,7 @@ pub const qwizardpage = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QWizardPage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QWizardPage_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -11311,7 +11311,7 @@ pub const qwizardpage = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QWizardPage_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

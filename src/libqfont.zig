@@ -293,14 +293,14 @@ pub const qfont = struct {
     /// ``` self: QtC.QFont ```
     ///
     /// Returns: ``` qfont_enums.Weight ```
-    pub fn Weight(self: ?*anyopaque) i64 {
+    pub fn Weight(self: ?*anyopaque) i32 {
         return qtc.QFont_Weight(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setWeight)
     ///
     /// ``` self: QtC.QFont, weight: qfont_enums.Weight ```
-    pub fn SetWeight(self: ?*anyopaque, weight: i64) void {
+    pub fn SetWeight(self: ?*anyopaque, weight: i32) void {
         qtc.QFont_SetWeight(@ptrCast(self), @intCast(weight));
     }
 
@@ -321,7 +321,7 @@ pub const qfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setStyle)
     ///
     /// ``` self: QtC.QFont, style: qfont_enums.Style ```
-    pub fn SetStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.QFont_SetStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -330,7 +330,7 @@ pub const qfont = struct {
     /// ``` self: QtC.QFont ```
     ///
     /// Returns: ``` qfont_enums.Style ```
-    pub fn Style(self: ?*anyopaque) i64 {
+    pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QFont_Style(@ptrCast(self));
     }
 
@@ -423,7 +423,7 @@ pub const qfont = struct {
     /// ``` self: QtC.QFont ```
     ///
     /// Returns: ``` qfont_enums.StyleHint ```
-    pub fn StyleHint(self: ?*anyopaque) i64 {
+    pub fn StyleHint(self: ?*anyopaque) i32 {
         return qtc.QFont_StyleHint(@ptrCast(self));
     }
 
@@ -432,21 +432,21 @@ pub const qfont = struct {
     /// ``` self: QtC.QFont ```
     ///
     /// Returns: ``` qfont_enums.StyleStrategy ```
-    pub fn StyleStrategy(self: ?*anyopaque) i64 {
+    pub fn StyleStrategy(self: ?*anyopaque) i32 {
         return qtc.QFont_StyleStrategy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setStyleHint)
     ///
     /// ``` self: QtC.QFont, param1: qfont_enums.StyleHint ```
-    pub fn SetStyleHint(self: ?*anyopaque, param1: i64) void {
+    pub fn SetStyleHint(self: ?*anyopaque, param1: i32) void {
         qtc.QFont_SetStyleHint(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setStyleStrategy)
     ///
     /// ``` self: QtC.QFont, s: qfont_enums.StyleStrategy ```
-    pub fn SetStyleStrategy(self: ?*anyopaque, s: i64) void {
+    pub fn SetStyleStrategy(self: ?*anyopaque, s: i32) void {
         qtc.QFont_SetStyleStrategy(@ptrCast(self), @intCast(s));
     }
 
@@ -476,14 +476,14 @@ pub const qfont = struct {
     /// ``` self: QtC.QFont ```
     ///
     /// Returns: ``` qfont_enums.SpacingType ```
-    pub fn LetterSpacingType(self: ?*anyopaque) i64 {
+    pub fn LetterSpacingType(self: ?*anyopaque) i32 {
         return qtc.QFont_LetterSpacingType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setLetterSpacing)
     ///
     /// ``` self: QtC.QFont, typeVal: qfont_enums.SpacingType, spacing: f64 ```
-    pub fn SetLetterSpacing(self: ?*anyopaque, typeVal: i64, spacing: f64) void {
+    pub fn SetLetterSpacing(self: ?*anyopaque, typeVal: i32, spacing: f64) void {
         qtc.QFont_SetLetterSpacing(@ptrCast(self), @intCast(typeVal), @floatCast(spacing));
     }
 
@@ -504,7 +504,7 @@ pub const qfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setCapitalization)
     ///
     /// ``` self: QtC.QFont, capitalization: qfont_enums.Capitalization ```
-    pub fn SetCapitalization(self: ?*anyopaque, capitalization: i64) void {
+    pub fn SetCapitalization(self: ?*anyopaque, capitalization: i32) void {
         qtc.QFont_SetCapitalization(@ptrCast(self), @intCast(capitalization));
     }
 
@@ -513,14 +513,14 @@ pub const qfont = struct {
     /// ``` self: QtC.QFont ```
     ///
     /// Returns: ``` qfont_enums.Capitalization ```
-    pub fn Capitalization(self: ?*anyopaque) i64 {
+    pub fn Capitalization(self: ?*anyopaque) i32 {
         return qtc.QFont_Capitalization(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setHintingPreference)
     ///
     /// ``` self: QtC.QFont, hintingPreference: qfont_enums.HintingPreference ```
-    pub fn SetHintingPreference(self: ?*anyopaque, hintingPreference: i64) void {
+    pub fn SetHintingPreference(self: ?*anyopaque, hintingPreference: i32) void {
         qtc.QFont_SetHintingPreference(@ptrCast(self), @intCast(hintingPreference));
     }
 
@@ -529,7 +529,7 @@ pub const qfont = struct {
     /// ``` self: QtC.QFont ```
     ///
     /// Returns: ``` qfont_enums.HintingPreference ```
-    pub fn HintingPreference(self: ?*anyopaque) i64 {
+    pub fn HintingPreference(self: ?*anyopaque) i32 {
         return qtc.QFont_HintingPreference(@ptrCast(self));
     }
 
@@ -891,7 +891,7 @@ pub const qfont = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfont.html#setStyleHint)
     ///
     /// ``` self: QtC.QFont, param1: qfont_enums.StyleHint, param2: qfont_enums.StyleStrategy ```
-    pub fn SetStyleHint2(self: ?*anyopaque, param1: i64, param2: i64) void {
+    pub fn SetStyleHint2(self: ?*anyopaque, param1: i32, param2: i32) void {
         qtc.QFont_SetStyleHint2(@ptrCast(self), @intCast(param1), @intCast(param2));
     }
 

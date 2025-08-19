@@ -88,7 +88,7 @@ pub const qpropertybindingerror = struct {
     /// New2 constructs a new QPropertyBindingError object.
     ///
     /// ``` typeVal: qproperty_enums.Type ```
-    pub fn New2(typeVal: i64) QtC.QPropertyBindingError {
+    pub fn New2(typeVal: i32) QtC.QPropertyBindingError {
         return qtc.QPropertyBindingError_new2(@intCast(typeVal));
     }
 
@@ -102,7 +102,7 @@ pub const qpropertybindingerror = struct {
     /// New4 constructs a new QPropertyBindingError object.
     ///
     /// ``` typeVal: qproperty_enums.Type, description: []const u8 ```
-    pub fn New4(typeVal: i64, description: []const u8) QtC.QPropertyBindingError {
+    pub fn New4(typeVal: i32, description: []const u8) QtC.QPropertyBindingError {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
@@ -130,7 +130,7 @@ pub const qpropertybindingerror = struct {
     /// ``` self: QtC.QPropertyBindingError ```
     ///
     /// Returns: ``` qproperty_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QPropertyBindingError_Type(@ptrCast(self));
     }
 

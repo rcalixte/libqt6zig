@@ -8,7 +8,7 @@ pub const qcryptographichash = struct {
     /// New constructs a new QCryptographicHash object.
     ///
     /// ``` method: qcryptographichash_enums.Algorithm ```
-    pub fn New(method: i64) QtC.QCryptographicHash {
+    pub fn New(method: i32) QtC.QCryptographicHash {
         return qtc.QCryptographicHash_new(@intCast(method));
     }
 
@@ -31,7 +31,7 @@ pub const qcryptographichash = struct {
     /// ``` self: QtC.QCryptographicHash ```
     ///
     /// Returns: ``` qcryptographichash_enums.Algorithm ```
-    pub fn Algorithm(self: ?*anyopaque) i64 {
+    pub fn Algorithm(self: ?*anyopaque) i32 {
         return qtc.QCryptographicHash_Algorithm(@ptrCast(self));
     }
 
@@ -82,7 +82,7 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hash)
     ///
     /// ``` data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn Hash(data: []const u8, method: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn Hash(data: []const u8, method: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QCryptographicHash_Hash(data.ptr, @intCast(method));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Hash: Memory allocation failed");
@@ -93,7 +93,7 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []i8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto(buffer: []i8, data: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto(buffer: []i8, data: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -108,7 +108,7 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []u8, data: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto2(buffer: []u8, data: []const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto2(buffer: []u8, data: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -123,7 +123,7 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []i8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto4(buffer: []i8, data: [][]const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto4(buffer: []i8, data: [][]const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -142,7 +142,7 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashInto)
     ///
     /// ``` buffer: []u8, data: [][]const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto5(buffer: []u8, data: [][]const u8, method: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn HashInto5(buffer: []u8, data: [][]const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -161,14 +161,14 @@ pub const qcryptographichash = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#hashLength)
     ///
     /// ``` method: qcryptographichash_enums.Algorithm ```
-    pub fn HashLength(method: i64) i32 {
+    pub fn HashLength(method: i32) i32 {
         return qtc.QCryptographicHash_HashLength(@intCast(method));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcryptographichash.html#supportsAlgorithm)
     ///
     /// ``` method: qcryptographichash_enums.Algorithm ```
-    pub fn SupportsAlgorithm(method: i64) bool {
+    pub fn SupportsAlgorithm(method: i32) bool {
         return qtc.QCryptographicHash_SupportsAlgorithm(@intCast(method));
     }
 

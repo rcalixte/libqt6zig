@@ -62,14 +62,14 @@ pub const qsslconfiguration = struct {
     /// ``` self: QtC.QSslConfiguration ```
     ///
     /// Returns: ``` qssl_enums.SslProtocol ```
-    pub fn Protocol(self: ?*anyopaque) i64 {
+    pub fn Protocol(self: ?*anyopaque) i32 {
         return qtc.QSslConfiguration_Protocol(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#setProtocol)
     ///
     /// ``` self: QtC.QSslConfiguration, protocol: qssl_enums.SslProtocol ```
-    pub fn SetProtocol(self: ?*anyopaque, protocol: i64) void {
+    pub fn SetProtocol(self: ?*anyopaque, protocol: i32) void {
         qtc.QSslConfiguration_SetProtocol(@ptrCast(self), @intCast(protocol));
     }
 
@@ -78,14 +78,14 @@ pub const qsslconfiguration = struct {
     /// ``` self: QtC.QSslConfiguration ```
     ///
     /// Returns: ``` qsslsocket_enums.PeerVerifyMode ```
-    pub fn PeerVerifyMode(self: ?*anyopaque) i64 {
+    pub fn PeerVerifyMode(self: ?*anyopaque) i32 {
         return qtc.QSslConfiguration_PeerVerifyMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#setPeerVerifyMode)
     ///
     /// ``` self: QtC.QSslConfiguration, mode: qsslsocket_enums.PeerVerifyMode ```
-    pub fn SetPeerVerifyMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetPeerVerifyMode(self: ?*anyopaque, mode: i32) void {
         qtc.QSslConfiguration_SetPeerVerifyMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -171,7 +171,7 @@ pub const qsslconfiguration = struct {
     /// ``` self: QtC.QSslConfiguration ```
     ///
     /// Returns: ``` qssl_enums.SslProtocol ```
-    pub fn SessionProtocol(self: ?*anyopaque) i64 {
+    pub fn SessionProtocol(self: ?*anyopaque) i32 {
         return qtc.QSslConfiguration_SessionProtocol(@ptrCast(self));
     }
 
@@ -302,14 +302,14 @@ pub const qsslconfiguration = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#setSslOption)
     ///
     /// ``` self: QtC.QSslConfiguration, option: qssl_enums.SslOption, on: bool ```
-    pub fn SetSslOption(self: ?*anyopaque, option: i64, on: bool) void {
+    pub fn SetSslOption(self: ?*anyopaque, option: i32, on: bool) void {
         qtc.QSslConfiguration_SetSslOption(@ptrCast(self), @intCast(option), on);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#testSslOption)
     ///
     /// ``` self: QtC.QSslConfiguration, option: qssl_enums.SslOption ```
-    pub fn TestSslOption(self: ?*anyopaque, option: i64) bool {
+    pub fn TestSslOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QSslConfiguration_TestSslOption(@ptrCast(self), @intCast(option));
     }
 
@@ -579,14 +579,14 @@ pub const qsslconfiguration = struct {
     /// ``` self: QtC.QSslConfiguration ```
     ///
     /// Returns: ``` qsslconfiguration_enums.NextProtocolNegotiationStatus ```
-    pub fn NextProtocolNegotiationStatus(self: ?*anyopaque) i64 {
+    pub fn NextProtocolNegotiationStatus(self: ?*anyopaque) i32 {
         return qtc.QSslConfiguration_NextProtocolNegotiationStatus(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ``` self: QtC.QSslConfiguration, path: []const u8, format: qssl_enums.EncodingFormat ```
-    pub fn AddCaCertificates22(self: ?*anyopaque, path: []const u8, format: i64) bool {
+    pub fn AddCaCertificates22(self: ?*anyopaque, path: []const u8, format: i32) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -597,7 +597,7 @@ pub const qsslconfiguration = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslconfiguration.html#addCaCertificates)
     ///
     /// ``` self: QtC.QSslConfiguration, path: []const u8, format: qssl_enums.EncodingFormat, syntax: qsslcertificate_enums.PatternSyntax ```
-    pub fn AddCaCertificates3(self: ?*anyopaque, path: []const u8, format: i64, syntax: i64) bool {
+    pub fn AddCaCertificates3(self: ?*anyopaque, path: []const u8, format: i32, syntax: i32) bool {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,

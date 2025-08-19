@@ -15,7 +15,7 @@ pub const qfileiconprovider = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType ```
-    pub fn Icon(self: ?*anyopaque, typeVal: i64) QtC.QIcon {
+    pub fn Icon(self: ?*anyopaque, typeVal: i32) QtC.QIcon {
         return qtc.QFileIconProvider_Icon(@ptrCast(self), @intCast(typeVal));
     }
 
@@ -24,7 +24,7 @@ pub const qfileiconprovider = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon ```
-    pub fn OnIcon(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QIcon) void {
+    pub fn OnIcon(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
         qtc.QFileIconProvider_OnIcon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -33,7 +33,7 @@ pub const qfileiconprovider = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType ```
-    pub fn QBaseIcon(self: ?*anyopaque, typeVal: i64) QtC.QIcon {
+    pub fn QBaseIcon(self: ?*anyopaque, typeVal: i32) QtC.QIcon {
         return qtc.QFileIconProvider_QBaseIcon(@ptrCast(self), @intCast(typeVal));
     }
 

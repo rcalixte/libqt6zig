@@ -91,7 +91,7 @@ pub const qaccessibleobject = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleobject.html#setText)
     ///
     /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8 ```
-    pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
+    pub fn SetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -104,7 +104,7 @@ pub const qaccessibleobject = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i64, []const u8) callconv(.c) void) void {
+    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
         qtc.QAccessibleObject_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -113,7 +113,7 @@ pub const qaccessibleobject = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8 ```
-    pub fn QBaseSetText(self: ?*anyopaque, t: i64, text: []const u8) void {
+    pub fn QBaseSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -498,7 +498,7 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
-    pub fn Text(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleObject_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleobject.Text: Memory allocation failed");
@@ -513,7 +513,7 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
-    pub fn QBaseText(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleObject_QBaseText(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleobject.Text: Memory allocation failed");
@@ -528,7 +528,7 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text) callconv(.c) []const u8 ```
-    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []const u8) void {
+    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
         qtc.QAccessibleObject_OnText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -541,7 +541,7 @@ pub const qaccessibleobject = struct {
     /// ``` self: QtC.QAccessibleObject ```
     ///
     /// Returns: ``` qaccessible_base_enums.Role ```
-    pub fn Role(self: ?*anyopaque) i64 {
+    pub fn Role(self: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_Role(@ptrCast(self));
     }
 
@@ -554,7 +554,7 @@ pub const qaccessibleobject = struct {
     /// ``` self: QtC.QAccessibleObject ```
     ///
     /// Returns: ``` qaccessible_base_enums.Role ```
-    pub fn QBaseRole(self: ?*anyopaque) i64 {
+    pub fn QBaseRole(self: ?*anyopaque) i32 {
         return qtc.QAccessibleObject_QBaseRole(@ptrCast(self));
     }
 
@@ -564,8 +564,8 @@ pub const qaccessibleobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, slot: fn () callconv(.c) i64 ```
-    pub fn OnRole(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAccessibleObject, slot: fn () callconv(.c) i32 ```
+    pub fn OnRole(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAccessibleObject_OnRole(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -708,7 +708,7 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType ```
-    pub fn InterfaceCast(self: ?*anyopaque, param1: i64) ?*anyopaque {
+    pub fn InterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleObject_InterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
@@ -719,7 +719,7 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType ```
-    pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i64) ?*anyopaque {
+    pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleObject_QBaseInterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
@@ -730,7 +730,7 @@ pub const qaccessibleobject = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque ```
-    pub fn OnInterfaceCast(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) ?*anyopaque) void {
+    pub fn OnInterfaceCast(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
         qtc.QAccessibleObject_OnInterfaceCast(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 };
@@ -897,7 +897,7 @@ pub const qaccessibleapplication = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleapplication.html#text)
     ///
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
-    pub fn Text(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleApplication_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
@@ -910,7 +910,7 @@ pub const qaccessibleapplication = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text) callconv(.c) []const u8 ```
-    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []const u8) void {
+    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
         qtc.QAccessibleApplication_OnText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -919,7 +919,7 @@ pub const qaccessibleapplication = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
-    pub fn QBaseText(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleApplication_QBaseText(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleapplication.Text: Memory allocation failed");
@@ -932,7 +932,7 @@ pub const qaccessibleapplication = struct {
     /// ``` self: QtC.QAccessibleApplication ```
     ///
     /// Returns: ``` qaccessible_base_enums.Role ```
-    pub fn Role(self: ?*anyopaque) i64 {
+    pub fn Role(self: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_Role(@ptrCast(self));
     }
 
@@ -940,8 +940,8 @@ pub const qaccessibleapplication = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, slot: fn () callconv(.c) i64 ```
-    pub fn OnRole(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAccessibleApplication, slot: fn () callconv(.c) i32 ```
+    pub fn OnRole(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAccessibleApplication_OnRole(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -952,7 +952,7 @@ pub const qaccessibleapplication = struct {
     /// ``` self: QtC.QAccessibleApplication ```
     ///
     /// Returns: ``` qaccessible_base_enums.Role ```
-    pub fn QBaseRole(self: ?*anyopaque) i64 {
+    pub fn QBaseRole(self: ?*anyopaque) i32 {
         return qtc.QAccessibleApplication_QBaseRole(@ptrCast(self));
     }
 
@@ -1177,7 +1177,7 @@ pub const qaccessibleapplication = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8 ```
-    pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
+    pub fn SetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1192,7 +1192,7 @@ pub const qaccessibleapplication = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8 ```
-    pub fn QBaseSetText(self: ?*anyopaque, t: i64, text: []const u8) void {
+    pub fn QBaseSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1207,7 +1207,7 @@ pub const qaccessibleapplication = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i64, []const u8) callconv(.c) void) void {
+    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
         qtc.QAccessibleApplication_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1407,7 +1407,7 @@ pub const qaccessibleapplication = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType ```
-    pub fn InterfaceCast(self: ?*anyopaque, param1: i64) ?*anyopaque {
+    pub fn InterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleApplication_InterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
@@ -1418,7 +1418,7 @@ pub const qaccessibleapplication = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType ```
-    pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i64) ?*anyopaque {
+    pub fn QBaseInterfaceCast(self: ?*anyopaque, param1: i32) ?*anyopaque {
         return qtc.QAccessibleApplication_QBaseInterfaceCast(@ptrCast(self), @intCast(param1));
     }
 
@@ -1429,7 +1429,7 @@ pub const qaccessibleapplication = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, param1: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque ```
-    pub fn OnInterfaceCast(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) ?*anyopaque) void {
+    pub fn OnInterfaceCast(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
         qtc.QAccessibleApplication_OnInterfaceCast(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

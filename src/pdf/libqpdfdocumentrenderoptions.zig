@@ -51,14 +51,14 @@ pub const qpdfdocumentrenderoptions = struct {
     /// ``` self: QtC.QPdfDocumentRenderOptions ```
     ///
     /// Returns: ``` qpdfdocumentrenderoptions_enums.Rotation ```
-    pub fn Rotation(self: ?*anyopaque) i64 {
+    pub fn Rotation(self: ?*anyopaque) i32 {
         return qtc.QPdfDocumentRenderOptions_Rotation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfdocumentrenderoptions.html#setRotation)
     ///
     /// ``` self: QtC.QPdfDocumentRenderOptions, r: qpdfdocumentrenderoptions_enums.Rotation ```
-    pub fn SetRotation(self: ?*anyopaque, r: i64) void {
+    pub fn SetRotation(self: ?*anyopaque, r: i32) void {
         qtc.QPdfDocumentRenderOptions_SetRotation(@ptrCast(self), @intCast(r));
     }
 

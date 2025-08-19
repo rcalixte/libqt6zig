@@ -56,14 +56,14 @@ pub const qdatastream = struct {
     /// ``` self: QtC.QDataStream ```
     ///
     /// Returns: ``` qdatastream_enums.Status ```
-    pub fn Status(self: ?*anyopaque) i64 {
+    pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QDataStream_Status(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#setStatus)
     ///
     /// ``` self: QtC.QDataStream, status: qdatastream_enums.Status ```
-    pub fn SetStatus(self: ?*anyopaque, status: i64) void {
+    pub fn SetStatus(self: ?*anyopaque, status: i32) void {
         qtc.QDataStream_SetStatus(@ptrCast(self), @intCast(status));
     }
 
@@ -79,14 +79,14 @@ pub const qdatastream = struct {
     /// ``` self: QtC.QDataStream ```
     ///
     /// Returns: ``` qdatastream_enums.FloatingPointPrecision ```
-    pub fn FloatingPointPrecision(self: ?*anyopaque) i64 {
+    pub fn FloatingPointPrecision(self: ?*anyopaque) i32 {
         return qtc.QDataStream_FloatingPointPrecision(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#setFloatingPointPrecision)
     ///
     /// ``` self: QtC.QDataStream, precision: qdatastream_enums.FloatingPointPrecision ```
-    pub fn SetFloatingPointPrecision(self: ?*anyopaque, precision: i64) void {
+    pub fn SetFloatingPointPrecision(self: ?*anyopaque, precision: i32) void {
         qtc.QDataStream_SetFloatingPointPrecision(@ptrCast(self), @intCast(precision));
     }
 
@@ -95,14 +95,14 @@ pub const qdatastream = struct {
     /// ``` self: QtC.QDataStream ```
     ///
     /// Returns: ``` qdatastream_enums.ByteOrder ```
-    pub fn ByteOrder(self: ?*anyopaque) i64 {
+    pub fn ByteOrder(self: ?*anyopaque) i32 {
         return qtc.QDataStream_ByteOrder(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#setByteOrder)
     ///
     /// ``` self: QtC.QDataStream, byteOrder: qdatastream_enums.ByteOrder ```
-    pub fn SetByteOrder(self: ?*anyopaque, byteOrder: i64) void {
+    pub fn SetByteOrder(self: ?*anyopaque, byteOrder: i32) void {
         qtc.QDataStream_SetByteOrder(@ptrCast(self), @intCast(byteOrder));
     }
 
@@ -185,7 +185,7 @@ pub const qdatastream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: bool ```
+    /// ``` self: QtC.QDataStream, i: *bool ```
     pub fn OperatorShiftRight11(self: ?*anyopaque, i: *bool) void {
         qtc.QDataStream_OperatorShiftRight11(@ptrCast(self), @ptrCast(i));
     }

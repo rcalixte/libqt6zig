@@ -24,7 +24,7 @@ pub const qshortcut = struct {
     /// New3 constructs a new QShortcut object.
     ///
     /// ``` key: qkeysequence_enums.StandardKey, parent: QtC.QObject ```
-    pub fn New3(key: i64, parent: ?*anyopaque) QtC.QShortcut {
+    pub fn New3(key: i32, parent: ?*anyopaque) QtC.QShortcut {
         return qtc.QShortcut_new3(@intCast(key), @ptrCast(parent));
     }
 
@@ -50,7 +50,7 @@ pub const qshortcut = struct {
     /// New6 constructs a new QShortcut object.
     ///
     /// ``` key: QtC.QKeySequence, parent: QtC.QObject, member: []const u8, ambiguousMember: []const u8, context: qnamespace_enums.ShortcutContext ```
-    pub fn New6(key: ?*anyopaque, parent: ?*anyopaque, member: []const u8, ambiguousMember: []const u8, context: i64) QtC.QShortcut {
+    pub fn New6(key: ?*anyopaque, parent: ?*anyopaque, member: []const u8, ambiguousMember: []const u8, context: i32) QtC.QShortcut {
         const member_Cstring = member.ptr;
         const ambiguousMember_Cstring = ambiguousMember.ptr;
 
@@ -60,7 +60,7 @@ pub const qshortcut = struct {
     /// New7 constructs a new QShortcut object.
     ///
     /// ``` key: qkeysequence_enums.StandardKey, parent: QtC.QObject, member: []const u8 ```
-    pub fn New7(key: i64, parent: ?*anyopaque, member: []const u8) QtC.QShortcut {
+    pub fn New7(key: i32, parent: ?*anyopaque, member: []const u8) QtC.QShortcut {
         const member_Cstring = member.ptr;
 
         return qtc.QShortcut_new7(@intCast(key), @ptrCast(parent), member_Cstring);
@@ -69,7 +69,7 @@ pub const qshortcut = struct {
     /// New8 constructs a new QShortcut object.
     ///
     /// ``` key: qkeysequence_enums.StandardKey, parent: QtC.QObject, member: []const u8, ambiguousMember: []const u8 ```
-    pub fn New8(key: i64, parent: ?*anyopaque, member: []const u8, ambiguousMember: []const u8) QtC.QShortcut {
+    pub fn New8(key: i32, parent: ?*anyopaque, member: []const u8, ambiguousMember: []const u8) QtC.QShortcut {
         const member_Cstring = member.ptr;
         const ambiguousMember_Cstring = ambiguousMember.ptr;
 
@@ -79,7 +79,7 @@ pub const qshortcut = struct {
     /// New9 constructs a new QShortcut object.
     ///
     /// ``` key: qkeysequence_enums.StandardKey, parent: QtC.QObject, member: []const u8, ambiguousMember: []const u8, context: qnamespace_enums.ShortcutContext ```
-    pub fn New9(key: i64, parent: ?*anyopaque, member: []const u8, ambiguousMember: []const u8, context: i64) QtC.QShortcut {
+    pub fn New9(key: i32, parent: ?*anyopaque, member: []const u8, ambiguousMember: []const u8, context: i32) QtC.QShortcut {
         const member_Cstring = member.ptr;
         const ambiguousMember_Cstring = ambiguousMember.ptr;
 
@@ -100,21 +100,21 @@ pub const qshortcut = struct {
     }
 
     /// ``` self: QtC.QShortcut, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QShortcut_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QShortcut, slot: fn (self: QtC.QShortcut, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QShortcut_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QShortcut, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QShortcut_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -147,7 +147,7 @@ pub const qshortcut = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qshortcut.html#setKeys)
     ///
     /// ``` self: QtC.QShortcut, key: qkeysequence_enums.StandardKey ```
-    pub fn SetKeys(self: ?*anyopaque, key: i64) void {
+    pub fn SetKeys(self: ?*anyopaque, key: i32) void {
         qtc.QShortcut_SetKeys(@ptrCast(self), @intCast(key));
     }
 
@@ -191,7 +191,7 @@ pub const qshortcut = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qshortcut.html#setContext)
     ///
     /// ``` self: QtC.QShortcut, context: qnamespace_enums.ShortcutContext ```
-    pub fn SetContext(self: ?*anyopaque, context: i64) void {
+    pub fn SetContext(self: ?*anyopaque, context: i32) void {
         qtc.QShortcut_SetContext(@ptrCast(self), @intCast(context));
     }
 
@@ -200,7 +200,7 @@ pub const qshortcut = struct {
     /// ``` self: QtC.QShortcut ```
     ///
     /// Returns: ``` qnamespace_enums.ShortcutContext ```
-    pub fn Context(self: ?*anyopaque) i64 {
+    pub fn Context(self: ?*anyopaque) i32 {
         return qtc.QShortcut_Context(@ptrCast(self));
     }
 
@@ -438,7 +438,7 @@ pub const qshortcut = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QShortcut, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -661,7 +661,7 @@ pub const qshortcut = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QShortcut, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -670,7 +670,7 @@ pub const qshortcut = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -679,7 +679,7 @@ pub const qshortcut = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QShortcut, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

@@ -37,21 +37,21 @@ pub const qformlayout = struct {
     }
 
     /// ``` self: QtC.QFormLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QFormLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QFormLayout, slot: fn (self: QtC.QFormLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QFormLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QFormLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QFormLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -70,7 +70,7 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setFieldGrowthPolicy)
     ///
     /// ``` self: QtC.QFormLayout, policy: qformlayout_enums.FieldGrowthPolicy ```
-    pub fn SetFieldGrowthPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFieldGrowthPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QFormLayout_SetFieldGrowthPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -79,14 +79,14 @@ pub const qformlayout = struct {
     /// ``` self: QtC.QFormLayout ```
     ///
     /// Returns: ``` qformlayout_enums.FieldGrowthPolicy ```
-    pub fn FieldGrowthPolicy(self: ?*anyopaque) i64 {
+    pub fn FieldGrowthPolicy(self: ?*anyopaque) i32 {
         return qtc.QFormLayout_FieldGrowthPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setRowWrapPolicy)
     ///
     /// ``` self: QtC.QFormLayout, policy: qformlayout_enums.RowWrapPolicy ```
-    pub fn SetRowWrapPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetRowWrapPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QFormLayout_SetRowWrapPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -95,7 +95,7 @@ pub const qformlayout = struct {
     /// ``` self: QtC.QFormLayout ```
     ///
     /// Returns: ``` qformlayout_enums.RowWrapPolicy ```
-    pub fn RowWrapPolicy(self: ?*anyopaque) i64 {
+    pub fn RowWrapPolicy(self: ?*anyopaque) i32 {
         return qtc.QFormLayout_RowWrapPolicy(@ptrCast(self));
     }
 
@@ -354,21 +354,21 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setItem)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole, item: QtC.QLayoutItem ```
-    pub fn SetItem(self: ?*anyopaque, row: i32, role: i64, item: ?*anyopaque) void {
+    pub fn SetItem(self: ?*anyopaque, row: i32, role: i32, item: ?*anyopaque) void {
         qtc.QFormLayout_SetItem(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(item));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setWidget)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole, widget: QtC.QWidget ```
-    pub fn SetWidget(self: ?*anyopaque, row: i32, role: i64, widget: ?*anyopaque) void {
+    pub fn SetWidget(self: ?*anyopaque, row: i32, role: i32, widget: ?*anyopaque) void {
         qtc.QFormLayout_SetWidget(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(widget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#setLayout)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole, layout: QtC.QLayout ```
-    pub fn SetLayout(self: ?*anyopaque, row: i32, role: i64, layout: ?*anyopaque) void {
+    pub fn SetLayout(self: ?*anyopaque, row: i32, role: i32, layout: ?*anyopaque) void {
         qtc.QFormLayout_SetLayout(@ptrCast(self), @intCast(row), @intCast(role), @ptrCast(layout));
     }
 
@@ -417,7 +417,7 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout.html#itemAt)
     ///
     /// ``` self: QtC.QFormLayout, row: i32, role: qformlayout_enums.ItemRole ```
-    pub fn ItemAt(self: ?*anyopaque, row: i32, role: i64) QtC.QLayoutItem {
+    pub fn ItemAt(self: ?*anyopaque, row: i32, role: i32) QtC.QLayoutItem {
         return qtc.QFormLayout_ItemAt(@ptrCast(self), @intCast(row), @intCast(role));
     }
 
@@ -824,7 +824,7 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayout.html#setSizeConstraint)
     ///
     /// ``` self: QtC.QFormLayout, sizeConstraint: qlayout_enums.SizeConstraint ```
-    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i64) void {
+    pub fn SetSizeConstraint(self: ?*anyopaque, sizeConstraint: i32) void {
         qtc.QLayout_SetSizeConstraint(@ptrCast(self), @intCast(sizeConstraint));
     }
 
@@ -835,7 +835,7 @@ pub const qformlayout = struct {
     /// ``` self: QtC.QFormLayout ```
     ///
     /// Returns: ``` qlayout_enums.SizeConstraint ```
-    pub fn SizeConstraint(self: ?*anyopaque) i64 {
+    pub fn SizeConstraint(self: ?*anyopaque) i32 {
         return qtc.QLayout_SizeConstraint(@ptrCast(self));
     }
 
@@ -1126,7 +1126,7 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QFormLayout, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1349,7 +1349,7 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QFormLayout, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1358,7 +1358,7 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1367,7 +1367,7 @@ pub const qformlayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QFormLayout, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

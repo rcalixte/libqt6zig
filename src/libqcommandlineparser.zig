@@ -27,14 +27,14 @@ pub const qcommandlineparser = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineparser.html#setSingleDashWordOptionMode)
     ///
     /// ``` self: QtC.QCommandLineParser, parsingMode: qcommandlineparser_enums.SingleDashWordOptionMode ```
-    pub fn SetSingleDashWordOptionMode(self: ?*anyopaque, parsingMode: i64) void {
+    pub fn SetSingleDashWordOptionMode(self: ?*anyopaque, parsingMode: i32) void {
         qtc.QCommandLineParser_SetSingleDashWordOptionMode(@ptrCast(self), @intCast(parsingMode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcommandlineparser.html#setOptionsAfterPositionalArgumentsMode)
     ///
     /// ``` self: QtC.QCommandLineParser, mode: qcommandlineparser_enums.OptionsAfterPositionalArgumentsMode ```
-    pub fn SetOptionsAfterPositionalArgumentsMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetOptionsAfterPositionalArgumentsMode(self: ?*anyopaque, mode: i32) void {
         qtc.QCommandLineParser_SetOptionsAfterPositionalArgumentsMode(@ptrCast(self), @intCast(mode));
     }
 

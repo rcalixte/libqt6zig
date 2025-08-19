@@ -140,7 +140,7 @@ pub const qimageiohandler = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#option)
     ///
     /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
-    pub fn Option(self: ?*anyopaque, option: i64) QtC.QVariant {
+    pub fn Option(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QImageIOHandler_Option(@ptrCast(self), @intCast(option));
     }
 
@@ -149,7 +149,7 @@ pub const qimageiohandler = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) QtC.QVariant ```
-    pub fn OnOption(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+    pub fn OnOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
         qtc.QImageIOHandler_OnOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -158,14 +158,14 @@ pub const qimageiohandler = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
-    pub fn QBaseOption(self: ?*anyopaque, option: i64) QtC.QVariant {
+    pub fn QBaseOption(self: ?*anyopaque, option: i32) QtC.QVariant {
         return qtc.QImageIOHandler_QBaseOption(@ptrCast(self), @intCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
     ///
     /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant ```
-    pub fn SetOption(self: ?*anyopaque, option: i64, value: ?*anyopaque) void {
+    pub fn SetOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QImageIOHandler_SetOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
@@ -174,7 +174,7 @@ pub const qimageiohandler = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetOption(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+    pub fn OnSetOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QImageIOHandler_OnSetOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -183,14 +183,14 @@ pub const qimageiohandler = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant ```
-    pub fn QBaseSetOption(self: ?*anyopaque, option: i64, value: ?*anyopaque) void {
+    pub fn QBaseSetOption(self: ?*anyopaque, option: i32, value: ?*anyopaque) void {
         qtc.QImageIOHandler_QBaseSetOption(@ptrCast(self), @intCast(option), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
     ///
     /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
-    pub fn SupportsOption(self: ?*anyopaque, option: i64) bool {
+    pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageIOHandler_SupportsOption(@ptrCast(self), @intCast(option));
     }
 
@@ -199,7 +199,7 @@ pub const qimageiohandler = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) bool ```
-    pub fn OnSupportsOption(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSupportsOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QImageIOHandler_OnSupportsOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -208,7 +208,7 @@ pub const qimageiohandler = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption ```
-    pub fn QBaseSupportsOption(self: ?*anyopaque, option: i64) bool {
+    pub fn QBaseSupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageIOHandler_QBaseSupportsOption(@ptrCast(self), @intCast(option));
     }
 
@@ -390,7 +390,7 @@ pub const qimageiohandler = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#allocateImage)
     ///
     /// ``` size: QtC.QSize, format: qimage_enums.Format, image: QtC.QImage ```
-    pub fn AllocateImage(size: QtC.QSize, format: i64, image: ?*anyopaque) bool {
+    pub fn AllocateImage(size: QtC.QSize, format: i32, image: ?*anyopaque) bool {
         return qtc.QImageIOHandler_AllocateImage(@ptrCast(size), @intCast(format), @ptrCast(image));
     }
 
@@ -420,7 +420,7 @@ pub const qimageioplugin = struct {
     }
 
     /// ``` self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QImageIOPlugin_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -616,7 +616,7 @@ pub const qimageioplugin = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QImageIOPlugin, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -839,7 +839,7 @@ pub const qimageioplugin = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QImageIOPlugin, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -848,7 +848,7 @@ pub const qimageioplugin = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -857,7 +857,7 @@ pub const qimageioplugin = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QImageIOPlugin, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

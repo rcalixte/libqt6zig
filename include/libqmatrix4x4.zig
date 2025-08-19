@@ -29,7 +29,7 @@ pub const qmatrix4x4 = struct {
     /// New4 constructs a new QMatrix4x4 object.
     ///
     /// ``` param1: qnamespace_enums.Initialization ```
-    pub fn New4(param1: i64) QtC.QMatrix4x4 {
+    pub fn New4(param1: i32) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_new4(@intCast(param1));
     }
 
@@ -471,7 +471,7 @@ pub const qmatrix4x4 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#inverted)
     ///
-    /// ``` self: QtC.QMatrix4x4, invertible: bool ```
+    /// ``` self: QtC.QMatrix4x4, invertible: *bool ```
     pub fn Inverted1(self: ?*anyopaque, invertible: *bool) QtC.QMatrix4x4 {
         return qtc.QMatrix4x4_Inverted1(@ptrCast(self), @ptrCast(invertible));
     }

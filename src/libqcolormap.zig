@@ -45,7 +45,7 @@ pub const qcolormap = struct {
     /// ``` self: QtC.QColormap ```
     ///
     /// Returns: ``` qcolormap_enums.Mode ```
-    pub fn Mode(self: ?*anyopaque) i64 {
+    pub fn Mode(self: ?*anyopaque) i32 {
         return qtc.QColormap_Mode(@ptrCast(self));
     }
 

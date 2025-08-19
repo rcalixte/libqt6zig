@@ -22,7 +22,7 @@ pub const qeasingcurve = struct {
     /// New3 constructs a new QEasingCurve object.
     ///
     /// ``` typeVal: qeasingcurve_enums.Type ```
-    pub fn New3(typeVal: i64) QtC.QEasingCurve {
+    pub fn New3(typeVal: i32) QtC.QEasingCurve {
         return qtc.QEasingCurve_new3(@intCast(typeVal));
     }
 
@@ -113,14 +113,14 @@ pub const qeasingcurve = struct {
     /// ``` self: QtC.QEasingCurve ```
     ///
     /// Returns: ``` qeasingcurve_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QEasingCurve_Type(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qeasingcurve.html#setType)
     ///
     /// ``` self: QtC.QEasingCurve, typeVal: qeasingcurve_enums.Type ```
-    pub fn SetType(self: ?*anyopaque, typeVal: i64) void {
+    pub fn SetType(self: ?*anyopaque, typeVal: i32) void {
         qtc.QEasingCurve_SetType(@ptrCast(self), @intCast(typeVal));
     }
 

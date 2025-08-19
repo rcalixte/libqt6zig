@@ -98,14 +98,14 @@ pub const qcollator = struct {
     /// ``` self: QtC.QCollator ```
     ///
     /// Returns: ``` qnamespace_enums.CaseSensitivity ```
-    pub fn CaseSensitivity(self: ?*anyopaque) i64 {
+    pub fn CaseSensitivity(self: ?*anyopaque) i32 {
         return qtc.QCollator_CaseSensitivity(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcollator.html#setCaseSensitivity)
     ///
     /// ``` self: QtC.QCollator, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i64) void {
+    pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
         qtc.QCollator_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
     }
 

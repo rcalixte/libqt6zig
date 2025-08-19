@@ -15,14 +15,14 @@ pub const qsslerror = struct {
     /// New2 constructs a new QSslError object.
     ///
     /// ``` errorVal: qsslerror_enums.SslError ```
-    pub fn New2(errorVal: i64) QtC.QSslError {
+    pub fn New2(errorVal: i32) QtC.QSslError {
         return qtc.QSslError_new2(@intCast(errorVal));
     }
 
     /// New3 constructs a new QSslError object.
     ///
     /// ``` errorVal: qsslerror_enums.SslError, certificate: QtC.QSslCertificate ```
-    pub fn New3(errorVal: i64, certificate: ?*anyopaque) QtC.QSslError {
+    pub fn New3(errorVal: i32, certificate: ?*anyopaque) QtC.QSslError {
         return qtc.QSslError_new3(@intCast(errorVal), @ptrCast(certificate));
     }
 
@@ -66,7 +66,7 @@ pub const qsslerror = struct {
     /// ``` self: QtC.QSslError ```
     ///
     /// Returns: ``` qsslerror_enums.SslError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QSslError_Error(@ptrCast(self));
     }
 

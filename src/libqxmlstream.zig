@@ -428,7 +428,7 @@ pub const qxmlstreamreader = struct {
     /// ``` self: QtC.QXmlStreamReader ```
     ///
     /// Returns: ``` qxmlstream_enums.TokenType ```
-    pub fn ReadNext(self: ?*anyopaque) i64 {
+    pub fn ReadNext(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamReader_ReadNext(@ptrCast(self));
     }
 
@@ -451,7 +451,7 @@ pub const qxmlstreamreader = struct {
     /// ``` self: QtC.QXmlStreamReader ```
     ///
     /// Returns: ``` qxmlstream_enums.TokenType ```
-    pub fn TokenType(self: ?*anyopaque) i64 {
+    pub fn TokenType(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamReader_TokenType(@ptrCast(self));
     }
 
@@ -701,7 +701,7 @@ pub const qxmlstreamreader = struct {
     /// ``` self: QtC.QXmlStreamReader ```
     ///
     /// Returns: ``` qxmlstream_enums.Error ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QXmlStreamReader_Error(@ptrCast(self));
     }
 
@@ -729,7 +729,7 @@ pub const qxmlstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamreader.html#readElementText)
     ///
     /// ``` self: QtC.QXmlStreamReader, behaviour: qxmlstream_enums.ReadElementTextBehaviour, allocator: std.mem.Allocator ```
-    pub fn ReadElementText1(self: ?*anyopaque, behaviour: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ReadElementText1(self: ?*anyopaque, behaviour: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QXmlStreamReader_ReadElementText1(@ptrCast(self), @intCast(behaviour));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ReadElementText1: Memory allocation failed");

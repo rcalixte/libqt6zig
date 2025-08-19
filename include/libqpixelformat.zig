@@ -28,7 +28,7 @@ pub const qpixelformat = struct {
     /// New4 constructs a new QPixelFormat object.
     ///
     /// ``` colorModel: qpixelformat_enums.ColorModel, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: qpixelformat_enums.AlphaUsage, alphaPosition: qpixelformat_enums.AlphaPosition, premultiplied: qpixelformat_enums.AlphaPremultiplied, typeInterpretation: qpixelformat_enums.TypeInterpretation ```
-    pub fn New4(colorModel: i64, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i64, alphaPosition: i64, premultiplied: i64, typeInterpretation: i64) QtC.QPixelFormat {
+    pub fn New4(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32) QtC.QPixelFormat {
         return qtc.QPixelFormat_new4(@intCast(colorModel), @intCast(firstSize), @intCast(secondSize), @intCast(thirdSize), @intCast(fourthSize), @intCast(fifthSize), @intCast(alphaSize), @intCast(alphaUsage), @intCast(alphaPosition), @intCast(premultiplied), @intCast(typeInterpretation));
     }
 
@@ -42,14 +42,14 @@ pub const qpixelformat = struct {
     /// New6 constructs a new QPixelFormat object.
     ///
     /// ``` colorModel: qpixelformat_enums.ColorModel, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: qpixelformat_enums.AlphaUsage, alphaPosition: qpixelformat_enums.AlphaPosition, premultiplied: qpixelformat_enums.AlphaPremultiplied, typeInterpretation: qpixelformat_enums.TypeInterpretation, byteOrder: qpixelformat_enums.ByteOrder ```
-    pub fn New6(colorModel: i64, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i64, alphaPosition: i64, premultiplied: i64, typeInterpretation: i64, byteOrder: i64) QtC.QPixelFormat {
+    pub fn New6(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32, byteOrder: i32) QtC.QPixelFormat {
         return qtc.QPixelFormat_new6(@intCast(colorModel), @intCast(firstSize), @intCast(secondSize), @intCast(thirdSize), @intCast(fourthSize), @intCast(fifthSize), @intCast(alphaSize), @intCast(alphaUsage), @intCast(alphaPosition), @intCast(premultiplied), @intCast(typeInterpretation), @intCast(byteOrder));
     }
 
     /// New7 constructs a new QPixelFormat object.
     ///
     /// ``` colorModel: qpixelformat_enums.ColorModel, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: qpixelformat_enums.AlphaUsage, alphaPosition: qpixelformat_enums.AlphaPosition, premultiplied: qpixelformat_enums.AlphaPremultiplied, typeInterpretation: qpixelformat_enums.TypeInterpretation, byteOrder: qpixelformat_enums.ByteOrder, subEnum: u8 ```
-    pub fn New7(colorModel: i64, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i64, alphaPosition: i64, premultiplied: i64, typeInterpretation: i64, byteOrder: i64, subEnum: u8) QtC.QPixelFormat {
+    pub fn New7(colorModel: i32, firstSize: u8, secondSize: u8, thirdSize: u8, fourthSize: u8, fifthSize: u8, alphaSize: u8, alphaUsage: i32, alphaPosition: i32, premultiplied: i32, typeInterpretation: i32, byteOrder: i32, subEnum: u8) QtC.QPixelFormat {
         return qtc.QPixelFormat_new7(@intCast(colorModel), @intCast(firstSize), @intCast(secondSize), @intCast(thirdSize), @intCast(fourthSize), @intCast(fifthSize), @intCast(alphaSize), @intCast(alphaUsage), @intCast(alphaPosition), @intCast(premultiplied), @intCast(typeInterpretation), @intCast(byteOrder), @intCast(subEnum));
     }
 
@@ -72,7 +72,7 @@ pub const qpixelformat = struct {
     /// ``` self: QtC.QPixelFormat ```
     ///
     /// Returns: ``` qpixelformat_enums.ColorModel ```
-    pub fn ColorModel(self: ?*anyopaque) i64 {
+    pub fn ColorModel(self: ?*anyopaque) i32 {
         return qtc.QPixelFormat_ColorModel(@ptrCast(self));
     }
 
@@ -179,7 +179,7 @@ pub const qpixelformat = struct {
     /// ``` self: QtC.QPixelFormat ```
     ///
     /// Returns: ``` qpixelformat_enums.AlphaUsage ```
-    pub fn AlphaUsage(self: ?*anyopaque) i64 {
+    pub fn AlphaUsage(self: ?*anyopaque) i32 {
         return qtc.QPixelFormat_AlphaUsage(@ptrCast(self));
     }
 
@@ -188,7 +188,7 @@ pub const qpixelformat = struct {
     /// ``` self: QtC.QPixelFormat ```
     ///
     /// Returns: ``` qpixelformat_enums.AlphaPosition ```
-    pub fn AlphaPosition(self: ?*anyopaque) i64 {
+    pub fn AlphaPosition(self: ?*anyopaque) i32 {
         return qtc.QPixelFormat_AlphaPosition(@ptrCast(self));
     }
 
@@ -197,7 +197,7 @@ pub const qpixelformat = struct {
     /// ``` self: QtC.QPixelFormat ```
     ///
     /// Returns: ``` qpixelformat_enums.AlphaPremultiplied ```
-    pub fn Premultiplied(self: ?*anyopaque) i64 {
+    pub fn Premultiplied(self: ?*anyopaque) i32 {
         return qtc.QPixelFormat_Premultiplied(@ptrCast(self));
     }
 
@@ -206,7 +206,7 @@ pub const qpixelformat = struct {
     /// ``` self: QtC.QPixelFormat ```
     ///
     /// Returns: ``` qpixelformat_enums.TypeInterpretation ```
-    pub fn TypeInterpretation(self: ?*anyopaque) i64 {
+    pub fn TypeInterpretation(self: ?*anyopaque) i32 {
         return qtc.QPixelFormat_TypeInterpretation(@ptrCast(self));
     }
 
@@ -215,7 +215,7 @@ pub const qpixelformat = struct {
     /// ``` self: QtC.QPixelFormat ```
     ///
     /// Returns: ``` qpixelformat_enums.ByteOrder ```
-    pub fn ByteOrder(self: ?*anyopaque) i64 {
+    pub fn ByteOrder(self: ?*anyopaque) i32 {
         return qtc.QPixelFormat_ByteOrder(@ptrCast(self));
     }
 
@@ -224,7 +224,7 @@ pub const qpixelformat = struct {
     /// ``` self: QtC.QPixelFormat ```
     ///
     /// Returns: ``` qpixelformat_enums.YUVLayout ```
-    pub fn YuvLayout(self: ?*anyopaque) i64 {
+    pub fn YuvLayout(self: ?*anyopaque) i32 {
         return qtc.QPixelFormat_YuvLayout(@ptrCast(self));
     }
 

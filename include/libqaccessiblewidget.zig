@@ -16,14 +16,14 @@ pub const qaccessiblewidget = struct {
     /// New2 constructs a new QAccessibleWidget object.
     ///
     /// ``` o: QtC.QWidget, r: qaccessible_base_enums.Role ```
-    pub fn New2(o: ?*anyopaque, r: i64) QtC.QAccessibleWidget {
+    pub fn New2(o: ?*anyopaque, r: i32) QtC.QAccessibleWidget {
         return qtc.QAccessibleWidget_new2(@ptrCast(o), @intCast(r));
     }
 
     /// New3 constructs a new QAccessibleWidget object.
     ///
     /// ``` o: QtC.QWidget, r: qaccessible_base_enums.Role, name: []const u8 ```
-    pub fn New3(o: ?*anyopaque, r: i64, name: []const u8) QtC.QAccessibleWidget {
+    pub fn New3(o: ?*anyopaque, r: i32, name: []const u8) QtC.QAccessibleWidget {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -284,7 +284,7 @@ pub const qaccessiblewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
-    pub fn Text(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn Text(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleWidget_Text(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.Text: Memory allocation failed");
@@ -297,7 +297,7 @@ pub const qaccessiblewidget = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text) callconv(.c) []const u8 ```
-    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []const u8) void {
+    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
         qtc.QAccessibleWidget_OnText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -306,7 +306,7 @@ pub const qaccessiblewidget = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, allocator: std.mem.Allocator ```
-    pub fn QBaseText(self: ?*anyopaque, t: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn QBaseText(self: ?*anyopaque, t: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QAccessibleWidget_QBaseText(@ptrCast(self), @intCast(t));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblewidget.Text: Memory allocation failed");
@@ -319,7 +319,7 @@ pub const qaccessiblewidget = struct {
     /// ``` self: QtC.QAccessibleWidget ```
     ///
     /// Returns: ``` qaccessible_base_enums.Role ```
-    pub fn Role(self: ?*anyopaque) i64 {
+    pub fn Role(self: ?*anyopaque) i32 {
         return qtc.QAccessibleWidget_Role(@ptrCast(self));
     }
 
@@ -327,8 +327,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) i64 ```
-    pub fn OnRole(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) i32 ```
+    pub fn OnRole(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAccessibleWidget_OnRole(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -339,7 +339,7 @@ pub const qaccessiblewidget = struct {
     /// ``` self: QtC.QAccessibleWidget ```
     ///
     /// Returns: ``` qaccessible_base_enums.Role ```
-    pub fn QBaseRole(self: ?*anyopaque) i64 {
+    pub fn QBaseRole(self: ?*anyopaque) i32 {
         return qtc.QAccessibleWidget_QBaseRole(@ptrCast(self));
     }
 
@@ -421,7 +421,7 @@ pub const qaccessiblewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.InterfaceType ```
-    pub fn InterfaceCast(self: ?*anyopaque, t: i64) ?*anyopaque {
+    pub fn InterfaceCast(self: ?*anyopaque, t: i32) ?*anyopaque {
         return qtc.QAccessibleWidget_InterfaceCast(@ptrCast(self), @intCast(t));
     }
 
@@ -430,7 +430,7 @@ pub const qaccessiblewidget = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque ```
-    pub fn OnInterfaceCast(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) ?*anyopaque) void {
+    pub fn OnInterfaceCast(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
         qtc.QAccessibleWidget_OnInterfaceCast(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -439,7 +439,7 @@ pub const qaccessiblewidget = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.InterfaceType ```
-    pub fn QBaseInterfaceCast(self: ?*anyopaque, t: i64) ?*anyopaque {
+    pub fn QBaseInterfaceCast(self: ?*anyopaque, t: i32) ?*anyopaque {
         return qtc.QAccessibleWidget_QBaseInterfaceCast(@ptrCast(self), @intCast(t));
     }
 
@@ -1007,7 +1007,7 @@ pub const qaccessiblewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: []const u8 ```
-    pub fn SetText(self: ?*anyopaque, t: i64, text: []const u8) void {
+    pub fn SetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1022,7 +1022,7 @@ pub const qaccessiblewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: []const u8 ```
-    pub fn QBaseSetText(self: ?*anyopaque, t: i64, text: []const u8) void {
+    pub fn QBaseSetText(self: ?*anyopaque, t: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1037,7 +1037,7 @@ pub const qaccessiblewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: []const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i64, []const u8) callconv(.c) void) void {
+    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
         qtc.QAccessibleWidget_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

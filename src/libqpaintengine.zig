@@ -440,7 +440,7 @@ pub const qpaintengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode ```
-    pub fn DrawPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i64) void {
+    pub fn DrawPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i32) void {
         qtc.QPaintEngine_DrawPolygon(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
@@ -449,7 +449,7 @@ pub const qpaintengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void ```
-    pub fn OnDrawPolygon(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i64) callconv(.c) void) void {
+    pub fn OnDrawPolygon(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPolygon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -458,14 +458,14 @@ pub const qpaintengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode ```
-    pub fn QBaseDrawPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i64) void {
+    pub fn QBaseDrawPolygon(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i32) void {
         qtc.QPaintEngine_QBaseDrawPolygon(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode ```
-    pub fn DrawPolygon2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i64) void {
+    pub fn DrawPolygon2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i32) void {
         qtc.QPaintEngine_DrawPolygon2(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
@@ -474,7 +474,7 @@ pub const qpaintengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void ```
-    pub fn OnDrawPolygon2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i64) callconv(.c) void) void {
+    pub fn OnDrawPolygon2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QPaintEngine_OnDrawPolygon2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -483,7 +483,7 @@ pub const qpaintengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode ```
-    pub fn QBaseDrawPolygon2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i64) void {
+    pub fn QBaseDrawPolygon2(self: ?*anyopaque, points: ?*anyopaque, pointCount: i32, mode: i32) void {
         qtc.QPaintEngine_QBaseDrawPolygon2(@ptrCast(self), @ptrCast(points), @intCast(pointCount), @intCast(mode));
     }
 
@@ -659,7 +659,7 @@ pub const qpaintengine = struct {
     /// ``` self: QtC.QPaintEngine ```
     ///
     /// Returns: ``` qpaintengine_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QPaintEngine_Type(@ptrCast(self));
     }
 
@@ -667,8 +667,8 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn () callconv(.c) i64 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QPaintEngine, slot: fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QPaintEngine_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -679,7 +679,7 @@ pub const qpaintengine = struct {
     /// ``` self: QtC.QPaintEngine ```
     ///
     /// Returns: ``` qpaintengine_enums.Type ```
-    pub fn QBaseType(self: ?*anyopaque) i64 {
+    pub fn QBaseType(self: ?*anyopaque) i32 {
         return qtc.QPaintEngine_QBaseType(@ptrCast(self));
     }
 
@@ -871,7 +871,7 @@ pub const qpaintenginestate = struct {
     /// ``` self: QtC.QPaintEngineState ```
     ///
     /// Returns: ``` qnamespace_enums.BGMode ```
-    pub fn BackgroundMode(self: ?*anyopaque) i64 {
+    pub fn BackgroundMode(self: ?*anyopaque) i32 {
         return qtc.QPaintEngineState_BackgroundMode(@ptrCast(self));
     }
 
@@ -894,7 +894,7 @@ pub const qpaintenginestate = struct {
     /// ``` self: QtC.QPaintEngineState ```
     ///
     /// Returns: ``` qnamespace_enums.ClipOperation ```
-    pub fn ClipOperation(self: ?*anyopaque) i64 {
+    pub fn ClipOperation(self: ?*anyopaque) i32 {
         return qtc.QPaintEngineState_ClipOperation(@ptrCast(self));
     }
 
@@ -933,7 +933,7 @@ pub const qpaintenginestate = struct {
     /// ``` self: QtC.QPaintEngineState ```
     ///
     /// Returns: ``` qpainter_enums.CompositionMode ```
-    pub fn CompositionMode(self: ?*anyopaque) i64 {
+    pub fn CompositionMode(self: ?*anyopaque) i32 {
         return qtc.QPaintEngineState_CompositionMode(@ptrCast(self));
     }
 

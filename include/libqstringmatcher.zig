@@ -41,7 +41,7 @@ pub const qstringmatcher = struct {
     /// New5 constructs a new QStringMatcher object.
     ///
     /// ``` pattern: []const u8, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn New5(pattern: []const u8, cs: i64) QtC.QStringMatcher {
+    pub fn New5(pattern: []const u8, cs: i32) QtC.QStringMatcher {
         const pattern_str = qtc.libqt_string{
             .len = pattern.len,
             .data = pattern.ptr,
@@ -53,7 +53,7 @@ pub const qstringmatcher = struct {
     /// New6 constructs a new QStringMatcher object.
     ///
     /// ``` uc: QtC.QChar, lenVal: i64, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn New6(uc: ?*anyopaque, lenVal: i64, cs: i64) QtC.QStringMatcher {
+    pub fn New6(uc: ?*anyopaque, lenVal: i64, cs: i32) QtC.QStringMatcher {
         return qtc.QStringMatcher_new6(@ptrCast(uc), @intCast(lenVal), @intCast(cs));
     }
 
@@ -78,7 +78,7 @@ pub const qstringmatcher = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringmatcher.html#setCaseSensitivity)
     ///
     /// ``` self: QtC.QStringMatcher, cs: qnamespace_enums.CaseSensitivity ```
-    pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i64) void {
+    pub fn SetCaseSensitivity(self: ?*anyopaque, cs: i32) void {
         qtc.QStringMatcher_SetCaseSensitivity(@ptrCast(self), @intCast(cs));
     }
 
@@ -116,7 +116,7 @@ pub const qstringmatcher = struct {
     /// ``` self: QtC.QStringMatcher ```
     ///
     /// Returns: ``` qnamespace_enums.CaseSensitivity ```
-    pub fn CaseSensitivity(self: ?*anyopaque) i64 {
+    pub fn CaseSensitivity(self: ?*anyopaque) i32 {
         return qtc.QStringMatcher_CaseSensitivity(@ptrCast(self));
     }
 

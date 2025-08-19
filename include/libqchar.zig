@@ -125,7 +125,7 @@ pub const qchar = struct {
     /// New9 constructs a new QChar object.
     ///
     /// ``` s: qchar_enums.SpecialCharacter ```
-    pub fn New9(s: i64) QtC.QChar {
+    pub fn New9(s: i32) QtC.QChar {
         return qtc.QChar_new9(@intCast(s));
     }
 
@@ -176,7 +176,7 @@ pub const qchar = struct {
     /// ``` self: QtC.QChar ```
     ///
     /// Returns: ``` qchar_enums.Category ```
-    pub fn Category(self: ?*anyopaque) i64 {
+    pub fn Category(self: ?*anyopaque) i32 {
         return qtc.QChar_Category(@ptrCast(self));
     }
 
@@ -185,7 +185,7 @@ pub const qchar = struct {
     /// ``` self: QtC.QChar ```
     ///
     /// Returns: ``` qchar_enums.Direction ```
-    pub fn Direction(self: ?*anyopaque) i64 {
+    pub fn Direction(self: ?*anyopaque) i32 {
         return qtc.QChar_Direction(@ptrCast(self));
     }
 
@@ -194,7 +194,7 @@ pub const qchar = struct {
     /// ``` self: QtC.QChar ```
     ///
     /// Returns: ``` qchar_enums.JoiningType ```
-    pub fn JoiningType(self: ?*anyopaque) i64 {
+    pub fn JoiningType(self: ?*anyopaque) i32 {
         return qtc.QChar_JoiningType(@ptrCast(self));
     }
 
@@ -235,7 +235,7 @@ pub const qchar = struct {
     /// ``` self: QtC.QChar ```
     ///
     /// Returns: ``` qchar_enums.Decomposition ```
-    pub fn DecompositionTag(self: ?*anyopaque) i64 {
+    pub fn DecompositionTag(self: ?*anyopaque) i32 {
         return qtc.QChar_DecompositionTag(@ptrCast(self));
     }
 
@@ -279,7 +279,7 @@ pub const qchar = struct {
     /// ``` self: QtC.QChar ```
     ///
     /// Returns: ``` qchar_enums.Script ```
-    pub fn Script(self: ?*anyopaque) i64 {
+    pub fn Script(self: ?*anyopaque) i32 {
         return qtc.QChar_Script(@ptrCast(self));
     }
 
@@ -288,7 +288,7 @@ pub const qchar = struct {
     /// ``` self: QtC.QChar ```
     ///
     /// Returns: ``` qchar_enums.UnicodeVersion ```
-    pub fn UnicodeVersion(self: ?*anyopaque) i64 {
+    pub fn UnicodeVersion(self: ?*anyopaque) i32 {
         return qtc.QChar_UnicodeVersion(@ptrCast(self));
     }
 
@@ -458,7 +458,7 @@ pub const qchar = struct {
     ///
     ///
     /// Returns: ``` qchar_enums.UnicodeVersion ```
-    pub fn CurrentUnicodeVersion() i64 {
+    pub fn CurrentUnicodeVersion() i32 {
         return qtc.QChar_CurrentUnicodeVersion();
     }
 

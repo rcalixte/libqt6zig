@@ -15,7 +15,7 @@ pub const qabstractfileiconprovider = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType ```
-    pub fn Icon(self: ?*anyopaque, param1: i64) QtC.QIcon {
+    pub fn Icon(self: ?*anyopaque, param1: i32) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_Icon(@ptrCast(self), @intCast(param1));
     }
 
@@ -24,7 +24,7 @@ pub const qabstractfileiconprovider = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon ```
-    pub fn OnIcon(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QIcon) void {
+    pub fn OnIcon(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
         qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -33,7 +33,7 @@ pub const qabstractfileiconprovider = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType ```
-    pub fn QBaseIcon(self: ?*anyopaque, param1: i64) QtC.QIcon {
+    pub fn QBaseIcon(self: ?*anyopaque, param1: i32) QtC.QIcon {
         return qtc.QAbstractFileIconProvider_QBaseIcon(@ptrCast(self), @intCast(param1));
     }
 

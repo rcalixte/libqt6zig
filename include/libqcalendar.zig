@@ -30,7 +30,7 @@ pub const qcalendar = struct {
     /// New4 constructs a new QCalendar object.
     ///
     /// ``` system: qcalendar_enums.System ```
-    pub fn New4(system: i64) QtC.QCalendar {
+    pub fn New4(system: i32) QtC.QCalendar {
         return qtc.QCalendar_new4(@intCast(system));
     }
 
@@ -305,7 +305,7 @@ pub const qcalendar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#monthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, year: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
-    pub fn MonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn MonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCalendar_MonthName4(@ptrCast(self), @ptrCast(locale), @intCast(month), @intCast(year), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.MonthName4: Memory allocation failed");
@@ -327,7 +327,7 @@ pub const qcalendar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, month: i32, year: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
-    pub fn StandaloneMonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn StandaloneMonthName4(self: ?*anyopaque, locale: ?*anyopaque, month: i32, year: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCalendar_StandaloneMonthName4(@ptrCast(self), @ptrCast(locale), @intCast(month), @intCast(year), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneMonthName4: Memory allocation failed");
@@ -338,7 +338,7 @@ pub const qcalendar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#weekDayName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, day: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
-    pub fn WeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn WeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCalendar_WeekDayName3(@ptrCast(self), @ptrCast(locale), @intCast(day), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.WeekDayName3: Memory allocation failed");
@@ -349,7 +349,7 @@ pub const qcalendar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar.html#standaloneWeekDayName)
     ///
     /// ``` self: QtC.QCalendar, locale: QtC.QLocale, day: i32, format: qlocale_enums.FormatType, allocator: std.mem.Allocator ```
-    pub fn StandaloneWeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn StandaloneWeekDayName3(self: ?*anyopaque, locale: ?*anyopaque, day: i32, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QCalendar_StandaloneWeekDayName3(@ptrCast(self), @ptrCast(locale), @intCast(day), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneWeekDayName3: Memory allocation failed");

@@ -47,7 +47,7 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#setEncoding)
     ///
     /// ``` self: QtC.QTextStream, encoding: qstringconverter_base_enums.Encoding ```
-    pub fn SetEncoding(self: ?*anyopaque, encoding: i64) void {
+    pub fn SetEncoding(self: ?*anyopaque, encoding: i32) void {
         qtc.QTextStream_SetEncoding(@ptrCast(self), @intCast(encoding));
     }
 
@@ -56,7 +56,7 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream ```
     ///
     /// Returns: ``` qstringconverter_base_enums.Encoding ```
-    pub fn Encoding(self: ?*anyopaque) i64 {
+    pub fn Encoding(self: ?*anyopaque) i32 {
         return qtc.QTextStream_Encoding(@ptrCast(self));
     }
 
@@ -132,14 +132,14 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream ```
     ///
     /// Returns: ``` qtextstream_enums.Status ```
-    pub fn Status(self: ?*anyopaque) i64 {
+    pub fn Status(self: ?*anyopaque) i32 {
         return qtc.QTextStream_Status(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#setStatus)
     ///
     /// ``` self: QtC.QTextStream, status: qtextstream_enums.Status ```
-    pub fn SetStatus(self: ?*anyopaque, status: i64) void {
+    pub fn SetStatus(self: ?*anyopaque, status: i32) void {
         qtc.QTextStream_SetStatus(@ptrCast(self), @intCast(status));
     }
 
@@ -228,7 +228,7 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#setFieldAlignment)
     ///
     /// ``` self: QtC.QTextStream, alignment: qtextstream_enums.FieldAlignment ```
-    pub fn SetFieldAlignment(self: ?*anyopaque, alignment: i64) void {
+    pub fn SetFieldAlignment(self: ?*anyopaque, alignment: i32) void {
         qtc.QTextStream_SetFieldAlignment(@ptrCast(self), @intCast(alignment));
     }
 
@@ -237,7 +237,7 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream ```
     ///
     /// Returns: ``` qtextstream_enums.FieldAlignment ```
-    pub fn FieldAlignment(self: ?*anyopaque) i64 {
+    pub fn FieldAlignment(self: ?*anyopaque) i32 {
         return qtc.QTextStream_FieldAlignment(@ptrCast(self));
     }
 
@@ -302,7 +302,7 @@ pub const qtextstream = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextstream.html#setRealNumberNotation)
     ///
     /// ``` self: QtC.QTextStream, notation: qtextstream_enums.RealNumberNotation ```
-    pub fn SetRealNumberNotation(self: ?*anyopaque, notation: i64) void {
+    pub fn SetRealNumberNotation(self: ?*anyopaque, notation: i32) void {
         qtc.QTextStream_SetRealNumberNotation(@ptrCast(self), @intCast(notation));
     }
 
@@ -311,7 +311,7 @@ pub const qtextstream = struct {
     /// ``` self: QtC.QTextStream ```
     ///
     /// Returns: ``` qtextstream_enums.RealNumberNotation ```
-    pub fn RealNumberNotation(self: ?*anyopaque) i64 {
+    pub fn RealNumberNotation(self: ?*anyopaque) i32 {
         return qtc.QTextStream_RealNumberNotation(@ptrCast(self));
     }
 

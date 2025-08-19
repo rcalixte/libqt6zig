@@ -111,21 +111,21 @@ pub const qmovie = struct {
     }
 
     /// ``` self: QtC.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QMovie_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QMovie_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QMovie, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QMovie_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -240,7 +240,7 @@ pub const qmovie = struct {
     /// ``` self: QtC.QMovie ```
     ///
     /// Returns: ``` qmovie_enums.MovieState ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QMovie_State(@ptrCast(self));
     }
 
@@ -277,7 +277,7 @@ pub const qmovie = struct {
     /// ``` self: QtC.QMovie ```
     ///
     /// Returns: ``` qimagereader_enums.ImageReaderError ```
-    pub fn LastError(self: ?*anyopaque) i64 {
+    pub fn LastError(self: ?*anyopaque) i32 {
         return qtc.QMovie_LastError(@ptrCast(self));
     }
 
@@ -353,14 +353,14 @@ pub const qmovie = struct {
     /// ``` self: QtC.QMovie ```
     ///
     /// Returns: ``` qmovie_enums.CacheMode ```
-    pub fn CacheMode(self: ?*anyopaque) i64 {
+    pub fn CacheMode(self: ?*anyopaque) i32 {
         return qtc.QMovie_CacheMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#setCacheMode)
     ///
     /// ``` self: QtC.QMovie, mode: qmovie_enums.CacheMode ```
-    pub fn SetCacheMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetCacheMode(self: ?*anyopaque, mode: i32) void {
         qtc.QMovie_SetCacheMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -409,28 +409,28 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#stateChanged)
     ///
     /// ``` self: QtC.QMovie, state: qmovie_enums.MovieState ```
-    pub fn StateChanged(self: ?*anyopaque, state: i64) void {
+    pub fn StateChanged(self: ?*anyopaque, state: i32) void {
         qtc.QMovie_StateChanged(@ptrCast(self), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#stateChanged)
     ///
     /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, state: qmovie_enums.MovieState) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMovie_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#error)
     ///
     /// ``` self: QtC.QMovie, errorVal: qimagereader_enums.ImageReaderError ```
-    pub fn Error(self: ?*anyopaque, errorVal: i64) void {
+    pub fn Error(self: ?*anyopaque, errorVal: i32) void {
         qtc.QMovie_Error(@ptrCast(self), @intCast(errorVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmovie.html#error)
     ///
     /// ``` self: QtC.QMovie, slot: fn (self: QtC.QMovie, errorVal: qimagereader_enums.ImageReaderError) callconv(.c) void ```
-    pub fn OnError(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnError(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QMovie_Connect_Error(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -635,7 +635,7 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMovie, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -858,7 +858,7 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMovie, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -867,7 +867,7 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -876,7 +876,7 @@ pub const qmovie = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMovie, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

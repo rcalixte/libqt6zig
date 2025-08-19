@@ -8,7 +8,7 @@ pub const qoperatingsystemversionbase = struct {
     /// New constructs a new QOperatingSystemVersionBase object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32 ```
-    pub fn New(osType: i64, vmajor: i32) QtC.QOperatingSystemVersionBase {
+    pub fn New(osType: i32, vmajor: i32) QtC.QOperatingSystemVersionBase {
         return qtc.QOperatingSystemVersionBase_new(@intCast(osType), @intCast(vmajor));
     }
 
@@ -22,14 +22,14 @@ pub const qoperatingsystemversionbase = struct {
     /// New3 constructs a new QOperatingSystemVersionBase object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32 ```
-    pub fn New3(osType: i64, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersionBase {
+    pub fn New3(osType: i32, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersionBase {
         return qtc.QOperatingSystemVersionBase_new3(@intCast(osType), @intCast(vmajor), @intCast(vminor));
     }
 
     /// New4 constructs a new QOperatingSystemVersionBase object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32, vmicro: i32 ```
-    pub fn New4(osType: i64, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersionBase {
+    pub fn New4(osType: i32, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersionBase {
         return qtc.QOperatingSystemVersionBase_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
     }
 
@@ -56,7 +56,7 @@ pub const qoperatingsystemversionbase = struct {
     ///
     ///
     /// Returns: ``` qoperatingsystemversion_enums.OSType ```
-    pub fn CurrentType() i64 {
+    pub fn CurrentType() i32 {
         return qtc.QOperatingSystemVersionBase_CurrentType();
     }
 
@@ -100,7 +100,7 @@ pub const qoperatingsystemversionbase = struct {
     /// ``` self: QtC.QOperatingSystemVersionBase ```
     ///
     /// Returns: ``` qoperatingsystemversion_enums.OSType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QOperatingSystemVersionBase_Type(@ptrCast(self));
     }
 
@@ -177,7 +177,7 @@ pub const qoperatingsystemversionunexported = struct {
     ///
     ///
     /// Returns: ``` qoperatingsystemversion_enums.OSType ```
-    pub fn CurrentType() i64 {
+    pub fn CurrentType() i32 {
         return qtc.QOperatingSystemVersionBase_CurrentType();
     }
 
@@ -233,7 +233,7 @@ pub const qoperatingsystemversionunexported = struct {
     /// ``` self: QtC.QOperatingSystemVersionUnexported ```
     ///
     /// Returns: ``` qoperatingsystemversion_enums.OSType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QOperatingSystemVersionBase_Type(@ptrCast(self));
     }
 
@@ -272,7 +272,7 @@ pub const qoperatingsystemversion = struct {
     /// New2 constructs a new QOperatingSystemVersion object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32 ```
-    pub fn New2(osType: i64, vmajor: i32) QtC.QOperatingSystemVersion {
+    pub fn New2(osType: i32, vmajor: i32) QtC.QOperatingSystemVersion {
         return qtc.QOperatingSystemVersion_new2(@intCast(osType), @intCast(vmajor));
     }
 
@@ -286,14 +286,14 @@ pub const qoperatingsystemversion = struct {
     /// New4 constructs a new QOperatingSystemVersion object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32 ```
-    pub fn New4(osType: i64, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersion {
+    pub fn New4(osType: i32, vmajor: i32, vminor: i32) QtC.QOperatingSystemVersion {
         return qtc.QOperatingSystemVersion_new4(@intCast(osType), @intCast(vmajor), @intCast(vminor));
     }
 
     /// New5 constructs a new QOperatingSystemVersion object.
     ///
     /// ``` osType: qoperatingsystemversion_enums.OSType, vmajor: i32, vminor: i32, vmicro: i32 ```
-    pub fn New5(osType: i64, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersion {
+    pub fn New5(osType: i32, vmajor: i32, vminor: i32, vmicro: i32) QtC.QOperatingSystemVersion {
         return qtc.QOperatingSystemVersion_new5(@intCast(osType), @intCast(vmajor), @intCast(vminor), @intCast(vmicro));
     }
 
@@ -302,7 +302,7 @@ pub const qoperatingsystemversion = struct {
     ///
     ///
     /// Returns: ``` qoperatingsystemversion_enums.OSType ```
-    pub fn CurrentType() i64 {
+    pub fn CurrentType() i32 {
         return qtc.QOperatingSystemVersion_CurrentType();
     }
 
@@ -311,7 +311,7 @@ pub const qoperatingsystemversion = struct {
     /// ``` self: QtC.QOperatingSystemVersion ```
     ///
     /// Returns: ``` qoperatingsystemversion_enums.OSType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QOperatingSystemVersion_Type(@ptrCast(self));
     }
 

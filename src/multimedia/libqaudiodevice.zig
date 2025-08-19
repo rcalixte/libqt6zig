@@ -89,7 +89,7 @@ pub const qaudiodevice = struct {
     /// ``` self: QtC.QAudioDevice ```
     ///
     /// Returns: ``` qaudiodevice_enums.Mode ```
-    pub fn Mode(self: ?*anyopaque) i64 {
+    pub fn Mode(self: ?*anyopaque) i32 {
         return qtc.QAudioDevice_Mode(@ptrCast(self));
     }
 
@@ -154,7 +154,7 @@ pub const qaudiodevice = struct {
     /// ``` self: QtC.QAudioDevice ```
     ///
     /// Returns: ``` qaudioformat_enums.ChannelConfig ```
-    pub fn ChannelConfiguration(self: ?*anyopaque) i64 {
+    pub fn ChannelConfiguration(self: ?*anyopaque) u32 {
         return qtc.QAudioDevice_ChannelConfiguration(@ptrCast(self));
     }
 

@@ -237,7 +237,7 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#match)
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType ```
-    pub fn Match3(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64) QtC.QRegularExpressionMatch {
+    pub fn Match3(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32) QtC.QRegularExpressionMatch {
         const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
@@ -248,7 +248,7 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#match)
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: flag of qregularexpression_enums.MatchOption ```
-    pub fn Match4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64, matchOptions: i64) QtC.QRegularExpressionMatch {
+    pub fn Match4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32, matchOptions: i64) QtC.QRegularExpressionMatch {
         const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
@@ -270,7 +270,7 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#globalMatch)
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType ```
-    pub fn GlobalMatch3(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64) QtC.QRegularExpressionMatchIterator {
+    pub fn GlobalMatch3(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32) QtC.QRegularExpressionMatchIterator {
         const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
@@ -281,7 +281,7 @@ pub const qregularexpression = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qregularexpression.html#globalMatch)
     ///
     /// ``` self: QtC.QRegularExpression, subject: []const u8, offset: i64, matchType: qregularexpression_enums.MatchType, matchOptions: flag of qregularexpression_enums.MatchOption ```
-    pub fn GlobalMatch4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i64, matchOptions: i64) QtC.QRegularExpressionMatchIterator {
+    pub fn GlobalMatch4(self: ?*anyopaque, subject: []const u8, offset: i64, matchType: i32, matchOptions: i64) QtC.QRegularExpressionMatchIterator {
         const subject_str = qtc.libqt_string{
             .len = subject.len,
             .data = subject.ptr,
@@ -356,7 +356,7 @@ pub const qregularexpressionmatch = struct {
     /// ``` self: QtC.QRegularExpressionMatch ```
     ///
     /// Returns: ``` qregularexpression_enums.MatchType ```
-    pub fn MatchType(self: ?*anyopaque) i64 {
+    pub fn MatchType(self: ?*anyopaque) i32 {
         return qtc.QRegularExpressionMatch_MatchType(@ptrCast(self));
     }
 
@@ -629,7 +629,7 @@ pub const qregularexpressionmatchiterator = struct {
     /// ``` self: QtC.QRegularExpressionMatchIterator ```
     ///
     /// Returns: ``` qregularexpression_enums.MatchType ```
-    pub fn MatchType(self: ?*anyopaque) i64 {
+    pub fn MatchType(self: ?*anyopaque) i32 {
         return qtc.QRegularExpressionMatchIterator_MatchType(@ptrCast(self));
     }
 

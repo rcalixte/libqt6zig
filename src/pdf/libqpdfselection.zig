@@ -75,7 +75,7 @@ pub const qpdfselection = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfselection.html#copyToClipboard)
     ///
     /// ``` self: QtC.QPdfSelection, mode: qclipboard_enums.Mode ```
-    pub fn CopyToClipboard1(self: ?*anyopaque, mode: i64) void {
+    pub fn CopyToClipboard1(self: ?*anyopaque, mode: i32) void {
         qtc.QPdfSelection_CopyToClipboard1(@ptrCast(self), @intCast(mode));
     }
 

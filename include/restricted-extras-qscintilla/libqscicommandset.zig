@@ -55,7 +55,7 @@ pub const qscicommandset = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciCommandSet.html)
     ///
     /// ``` self: QtC.QsciCommandSet, command: qscicommand_enums.Command ```
-    pub fn Find(self: ?*anyopaque, command: i64) QtC.QsciCommand {
+    pub fn Find(self: ?*anyopaque, command: i32) QtC.QsciCommand {
         return qtc.QsciCommandSet_Find(@ptrCast(self), @intCast(command));
     }
 

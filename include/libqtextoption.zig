@@ -53,7 +53,7 @@ pub const qtextoption = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setTextDirection)
     ///
     /// ``` self: QtC.QTextOption, aDirection: qnamespace_enums.LayoutDirection ```
-    pub fn SetTextDirection(self: ?*anyopaque, aDirection: i64) void {
+    pub fn SetTextDirection(self: ?*anyopaque, aDirection: i32) void {
         qtc.QTextOption_SetTextDirection(@ptrCast(self), @intCast(aDirection));
     }
 
@@ -62,14 +62,14 @@ pub const qtextoption = struct {
     /// ``` self: QtC.QTextOption ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn TextDirection(self: ?*anyopaque) i64 {
+    pub fn TextDirection(self: ?*anyopaque) i32 {
         return qtc.QTextOption_TextDirection(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption.html#setWrapMode)
     ///
     /// ``` self: QtC.QTextOption, wrap: qtextoption_enums.WrapMode ```
-    pub fn SetWrapMode(self: ?*anyopaque, wrap: i64) void {
+    pub fn SetWrapMode(self: ?*anyopaque, wrap: i32) void {
         qtc.QTextOption_SetWrapMode(@ptrCast(self), @intCast(wrap));
     }
 
@@ -78,7 +78,7 @@ pub const qtextoption = struct {
     /// ``` self: QtC.QTextOption ```
     ///
     /// Returns: ``` qtextoption_enums.WrapMode ```
-    pub fn WrapMode(self: ?*anyopaque) i64 {
+    pub fn WrapMode(self: ?*anyopaque) i32 {
         return qtc.QTextOption_WrapMode(@ptrCast(self));
     }
 
@@ -208,14 +208,14 @@ pub const qtextoption__tab = struct {
     /// New4 constructs a new QTextOption::Tab object.
     ///
     /// ``` pos: f64, tabType: qtextoption_enums.TabType ```
-    pub fn New4(pos: f64, tabType: i64) QtC.QTextOption__Tab {
+    pub fn New4(pos: f64, tabType: i32) QtC.QTextOption__Tab {
         return qtc.QTextOption__Tab_new4(@floatCast(pos), @intCast(tabType));
     }
 
     /// New5 constructs a new QTextOption::Tab object.
     ///
     /// ``` pos: f64, tabType: qtextoption_enums.TabType, delim: QtC.QChar ```
-    pub fn New5(pos: f64, tabType: i64, delim: QtC.QChar) QtC.QTextOption__Tab {
+    pub fn New5(pos: f64, tabType: i32, delim: QtC.QChar) QtC.QTextOption__Tab {
         return qtc.QTextOption__Tab_new5(@floatCast(pos), @intCast(tabType), @ptrCast(delim));
     }
 

@@ -25,7 +25,7 @@ pub const qnetworkreply = struct {
     }
 
     /// ``` self: QtC.QNetworkReply, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QNetworkReply_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -81,7 +81,7 @@ pub const qnetworkreply = struct {
     /// ``` self: QtC.QNetworkReply ```
     ///
     /// Returns: ``` qnetworkaccessmanager_enums.Operation ```
-    pub fn Operation(self: ?*anyopaque) i64 {
+    pub fn Operation(self: ?*anyopaque) i32 {
         return qtc.QNetworkReply_Operation(@ptrCast(self));
     }
 
@@ -97,7 +97,7 @@ pub const qnetworkreply = struct {
     /// ``` self: QtC.QNetworkReply ```
     ///
     /// Returns: ``` qnetworkreply_enums.NetworkError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QNetworkReply_Error(@ptrCast(self));
     }
 
@@ -125,7 +125,7 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#header)
     ///
     /// ``` self: QtC.QNetworkReply, header: qnetworkrequest_enums.KnownHeaders ```
-    pub fn Header(self: ?*anyopaque, header: i64) QtC.QVariant {
+    pub fn Header(self: ?*anyopaque, header: i32) QtC.QVariant {
         return qtc.QNetworkReply_Header(@ptrCast(self), @intCast(header));
     }
 
@@ -209,7 +209,7 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#attribute)
     ///
     /// ``` self: QtC.QNetworkReply, code: qnetworkrequest_enums.Attribute ```
-    pub fn Attribute(self: ?*anyopaque, code: i64) QtC.QVariant {
+    pub fn Attribute(self: ?*anyopaque, code: i32) QtC.QVariant {
         return qtc.QNetworkReply_Attribute(@ptrCast(self), @intCast(code));
     }
 
@@ -311,14 +311,14 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#errorOccurred)
     ///
     /// ``` self: QtC.QNetworkReply, param1: qnetworkreply_enums.NetworkError ```
-    pub fn ErrorOccurred(self: ?*anyopaque, param1: i64) void {
+    pub fn ErrorOccurred(self: ?*anyopaque, param1: i32) void {
         qtc.QNetworkReply_ErrorOccurred(@ptrCast(self), @intCast(param1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#errorOccurred)
     ///
     /// ``` self: QtC.QNetworkReply, slot: fn (self: QtC.QNetworkReply, param1: qnetworkreply_enums.NetworkError) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1111,7 +1111,7 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QNetworkReply, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1334,7 +1334,7 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QNetworkReply, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1343,7 +1343,7 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1352,7 +1352,7 @@ pub const qnetworkreply = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QNetworkReply, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

@@ -14,7 +14,7 @@ pub const qpagelayout = struct {
     /// New2 constructs a new QPageLayout object.
     ///
     /// ``` pageSize: QtC.QPageSize, orientation: qpagelayout_enums.Orientation, margins: QtC.QMarginsF ```
-    pub fn New2(pageSize: ?*anyopaque, orientation: i64, margins: ?*anyopaque) QtC.QPageLayout {
+    pub fn New2(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque) QtC.QPageLayout {
         return qtc.QPageLayout_new2(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins));
     }
 
@@ -28,14 +28,14 @@ pub const qpagelayout = struct {
     /// New4 constructs a new QPageLayout object.
     ///
     /// ``` pageSize: QtC.QPageSize, orientation: qpagelayout_enums.Orientation, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
-    pub fn New4(pageSize: ?*anyopaque, orientation: i64, margins: ?*anyopaque, units: i64) QtC.QPageLayout {
+    pub fn New4(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque, units: i32) QtC.QPageLayout {
         return qtc.QPageLayout_new4(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins), @intCast(units));
     }
 
     /// New5 constructs a new QPageLayout object.
     ///
     /// ``` pageSize: QtC.QPageSize, orientation: qpagelayout_enums.Orientation, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit, minMargins: QtC.QMarginsF ```
-    pub fn New5(pageSize: ?*anyopaque, orientation: i64, margins: ?*anyopaque, units: i64, minMargins: ?*anyopaque) QtC.QPageLayout {
+    pub fn New5(pageSize: ?*anyopaque, orientation: i32, margins: ?*anyopaque, units: i32, minMargins: ?*anyopaque) QtC.QPageLayout {
         return qtc.QPageLayout_new5(@ptrCast(pageSize), @intCast(orientation), @ptrCast(margins), @intCast(units), @ptrCast(minMargins));
     }
 
@@ -70,7 +70,7 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setMode)
     ///
     /// ``` self: QtC.QPageLayout, mode: qpagelayout_enums.Mode ```
-    pub fn SetMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetMode(self: ?*anyopaque, mode: i32) void {
         qtc.QPageLayout_SetMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -79,7 +79,7 @@ pub const qpagelayout = struct {
     /// ``` self: QtC.QPageLayout ```
     ///
     /// Returns: ``` qpagelayout_enums.Mode ```
-    pub fn Mode(self: ?*anyopaque) i64 {
+    pub fn Mode(self: ?*anyopaque) i32 {
         return qtc.QPageLayout_Mode(@ptrCast(self));
     }
 
@@ -100,7 +100,7 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setOrientation)
     ///
     /// ``` self: QtC.QPageLayout, orientation: qpagelayout_enums.Orientation ```
-    pub fn SetOrientation(self: ?*anyopaque, orientation: i64) void {
+    pub fn SetOrientation(self: ?*anyopaque, orientation: i32) void {
         qtc.QPageLayout_SetOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -109,14 +109,14 @@ pub const qpagelayout = struct {
     /// ``` self: QtC.QPageLayout ```
     ///
     /// Returns: ``` qpagelayout_enums.Orientation ```
-    pub fn Orientation(self: ?*anyopaque) i64 {
+    pub fn Orientation(self: ?*anyopaque) i32 {
         return qtc.QPageLayout_Orientation(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setUnits)
     ///
     /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
-    pub fn SetUnits(self: ?*anyopaque, units: i64) void {
+    pub fn SetUnits(self: ?*anyopaque, units: i32) void {
         qtc.QPageLayout_SetUnits(@ptrCast(self), @intCast(units));
     }
 
@@ -125,7 +125,7 @@ pub const qpagelayout = struct {
     /// ``` self: QtC.QPageLayout ```
     ///
     /// Returns: ``` qpagelayout_enums.Unit ```
-    pub fn Units(self: ?*anyopaque) i64 {
+    pub fn Units(self: ?*anyopaque) i32 {
         return qtc.QPageLayout_Units(@ptrCast(self));
     }
 
@@ -174,7 +174,7 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#margins)
     ///
     /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
-    pub fn Margins2(self: ?*anyopaque, units: i64) QtC.QMarginsF {
+    pub fn Margins2(self: ?*anyopaque, units: i32) QtC.QMarginsF {
         return qtc.QPageLayout_Margins2(@ptrCast(self), @intCast(units));
     }
 
@@ -223,7 +223,7 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#fullRect)
     ///
     /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
-    pub fn FullRect2(self: ?*anyopaque, units: i64) QtC.QRectF {
+    pub fn FullRect2(self: ?*anyopaque, units: i32) QtC.QRectF {
         return qtc.QPageLayout_FullRect2(@ptrCast(self), @intCast(units));
     }
 
@@ -251,7 +251,7 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#paintRect)
     ///
     /// ``` self: QtC.QPageLayout, units: qpagelayout_enums.Unit ```
-    pub fn PaintRect2(self: ?*anyopaque, units: i64) QtC.QRectF {
+    pub fn PaintRect2(self: ?*anyopaque, units: i32) QtC.QRectF {
         return qtc.QPageLayout_PaintRect2(@ptrCast(self), @intCast(units));
     }
 
@@ -279,35 +279,35 @@ pub const qpagelayout = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setMargins)
     ///
     /// ``` self: QtC.QPageLayout, margins: QtC.QMarginsF, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
-    pub fn SetMargins2(self: ?*anyopaque, margins: ?*anyopaque, outOfBoundsPolicy: i64) bool {
+    pub fn SetMargins2(self: ?*anyopaque, margins: ?*anyopaque, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetMargins2(@ptrCast(self), @ptrCast(margins), @intCast(outOfBoundsPolicy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setLeftMargin)
     ///
     /// ``` self: QtC.QPageLayout, leftMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
-    pub fn SetLeftMargin2(self: ?*anyopaque, leftMargin: f64, outOfBoundsPolicy: i64) bool {
+    pub fn SetLeftMargin2(self: ?*anyopaque, leftMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetLeftMargin2(@ptrCast(self), @floatCast(leftMargin), @intCast(outOfBoundsPolicy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setRightMargin)
     ///
     /// ``` self: QtC.QPageLayout, rightMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
-    pub fn SetRightMargin2(self: ?*anyopaque, rightMargin: f64, outOfBoundsPolicy: i64) bool {
+    pub fn SetRightMargin2(self: ?*anyopaque, rightMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetRightMargin2(@ptrCast(self), @floatCast(rightMargin), @intCast(outOfBoundsPolicy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setTopMargin)
     ///
     /// ``` self: QtC.QPageLayout, topMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
-    pub fn SetTopMargin2(self: ?*anyopaque, topMargin: f64, outOfBoundsPolicy: i64) bool {
+    pub fn SetTopMargin2(self: ?*anyopaque, topMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetTopMargin2(@ptrCast(self), @floatCast(topMargin), @intCast(outOfBoundsPolicy));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpagelayout.html#setBottomMargin)
     ///
     /// ``` self: QtC.QPageLayout, bottomMargin: f64, outOfBoundsPolicy: qpagelayout_enums.OutOfBoundsPolicy ```
-    pub fn SetBottomMargin2(self: ?*anyopaque, bottomMargin: f64, outOfBoundsPolicy: i64) bool {
+    pub fn SetBottomMargin2(self: ?*anyopaque, bottomMargin: f64, outOfBoundsPolicy: i32) bool {
         return qtc.QPageLayout_SetBottomMargin2(@ptrCast(self), @floatCast(bottomMargin), @intCast(outOfBoundsPolicy));
     }
 

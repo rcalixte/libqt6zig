@@ -60,21 +60,21 @@ pub const qwebengineprofile = struct {
     }
 
     /// ``` self: QtC.QWebEngineProfile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEngineProfile_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWebEngineProfile, slot: fn (self: QtC.QWebEngineProfile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QWebEngineProfile_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWebEngineProfile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWebEngineProfile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -179,14 +179,14 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile ```
     ///
     /// Returns: ``` qwebengineprofile_enums.HttpCacheType ```
-    pub fn HttpCacheType(self: ?*anyopaque) i64 {
+    pub fn HttpCacheType(self: ?*anyopaque) i32 {
         return qtc.QWebEngineProfile_HttpCacheType(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setHttpCacheType)
     ///
     /// ``` self: QtC.QWebEngineProfile, httpCacheType: qwebengineprofile_enums.HttpCacheType ```
-    pub fn SetHttpCacheType(self: ?*anyopaque, httpCacheType: i64) void {
+    pub fn SetHttpCacheType(self: ?*anyopaque, httpCacheType: i32) void {
         qtc.QWebEngineProfile_SetHttpCacheType(@ptrCast(self), @intCast(httpCacheType));
     }
 
@@ -217,14 +217,14 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile ```
     ///
     /// Returns: ``` qwebengineprofile_enums.PersistentCookiesPolicy ```
-    pub fn PersistentCookiesPolicy(self: ?*anyopaque) i64 {
+    pub fn PersistentCookiesPolicy(self: ?*anyopaque) i32 {
         return qtc.QWebEngineProfile_PersistentCookiesPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentCookiesPolicy)
     ///
     /// ``` self: QtC.QWebEngineProfile, persistentCookiesPolicy: qwebengineprofile_enums.PersistentCookiesPolicy ```
-    pub fn SetPersistentCookiesPolicy(self: ?*anyopaque, persistentCookiesPolicy: i64) void {
+    pub fn SetPersistentCookiesPolicy(self: ?*anyopaque, persistentCookiesPolicy: i32) void {
         qtc.QWebEngineProfile_SetPersistentCookiesPolicy(@ptrCast(self), @intCast(persistentCookiesPolicy));
     }
 
@@ -233,14 +233,14 @@ pub const qwebengineprofile = struct {
     /// ``` self: QtC.QWebEngineProfile ```
     ///
     /// Returns: ``` qwebengineprofile_enums.PersistentPermissionsPolicy ```
-    pub fn PersistentPermissionsPolicy(self: ?*anyopaque) i64 {
+    pub fn PersistentPermissionsPolicy(self: ?*anyopaque) u8 {
         return qtc.QWebEngineProfile_PersistentPermissionsPolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#setPersistentPermissionsPolicy)
     ///
     /// ``` self: QtC.QWebEngineProfile, persistentPermissionsPolicy: qwebengineprofile_enums.PersistentPermissionsPolicy ```
-    pub fn SetPersistentPermissionsPolicy(self: ?*anyopaque, persistentPermissionsPolicy: i64) void {
+    pub fn SetPersistentPermissionsPolicy(self: ?*anyopaque, persistentPermissionsPolicy: u8) void {
         qtc.QWebEngineProfile_SetPersistentPermissionsPolicy(@ptrCast(self), @intCast(persistentPermissionsPolicy));
     }
 
@@ -473,7 +473,7 @@ pub const qwebengineprofile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#queryPermission)
     ///
     /// ``` self: QtC.QWebEngineProfile, securityOrigin: QtC.QUrl, permissionType: qwebenginepermission_enums.PermissionType ```
-    pub fn QueryPermission(self: ?*anyopaque, securityOrigin: ?*anyopaque, permissionType: i64) QtC.QWebEnginePermission {
+    pub fn QueryPermission(self: ?*anyopaque, securityOrigin: ?*anyopaque, permissionType: u8) QtC.QWebEnginePermission {
         return qtc.QWebEngineProfile_QueryPermission(@ptrCast(self), @ptrCast(securityOrigin), @intCast(permissionType));
     }
 
@@ -504,7 +504,7 @@ pub const qwebengineprofile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineprofile.html#listPermissionsForPermissionType)
     ///
     /// ``` self: QtC.QWebEngineProfile, permissionType: qwebenginepermission_enums.PermissionType, allocator: std.mem.Allocator ```
-    pub fn ListPermissionsForPermissionType(self: ?*anyopaque, permissionType: i64, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
+    pub fn ListPermissionsForPermissionType(self: ?*anyopaque, permissionType: u8, allocator: std.mem.Allocator) []QtC.QWebEnginePermission {
         const _arr: qtc.libqt_list = qtc.QWebEngineProfile_ListPermissionsForPermissionType(@ptrCast(self), @intCast(permissionType));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListPermissionsForPermissionType: Memory allocation failed");
@@ -686,7 +686,7 @@ pub const qwebengineprofile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWebEngineProfile, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -909,7 +909,7 @@ pub const qwebengineprofile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWebEngineProfile, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -918,7 +918,7 @@ pub const qwebengineprofile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -927,7 +927,7 @@ pub const qwebengineprofile = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWebEngineProfile, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

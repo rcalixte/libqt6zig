@@ -33,7 +33,7 @@ pub const qcameraformat = struct {
     /// ``` self: QtC.QCameraFormat ```
     ///
     /// Returns: ``` qvideoframeformat_enums.PixelFormat ```
-    pub fn PixelFormat(self: ?*anyopaque) i64 {
+    pub fn PixelFormat(self: ?*anyopaque) i32 {
         return qtc.QCameraFormat_PixelFormat(@ptrCast(self));
     }
 
@@ -167,7 +167,7 @@ pub const qcameradevice = struct {
     /// ``` self: QtC.QCameraDevice ```
     ///
     /// Returns: ``` qcameradevice_enums.Position ```
-    pub fn Position(self: ?*anyopaque) i64 {
+    pub fn Position(self: ?*anyopaque) i32 {
         return qtc.QCameraDevice_Position(@ptrCast(self));
     }
 
@@ -200,7 +200,7 @@ pub const qcameradevice = struct {
     /// ``` self: QtC.QCameraDevice ```
     ///
     /// Returns: ``` qtvideo_enums.Rotation ```
-    pub fn CorrectionAngle(self: ?*anyopaque) i64 {
+    pub fn CorrectionAngle(self: ?*anyopaque) i32 {
         return qtc.QCameraDevice_CorrectionAngle(@ptrCast(self));
     }
 

@@ -82,21 +82,21 @@ pub const qdatetimeedit = struct {
     }
 
     /// ``` self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -308,7 +308,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qdatetimeedit_enums.Section ```
-    pub fn CurrentSection(self: ?*anyopaque) i64 {
+    pub fn CurrentSection(self: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_CurrentSection(@ptrCast(self));
     }
 
@@ -317,14 +317,14 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, index: i32 ```
     ///
     /// Returns: ``` qdatetimeedit_enums.Section ```
-    pub fn SectionAt(self: ?*anyopaque, index: i32) i64 {
+    pub fn SectionAt(self: ?*anyopaque, index: i32) i32 {
         return qtc.QDateTimeEdit_SectionAt(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setCurrentSection)
     ///
     /// ``` self: QtC.QDateTimeEdit, section: qdatetimeedit_enums.Section ```
-    pub fn SetCurrentSection(self: ?*anyopaque, section: i64) void {
+    pub fn SetCurrentSection(self: ?*anyopaque, section: i32) void {
         qtc.QDateTimeEdit_SetCurrentSection(@ptrCast(self), @intCast(section));
     }
 
@@ -366,14 +366,14 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setSelectedSection)
     ///
     /// ``` self: QtC.QDateTimeEdit, section: qdatetimeedit_enums.Section ```
-    pub fn SetSelectedSection(self: ?*anyopaque, section: i64) void {
+    pub fn SetSelectedSection(self: ?*anyopaque, section: i32) void {
         qtc.QDateTimeEdit_SetSelectedSection(@ptrCast(self), @intCast(section));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#sectionText)
     ///
     /// ``` self: QtC.QDateTimeEdit, section: qdatetimeedit_enums.Section, allocator: std.mem.Allocator ```
-    pub fn SectionText(self: ?*anyopaque, section: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn SectionText(self: ?*anyopaque, section: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_SectionText(@ptrCast(self), @intCast(section));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetimeedit.SectionText: Memory allocation failed");
@@ -422,14 +422,14 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.TimeSpec ```
-    pub fn TimeSpec(self: ?*anyopaque) i64 {
+    pub fn TimeSpec(self: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_TimeSpec(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setTimeSpec)
     ///
     /// ``` self: QtC.QDateTimeEdit, spec: qnamespace_enums.TimeSpec ```
-    pub fn SetTimeSpec(self: ?*anyopaque, spec: i64) void {
+    pub fn SetTimeSpec(self: ?*anyopaque, spec: i32) void {
         qtc.QDateTimeEdit_SetTimeSpec(@ptrCast(self), @intCast(spec));
     }
 
@@ -715,7 +715,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, input: []const u8, pos: *i32 ```
     ///
     /// Returns: ``` qvalidator_enums.State ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -727,8 +727,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: []const u8, pos: *i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: []const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -739,7 +739,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit, input: []const u8, pos: *i32 ```
     ///
     /// Returns: ``` qvalidator_enums.State ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -983,7 +983,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qabstractspinbox_enums.ButtonSymbols ```
-    pub fn ButtonSymbols(self: ?*anyopaque) i64 {
+    pub fn ButtonSymbols(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_ButtonSymbols(@ptrCast(self));
     }
 
@@ -992,7 +992,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setButtonSymbols)
     ///
     /// ``` self: QtC.QDateTimeEdit, bs: qabstractspinbox_enums.ButtonSymbols ```
-    pub fn SetButtonSymbols(self: ?*anyopaque, bs: i64) void {
+    pub fn SetButtonSymbols(self: ?*anyopaque, bs: i32) void {
         qtc.QAbstractSpinBox_SetButtonSymbols(@ptrCast(self), @intCast(bs));
     }
 
@@ -1001,7 +1001,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setCorrectionMode)
     ///
     /// ``` self: QtC.QDateTimeEdit, cm: qabstractspinbox_enums.CorrectionMode ```
-    pub fn SetCorrectionMode(self: ?*anyopaque, cm: i64) void {
+    pub fn SetCorrectionMode(self: ?*anyopaque, cm: i32) void {
         qtc.QAbstractSpinBox_SetCorrectionMode(@ptrCast(self), @intCast(cm));
     }
 
@@ -1012,7 +1012,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qabstractspinbox_enums.CorrectionMode ```
-    pub fn CorrectionMode(self: ?*anyopaque) i64 {
+    pub fn CorrectionMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_CorrectionMode(@ptrCast(self));
     }
 
@@ -1334,7 +1334,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -1343,7 +1343,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QDateTimeEdit, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -1883,7 +1883,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QDateTimeEdit, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -1894,7 +1894,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -1903,7 +1903,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QDateTimeEdit, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -1914,7 +1914,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -2453,7 +2453,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QDateTimeEdit, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2464,7 +2464,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -2563,7 +2563,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QDateTimeEdit, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -2574,7 +2574,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -2583,7 +2583,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QDateTimeEdit, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -2630,7 +2630,7 @@ pub const qdatetimeedit = struct {
     /// ``` self: QtC.QDateTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -2639,7 +2639,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QDateTimeEdit, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3135,7 +3135,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QDateTimeEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -3510,7 +3510,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QDateTimeEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3519,7 +3519,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QDateTimeEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -3781,7 +3781,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QDateTimeEdit, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -3817,7 +3817,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QDateTimeEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -3951,7 +3951,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDateTimeEdit, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -4165,7 +4165,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDateTimeEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -4174,7 +4174,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -4183,7 +4183,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDateTimeEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4320,7 +4320,7 @@ pub const qdatetimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -5296,7 +5296,7 @@ pub const qdatetimeedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QDateTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QDateTimeEdit_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5307,7 +5307,7 @@ pub const qdatetimeedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QDateTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QDateTimeEdit_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5318,7 +5318,7 @@ pub const qdatetimeedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5991,7 +5991,7 @@ pub const qdatetimeedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QDateTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QDateTimeEdit_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6002,7 +6002,7 @@ pub const qdatetimeedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QDateTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QDateTimeEdit_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6013,7 +6013,7 @@ pub const qdatetimeedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QDateTimeEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6082,21 +6082,21 @@ pub const qtimeedit = struct {
     }
 
     /// ``` self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QTimeEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -6404,7 +6404,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qdatetimeedit_enums.Section ```
-    pub fn CurrentSection(self: ?*anyopaque) i64 {
+    pub fn CurrentSection(self: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_CurrentSection(@ptrCast(self));
     }
 
@@ -6415,7 +6415,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, index: i32 ```
     ///
     /// Returns: ``` qdatetimeedit_enums.Section ```
-    pub fn SectionAt(self: ?*anyopaque, index: i32) i64 {
+    pub fn SectionAt(self: ?*anyopaque, index: i32) i32 {
         return qtc.QDateTimeEdit_SectionAt(@ptrCast(self), @intCast(index));
     }
 
@@ -6424,7 +6424,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setCurrentSection)
     ///
     /// ``` self: QtC.QTimeEdit, section: qdatetimeedit_enums.Section ```
-    pub fn SetCurrentSection(self: ?*anyopaque, section: i64) void {
+    pub fn SetCurrentSection(self: ?*anyopaque, section: i32) void {
         qtc.QDateTimeEdit_SetCurrentSection(@ptrCast(self), @intCast(section));
     }
 
@@ -6478,7 +6478,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setSelectedSection)
     ///
     /// ``` self: QtC.QTimeEdit, section: qdatetimeedit_enums.Section ```
-    pub fn SetSelectedSection(self: ?*anyopaque, section: i64) void {
+    pub fn SetSelectedSection(self: ?*anyopaque, section: i32) void {
         qtc.QDateTimeEdit_SetSelectedSection(@ptrCast(self), @intCast(section));
     }
 
@@ -6487,7 +6487,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#sectionText)
     ///
     /// ``` self: QtC.QTimeEdit, section: qdatetimeedit_enums.Section, allocator: std.mem.Allocator ```
-    pub fn SectionText(self: ?*anyopaque, section: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn SectionText(self: ?*anyopaque, section: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_SectionText(@ptrCast(self), @intCast(section));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimeedit.SectionText: Memory allocation failed");
@@ -6546,7 +6546,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.TimeSpec ```
-    pub fn TimeSpec(self: ?*anyopaque) i64 {
+    pub fn TimeSpec(self: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_TimeSpec(@ptrCast(self));
     }
 
@@ -6555,7 +6555,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setTimeSpec)
     ///
     /// ``` self: QtC.QTimeEdit, spec: qnamespace_enums.TimeSpec ```
-    pub fn SetTimeSpec(self: ?*anyopaque, spec: i64) void {
+    pub fn SetTimeSpec(self: ?*anyopaque, spec: i32) void {
         qtc.QDateTimeEdit_SetTimeSpec(@ptrCast(self), @intCast(spec));
     }
 
@@ -6665,7 +6665,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qabstractspinbox_enums.ButtonSymbols ```
-    pub fn ButtonSymbols(self: ?*anyopaque) i64 {
+    pub fn ButtonSymbols(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_ButtonSymbols(@ptrCast(self));
     }
 
@@ -6674,7 +6674,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setButtonSymbols)
     ///
     /// ``` self: QtC.QTimeEdit, bs: qabstractspinbox_enums.ButtonSymbols ```
-    pub fn SetButtonSymbols(self: ?*anyopaque, bs: i64) void {
+    pub fn SetButtonSymbols(self: ?*anyopaque, bs: i32) void {
         qtc.QAbstractSpinBox_SetButtonSymbols(@ptrCast(self), @intCast(bs));
     }
 
@@ -6683,7 +6683,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setCorrectionMode)
     ///
     /// ``` self: QtC.QTimeEdit, cm: qabstractspinbox_enums.CorrectionMode ```
-    pub fn SetCorrectionMode(self: ?*anyopaque, cm: i64) void {
+    pub fn SetCorrectionMode(self: ?*anyopaque, cm: i32) void {
         qtc.QAbstractSpinBox_SetCorrectionMode(@ptrCast(self), @intCast(cm));
     }
 
@@ -6694,7 +6694,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qabstractspinbox_enums.CorrectionMode ```
-    pub fn CorrectionMode(self: ?*anyopaque) i64 {
+    pub fn CorrectionMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_CorrectionMode(@ptrCast(self));
     }
 
@@ -7016,7 +7016,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -7025,7 +7025,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QTimeEdit, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -7565,7 +7565,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QTimeEdit, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -7576,7 +7576,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -7585,7 +7585,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QTimeEdit, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -7596,7 +7596,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -8135,7 +8135,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTimeEdit, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -8146,7 +8146,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -8245,7 +8245,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTimeEdit, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -8256,7 +8256,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -8265,7 +8265,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QTimeEdit, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -8312,7 +8312,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -8321,7 +8321,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QTimeEdit, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -8817,7 +8817,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QTimeEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -9192,7 +9192,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTimeEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -9201,7 +9201,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QTimeEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -9463,7 +9463,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QTimeEdit, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -9499,7 +9499,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTimeEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -9633,7 +9633,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTimeEdit, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -9847,7 +9847,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTimeEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -9856,7 +9856,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -9865,7 +9865,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTimeEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -10002,7 +10002,7 @@ pub const qtimeedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -10279,7 +10279,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, input: []const u8, pos: *i32 ```
     ///
     /// Returns: ``` qvalidator_enums.State ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -10296,7 +10296,7 @@ pub const qtimeedit = struct {
     /// ``` self: QtC.QTimeEdit, input: []const u8, pos: *i32 ```
     ///
     /// Returns: ``` qvalidator_enums.State ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -10310,8 +10310,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: []const u8, pos: *i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: []const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
         qtc.QTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -11546,7 +11546,7 @@ pub const qtimeedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QTimeEdit_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -11557,7 +11557,7 @@ pub const qtimeedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QTimeEdit_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -11568,7 +11568,7 @@ pub const qtimeedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QTimeEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -12241,7 +12241,7 @@ pub const qtimeedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QTimeEdit_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -12252,7 +12252,7 @@ pub const qtimeedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QTimeEdit_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -12263,7 +12263,7 @@ pub const qtimeedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QTimeEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -12332,21 +12332,21 @@ pub const qdateedit = struct {
     }
 
     /// ``` self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDateEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDateEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDateEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -12654,7 +12654,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qdatetimeedit_enums.Section ```
-    pub fn CurrentSection(self: ?*anyopaque) i64 {
+    pub fn CurrentSection(self: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_CurrentSection(@ptrCast(self));
     }
 
@@ -12665,7 +12665,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, index: i32 ```
     ///
     /// Returns: ``` qdatetimeedit_enums.Section ```
-    pub fn SectionAt(self: ?*anyopaque, index: i32) i64 {
+    pub fn SectionAt(self: ?*anyopaque, index: i32) i32 {
         return qtc.QDateTimeEdit_SectionAt(@ptrCast(self), @intCast(index));
     }
 
@@ -12674,7 +12674,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setCurrentSection)
     ///
     /// ``` self: QtC.QDateEdit, section: qdatetimeedit_enums.Section ```
-    pub fn SetCurrentSection(self: ?*anyopaque, section: i64) void {
+    pub fn SetCurrentSection(self: ?*anyopaque, section: i32) void {
         qtc.QDateTimeEdit_SetCurrentSection(@ptrCast(self), @intCast(section));
     }
 
@@ -12728,7 +12728,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setSelectedSection)
     ///
     /// ``` self: QtC.QDateEdit, section: qdatetimeedit_enums.Section ```
-    pub fn SetSelectedSection(self: ?*anyopaque, section: i64) void {
+    pub fn SetSelectedSection(self: ?*anyopaque, section: i32) void {
         qtc.QDateTimeEdit_SetSelectedSection(@ptrCast(self), @intCast(section));
     }
 
@@ -12737,7 +12737,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#sectionText)
     ///
     /// ``` self: QtC.QDateEdit, section: qdatetimeedit_enums.Section, allocator: std.mem.Allocator ```
-    pub fn SectionText(self: ?*anyopaque, section: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn SectionText(self: ?*anyopaque, section: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTimeEdit_SectionText(@ptrCast(self), @intCast(section));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdateedit.SectionText: Memory allocation failed");
@@ -12796,7 +12796,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qnamespace_enums.TimeSpec ```
-    pub fn TimeSpec(self: ?*anyopaque) i64 {
+    pub fn TimeSpec(self: ?*anyopaque) i32 {
         return qtc.QDateTimeEdit_TimeSpec(@ptrCast(self));
     }
 
@@ -12805,7 +12805,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setTimeSpec)
     ///
     /// ``` self: QtC.QDateEdit, spec: qnamespace_enums.TimeSpec ```
-    pub fn SetTimeSpec(self: ?*anyopaque, spec: i64) void {
+    pub fn SetTimeSpec(self: ?*anyopaque, spec: i32) void {
         qtc.QDateTimeEdit_SetTimeSpec(@ptrCast(self), @intCast(spec));
     }
 
@@ -12915,7 +12915,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qabstractspinbox_enums.ButtonSymbols ```
-    pub fn ButtonSymbols(self: ?*anyopaque) i64 {
+    pub fn ButtonSymbols(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_ButtonSymbols(@ptrCast(self));
     }
 
@@ -12924,7 +12924,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setButtonSymbols)
     ///
     /// ``` self: QtC.QDateEdit, bs: qabstractspinbox_enums.ButtonSymbols ```
-    pub fn SetButtonSymbols(self: ?*anyopaque, bs: i64) void {
+    pub fn SetButtonSymbols(self: ?*anyopaque, bs: i32) void {
         qtc.QAbstractSpinBox_SetButtonSymbols(@ptrCast(self), @intCast(bs));
     }
 
@@ -12933,7 +12933,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#setCorrectionMode)
     ///
     /// ``` self: QtC.QDateEdit, cm: qabstractspinbox_enums.CorrectionMode ```
-    pub fn SetCorrectionMode(self: ?*anyopaque, cm: i64) void {
+    pub fn SetCorrectionMode(self: ?*anyopaque, cm: i32) void {
         qtc.QAbstractSpinBox_SetCorrectionMode(@ptrCast(self), @intCast(cm));
     }
 
@@ -12944,7 +12944,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qabstractspinbox_enums.CorrectionMode ```
-    pub fn CorrectionMode(self: ?*anyopaque) i64 {
+    pub fn CorrectionMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_CorrectionMode(@ptrCast(self));
     }
 
@@ -13266,7 +13266,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -13275,7 +13275,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QDateEdit, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -13815,7 +13815,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QDateEdit, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -13826,7 +13826,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -13835,7 +13835,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QDateEdit, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -13846,7 +13846,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -14385,7 +14385,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QDateEdit, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -14396,7 +14396,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -14495,7 +14495,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QDateEdit, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -14506,7 +14506,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -14515,7 +14515,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QDateEdit, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -14562,7 +14562,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -14571,7 +14571,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QDateEdit, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -15067,7 +15067,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QDateEdit, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -15442,7 +15442,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QDateEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -15451,7 +15451,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QDateEdit, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -15713,7 +15713,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QDateEdit, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -15749,7 +15749,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QDateEdit, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -15883,7 +15883,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDateEdit, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -16097,7 +16097,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDateEdit, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -16106,7 +16106,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -16115,7 +16115,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDateEdit, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -16252,7 +16252,7 @@ pub const qdateedit = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -16529,7 +16529,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, input: []const u8, pos: *i32 ```
     ///
     /// Returns: ``` qvalidator_enums.State ```
-    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
+    pub fn Validate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -16546,7 +16546,7 @@ pub const qdateedit = struct {
     /// ``` self: QtC.QDateEdit, input: []const u8, pos: *i32 ```
     ///
     /// Returns: ``` qvalidator_enums.State ```
-    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i64 {
+    pub fn QBaseValidate(self: ?*anyopaque, input: []const u8, pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
@@ -16560,8 +16560,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: []const u8, pos: *i32) callconv(.c) i64 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i64) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: []const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
         qtc.QDateEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -17796,7 +17796,7 @@ pub const qdateedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QDateEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QDateEdit_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -17807,7 +17807,7 @@ pub const qdateedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QDateEdit, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QDateEdit_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -17818,7 +17818,7 @@ pub const qdateedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QDateEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -18491,7 +18491,7 @@ pub const qdateedit = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QDateEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QDateEdit_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -18502,7 +18502,7 @@ pub const qdateedit = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QDateEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QDateEdit_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -18513,7 +18513,7 @@ pub const qdateedit = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QDateEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -18,7 +18,7 @@ pub const qprocessenvironment = struct {
     /// New2 constructs a new QProcessEnvironment object.
     ///
     /// ``` param1: qprocess_enums.Initialization ```
-    pub fn New2(param1: i64) QtC.QProcessEnvironment {
+    pub fn New2(param1: i32) QtC.QProcessEnvironment {
         return qtc.QProcessEnvironment_new2(@intCast(param1));
     }
 
@@ -233,21 +233,21 @@ pub const qprocess = struct {
     }
 
     /// ``` self: QtC.QProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QProcess_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QProcess_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QProcess_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -392,14 +392,14 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     ///
     /// Returns: ``` qprocess_enums.ProcessChannelMode ```
-    pub fn ProcessChannelMode(self: ?*anyopaque) i64 {
+    pub fn ProcessChannelMode(self: ?*anyopaque) i32 {
         return qtc.QProcess_ProcessChannelMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProcessChannelMode)
     ///
     /// ``` self: QtC.QProcess, mode: qprocess_enums.ProcessChannelMode ```
-    pub fn SetProcessChannelMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetProcessChannelMode(self: ?*anyopaque, mode: i32) void {
         qtc.QProcess_SetProcessChannelMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -408,14 +408,14 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     ///
     /// Returns: ``` qprocess_enums.InputChannelMode ```
-    pub fn InputChannelMode(self: ?*anyopaque) i64 {
+    pub fn InputChannelMode(self: ?*anyopaque) i32 {
         return qtc.QProcess_InputChannelMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setInputChannelMode)
     ///
     /// ``` self: QtC.QProcess, mode: qprocess_enums.InputChannelMode ```
-    pub fn SetInputChannelMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetInputChannelMode(self: ?*anyopaque, mode: i32) void {
         qtc.QProcess_SetInputChannelMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -424,21 +424,21 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     ///
     /// Returns: ``` qprocess_enums.ProcessChannel ```
-    pub fn ReadChannel(self: ?*anyopaque) i64 {
+    pub fn ReadChannel(self: ?*anyopaque) i32 {
         return qtc.QProcess_ReadChannel(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setReadChannel)
     ///
     /// ``` self: QtC.QProcess, channel: qprocess_enums.ProcessChannel ```
-    pub fn SetReadChannel(self: ?*anyopaque, channel: i64) void {
+    pub fn SetReadChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QProcess_SetReadChannel(@ptrCast(self), @intCast(channel));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#closeReadChannel)
     ///
     /// ``` self: QtC.QProcess, channel: qprocess_enums.ProcessChannel ```
-    pub fn CloseReadChannel(self: ?*anyopaque, channel: i64) void {
+    pub fn CloseReadChannel(self: ?*anyopaque, channel: i32) void {
         qtc.QProcess_CloseReadChannel(@ptrCast(self), @intCast(channel));
     }
 
@@ -600,7 +600,7 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     ///
     /// Returns: ``` qprocess_enums.ProcessError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QProcess_Error(@ptrCast(self));
     }
 
@@ -609,7 +609,7 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     ///
     /// Returns: ``` qprocess_enums.ProcessState ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QProcess_State(@ptrCast(self));
     }
 
@@ -718,7 +718,7 @@ pub const qprocess = struct {
     /// ``` self: QtC.QProcess ```
     ///
     /// Returns: ``` qprocess_enums.ExitStatus ```
-    pub fn ExitStatus(self: ?*anyopaque) i64 {
+    pub fn ExitStatus(self: ?*anyopaque) i32 {
         return qtc.QProcess_ExitStatus(@ptrCast(self));
     }
 
@@ -883,21 +883,21 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
     ///
     /// ``` self: QtC.QProcess, errorVal: qprocess_enums.ProcessError ```
-    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i64) void {
+    pub fn ErrorOccurred(self: ?*anyopaque, errorVal: i32) void {
         qtc.QProcess_ErrorOccurred(@ptrCast(self), @intCast(errorVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
     ///
     /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, errorVal: qprocess_enums.ProcessError) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#setProcessState)
     ///
     /// ``` self: QtC.QProcess, state: qprocess_enums.ProcessState ```
-    pub fn SetProcessState(self: ?*anyopaque, state: i64) void {
+    pub fn SetProcessState(self: ?*anyopaque, state: i32) void {
         qtc.QProcess_SetProcessState(@ptrCast(self), @intCast(state));
     }
 
@@ -906,7 +906,7 @@ pub const qprocess = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, state: qprocess_enums.ProcessState) callconv(.c) void ```
-    pub fn OnSetProcessState(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetProcessState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_OnSetProcessState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -915,7 +915,7 @@ pub const qprocess = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QProcess, state: qprocess_enums.ProcessState ```
-    pub fn QBaseSetProcessState(self: ?*anyopaque, state: i64) void {
+    pub fn QBaseSetProcessState(self: ?*anyopaque, state: i32) void {
         qtc.QProcess_QBaseSetProcessState(@ptrCast(self), @intCast(state));
     }
 
@@ -1217,14 +1217,14 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
     /// ``` self: QtC.QProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus ```
-    pub fn Finished2(self: ?*anyopaque, exitCode: i32, exitStatus: i64) void {
+    pub fn Finished2(self: ?*anyopaque, exitCode: i32, exitStatus: i32) void {
         qtc.QProcess_Finished2(@ptrCast(self), @intCast(exitCode), @intCast(exitStatus));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
     /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void ```
-    pub fn OnFinished2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
+    pub fn OnFinished2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1772,7 +1772,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QProcess, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1995,7 +1995,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QProcess, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -2004,7 +2004,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -2013,7 +2013,7 @@ pub const qprocess = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QProcess, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -2789,7 +2789,7 @@ pub const qprocess = struct {
     /// Wrapper to allow calling private signal
     ///
     /// ``` self: QtC.QProcess, slot: fn (self: QtC.QProcess, state: qprocess_enums.ProcessState) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -27,21 +27,21 @@ pub const qdrag = struct {
     }
 
     /// ``` self: QtC.QDrag, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDrag_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QDrag, slot: fn (self: QtC.QDrag, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QDrag_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QDrag, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QDrag_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -118,7 +118,7 @@ pub const qdrag = struct {
     /// ``` self: QtC.QDrag ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn Exec(self: ?*anyopaque) i64 {
+    pub fn Exec(self: ?*anyopaque) i32 {
         return qtc.QDrag_Exec(@ptrCast(self));
     }
 
@@ -127,21 +127,21 @@ pub const qdrag = struct {
     /// ``` self: QtC.QDrag, supportedActions: flag of qnamespace_enums.DropAction, defaultAction: qnamespace_enums.DropAction ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn Exec2(self: ?*anyopaque, supportedActions: i64, defaultAction: i64) i64 {
+    pub fn Exec2(self: ?*anyopaque, supportedActions: i64, defaultAction: i32) i32 {
         return qtc.QDrag_Exec2(@ptrCast(self), @intCast(supportedActions), @intCast(defaultAction));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#setDragCursor)
     ///
     /// ``` self: QtC.QDrag, cursor: QtC.QPixmap, action: qnamespace_enums.DropAction ```
-    pub fn SetDragCursor(self: ?*anyopaque, cursor: ?*anyopaque, action: i64) void {
+    pub fn SetDragCursor(self: ?*anyopaque, cursor: ?*anyopaque, action: i32) void {
         qtc.QDrag_SetDragCursor(@ptrCast(self), @ptrCast(cursor), @intCast(action));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#dragCursor)
     ///
     /// ``` self: QtC.QDrag, action: qnamespace_enums.DropAction ```
-    pub fn DragCursor(self: ?*anyopaque, action: i64) QtC.QPixmap {
+    pub fn DragCursor(self: ?*anyopaque, action: i32) QtC.QPixmap {
         return qtc.QDrag_DragCursor(@ptrCast(self), @intCast(action));
     }
 
@@ -159,7 +159,7 @@ pub const qdrag = struct {
     /// ``` self: QtC.QDrag ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn DefaultAction(self: ?*anyopaque) i64 {
+    pub fn DefaultAction(self: ?*anyopaque) i32 {
         return qtc.QDrag_DefaultAction(@ptrCast(self));
     }
 
@@ -173,14 +173,14 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#actionChanged)
     ///
     /// ``` self: QtC.QDrag, action: qnamespace_enums.DropAction ```
-    pub fn ActionChanged(self: ?*anyopaque, action: i64) void {
+    pub fn ActionChanged(self: ?*anyopaque, action: i32) void {
         qtc.QDrag_ActionChanged(@ptrCast(self), @intCast(action));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdrag.html#actionChanged)
     ///
     /// ``` self: QtC.QDrag, slot: fn (self: QtC.QDrag, action: qnamespace_enums.DropAction) callconv(.c) void ```
-    pub fn OnActionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnActionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QDrag_Connect_ActionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -229,7 +229,7 @@ pub const qdrag = struct {
     /// ``` self: QtC.QDrag, supportedActions: flag of qnamespace_enums.DropAction ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn Exec1(self: ?*anyopaque, supportedActions: i64) i64 {
+    pub fn Exec1(self: ?*anyopaque, supportedActions: i64) i32 {
         return qtc.QDrag_Exec1(@ptrCast(self), @intCast(supportedActions));
     }
 
@@ -345,7 +345,7 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QDrag, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -568,7 +568,7 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QDrag, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -577,7 +577,7 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -586,7 +586,7 @@ pub const qdrag = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QDrag, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

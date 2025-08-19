@@ -816,49 +816,49 @@ pub const qvariant = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toInt)
     ///
-    /// ``` self: QtC.QVariant, ok: bool ```
+    /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToInt1(self: ?*anyopaque, ok: *bool) i32 {
         return qtc.QVariant_ToInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toUInt)
     ///
-    /// ``` self: QtC.QVariant, ok: bool ```
+    /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToUInt1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QVariant_ToUInt1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toLongLong)
     ///
-    /// ``` self: QtC.QVariant, ok: bool ```
+    /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToLongLong1(self: ?*anyopaque, ok: *bool) i64 {
         return qtc.QVariant_ToLongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toULongLong)
     ///
-    /// ``` self: QtC.QVariant, ok: bool ```
+    /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToULongLong1(self: ?*anyopaque, ok: *bool) u64 {
         return qtc.QVariant_ToULongLong1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toDouble)
     ///
-    /// ``` self: QtC.QVariant, ok: bool ```
+    /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToDouble1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToDouble1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toFloat)
     ///
-    /// ``` self: QtC.QVariant, ok: bool ```
+    /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToFloat1(self: ?*anyopaque, ok: *bool) f32 {
         return qtc.QVariant_ToFloat1(@ptrCast(self), @ptrCast(ok));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#toReal)
     ///
-    /// ``` self: QtC.QVariant, ok: bool ```
+    /// ``` self: QtC.QVariant, ok: *bool ```
     pub fn ToReal1(self: ?*anyopaque, ok: *bool) f64 {
         return qtc.QVariant_ToReal1(@ptrCast(self), @ptrCast(ok));
     }

@@ -56,14 +56,14 @@ pub const qscrollerproperties = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#scrollMetric)
     ///
     /// ``` self: QtC.QScrollerProperties, metric: qscrollerproperties_enums.ScrollMetric ```
-    pub fn ScrollMetric(self: ?*anyopaque, metric: i64) QtC.QVariant {
+    pub fn ScrollMetric(self: ?*anyopaque, metric: i32) QtC.QVariant {
         return qtc.QScrollerProperties_ScrollMetric(@ptrCast(self), @intCast(metric));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscrollerproperties.html#setScrollMetric)
     ///
     /// ``` self: QtC.QScrollerProperties, metric: qscrollerproperties_enums.ScrollMetric, value: QtC.QVariant ```
-    pub fn SetScrollMetric(self: ?*anyopaque, metric: i64, value: ?*anyopaque) void {
+    pub fn SetScrollMetric(self: ?*anyopaque, metric: i32, value: ?*anyopaque) void {
         qtc.QScrollerProperties_SetScrollMetric(@ptrCast(self), @intCast(metric), @ptrCast(value));
     }
 

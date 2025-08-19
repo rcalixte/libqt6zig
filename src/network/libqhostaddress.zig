@@ -90,7 +90,7 @@ pub const qhostaddress = struct {
     /// New7 constructs a new QHostAddress object.
     ///
     /// ``` address: qhostaddress_enums.SpecialAddress ```
-    pub fn New7(address: i64) QtC.QHostAddress {
+    pub fn New7(address: i32) QtC.QHostAddress {
         return qtc.QHostAddress_new7(@intCast(address));
     }
 
@@ -104,7 +104,7 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn OperatorAssign2(self: ?*anyopaque, address: i64) void {
+    pub fn OperatorAssign2(self: ?*anyopaque, address: i32) void {
         qtc.QHostAddress_OperatorAssign2(@ptrCast(self), @intCast(address));
     }
 
@@ -150,7 +150,7 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn SetAddress6(self: ?*anyopaque, address: i64) void {
+    pub fn SetAddress6(self: ?*anyopaque, address: i32) void {
         qtc.QHostAddress_SetAddress6(@ptrCast(self), @intCast(address));
     }
 
@@ -159,7 +159,7 @@ pub const qhostaddress = struct {
     /// ``` self: QtC.QHostAddress ```
     ///
     /// Returns: ``` qabstractsocket_enums.NetworkLayerProtocol ```
-    pub fn Protocol(self: ?*anyopaque) i64 {
+    pub fn Protocol(self: ?*anyopaque) i32 {
         return qtc.QHostAddress_Protocol(@ptrCast(self));
     }
 
@@ -227,7 +227,7 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn OperatorEqual2(self: ?*anyopaque, address: i64) bool {
+    pub fn OperatorEqual2(self: ?*anyopaque, address: i32) bool {
         return qtc.QHostAddress_OperatorEqual2(@ptrCast(self), @intCast(address));
     }
 
@@ -241,7 +241,7 @@ pub const qhostaddress = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#operator-not-eq)
     ///
     /// ``` self: QtC.QHostAddress, address: qhostaddress_enums.SpecialAddress ```
-    pub fn OperatorNotEqual2(self: ?*anyopaque, address: i64) bool {
+    pub fn OperatorNotEqual2(self: ?*anyopaque, address: i32) bool {
         return qtc.QHostAddress_OperatorNotEqual2(@ptrCast(self), @intCast(address));
     }
 
@@ -339,7 +339,7 @@ pub const qhostaddress = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhostaddress.html#toIPv4Address)
     ///
-    /// ``` self: QtC.QHostAddress, ok: bool ```
+    /// ``` self: QtC.QHostAddress, ok: *bool ```
     pub fn ToIPv4Address1(self: ?*anyopaque, ok: *bool) u32 {
         return qtc.QHostAddress_ToIPv4Address1(@ptrCast(self), @ptrCast(ok));
     }

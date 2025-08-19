@@ -85,14 +85,14 @@ pub const qnetworkrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#header)
     ///
     /// ``` self: QtC.QNetworkRequest, header: qnetworkrequest_enums.KnownHeaders ```
-    pub fn Header(self: ?*anyopaque, header: i64) QtC.QVariant {
+    pub fn Header(self: ?*anyopaque, header: i32) QtC.QVariant {
         return qtc.QNetworkRequest_Header(@ptrCast(self), @intCast(header));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setHeader)
     ///
     /// ``` self: QtC.QNetworkRequest, header: qnetworkrequest_enums.KnownHeaders, value: QtC.QVariant ```
-    pub fn SetHeader(self: ?*anyopaque, header: i64, value: ?*anyopaque) void {
+    pub fn SetHeader(self: ?*anyopaque, header: i32, value: ?*anyopaque) void {
         qtc.QNetworkRequest_SetHeader(@ptrCast(self), @intCast(header), @ptrCast(value));
     }
 
@@ -162,14 +162,14 @@ pub const qnetworkrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#attribute)
     ///
     /// ``` self: QtC.QNetworkRequest, code: qnetworkrequest_enums.Attribute ```
-    pub fn Attribute(self: ?*anyopaque, code: i64) QtC.QVariant {
+    pub fn Attribute(self: ?*anyopaque, code: i32) QtC.QVariant {
         return qtc.QNetworkRequest_Attribute(@ptrCast(self), @intCast(code));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setAttribute)
     ///
     /// ``` self: QtC.QNetworkRequest, code: qnetworkrequest_enums.Attribute, value: QtC.QVariant ```
-    pub fn SetAttribute(self: ?*anyopaque, code: i64, value: ?*anyopaque) void {
+    pub fn SetAttribute(self: ?*anyopaque, code: i32, value: ?*anyopaque) void {
         qtc.QNetworkRequest_SetAttribute(@ptrCast(self), @intCast(code), @ptrCast(value));
     }
 
@@ -206,14 +206,14 @@ pub const qnetworkrequest = struct {
     /// ``` self: QtC.QNetworkRequest ```
     ///
     /// Returns: ``` qnetworkrequest_enums.Priority ```
-    pub fn Priority(self: ?*anyopaque) i64 {
+    pub fn Priority(self: ?*anyopaque) i32 {
         return qtc.QNetworkRequest_Priority(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#setPriority)
     ///
     /// ``` self: QtC.QNetworkRequest, priority: qnetworkrequest_enums.Priority ```
-    pub fn SetPriority(self: ?*anyopaque, priority: i64) void {
+    pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
         qtc.QNetworkRequest_SetPriority(@ptrCast(self), @intCast(priority));
     }
 
@@ -319,7 +319,7 @@ pub const qnetworkrequest = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkrequest.html#attribute)
     ///
     /// ``` self: QtC.QNetworkRequest, code: qnetworkrequest_enums.Attribute, defaultValue: QtC.QVariant ```
-    pub fn Attribute2(self: ?*anyopaque, code: i64, defaultValue: ?*anyopaque) QtC.QVariant {
+    pub fn Attribute2(self: ?*anyopaque, code: i32, defaultValue: ?*anyopaque) QtC.QVariant {
         return qtc.QNetworkRequest_Attribute2(@ptrCast(self), @intCast(code), @ptrCast(defaultValue));
     }
 

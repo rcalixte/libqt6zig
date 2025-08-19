@@ -15,7 +15,7 @@ pub const qiconengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#paint)
     ///
     /// ``` self: QtC.QIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i64, state: i64) void {
+    pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
         qtc.QIconEngine_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
@@ -24,7 +24,7 @@ pub const qiconengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i64, i64) callconv(.c) void) void {
+    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -33,14 +33,14 @@ pub const qiconengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i64, state: i64) void {
+    pub fn QBasePaint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, mode: i32, state: i32) void {
         qtc.QIconEngine_QBasePaint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @intCast(mode), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
     ///
     /// ``` self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn ActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i64, state: i64) QtC.QSize {
+    pub fn ActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
         return qtc.QIconEngine_ActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
@@ -49,7 +49,7 @@ pub const qiconengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QSize ```
-    pub fn OnActualSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, i64) callconv(.c) QtC.QSize) void {
+    pub fn OnActualSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QSize) void {
         qtc.QIconEngine_OnActualSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -58,14 +58,14 @@ pub const qiconengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn QBaseActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i64, state: i64) QtC.QSize {
+    pub fn QBaseActualSize(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QSize {
         return qtc.QIconEngine_QBaseActualSize(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#pixmap)
     ///
     /// ``` self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i64, state: i64) QtC.QPixmap {
+    pub fn Pixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
         return qtc.QIconEngine_Pixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
@@ -74,7 +74,7 @@ pub const qiconengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QPixmap ```
-    pub fn OnPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, i64) callconv(.c) QtC.QPixmap) void {
+    pub fn OnPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QPixmap) void {
         qtc.QIconEngine_OnPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -83,14 +83,14 @@ pub const qiconengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn QBasePixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i64, state: i64) QtC.QPixmap {
+    pub fn QBasePixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32) QtC.QPixmap {
         return qtc.QIconEngine_QBasePixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
     ///
     /// ``` self: QtC.QIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn AddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i64, state: i64) void {
+    pub fn AddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
         qtc.QIconEngine_AddPixmap(@ptrCast(self), @ptrCast(pixmap), @intCast(mode), @intCast(state));
     }
 
@@ -99,7 +99,7 @@ pub const qiconengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
-    pub fn OnAddPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, i64) callconv(.c) void) void {
+    pub fn OnAddPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnAddPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -108,14 +108,14 @@ pub const qiconengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn QBaseAddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i64, state: i64) void {
+    pub fn QBaseAddPixmap(self: ?*anyopaque, pixmap: ?*anyopaque, mode: i32, state: i32) void {
         qtc.QIconEngine_QBaseAddPixmap(@ptrCast(self), @ptrCast(pixmap), @intCast(mode), @intCast(state));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#addFile)
     ///
     /// ``` self: QtC.QIconEngine, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn AddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64, state: i64) void {
+    pub fn AddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -128,7 +128,7 @@ pub const qiconengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
-    pub fn OnAddFile(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque, i64, i64) callconv(.c) void) void {
+    pub fn OnAddFile(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnAddFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -137,7 +137,7 @@ pub const qiconengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIconEngine, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State ```
-    pub fn QBaseAddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i64, state: i64) void {
+    pub fn QBaseAddFile(self: ?*anyopaque, fileName: []const u8, size: ?*anyopaque, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -256,7 +256,7 @@ pub const qiconengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
     ///
     /// ``` self: QtC.QIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State, allocator: std.mem.Allocator ```
-    pub fn AvailableSizes(self: ?*anyopaque, mode: i64, state: i64, allocator: std.mem.Allocator) []QtC.QSize {
+    pub fn AvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
         const _arr: qtc.libqt_list = qtc.QIconEngine_AvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qiconengine.AvailableSizes: Memory allocation failed");
@@ -270,7 +270,7 @@ pub const qiconengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) []QtC.QSize ```
-    pub fn OnAvailableSizes(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) []QtC.QSize) void {
+    pub fn OnAvailableSizes(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) []QtC.QSize) void {
         qtc.QIconEngine_OnAvailableSizes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -279,7 +279,7 @@ pub const qiconengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State, allocator: std.mem.Allocator ```
-    pub fn QBaseAvailableSizes(self: ?*anyopaque, mode: i64, state: i64, allocator: std.mem.Allocator) []QtC.QSize {
+    pub fn QBaseAvailableSizes(self: ?*anyopaque, mode: i32, state: i32, allocator: std.mem.Allocator) []QtC.QSize {
         const _arr: qtc.libqt_list = qtc.QIconEngine_QBaseAvailableSizes(@ptrCast(self), @intCast(mode), @intCast(state));
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QSize, _arr.len) catch @panic("qiconengine.AvailableSizes: Memory allocation failed");
@@ -349,7 +349,7 @@ pub const qiconengine = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#scaledPixmap)
     ///
     /// ``` self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64 ```
-    pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i64, state: i64, scale: f64) QtC.QPixmap {
+    pub fn ScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
         return qtc.QIconEngine_ScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 
@@ -358,7 +358,7 @@ pub const qiconengine = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QtC.QPixmap ```
-    pub fn OnScaledPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, i64, f64) callconv(.c) QtC.QPixmap) void {
+    pub fn OnScaledPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, f64) callconv(.c) QtC.QPixmap) void {
         qtc.QIconEngine_OnScaledPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -367,7 +367,7 @@ pub const qiconengine = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64 ```
-    pub fn QBaseScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i64, state: i64, scale: f64) QtC.QPixmap {
+    pub fn QBaseScaledPixmap(self: ?*anyopaque, size: ?*anyopaque, mode: i32, state: i32, scale: f64) QtC.QPixmap {
         return qtc.QIconEngine_QBaseScaledPixmap(@ptrCast(self), @ptrCast(size), @intCast(mode), @intCast(state), @floatCast(scale));
     }
 

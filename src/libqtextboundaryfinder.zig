@@ -22,7 +22,7 @@ pub const qtextboundaryfinder = struct {
     /// New3 constructs a new QTextBoundaryFinder object.
     ///
     /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, stringVal: []const u8 ```
-    pub fn New3(typeVal: i64, stringVal: []const u8) QtC.QTextBoundaryFinder {
+    pub fn New3(typeVal: i32, stringVal: []const u8) QtC.QTextBoundaryFinder {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
@@ -34,21 +34,21 @@ pub const qtextboundaryfinder = struct {
     /// New4 constructs a new QTextBoundaryFinder object.
     ///
     /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: QtC.QChar, length: i64 ```
-    pub fn New4(typeVal: i64, chars: ?*anyopaque, length: i64) QtC.QTextBoundaryFinder {
+    pub fn New4(typeVal: i32, chars: ?*anyopaque, length: i64) QtC.QTextBoundaryFinder {
         return qtc.QTextBoundaryFinder_new4(@intCast(typeVal), @ptrCast(chars), @intCast(length));
     }
 
     /// New5 constructs a new QTextBoundaryFinder object.
     ///
     /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: QtC.QChar, length: i64, buffer: *u8 ```
-    pub fn New5(typeVal: i64, chars: ?*anyopaque, length: i64, buffer: *u8) QtC.QTextBoundaryFinder {
+    pub fn New5(typeVal: i32, chars: ?*anyopaque, length: i64, buffer: *u8) QtC.QTextBoundaryFinder {
         return qtc.QTextBoundaryFinder_new5(@intCast(typeVal), @ptrCast(chars), @intCast(length), @ptrCast(buffer));
     }
 
     /// New6 constructs a new QTextBoundaryFinder object.
     ///
     /// ``` typeVal: qtextboundaryfinder_enums.BoundaryType, chars: QtC.QChar, length: i64, buffer: *u8, bufferSize: i64 ```
-    pub fn New6(typeVal: i64, chars: ?*anyopaque, length: i64, buffer: *u8, bufferSize: i64) QtC.QTextBoundaryFinder {
+    pub fn New6(typeVal: i32, chars: ?*anyopaque, length: i64, buffer: *u8, bufferSize: i64) QtC.QTextBoundaryFinder {
         return qtc.QTextBoundaryFinder_new6(@intCast(typeVal), @ptrCast(chars), @intCast(length), @ptrCast(buffer), @intCast(bufferSize));
     }
 
@@ -71,7 +71,7 @@ pub const qtextboundaryfinder = struct {
     /// ``` self: QtC.QTextBoundaryFinder ```
     ///
     /// Returns: ``` qtextboundaryfinder_enums.BoundaryType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QTextBoundaryFinder_Type(@ptrCast(self));
     }
 

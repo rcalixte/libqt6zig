@@ -43,21 +43,21 @@ pub const qpdfwriter = struct {
     }
 
     /// ``` self: QtC.QPdfWriter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPdfWriter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPdfWriter, slot: fn (self: QtC.QPdfWriter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QPdfWriter_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPdfWriter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QPdfWriter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -76,7 +76,7 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#setPdfVersion)
     ///
     /// ``` self: QtC.QPdfWriter, version: qpagedpaintdevice_enums.PdfVersion ```
-    pub fn SetPdfVersion(self: ?*anyopaque, version: i64) void {
+    pub fn SetPdfVersion(self: ?*anyopaque, version: i32) void {
         qtc.QPdfWriter_SetPdfVersion(@ptrCast(self), @intCast(version));
     }
 
@@ -85,7 +85,7 @@ pub const qpdfwriter = struct {
     /// ``` self: QtC.QPdfWriter ```
     ///
     /// Returns: ``` qpagedpaintdevice_enums.PdfVersion ```
-    pub fn PdfVersion(self: ?*anyopaque) i64 {
+    pub fn PdfVersion(self: ?*anyopaque) i32 {
         return qtc.QPdfWriter_PdfVersion(@ptrCast(self));
     }
 
@@ -228,14 +228,14 @@ pub const qpdfwriter = struct {
     /// ``` self: QtC.QPdfWriter ```
     ///
     /// Returns: ``` qpdfwriter_enums.ColorModel ```
-    pub fn ColorModel(self: ?*anyopaque) i64 {
+    pub fn ColorModel(self: ?*anyopaque) i32 {
         return qtc.QPdfWriter_ColorModel(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#setColorModel)
     ///
     /// ``` self: QtC.QPdfWriter, model: qpdfwriter_enums.ColorModel ```
-    pub fn SetColorModel(self: ?*anyopaque, model: i64) void {
+    pub fn SetColorModel(self: ?*anyopaque, model: i32) void {
         qtc.QPdfWriter_SetColorModel(@ptrCast(self), @intCast(model));
     }
 
@@ -281,7 +281,7 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
     ///
     /// ``` self: QtC.QPdfWriter, id: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, id: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, id: i32) i32 {
         return qtc.QPdfWriter_Metric(@ptrCast(self), @intCast(id));
     }
 
@@ -290,7 +290,7 @@ pub const qpdfwriter = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QPdfWriter, slot: fn (self: QtC.QPdfWriter, id: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QPdfWriter_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -299,7 +299,7 @@ pub const qpdfwriter = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QPdfWriter, id: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, id: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, id: i32) i32 {
         return qtc.QPdfWriter_QBaseMetric(@ptrCast(self), @intCast(id));
     }
 
@@ -460,7 +460,7 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QPdfWriter, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -683,7 +683,7 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QPdfWriter, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -692,7 +692,7 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -701,7 +701,7 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QPdfWriter, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -874,7 +874,7 @@ pub const qpdfwriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -1182,7 +1182,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, orientation: qpagelayout_enums.Orientation ```
-    pub fn SetPageOrientation(self: ?*anyopaque, orientation: i64) bool {
+    pub fn SetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QPdfWriter_SetPageOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -1193,7 +1193,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, orientation: qpagelayout_enums.Orientation ```
-    pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i64) bool {
+    pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QPdfWriter_QBaseSetPageOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -1204,7 +1204,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, slot: fn (self: QtC.QPdfWriter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool ```
-    pub fn OnSetPageOrientation(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSetPageOrientation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QPdfWriter_OnSetPageOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1215,7 +1215,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
-    pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i64) bool {
+    pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
         return qtc.QPdfWriter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
     }
 
@@ -1226,7 +1226,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
-    pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i64) bool {
+    pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
         return qtc.QPdfWriter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
     }
 
@@ -1237,7 +1237,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, slot: fn (self: QtC.QPdfWriter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool ```
-    pub fn OnSetPageMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSetPageMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QPdfWriter_OnSetPageMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1547,7 +1547,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QPdfWriter_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -1558,7 +1558,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QPdfWriter_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -1569,7 +1569,7 @@ pub const qpdfwriter = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QPdfWriter, slot: fn (self: QtC.QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QPdfWriter_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

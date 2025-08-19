@@ -171,7 +171,7 @@ pub const qimagereader = struct {
     /// ``` self: QtC.QImageReader ```
     ///
     /// Returns: ``` qimage_enums.Format ```
-    pub fn ImageFormat(self: ?*anyopaque) i64 {
+    pub fn ImageFormat(self: ?*anyopaque) i32 {
         return qtc.QImageReader_ImageFormat(@ptrCast(self));
     }
 
@@ -420,7 +420,7 @@ pub const qimagereader = struct {
     /// ``` self: QtC.QImageReader ```
     ///
     /// Returns: ``` qimagereader_enums.ImageReaderError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QImageReader_Error(@ptrCast(self));
     }
 
@@ -438,7 +438,7 @@ pub const qimagereader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagereader.html#supportsOption)
     ///
     /// ``` self: QtC.QImageReader, option: qimageiohandler_enums.ImageOption ```
-    pub fn SupportsOption(self: ?*anyopaque, option: i64) bool {
+    pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageReader_SupportsOption(@ptrCast(self), @intCast(option));
     }
 

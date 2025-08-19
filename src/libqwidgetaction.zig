@@ -29,21 +29,21 @@ pub const qwidgetaction = struct {
     }
 
     /// ``` self: QtC.QWidgetAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWidgetAction_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QWidgetAction, slot: fn (self: QtC.QWidgetAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QWidgetAction_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QWidgetAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QWidgetAction_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -433,7 +433,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setPriority)
     ///
     /// ``` self: QtC.QWidgetAction, priority: qaction_enums.Priority ```
-    pub fn SetPriority(self: ?*anyopaque, priority: i64) void {
+    pub fn SetPriority(self: ?*anyopaque, priority: i32) void {
         qtc.QAction_SetPriority(@ptrCast(self), @intCast(priority));
     }
 
@@ -444,7 +444,7 @@ pub const qwidgetaction = struct {
     /// ``` self: QtC.QWidgetAction ```
     ///
     /// Returns: ``` qaction_enums.Priority ```
-    pub fn Priority(self: ?*anyopaque) i64 {
+    pub fn Priority(self: ?*anyopaque) i32 {
         return qtc.QAction_Priority(@ptrCast(self));
     }
 
@@ -502,7 +502,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcuts)
     ///
     /// ``` self: QtC.QWidgetAction, shortcuts: qkeysequence_enums.StandardKey ```
-    pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i64) void {
+    pub fn SetShortcuts2(self: ?*anyopaque, shortcuts: i32) void {
         qtc.QAction_SetShortcuts2(@ptrCast(self), @intCast(shortcuts));
     }
 
@@ -525,7 +525,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setShortcutContext)
     ///
     /// ``` self: QtC.QWidgetAction, context: qnamespace_enums.ShortcutContext ```
-    pub fn SetShortcutContext(self: ?*anyopaque, context: i64) void {
+    pub fn SetShortcutContext(self: ?*anyopaque, context: i32) void {
         qtc.QAction_SetShortcutContext(@ptrCast(self), @intCast(context));
     }
 
@@ -536,7 +536,7 @@ pub const qwidgetaction = struct {
     /// ``` self: QtC.QWidgetAction ```
     ///
     /// Returns: ``` qnamespace_enums.ShortcutContext ```
-    pub fn ShortcutContext(self: ?*anyopaque) i64 {
+    pub fn ShortcutContext(self: ?*anyopaque) i32 {
         return qtc.QAction_ShortcutContext(@ptrCast(self));
     }
 
@@ -644,7 +644,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#activate)
     ///
     /// ``` self: QtC.QWidgetAction, event: qaction_enums.ActionEvent ```
-    pub fn Activate(self: ?*anyopaque, event: i64) void {
+    pub fn Activate(self: ?*anyopaque, event: i32) void {
         qtc.QAction_Activate(@ptrCast(self), @intCast(event));
     }
 
@@ -653,7 +653,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#setMenuRole)
     ///
     /// ``` self: QtC.QWidgetAction, menuRole: qaction_enums.MenuRole ```
-    pub fn SetMenuRole(self: ?*anyopaque, menuRole: i64) void {
+    pub fn SetMenuRole(self: ?*anyopaque, menuRole: i32) void {
         qtc.QAction_SetMenuRole(@ptrCast(self), @intCast(menuRole));
     }
 
@@ -664,7 +664,7 @@ pub const qwidgetaction = struct {
     /// ``` self: QtC.QWidgetAction ```
     ///
     /// Returns: ``` qaction_enums.MenuRole ```
-    pub fn MenuRole(self: ?*anyopaque) i64 {
+    pub fn MenuRole(self: ?*anyopaque) i32 {
         return qtc.QAction_MenuRole(@ptrCast(self));
     }
 
@@ -1050,7 +1050,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QWidgetAction, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -1273,7 +1273,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QWidgetAction, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -1282,7 +1282,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -1291,7 +1291,7 @@ pub const qwidgetaction = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QWidgetAction, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

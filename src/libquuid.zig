@@ -63,7 +63,7 @@ pub const quuid = struct {
     /// New8 constructs a new QUuid object.
     ///
     /// ``` id128: QtC.QUuid__Id128Bytes, order: qsysinfo_enums.Endian ```
-    pub fn New8(id128: QtC.QUuid__Id128Bytes, order: i64) QtC.QUuid {
+    pub fn New8(id128: QtC.QUuid__Id128Bytes, order: i32) QtC.QUuid {
         return qtc.QUuid_new8(@ptrCast(id128), @intCast(order));
     }
 
@@ -179,7 +179,7 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid ```
     ///
     /// Returns: ``` quuid_enums.Variant ```
-    pub fn Variant(self: ?*anyopaque) i64 {
+    pub fn Variant(self: ?*anyopaque) i32 {
         return qtc.QUuid_Variant(@ptrCast(self));
     }
 
@@ -188,14 +188,14 @@ pub const quuid = struct {
     /// ``` self: QtC.QUuid ```
     ///
     /// Returns: ``` quuid_enums.Version ```
-    pub fn Version(self: ?*anyopaque) i64 {
+    pub fn Version(self: ?*anyopaque) i32 {
         return qtc.QUuid_Version(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toString)
     ///
     /// ``` self: QtC.QUuid, mode: quuid_enums.StringFormat, allocator: std.mem.Allocator ```
-    pub fn ToString1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QUuid_ToString1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("quuid.ToString1: Memory allocation failed");
@@ -206,7 +206,7 @@ pub const quuid = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toByteArray)
     ///
     /// ``` self: QtC.QUuid, mode: quuid_enums.StringFormat, allocator: std.mem.Allocator ```
-    pub fn ToByteArray1(self: ?*anyopaque, mode: i64, allocator: std.mem.Allocator) []u8 {
+    pub fn ToByteArray1(self: ?*anyopaque, mode: i32, allocator: std.mem.Allocator) []u8 {
         const _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self), @intCast(mode));
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("quuid.ToByteArray1: Memory allocation failed");
@@ -217,14 +217,14 @@ pub const quuid = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toBytes)
     ///
     /// ``` self: QtC.QUuid, order: qsysinfo_enums.Endian ```
-    pub fn ToBytes1(self: ?*anyopaque, order: i64) QtC.QUuid__Id128Bytes {
+    pub fn ToBytes1(self: ?*anyopaque, order: i32) QtC.QUuid__Id128Bytes {
         return qtc.QUuid_ToBytes1(@ptrCast(self), @intCast(order));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromBytes)
     ///
     /// ``` bytes: ?*anyopaque, order: qsysinfo_enums.Endian ```
-    pub fn FromBytes2(bytes: ?*anyopaque, order: i64) QtC.QUuid {
+    pub fn FromBytes2(bytes: ?*anyopaque, order: i32) QtC.QUuid {
         return qtc.QUuid_FromBytes2(bytes, @intCast(order));
     }
 

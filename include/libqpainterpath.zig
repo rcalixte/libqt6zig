@@ -319,14 +319,14 @@ pub const qpainterpath = struct {
     /// ``` self: QtC.QPainterPath ```
     ///
     /// Returns: ``` qnamespace_enums.FillRule ```
-    pub fn FillRule(self: ?*anyopaque) i64 {
+    pub fn FillRule(self: ?*anyopaque) i32 {
         return qtc.QPainterPath_FillRule(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#setFillRule)
     ///
     /// ``` self: QtC.QPainterPath, fillRule: qnamespace_enums.FillRule ```
-    pub fn SetFillRule(self: ?*anyopaque, fillRule: i64) void {
+    pub fn SetFillRule(self: ?*anyopaque, fillRule: i32) void {
         qtc.QPainterPath_SetFillRule(@ptrCast(self), @intCast(fillRule));
     }
 
@@ -515,14 +515,14 @@ pub const qpainterpath = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
     ///
     /// ``` self: QtC.QPainterPath, rect: QtC.QRectF, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
-    pub fn AddRoundedRect4(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i64) void {
+    pub fn AddRoundedRect4(self: ?*anyopaque, rect: ?*anyopaque, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainterPath_AddRoundedRect4(@ptrCast(self), @ptrCast(rect), @floatCast(xRadius), @floatCast(yRadius), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath.html#addRoundedRect)
     ///
     /// ``` self: QtC.QPainterPath, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64, mode: qnamespace_enums.SizeMode ```
-    pub fn AddRoundedRect7(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64, mode: i64) void {
+    pub fn AddRoundedRect7(self: ?*anyopaque, x: f64, y: f64, w: f64, h: f64, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainterPath_AddRoundedRect7(@ptrCast(self), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h), @floatCast(xRadius), @floatCast(yRadius), @intCast(mode));
     }
 
@@ -569,7 +569,7 @@ pub const qpainterpathstroker = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpathstroker.html#setCapStyle)
     ///
     /// ``` self: QtC.QPainterPathStroker, style: qnamespace_enums.PenCapStyle ```
-    pub fn SetCapStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetCapStyle(self: ?*anyopaque, style: i32) void {
         qtc.QPainterPathStroker_SetCapStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -578,14 +578,14 @@ pub const qpainterpathstroker = struct {
     /// ``` self: QtC.QPainterPathStroker ```
     ///
     /// Returns: ``` qnamespace_enums.PenCapStyle ```
-    pub fn CapStyle(self: ?*anyopaque) i64 {
+    pub fn CapStyle(self: ?*anyopaque) i32 {
         return qtc.QPainterPathStroker_CapStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpathstroker.html#setJoinStyle)
     ///
     /// ``` self: QtC.QPainterPathStroker, style: qnamespace_enums.PenJoinStyle ```
-    pub fn SetJoinStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetJoinStyle(self: ?*anyopaque, style: i32) void {
         qtc.QPainterPathStroker_SetJoinStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -594,7 +594,7 @@ pub const qpainterpathstroker = struct {
     /// ``` self: QtC.QPainterPathStroker ```
     ///
     /// Returns: ``` qnamespace_enums.PenJoinStyle ```
-    pub fn JoinStyle(self: ?*anyopaque) i64 {
+    pub fn JoinStyle(self: ?*anyopaque) i32 {
         return qtc.QPainterPathStroker_JoinStyle(@ptrCast(self));
     }
 
@@ -629,7 +629,7 @@ pub const qpainterpathstroker = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpathstroker.html#setDashPattern)
     ///
     /// ``` self: QtC.QPainterPathStroker, dashPattern: qnamespace_enums.PenStyle ```
-    pub fn SetDashPattern(self: ?*anyopaque, dashPattern: i64) void {
+    pub fn SetDashPattern(self: ?*anyopaque, dashPattern: i32) void {
         qtc.QPainterPathStroker_SetDashPattern(@ptrCast(self), @intCast(dashPattern));
     }
 

@@ -261,7 +261,7 @@ pub const qfontmetrics = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#elidedText)
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8, mode: qnamespace_enums.TextElideMode, width: i32, allocator: std.mem.Allocator ```
-    pub fn ElidedText(self: ?*anyopaque, text: []const u8, mode: i64, width: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn ElidedText(self: ?*anyopaque, text: []const u8, mode: i32, width: i32, allocator: std.mem.Allocator) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -402,7 +402,7 @@ pub const qfontmetrics = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetrics.html#elidedText)
     ///
     /// ``` self: QtC.QFontMetrics, text: []const u8, mode: qnamespace_enums.TextElideMode, width: i32, flags: i32, allocator: std.mem.Allocator ```
-    pub fn ElidedText4(self: ?*anyopaque, text: []const u8, mode: i64, width: i32, flags: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn ElidedText4(self: ?*anyopaque, text: []const u8, mode: i32, width: i32, flags: i32, allocator: std.mem.Allocator) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -685,7 +685,7 @@ pub const qfontmetricsf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#elidedText)
     ///
     /// ``` self: QtC.QFontMetricsF, text: []const u8, mode: qnamespace_enums.TextElideMode, width: f64, allocator: std.mem.Allocator ```
-    pub fn ElidedText(self: ?*anyopaque, text: []const u8, mode: i64, width: f64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ElidedText(self: ?*anyopaque, text: []const u8, mode: i32, width: f64, allocator: std.mem.Allocator) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -804,7 +804,7 @@ pub const qfontmetricsf = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qfontmetricsf.html#elidedText)
     ///
     /// ``` self: QtC.QFontMetricsF, text: []const u8, mode: qnamespace_enums.TextElideMode, width: f64, flags: i32, allocator: std.mem.Allocator ```
-    pub fn ElidedText4(self: ?*anyopaque, text: []const u8, mode: i64, width: f64, flags: i32, allocator: std.mem.Allocator) []const u8 {
+    pub fn ElidedText4(self: ?*anyopaque, text: []const u8, mode: i32, width: f64, flags: i32, allocator: std.mem.Allocator) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,

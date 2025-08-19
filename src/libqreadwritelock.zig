@@ -14,7 +14,7 @@ pub const qreadwritelock = struct {
     /// New2 constructs a new QReadWriteLock object.
     ///
     /// ``` recursionMode: qreadwritelock_enums.RecursionMode ```
-    pub fn New2(recursionMode: i64) QtC.QReadWriteLock {
+    pub fn New2(recursionMode: i32) QtC.QReadWriteLock {
         return qtc.QReadWriteLock_new2(@intCast(recursionMode));
     }
 

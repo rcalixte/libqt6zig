@@ -273,7 +273,7 @@ pub const qimagewriter = struct {
     /// ``` self: QtC.QImageWriter ```
     ///
     /// Returns: ``` qimagewriter_enums.ImageWriterError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QImageWriter_Error(@ptrCast(self));
     }
 
@@ -291,7 +291,7 @@ pub const qimagewriter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagewriter.html#supportsOption)
     ///
     /// ``` self: QtC.QImageWriter, option: qimageiohandler_enums.ImageOption ```
-    pub fn SupportsOption(self: ?*anyopaque, option: i64) bool {
+    pub fn SupportsOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QImageWriter_SupportsOption(@ptrCast(self), @intCast(option));
     }
 

@@ -8,7 +8,7 @@ pub const qwebenginesettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#setFontFamily)
     ///
     /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily, family: []const u8 ```
-    pub fn SetFontFamily(self: ?*anyopaque, which: i64, family: []const u8) void {
+    pub fn SetFontFamily(self: ?*anyopaque, which: i32, family: []const u8) void {
         const family_str = qtc.libqt_string{
             .len = family.len,
             .data = family.ptr,
@@ -19,7 +19,7 @@ pub const qwebenginesettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#fontFamily)
     ///
     /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily, allocator: std.mem.Allocator ```
-    pub fn FontFamily(self: ?*anyopaque, which: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn FontFamily(self: ?*anyopaque, which: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QWebEngineSettings_FontFamily(@ptrCast(self), @intCast(which));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginesettings.FontFamily: Memory allocation failed");
@@ -30,49 +30,49 @@ pub const qwebenginesettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#resetFontFamily)
     ///
     /// ``` self: QtC.QWebEngineSettings, which: qwebenginesettings_enums.FontFamily ```
-    pub fn ResetFontFamily(self: ?*anyopaque, which: i64) void {
+    pub fn ResetFontFamily(self: ?*anyopaque, which: i32) void {
         qtc.QWebEngineSettings_ResetFontFamily(@ptrCast(self), @intCast(which));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#setFontSize)
     ///
     /// ``` self: QtC.QWebEngineSettings, typeVal: qwebenginesettings_enums.FontSize, size: i32 ```
-    pub fn SetFontSize(self: ?*anyopaque, typeVal: i64, size: i32) void {
+    pub fn SetFontSize(self: ?*anyopaque, typeVal: i32, size: i32) void {
         qtc.QWebEngineSettings_SetFontSize(@ptrCast(self), @intCast(typeVal), @intCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#fontSize)
     ///
     /// ``` self: QtC.QWebEngineSettings, typeVal: qwebenginesettings_enums.FontSize ```
-    pub fn FontSize(self: ?*anyopaque, typeVal: i64) i32 {
+    pub fn FontSize(self: ?*anyopaque, typeVal: i32) i32 {
         return qtc.QWebEngineSettings_FontSize(@ptrCast(self), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#resetFontSize)
     ///
     /// ``` self: QtC.QWebEngineSettings, typeVal: qwebenginesettings_enums.FontSize ```
-    pub fn ResetFontSize(self: ?*anyopaque, typeVal: i64) void {
+    pub fn ResetFontSize(self: ?*anyopaque, typeVal: i32) void {
         qtc.QWebEngineSettings_ResetFontSize(@ptrCast(self), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#setAttribute)
     ///
     /// ``` self: QtC.QWebEngineSettings, attr: qwebenginesettings_enums.WebAttribute, on: bool ```
-    pub fn SetAttribute(self: ?*anyopaque, attr: i64, on: bool) void {
+    pub fn SetAttribute(self: ?*anyopaque, attr: i32, on: bool) void {
         qtc.QWebEngineSettings_SetAttribute(@ptrCast(self), @intCast(attr), on);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#testAttribute)
     ///
     /// ``` self: QtC.QWebEngineSettings, attr: qwebenginesettings_enums.WebAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, attr: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, attr: i32) bool {
         return qtc.QWebEngineSettings_TestAttribute(@ptrCast(self), @intCast(attr));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#resetAttribute)
     ///
     /// ``` self: QtC.QWebEngineSettings, attr: qwebenginesettings_enums.WebAttribute ```
-    pub fn ResetAttribute(self: ?*anyopaque, attr: i64) void {
+    pub fn ResetAttribute(self: ?*anyopaque, attr: i32) void {
         qtc.QWebEngineSettings_ResetAttribute(@ptrCast(self), @intCast(attr));
     }
 
@@ -103,14 +103,14 @@ pub const qwebenginesettings = struct {
     /// ``` self: QtC.QWebEngineSettings ```
     ///
     /// Returns: ``` qwebenginesettings_enums.UnknownUrlSchemePolicy ```
-    pub fn UnknownUrlSchemePolicy(self: ?*anyopaque) i64 {
+    pub fn UnknownUrlSchemePolicy(self: ?*anyopaque) i32 {
         return qtc.QWebEngineSettings_UnknownUrlSchemePolicy(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#setUnknownUrlSchemePolicy)
     ///
     /// ``` self: QtC.QWebEngineSettings, policy: qwebenginesettings_enums.UnknownUrlSchemePolicy ```
-    pub fn SetUnknownUrlSchemePolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetUnknownUrlSchemePolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWebEngineSettings_SetUnknownUrlSchemePolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -124,7 +124,7 @@ pub const qwebenginesettings = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginesettings.html#setImageAnimationPolicy)
     ///
     /// ``` self: QtC.QWebEngineSettings, policy: qwebenginesettings_enums.ImageAnimationPolicy ```
-    pub fn SetImageAnimationPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetImageAnimationPolicy(self: ?*anyopaque, policy: u8) void {
         qtc.QWebEngineSettings_SetImageAnimationPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -133,7 +133,7 @@ pub const qwebenginesettings = struct {
     /// ``` self: QtC.QWebEngineSettings ```
     ///
     /// Returns: ``` qwebenginesettings_enums.ImageAnimationPolicy ```
-    pub fn ImageAnimationPolicy(self: ?*anyopaque) i64 {
+    pub fn ImageAnimationPolicy(self: ?*anyopaque) u8 {
         return qtc.QWebEngineSettings_ImageAnimationPolicy(@ptrCast(self));
     }
 

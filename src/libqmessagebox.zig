@@ -27,7 +27,7 @@ pub const qmessagebox = struct {
     /// New3 constructs a new QMessageBox object.
     ///
     /// ``` icon: qmessagebox_enums.Icon, title: []const u8, text: []const u8 ```
-    pub fn New3(icon: i64, title: []const u8, text: []const u8) QtC.QMessageBox {
+    pub fn New3(icon: i32, title: []const u8, text: []const u8) QtC.QMessageBox {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -43,7 +43,7 @@ pub const qmessagebox = struct {
     /// New4 constructs a new QMessageBox object.
     ///
     /// ``` title: []const u8, text: []const u8, icon: qmessagebox_enums.Icon, button0: i32, button1: i32, button2: i32 ```
-    pub fn New4(title: []const u8, text: []const u8, icon: i64, button0: i32, button1: i32, button2: i32) QtC.QMessageBox {
+    pub fn New4(title: []const u8, text: []const u8, icon: i32, button0: i32, button1: i32, button2: i32) QtC.QMessageBox {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -59,7 +59,7 @@ pub const qmessagebox = struct {
     /// New5 constructs a new QMessageBox object.
     ///
     /// ``` icon: qmessagebox_enums.Icon, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
-    pub fn New5(icon: i64, title: []const u8, text: []const u8, buttons: i64) QtC.QMessageBox {
+    pub fn New5(icon: i32, title: []const u8, text: []const u8, buttons: i64) QtC.QMessageBox {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -75,7 +75,7 @@ pub const qmessagebox = struct {
     /// New6 constructs a new QMessageBox object.
     ///
     /// ``` icon: qmessagebox_enums.Icon, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, parent: QtC.QWidget ```
-    pub fn New6(icon: i64, title: []const u8, text: []const u8, buttons: i64, parent: ?*anyopaque) QtC.QMessageBox {
+    pub fn New6(icon: i32, title: []const u8, text: []const u8, buttons: i64, parent: ?*anyopaque) QtC.QMessageBox {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -91,7 +91,7 @@ pub const qmessagebox = struct {
     /// New7 constructs a new QMessageBox object.
     ///
     /// ``` icon: qmessagebox_enums.Icon, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, parent: QtC.QWidget, flags: flag of qnamespace_enums.WindowType ```
-    pub fn New7(icon: i64, title: []const u8, text: []const u8, buttons: i64, parent: ?*anyopaque, flags: i64) QtC.QMessageBox {
+    pub fn New7(icon: i32, title: []const u8, text: []const u8, buttons: i64, parent: ?*anyopaque, flags: i64) QtC.QMessageBox {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -107,7 +107,7 @@ pub const qmessagebox = struct {
     /// New8 constructs a new QMessageBox object.
     ///
     /// ``` title: []const u8, text: []const u8, icon: qmessagebox_enums.Icon, button0: i32, button1: i32, button2: i32, parent: QtC.QWidget ```
-    pub fn New8(title: []const u8, text: []const u8, icon: i64, button0: i32, button1: i32, button2: i32, parent: ?*anyopaque) QtC.QMessageBox {
+    pub fn New8(title: []const u8, text: []const u8, icon: i32, button0: i32, button1: i32, button2: i32, parent: ?*anyopaque) QtC.QMessageBox {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -123,7 +123,7 @@ pub const qmessagebox = struct {
     /// New9 constructs a new QMessageBox object.
     ///
     /// ``` title: []const u8, text: []const u8, icon: qmessagebox_enums.Icon, button0: i32, button1: i32, button2: i32, parent: QtC.QWidget, f: flag of qnamespace_enums.WindowType ```
-    pub fn New9(title: []const u8, text: []const u8, icon: i64, button0: i32, button1: i32, button2: i32, parent: ?*anyopaque, f: i64) QtC.QMessageBox {
+    pub fn New9(title: []const u8, text: []const u8, icon: i32, button0: i32, button1: i32, button2: i32, parent: ?*anyopaque, f: i64) QtC.QMessageBox {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -150,21 +150,21 @@ pub const qmessagebox = struct {
     }
 
     /// ``` self: QtC.QMessageBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QMessageBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QMessageBox, slot: fn (self: QtC.QMessageBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QMessageBox_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QMessageBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QMessageBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -183,14 +183,14 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
     ///
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton, role: qmessagebox_enums.ButtonRole ```
-    pub fn AddButton(self: ?*anyopaque, button: ?*anyopaque, role: i64) void {
+    pub fn AddButton(self: ?*anyopaque, button: ?*anyopaque, role: i32) void {
         qtc.QMessageBox_AddButton(@ptrCast(self), @ptrCast(button), @intCast(role));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
     ///
     /// ``` self: QtC.QMessageBox, text: []const u8, role: qmessagebox_enums.ButtonRole ```
-    pub fn AddButton2(self: ?*anyopaque, text: []const u8, role: i64) QtC.QPushButton {
+    pub fn AddButton2(self: ?*anyopaque, text: []const u8, role: i32) QtC.QPushButton {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -201,7 +201,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#addButton)
     ///
     /// ``` self: QtC.QMessageBox, button: qmessagebox_enums.StandardButton ```
-    pub fn AddButton3(self: ?*anyopaque, button: i64) QtC.QPushButton {
+    pub fn AddButton3(self: ?*anyopaque, button: i32) QtC.QPushButton {
         return qtc.QMessageBox_AddButton3(@ptrCast(self), @intCast(button));
     }
 
@@ -229,7 +229,7 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton ```
     ///
     /// Returns: ``` qmessagebox_enums.ButtonRole ```
-    pub fn ButtonRole(self: ?*anyopaque, button: ?*anyopaque) i64 {
+    pub fn ButtonRole(self: ?*anyopaque, button: ?*anyopaque) i32 {
         return qtc.QMessageBox_ButtonRole(@ptrCast(self), @ptrCast(button));
     }
 
@@ -254,14 +254,14 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox, button: QtC.QAbstractButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn StandardButton(self: ?*anyopaque, button: ?*anyopaque) i64 {
+    pub fn StandardButton(self: ?*anyopaque, button: ?*anyopaque) i32 {
         return qtc.QMessageBox_StandardButton(@ptrCast(self), @ptrCast(button));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#button)
     ///
     /// ``` self: QtC.QMessageBox, which: qmessagebox_enums.StandardButton ```
-    pub fn Button(self: ?*anyopaque, which: i64) QtC.QAbstractButton {
+    pub fn Button(self: ?*anyopaque, which: i32) QtC.QAbstractButton {
         return qtc.QMessageBox_Button(@ptrCast(self), @intCast(which));
     }
 
@@ -282,7 +282,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setDefaultButton)
     ///
     /// ``` self: QtC.QMessageBox, button: qmessagebox_enums.StandardButton ```
-    pub fn SetDefaultButton2(self: ?*anyopaque, button: i64) void {
+    pub fn SetDefaultButton2(self: ?*anyopaque, button: i32) void {
         qtc.QMessageBox_SetDefaultButton2(@ptrCast(self), @intCast(button));
     }
 
@@ -303,7 +303,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setEscapeButton)
     ///
     /// ``` self: QtC.QMessageBox, button: qmessagebox_enums.StandardButton ```
-    pub fn SetEscapeButton2(self: ?*anyopaque, button: i64) void {
+    pub fn SetEscapeButton2(self: ?*anyopaque, button: i32) void {
         qtc.QMessageBox_SetEscapeButton2(@ptrCast(self), @intCast(button));
     }
 
@@ -341,14 +341,14 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qmessagebox_enums.Icon ```
-    pub fn Icon(self: ?*anyopaque) i64 {
+    pub fn Icon(self: ?*anyopaque) i32 {
         return qtc.QMessageBox_Icon(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setIcon)
     ///
     /// ``` self: QtC.QMessageBox, icon: qmessagebox_enums.Icon ```
-    pub fn SetIcon(self: ?*anyopaque, icon: i64) void {
+    pub fn SetIcon(self: ?*anyopaque, icon: i32) void {
         qtc.QMessageBox_SetIcon(@ptrCast(self), @intCast(icon));
     }
 
@@ -371,14 +371,14 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qnamespace_enums.TextFormat ```
-    pub fn TextFormat(self: ?*anyopaque) i64 {
+    pub fn TextFormat(self: ?*anyopaque) i32 {
         return qtc.QMessageBox_TextFormat(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setTextFormat)
     ///
     /// ``` self: QtC.QMessageBox, format: qnamespace_enums.TextFormat ```
-    pub fn SetTextFormat(self: ?*anyopaque, format: i64) void {
+    pub fn SetTextFormat(self: ?*anyopaque, format: i32) void {
         qtc.QMessageBox_SetTextFormat(@ptrCast(self), @intCast(format));
     }
 
@@ -415,14 +415,14 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
     ///
     /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option ```
-    pub fn SetOption(self: ?*anyopaque, option: i64) void {
+    pub fn SetOption(self: ?*anyopaque, option: i32) void {
         qtc.QMessageBox_SetOption(@ptrCast(self), @intCast(option));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#testOption)
     ///
     /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option ```
-    pub fn TestOption(self: ?*anyopaque, option: i64) bool {
+    pub fn TestOption(self: ?*anyopaque, option: i32) bool {
         return qtc.QMessageBox_TestOption(@ptrCast(self), @intCast(option));
     }
 
@@ -447,7 +447,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Information(parent: ?*anyopaque, title: []const u8, text: []const u8) i64 {
+    pub fn Information(parent: ?*anyopaque, title: []const u8, text: []const u8) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -464,7 +464,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Information2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i64) i64 {
+    pub fn Information2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -481,7 +481,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Question(parent: ?*anyopaque, title: []const u8, text: []const u8) i64 {
+    pub fn Question(parent: ?*anyopaque, title: []const u8, text: []const u8) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -496,7 +496,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#question)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
-    pub fn Question2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i64, button1: i64) i32 {
+    pub fn Question2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -513,7 +513,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Warning(parent: ?*anyopaque, title: []const u8, text: []const u8) i64 {
+    pub fn Warning(parent: ?*anyopaque, title: []const u8, text: []const u8) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -528,7 +528,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#warning)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
-    pub fn Warning2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i64, button1: i64) i32 {
+    pub fn Warning2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -545,7 +545,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8 ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Critical(parent: ?*anyopaque, title: []const u8, text: []const u8) i64 {
+    pub fn Critical(parent: ?*anyopaque, title: []const u8, text: []const u8) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -560,7 +560,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#critical)
     ///
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
-    pub fn Critical2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i64, button1: i64) i32 {
+    pub fn Critical2(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -810,14 +810,14 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setWindowModality)
     ///
     /// ``` self: QtC.QMessageBox, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QMessageBox_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#standardIcon)
     ///
     /// ``` icon: qmessagebox_enums.Icon ```
-    pub fn StandardIcon(icon: i64) QtC.QPixmap {
+    pub fn StandardIcon(icon: i32) QtC.QPixmap {
         return qtc.QMessageBox_StandardIcon(@intCast(icon));
     }
 
@@ -1014,7 +1014,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessagebox.html#setOption)
     ///
     /// ``` self: QtC.QMessageBox, option: qmessagebox_enums.Option, on: bool ```
-    pub fn SetOption2(self: ?*anyopaque, option: i64, on: bool) void {
+    pub fn SetOption2(self: ?*anyopaque, option: i32, on: bool) void {
         qtc.QMessageBox_SetOption2(@ptrCast(self), @intCast(option), on);
     }
 
@@ -1023,7 +1023,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Information42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i64 {
+    pub fn Information42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1040,7 +1040,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Information5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i64) i64 {
+    pub fn Information5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1057,7 +1057,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, button0: qmessagebox_enums.StandardButton, button1: qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Information52(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i64, button1: i64) i64 {
+    pub fn Information52(parent: ?*anyopaque, title: []const u8, text: []const u8, button0: i32, button1: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1074,7 +1074,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Question42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i64 {
+    pub fn Question42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1091,7 +1091,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Question5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i64) i64 {
+    pub fn Question5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1108,7 +1108,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Warning42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i64 {
+    pub fn Warning42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1125,7 +1125,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Warning5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i64) i64 {
+    pub fn Warning5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1142,7 +1142,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Critical42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i64 {
+    pub fn Critical42(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1159,7 +1159,7 @@ pub const qmessagebox = struct {
     /// ``` parent: QtC.QWidget, title: []const u8, text: []const u8, buttons: flag of qmessagebox_enums.StandardButton, defaultButton: qmessagebox_enums.StandardButton ```
     ///
     /// Returns: ``` qmessagebox_enums.StandardButton ```
-    pub fn Critical5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i64) i64 {
+    pub fn Critical5(parent: ?*anyopaque, title: []const u8, text: []const u8, buttons: i64, defaultButton: i32) i32 {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -1875,7 +1875,7 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -2415,7 +2415,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QMessageBox, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -2426,7 +2426,7 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -2435,7 +2435,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QMessageBox, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -2446,7 +2446,7 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -2972,7 +2972,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QMessageBox, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -2983,7 +2983,7 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -3082,7 +3082,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QMessageBox, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -3093,7 +3093,7 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -3102,7 +3102,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QMessageBox, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3149,7 +3149,7 @@ pub const qmessagebox = struct {
     /// ``` self: QtC.QMessageBox ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -3158,7 +3158,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QMessageBox, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3654,7 +3654,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QMessageBox, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -4029,7 +4029,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -4038,7 +4038,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -4300,7 +4300,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QMessageBox, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -4336,7 +4336,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QMessageBox, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -4470,7 +4470,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QMessageBox, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -4684,7 +4684,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QMessageBox, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -4693,7 +4693,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -4702,7 +4702,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QMessageBox, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -4839,7 +4839,7 @@ pub const qmessagebox = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -5980,7 +5980,7 @@ pub const qmessagebox = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QMessageBox, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QMessageBox_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -5991,7 +5991,7 @@ pub const qmessagebox = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QMessageBox, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QMessageBox_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -6002,7 +6002,7 @@ pub const qmessagebox = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QMessageBox, slot: fn (self: QtC.QMessageBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QMessageBox_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6708,7 +6708,7 @@ pub const qmessagebox = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QMessageBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QMessageBox_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6719,7 +6719,7 @@ pub const qmessagebox = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QMessageBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QMessageBox_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -6730,7 +6730,7 @@ pub const qmessagebox = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QMessageBox, slot: fn (self: QtC.QMessageBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QMessageBox_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

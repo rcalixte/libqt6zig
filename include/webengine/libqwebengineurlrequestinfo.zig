@@ -10,7 +10,7 @@ pub const qwebengineurlrequestinfo = struct {
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     ///
     /// Returns: ``` qwebengineurlrequestinfo_enums.ResourceType ```
-    pub fn ResourceType(self: ?*anyopaque) i64 {
+    pub fn ResourceType(self: ?*anyopaque) i32 {
         return qtc.QWebEngineUrlRequestInfo_ResourceType(@ptrCast(self));
     }
 
@@ -19,7 +19,7 @@ pub const qwebengineurlrequestinfo = struct {
     /// ``` self: QtC.QWebEngineUrlRequestInfo ```
     ///
     /// Returns: ``` qwebengineurlrequestinfo_enums.NavigationType ```
-    pub fn NavigationType(self: ?*anyopaque) i64 {
+    pub fn NavigationType(self: ?*anyopaque) i32 {
         return qtc.QWebEngineUrlRequestInfo_NavigationType(@ptrCast(self));
     }
 

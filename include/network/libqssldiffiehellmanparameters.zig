@@ -78,7 +78,7 @@ pub const qssldiffiehellmanparameters = struct {
     /// ``` self: QtC.QSslDiffieHellmanParameters ```
     ///
     /// Returns: ``` qssldiffiehellmanparameters_enums.Error ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QSslDiffieHellmanParameters_Error(@ptrCast(self));
     }
 
@@ -96,7 +96,7 @@ pub const qssldiffiehellmanparameters = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
     /// ``` encoded: []u8, format: qssl_enums.EncodingFormat ```
-    pub fn FromEncoded22(encoded: []u8, format: i64) QtC.QSslDiffieHellmanParameters {
+    pub fn FromEncoded22(encoded: []u8, format: i32) QtC.QSslDiffieHellmanParameters {
         const encoded_str = qtc.libqt_string{
             .len = encoded.len,
             .data = encoded.ptr,
@@ -107,7 +107,7 @@ pub const qssldiffiehellmanparameters = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qssldiffiehellmanparameters.html#fromEncoded)
     ///
     /// ``` device: QtC.QIODevice, format: qssl_enums.EncodingFormat ```
-    pub fn FromEncoded23(device: ?*anyopaque, format: i64) QtC.QSslDiffieHellmanParameters {
+    pub fn FromEncoded23(device: ?*anyopaque, format: i32) QtC.QSslDiffieHellmanParameters {
         return qtc.QSslDiffieHellmanParameters_FromEncoded23(@ptrCast(device), @intCast(format));
     }
 

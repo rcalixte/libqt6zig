@@ -89,7 +89,7 @@ pub const qlockfile = struct {
     /// ``` self: QtC.QLockFile ```
     ///
     /// Returns: ``` qlockfile_enums.LockError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QLockFile_Error(@ptrCast(self));
     }
 

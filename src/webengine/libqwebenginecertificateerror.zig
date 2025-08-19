@@ -24,7 +24,7 @@ pub const qwebenginecertificateerror = struct {
     /// ``` self: QtC.QWebEngineCertificateError ```
     ///
     /// Returns: ``` qwebenginecertificateerror_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QWebEngineCertificateError_Type(@ptrCast(self));
     }
 

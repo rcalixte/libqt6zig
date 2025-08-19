@@ -152,7 +152,7 @@ pub const qscistyle = struct {
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciStyle.html)
     ///
     /// ``` self: QtC.QsciStyle, text_case: qscistyle_enums.TextCase ```
-    pub fn SetTextCase(self: ?*anyopaque, text_case: i64) void {
+    pub fn SetTextCase(self: ?*anyopaque, text_case: i32) void {
         qtc.QsciStyle_SetTextCase(@ptrCast(self), @intCast(text_case));
     }
 
@@ -161,7 +161,7 @@ pub const qscistyle = struct {
     /// ``` self: QtC.QsciStyle ```
     ///
     /// Returns: ``` qscistyle_enums.TextCase ```
-    pub fn TextCase(self: ?*anyopaque) i64 {
+    pub fn TextCase(self: ?*anyopaque) i32 {
         return qtc.QsciStyle_TextCase(@ptrCast(self));
     }
 

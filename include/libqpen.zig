@@ -15,7 +15,7 @@ pub const qpen = struct {
     /// New2 constructs a new QPen object.
     ///
     /// ``` param1: qnamespace_enums.PenStyle ```
-    pub fn New2(param1: i64) QtC.QPen {
+    pub fn New2(param1: i32) QtC.QPen {
         return qtc.QPen_new2(@intCast(param1));
     }
 
@@ -43,21 +43,21 @@ pub const qpen = struct {
     /// New6 constructs a new QPen object.
     ///
     /// ``` brush: QtC.QBrush, width: f64, s: qnamespace_enums.PenStyle ```
-    pub fn New6(brush: ?*anyopaque, width: f64, s: i64) QtC.QPen {
+    pub fn New6(brush: ?*anyopaque, width: f64, s: i32) QtC.QPen {
         return qtc.QPen_new6(@ptrCast(brush), @floatCast(width), @intCast(s));
     }
 
     /// New7 constructs a new QPen object.
     ///
     /// ``` brush: QtC.QBrush, width: f64, s: qnamespace_enums.PenStyle, c: qnamespace_enums.PenCapStyle ```
-    pub fn New7(brush: ?*anyopaque, width: f64, s: i64, c: i64) QtC.QPen {
+    pub fn New7(brush: ?*anyopaque, width: f64, s: i32, c: i32) QtC.QPen {
         return qtc.QPen_new7(@ptrCast(brush), @floatCast(width), @intCast(s), @intCast(c));
     }
 
     /// New8 constructs a new QPen object.
     ///
     /// ``` brush: QtC.QBrush, width: f64, s: qnamespace_enums.PenStyle, c: qnamespace_enums.PenCapStyle, j: qnamespace_enums.PenJoinStyle ```
-    pub fn New8(brush: ?*anyopaque, width: f64, s: i64, c: i64, j: i64) QtC.QPen {
+    pub fn New8(brush: ?*anyopaque, width: f64, s: i32, c: i32, j: i32) QtC.QPen {
         return qtc.QPen_new8(@ptrCast(brush), @floatCast(width), @intCast(s), @intCast(c), @intCast(j));
     }
 
@@ -80,14 +80,14 @@ pub const qpen = struct {
     /// ``` self: QtC.QPen ```
     ///
     /// Returns: ``` qnamespace_enums.PenStyle ```
-    pub fn Style(self: ?*anyopaque) i64 {
+    pub fn Style(self: ?*anyopaque) i32 {
         return qtc.QPen_Style(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#setStyle)
     ///
     /// ``` self: QtC.QPen, style: qnamespace_enums.PenStyle ```
-    pub fn SetStyle(self: ?*anyopaque, style: i64) void {
+    pub fn SetStyle(self: ?*anyopaque, style: i32) void {
         qtc.QPen_SetStyle(@ptrCast(self), @intCast(style));
     }
 
@@ -210,14 +210,14 @@ pub const qpen = struct {
     /// ``` self: QtC.QPen ```
     ///
     /// Returns: ``` qnamespace_enums.PenCapStyle ```
-    pub fn CapStyle(self: ?*anyopaque) i64 {
+    pub fn CapStyle(self: ?*anyopaque) i32 {
         return qtc.QPen_CapStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#setCapStyle)
     ///
     /// ``` self: QtC.QPen, pcs: qnamespace_enums.PenCapStyle ```
-    pub fn SetCapStyle(self: ?*anyopaque, pcs: i64) void {
+    pub fn SetCapStyle(self: ?*anyopaque, pcs: i32) void {
         qtc.QPen_SetCapStyle(@ptrCast(self), @intCast(pcs));
     }
 
@@ -226,14 +226,14 @@ pub const qpen = struct {
     /// ``` self: QtC.QPen ```
     ///
     /// Returns: ``` qnamespace_enums.PenJoinStyle ```
-    pub fn JoinStyle(self: ?*anyopaque) i64 {
+    pub fn JoinStyle(self: ?*anyopaque) i32 {
         return qtc.QPen_JoinStyle(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpen.html#setJoinStyle)
     ///
     /// ``` self: QtC.QPen, pcs: qnamespace_enums.PenJoinStyle ```
-    pub fn SetJoinStyle(self: ?*anyopaque, pcs: i64) void {
+    pub fn SetJoinStyle(self: ?*anyopaque, pcs: i32) void {
         qtc.QPen_SetJoinStyle(@ptrCast(self), @intCast(pcs));
     }
 

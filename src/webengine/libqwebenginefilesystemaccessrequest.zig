@@ -58,7 +58,7 @@ pub const qwebenginefilesystemaccessrequest = struct {
     /// ``` self: QtC.QWebEngineFileSystemAccessRequest ```
     ///
     /// Returns: ``` qwebenginefilesystemaccessrequest_enums.HandleType ```
-    pub fn HandleType(self: ?*anyopaque) i64 {
+    pub fn HandleType(self: ?*anyopaque) i32 {
         return qtc.QWebEngineFileSystemAccessRequest_HandleType(@ptrCast(self));
     }
 

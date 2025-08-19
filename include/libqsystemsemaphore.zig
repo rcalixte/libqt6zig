@@ -35,7 +35,7 @@ pub const qsystemsemaphore = struct {
     /// New4 constructs a new QSystemSemaphore object.
     ///
     /// ``` key: QtC.QNativeIpcKey, initialValue: i32, param3: qsystemsemaphore_enums.AccessMode ```
-    pub fn New4(key: ?*anyopaque, initialValue: i32, param3: i64) QtC.QSystemSemaphore {
+    pub fn New4(key: ?*anyopaque, initialValue: i32, param3: i32) QtC.QSystemSemaphore {
         return qtc.QSystemSemaphore_new4(@ptrCast(key), @intCast(initialValue), @intCast(param3));
     }
 
@@ -54,7 +54,7 @@ pub const qsystemsemaphore = struct {
     /// New6 constructs a new QSystemSemaphore object.
     ///
     /// ``` key: []const u8, initialValue: i32, mode: qsystemsemaphore_enums.AccessMode ```
-    pub fn New6(key: []const u8, initialValue: i32, mode: i64) QtC.QSystemSemaphore {
+    pub fn New6(key: []const u8, initialValue: i32, mode: i32) QtC.QSystemSemaphore {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -141,7 +141,7 @@ pub const qsystemsemaphore = struct {
     /// ``` self: QtC.QSystemSemaphore ```
     ///
     /// Returns: ``` qsystemsemaphore_enums.SystemSemaphoreError ```
-    pub fn Error(self: ?*anyopaque) i64 {
+    pub fn Error(self: ?*anyopaque) i32 {
         return qtc.QSystemSemaphore_Error(@ptrCast(self));
     }
 
@@ -159,7 +159,7 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#isKeyTypeSupported)
     ///
     /// ``` typeVal: qtipccommon_enums.Type ```
-    pub fn IsKeyTypeSupported(typeVal: i64) bool {
+    pub fn IsKeyTypeSupported(typeVal: u16) bool {
         return qtc.QSystemSemaphore_IsKeyTypeSupported(@intCast(typeVal));
     }
 
@@ -221,7 +221,7 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: QtC.QNativeIpcKey, initialValue: i32, param3: qsystemsemaphore_enums.AccessMode ```
-    pub fn SetNativeKey3(self: ?*anyopaque, key: ?*anyopaque, initialValue: i32, param3: i64) void {
+    pub fn SetNativeKey3(self: ?*anyopaque, key: ?*anyopaque, initialValue: i32, param3: i32) void {
         qtc.QSystemSemaphore_SetNativeKey3(@ptrCast(self), @ptrCast(key), @intCast(initialValue), @intCast(param3));
     }
 
@@ -239,7 +239,7 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32, mode: qsystemsemaphore_enums.AccessMode ```
-    pub fn SetNativeKey32(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i64) void {
+    pub fn SetNativeKey32(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -250,7 +250,7 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setNativeKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32, mode: qsystemsemaphore_enums.AccessMode, typeVal: qtipccommon_enums.Type ```
-    pub fn SetNativeKey4(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i64, typeVal: i64) void {
+    pub fn SetNativeKey4(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i32, typeVal: u16) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -272,7 +272,7 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#setKey)
     ///
     /// ``` self: QtC.QSystemSemaphore, key: []const u8, initialValue: i32, mode: qsystemsemaphore_enums.AccessMode ```
-    pub fn SetKey3(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i64) void {
+    pub fn SetKey3(self: ?*anyopaque, key: []const u8, initialValue: i32, mode: i32) void {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -290,7 +290,7 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#platformSafeKey)
     ///
     /// ``` key: []const u8, typeVal: qtipccommon_enums.Type ```
-    pub fn PlatformSafeKey2(key: []const u8, typeVal: i64) QtC.QNativeIpcKey {
+    pub fn PlatformSafeKey2(key: []const u8, typeVal: u16) QtC.QNativeIpcKey {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -301,7 +301,7 @@ pub const qsystemsemaphore = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qsystemsemaphore.html#legacyNativeKey)
     ///
     /// ``` key: []const u8, typeVal: qtipccommon_enums.Type ```
-    pub fn LegacyNativeKey2(key: []const u8, typeVal: i64) QtC.QNativeIpcKey {
+    pub fn LegacyNativeKey2(key: []const u8, typeVal: u16) QtC.QNativeIpcKey {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,

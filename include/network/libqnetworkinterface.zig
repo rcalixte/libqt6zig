@@ -52,14 +52,14 @@ pub const qnetworkaddressentry = struct {
     /// ``` self: QtC.QNetworkAddressEntry ```
     ///
     /// Returns: ``` qnetworkinterface_enums.DnsEligibilityStatus ```
-    pub fn DnsEligibility(self: ?*anyopaque) i64 {
+    pub fn DnsEligibility(self: ?*anyopaque) i8 {
         return qtc.QNetworkAddressEntry_DnsEligibility(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaddressentry.html#setDnsEligibility)
     ///
     /// ``` self: QtC.QNetworkAddressEntry, status: qnetworkinterface_enums.DnsEligibilityStatus ```
-    pub fn SetDnsEligibility(self: ?*anyopaque, status: i64) void {
+    pub fn SetDnsEligibility(self: ?*anyopaque, status: i8) void {
         qtc.QNetworkAddressEntry_SetDnsEligibility(@ptrCast(self), @intCast(status));
     }
 
@@ -265,7 +265,7 @@ pub const qnetworkinterface = struct {
     /// ``` self: QtC.QNetworkInterface ```
     ///
     /// Returns: ``` qnetworkinterface_enums.InterfaceType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QNetworkInterface_Type(@ptrCast(self));
     }
 

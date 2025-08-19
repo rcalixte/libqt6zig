@@ -43,14 +43,14 @@ pub const qregion = struct {
     /// New6 constructs a new QRegion object.
     ///
     /// ``` x: i32, y: i32, w: i32, h: i32, t: qregion_enums.RegionType ```
-    pub fn New6(x: i32, y: i32, w: i32, h: i32, t: i64) QtC.QRegion {
+    pub fn New6(x: i32, y: i32, w: i32, h: i32, t: i32) QtC.QRegion {
         return qtc.QRegion_new6(@intCast(x), @intCast(y), @intCast(w), @intCast(h), @intCast(t));
     }
 
     /// New7 constructs a new QRegion object.
     ///
     /// ``` r: QtC.QRect, t: qregion_enums.RegionType ```
-    pub fn New7(r: ?*anyopaque, t: i64) QtC.QRegion {
+    pub fn New7(r: ?*anyopaque, t: i32) QtC.QRegion {
         return qtc.QRegion_new7(@ptrCast(r), @intCast(t));
     }
 

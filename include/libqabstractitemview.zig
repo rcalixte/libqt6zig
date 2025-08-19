@@ -42,21 +42,21 @@ pub const qabstractitemview = struct {
     }
 
     /// ``` self: QtC.QAbstractItemView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractItemView_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -153,7 +153,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qabstractitemview_enums.SelectionMode ```
-    pub fn SetSelectionMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -162,14 +162,14 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.SelectionMode ```
-    pub fn SelectionMode(self: ?*anyopaque) i64 {
+    pub fn SelectionMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ``` self: QtC.QAbstractItemView, behavior: qabstractitemview_enums.SelectionBehavior ```
-    pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i64) void {
+    pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
     }
 
@@ -178,7 +178,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.SelectionBehavior ```
-    pub fn SelectionBehavior(self: ?*anyopaque) i64 {
+    pub fn SelectionBehavior(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
     }
 
@@ -215,7 +215,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qabstractitemview_enums.ScrollMode ```
-    pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -224,7 +224,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.ScrollMode ```
-    pub fn VerticalScrollMode(self: ?*anyopaque) i64 {
+    pub fn VerticalScrollMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
     }
 
@@ -238,7 +238,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qabstractitemview_enums.ScrollMode ```
-    pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -247,7 +247,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.ScrollMode ```
-    pub fn HorizontalScrollMode(self: ?*anyopaque) i64 {
+    pub fn HorizontalScrollMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
     }
 
@@ -345,7 +345,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ``` self: QtC.QAbstractItemView, behavior: qabstractitemview_enums.DragDropMode ```
-    pub fn SetDragDropMode(self: ?*anyopaque, behavior: i64) void {
+    pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
     }
 
@@ -354,14 +354,14 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.DragDropMode ```
-    pub fn DragDropMode(self: ?*anyopaque) i64 {
+    pub fn DragDropMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ``` self: QtC.QAbstractItemView, dropAction: qnamespace_enums.DropAction ```
-    pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i64) void {
+    pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
     }
 
@@ -370,7 +370,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn DefaultDropAction(self: ?*anyopaque) i64 {
+    pub fn DefaultDropAction(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
     }
 
@@ -405,7 +405,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ``` self: QtC.QAbstractItemView, mode: qnamespace_enums.TextElideMode ```
-    pub fn SetTextElideMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -414,7 +414,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.TextElideMode ```
-    pub fn TextElideMode(self: ?*anyopaque) i64 {
+    pub fn TextElideMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
     }
 
@@ -479,7 +479,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#scrollTo)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
-    pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i64) void {
+    pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
         qtc.QAbstractItemView_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
@@ -488,7 +488,7 @@ pub const qabstractitemview = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void ```
-    pub fn OnScrollTo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnScrollTo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemView_OnScrollTo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -497,7 +497,7 @@ pub const qabstractitemview = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
-    pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i64) void {
+    pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
         qtc.QAbstractItemView_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
@@ -1156,7 +1156,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#closeEditor)
     ///
     /// ``` self: QtC.QAbstractItemView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
-    pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i64) void {
+    pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
         qtc.QAbstractItemView_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
@@ -1165,7 +1165,7 @@ pub const qabstractitemview = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
-    pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemView_OnCloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1174,7 +1174,7 @@ pub const qabstractitemview = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
-    pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i64) void {
+    pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
         qtc.QAbstractItemView_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
@@ -1329,7 +1329,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#moveCursor)
     ///
     /// ``` self: QtC.QAbstractItemView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn MoveCursor(self: ?*anyopaque, cursorAction: i64, modifiers: i64) QtC.QModelIndex {
+    pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i64) QtC.QModelIndex {
         return qtc.QAbstractItemView_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
@@ -1338,7 +1338,7 @@ pub const qabstractitemview = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex ```
-    pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) QtC.QModelIndex) void {
+    pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) QtC.QModelIndex) void {
         qtc.QAbstractItemView_OnMoveCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1347,7 +1347,7 @@ pub const qabstractitemview = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i64, modifiers: i64) QtC.QModelIndex {
+    pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i64) QtC.QModelIndex {
         return qtc.QAbstractItemView_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
@@ -1514,7 +1514,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#edit)
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent ```
-    pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i64, event: ?*anyopaque) bool {
+    pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
         return qtc.QAbstractItemView_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
@@ -1523,7 +1523,7 @@ pub const qabstractitemview = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEdit2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnEdit2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
         qtc.QAbstractItemView_OnEdit2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1532,7 +1532,7 @@ pub const qabstractitemview = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent ```
-    pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i64, event: ?*anyopaque) bool {
+    pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
         return qtc.QAbstractItemView_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
@@ -1620,7 +1620,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.State ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_State(@ptrCast(self));
     }
 
@@ -1628,8 +1628,8 @@ pub const qabstractitemview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn () callconv(.c) i64 ```
-    pub fn OnState(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractItemView, slot: fn () callconv(.c) i32 ```
+    pub fn OnState(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractItemView_OnState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1640,14 +1640,14 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.State ```
-    pub fn QBaseState(self: ?*anyopaque) i64 {
+    pub fn QBaseState(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_QBaseState(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setState)
     ///
     /// ``` self: QtC.QAbstractItemView, state: qabstractitemview_enums.State ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QAbstractItemView_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -1656,7 +1656,7 @@ pub const qabstractitemview = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, state: qabstractitemview_enums.State) callconv(.c) void ```
-    pub fn OnSetState(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QAbstractItemView_OnSetState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1665,7 +1665,7 @@ pub const qabstractitemview = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QAbstractItemView, state: qabstractitemview_enums.State ```
-    pub fn QBaseSetState(self: ?*anyopaque, state: i64) void {
+    pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
         qtc.QAbstractItemView_QBaseSetState(@ptrCast(self), @intCast(state));
     }
 
@@ -2324,7 +2324,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.DropIndicatorPosition ```
-    pub fn DropIndicatorPosition(self: ?*anyopaque) i64 {
+    pub fn DropIndicatorPosition(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_DropIndicatorPosition(@ptrCast(self));
     }
 
@@ -2332,8 +2332,8 @@ pub const qabstractitemview = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemView, slot: fn () callconv(.c) i64 ```
-    pub fn OnDropIndicatorPosition(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QAbstractItemView, slot: fn () callconv(.c) i32 ```
+    pub fn OnDropIndicatorPosition(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QAbstractItemView_OnDropIndicatorPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2344,7 +2344,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractitemview_enums.DropIndicatorPosition ```
-    pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i64 {
+    pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_QBaseDropIndicatorPosition(@ptrCast(self));
     }
 
@@ -2406,7 +2406,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
+    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
 
@@ -2415,7 +2415,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i64) void {
+    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
     }
 
@@ -2444,7 +2444,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
+    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
 
@@ -2453,7 +2453,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i64) void {
+    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
     }
 
@@ -2550,7 +2550,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
+    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
 
@@ -2559,7 +2559,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -2597,7 +2597,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qframe_enums.Shape ```
-    pub fn FrameShape(self: ?*anyopaque) i64 {
+    pub fn FrameShape(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
 
@@ -2606,7 +2606,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QAbstractItemView, frameShape: qframe_enums.Shape ```
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i64) void {
+    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
         qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
     }
 
@@ -2617,7 +2617,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qframe_enums.Shadow ```
-    pub fn FrameShadow(self: ?*anyopaque) i64 {
+    pub fn FrameShadow(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
 
@@ -2626,7 +2626,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QAbstractItemView, frameShadow: qframe_enums.Shadow ```
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i64) void {
+    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
         qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
     }
 
@@ -2772,7 +2772,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -2781,7 +2781,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QAbstractItemView, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -3321,7 +3321,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QAbstractItemView, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -3332,7 +3332,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -3341,7 +3341,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QAbstractItemView, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -3352,7 +3352,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -3891,7 +3891,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QAbstractItemView, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -3902,7 +3902,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -4001,7 +4001,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QAbstractItemView, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -4012,7 +4012,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -4021,7 +4021,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -4068,7 +4068,7 @@ pub const qabstractitemview = struct {
     /// ``` self: QtC.QAbstractItemView ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -4077,7 +4077,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -4564,7 +4564,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QAbstractItemView, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -4939,7 +4939,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -4948,7 +4948,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -5210,7 +5210,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QAbstractItemView, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -5246,7 +5246,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -5380,7 +5380,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QAbstractItemView, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -5594,7 +5594,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QAbstractItemView, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -5603,7 +5603,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -5612,7 +5612,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QAbstractItemView, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -5749,7 +5749,7 @@ pub const qabstractitemview = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -6560,7 +6560,7 @@ pub const qabstractitemview = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QAbstractItemView_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -6571,7 +6571,7 @@ pub const qabstractitemview = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractItemView, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QAbstractItemView_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -6582,7 +6582,7 @@ pub const qabstractitemview = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QAbstractItemView_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7222,7 +7222,7 @@ pub const qabstractitemview = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QAbstractItemView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractItemView_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -7233,7 +7233,7 @@ pub const qabstractitemview = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractItemView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractItemView_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -7244,7 +7244,7 @@ pub const qabstractitemview = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QAbstractItemView, slot: fn (self: QtC.QAbstractItemView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QAbstractItemView_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

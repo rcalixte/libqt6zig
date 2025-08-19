@@ -28,7 +28,7 @@ pub const qquaternion = struct {
     /// New4 constructs a new QQuaternion object.
     ///
     /// ``` param1: qnamespace_enums.Initialization ```
-    pub fn New4(param1: i64) QtC.QQuaternion {
+    pub fn New4(param1: i32) QtC.QQuaternion {
         return qtc.QQuaternion_new4(@intCast(param1));
     }
 

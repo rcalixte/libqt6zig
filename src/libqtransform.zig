@@ -22,7 +22,7 @@ pub const qtransform = struct {
     /// New3 constructs a new QTransform object.
     ///
     /// ``` param1: qnamespace_enums.Initialization ```
-    pub fn New3(param1: i64) QtC.QTransform {
+    pub fn New3(param1: i32) QtC.QTransform {
         return qtc.QTransform_new3(@intCast(param1));
     }
 
@@ -122,7 +122,7 @@ pub const qtransform = struct {
     /// ``` self: QtC.QTransform ```
     ///
     /// Returns: ``` qtransform_enums.TransformationType ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) i32 {
         return qtc.QTransform_Type(@ptrCast(self));
     }
 
@@ -262,7 +262,7 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotate)
     ///
     /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis, distanceToPlane: f64 ```
-    pub fn Rotate(self: ?*anyopaque, a: f64, axis: i64, distanceToPlane: f64) QtC.QTransform {
+    pub fn Rotate(self: ?*anyopaque, a: f64, axis: i32, distanceToPlane: f64) QtC.QTransform {
         return qtc.QTransform_Rotate(@ptrCast(self), @floatCast(a), @intCast(axis), @floatCast(distanceToPlane));
     }
 
@@ -276,7 +276,7 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
     ///
     /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis, distanceToPlane: f64 ```
-    pub fn RotateRadians(self: ?*anyopaque, a: f64, axis: i64, distanceToPlane: f64) QtC.QTransform {
+    pub fn RotateRadians(self: ?*anyopaque, a: f64, axis: i32, distanceToPlane: f64) QtC.QTransform {
         return qtc.QTransform_RotateRadians(@ptrCast(self), @floatCast(a), @intCast(axis), @floatCast(distanceToPlane));
     }
 
@@ -443,7 +443,7 @@ pub const qtransform = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#inverted)
     ///
-    /// ``` self: QtC.QTransform, invertible: bool ```
+    /// ``` self: QtC.QTransform, invertible: *bool ```
     pub fn Inverted1(self: ?*anyopaque, invertible: *bool) QtC.QTransform {
         return qtc.QTransform_Inverted1(@ptrCast(self), @ptrCast(invertible));
     }
@@ -451,14 +451,14 @@ pub const qtransform = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotate)
     ///
     /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis ```
-    pub fn Rotate22(self: ?*anyopaque, a: f64, axis: i64) QtC.QTransform {
+    pub fn Rotate22(self: ?*anyopaque, a: f64, axis: i32) QtC.QTransform {
         return qtc.QTransform_Rotate22(@ptrCast(self), @floatCast(a), @intCast(axis));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtransform.html#rotateRadians)
     ///
     /// ``` self: QtC.QTransform, a: f64, axis: qnamespace_enums.Axis ```
-    pub fn RotateRadians22(self: ?*anyopaque, a: f64, axis: i64) QtC.QTransform {
+    pub fn RotateRadians22(self: ?*anyopaque, a: f64, axis: i32) QtC.QTransform {
         return qtc.QTransform_RotateRadians22(@ptrCast(self), @floatCast(a), @intCast(axis));
     }
 

@@ -20,7 +20,7 @@ pub const qstylehints = struct {
     }
 
     /// ``` self: QtC.QStyleHints, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QStyleHints_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -188,14 +188,14 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuTrigger ```
-    pub fn ContextMenuTrigger(self: ?*anyopaque) i64 {
+    pub fn ContextMenuTrigger(self: ?*anyopaque) i32 {
         return qtc.QStyleHints_ContextMenuTrigger(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#setContextMenuTrigger)
     ///
     /// ``` self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger ```
-    pub fn SetContextMenuTrigger(self: ?*anyopaque, contextMenuTrigger: i64) void {
+    pub fn SetContextMenuTrigger(self: ?*anyopaque, contextMenuTrigger: i32) void {
         qtc.QStyleHints_SetContextMenuTrigger(@ptrCast(self), @intCast(contextMenuTrigger));
     }
 
@@ -239,14 +239,14 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints ```
     ///
     /// Returns: ``` qnamespace_enums.TabFocusBehavior ```
-    pub fn TabFocusBehavior(self: ?*anyopaque) i64 {
+    pub fn TabFocusBehavior(self: ?*anyopaque) i32 {
         return qtc.QStyleHints_TabFocusBehavior(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#setTabFocusBehavior)
     ///
     /// ``` self: QtC.QStyleHints, tabFocusBehavior: qnamespace_enums.TabFocusBehavior ```
-    pub fn SetTabFocusBehavior(self: ?*anyopaque, tabFocusBehavior: i64) void {
+    pub fn SetTabFocusBehavior(self: ?*anyopaque, tabFocusBehavior: i32) void {
         qtc.QStyleHints_SetTabFocusBehavior(@ptrCast(self), @intCast(tabFocusBehavior));
     }
 
@@ -304,14 +304,14 @@ pub const qstylehints = struct {
     /// ``` self: QtC.QStyleHints ```
     ///
     /// Returns: ``` qnamespace_enums.ColorScheme ```
-    pub fn ColorScheme(self: ?*anyopaque) i64 {
+    pub fn ColorScheme(self: ?*anyopaque) i32 {
         return qtc.QStyleHints_ColorScheme(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#setColorScheme)
     ///
     /// ``` self: QtC.QStyleHints, scheme: qnamespace_enums.ColorScheme ```
-    pub fn SetColorScheme(self: ?*anyopaque, scheme: i64) void {
+    pub fn SetColorScheme(self: ?*anyopaque, scheme: i32) void {
         qtc.QStyleHints_SetColorScheme(@ptrCast(self), @intCast(scheme));
     }
 
@@ -409,14 +409,14 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehaviorChanged)
     ///
     /// ``` self: QtC.QStyleHints, tabFocusBehavior: qnamespace_enums.TabFocusBehavior ```
-    pub fn TabFocusBehaviorChanged(self: ?*anyopaque, tabFocusBehavior: i64) void {
+    pub fn TabFocusBehaviorChanged(self: ?*anyopaque, tabFocusBehavior: i32) void {
         qtc.QStyleHints_TabFocusBehaviorChanged(@ptrCast(self), @intCast(tabFocusBehavior));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#tabFocusBehaviorChanged)
     ///
     /// ``` self: QtC.QStyleHints, slot: fn (self: QtC.QStyleHints, tabFocusBehavior: qnamespace_enums.TabFocusBehavior) callconv(.c) void ```
-    pub fn OnTabFocusBehaviorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnTabFocusBehaviorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_TabFocusBehaviorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -451,14 +451,14 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
     ///
     /// ``` self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger ```
-    pub fn ContextMenuTriggerChanged(self: ?*anyopaque, contextMenuTrigger: i64) void {
+    pub fn ContextMenuTriggerChanged(self: ?*anyopaque, contextMenuTrigger: i32) void {
         qtc.QStyleHints_ContextMenuTriggerChanged(@ptrCast(self), @intCast(contextMenuTrigger));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#contextMenuTriggerChanged)
     ///
     /// ``` self: QtC.QStyleHints, slot: fn (self: QtC.QStyleHints, contextMenuTrigger: qnamespace_enums.ContextMenuTrigger) callconv(.c) void ```
-    pub fn OnContextMenuTriggerChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnContextMenuTriggerChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_ContextMenuTriggerChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -493,14 +493,14 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
     ///
     /// ``` self: QtC.QStyleHints, colorScheme: qnamespace_enums.ColorScheme ```
-    pub fn ColorSchemeChanged(self: ?*anyopaque, colorScheme: i64) void {
+    pub fn ColorSchemeChanged(self: ?*anyopaque, colorScheme: i32) void {
         qtc.QStyleHints_ColorSchemeChanged(@ptrCast(self), @intCast(colorScheme));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstylehints.html#colorSchemeChanged)
     ///
     /// ``` self: QtC.QStyleHints, slot: fn (self: QtC.QStyleHints, colorScheme: qnamespace_enums.ColorScheme) callconv(.c) void ```
-    pub fn OnColorSchemeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnColorSchemeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QStyleHints_Connect_ColorSchemeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -660,7 +660,7 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QStyleHints, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -883,7 +883,7 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QStyleHints, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -892,7 +892,7 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -901,7 +901,7 @@ pub const qstylehints = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QStyleHints, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));

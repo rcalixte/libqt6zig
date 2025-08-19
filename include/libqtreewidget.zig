@@ -317,7 +317,7 @@ pub const qtreewidgetitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#setChildIndicatorPolicy)
     ///
     /// ``` self: QtC.QTreeWidgetItem, policy: qtreewidget_enums.ChildIndicatorPolicy ```
-    pub fn SetChildIndicatorPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetChildIndicatorPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QTreeWidgetItem_SetChildIndicatorPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -326,7 +326,7 @@ pub const qtreewidgetitem = struct {
     /// ``` self: QtC.QTreeWidgetItem ```
     ///
     /// Returns: ``` qtreewidget_enums.ChildIndicatorPolicy ```
-    pub fn ChildIndicatorPolicy(self: ?*anyopaque) i64 {
+    pub fn ChildIndicatorPolicy(self: ?*anyopaque) i32 {
         return qtc.QTreeWidgetItem_ChildIndicatorPolicy(@ptrCast(self));
     }
 
@@ -479,7 +479,7 @@ pub const qtreewidgetitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#setTextAlignment)
     ///
     /// ``` self: QtC.QTreeWidgetItem, column: i32, alignment: qnamespace_enums.AlignmentFlag ```
-    pub fn SetTextAlignment2(self: ?*anyopaque, column: i32, alignment: i64) void {
+    pub fn SetTextAlignment2(self: ?*anyopaque, column: i32, alignment: i32) void {
         qtc.QTreeWidgetItem_SetTextAlignment2(@ptrCast(self), @intCast(column), @intCast(alignment));
     }
 
@@ -523,14 +523,14 @@ pub const qtreewidgetitem = struct {
     /// ``` self: QtC.QTreeWidgetItem, column: i32 ```
     ///
     /// Returns: ``` qnamespace_enums.CheckState ```
-    pub fn CheckState(self: ?*anyopaque, column: i32) i64 {
+    pub fn CheckState(self: ?*anyopaque, column: i32) i32 {
         return qtc.QTreeWidgetItem_CheckState(@ptrCast(self), @intCast(column));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#setCheckState)
     ///
     /// ``` self: QtC.QTreeWidgetItem, column: i32, state: qnamespace_enums.CheckState ```
-    pub fn SetCheckState(self: ?*anyopaque, column: i32, state: i64) void {
+    pub fn SetCheckState(self: ?*anyopaque, column: i32, state: i32) void {
         qtc.QTreeWidgetItem_SetCheckState(@ptrCast(self), @intCast(column), @intCast(state));
     }
 
@@ -787,7 +787,7 @@ pub const qtreewidgetitem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#sortChildren)
     ///
     /// ``` self: QtC.QTreeWidgetItem, column: i32, order: qnamespace_enums.SortOrder ```
-    pub fn SortChildren(self: ?*anyopaque, column: i32, order: i64) void {
+    pub fn SortChildren(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QTreeWidgetItem_SortChildren(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
@@ -856,21 +856,21 @@ pub const qtreewidget = struct {
     }
 
     /// ``` self: QtC.QTreeWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn Metacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTreeWidget_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i32, ?*anyopaque) callconv(.c) i32) void {
+    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
         qtc.QTreeWidget_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
     /// Base class method implementation
     ///
     /// ``` self: QtC.QTreeWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i64, param2: i32, param3: ?*anyopaque) i32 {
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QTreeWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
@@ -1081,7 +1081,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#sortItems)
     ///
     /// ``` self: QtC.QTreeWidget, column: i32, order: qnamespace_enums.SortOrder ```
-    pub fn SortItems(self: ?*anyopaque, column: i32, order: i64) void {
+    pub fn SortItems(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QTreeWidget_SortItems(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
@@ -1499,7 +1499,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#dropMimeData)
     ///
     /// ``` self: QtC.QTreeWidget, parent: QtC.QTreeWidgetItem, index: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction ```
-    pub fn DropMimeData(self: ?*anyopaque, parent: ?*anyopaque, index: i32, data: ?*anyopaque, action: i64) bool {
+    pub fn DropMimeData(self: ?*anyopaque, parent: ?*anyopaque, index: i32, data: ?*anyopaque, action: i32) bool {
         return qtc.QTreeWidget_DropMimeData(@ptrCast(self), @ptrCast(parent), @intCast(index), @ptrCast(data), @intCast(action));
     }
 
@@ -1508,7 +1508,7 @@ pub const qtreewidget = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, parent: QtC.QTreeWidgetItem, index: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool ```
-    pub fn OnDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QTreeWidget_OnDropMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1517,7 +1517,7 @@ pub const qtreewidget = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QTreeWidget, parent: QtC.QTreeWidgetItem, index: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction ```
-    pub fn QBaseDropMimeData(self: ?*anyopaque, parent: ?*anyopaque, index: i32, data: ?*anyopaque, action: i64) bool {
+    pub fn QBaseDropMimeData(self: ?*anyopaque, parent: ?*anyopaque, index: i32, data: ?*anyopaque, action: i32) bool {
         return qtc.QTreeWidget_QBaseDropMimeData(@ptrCast(self), @ptrCast(parent), @intCast(index), @ptrCast(data), @intCast(action));
     }
 
@@ -1655,7 +1655,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#scrollToItem)
     ///
     /// ``` self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, hint: qabstractitemview_enums.ScrollHint ```
-    pub fn ScrollToItem2(self: ?*anyopaque, item: ?*anyopaque, hint: i64) void {
+    pub fn ScrollToItem2(self: ?*anyopaque, item: ?*anyopaque, hint: i32) void {
         qtc.QTreeWidget_ScrollToItem2(@ptrCast(self), @ptrCast(item), @intCast(hint));
     }
 
@@ -2145,7 +2145,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreeview.html#sortByColumn)
     ///
     /// ``` self: QtC.QTreeWidget, column: i32, order: qnamespace_enums.SortOrder ```
-    pub fn SortByColumn(self: ?*anyopaque, column: i32, order: i64) void {
+    pub fn SortByColumn(self: ?*anyopaque, column: i32, order: i32) void {
         qtc.QTreeView_SortByColumn(@ptrCast(self), @intCast(column), @intCast(order));
     }
 
@@ -2235,7 +2235,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionMode)
     ///
     /// ``` self: QtC.QTreeWidget, mode: qabstractitemview_enums.SelectionMode ```
-    pub fn SetSelectionMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetSelectionMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -2246,7 +2246,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.SelectionMode ```
-    pub fn SelectionMode(self: ?*anyopaque) i64 {
+    pub fn SelectionMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self));
     }
 
@@ -2255,7 +2255,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setSelectionBehavior)
     ///
     /// ``` self: QtC.QTreeWidget, behavior: qabstractitemview_enums.SelectionBehavior ```
-    pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i64) void {
+    pub fn SetSelectionBehavior(self: ?*anyopaque, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self), @intCast(behavior));
     }
 
@@ -2266,7 +2266,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.SelectionBehavior ```
-    pub fn SelectionBehavior(self: ?*anyopaque) i64 {
+    pub fn SelectionBehavior(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self));
     }
 
@@ -2313,7 +2313,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setVerticalScrollMode)
     ///
     /// ``` self: QtC.QTreeWidget, mode: qabstractitemview_enums.ScrollMode ```
-    pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetVerticalScrollMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -2324,7 +2324,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.ScrollMode ```
-    pub fn VerticalScrollMode(self: ?*anyopaque) i64 {
+    pub fn VerticalScrollMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self));
     }
 
@@ -2342,7 +2342,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setHorizontalScrollMode)
     ///
     /// ``` self: QtC.QTreeWidget, mode: qabstractitemview_enums.ScrollMode ```
-    pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetHorizontalScrollMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -2353,7 +2353,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.ScrollMode ```
-    pub fn HorizontalScrollMode(self: ?*anyopaque) i64 {
+    pub fn HorizontalScrollMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self));
     }
 
@@ -2479,7 +2479,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDragDropMode)
     ///
     /// ``` self: QtC.QTreeWidget, behavior: qabstractitemview_enums.DragDropMode ```
-    pub fn SetDragDropMode(self: ?*anyopaque, behavior: i64) void {
+    pub fn SetDragDropMode(self: ?*anyopaque, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self), @intCast(behavior));
     }
 
@@ -2490,7 +2490,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.DragDropMode ```
-    pub fn DragDropMode(self: ?*anyopaque) i64 {
+    pub fn DragDropMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self));
     }
 
@@ -2499,7 +2499,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setDefaultDropAction)
     ///
     /// ``` self: QtC.QTreeWidget, dropAction: qnamespace_enums.DropAction ```
-    pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i64) void {
+    pub fn SetDefaultDropAction(self: ?*anyopaque, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self), @intCast(dropAction));
     }
 
@@ -2510,7 +2510,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.DropAction ```
-    pub fn DefaultDropAction(self: ?*anyopaque) i64 {
+    pub fn DefaultDropAction(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self));
     }
 
@@ -2555,7 +2555,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#setTextElideMode)
     ///
     /// ``` self: QtC.QTreeWidget, mode: qnamespace_enums.TextElideMode ```
-    pub fn SetTextElideMode(self: ?*anyopaque, mode: i64) void {
+    pub fn SetTextElideMode(self: ?*anyopaque, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self), @intCast(mode));
     }
 
@@ -2566,7 +2566,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.TextElideMode ```
-    pub fn TextElideMode(self: ?*anyopaque) i64 {
+    pub fn TextElideMode(self: ?*anyopaque) i32 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self));
     }
 
@@ -2829,7 +2829,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
-    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i64 {
+    pub fn VerticalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self));
     }
 
@@ -2838,7 +2838,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setVerticalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTreeWidget, verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
-    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i64) void {
+    pub fn SetVerticalScrollBarPolicy(self: ?*anyopaque, verticalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self), @intCast(verticalScrollBarPolicy));
     }
 
@@ -2867,7 +2867,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.ScrollBarPolicy ```
-    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i64 {
+    pub fn HorizontalScrollBarPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self));
     }
 
@@ -2876,7 +2876,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setHorizontalScrollBarPolicy)
     ///
     /// ``` self: QtC.QTreeWidget, horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy ```
-    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i64) void {
+    pub fn SetHorizontalScrollBarPolicy(self: ?*anyopaque, horizontalScrollBarPolicy: i32) void {
         qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self), @intCast(horizontalScrollBarPolicy));
     }
 
@@ -2973,7 +2973,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractscrollarea_enums.SizeAdjustPolicy ```
-    pub fn SizeAdjustPolicy(self: ?*anyopaque) i64 {
+    pub fn SizeAdjustPolicy(self: ?*anyopaque) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self));
     }
 
@@ -2982,7 +2982,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractscrollarea.html#setSizeAdjustPolicy)
     ///
     /// ``` self: QtC.QTreeWidget, policy: qabstractscrollarea_enums.SizeAdjustPolicy ```
-    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetSizeAdjustPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -3020,7 +3020,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qframe_enums.Shape ```
-    pub fn FrameShape(self: ?*anyopaque) i64 {
+    pub fn FrameShape(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self));
     }
 
@@ -3029,7 +3029,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShape)
     ///
     /// ``` self: QtC.QTreeWidget, frameShape: qframe_enums.Shape ```
-    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i64) void {
+    pub fn SetFrameShape(self: ?*anyopaque, frameShape: i32) void {
         qtc.QFrame_SetFrameShape(@ptrCast(self), @intCast(frameShape));
     }
 
@@ -3040,7 +3040,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qframe_enums.Shadow ```
-    pub fn FrameShadow(self: ?*anyopaque) i64 {
+    pub fn FrameShadow(self: ?*anyopaque) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self));
     }
 
@@ -3049,7 +3049,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qframe.html#setFrameShadow)
     ///
     /// ``` self: QtC.QTreeWidget, frameShadow: qframe_enums.Shadow ```
-    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i64) void {
+    pub fn SetFrameShadow(self: ?*anyopaque, frameShadow: i32) void {
         qtc.QFrame_SetFrameShadow(@ptrCast(self), @intCast(frameShadow));
     }
 
@@ -3195,7 +3195,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.WindowModality ```
-    pub fn WindowModality(self: ?*anyopaque) i64 {
+    pub fn WindowModality(self: ?*anyopaque) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self));
     }
 
@@ -3204,7 +3204,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setWindowModality)
     ///
     /// ``` self: QtC.QTreeWidget, windowModality: qnamespace_enums.WindowModality ```
-    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i64) void {
+    pub fn SetWindowModality(self: ?*anyopaque, windowModality: i32) void {
         qtc.QWidget_SetWindowModality(@ptrCast(self), @intCast(windowModality));
     }
 
@@ -3744,7 +3744,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setBackgroundRole)
     ///
     /// ``` self: QtC.QTreeWidget, backgroundRole: qpalette_enums.ColorRole ```
-    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i64) void {
+    pub fn SetBackgroundRole(self: ?*anyopaque, backgroundRole: i32) void {
         qtc.QWidget_SetBackgroundRole(@ptrCast(self), @intCast(backgroundRole));
     }
 
@@ -3755,7 +3755,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn BackgroundRole(self: ?*anyopaque) i64 {
+    pub fn BackgroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self));
     }
 
@@ -3764,7 +3764,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setForegroundRole)
     ///
     /// ``` self: QtC.QTreeWidget, foregroundRole: qpalette_enums.ColorRole ```
-    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i64) void {
+    pub fn SetForegroundRole(self: ?*anyopaque, foregroundRole: i32) void {
         qtc.QWidget_SetForegroundRole(@ptrCast(self), @intCast(foregroundRole));
     }
 
@@ -3775,7 +3775,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qpalette_enums.ColorRole ```
-    pub fn ForegroundRole(self: ?*anyopaque) i64 {
+    pub fn ForegroundRole(self: ?*anyopaque) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self));
     }
 
@@ -4314,7 +4314,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setLayoutDirection)
     ///
     /// ``` self: QtC.QTreeWidget, direction: qnamespace_enums.LayoutDirection ```
-    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i64) void {
+    pub fn SetLayoutDirection(self: ?*anyopaque, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self), @intCast(direction));
     }
 
@@ -4325,7 +4325,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.LayoutDirection ```
-    pub fn LayoutDirection(self: ?*anyopaque) i64 {
+    pub fn LayoutDirection(self: ?*anyopaque) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self));
     }
 
@@ -4424,7 +4424,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocus)
     ///
     /// ``` self: QtC.QTreeWidget, reason: qnamespace_enums.FocusReason ```
-    pub fn SetFocus2(self: ?*anyopaque, reason: i64) void {
+    pub fn SetFocus2(self: ?*anyopaque, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self), @intCast(reason));
     }
 
@@ -4435,7 +4435,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.FocusPolicy ```
-    pub fn FocusPolicy(self: ?*anyopaque) i64 {
+    pub fn FocusPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self));
     }
 
@@ -4444,7 +4444,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setFocusPolicy)
     ///
     /// ``` self: QtC.QTreeWidget, policy: qnamespace_enums.FocusPolicy ```
-    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetFocusPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -4491,7 +4491,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qnamespace_enums.ContextMenuPolicy ```
-    pub fn ContextMenuPolicy(self: ?*anyopaque) i64 {
+    pub fn ContextMenuPolicy(self: ?*anyopaque) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self));
     }
 
@@ -4500,7 +4500,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setContextMenuPolicy)
     ///
     /// ``` self: QtC.QTreeWidget, policy: qnamespace_enums.ContextMenuPolicy ```
-    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i64) void {
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self), @intCast(policy));
     }
 
@@ -4987,7 +4987,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setSizePolicy)
     ///
     /// ``` self: QtC.QTreeWidget, horizontal: qsizepolicy_enums.Policy, vertical: qsizepolicy_enums.Policy ```
-    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i64, vertical: i64) void {
+    pub fn SetSizePolicy2(self: ?*anyopaque, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self), @intCast(horizontal), @intCast(vertical));
     }
 
@@ -5362,7 +5362,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTreeWidget, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn SetAttribute(self: ?*anyopaque, param1: i64) void {
+    pub fn SetAttribute(self: ?*anyopaque, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -5371,7 +5371,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#testAttribute)
     ///
     /// ``` self: QtC.QTreeWidget, param1: qnamespace_enums.WidgetAttribute ```
-    pub fn TestAttribute(self: ?*anyopaque, param1: i64) bool {
+    pub fn TestAttribute(self: ?*anyopaque, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self), @intCast(param1));
     }
 
@@ -5633,7 +5633,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#grabShortcut)
     ///
     /// ``` self: QtC.QTreeWidget, key: QtC.QKeySequence, context: qnamespace_enums.ShortcutContext ```
-    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i64) i32 {
+    pub fn GrabShortcut2(self: ?*anyopaque, key: ?*anyopaque, context: i32) i32 {
         return qtc.QWidget_GrabShortcut2(@ptrCast(self), @ptrCast(key), @intCast(context));
     }
 
@@ -5669,7 +5669,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#setAttribute)
     ///
     /// ``` self: QtC.QTreeWidget, param1: qnamespace_enums.WidgetAttribute, on: bool ```
-    pub fn SetAttribute2(self: ?*anyopaque, param1: i64, on: bool) void {
+    pub fn SetAttribute2(self: ?*anyopaque, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self), @intCast(param1), on);
     }
 
@@ -5803,7 +5803,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#killTimer)
     ///
     /// ``` self: QtC.QTreeWidget, id: qnamespace_enums.TimerId ```
-    pub fn KillTimer2(self: ?*anyopaque, id: i64) void {
+    pub fn KillTimer2(self: ?*anyopaque, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self), @intCast(id));
     }
 
@@ -6017,7 +6017,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#startTimer)
     ///
     /// ``` self: QtC.QTreeWidget, interval: i32, timerType: qnamespace_enums.TimerType ```
-    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i64) i32 {
+    pub fn StartTimer22(self: ?*anyopaque, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self), @intCast(interval), @intCast(timerType));
     }
 
@@ -6026,7 +6026,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` sender: QtC.QObject, signal: QtC.QMetaMethod, receiver: QtC.QObject, method: QtC.QMetaMethod, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect5(sender: ?*anyopaque, signal: ?*anyopaque, receiver: ?*anyopaque, method: ?*anyopaque, typeVal: i32) QtC.QMetaObject__Connection {
         return qtc.QObject_Connect5(@ptrCast(sender), @ptrCast(signal), @ptrCast(receiver), @ptrCast(method), @intCast(typeVal));
     }
 
@@ -6035,7 +6035,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connect)
     ///
     /// ``` self: QtC.QTreeWidget, sender: QtC.QObject, signal: []const u8, member: []const u8, typeVal: qnamespace_enums.ConnectionType ```
-    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i64) QtC.QMetaObject__Connection {
+    pub fn Connect4(self: ?*anyopaque, sender: ?*anyopaque, signal: []const u8, member: []const u8, typeVal: i32) QtC.QMetaObject__Connection {
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
         return qtc.QObject_Connect4(@ptrCast(self), @ptrCast(sender), signal_Cstring, member_Cstring, @intCast(typeVal));
@@ -6172,7 +6172,7 @@ pub const qtreewidget = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -6290,7 +6290,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
-    pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i64) void {
+    pub fn ScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
         qtc.QTreeWidget_ScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
@@ -6301,7 +6301,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint ```
-    pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i64) void {
+    pub fn QBaseScrollTo(self: ?*anyopaque, index: ?*anyopaque, hint: i32) void {
         qtc.QTreeWidget_QBaseScrollTo(@ptrCast(self), @ptrCast(index), @intCast(hint));
     }
 
@@ -6312,7 +6312,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void ```
-    pub fn OnScrollTo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnScrollTo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_OnScrollTo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6628,7 +6628,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn MoveCursor(self: ?*anyopaque, cursorAction: i64, modifiers: i64) QtC.QModelIndex {
+    pub fn MoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i64) QtC.QModelIndex {
         return qtc.QTreeWidget_MoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
@@ -6639,7 +6639,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier ```
-    pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i64, modifiers: i64) QtC.QModelIndex {
+    pub fn QBaseMoveCursor(self: ?*anyopaque, cursorAction: i32, modifiers: i64) QtC.QModelIndex {
         return qtc.QTreeWidget_QBaseMoveCursor(@ptrCast(self), @intCast(cursorAction), @intCast(modifiers));
     }
 
@@ -6650,7 +6650,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex ```
-    pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) QtC.QModelIndex) void {
+    pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) QtC.QModelIndex) void {
         qtc.QTreeWidget_OnMoveCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7694,7 +7694,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
-    pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i64) void {
+    pub fn CloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
         qtc.QTreeWidget_CloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
@@ -7705,7 +7705,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint ```
-    pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i64) void {
+    pub fn QBaseCloseEditor(self: ?*anyopaque, editor: ?*anyopaque, hint: i32) void {
         qtc.QTreeWidget_QBaseCloseEditor(@ptrCast(self), @ptrCast(editor), @intCast(hint));
     }
 
@@ -7716,7 +7716,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
-    pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_OnCloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7793,7 +7793,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent ```
-    pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i64, event: ?*anyopaque) bool {
+    pub fn Edit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
         return qtc.QTreeWidget_Edit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
@@ -7804,7 +7804,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent ```
-    pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i64, event: ?*anyopaque) bool {
+    pub fn QBaseEdit2(self: ?*anyopaque, index: ?*anyopaque, trigger: i32, event: ?*anyopaque) bool {
         return qtc.QTreeWidget_QBaseEdit2(@ptrCast(self), @ptrCast(index), @intCast(trigger), @ptrCast(event));
     }
 
@@ -7815,7 +7815,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEdit2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, ?*anyopaque) callconv(.c) bool) void {
+    pub fn OnEdit2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
         qtc.QTreeWidget_OnEdit2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8894,7 +8894,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QTreeWidget_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -8905,7 +8905,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QTreeWidget_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -8916,7 +8916,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QTreeWidget_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -9424,7 +9424,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.State ```
-    pub fn State(self: ?*anyopaque) i64 {
+    pub fn State(self: ?*anyopaque) i32 {
         return qtc.QTreeWidget_State(@ptrCast(self));
     }
 
@@ -9437,7 +9437,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.State ```
-    pub fn QBaseState(self: ?*anyopaque) i64 {
+    pub fn QBaseState(self: ?*anyopaque) i32 {
         return qtc.QTreeWidget_QBaseState(@ptrCast(self));
     }
 
@@ -9447,8 +9447,8 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i64 ```
-    pub fn OnState(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
+    pub fn OnState(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QTreeWidget_OnState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -9459,7 +9459,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, state: qabstractitemview_enums.State ```
-    pub fn SetState(self: ?*anyopaque, state: i64) void {
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
         qtc.QTreeWidget_SetState(@ptrCast(self), @intCast(state));
     }
 
@@ -9470,7 +9470,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, state: qabstractitemview_enums.State ```
-    pub fn QBaseSetState(self: ?*anyopaque, state: i64) void {
+    pub fn QBaseSetState(self: ?*anyopaque, state: i32) void {
         qtc.QTreeWidget_QBaseSetState(@ptrCast(self), @intCast(state));
     }
 
@@ -9481,7 +9481,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, state: qabstractitemview_enums.State) callconv(.c) void ```
-    pub fn OnSetState(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QTreeWidget_OnSetState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -9758,7 +9758,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.DropIndicatorPosition ```
-    pub fn DropIndicatorPosition(self: ?*anyopaque) i64 {
+    pub fn DropIndicatorPosition(self: ?*anyopaque) i32 {
         return qtc.QTreeWidget_DropIndicatorPosition(@ptrCast(self));
     }
 
@@ -9771,7 +9771,7 @@ pub const qtreewidget = struct {
     /// ``` self: QtC.QTreeWidget ```
     ///
     /// Returns: ``` qabstractitemview_enums.DropIndicatorPosition ```
-    pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i64 {
+    pub fn QBaseDropIndicatorPosition(self: ?*anyopaque) i32 {
         return qtc.QTreeWidget_QBaseDropIndicatorPosition(@ptrCast(self));
     }
 
@@ -9781,8 +9781,8 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i64 ```
-    pub fn OnDropIndicatorPosition(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
+    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
+    pub fn OnDropIndicatorPosition(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
         qtc.QTreeWidget_OnDropIndicatorPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10191,7 +10191,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QTreeWidget_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -10202,7 +10202,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QTreeWidget_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -10213,7 +10213,7 @@ pub const qtreewidget = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QTreeWidget_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

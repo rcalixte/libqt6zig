@@ -479,14 +479,14 @@ pub const qspaceritem = struct {
     /// New3 constructs a new QSpacerItem object.
     ///
     /// ``` w: i32, h: i32, hData: qsizepolicy_enums.Policy ```
-    pub fn New3(w: i32, h: i32, hData: i64) QtC.QSpacerItem {
+    pub fn New3(w: i32, h: i32, hData: i32) QtC.QSpacerItem {
         return qtc.QSpacerItem_new3(@intCast(w), @intCast(h), @intCast(hData));
     }
 
     /// New4 constructs a new QSpacerItem object.
     ///
     /// ``` w: i32, h: i32, hData: qsizepolicy_enums.Policy, vData: qsizepolicy_enums.Policy ```
-    pub fn New4(w: i32, h: i32, hData: i64, vData: i64) QtC.QSpacerItem {
+    pub fn New4(w: i32, h: i32, hData: i32, vData: i32) QtC.QSpacerItem {
         return qtc.QSpacerItem_new4(@intCast(w), @intCast(h), @intCast(hData), @intCast(vData));
     }
 
@@ -711,14 +711,14 @@ pub const qspaceritem = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
     /// ``` self: QtC.QSpacerItem, w: i32, h: i32, hData: qsizepolicy_enums.Policy ```
-    pub fn ChangeSize3(self: ?*anyopaque, w: i32, h: i32, hData: i64) void {
+    pub fn ChangeSize3(self: ?*anyopaque, w: i32, h: i32, hData: i32) void {
         qtc.QSpacerItem_ChangeSize3(@ptrCast(self), @intCast(w), @intCast(h), @intCast(hData));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#changeSize)
     ///
     /// ``` self: QtC.QSpacerItem, w: i32, h: i32, hData: qsizepolicy_enums.Policy, vData: qsizepolicy_enums.Policy ```
-    pub fn ChangeSize4(self: ?*anyopaque, w: i32, h: i32, hData: i64, vData: i64) void {
+    pub fn ChangeSize4(self: ?*anyopaque, w: i32, h: i32, hData: i32, vData: i32) void {
         qtc.QSpacerItem_ChangeSize4(@ptrCast(self), @intCast(w), @intCast(h), @intCast(hData), @intCast(vData));
     }
 

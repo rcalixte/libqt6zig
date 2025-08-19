@@ -115,7 +115,7 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
     /// ``` self: QtC.QTextCursor, op: qtextcursor_enums.MoveOperation ```
-    pub fn MovePosition(self: ?*anyopaque, op: i64) bool {
+    pub fn MovePosition(self: ?*anyopaque, op: i32) bool {
         return qtc.QTextCursor_MovePosition(@ptrCast(self), @intCast(op));
     }
 
@@ -178,7 +178,7 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#select)
     ///
     /// ``` self: QtC.QTextCursor, selection: qtextcursor_enums.SelectionType ```
-    pub fn Select(self: ?*anyopaque, selection: i64) void {
+    pub fn Select(self: ?*anyopaque, selection: i32) void {
         qtc.QTextCursor_Select(@ptrCast(self), @intCast(selection));
     }
 
@@ -378,7 +378,7 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
     ///
     /// ``` self: QtC.QTextCursor, style: qtextformat_enums.Style ```
-    pub fn InsertList2(self: ?*anyopaque, style: i64) QtC.QTextList {
+    pub fn InsertList2(self: ?*anyopaque, style: i32) QtC.QTextList {
         return qtc.QTextCursor_InsertList2(@ptrCast(self), @intCast(style));
     }
 
@@ -392,7 +392,7 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#createList)
     ///
     /// ``` self: QtC.QTextCursor, style: qtextformat_enums.Style ```
-    pub fn CreateList2(self: ?*anyopaque, style: i64) QtC.QTextList {
+    pub fn CreateList2(self: ?*anyopaque, style: i32) QtC.QTextList {
         return qtc.QTextCursor_CreateList2(@ptrCast(self), @intCast(style));
     }
 
@@ -470,7 +470,7 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
     /// ``` self: QtC.QTextCursor, format: QtC.QTextImageFormat, alignment: qtextformat_enums.Position ```
-    pub fn InsertImage(self: ?*anyopaque, format: ?*anyopaque, alignment: i64) void {
+    pub fn InsertImage(self: ?*anyopaque, format: ?*anyopaque, alignment: i32) void {
         qtc.QTextCursor_InsertImage(@ptrCast(self), @ptrCast(format), @intCast(alignment));
     }
 
@@ -593,21 +593,21 @@ pub const qtextcursor = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#setPosition)
     ///
     /// ``` self: QtC.QTextCursor, pos: i32, mode: qtextcursor_enums.MoveMode ```
-    pub fn SetPosition2(self: ?*anyopaque, pos: i32, mode: i64) void {
+    pub fn SetPosition2(self: ?*anyopaque, pos: i32, mode: i32) void {
         qtc.QTextCursor_SetPosition2(@ptrCast(self), @intCast(pos), @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
     /// ``` self: QtC.QTextCursor, op: qtextcursor_enums.MoveOperation, param2: qtextcursor_enums.MoveMode ```
-    pub fn MovePosition2(self: ?*anyopaque, op: i64, param2: i64) bool {
+    pub fn MovePosition2(self: ?*anyopaque, op: i32, param2: i32) bool {
         return qtc.QTextCursor_MovePosition2(@ptrCast(self), @intCast(op), @intCast(param2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
     /// ``` self: QtC.QTextCursor, op: qtextcursor_enums.MoveOperation, param2: qtextcursor_enums.MoveMode, n: i32 ```
-    pub fn MovePosition3(self: ?*anyopaque, op: i64, param2: i64, n: i32) bool {
+    pub fn MovePosition3(self: ?*anyopaque, op: i32, param2: i32, n: i32) bool {
         return qtc.QTextCursor_MovePosition3(@ptrCast(self), @intCast(op), @intCast(param2), @intCast(n));
     }
 

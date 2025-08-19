@@ -19,7 +19,7 @@ pub const qsciprinter = struct {
     /// New2 constructs a new QsciPrinter object.
     ///
     /// ``` mode: qprinter_enums.PrinterMode ```
-    pub fn New2(mode: i64) QtC.QsciPrinter {
+    pub fn New2(mode: i32) QtC.QsciPrinter {
         return qtc.QsciPrinter_new2(@intCast(mode));
     }
 
@@ -135,14 +135,14 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qsciscintilla_enums.WrapMode ```
-    pub fn WrapMode(self: ?*anyopaque) i64 {
+    pub fn WrapMode(self: ?*anyopaque) i32 {
         return qtc.QsciPrinter_WrapMode(@ptrCast(self));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
     ///
     /// ``` self: QtC.QsciPrinter, wmode: qsciscintilla_enums.WrapMode ```
-    pub fn SetWrapMode(self: ?*anyopaque, wmode: i64) void {
+    pub fn SetWrapMode(self: ?*anyopaque, wmode: i32) void {
         qtc.QsciPrinter_SetWrapMode(@ptrCast(self), @intCast(wmode));
     }
 
@@ -151,7 +151,7 @@ pub const qsciprinter = struct {
     /// Allows for overriding the related default method
     ///
     /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, wmode: qsciscintilla_enums.WrapMode) callconv(.c) void ```
-    pub fn OnSetWrapMode(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
+    pub fn OnSetWrapMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
         qtc.QsciPrinter_OnSetWrapMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -160,7 +160,7 @@ pub const qsciprinter = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.QsciPrinter, wmode: qsciscintilla_enums.WrapMode ```
-    pub fn QBaseSetWrapMode(self: ?*anyopaque, wmode: i64) void {
+    pub fn QBaseSetWrapMode(self: ?*anyopaque, wmode: i32) void {
         qtc.QsciPrinter_QBaseSetWrapMode(@ptrCast(self), @intCast(wmode));
     }
 
@@ -169,7 +169,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setOutputFormat)
     ///
     /// ``` self: QtC.QsciPrinter, format: qprinter_enums.OutputFormat ```
-    pub fn SetOutputFormat(self: ?*anyopaque, format: i64) void {
+    pub fn SetOutputFormat(self: ?*anyopaque, format: i32) void {
         qtc.QPrinter_SetOutputFormat(@ptrCast(self), @intCast(format));
     }
 
@@ -180,7 +180,7 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qprinter_enums.OutputFormat ```
-    pub fn OutputFormat(self: ?*anyopaque) i64 {
+    pub fn OutputFormat(self: ?*anyopaque) i32 {
         return qtc.QPrinter_OutputFormat(@ptrCast(self));
     }
 
@@ -189,7 +189,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPdfVersion)
     ///
     /// ``` self: QtC.QsciPrinter, version: qpagedpaintdevice_enums.PdfVersion ```
-    pub fn SetPdfVersion(self: ?*anyopaque, version: i64) void {
+    pub fn SetPdfVersion(self: ?*anyopaque, version: i32) void {
         qtc.QPrinter_SetPdfVersion(@ptrCast(self), @intCast(version));
     }
 
@@ -200,7 +200,7 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qpagedpaintdevice_enums.PdfVersion ```
-    pub fn PdfVersion(self: ?*anyopaque) i64 {
+    pub fn PdfVersion(self: ?*anyopaque) i32 {
         return qtc.QPrinter_PdfVersion(@ptrCast(self));
     }
 
@@ -348,7 +348,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPageOrder)
     ///
     /// ``` self: QtC.QsciPrinter, pageOrder: qprinter_enums.PageOrder ```
-    pub fn SetPageOrder(self: ?*anyopaque, pageOrder: i64) void {
+    pub fn SetPageOrder(self: ?*anyopaque, pageOrder: i32) void {
         qtc.QPrinter_SetPageOrder(@ptrCast(self), @intCast(pageOrder));
     }
 
@@ -359,7 +359,7 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qprinter_enums.PageOrder ```
-    pub fn PageOrder(self: ?*anyopaque) i64 {
+    pub fn PageOrder(self: ?*anyopaque) i32 {
         return qtc.QPrinter_PageOrder(@ptrCast(self));
     }
 
@@ -386,7 +386,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setColorMode)
     ///
     /// ``` self: QtC.QsciPrinter, colorMode: qprinter_enums.ColorMode ```
-    pub fn SetColorMode(self: ?*anyopaque, colorMode: i64) void {
+    pub fn SetColorMode(self: ?*anyopaque, colorMode: i32) void {
         qtc.QPrinter_SetColorMode(@ptrCast(self), @intCast(colorMode));
     }
 
@@ -397,7 +397,7 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qprinter_enums.ColorMode ```
-    pub fn ColorMode(self: ?*anyopaque) i64 {
+    pub fn ColorMode(self: ?*anyopaque) i32 {
         return qtc.QPrinter_ColorMode(@ptrCast(self));
     }
 
@@ -469,7 +469,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPaperSource)
     ///
     /// ``` self: QtC.QsciPrinter, paperSource: qprinter_enums.PaperSource ```
-    pub fn SetPaperSource(self: ?*anyopaque, paperSource: i64) void {
+    pub fn SetPaperSource(self: ?*anyopaque, paperSource: i32) void {
         qtc.QPrinter_SetPaperSource(@ptrCast(self), @intCast(paperSource));
     }
 
@@ -480,7 +480,7 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qprinter_enums.PaperSource ```
-    pub fn PaperSource(self: ?*anyopaque) i64 {
+    pub fn PaperSource(self: ?*anyopaque) i32 {
         return qtc.QPrinter_PaperSource(@ptrCast(self));
     }
 
@@ -489,7 +489,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setDuplex)
     ///
     /// ``` self: QtC.QsciPrinter, duplex: qprinter_enums.DuplexMode ```
-    pub fn SetDuplex(self: ?*anyopaque, duplex: i64) void {
+    pub fn SetDuplex(self: ?*anyopaque, duplex: i32) void {
         qtc.QPrinter_SetDuplex(@ptrCast(self), @intCast(duplex));
     }
 
@@ -500,7 +500,7 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qprinter_enums.DuplexMode ```
-    pub fn Duplex(self: ?*anyopaque) i64 {
+    pub fn Duplex(self: ?*anyopaque) i32 {
         return qtc.QPrinter_Duplex(@ptrCast(self));
     }
 
@@ -541,7 +541,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#paperRect)
     ///
     /// ``` self: QtC.QsciPrinter, param1: qprinter_enums.Unit ```
-    pub fn PaperRect(self: ?*anyopaque, param1: i64) QtC.QRectF {
+    pub fn PaperRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
         return qtc.QPrinter_PaperRect(@ptrCast(self), @intCast(param1));
     }
 
@@ -550,7 +550,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#pageRect)
     ///
     /// ``` self: QtC.QsciPrinter, param1: qprinter_enums.Unit ```
-    pub fn PageRect(self: ?*anyopaque, param1: i64) QtC.QRectF {
+    pub fn PageRect(self: ?*anyopaque, param1: i32) QtC.QRectF {
         return qtc.QPrinter_PageRect(@ptrCast(self), @intCast(param1));
     }
 
@@ -596,7 +596,7 @@ pub const qsciprinter = struct {
     /// ``` self: QtC.QsciPrinter ```
     ///
     /// Returns: ``` qprinter_enums.PrinterState ```
-    pub fn PrinterState(self: ?*anyopaque) i64 {
+    pub fn PrinterState(self: ?*anyopaque) i32 {
         return qtc.QPrinter_PrinterState(@ptrCast(self));
     }
 
@@ -641,7 +641,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qprinter.html#setPrintRange)
     ///
     /// ``` self: QtC.QsciPrinter, range: qprinter_enums.PrintRange ```
-    pub fn SetPrintRange(self: ?*anyopaque, range: i64) void {
+    pub fn SetPrintRange(self: ?*anyopaque, range: i32) void {
         qtc.QPrinter_SetPrintRange(@ptrCast(self), @intCast(range));
     }
 
@@ -794,7 +794,7 @@ pub const qsciprinter = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintdevice.html#encodeMetricF)
     ///
     /// ``` metric: qpaintdevice_enums.PaintDeviceMetric, value: f64 ```
-    pub fn EncodeMetricF(metric: i64, value: f64) i32 {
+    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@intCast(metric), @floatCast(value));
     }
 
@@ -904,7 +904,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn Metric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn Metric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QsciPrinter_Metric(@ptrCast(self), @intCast(param1));
     }
 
@@ -915,7 +915,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, param1: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseMetric(self: ?*anyopaque, param1: i64) i32 {
+    pub fn QBaseMetric(self: ?*anyopaque, param1: i32) i32 {
         return qtc.QsciPrinter_QBaseMetric(@ptrCast(self), @intCast(param1));
     }
 
@@ -926,7 +926,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i32) void {
+    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
         qtc.QsciPrinter_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1003,7 +1003,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, orientation: qpagelayout_enums.Orientation ```
-    pub fn SetPageOrientation(self: ?*anyopaque, orientation: i64) bool {
+    pub fn SetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QsciPrinter_SetPageOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -1014,7 +1014,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, orientation: qpagelayout_enums.Orientation ```
-    pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i64) bool {
+    pub fn QBaseSetPageOrientation(self: ?*anyopaque, orientation: i32) bool {
         return qtc.QsciPrinter_QBaseSetPageOrientation(@ptrCast(self), @intCast(orientation));
     }
 
@@ -1025,7 +1025,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool ```
-    pub fn OnSetPageOrientation(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSetPageOrientation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QsciPrinter_OnSetPageOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1036,7 +1036,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
-    pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i64) bool {
+    pub fn SetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
         return qtc.QsciPrinter_SetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
     }
 
@@ -1047,7 +1047,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit ```
-    pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i64) bool {
+    pub fn QBaseSetPageMargins(self: ?*anyopaque, margins: ?*anyopaque, units: i32) bool {
         return qtc.QsciPrinter_QBaseSetPageMargins(@ptrCast(self), @ptrCast(margins), @intCast(units));
     }
 
@@ -1058,7 +1058,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool ```
-    pub fn OnSetPageMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64) callconv(.c) bool) void {
+    pub fn OnSetPageMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
         qtc.QsciPrinter_OnSetPageMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1234,7 +1234,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn GetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QsciPrinter_GetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -1245,7 +1245,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow calling base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric ```
-    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i64, metricB: i64) f64 {
+    pub fn QBaseGetDecodedMetricF(self: ?*anyopaque, metricA: i32, metricB: i32) f64 {
         return qtc.QsciPrinter_QBaseGetDecodedMetricF(@ptrCast(self), @intCast(metricA), @intCast(metricB));
     }
 
@@ -1256,7 +1256,7 @@ pub const qsciprinter = struct {
     /// Wrapper to allow overriding base class virtual or protected method
     ///
     /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i64, i64) callconv(.c) f64) void {
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
         qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

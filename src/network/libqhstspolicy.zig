@@ -34,7 +34,7 @@ pub const qhstspolicy = struct {
     /// New4 constructs a new QHstsPolicy object.
     ///
     /// ``` expiry: QtC.QDateTime, flags: flag of qhstspolicy_enums.PolicyFlag, host: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn New4(expiry: ?*anyopaque, flags: i64, host: []const u8, mode: i64) QtC.QHstsPolicy {
+    pub fn New4(expiry: ?*anyopaque, flags: i64, host: []const u8, mode: i32) QtC.QHstsPolicy {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,
@@ -117,7 +117,7 @@ pub const qhstspolicy = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qhstspolicy.html#setHost)
     ///
     /// ``` self: QtC.QHstsPolicy, host: []const u8, mode: qurl_enums.ParsingMode ```
-    pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i64) void {
+    pub fn SetHost2(self: ?*anyopaque, host: []const u8, mode: i32) void {
         const host_str = qtc.libqt_string{
             .len = host.len,
             .data = host.ptr,

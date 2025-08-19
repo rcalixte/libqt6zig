@@ -184,14 +184,14 @@ pub const qdate = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#startOfDay)
     ///
     /// ``` self: QtC.QDate, spec: qnamespace_enums.TimeSpec ```
-    pub fn StartOfDay(self: ?*anyopaque, spec: i64) QtC.QDateTime {
+    pub fn StartOfDay(self: ?*anyopaque, spec: i32) QtC.QDateTime {
         return qtc.QDate_StartOfDay(@ptrCast(self), @intCast(spec));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#endOfDay)
     ///
     /// ``` self: QtC.QDate, spec: qnamespace_enums.TimeSpec ```
-    pub fn EndOfDay(self: ?*anyopaque, spec: i64) QtC.QDateTime {
+    pub fn EndOfDay(self: ?*anyopaque, spec: i32) QtC.QDateTime {
         return qtc.QDate_EndOfDay(@ptrCast(self), @intCast(spec));
     }
 
@@ -428,21 +428,21 @@ pub const qdate = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#startOfDay)
     ///
     /// ``` self: QtC.QDate, spec: qnamespace_enums.TimeSpec, offsetSeconds: i32 ```
-    pub fn StartOfDay22(self: ?*anyopaque, spec: i64, offsetSeconds: i32) QtC.QDateTime {
+    pub fn StartOfDay22(self: ?*anyopaque, spec: i32, offsetSeconds: i32) QtC.QDateTime {
         return qtc.QDate_StartOfDay22(@ptrCast(self), @intCast(spec), @intCast(offsetSeconds));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#endOfDay)
     ///
     /// ``` self: QtC.QDate, spec: qnamespace_enums.TimeSpec, offsetSeconds: i32 ```
-    pub fn EndOfDay22(self: ?*anyopaque, spec: i64, offsetSeconds: i32) QtC.QDateTime {
+    pub fn EndOfDay22(self: ?*anyopaque, spec: i32, offsetSeconds: i32) QtC.QDateTime {
         return qtc.QDate_EndOfDay22(@ptrCast(self), @intCast(spec), @intCast(offsetSeconds));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#toString)
     ///
     /// ``` self: QtC.QDate, format: qnamespace_enums.DateFormat, allocator: std.mem.Allocator ```
-    pub fn ToString1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDate_ToString1(@ptrCast(self), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString1: Memory allocation failed");
@@ -453,7 +453,7 @@ pub const qdate = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdate.html#fromString)
     ///
     /// ``` stringVal: []const u8, format: qnamespace_enums.DateFormat ```
-    pub fn FromString23(stringVal: []const u8, format: i64) QtC.QDate {
+    pub fn FromString23(stringVal: []const u8, format: i32) QtC.QDate {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
@@ -711,7 +711,7 @@ pub const qtime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtime.html#toString)
     ///
     /// ``` self: QtC.QTime, f: qnamespace_enums.DateFormat, allocator: std.mem.Allocator ```
-    pub fn ToString1(self: ?*anyopaque, f: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString1(self: ?*anyopaque, f: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QTime_ToString1(@ptrCast(self), @intCast(f));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString1: Memory allocation failed");
@@ -729,7 +729,7 @@ pub const qtime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qtime.html#fromString)
     ///
     /// ``` stringVal: []const u8, format: qnamespace_enums.DateFormat ```
-    pub fn FromString23(stringVal: []const u8, format: i64) QtC.QTime {
+    pub fn FromString23(stringVal: []const u8, format: i32) QtC.QTime {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
@@ -766,7 +766,7 @@ pub const qdatetime = struct {
     /// New2 constructs a new QDateTime object.
     ///
     /// ``` date: QtC.QDate, time: QtC.QTime, spec: qnamespace_enums.TimeSpec ```
-    pub fn New2(date: QtC.QDate, time: QtC.QTime, spec: i64) QtC.QDateTime {
+    pub fn New2(date: QtC.QDate, time: QtC.QTime, spec: i32) QtC.QDateTime {
         return qtc.QDateTime_new2(@ptrCast(date), @ptrCast(time), @intCast(spec));
     }
 
@@ -794,21 +794,21 @@ pub const qdatetime = struct {
     /// New6 constructs a new QDateTime object.
     ///
     /// ``` date: QtC.QDate, time: QtC.QTime, spec: qnamespace_enums.TimeSpec, offsetSeconds: i32 ```
-    pub fn New6(date: QtC.QDate, time: QtC.QTime, spec: i64, offsetSeconds: i32) QtC.QDateTime {
+    pub fn New6(date: QtC.QDate, time: QtC.QTime, spec: i32, offsetSeconds: i32) QtC.QDateTime {
         return qtc.QDateTime_new6(@ptrCast(date), @ptrCast(time), @intCast(spec), @intCast(offsetSeconds));
     }
 
     /// New7 constructs a new QDateTime object.
     ///
     /// ``` date: QtC.QDate, time: QtC.QTime, timeZone: QtC.QTimeZone, resolve: qdatetime_enums.TransitionResolution ```
-    pub fn New7(date: QtC.QDate, time: QtC.QTime, timeZone: ?*anyopaque, resolve: i64) QtC.QDateTime {
+    pub fn New7(date: QtC.QDate, time: QtC.QTime, timeZone: ?*anyopaque, resolve: i32) QtC.QDateTime {
         return qtc.QDateTime_new7(@ptrCast(date), @ptrCast(time), @ptrCast(timeZone), @intCast(resolve));
     }
 
     /// New8 constructs a new QDateTime object.
     ///
     /// ``` date: QtC.QDate, time: QtC.QTime, resolve: qdatetime_enums.TransitionResolution ```
-    pub fn New8(date: QtC.QDate, time: QtC.QTime, resolve: i64) QtC.QDateTime {
+    pub fn New8(date: QtC.QDate, time: QtC.QTime, resolve: i32) QtC.QDateTime {
         return qtc.QDateTime_new8(@ptrCast(date), @ptrCast(time), @intCast(resolve));
     }
 
@@ -859,7 +859,7 @@ pub const qdatetime = struct {
     /// ``` self: QtC.QDateTime ```
     ///
     /// Returns: ``` qnamespace_enums.TimeSpec ```
-    pub fn TimeSpec(self: ?*anyopaque) i64 {
+    pub fn TimeSpec(self: ?*anyopaque) i32 {
         return qtc.QDateTime_TimeSpec(@ptrCast(self));
     }
 
@@ -933,7 +933,7 @@ pub const qdatetime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#setTimeSpec)
     ///
     /// ``` self: QtC.QDateTime, spec: qnamespace_enums.TimeSpec ```
-    pub fn SetTimeSpec(self: ?*anyopaque, spec: i64) void {
+    pub fn SetTimeSpec(self: ?*anyopaque, spec: i32) void {
         qtc.QDateTime_SetTimeSpec(@ptrCast(self), @intCast(spec));
     }
 
@@ -1044,7 +1044,7 @@ pub const qdatetime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#toTimeSpec)
     ///
     /// ``` self: QtC.QDateTime, spec: qnamespace_enums.TimeSpec ```
-    pub fn ToTimeSpec(self: ?*anyopaque, spec: i64) QtC.QDateTime {
+    pub fn ToTimeSpec(self: ?*anyopaque, spec: i32) QtC.QDateTime {
         return qtc.QDateTime_ToTimeSpec(@ptrCast(self), @intCast(spec));
     }
 
@@ -1177,14 +1177,14 @@ pub const qdatetime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#fromMSecsSinceEpoch)
     ///
     /// ``` msecs: i64, spec: qnamespace_enums.TimeSpec ```
-    pub fn FromMSecsSinceEpoch(msecs: i64, spec: i64) QtC.QDateTime {
+    pub fn FromMSecsSinceEpoch(msecs: i64, spec: i32) QtC.QDateTime {
         return qtc.QDateTime_FromMSecsSinceEpoch(@intCast(msecs), @intCast(spec));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#fromSecsSinceEpoch)
     ///
     /// ``` secs: i64, spec: qnamespace_enums.TimeSpec ```
-    pub fn FromSecsSinceEpoch(secs: i64, spec: i64) QtC.QDateTime {
+    pub fn FromSecsSinceEpoch(secs: i64, spec: i32) QtC.QDateTime {
         return qtc.QDateTime_FromSecsSinceEpoch(@intCast(secs), @intCast(spec));
     }
 
@@ -1233,28 +1233,28 @@ pub const qdatetime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#setDate)
     ///
     /// ``` self: QtC.QDateTime, date: QtC.QDate, resolve: qdatetime_enums.TransitionResolution ```
-    pub fn SetDate2(self: ?*anyopaque, date: QtC.QDate, resolve: i64) void {
+    pub fn SetDate2(self: ?*anyopaque, date: QtC.QDate, resolve: i32) void {
         qtc.QDateTime_SetDate2(@ptrCast(self), @ptrCast(date), @intCast(resolve));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#setTime)
     ///
     /// ``` self: QtC.QDateTime, time: QtC.QTime, resolve: qdatetime_enums.TransitionResolution ```
-    pub fn SetTime2(self: ?*anyopaque, time: QtC.QTime, resolve: i64) void {
+    pub fn SetTime2(self: ?*anyopaque, time: QtC.QTime, resolve: i32) void {
         qtc.QDateTime_SetTime2(@ptrCast(self), @ptrCast(time), @intCast(resolve));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#setTimeZone)
     ///
     /// ``` self: QtC.QDateTime, toZone: QtC.QTimeZone, resolve: qdatetime_enums.TransitionResolution ```
-    pub fn SetTimeZone2(self: ?*anyopaque, toZone: ?*anyopaque, resolve: i64) void {
+    pub fn SetTimeZone2(self: ?*anyopaque, toZone: ?*anyopaque, resolve: i32) void {
         qtc.QDateTime_SetTimeZone2(@ptrCast(self), @ptrCast(toZone), @intCast(resolve));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#toString)
     ///
     /// ``` self: QtC.QDateTime, format: qnamespace_enums.DateFormat, allocator: std.mem.Allocator ```
-    pub fn ToString1(self: ?*anyopaque, format: i64, allocator: std.mem.Allocator) []const u8 {
+    pub fn ToString1(self: ?*anyopaque, format: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QDateTime_ToString1(@ptrCast(self), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString1: Memory allocation failed");
@@ -1265,7 +1265,7 @@ pub const qdatetime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#fromString)
     ///
     /// ``` stringVal: []const u8, format: qnamespace_enums.DateFormat ```
-    pub fn FromString23(stringVal: []const u8, format: i64) QtC.QDateTime {
+    pub fn FromString23(stringVal: []const u8, format: i32) QtC.QDateTime {
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,
@@ -1291,14 +1291,14 @@ pub const qdatetime = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#fromMSecsSinceEpoch)
     ///
     /// ``` msecs: i64, spec: qnamespace_enums.TimeSpec, offsetFromUtc: i32 ```
-    pub fn FromMSecsSinceEpoch32(msecs: i64, spec: i64, offsetFromUtc: i32) QtC.QDateTime {
+    pub fn FromMSecsSinceEpoch32(msecs: i64, spec: i32, offsetFromUtc: i32) QtC.QDateTime {
         return qtc.QDateTime_FromMSecsSinceEpoch32(@intCast(msecs), @intCast(spec), @intCast(offsetFromUtc));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetime.html#fromSecsSinceEpoch)
     ///
     /// ``` secs: i64, spec: qnamespace_enums.TimeSpec, offsetFromUtc: i32 ```
-    pub fn FromSecsSinceEpoch32(secs: i64, spec: i64, offsetFromUtc: i32) QtC.QDateTime {
+    pub fn FromSecsSinceEpoch32(secs: i64, spec: i32, offsetFromUtc: i32) QtC.QDateTime {
         return qtc.QDateTime_FromSecsSinceEpoch32(@intCast(secs), @intCast(spec), @intCast(offsetFromUtc));
     }
 

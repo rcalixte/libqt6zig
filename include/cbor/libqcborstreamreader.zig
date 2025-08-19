@@ -142,7 +142,7 @@ pub const qcborstreamreader = struct {
     /// ``` self: QtC.QCborStreamReader ```
     ///
     /// Returns: ``` qcborstreamreader_enums.Type ```
-    pub fn ParentContainerType(self: ?*anyopaque) i64 {
+    pub fn ParentContainerType(self: ?*anyopaque) u8 {
         return qtc.QCborStreamReader_ParentContainerType(@ptrCast(self));
     }
 
@@ -165,7 +165,7 @@ pub const qcborstreamreader = struct {
     /// ``` self: QtC.QCborStreamReader ```
     ///
     /// Returns: ``` qcborstreamreader_enums.Type ```
-    pub fn Type(self: ?*anyopaque) i64 {
+    pub fn Type(self: ?*anyopaque) u8 {
         return qtc.QCborStreamReader_Type(@ptrCast(self));
     }
 
@@ -263,7 +263,7 @@ pub const qcborstreamreader = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborstreamreader.html#isSimpleType)
     ///
     /// ``` self: QtC.QCborStreamReader, st: qcborcommon_enums.QCborSimpleType ```
-    pub fn IsSimpleType2(self: ?*anyopaque, st: i64) bool {
+    pub fn IsSimpleType2(self: ?*anyopaque, st: u8) bool {
         return qtc.QCborStreamReader_IsSimpleType2(@ptrCast(self), @intCast(st));
     }
 
@@ -389,7 +389,7 @@ pub const qcborstreamreader = struct {
     /// ``` self: QtC.QCborStreamReader ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborTag ```
-    pub fn ToTag(self: ?*anyopaque) i64 {
+    pub fn ToTag(self: ?*anyopaque) u64 {
         return qtc.QCborStreamReader_ToTag(@ptrCast(self));
     }
 
@@ -405,7 +405,7 @@ pub const qcborstreamreader = struct {
     /// ``` self: QtC.QCborStreamReader ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborNegativeInteger ```
-    pub fn ToNegativeInteger(self: ?*anyopaque) i64 {
+    pub fn ToNegativeInteger(self: ?*anyopaque) u64 {
         return qtc.QCborStreamReader_ToNegativeInteger(@ptrCast(self));
     }
 
@@ -414,7 +414,7 @@ pub const qcborstreamreader = struct {
     /// ``` self: QtC.QCborStreamReader ```
     ///
     /// Returns: ``` qcborcommon_enums.QCborSimpleType ```
-    pub fn ToSimpleType(self: ?*anyopaque) i64 {
+    pub fn ToSimpleType(self: ?*anyopaque) u8 {
         return qtc.QCborStreamReader_ToSimpleType(@ptrCast(self));
     }
 
