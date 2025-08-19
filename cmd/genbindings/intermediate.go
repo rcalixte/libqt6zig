@@ -438,7 +438,7 @@ type CppEnum struct {
 	IsProtected    bool
 }
 
-func (e CppEnum) ShortEnumName() string {
+func (e CppEnum) EnumValueName() string {
 	// Strip back one single :: pair from the generated variable name
 	lastIndex := strings.LastIndex(e.EnumName, "::")
 	if lastIndex == -1 {
@@ -447,7 +447,7 @@ func (e CppEnum) ShortEnumName() string {
 	return e.EnumName[:lastIndex]
 }
 
-func (e CppEnum) CabiEnumName() string {
+func (e CppEnum) EnumClassName() string {
 	lastIndex := strings.LastIndex(e.EnumName, "::")
 	if lastIndex == -1 {
 		lastIndex = 0
