@@ -1,7 +1,9 @@
 package main
 
 import (
+	"math"
 	"path/filepath"
+	"strconv"
 	"strings"
 )
 
@@ -16,8 +18,10 @@ type lookupResultTypedef struct {
 }
 
 type lookupResultEnum struct {
-	PackageName string
-	Enum        CppEnum
+	PackageName  string
+	Enum         CppEnum
+	EnumTypeCABI string
+	EnumTypeZig  string
 }
 
 type lookupResultImport struct {
@@ -40,6 +44,40 @@ func registerChildClasses(class CppClass, packageName string) {
 
 		// Recursively register any nested children
 		registerChildClasses(childClass, packageName)
+	}
+}
+
+func (e CppEnum) getEnumTypeZig() string {
+	if len(e.Entries) > 0 {
+		// perform a lazy analysis of the enum entries
+		num, err := strconv.Atoi(e.Entries[len(e.Entries)-1].EntryValue)
+		if err == nil {
+			if float64(num) > math.MaxInt32 || float64(num) < math.MinInt32 {
+				// need to use i64 to avoid overflow
+				return "i64"
+			}
+		}
+	}
+
+	switch e.UnderlyingType.ParameterType {
+	// signed types
+	case "char", "qint8", "signed char":
+		return "i8"
+	case "int", "qint32":
+		return "i32"
+
+	// unsigned types
+	case "uchar", "quint8", "uint8_t", "unsigned char":
+		return "u8"
+	case "ushort", "quint16":
+		return "u16"
+	case "quint32", "unsigned int":
+		return "u32"
+	case "quint64":
+		return "u64"
+
+	default:
+		panic("UNHANDLED ENUM TYPE: " + e.UnderlyingType.ParameterType + " for " + e.EnumName)
 	}
 }
 
@@ -80,16 +118,20 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 
 		// Handle child enums in classes
 		for _, en := range c.ChildEnums {
+			enumClass := en.EnumClassName()
+			enumCABI := en.UnderlyingType.RenderTypeCabi()
+			enumZig := en.getEnumTypeZig()
+
 			// Register enum with fully qualified name
-			KnownEnums[en.EnumName] = lookupResultEnum{packageName, en}
+			KnownEnums[en.EnumName] = lookupResultEnum{packageName, en, enumCABI, enumZig}
 			// Register short name
-			KnownEnums[en.CabiEnumName()] = lookupResultEnum{packageName, en}
+			KnownEnums[enumClass] = lookupResultEnum{packageName, en, enumCABI, enumZig}
 
 			// Flags version
 			flagsEnum := en // copy
 			flagsEnum.EnumName = "QFlags<" + en.EnumName + ">"
-			KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum}
-			KnownEnums[en.CabiEnumName()+"s"] = lookupResultEnum{packageName, flagsEnum}
+			KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
+			KnownEnums[enumClass+"s"] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
 		}
 	}
 
@@ -105,20 +147,23 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 			KnownImports[en.EnumName] = lookupResultImport{packageName, filepath.Base(filename)}
 		}
 
-		KnownEnums[en.EnumName] = lookupResultEnum{packageName, en /* copy */}
+		enumCABI := en.UnderlyingType.RenderTypeCabi()
+		enumZig := en.getEnumTypeZig()
+
+		KnownEnums[en.EnumName] = lookupResultEnum{packageName, en /* copy */, enumCABI, enumZig}
 
 		// Register short name if it's a scoped enum
 		if strings.Contains(en.EnumName, "::") {
-			shortName := en.CabiEnumName()
-			KnownEnums[shortName] = lookupResultEnum{packageName, en}
+			shortName := en.EnumClassName()
+			KnownEnums[shortName] = lookupResultEnum{packageName, en, enumCABI, enumZig}
 		}
 
 		// Flags version
 		flagsEnum := en // copy
 		flagsEnum.EnumName = "QFlags<" + en.EnumName + ">"
-		KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum}
+		KnownEnums[flagsEnum.EnumName] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
 		if strings.Contains(en.EnumName, "::") {
-			KnownEnums[en.CabiEnumName()+"s"] = lookupResultEnum{packageName, flagsEnum}
+			KnownEnums[en.EnumClassName()+"s"] = lookupResultEnum{packageName, flagsEnum, "int64_t", "i64"}
 		}
 	}
 
@@ -130,11 +175,7 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 		for _, en := range parsed.Enums {
 			// Some headers only have enums we can process, e.g. QSsl, QtVideo
 			// We also need to check for enums in scoped classes
-			lastIndex := strings.LastIndex(en.EnumName, "::")
-			if lastIndex == -1 {
-				lastIndex = len(en.EnumName)
-			}
-			importName := en.EnumName[:lastIndex]
+			importName := en.EnumValueName()
 			KnownImports[importName] = lookupResultImport{packageName, filename}
 		}
 	}
@@ -148,11 +189,11 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 		}
 
 		// Register with fully qualified name
-		KnownEnums[flagInfo.PropertyName] = lookupResultEnum{packageName, flagEnum}
+		KnownEnums[flagInfo.PropertyName] = lookupResultEnum{packageName, flagEnum, "int64_t", "i64"}
 
 		// Register with short name
 		if strings.Contains(flagInfo.PropertyName, "::") {
-			KnownEnums[flagName] = lookupResultEnum{packageName, flagEnum}
+			KnownEnums[flagName] = lookupResultEnum{packageName, flagEnum, "int64_t", "i64"}
 		}
 	}
 }
