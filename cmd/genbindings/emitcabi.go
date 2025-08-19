@@ -36,7 +36,7 @@ func (p CppParameter) RenderTypeCabi() string {
 		return "libqt_list " + cppComment("set of "+inner.RenderTypeCabi())
 
 	} else if inner1, inner2, _, ok := p.QMapOf(); ok {
-		return "libqt_map " + cppComment("of "+inner1.RenderTypeCabi()+" to "+inner2.RenderTypeCabi())
+		return "libqt_map" + ifv(p.Pointer, "* ", " ") + cppComment("of "+inner1.RenderTypeCabi()+" to "+inner2.RenderTypeCabi())
 
 	} else if inner1, inner2, ok := p.QPairOf(); ok {
 		return "libqt_pair " + cppComment("tuple of "+inner1.RenderTypeCabi()+" and "+inner2.RenderTypeCabi())
@@ -61,7 +61,7 @@ func (p CppParameter) RenderTypeCabi() string {
 			return qflag.CABIType
 		}
 	} else if e, ok := KnownEnums[p.ParameterType]; ok {
-		ret = e.Enum.UnderlyingType.RenderTypeCabi()
+		ret = e.EnumTypeCABI
 	}
 
 	switch p.ParameterType {
@@ -108,13 +108,13 @@ func (p CppParameter) RenderTypeCabi() string {
 
 	if ft, ok := p.QFlagsOf(); ok {
 		if e, ok := KnownEnums[ft.UnderlyingEnum.ParameterType]; ok {
-			ret = e.Enum.UnderlyingType.RenderTypeCabi()
+			ret = e.EnumTypeCABI
 		} else {
 			ret = "int"
 		}
 
 	} else if e, ok := KnownEnums[p.ParameterType]; ok {
-		ret = e.Enum.UnderlyingType.RenderTypeCabi()
+		ret = e.EnumTypeCABI
 	}
 
 	if p.Pointer {
@@ -284,7 +284,16 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 		}
 
 	} else if kType, vType, _, ok := p.QMapOf(); ok {
-		preamble += indent + p.GetQtCppType().ParameterType + " " + nameprefix + "_QMap;\n"
+		var maybeDerefOpen, maybeDerefClose, maybePointer string
+		methodDeref := "."
+		if p.Pointer {
+			methodDeref = "->"
+			maybeDerefOpen = "(*"
+			maybeDerefClose = ")"
+			maybePointer = "*"
+		}
+
+		preamble += indent + p.GetQtCppType().ParameterType + maybePointer + " " + nameprefix + "_QMap;\n"
 
 		// This container may be a QMap or a QHash
 		// QHash supports .reserve(), but QMap doesn't
@@ -292,9 +301,9 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 			preamble += indent + nameprefix + "_QMap.reserve(" + p.ParameterName + ".len);\n"
 		}
 
-		preamble += indent + kType.RenderTypeCabi() + "* " + nameprefix + "_karr = static_cast<" + kType.RenderTypeCabi() + "*>(" + p.ParameterName + ".keys);\n"
-		preamble += indent + vType.RenderTypeCabi() + "* " + nameprefix + "_varr = static_cast<" + vType.RenderTypeCabi() + "*>(" + p.ParameterName + ".values);\n"
-		preamble += indent + "for(size_t i = 0; i < " + p.ParameterName + ".len; ++i) {\n"
+		preamble += indent + kType.RenderTypeCabi() + "* " + nameprefix + "_karr = static_cast<" + kType.RenderTypeCabi() + "*>(" + p.ParameterName + methodDeref + "keys);\n"
+		preamble += indent + vType.RenderTypeCabi() + "* " + nameprefix + "_varr = static_cast<" + vType.RenderTypeCabi() + "*>(" + p.ParameterName + methodDeref + "values);\n"
+		preamble += indent + "for(size_t i = 0; i < " + p.ParameterName + methodDeref + "len; ++i) {\n"
 
 		kType.ParameterName = nameprefix + "_karr[i]"
 		addPreK, addFwdK := emitCABI2CppForwarding(kType, indent+"\t", currentClass)
@@ -304,7 +313,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 		addPreV, addFwdV := emitCABI2CppForwarding(vType, indent+"\t", currentClass)
 		preamble += addPreV
 
-		preamble += indent + "\t" + nameprefix + "_QMap[" + addFwdK + "] = " + addFwdV + ";\n"
+		preamble += indent + "\t" + maybeDerefOpen + nameprefix + "_QMap" + maybeDerefClose + "[" + addFwdK + "] = " + addFwdV + ";\n"
 
 		preamble += indent + "}\n"
 		return preamble, nameprefix + "_QMap"
@@ -339,7 +348,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string) (preamb
 				if !strings.HasPrefix(currentClass, "Virtual") {
 					currentClass = "Virtual" + currentClass
 				}
-				castType = currentClass + "::" + enum.Enum.CabiEnumName()
+				castType = currentClass + "::" + enum.Enum.EnumClassName()
 			}
 		}
 
