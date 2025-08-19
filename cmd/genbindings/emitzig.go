@@ -121,8 +121,9 @@ func (p CppParameter) needsPointer(paramType string) bool {
 
 func (p CppParameter) RenderTypeMapZig(zfs *zigFileState, isReturnType bool) string {
 	baseType := p.RenderTypeZig(zfs, true, true)
-	if strings.Contains(baseType, "_enums") {
-		baseType = "i32"
+
+	if e, ok := KnownEnums[p.ParameterType]; ok {
+		baseType = e.EnumTypeZig
 	}
 
 	return mapParamToString(baseType)
@@ -131,12 +132,17 @@ func (p CppParameter) RenderTypeMapZig(zfs *zigFileState, isReturnType bool) str
 func mapParamToString(param string) string {
 	var result []rune
 
+	maybeSlice := ""
+	if strings.Contains(param, "[][]") {
+		maybeSlice = "slice"
+	}
+
 	for _, char := range param {
 		if unicode.IsLetter(char) || unicode.IsDigit(char) {
 			result = append(result, char)
 		}
 	}
-	return strings.ToLower(string(result))
+	return maybeSlice + strings.ToLower(string(result))
 }
 
 func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumName bool) string {
@@ -155,15 +161,9 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		tType := t.RenderTypeZig(zfs, isReturnType, fullEnumName)
 		maybePointer := ifv(t.needsPointer(tType), "QtC.", "")
 
-		if _, ok := KnownEnums[t.ParameterType]; ok && !fullEnumName {
-			// we need to cast to i32 to safely retrieve the values from the opaque C data
+		if e, ok := KnownEnums[t.ParameterType]; ok && !fullEnumName {
 			// e.g. QLocale::weekdays
-			tType = "i32"
-		}
-
-		if t.ParameterType == "QLocale::Country" || t.ParameterType == "QAudioFormat::SampleFormat" {
-			// these enum values are u16, hack around this for now
-			tType = "u16"
+			tType = e.EnumTypeZig
 		}
 
 		return "[]" + maybePointer + tType
@@ -183,8 +183,8 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			hashMapType = "AutoHashMap,u8,"
 		} else {
 			k = t1.RenderTypeZig(zfs, isReturnType, false)
-			if strings.Contains(k, "_enums") || k == "i64" {
-				k = "i32"
+			if e, ok := KnownEnums[t1.ParameterType]; ok {
+				k = e.EnumTypeZig
 			}
 			hashMapType = "AutoHashMap," + k + ","
 		}
@@ -195,7 +195,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		k = mapParamToString(k)
 		v = mapParamToString(v)
 
-		return "map_" + k + "_" + v
+		return ifv(p.Pointer, "*", "") + "map_" + k + "_" + v
 	}
 
 	if t1, t2, ok := p.QPairOf(); ok {
@@ -243,7 +243,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	switch p.ParameterType {
 	case "bool":
-		ret += "bool"
+		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
 	case "unsigned char", "uchar", "quint8", "uint8_t":
 		// Zig byte is unsigned
 		ret += "u8"
@@ -305,7 +305,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				if fullEnumName {
 					ret += "enums." + cabiEnumName(ft.UnderlyingEnum.ParameterType)
 				} else {
-					ret += "i64"
+					ret += enumInfo.EnumTypeZig
 				}
 				zfs.imports[enumInfo.PackageName] = struct{}{}
 			} else {
@@ -313,11 +313,11 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				if fullEnumName {
 					ret += cabiEnumName(ft.UnderlyingEnum.ParameterType)
 				} else {
-					ret += "i64"
+					ret += enumInfo.EnumTypeZig
 				}
 			}
 
-		} else if _, ok := KnownEnums[p.ParameterType]; ok {
+		} else if e, ok := KnownEnums[p.ParameterType]; ok {
 			enumName := cabiEnumName(p.ParameterType)
 			if enumName == "" {
 				enumName = cabiClassName(p.ParameterType)
@@ -333,7 +333,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				if fullEnumName {
 					ret += zigImport.Filename + "_enums." + enumName
 				} else {
-					ret += "i64"
+					ret += e.EnumTypeZig
 				}
 
 				var maybeDots string
@@ -401,8 +401,8 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState) string {
 	ret := p.RenderTypeZig(zfs, true, false)
 	maybeConst := ifv(p.Const, "const ", "")
 
-	if _, ok := KnownEnums[ret]; ok {
-		ret = maybeConst + "i64"
+	if e, ok := KnownEnums[ret]; ok {
+		ret = maybeConst + e.EnumTypeZig
 	}
 
 	if ret == "void" {
@@ -712,8 +712,8 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			hashMapType = "AutoHashMap,u8,"
 		} else {
 			k := kType.RenderTypeZig(zfs, false, true)
-			if strings.Contains(k, "_enums") || k == "i64" {
-				k = "i32"
+			if e, ok := KnownEnums[kType.ParameterType]; ok {
+				k = e.EnumTypeZig
 			}
 			hashMapType = "AutoHashMap," + k + ","
 		}
@@ -753,7 +753,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		preamble += "}\n"
 
 		// Create the map struct
-		preamble += "const " + nameprefix + "_map = qtc.libqt_map {\n"
+		preamble += "const " + nameprefix + "_map = " + ifv(p.Pointer, "&", "") + "qtc.libqt_map {\n"
 		preamble += "    .len = " + p.ParameterName + ".count(),\n"
 		preamble += "    .keys = @ptrCast(" + nameprefix + "_keys.ptr),\n"
 		preamble += "    .values = @ptrCast(" + nameprefix + "_values.ptr),\n"
@@ -896,15 +896,9 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			if t.needsPointer(arrType) {
 				arrType = "QtC." + arrType
 			}
-			if _, ok := KnownEnums[t.ParameterType]; ok {
-				// we need to cast to i32 to safely retrieve the values from the opaque C data
+			if e, ok := KnownEnums[t.ParameterType]; ok {
 				// e.g. QLocale::weekdays
-				arrType = "i32"
-			}
-
-			if t.ParameterType == "QLocale::Country" || t.ParameterType == "QAudioFormat::SampleFormat" {
-				// these enum values are u16, hack around this for now
-				arrType = "u16"
+				arrType = e.EnumTypeZig
 			}
 
 			afterword += "defer qtc.libqt_free(" + namePrefix + "_arr.data);\n"
@@ -987,11 +981,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		if keyParam == "constu8" {
 			kParam = "qtc.libqt_string"
 			stringHashMap = true
-		} else if kType.IntType() {
-			k := kType.RenderTypeZig(zfs, false, true)
-			if strings.Contains(k, "_enums") {
-				kParam = "i32"
-			}
+		} else if e, ok := KnownEnums[kType.ParameterType]; ok {
+			kParam = e.EnumTypeZig
 		}
 
 		keyType := kParam
@@ -1228,7 +1219,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 	nextEnum:
 		for _, e := range src.Enums {
 
-			shortEnumName := e.ShortEnumName()
+			shortEnumName := e.EnumValueName()
 
 			// Disallow entry<-->entry collisions
 			for _, ee := range e.Entries {
@@ -1811,7 +1802,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		pageName := getPageName(zfs.currentHeaderName)
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-		pageUrl := getPageUrl(EnumPage, pageName+maybeCharts, "", "")
+		pageUrl := getPageUrl(EnumPage, pageName+maybeCharts, "", zfs.currentHeaderName)
 		maybeUrl := ifv(pageUrl != "", "\n/// "+pageUrl, "")
 		ret.WriteString(maybeUrl + "\npub const enums = struct {\n")
 		closeEnums = true
@@ -1840,7 +1831,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			ret.WriteString("    pub const " + zigEnumName + " = enum {\n")
 
 			for _, ee := range e.Entries {
-				enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, true)
+				enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, false)
 				num, err := strconv.Atoi(ee.EntryValue)
 				if err == nil {
 					if float64(num) > math.MaxInt32 || float64(num) < math.MinInt32 {
@@ -1852,7 +1843,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 
 		} else {
-			ret.WriteString("    pub const " + zigEnumName + " = enum(" + e.UnderlyingType.RenderTypeZig(&zfs, false, true) + ") {\n")
+			ret.WriteString("    pub const " + zigEnumName + " = enum(" + e.UnderlyingType.RenderTypeZig(&zfs, false, false) + ") {\n")
 		}
 		ret.WriteString("    };\n\n")
 	}
