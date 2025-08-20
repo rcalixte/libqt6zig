@@ -230,6 +230,11 @@ func AllowVirtualForClass(className string) bool {
 		return false
 	}
 
+	// Qt 6 SQL
+	if className == "QSqlResult" {
+		return false
+	}
+
 	// Qt 6 Charts
 	if className == "QBarModelMapper" {
 		return false
