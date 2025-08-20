@@ -143,6 +143,8 @@ pub fn build(b: *std.Build) !void {
         "QtPrintSupport",
         // Qt 6 Spatial Audio
         "QtSpatialAudio",
+        // Qt 6 SQL
+        "QtSql",
         // Qt 6 SVG
         "QtSvg",
         "QtSvgWidgets",
