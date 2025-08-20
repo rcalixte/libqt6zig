@@ -63,27 +63,16 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags: "--std=c++20 " + pkgConfigCflags("Qt6Core"),
 		},
 
-		// Qt 6 Print Support
+		// Qt 6 Multimedia
 		// Depends on Qt Core, GUI, Widgets
 		{
-			path: "printsupport",
+			path: "multimedia",
 			dirs: []string{
-				"/usr/include/" + arch + "-linux-gnu/qt6/QtPrintSupport",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtMultimedia",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtMultimediaWidgets",
 			},
 			allowHeader: AllowAllHeaders,
-			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
-		},
-
-		// Qt 6 SVG
-		// Depends on Qt Core, GUI, Widgets
-		{
-			path: "svg",
-			dirs: []string{
-				"/usr/include/" + arch + "-linux-gnu/qt6/QtSvg",
-				"/usr/include/" + arch + "-linux-gnu/qt6/QtSvgWidgets",
-			},
-			allowHeader: AllowAllHeaders,
-			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SvgWidgets"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6MultimediaWidgets"),
 		},
 
 		// Qt 6 Network
@@ -100,20 +89,31 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Network"),
 		},
 
-		// Qt 6 Multimedia
+		// Qt 6 PDF
 		// Depends on Qt Core, GUI, Widgets
 		{
-			path: "multimedia",
+			path: "pdf",
 			dirs: []string{
-				"/usr/include/" + arch + "-linux-gnu/qt6/QtMultimedia",
-				"/usr/include/" + arch + "-linux-gnu/qt6/QtMultimediaWidgets",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtPdf",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtPdfWidgets",
 			},
 			allowHeader: AllowAllHeaders,
-			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6MultimediaWidgets"),
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PdfWidgets"),
 		},
 
-		// Qt 6 Spatial Audio (on Debian, this is a dependency of Qt Multimedia)
-		// Depends on Qt Core
+		// Qt 6 Print Support
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "printsupport",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtPrintSupport",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PrintSupport"),
+		},
+
+		// Qt 6 Spatial Audio
+		// Depends on Qt Core, Multimedia
 		{
 			path: "spatialaudio",
 			dirs: []string{
@@ -121,6 +121,29 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SpatialAudio"),
+		},
+
+		// Qt 6 SQL
+		// Depends on Qt Core
+		{
+			path: "sql",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtSql",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Sql"),
+		},
+
+		// Qt 6 SVG
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "svg",
+			dirs: []string{
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtSvg",
+				"/usr/include/" + arch + "-linux-gnu/qt6/QtSvgWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6SvgWidgets"),
 		},
 
 		// Qt 6 WebChannel
@@ -149,17 +172,7 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags: "--std=c++17 " + pkgConfigCflags("Qt6WebEngineWidgets"),
 		},
 
-		// Qt 6 PDF
-		// Depends on Qt Core, GUI, Widgets
-		{
-			path: "pdf",
-			dirs: []string{
-				"/usr/include/" + arch + "-linux-gnu/qt6/QtPdf",
-				"/usr/include/" + arch + "-linux-gnu/qt6/QtPdfWidgets",
-			},
-			allowHeader: AllowAllHeaders,
-			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6PdfWidgets"),
-		},
+		// restricted-extras
 
 		// Qt 6 Charts
 		// Depends on Qt Core, GUI, Widgets
