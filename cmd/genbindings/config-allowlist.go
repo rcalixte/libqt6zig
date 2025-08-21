@@ -252,6 +252,14 @@ func AllowVirtualForClass(className string) bool {
 		return false
 	}
 
+	// Qt 6 KCodecs
+	if className == "KCodecs::Codec" {
+		return false
+	}
+	if className == "KCodecs::Encoder" {
+		return false
+	}
+
 	return true
 }
 
