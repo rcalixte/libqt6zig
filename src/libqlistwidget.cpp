@@ -786,18 +786,17 @@ void QListWidget_CurrentTextChanged(QListWidget* self, const libqt_string curren
 }
 
 void QListWidget_Connect_CurrentTextChanged(QListWidget* self, intptr_t slot) {
-    void (*slotFunc)(QListWidget*, libqt_string) = reinterpret_cast<void (*)(QListWidget*, libqt_string)>(slot);
+    void (*slotFunc)(QListWidget*, const char*) = reinterpret_cast<void (*)(QListWidget*, const char*)>(slot);
     QListWidget::connect(self, &QListWidget::currentTextChanged, [self, slotFunc](const QString& currentText) {
         const QString currentText_ret = currentText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray currentText_b = currentText_ret.toUtf8();
-        libqt_string currentText_str;
-        currentText_str.len = currentText_b.length();
-        currentText_str.data = static_cast<const char*>(malloc(currentText_str.len + 1));
-        memcpy((void*)currentText_str.data, currentText_b.data(), currentText_str.len);
-        ((char*)currentText_str.data)[currentText_str.len] = '\0';
-        libqt_string sigval1 = currentText_str;
+        const char* currentText_str = static_cast<const char*>(malloc(currentText_b.length() + 1));
+        memcpy((void*)currentText_str, currentText_b.data(), currentText_b.length());
+        ((char*)currentText_str)[currentText_b.length()] = '\0';
+        const char* sigval1 = currentText_str;
         slotFunc(self, sigval1);
+        libqt_free(currentText_str);
     });
 }
 

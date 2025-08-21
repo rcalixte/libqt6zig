@@ -96,8 +96,8 @@ pub const qvalidator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, param1: []const u8, param2: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -131,8 +131,8 @@ pub const qvalidator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, param1: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QValidator_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -893,8 +893,8 @@ pub const qvalidator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QValidator_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -937,8 +937,8 @@ pub const qvalidator = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QValidator, slot: fn (self: QtC.QValidator, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1043,8 +1043,8 @@ pub const qintvalidator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, param1: []const u8, param2: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QIntValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1078,8 +1078,8 @@ pub const qintvalidator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, input: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QIntValidator_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1925,8 +1925,8 @@ pub const qintvalidator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QIntValidator_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1969,8 +1969,8 @@ pub const qintvalidator = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QIntValidator, slot: fn (self: QtC.QIntValidator, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2075,8 +2075,8 @@ pub const qdoublevalidator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, param1: []const u8, param2: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, param1: [*:0]const u8, param2: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QDoubleValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2110,8 +2110,8 @@ pub const qdoublevalidator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, input: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDoubleValidator_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3022,8 +3022,8 @@ pub const qdoublevalidator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDoubleValidator_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3066,8 +3066,8 @@ pub const qdoublevalidator = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDoubleValidator, slot: fn (self: QtC.QDoubleValidator, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3172,8 +3172,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, input: []const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QRegularExpressionValidator_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3695,8 +3695,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, param1: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QRegularExpressionValidator_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4027,8 +4027,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QRegularExpressionValidator_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4071,8 +4071,8 @@ pub const qregularexpressionvalidator = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QRegularExpressionValidator, slot: fn (self: QtC.QRegularExpressionValidator, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

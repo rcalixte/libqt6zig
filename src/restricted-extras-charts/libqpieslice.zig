@@ -1347,8 +1347,8 @@ pub const qpieslice = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPieSlice, slot: fn (self: QtC.QPieSlice, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QPieSlice, slot: fn (self: QtC.QPieSlice, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPieSlice_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1391,8 +1391,8 @@ pub const qpieslice = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QPieSlice, slot: fn (self: QtC.QPieSlice, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QPieSlice, slot: fn (self: QtC.QPieSlice, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -257,8 +257,8 @@ pub const qimagecapture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#errorOccurred)
     ///
-    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: []const u8) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, id: i32, errorVal: qimagecapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -401,8 +401,8 @@ pub const qimagecapture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimagecapture.html#imageSaved)
     ///
-    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, id: i32, fileName: []const u8) callconv(.c) void ```
-    pub fn OnImageSaved(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, id: i32, fileName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnImageSaved(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QImageCapture_Connect_ImageSaved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1147,8 +1147,8 @@ pub const qimagecapture = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QImageCapture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1191,8 +1191,8 @@ pub const qimagecapture = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QImageCapture, slot: fn (self: QtC.QImageCapture, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -83,8 +83,8 @@ pub const qfilesystemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#rootPathChanged)
     ///
-    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, newPath: []const u8) callconv(.c) void ```
-    pub fn OnRootPathChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, newPath: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRootPathChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemModel_Connect_RootPathChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -109,8 +109,8 @@ pub const qfilesystemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#fileRenamed)
     ///
-    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, path: []const u8, oldName: []const u8, newName: []const u8) callconv(.c) void ```
-    pub fn OnFileRenamed(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, []const u8, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, path: [*:0]const u8, oldName: [*:0]const u8, newName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFileRenamed(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemModel_Connect_FileRenamed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -127,8 +127,8 @@ pub const qfilesystemmodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfilesystemmodel.html#directoryLoaded)
     ///
-    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, path: []const u8) callconv(.c) void ```
-    pub fn OnDirectoryLoaded(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, path: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDirectoryLoaded(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemModel_Connect_DirectoryLoaded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3390,8 +3390,8 @@ pub const qfilesystemmodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QFileSystemModel_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3588,8 +3588,8 @@ pub const qfilesystemmodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileSystemModel, slot: fn (self: QtC.QFileSystemModel, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

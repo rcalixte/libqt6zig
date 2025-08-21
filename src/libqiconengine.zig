@@ -127,8 +127,8 @@ pub const qiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, fileName: []const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
-    pub fn OnAddFile(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
+    /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, fileName: [*:0]const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
+    pub fn OnAddFile(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnAddFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

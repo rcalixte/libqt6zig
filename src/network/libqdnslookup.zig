@@ -944,8 +944,8 @@ pub const qdnslookup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
     ///
-    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, name: []const u8) callconv(.c) void ```
-    pub fn OnNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, name: [*:0]const u8) callconv(.c) void ```
+    pub fn OnNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1742,8 +1742,8 @@ pub const qdnslookup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDnsLookup_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1786,8 +1786,8 @@ pub const qdnslookup = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDnsLookup, slot: fn (self: QtC.QDnsLookup, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

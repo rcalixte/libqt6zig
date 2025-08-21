@@ -1373,8 +1373,8 @@ pub const qwavedecoder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, data: []const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QWaveDecoder_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1711,8 +1711,8 @@ pub const qwavedecoder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, errorString: []const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWaveDecoder_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1812,8 +1812,8 @@ pub const qwavedecoder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWaveDecoder_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1856,8 +1856,8 @@ pub const qwavedecoder = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWaveDecoder, slot: fn (self: QtC.QWaveDecoder, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

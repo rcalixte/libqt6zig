@@ -2713,8 +2713,8 @@ pub const qstackedwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2753,8 +2753,8 @@ pub const qstackedwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5269,8 +5269,8 @@ pub const qstackedwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QStackedWidget_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5346,8 +5346,8 @@ pub const qstackedwidget = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QStackedWidget, slot: fn (self: QtC.QStackedWidget, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -4963,8 +4963,8 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5003,8 +5003,8 @@ pub const qheaderview = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5735,8 +5735,8 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, search: []const u8) callconv(.c) void ```
-    pub fn OnKeyboardSearch(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, search: [*:0]const u8) callconv(.c) void ```
+    pub fn OnKeyboardSearch(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QHeaderView_OnKeyboardSearch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8539,8 +8539,8 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QHeaderView_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8616,8 +8616,8 @@ pub const qheaderview = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QHeaderView, slot: fn (self: QtC.QHeaderView, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

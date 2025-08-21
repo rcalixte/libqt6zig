@@ -2795,8 +2795,8 @@ pub const qdockwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2835,8 +2835,8 @@ pub const qdockwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5186,8 +5186,8 @@ pub const qdockwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDockWidget_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5263,8 +5263,8 @@ pub const qdockwidget = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDockWidget, slot: fn (self: QtC.QDockWidget, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

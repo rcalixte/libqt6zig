@@ -212,8 +212,8 @@ pub const qoffscreensurface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QOffscreenSurface, slot: fn (self: QtC.QOffscreenSurface, name: []const u8, revision: i32) callconv(.c) ?*anyopaque ```
-    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) ?*anyopaque) void {
+    /// ``` self: QtC.QOffscreenSurface, slot: fn (self: QtC.QOffscreenSurface, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
+    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
         qtc.QOffscreenSurface_OnResolveInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -991,8 +991,8 @@ pub const qoffscreensurface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QOffscreenSurface, slot: fn (self: QtC.QOffscreenSurface, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QOffscreenSurface, slot: fn (self: QtC.QOffscreenSurface, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QOffscreenSurface_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1035,8 +1035,8 @@ pub const qoffscreensurface = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QOffscreenSurface, slot: fn (self: QtC.QOffscreenSurface, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QOffscreenSurface, slot: fn (self: QtC.QOffscreenSurface, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

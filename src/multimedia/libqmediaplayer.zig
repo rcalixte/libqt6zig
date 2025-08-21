@@ -670,8 +670,8 @@ pub const qmediaplayer = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediaplayer.html#errorOccurred)
     ///
-    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer, errorVal: qmediaplayer_enums.Error, errorString: []const u8) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer, errorVal: qmediaplayer_enums.Error, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QMediaPlayer_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1412,8 +1412,8 @@ pub const qmediaplayer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QMediaPlayer_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1456,8 +1456,8 @@ pub const qmediaplayer = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QMediaPlayer, slot: fn (self: QtC.QMediaPlayer, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

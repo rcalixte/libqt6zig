@@ -289,19 +289,18 @@ void QMediaRecorder_ErrorOccurred(QMediaRecorder* self, int errorVal, const libq
 }
 
 void QMediaRecorder_Connect_ErrorOccurred(QMediaRecorder* self, intptr_t slot) {
-    void (*slotFunc)(QMediaRecorder*, int, libqt_string) = reinterpret_cast<void (*)(QMediaRecorder*, int, libqt_string)>(slot);
+    void (*slotFunc)(QMediaRecorder*, int, const char*) = reinterpret_cast<void (*)(QMediaRecorder*, int, const char*)>(slot);
     QMediaRecorder::connect(self, &QMediaRecorder::errorOccurred, [self, slotFunc](QMediaRecorder::Error errorVal, const QString& errorString) {
         int sigval1 = static_cast<int>(errorVal);
         const QString errorString_ret = errorString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
-        libqt_string errorString_str;
-        errorString_str.len = errorString_b.length();
-        errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-        memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-        ((char*)errorString_str.data)[errorString_str.len] = '\0';
-        libqt_string sigval2 = errorString_str;
+        const char* errorString_str = static_cast<const char*>(malloc(errorString_b.length() + 1));
+        memcpy((void*)errorString_str, errorString_b.data(), errorString_b.length());
+        ((char*)errorString_str)[errorString_b.length()] = '\0';
+        const char* sigval2 = errorString_str;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(errorString_str);
     });
 }
 

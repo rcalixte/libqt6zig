@@ -409,8 +409,8 @@ pub const qareaseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qareaseries-qtcharts.html#pointLabelsFormatChanged)
     ///
-    /// ``` self: QtC.QAreaSeries, slot: fn (self: QtC.QAreaSeries, format: []const u8) callconv(.c) void ```
-    pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAreaSeries, slot: fn (self: QtC.QAreaSeries, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAreaSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1450,8 +1450,8 @@ pub const qareaseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAreaSeries, slot: fn (self: QtC.QAreaSeries, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QAreaSeries, slot: fn (self: QtC.QAreaSeries, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAreaSeries_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1494,8 +1494,8 @@ pub const qareaseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAreaSeries, slot: fn (self: QtC.QAreaSeries, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAreaSeries, slot: fn (self: QtC.QAreaSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

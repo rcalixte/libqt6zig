@@ -505,18 +505,17 @@ void QFileDialog_FileSelected(QFileDialog* self, const libqt_string file) {
 }
 
 void QFileDialog_Connect_FileSelected(QFileDialog* self, intptr_t slot) {
-    void (*slotFunc)(QFileDialog*, libqt_string) = reinterpret_cast<void (*)(QFileDialog*, libqt_string)>(slot);
+    void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::fileSelected, [self, slotFunc](const QString& file) {
         const QString file_ret = file;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray file_b = file_ret.toUtf8();
-        libqt_string file_str;
-        file_str.len = file_b.length();
-        file_str.data = static_cast<const char*>(malloc(file_str.len + 1));
-        memcpy((void*)file_str.data, file_b.data(), file_str.len);
-        ((char*)file_str.data)[file_str.len] = '\0';
-        libqt_string sigval1 = file_str;
+        const char* file_str = static_cast<const char*>(malloc(file_b.length() + 1));
+        memcpy((void*)file_str, file_b.data(), file_b.length());
+        ((char*)file_str)[file_b.length()] = '\0';
+        const char* sigval1 = file_str;
         slotFunc(self, sigval1);
+        libqt_free(file_str);
     });
 }
 
@@ -562,18 +561,17 @@ void QFileDialog_CurrentChanged(QFileDialog* self, const libqt_string path) {
 }
 
 void QFileDialog_Connect_CurrentChanged(QFileDialog* self, intptr_t slot) {
-    void (*slotFunc)(QFileDialog*, libqt_string) = reinterpret_cast<void (*)(QFileDialog*, libqt_string)>(slot);
+    void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::currentChanged, [self, slotFunc](const QString& path) {
         const QString path_ret = path;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
-        libqt_string path_str;
-        path_str.len = path_b.length();
-        path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-        memcpy((void*)path_str.data, path_b.data(), path_str.len);
-        ((char*)path_str.data)[path_str.len] = '\0';
-        libqt_string sigval1 = path_str;
+        const char* path_str = static_cast<const char*>(malloc(path_b.length() + 1));
+        memcpy((void*)path_str, path_b.data(), path_b.length());
+        ((char*)path_str)[path_b.length()] = '\0';
+        const char* sigval1 = path_str;
         slotFunc(self, sigval1);
+        libqt_free(path_str);
     });
 }
 
@@ -583,18 +581,17 @@ void QFileDialog_DirectoryEntered(QFileDialog* self, const libqt_string director
 }
 
 void QFileDialog_Connect_DirectoryEntered(QFileDialog* self, intptr_t slot) {
-    void (*slotFunc)(QFileDialog*, libqt_string) = reinterpret_cast<void (*)(QFileDialog*, libqt_string)>(slot);
+    void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::directoryEntered, [self, slotFunc](const QString& directory) {
         const QString directory_ret = directory;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray directory_b = directory_ret.toUtf8();
-        libqt_string directory_str;
-        directory_str.len = directory_b.length();
-        directory_str.data = static_cast<const char*>(malloc(directory_str.len + 1));
-        memcpy((void*)directory_str.data, directory_b.data(), directory_str.len);
-        ((char*)directory_str.data)[directory_str.len] = '\0';
-        libqt_string sigval1 = directory_str;
+        const char* directory_str = static_cast<const char*>(malloc(directory_b.length() + 1));
+        memcpy((void*)directory_str, directory_b.data(), directory_b.length());
+        ((char*)directory_str)[directory_b.length()] = '\0';
+        const char* sigval1 = directory_str;
         slotFunc(self, sigval1);
+        libqt_free(directory_str);
     });
 }
 
@@ -673,18 +670,17 @@ void QFileDialog_FilterSelected(QFileDialog* self, const libqt_string filter) {
 }
 
 void QFileDialog_Connect_FilterSelected(QFileDialog* self, intptr_t slot) {
-    void (*slotFunc)(QFileDialog*, libqt_string) = reinterpret_cast<void (*)(QFileDialog*, libqt_string)>(slot);
+    void (*slotFunc)(QFileDialog*, const char*) = reinterpret_cast<void (*)(QFileDialog*, const char*)>(slot);
     QFileDialog::connect(self, &QFileDialog::filterSelected, [self, slotFunc](const QString& filter) {
         const QString filter_ret = filter;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filter_b = filter_ret.toUtf8();
-        libqt_string filter_str;
-        filter_str.len = filter_b.length();
-        filter_str.data = static_cast<const char*>(malloc(filter_str.len + 1));
-        memcpy((void*)filter_str.data, filter_b.data(), filter_str.len);
-        ((char*)filter_str.data)[filter_str.len] = '\0';
-        libqt_string sigval1 = filter_str;
+        const char* filter_str = static_cast<const char*>(malloc(filter_b.length() + 1));
+        memcpy((void*)filter_str, filter_b.data(), filter_b.length());
+        ((char*)filter_str)[filter_b.length()] = '\0';
+        const char* sigval1 = filter_str;
         slotFunc(self, sigval1);
+        libqt_free(filter_str);
     });
 }
 

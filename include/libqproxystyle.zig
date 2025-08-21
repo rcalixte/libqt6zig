@@ -184,8 +184,8 @@ pub const qproxystyle = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: []const u8, textRole: qpalette_enums.ColorRole) callconv(.c) void ```
-    pub fn OnDrawItemText(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque, bool, []const u8, i32) callconv(.c) void) void {
+    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, painter: QtC.QPainter, rect: QtC.QRect, flags: i32, pal: QtC.QPalette, enabled: bool, text: [*:0]const u8, textRole: qpalette_enums.ColorRole) callconv(.c) void ```
+    pub fn OnDrawItemText(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, ?*anyopaque, bool, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.QProxyStyle_OnDrawItemText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -317,8 +317,8 @@ pub const qproxystyle = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, fm: QtC.QFontMetrics, r: QtC.QRect, flags: i32, enabled: bool, text: []const u8) callconv(.c) QtC.QRect ```
-    pub fn OnItemTextRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, bool, []const u8) callconv(.c) QtC.QRect) void {
+    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, fm: QtC.QFontMetrics, r: QtC.QRect, flags: i32, enabled: bool, text: [*:0]const u8) callconv(.c) QtC.QRect ```
+    pub fn OnItemTextRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, bool, [*:0]const u8) callconv(.c) QtC.QRect) void {
         qtc.QProxyStyle_OnItemTextRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1534,8 +1534,8 @@ pub const qproxystyle = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QProxyStyle_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1578,8 +1578,8 @@ pub const qproxystyle = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QProxyStyle, slot: fn (self: QtC.QProxyStyle, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

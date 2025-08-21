@@ -547,8 +547,8 @@ pub const qcategoryaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis.html#labelFormatChanged)
     ///
-    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, format: []const u8) callconv(.c) void ```
-    pub fn OnLabelFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLabelFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1436,8 +1436,8 @@ pub const qcategoryaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, title: []const u8) callconv(.c) void ```
-    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2451,8 +2451,8 @@ pub const qcategoryaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCategoryAxis_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2495,8 +2495,8 @@ pub const qcategoryaxis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QCategoryAxis, slot: fn (self: QtC.QCategoryAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

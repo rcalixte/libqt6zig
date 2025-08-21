@@ -1438,8 +1438,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, hostName: []const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
-    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, u16, i64, i32) callconv(.c) void) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, hostName: [*:0]const u8, port: u16, mode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
+    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, u16, i64, i32) callconv(.c) void) void {
         qtc.QUdpSocket_OnConnectToHost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1935,8 +1935,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, data: []const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QUdpSocket_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1970,8 +1970,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, data: []const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QUdpSocket_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2038,8 +2038,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, data: []const u8, lenVal: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QUdpSocket_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2739,8 +2739,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, name: []const u8) callconv(.c) void ```
-    pub fn OnSetPeerName(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, name: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetPeerName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUdpSocket_OnSetPeerName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2813,8 +2813,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, errorString: []const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUdpSocket_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2914,8 +2914,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QUdpSocket_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2958,8 +2958,8 @@ pub const qudpsocket = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QUdpSocket, slot: fn (self: QtC.QUdpSocket, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

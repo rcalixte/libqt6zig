@@ -189,8 +189,8 @@ pub const qscreencapture = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscreencapture.html#errorOccurred)
     ///
-    /// ``` self: QtC.QScreenCapture, slot: fn (self: QtC.QScreenCapture, errorVal: qscreencapture_enums.Error, errorString: []const u8) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QScreenCapture, slot: fn (self: QtC.QScreenCapture, errorVal: qscreencapture_enums.Error, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QScreenCapture_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -924,8 +924,8 @@ pub const qscreencapture = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QScreenCapture, slot: fn (self: QtC.QScreenCapture, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QScreenCapture, slot: fn (self: QtC.QScreenCapture, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QScreenCapture_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -968,8 +968,8 @@ pub const qscreencapture = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QScreenCapture, slot: fn (self: QtC.QScreenCapture, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QScreenCapture, slot: fn (self: QtC.QScreenCapture, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

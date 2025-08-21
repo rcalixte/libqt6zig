@@ -1101,8 +1101,8 @@ pub const qfiledevice = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFileDevice, slot: fn (self: QtC.QFileDevice, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDevice, slot: fn (self: QtC.QFileDevice, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

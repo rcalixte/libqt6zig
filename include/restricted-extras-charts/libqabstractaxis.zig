@@ -715,8 +715,8 @@ pub const qabstractaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis-qtcharts.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QAbstractAxis, slot: fn (self: QtC.QAbstractAxis, title: []const u8) callconv(.c) void ```
-    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractAxis, slot: fn (self: QtC.QAbstractAxis, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1385,8 +1385,8 @@ pub const qabstractaxis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractAxis, slot: fn (self: QtC.QAbstractAxis, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractAxis, slot: fn (self: QtC.QAbstractAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

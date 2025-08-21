@@ -243,8 +243,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, tableName: []const u8) callconv(.c) QtC.QSqlIndex ```
-    pub fn OnPrimaryIndex(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QSqlIndex) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, tableName: [*:0]const u8) callconv(.c) QtC.QSqlIndex ```
+    pub fn OnPrimaryIndex(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QSqlIndex) void {
         qtc.QSqlDriver_OnPrimaryIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -276,8 +276,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, tableName: []const u8) callconv(.c) QtC.QSqlRecord ```
-    pub fn OnRecord(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QSqlRecord) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, tableName: [*:0]const u8) callconv(.c) QtC.QSqlRecord ```
+    pub fn OnRecord(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QSqlRecord) void {
         qtc.QSqlDriver_OnRecord(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -346,8 +346,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: []const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) []const u8 ```
-    pub fn OnEscapeIdentifier(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) []const u8 ```
+    pub fn OnEscapeIdentifier(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
         qtc.QSqlDriver_OnEscapeIdentifier(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -387,8 +387,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, typeVal: qsqldriver_enums.StatementType, tableName: []const u8, rec: QtC.QSqlRecord, preparedStatement: bool) callconv(.c) []const u8 ```
-    pub fn OnSqlStatement(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8, ?*anyopaque, bool) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, typeVal: qsqldriver_enums.StatementType, tableName: [*:0]const u8, rec: QtC.QSqlRecord, preparedStatement: bool) callconv(.c) []const u8 ```
+    pub fn OnSqlStatement(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque, bool) callconv(.c) []const u8) void {
         qtc.QSqlDriver_OnSqlStatement(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -547,8 +547,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, db: []const u8, user: []const u8, password: []const u8, host: []const u8, port: i32, connOpts: []const u8) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, []const u8, []const u8, []const u8, i32, []const u8) callconv(.c) bool) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, db: [*:0]const u8, user: [*:0]const u8, password: [*:0]const u8, host: [*:0]const u8, port: i32, connOpts: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32, [*:0]const u8) callconv(.c) bool) void {
         qtc.QSqlDriver_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -596,8 +596,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, name: []const u8) callconv(.c) bool ```
-    pub fn OnSubscribeToNotification(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) bool) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, name: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnSubscribeToNotification(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QSqlDriver_OnSubscribeToNotification(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -629,8 +629,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, name: []const u8) callconv(.c) bool ```
-    pub fn OnUnsubscribeFromNotification(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) bool) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, name: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnUnsubscribeFromNotification(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QSqlDriver_OnUnsubscribeFromNotification(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -717,8 +717,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: []const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) bool ```
-    pub fn OnIsIdentifierEscaped(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) bool) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) bool ```
+    pub fn OnIsIdentifierEscaped(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) bool) void {
         qtc.QSqlDriver_OnIsIdentifierEscaped(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -754,8 +754,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: []const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) []const u8 ```
-    pub fn OnStripDelimiters(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) []const u8 ```
+    pub fn OnStripDelimiters(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
         qtc.QSqlDriver_OnStripDelimiters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -864,8 +864,8 @@ pub const qsqldriver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqldriver.html#notification)
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, name: []const u8, source: qsqldriver_enums.NotificationSource, payload: QtC.QVariant) callconv(.c) void ```
-    pub fn OnNotification(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32, ?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, name: [*:0]const u8, source: qsqldriver_enums.NotificationSource, payload: QtC.QVariant) callconv(.c) void ```
+    pub fn OnNotification(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QSqlDriver_Connect_Notification(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1674,8 +1674,8 @@ pub const qsqldriver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSqlDriver_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1718,8 +1718,8 @@ pub const qsqldriver = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

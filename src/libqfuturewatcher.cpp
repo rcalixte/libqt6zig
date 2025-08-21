@@ -231,18 +231,17 @@ void QFutureWatcherBase_ProgressTextChanged(QFutureWatcherBase* self, const libq
 }
 
 void QFutureWatcherBase_Connect_ProgressTextChanged(QFutureWatcherBase* self, intptr_t slot) {
-    void (*slotFunc)(QFutureWatcherBase*, libqt_string) = reinterpret_cast<void (*)(QFutureWatcherBase*, libqt_string)>(slot);
+    void (*slotFunc)(QFutureWatcherBase*, const char*) = reinterpret_cast<void (*)(QFutureWatcherBase*, const char*)>(slot);
     QFutureWatcherBase::connect(self, &QFutureWatcherBase::progressTextChanged, [self, slotFunc](const QString& progressText) {
         const QString progressText_ret = progressText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray progressText_b = progressText_ret.toUtf8();
-        libqt_string progressText_str;
-        progressText_str.len = progressText_b.length();
-        progressText_str.data = static_cast<const char*>(malloc(progressText_str.len + 1));
-        memcpy((void*)progressText_str.data, progressText_b.data(), progressText_str.len);
-        ((char*)progressText_str.data)[progressText_str.len] = '\0';
-        libqt_string sigval1 = progressText_str;
+        const char* progressText_str = static_cast<const char*>(malloc(progressText_b.length() + 1));
+        memcpy((void*)progressText_str, progressText_b.data(), progressText_b.length());
+        ((char*)progressText_str)[progressText_b.length()] = '\0';
+        const char* sigval1 = progressText_str;
         slotFunc(self, sigval1);
+        libqt_free(progressText_str);
     });
 }
 

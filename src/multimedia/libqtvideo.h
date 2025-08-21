@@ -15,8 +15,12 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-
+typedef struct QMetaObject QMetaObject;
+typedef struct QtVideo QtVideo;
 #endif
+
+QMetaObject* QtVideo_GetEnumMetaObject(int param1);
+const char* QtVideo_GetEnumName(int param1);
 
 #ifdef __cplusplus
 } /* extern C */

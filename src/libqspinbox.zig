@@ -252,8 +252,8 @@ pub const qspinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, input: []const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QSpinBox_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -287,8 +287,8 @@ pub const qspinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, text: []const u8) callconv(.c) i32 ```
-    pub fn OnValueFromText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, text: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnValueFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSpinBox_OnValueFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -353,8 +353,8 @@ pub const qspinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, str: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, str: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSpinBox_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -405,8 +405,8 @@ pub const qspinbox = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspinbox.html#textChanged)
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, param1: []const u8) callconv(.c) void ```
-    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSpinBox_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3081,8 +3081,8 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3121,8 +3121,8 @@ pub const qspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5773,8 +5773,8 @@ pub const qspinbox = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSpinBox_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5850,8 +5850,8 @@ pub const qspinbox = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6083,8 +6083,8 @@ pub const qdoublespinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, input: []const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QDoubleSpinBox_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6118,8 +6118,8 @@ pub const qdoublespinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, text: []const u8) callconv(.c) f64 ```
-    pub fn OnValueFromText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) f64) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, text: [*:0]const u8) callconv(.c) f64 ```
+    pub fn OnValueFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) f64) void {
         qtc.QDoubleSpinBox_OnValueFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6184,8 +6184,8 @@ pub const qdoublespinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, str: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, str: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDoubleSpinBox_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6236,8 +6236,8 @@ pub const qdoublespinbox = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdoublespinbox.html#textChanged)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, param1: []const u8) callconv(.c) void ```
-    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDoubleSpinBox_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8912,8 +8912,8 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8952,8 +8952,8 @@ pub const qdoublespinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -11637,8 +11637,8 @@ pub const qdoublespinbox = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDoubleSpinBox_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -11714,8 +11714,8 @@ pub const qdoublespinbox = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

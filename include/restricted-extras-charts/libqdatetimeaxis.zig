@@ -220,8 +220,8 @@ pub const qdatetimeaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeaxis-qtcharts.html#formatChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, format: []const u8) callconv(.c) void ```
-    pub fn OnFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDateTimeAxis_Connect_FormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1095,8 +1095,8 @@ pub const qdatetimeaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, title: []const u8) callconv(.c) void ```
-    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2110,8 +2110,8 @@ pub const qdatetimeaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDateTimeAxis_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2154,8 +2154,8 @@ pub const qdatetimeaxis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateTimeAxis, slot: fn (self: QtC.QDateTimeAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

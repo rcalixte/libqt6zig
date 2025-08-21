@@ -1257,18 +1257,17 @@ void QWidget_WindowTitleChanged(QWidget* self, const libqt_string title) {
 }
 
 void QWidget_Connect_WindowTitleChanged(QWidget* self, intptr_t slot) {
-    void (*slotFunc)(QWidget*, libqt_string) = reinterpret_cast<void (*)(QWidget*, libqt_string)>(slot);
+    void (*slotFunc)(QWidget*, const char*) = reinterpret_cast<void (*)(QWidget*, const char*)>(slot);
     QWidget::connect(self, &QWidget::windowTitleChanged, [self, slotFunc](const QString& title) {
         const QString title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
-        libqt_string title_str;
-        title_str.len = title_b.length();
-        title_str.data = static_cast<const char*>(malloc(title_str.len + 1));
-        memcpy((void*)title_str.data, title_b.data(), title_str.len);
-        ((char*)title_str.data)[title_str.len] = '\0';
-        libqt_string sigval1 = title_str;
+        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
+        memcpy((void*)title_str, title_b.data(), title_b.length());
+        ((char*)title_str)[title_b.length()] = '\0';
+        const char* sigval1 = title_str;
         slotFunc(self, sigval1);
+        libqt_free(title_str);
     });
 }
 
@@ -1292,18 +1291,17 @@ void QWidget_WindowIconTextChanged(QWidget* self, const libqt_string iconText) {
 }
 
 void QWidget_Connect_WindowIconTextChanged(QWidget* self, intptr_t slot) {
-    void (*slotFunc)(QWidget*, libqt_string) = reinterpret_cast<void (*)(QWidget*, libqt_string)>(slot);
+    void (*slotFunc)(QWidget*, const char*) = reinterpret_cast<void (*)(QWidget*, const char*)>(slot);
     QWidget::connect(self, &QWidget::windowIconTextChanged, [self, slotFunc](const QString& iconText) {
         const QString iconText_ret = iconText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray iconText_b = iconText_ret.toUtf8();
-        libqt_string iconText_str;
-        iconText_str.len = iconText_b.length();
-        iconText_str.data = static_cast<const char*>(malloc(iconText_str.len + 1));
-        memcpy((void*)iconText_str.data, iconText_b.data(), iconText_str.len);
-        ((char*)iconText_str.data)[iconText_str.len] = '\0';
-        libqt_string sigval1 = iconText_str;
+        const char* iconText_str = static_cast<const char*>(malloc(iconText_b.length() + 1));
+        memcpy((void*)iconText_str, iconText_b.data(), iconText_b.length());
+        ((char*)iconText_str)[iconText_b.length()] = '\0';
+        const char* sigval1 = iconText_str;
         slotFunc(self, sigval1);
+        libqt_free(iconText_str);
     });
 }
 

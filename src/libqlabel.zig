@@ -462,8 +462,8 @@ pub const qlabel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
     ///
-    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, link: []const u8) callconv(.c) void ```
-    pub fn OnLinkActivated(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, link: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLinkActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -480,8 +480,8 @@ pub const qlabel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlabel.html#linkHovered)
     ///
-    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, link: []const u8) callconv(.c) void ```
-    pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, link: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkHovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3282,8 +3282,8 @@ pub const qlabel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3322,8 +3322,8 @@ pub const qlabel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5409,8 +5409,8 @@ pub const qlabel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QLabel_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5486,8 +5486,8 @@ pub const qlabel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLabel, slot: fn (self: QtC.QLabel, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

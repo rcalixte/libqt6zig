@@ -1232,8 +1232,8 @@ pub const qrasterwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3161,8 +3161,8 @@ pub const qrasterwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, name: []const u8, revision: i32) callconv(.c) ?*anyopaque ```
-    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) ?*anyopaque) void {
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
+    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
         qtc.QRasterWindow_OnResolveInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3262,8 +3262,8 @@ pub const qrasterwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QRasterWindow_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3339,8 +3339,8 @@ pub const qrasterwindow = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QRasterWindow, slot: fn (self: QtC.QRasterWindow, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

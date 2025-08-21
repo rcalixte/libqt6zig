@@ -107,8 +107,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, text: []const u8) callconv(.c) void ```
-    pub fn OnHighlightBlock(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnHighlightBlock(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSyntaxHighlighter_OnHighlightBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1105,8 +1105,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSyntaxHighlighter_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1149,8 +1149,8 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

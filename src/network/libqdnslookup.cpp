@@ -662,18 +662,17 @@ void QDnsLookup_NameChanged(QDnsLookup* self, const libqt_string name) {
 }
 
 void QDnsLookup_Connect_NameChanged(QDnsLookup* self, intptr_t slot) {
-    void (*slotFunc)(QDnsLookup*, libqt_string) = reinterpret_cast<void (*)(QDnsLookup*, libqt_string)>(slot);
+    void (*slotFunc)(QDnsLookup*, const char*) = reinterpret_cast<void (*)(QDnsLookup*, const char*)>(slot);
     QDnsLookup::connect(self, &QDnsLookup::nameChanged, [self, slotFunc](const QString& name) {
         const QString name_ret = name;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray name_b = name_ret.toUtf8();
-        libqt_string name_str;
-        name_str.len = name_b.length();
-        name_str.data = static_cast<const char*>(malloc(name_str.len + 1));
-        memcpy((void*)name_str.data, name_b.data(), name_str.len);
-        ((char*)name_str.data)[name_str.len] = '\0';
-        libqt_string sigval1 = name_str;
+        const char* name_str = static_cast<const char*>(malloc(name_b.length() + 1));
+        memcpy((void*)name_str, name_b.data(), name_b.length());
+        ((char*)name_str)[name_b.length()] = '\0';
+        const char* sigval1 = name_str;
         slotFunc(self, sigval1);
+        libqt_free(name_str);
     });
 }
 

@@ -629,8 +629,8 @@ pub const qnetworkinformation = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 };

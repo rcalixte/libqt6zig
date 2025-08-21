@@ -498,8 +498,8 @@ pub const qguiapplication = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, name: []const u8, revision: i32) callconv(.c) ?*anyopaque ```
-    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) ?*anyopaque) void {
+    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
+    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
         qtc.QGuiApplication_OnResolveInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2099,8 +2099,8 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGuiApplication_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2154,8 +2154,8 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -968,8 +968,8 @@ pub const qfilesystemwatcher = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QFileSystemWatcher_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1010,8 +1010,8 @@ pub const qfilesystemwatcher = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, path: []const u8) callconv(.c) void ```
-    pub fn OnFileChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, path: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFileChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemWatcher_Connect_FileChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1019,8 +1019,8 @@ pub const qfilesystemwatcher = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, path: []const u8) callconv(.c) void ```
-    pub fn OnDirectoryChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, path: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDirectoryChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileSystemWatcher_Connect_DirectoryChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1030,8 +1030,8 @@ pub const qfilesystemwatcher = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileSystemWatcher, slot: fn (self: QtC.QFileSystemWatcher, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

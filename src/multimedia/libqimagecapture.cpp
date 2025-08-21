@@ -204,20 +204,19 @@ void QImageCapture_ErrorOccurred(QImageCapture* self, int id, int errorVal, cons
 }
 
 void QImageCapture_Connect_ErrorOccurred(QImageCapture* self, intptr_t slot) {
-    void (*slotFunc)(QImageCapture*, int, int, libqt_string) = reinterpret_cast<void (*)(QImageCapture*, int, int, libqt_string)>(slot);
+    void (*slotFunc)(QImageCapture*, int, int, const char*) = reinterpret_cast<void (*)(QImageCapture*, int, int, const char*)>(slot);
     QImageCapture::connect(self, &QImageCapture::errorOccurred, [self, slotFunc](int id, QImageCapture::Error errorVal, const QString& errorString) {
         int sigval1 = id;
         int sigval2 = static_cast<int>(errorVal);
         const QString errorString_ret = errorString;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray errorString_b = errorString_ret.toUtf8();
-        libqt_string errorString_str;
-        errorString_str.len = errorString_b.length();
-        errorString_str.data = static_cast<const char*>(malloc(errorString_str.len + 1));
-        memcpy((void*)errorString_str.data, errorString_b.data(), errorString_str.len);
-        ((char*)errorString_str.data)[errorString_str.len] = '\0';
-        libqt_string sigval3 = errorString_str;
+        const char* errorString_str = static_cast<const char*>(malloc(errorString_b.length() + 1));
+        memcpy((void*)errorString_str, errorString_b.data(), errorString_b.length());
+        ((char*)errorString_str)[errorString_b.length()] = '\0';
+        const char* sigval3 = errorString_str;
         slotFunc(self, sigval1, sigval2, sigval3);
+        libqt_free(errorString_str);
     });
 }
 
@@ -340,19 +339,18 @@ void QImageCapture_ImageSaved(QImageCapture* self, int id, const libqt_string fi
 }
 
 void QImageCapture_Connect_ImageSaved(QImageCapture* self, intptr_t slot) {
-    void (*slotFunc)(QImageCapture*, int, libqt_string) = reinterpret_cast<void (*)(QImageCapture*, int, libqt_string)>(slot);
+    void (*slotFunc)(QImageCapture*, int, const char*) = reinterpret_cast<void (*)(QImageCapture*, int, const char*)>(slot);
     QImageCapture::connect(self, &QImageCapture::imageSaved, [self, slotFunc](int id, const QString& fileName) {
         int sigval1 = id;
         const QString fileName_ret = fileName;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray fileName_b = fileName_ret.toUtf8();
-        libqt_string fileName_str;
-        fileName_str.len = fileName_b.length();
-        fileName_str.data = static_cast<const char*>(malloc(fileName_str.len + 1));
-        memcpy((void*)fileName_str.data, fileName_b.data(), fileName_str.len);
-        ((char*)fileName_str.data)[fileName_str.len] = '\0';
-        libqt_string sigval2 = fileName_str;
+        const char* fileName_str = static_cast<const char*>(malloc(fileName_b.length() + 1));
+        memcpy((void*)fileName_str, fileName_b.data(), fileName_b.length());
+        ((char*)fileName_str)[fileName_b.length()] = '\0';
+        const char* sigval2 = fileName_str;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(fileName_str);
     });
 }
 

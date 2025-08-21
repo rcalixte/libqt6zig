@@ -1253,8 +1253,8 @@ pub const qscatterseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries.html#pointLabelsFormatChanged)
     ///
-    /// ``` self: QtC.QScatterSeries, slot: fn (self: QtC.QScatterSeries, format: []const u8) callconv(.c) void ```
-    pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QScatterSeries, slot: fn (self: QtC.QScatterSeries, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2491,8 +2491,8 @@ pub const qscatterseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QScatterSeries, slot: fn (self: QtC.QScatterSeries, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QScatterSeries, slot: fn (self: QtC.QScatterSeries, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QScatterSeries_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2535,8 +2535,8 @@ pub const qscatterseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QScatterSeries, slot: fn (self: QtC.QScatterSeries, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QScatterSeries, slot: fn (self: QtC.QScatterSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

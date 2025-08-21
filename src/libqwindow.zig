@@ -786,8 +786,8 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, name: []const u8, revision: i32) callconv(.c) ?*anyopaque ```
-    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) ?*anyopaque) void {
+    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
+    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
         qtc.QWindow_OnResolveInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1042,8 +1042,8 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2485,8 +2485,8 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWindow_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2529,8 +2529,8 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

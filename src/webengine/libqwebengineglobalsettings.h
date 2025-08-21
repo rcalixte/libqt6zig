@@ -18,8 +18,11 @@ extern "C" {
 typedef QWebEngineGlobalSettings::DnsMode QWebEngineGlobalSettings__DnsMode;
 #endif
 #else
+typedef struct QWebEngineGlobalSettings QWebEngineGlobalSettings;
 typedef struct QWebEngineGlobalSettings__DnsMode QWebEngineGlobalSettings__DnsMode;
 #endif
+
+bool QWebEngineGlobalSettings_SetDnsMode(QWebEngineGlobalSettings__DnsMode* param1);
 
 #ifdef __cplusplus
 } /* extern C */

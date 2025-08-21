@@ -305,8 +305,8 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, progressText: []const u8) callconv(.c) void ```
-    pub fn OnProgressTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, progressText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnProgressTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -784,8 +784,8 @@ pub const qfuturewatcherbase = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

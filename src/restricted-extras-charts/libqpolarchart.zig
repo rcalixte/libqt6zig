@@ -4196,8 +4196,8 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, propertyName: []const u8, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnPropertyChange(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, propertyName: [*:0]const u8, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnPropertyChange(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) QtC.QVariant) void {
         qtc.QPolarChart_OnPropertyChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6050,8 +6050,8 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPolarChart_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6259,8 +6259,8 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

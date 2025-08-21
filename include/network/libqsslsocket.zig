@@ -160,8 +160,8 @@ pub const qsslsocket = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, hostName: []const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
-    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, u16, i64, i32) callconv(.c) void) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, hostName: [*:0]const u8, port: u16, openMode: flag of qiodevicebase_enums.OpenModeFlag, protocol: qabstractsocket_enums.NetworkLayerProtocol) callconv(.c) void ```
+    pub fn OnConnectToHost(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, u16, i64, i32) callconv(.c) void) void {
         qtc.QSslSocket_OnConnectToHost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1058,8 +1058,8 @@ pub const qsslsocket = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#alertSent)
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: []const u8) callconv(.c) void ```
-    pub fn OnAlertSent(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAlertSent(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_Connect_AlertSent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1076,8 +1076,8 @@ pub const qsslsocket = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#alertReceived)
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: []const u8) callconv(.c) void ```
-    pub fn OnAlertReceived(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAlertReceived(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_Connect_AlertReceived(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1107,8 +1107,8 @@ pub const qsslsocket = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, data: []const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QSslSocket_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1159,8 +1159,8 @@ pub const qsslsocket = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, data: []const u8, lenVal: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QSslSocket_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2676,8 +2676,8 @@ pub const qsslsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, data: []const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QSslSocket_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3311,8 +3311,8 @@ pub const qsslsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, name: []const u8) callconv(.c) void ```
-    pub fn OnSetPeerName(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, name: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetPeerName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_OnSetPeerName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3385,8 +3385,8 @@ pub const qsslsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, errorString: []const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSslSocket_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3486,8 +3486,8 @@ pub const qsslsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSslSocket_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3530,8 +3530,8 @@ pub const qsslsocket = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -543,34 +543,32 @@ void QFileSystemWatcher_OnIsSignalConnected(const QFileSystemWatcher* self, intp
 }
 
 void QFileSystemWatcher_Connect_FileChanged(QFileSystemWatcher* self, intptr_t slot) {
-    void (*slotFunc)(QFileSystemWatcher*, libqt_string) = reinterpret_cast<void (*)(QFileSystemWatcher*, libqt_string)>(slot);
+    void (*slotFunc)(QFileSystemWatcher*, const char*) = reinterpret_cast<void (*)(QFileSystemWatcher*, const char*)>(slot);
     QFileSystemWatcher::connect(self, &QFileSystemWatcher::fileChanged, [self, slotFunc](const QString& path) {
         const QString path_ret = path;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
-        libqt_string path_str;
-        path_str.len = path_b.length();
-        path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-        memcpy((void*)path_str.data, path_b.data(), path_str.len);
-        ((char*)path_str.data)[path_str.len] = '\0';
-        libqt_string sigval1 = path_str;
+        const char* path_str = static_cast<const char*>(malloc(path_b.length() + 1));
+        memcpy((void*)path_str, path_b.data(), path_b.length());
+        ((char*)path_str)[path_b.length()] = '\0';
+        const char* sigval1 = path_str;
         slotFunc(self, sigval1);
+        libqt_free(path_str);
     });
 }
 
 void QFileSystemWatcher_Connect_DirectoryChanged(QFileSystemWatcher* self, intptr_t slot) {
-    void (*slotFunc)(QFileSystemWatcher*, libqt_string) = reinterpret_cast<void (*)(QFileSystemWatcher*, libqt_string)>(slot);
+    void (*slotFunc)(QFileSystemWatcher*, const char*) = reinterpret_cast<void (*)(QFileSystemWatcher*, const char*)>(slot);
     QFileSystemWatcher::connect(self, &QFileSystemWatcher::directoryChanged, [self, slotFunc](const QString& path) {
         const QString path_ret = path;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray path_b = path_ret.toUtf8();
-        libqt_string path_str;
-        path_str.len = path_b.length();
-        path_str.data = static_cast<const char*>(malloc(path_str.len + 1));
-        memcpy((void*)path_str.data, path_b.data(), path_str.len);
-        ((char*)path_str.data)[path_str.len] = '\0';
-        libqt_string sigval1 = path_str;
+        const char* path_str = static_cast<const char*>(malloc(path_b.length() + 1));
+        memcpy((void*)path_str, path_b.data(), path_b.length());
+        ((char*)path_str)[path_b.length()] = '\0';
+        const char* sigval1 = path_str;
         slotFunc(self, sigval1);
+        libqt_free(path_str);
     });
 }
 

@@ -154,18 +154,17 @@ void QPdfPageSelector_CurrentPageLabelChanged(QPdfPageSelector* self, const libq
 }
 
 void QPdfPageSelector_Connect_CurrentPageLabelChanged(QPdfPageSelector* self, intptr_t slot) {
-    void (*slotFunc)(QPdfPageSelector*, libqt_string) = reinterpret_cast<void (*)(QPdfPageSelector*, libqt_string)>(slot);
+    void (*slotFunc)(QPdfPageSelector*, const char*) = reinterpret_cast<void (*)(QPdfPageSelector*, const char*)>(slot);
     QPdfPageSelector::connect(self, &QPdfPageSelector::currentPageLabelChanged, [self, slotFunc](const QString& label) {
         const QString label_ret = label;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray label_b = label_ret.toUtf8();
-        libqt_string label_str;
-        label_str.len = label_b.length();
-        label_str.data = static_cast<const char*>(malloc(label_str.len + 1));
-        memcpy((void*)label_str.data, label_b.data(), label_str.len);
-        ((char*)label_str.data)[label_str.len] = '\0';
-        libqt_string sigval1 = label_str;
+        const char* label_str = static_cast<const char*>(malloc(label_b.length() + 1));
+        memcpy((void*)label_str, label_b.data(), label_b.length());
+        ((char*)label_str)[label_b.length()] = '\0';
+        const char* sigval1 = label_str;
         slotFunc(self, sigval1);
+        libqt_free(label_str);
     });
 }
 

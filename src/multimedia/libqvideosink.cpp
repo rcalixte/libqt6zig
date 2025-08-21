@@ -119,18 +119,17 @@ void QVideoSink_SubtitleTextChanged(const QVideoSink* self, const libqt_string s
 }
 
 void QVideoSink_Connect_SubtitleTextChanged(QVideoSink* self, intptr_t slot) {
-    void (*slotFunc)(QVideoSink*, libqt_string) = reinterpret_cast<void (*)(QVideoSink*, libqt_string)>(slot);
+    void (*slotFunc)(QVideoSink*, const char*) = reinterpret_cast<void (*)(QVideoSink*, const char*)>(slot);
     QVideoSink::connect(self, &QVideoSink::subtitleTextChanged, [self, slotFunc](const QString& subtitleText) {
         const QString subtitleText_ret = subtitleText;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray subtitleText_b = subtitleText_ret.toUtf8();
-        libqt_string subtitleText_str;
-        subtitleText_str.len = subtitleText_b.length();
-        subtitleText_str.data = static_cast<const char*>(malloc(subtitleText_str.len + 1));
-        memcpy((void*)subtitleText_str.data, subtitleText_b.data(), subtitleText_str.len);
-        ((char*)subtitleText_str.data)[subtitleText_str.len] = '\0';
-        libqt_string sigval1 = subtitleText_str;
+        const char* subtitleText_str = static_cast<const char*>(malloc(subtitleText_b.length() + 1));
+        memcpy((void*)subtitleText_str, subtitleText_b.data(), subtitleText_b.length());
+        ((char*)subtitleText_str)[subtitleText_b.length()] = '\0';
+        const char* sigval1 = subtitleText_str;
         slotFunc(self, sigval1);
+        libqt_free(subtitleText_str);
     });
 }
 

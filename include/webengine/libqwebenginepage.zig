@@ -564,8 +564,8 @@ pub const qwebenginepage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#linkHovered)
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, url: []const u8) callconv(.c) void ```
-    pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, url: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_LinkHovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -750,8 +750,8 @@ pub const qwebenginepage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#proxyAuthenticationRequired)
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: []const u8) callconv(.c) void ```
-    pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, requestUrl: QtC.QUrl, authenticator: QtC.QAuthenticator, proxyHost: [*:0]const u8) callconv(.c) void ```
+    pub fn OnProxyAuthenticationRequired(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_ProxyAuthenticationRequired(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -838,8 +838,8 @@ pub const qwebenginepage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#titleChanged)
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, title: []const u8) callconv(.c) void ```
-    pub fn OnTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_TitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -982,8 +982,8 @@ pub const qwebenginepage = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginepage.html#pdfPrintingFinished)
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, filePath: []const u8, success: bool) callconv(.c) void ```
-    pub fn OnPdfPrintingFinished(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, bool) callconv(.c) void) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, filePath: [*:0]const u8, success: bool) callconv(.c) void ```
+    pub fn OnPdfPrintingFinished(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.QWebEnginePage_Connect_PdfPrintingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1174,8 +1174,8 @@ pub const qwebenginepage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][]const u8, acceptedMimeTypes: [][]const u8) callconv(.c) [][]const u8 ```
-    pub fn OnChooseFiles(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [][]const u8, [][]const u8) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, mode: qwebenginepage_enums.FileSelectionMode, oldFiles: [][*:0]const u8, acceptedMimeTypes: [][*:0]const u8) callconv(.c) [][]const u8 ```
+    pub fn OnChooseFiles(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [][*:0]const u8, [][*:0]const u8) callconv(.c) [][]const u8) void {
         qtc.QWebEnginePage_OnChooseFiles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1242,8 +1242,8 @@ pub const qwebenginepage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8) callconv(.c) void ```
-    pub fn OnJavaScriptAlert(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: [*:0]const u8) callconv(.c) void ```
+    pub fn OnJavaScriptAlert(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_OnJavaScriptAlert(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1275,8 +1275,8 @@ pub const qwebenginepage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: []const u8) callconv(.c) bool ```
-    pub fn OnJavaScriptConfirm(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []const u8) callconv(.c) bool) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, securityOrigin: QtC.QUrl, msg: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnJavaScriptConfirm(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QWebEnginePage_OnJavaScriptConfirm(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1312,8 +1312,8 @@ pub const qwebenginepage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: []const u8, lineNumber: i32, sourceID: []const u8) callconv(.c) void ```
-    pub fn OnJavaScriptConsoleMessage(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, level: qwebenginepage_enums.JavaScriptConsoleMessageLevel, message: [*:0]const u8, lineNumber: i32, sourceID: [*:0]const u8) callconv(.c) void ```
+    pub fn OnJavaScriptConsoleMessage(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEnginePage_OnJavaScriptConsoleMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2148,8 +2148,8 @@ pub const qwebenginepage = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWebEnginePage_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2192,8 +2192,8 @@ pub const qwebenginepage = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWebEnginePage, slot: fn (self: QtC.QWebEnginePage, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

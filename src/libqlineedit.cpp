@@ -419,18 +419,17 @@ void QLineEdit_TextChanged(QLineEdit* self, const libqt_string param1) {
 }
 
 void QLineEdit_Connect_TextChanged(QLineEdit* self, intptr_t slot) {
-    void (*slotFunc)(QLineEdit*, libqt_string) = reinterpret_cast<void (*)(QLineEdit*, libqt_string)>(slot);
+    void (*slotFunc)(QLineEdit*, const char*) = reinterpret_cast<void (*)(QLineEdit*, const char*)>(slot);
     QLineEdit::connect(self, &QLineEdit::textChanged, [self, slotFunc](const QString& param1) {
         const QString param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        libqt_string param1_str;
-        param1_str.len = param1_b.length();
-        param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-        memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-        ((char*)param1_str.data)[param1_str.len] = '\0';
-        libqt_string sigval1 = param1_str;
+        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
+        ((char*)param1_str)[param1_b.length()] = '\0';
+        const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
+        libqt_free(param1_str);
     });
 }
 
@@ -440,18 +439,17 @@ void QLineEdit_TextEdited(QLineEdit* self, const libqt_string param1) {
 }
 
 void QLineEdit_Connect_TextEdited(QLineEdit* self, intptr_t slot) {
-    void (*slotFunc)(QLineEdit*, libqt_string) = reinterpret_cast<void (*)(QLineEdit*, libqt_string)>(slot);
+    void (*slotFunc)(QLineEdit*, const char*) = reinterpret_cast<void (*)(QLineEdit*, const char*)>(slot);
     QLineEdit::connect(self, &QLineEdit::textEdited, [self, slotFunc](const QString& param1) {
         const QString param1_ret = param1;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray param1_b = param1_ret.toUtf8();
-        libqt_string param1_str;
-        param1_str.len = param1_b.length();
-        param1_str.data = static_cast<const char*>(malloc(param1_str.len + 1));
-        memcpy((void*)param1_str.data, param1_b.data(), param1_str.len);
-        ((char*)param1_str.data)[param1_str.len] = '\0';
-        libqt_string sigval1 = param1_str;
+        const char* param1_str = static_cast<const char*>(malloc(param1_b.length() + 1));
+        memcpy((void*)param1_str, param1_b.data(), param1_b.length());
+        ((char*)param1_str)[param1_b.length()] = '\0';
+        const char* sigval1 = param1_str;
         slotFunc(self, sigval1);
+        libqt_free(param1_str);
     });
 }
 

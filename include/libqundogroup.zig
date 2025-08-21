@@ -258,8 +258,8 @@ pub const qundogroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundogroup.html#undoTextChanged)
     ///
-    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, undoText: []const u8) callconv(.c) void ```
-    pub fn OnUndoTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, undoText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnUndoTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_UndoTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -276,8 +276,8 @@ pub const qundogroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundogroup.html#redoTextChanged)
     ///
-    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, redoText: []const u8) callconv(.c) void ```
-    pub fn OnRedoTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, redoText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRedoTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QUndoGroup_Connect_RedoTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1033,8 +1033,8 @@ pub const qundogroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QUndoGroup_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1077,8 +1077,8 @@ pub const qundogroup = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QUndoGroup, slot: fn (self: QtC.QUndoGroup, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

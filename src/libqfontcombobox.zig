@@ -911,8 +911,8 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
-    pub fn OnEditTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEditTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -951,8 +951,8 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
-    pub fn OnTextActivated(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -991,8 +991,8 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
-    pub fn OnTextHighlighted(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextHighlighted(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1031,8 +1031,8 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcombobox.html#currentTextChanged)
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: []const u8) callconv(.c) void ```
-    pub fn OnCurrentTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCurrentTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3521,8 +3521,8 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3561,8 +3561,8 @@ pub const qfontcombobox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6110,8 +6110,8 @@ pub const qfontcombobox = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QFontComboBox_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6187,8 +6187,8 @@ pub const qfontcombobox = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFontComboBox, slot: fn (self: QtC.QFontComboBox, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

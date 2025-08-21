@@ -513,8 +513,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, actionName: []const u8) callconv(.c) void ```
-    pub fn OnDoAction(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDoAction(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAccessibleWidget_OnDoAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -561,8 +561,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, actionName: []const u8) callconv(.c) [][]const u8 ```
-    pub fn OnKeyBindingsForAction(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) [][]const u8 ```
+    pub fn OnKeyBindingsForAction(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [][]const u8) void {
         qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -659,8 +659,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, signal: []const u8) callconv(.c) void ```
-    pub fn OnAddControllingSignal(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, signal: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAddControllingSignal(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1036,8 +1036,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: []const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QAccessibleWidget_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1151,8 +1151,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, name: []const u8) callconv(.c) []const u8 ```
-    pub fn OnLocalizedActionName(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) []const u8 ```
+    pub fn OnLocalizedActionName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) []const u8) void {
         qtc.QAccessibleWidget_OnLocalizedActionName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1200,8 +1200,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, name: []const u8) callconv(.c) []const u8 ```
-    pub fn OnLocalizedActionDescription(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) []const u8 ```
+    pub fn OnLocalizedActionDescription(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) []const u8) void {
         qtc.QAccessibleWidget_OnLocalizedActionDescription(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 };

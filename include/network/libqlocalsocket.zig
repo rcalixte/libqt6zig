@@ -489,8 +489,8 @@ pub const qlocalsocket = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, param1: []const u8, param2: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, param1: [*:0]const u8, param2: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QLocalSocket_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -516,8 +516,8 @@ pub const qlocalsocket = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, data: []const u8, maxSize: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, data: [*:0]const u8, maxSize: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QLocalSocket_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -568,8 +568,8 @@ pub const qlocalsocket = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, param1: []const u8, param2: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, param1: [*:0]const u8, param2: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QLocalSocket_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1929,8 +1929,8 @@ pub const qlocalsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, errorString: []const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLocalSocket_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2030,8 +2030,8 @@ pub const qlocalsocket = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QLocalSocket_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2074,8 +2074,8 @@ pub const qlocalsocket = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLocalSocket, slot: fn (self: QtC.QLocalSocket, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

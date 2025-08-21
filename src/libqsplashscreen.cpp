@@ -157,18 +157,17 @@ void QSplashScreen_MessageChanged(QSplashScreen* self, const libqt_string messag
 }
 
 void QSplashScreen_Connect_MessageChanged(QSplashScreen* self, intptr_t slot) {
-    void (*slotFunc)(QSplashScreen*, libqt_string) = reinterpret_cast<void (*)(QSplashScreen*, libqt_string)>(slot);
+    void (*slotFunc)(QSplashScreen*, const char*) = reinterpret_cast<void (*)(QSplashScreen*, const char*)>(slot);
     QSplashScreen::connect(self, &QSplashScreen::messageChanged, [self, slotFunc](const QString& message) {
         const QString message_ret = message;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray message_b = message_ret.toUtf8();
-        libqt_string message_str;
-        message_str.len = message_b.length();
-        message_str.data = static_cast<const char*>(malloc(message_str.len + 1));
-        memcpy((void*)message_str.data, message_b.data(), message_str.len);
-        ((char*)message_str.data)[message_str.len] = '\0';
-        libqt_string sigval1 = message_str;
+        const char* message_str = static_cast<const char*>(malloc(message_b.length() + 1));
+        memcpy((void*)message_str, message_b.data(), message_b.length());
+        ((char*)message_str)[message_b.length()] = '\0';
+        const char* sigval1 = message_str;
         slotFunc(self, sigval1);
+        libqt_free(message_str);
     });
 }
 

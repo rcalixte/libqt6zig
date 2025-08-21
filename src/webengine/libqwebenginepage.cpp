@@ -383,18 +383,17 @@ void QWebEnginePage_LinkHovered(QWebEnginePage* self, const libqt_string url) {
 }
 
 void QWebEnginePage_Connect_LinkHovered(QWebEnginePage* self, intptr_t slot) {
-    void (*slotFunc)(QWebEnginePage*, libqt_string) = reinterpret_cast<void (*)(QWebEnginePage*, libqt_string)>(slot);
+    void (*slotFunc)(QWebEnginePage*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, const char*)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::linkHovered, [self, slotFunc](const QString& url) {
         const QString url_ret = url;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray url_b = url_ret.toUtf8();
-        libqt_string url_str;
-        url_str.len = url_b.length();
-        url_str.data = static_cast<const char*>(malloc(url_str.len + 1));
-        memcpy((void*)url_str.data, url_b.data(), url_str.len);
-        ((char*)url_str.data)[url_str.len] = '\0';
-        libqt_string sigval1 = url_str;
+        const char* url_str = static_cast<const char*>(malloc(url_b.length() + 1));
+        memcpy((void*)url_str, url_b.data(), url_b.length());
+        ((char*)url_str)[url_b.length()] = '\0';
+        const char* sigval1 = url_str;
         slotFunc(self, sigval1);
+        libqt_free(url_str);
     });
 }
 
@@ -557,22 +556,21 @@ void QWebEnginePage_ProxyAuthenticationRequired(QWebEnginePage* self, const QUrl
 }
 
 void QWebEnginePage_Connect_ProxyAuthenticationRequired(QWebEnginePage* self, intptr_t slot) {
-    void (*slotFunc)(QWebEnginePage*, QUrl*, QAuthenticator*, libqt_string) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*, QAuthenticator*, libqt_string)>(slot);
+    void (*slotFunc)(QWebEnginePage*, QUrl*, QAuthenticator*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, QUrl*, QAuthenticator*, const char*)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::proxyAuthenticationRequired, [self, slotFunc](const QUrl& requestUrl, QAuthenticator* authenticator, const QString& proxyHost) {
         const QUrl& requestUrl_ret = requestUrl;
         // Cast returned reference into pointer
         QUrl* sigval1 = const_cast<QUrl*>(&requestUrl_ret);
         QAuthenticator* sigval2 = authenticator;
         const QString proxyHost_ret = proxyHost;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray proxyHost_b = proxyHost_ret.toUtf8();
-        libqt_string proxyHost_str;
-        proxyHost_str.len = proxyHost_b.length();
-        proxyHost_str.data = static_cast<const char*>(malloc(proxyHost_str.len + 1));
-        memcpy((void*)proxyHost_str.data, proxyHost_b.data(), proxyHost_str.len);
-        ((char*)proxyHost_str.data)[proxyHost_str.len] = '\0';
-        libqt_string sigval3 = proxyHost_str;
+        const char* proxyHost_str = static_cast<const char*>(malloc(proxyHost_b.length() + 1));
+        memcpy((void*)proxyHost_str, proxyHost_b.data(), proxyHost_b.length());
+        ((char*)proxyHost_str)[proxyHost_b.length()] = '\0';
+        const char* sigval3 = proxyHost_str;
         slotFunc(self, sigval1, sigval2, sigval3);
+        libqt_free(proxyHost_str);
     });
 }
 
@@ -651,18 +649,17 @@ void QWebEnginePage_TitleChanged(QWebEnginePage* self, const libqt_string title)
 }
 
 void QWebEnginePage_Connect_TitleChanged(QWebEnginePage* self, intptr_t slot) {
-    void (*slotFunc)(QWebEnginePage*, libqt_string) = reinterpret_cast<void (*)(QWebEnginePage*, libqt_string)>(slot);
+    void (*slotFunc)(QWebEnginePage*, const char*) = reinterpret_cast<void (*)(QWebEnginePage*, const char*)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::titleChanged, [self, slotFunc](const QString& title) {
         const QString title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
-        libqt_string title_str;
-        title_str.len = title_b.length();
-        title_str.data = static_cast<const char*>(malloc(title_str.len + 1));
-        memcpy((void*)title_str.data, title_b.data(), title_str.len);
-        ((char*)title_str.data)[title_str.len] = '\0';
-        libqt_string sigval1 = title_str;
+        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
+        memcpy((void*)title_str, title_b.data(), title_b.length());
+        ((char*)title_str)[title_b.length()] = '\0';
+        const char* sigval1 = title_str;
         slotFunc(self, sigval1);
+        libqt_free(title_str);
     });
 }
 
@@ -790,19 +787,18 @@ void QWebEnginePage_PdfPrintingFinished(QWebEnginePage* self, const libqt_string
 }
 
 void QWebEnginePage_Connect_PdfPrintingFinished(QWebEnginePage* self, intptr_t slot) {
-    void (*slotFunc)(QWebEnginePage*, libqt_string, bool) = reinterpret_cast<void (*)(QWebEnginePage*, libqt_string, bool)>(slot);
+    void (*slotFunc)(QWebEnginePage*, const char*, bool) = reinterpret_cast<void (*)(QWebEnginePage*, const char*, bool)>(slot);
     QWebEnginePage::connect(self, &QWebEnginePage::pdfPrintingFinished, [self, slotFunc](const QString& filePath, bool success) {
         const QString filePath_ret = filePath;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filePath_b = filePath_ret.toUtf8();
-        libqt_string filePath_str;
-        filePath_str.len = filePath_b.length();
-        filePath_str.data = static_cast<const char*>(malloc(filePath_str.len + 1));
-        memcpy((void*)filePath_str.data, filePath_b.data(), filePath_str.len);
-        ((char*)filePath_str.data)[filePath_str.len] = '\0';
-        libqt_string sigval1 = filePath_str;
+        const char* filePath_str = static_cast<const char*>(malloc(filePath_b.length() + 1));
+        memcpy((void*)filePath_str, filePath_b.data(), filePath_b.length());
+        ((char*)filePath_str)[filePath_b.length()] = '\0';
+        const char* sigval1 = filePath_str;
         bool sigval2 = success;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(filePath_str);
     });
 }
 

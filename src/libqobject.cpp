@@ -626,18 +626,17 @@ void QObject_OnIsSignalConnected(const QObject* self, intptr_t slot) {
 }
 
 void QObject_Connect_ObjectNameChanged(QObject* self, intptr_t slot) {
-    void (*slotFunc)(QObject*, libqt_string) = reinterpret_cast<void (*)(QObject*, libqt_string)>(slot);
+    void (*slotFunc)(QObject*, const char*) = reinterpret_cast<void (*)(QObject*, const char*)>(slot);
     QObject::connect(self, &QObject::objectNameChanged, [self, slotFunc](const QString& objectName) {
         const QString objectName_ret = objectName;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray objectName_b = objectName_ret.toUtf8();
-        libqt_string objectName_str;
-        objectName_str.len = objectName_b.length();
-        objectName_str.data = static_cast<const char*>(malloc(objectName_str.len + 1));
-        memcpy((void*)objectName_str.data, objectName_b.data(), objectName_str.len);
-        ((char*)objectName_str.data)[objectName_str.len] = '\0';
-        libqt_string sigval1 = objectName_str;
+        const char* objectName_str = static_cast<const char*>(malloc(objectName_b.length() + 1));
+        memcpy((void*)objectName_str, objectName_b.data(), objectName_b.length());
+        ((char*)objectName_str)[objectName_b.length()] = '\0';
+        const char* sigval1 = objectName_str;
         slotFunc(self, sigval1);
+        libqt_free(objectName_str);
     });
 }
 

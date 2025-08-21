@@ -79,8 +79,8 @@ pub const qstyleplugin = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QStylePlugin, slot: fn (self: QtC.QStylePlugin, key: []const u8) callconv(.c) QtC.QStyle ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QStyle) void {
+    /// ``` self: QtC.QStylePlugin, slot: fn (self: QtC.QStylePlugin, key: [*:0]const u8) callconv(.c) QtC.QStyle ```
+    pub fn OnCreate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QStyle) void {
         qtc.QStylePlugin_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -827,8 +827,8 @@ pub const qstyleplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QStylePlugin, slot: fn (self: QtC.QStylePlugin, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QStylePlugin, slot: fn (self: QtC.QStylePlugin, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QStylePlugin_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -871,8 +871,8 @@ pub const qstyleplugin = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QStylePlugin, slot: fn (self: QtC.QStylePlugin, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QStylePlugin, slot: fn (self: QtC.QStylePlugin, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -697,8 +697,8 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#fileSelected)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, file: []const u8) callconv(.c) void ```
-    pub fn OnFileSelected(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, file: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFileSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FileSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -723,8 +723,8 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#filesSelected)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, files: [][]const u8) callconv(.c) void ```
-    pub fn OnFilesSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [][]const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, files: [][*:0]const u8) callconv(.c) void ```
+    pub fn OnFilesSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [][*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FilesSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -741,8 +741,8 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#currentChanged)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, path: []const u8) callconv(.c) void ```
-    pub fn OnCurrentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, path: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCurrentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_CurrentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -759,8 +759,8 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#directoryEntered)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, directory: []const u8) callconv(.c) void ```
-    pub fn OnDirectoryEntered(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, directory: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDirectoryEntered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_DirectoryEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -837,8 +837,8 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#filterSelected)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, filter: []const u8) callconv(.c) void ```
-    pub fn OnFilterSelected(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, filter: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFilterSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FilterSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4069,8 +4069,8 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4109,8 +4109,8 @@ pub const qfiledialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6658,8 +6658,8 @@ pub const qfiledialog = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QFileDialog_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6735,8 +6735,8 @@ pub const qfiledialog = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

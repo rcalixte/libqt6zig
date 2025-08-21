@@ -3785,8 +3785,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsVideoItem_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3928,8 +3928,8 @@ pub const qgraphicsvideoitem = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsVideoItem, slot: fn (self: QtC.QGraphicsVideoItem, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -365,8 +365,8 @@ pub const qabstractspinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, input: []const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -400,8 +400,8 @@ pub const qabstractspinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, input: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3408,8 +3408,8 @@ pub const qabstractspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3448,8 +3448,8 @@ pub const qabstractspinbox = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5271,8 +5271,8 @@ pub const qabstractspinbox = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5348,8 +5348,8 @@ pub const qabstractspinbox = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractSpinBox, slot: fn (self: QtC.QAbstractSpinBox, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

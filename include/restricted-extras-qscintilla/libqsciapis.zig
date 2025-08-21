@@ -179,8 +179,8 @@ pub const qsciapis = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [][]const u8, list: [][]const u8) callconv(.c) void ```
-    pub fn OnUpdateAutoCompletionList(self: ?*anyopaque, slot: fn (?*anyopaque, [][]const u8, [][]const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [][*:0]const u8, list: [][*:0]const u8) callconv(.c) void ```
+    pub fn OnUpdateAutoCompletionList(self: ?*anyopaque, slot: fn (?*anyopaque, [][*:0]const u8, [][*:0]const u8) callconv(.c) void) void {
         qtc.QsciAPIs_OnUpdateAutoCompletionList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -232,8 +232,8 @@ pub const qsciapis = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, sel: []const u8) callconv(.c) void ```
-    pub fn OnAutoCompletionSelected(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, sel: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAutoCompletionSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciAPIs_OnAutoCompletionSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -292,8 +292,8 @@ pub const qsciapis = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [][]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: []i32) callconv(.c) [][]const u8 ```
-    pub fn OnCallTips(self: ?*anyopaque, slot: fn (?*anyopaque, [][]const u8, i32, i32, []i32) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [][*:0]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: []i32) callconv(.c) [][]const u8 ```
+    pub fn OnCallTips(self: ?*anyopaque, slot: fn (?*anyopaque, [][*:0]const u8, i32, i32, []i32) callconv(.c) [][]const u8) void {
         qtc.QsciAPIs_OnCallTips(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1165,8 +1165,8 @@ pub const qsciapis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QsciAPIs_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1209,8 +1209,8 @@ pub const qsciapis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

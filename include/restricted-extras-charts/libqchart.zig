@@ -4046,8 +4046,8 @@ pub const qchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QChart, slot: fn (self: QtC.QChart, propertyName: []const u8, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnPropertyChange(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+    /// ``` self: QtC.QChart, slot: fn (self: QtC.QChart, propertyName: [*:0]const u8, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnPropertyChange(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) QtC.QVariant) void {
         qtc.QChart_OnPropertyChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5900,8 +5900,8 @@ pub const qchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QChart, slot: fn (self: QtC.QChart, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QChart, slot: fn (self: QtC.QChart, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QChart_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6109,8 +6109,8 @@ pub const qchart = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QChart, slot: fn (self: QtC.QChart, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QChart, slot: fn (self: QtC.QChart, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

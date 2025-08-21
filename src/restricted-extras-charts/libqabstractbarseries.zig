@@ -308,8 +308,8 @@ pub const qabstractbarseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsFormatChanged)
     ///
-    /// ``` self: QtC.QAbstractBarSeries, slot: fn (self: QtC.QAbstractBarSeries, format: []const u8) callconv(.c) void ```
-    pub fn OnLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractBarSeries, slot: fn (self: QtC.QAbstractBarSeries, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1065,8 +1065,8 @@ pub const qabstractbarseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractBarSeries, slot: fn (self: QtC.QAbstractBarSeries, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAbstractBarSeries, slot: fn (self: QtC.QAbstractBarSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

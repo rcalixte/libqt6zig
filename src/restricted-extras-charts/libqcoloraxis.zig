@@ -1139,8 +1139,8 @@ pub const qcoloraxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QColorAxis, slot: fn (self: QtC.QColorAxis, title: []const u8) callconv(.c) void ```
-    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QColorAxis, slot: fn (self: QtC.QColorAxis, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2154,8 +2154,8 @@ pub const qcoloraxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QColorAxis, slot: fn (self: QtC.QColorAxis, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QColorAxis, slot: fn (self: QtC.QColorAxis, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QColorAxis_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2198,8 +2198,8 @@ pub const qcoloraxis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QColorAxis, slot: fn (self: QtC.QColorAxis, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QColorAxis, slot: fn (self: QtC.QColorAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

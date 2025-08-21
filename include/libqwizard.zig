@@ -3202,8 +3202,8 @@ pub const qwizard = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3242,8 +3242,8 @@ pub const qwizard = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5725,8 +5725,8 @@ pub const qwizard = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWizard_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5802,8 +5802,8 @@ pub const qwizard = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizard, slot: fn (self: QtC.QWizard, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6139,8 +6139,8 @@ pub const qwizardpage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: []const u8, value: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetField(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: [*:0]const u8, value: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetField(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.QWizardPage_OnSetField(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6172,8 +6172,8 @@ pub const qwizardpage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: []const u8) callconv(.c) QtC.QVariant ```
-    pub fn OnField(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QVariant) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: [*:0]const u8) callconv(.c) QtC.QVariant ```
+    pub fn OnField(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QVariant) void {
         qtc.QWizardPage_OnField(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6205,8 +6205,8 @@ pub const qwizardpage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: []const u8, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnRegisterField(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: [*:0]const u8, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnRegisterField(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
         qtc.QWizardPage_OnRegisterField(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6290,8 +6290,8 @@ pub const qwizardpage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: []const u8, widget: QtC.QWidget, property: []const u8) callconv(.c) void ```
-    pub fn OnRegisterField3(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: [*:0]const u8, widget: QtC.QWidget, property: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRegisterField3(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWizardPage_OnRegisterField3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6326,8 +6326,8 @@ pub const qwizardpage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: []const u8, widget: QtC.QWidget, property: []const u8, changedSignal: []const u8) callconv(.c) void ```
-    pub fn OnRegisterField4(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, ?*anyopaque, []const u8, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, name: [*:0]const u8, widget: QtC.QWidget, property: [*:0]const u8, changedSignal: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRegisterField4(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QWizardPage_OnRegisterField4(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8721,8 +8721,8 @@ pub const qwizardpage = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -8761,8 +8761,8 @@ pub const qwizardpage = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -11244,8 +11244,8 @@ pub const qwizardpage = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWizardPage_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -11321,8 +11321,8 @@ pub const qwizardpage = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QWizardPage, slot: fn (self: QtC.QWizardPage, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

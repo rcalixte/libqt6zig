@@ -538,8 +538,8 @@ pub const qcamera = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcamera.html#errorOccurred)
     ///
-    /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, errorVal: qcamera_enums.Error, errorString: []const u8) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, errorVal: qcamera_enums.Error, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QCamera_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1623,8 +1623,8 @@ pub const qcamera = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QCamera_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1667,8 +1667,8 @@ pub const qcamera = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QCamera, slot: fn (self: QtC.QCamera, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

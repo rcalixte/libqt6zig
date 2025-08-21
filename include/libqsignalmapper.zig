@@ -148,8 +148,8 @@ pub const qsignalmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsignalmapper.html#mappedString)
     ///
-    /// ``` self: QtC.QSignalMapper, slot: fn (self: QtC.QSignalMapper, param1: []const u8) callconv(.c) void ```
-    pub fn OnMappedString(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSignalMapper, slot: fn (self: QtC.QSignalMapper, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnMappedString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSignalMapper_Connect_MappedString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -911,8 +911,8 @@ pub const qsignalmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSignalMapper, slot: fn (self: QtC.QSignalMapper, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QSignalMapper, slot: fn (self: QtC.QSignalMapper, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSignalMapper_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -955,8 +955,8 @@ pub const qsignalmapper = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSignalMapper, slot: fn (self: QtC.QSignalMapper, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSignalMapper, slot: fn (self: QtC.QSignalMapper, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

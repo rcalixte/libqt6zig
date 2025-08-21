@@ -847,8 +847,8 @@ pub const qxyseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#pointLabelsFormatChanged)
     ///
-    /// ``` self: QtC.QXYSeries, slot: fn (self: QtC.QXYSeries, format: []const u8) callconv(.c) void ```
-    pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QXYSeries, slot: fn (self: QtC.QXYSeries, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnPointLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1771,8 +1771,8 @@ pub const qxyseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QXYSeries, slot: fn (self: QtC.QXYSeries, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QXYSeries, slot: fn (self: QtC.QXYSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

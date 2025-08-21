@@ -1066,8 +1066,8 @@ pub const qnetworkdiskcache = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QNetworkDiskCache, slot: fn (self: QtC.QNetworkDiskCache, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QNetworkDiskCache, slot: fn (self: QtC.QNetworkDiskCache, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QNetworkDiskCache_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1110,8 +1110,8 @@ pub const qnetworkdiskcache = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QNetworkDiskCache, slot: fn (self: QtC.QNetworkDiskCache, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QNetworkDiskCache, slot: fn (self: QtC.QNetworkDiskCache, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

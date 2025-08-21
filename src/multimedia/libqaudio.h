@@ -15,8 +15,10 @@ extern "C" {
 
 #ifdef __cplusplus
 #else
-
+typedef struct QAudio QAudio;
 #endif
+
+float QAudio_ConvertVolume(float param1, int param2, int param3);
 
 #ifdef __cplusplus
 } /* extern C */

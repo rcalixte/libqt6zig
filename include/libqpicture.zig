@@ -85,8 +85,8 @@ pub const qpicture = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPicture, slot: fn (self: QtC.QPicture, data: []const u8, size: u32) callconv(.c) void ```
-    pub fn OnSetData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, u32) callconv(.c) void) void {
+    /// ``` self: QtC.QPicture, slot: fn (self: QtC.QPicture, data: [*:0]const u8, size: u32) callconv(.c) void ```
+    pub fn OnSetData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, u32) callconv(.c) void) void {
         qtc.QPicture_OnSetData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

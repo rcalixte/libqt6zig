@@ -258,8 +258,8 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, text: []const u8) callconv(.c) void ```
-    pub fn OnDrawDisplay(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDrawDisplay(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QItemDelegate_OnDrawDisplay(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -566,8 +566,8 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, rect: QtC.QRect, font: QtC.QFont, text: []const u8) callconv(.c) QtC.QRect ```
-    pub fn OnTextRectangle(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, []const u8) callconv(.c) QtC.QRect) void {
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, rect: QtC.QRect, font: QtC.QFont, text: [*:0]const u8) callconv(.c) QtC.QRect ```
+    pub fn OnTextRectangle(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QRect) void {
         qtc.QItemDelegate_OnTextRectangle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1462,8 +1462,8 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QItemDelegate_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1506,8 +1506,8 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

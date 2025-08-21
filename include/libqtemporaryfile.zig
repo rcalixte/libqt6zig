@@ -1762,8 +1762,8 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: []const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1797,8 +1797,8 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: []const u8, lenVal: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1832,8 +1832,8 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: []const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2368,8 +2368,8 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, errorString: []const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QTemporaryFile_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2469,8 +2469,8 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTemporaryFile_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2513,8 +2513,8 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

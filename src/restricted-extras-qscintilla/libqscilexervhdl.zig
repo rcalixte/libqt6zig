@@ -316,8 +316,8 @@ pub const qscilexervhdl = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, qs: QtC.QSettings, prefix: []const u8) callconv(.c) bool ```
-    pub fn OnReadProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []const u8) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnReadProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QsciLexerVHDL_OnReadProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -349,8 +349,8 @@ pub const qscilexervhdl = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, qs: QtC.QSettings, prefix: []const u8) callconv(.c) bool ```
-    pub fn OnWriteProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []const u8) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnWriteProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QsciLexerVHDL_OnWriteProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -561,8 +561,8 @@ pub const qscilexervhdl = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, prop: []const u8, val: []const u8) callconv(.c) void ```
-    pub fn OnPropertyChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void ```
+    pub fn OnPropertyChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2103,8 +2103,8 @@ pub const qscilexervhdl = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, text: []const u8) callconv(.c) []u8 ```
-    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) []u8) void {
+    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, text: [*:0]const u8) callconv(.c) []u8 ```
+    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) []u8) void {
         qtc.QsciLexerVHDL_OnTextAsBytes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2146,8 +2146,8 @@ pub const qscilexervhdl = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, bytes: []const u8, size: i32) callconv(.c) []const u8 ```
-    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, bytes: [*:0]const u8, size: i32) callconv(.c) []const u8 ```
+    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
         qtc.QsciLexerVHDL_OnBytesAsText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2247,8 +2247,8 @@ pub const qscilexervhdl = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QsciLexerVHDL_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2291,8 +2291,8 @@ pub const qscilexervhdl = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciLexerVHDL, slot: fn (self: QtC.QsciLexerVHDL, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -300,18 +300,17 @@ void QAreaSeries_PointLabelsFormatChanged(QAreaSeries* self, const libqt_string 
 }
 
 void QAreaSeries_Connect_PointLabelsFormatChanged(QAreaSeries* self, intptr_t slot) {
-    void (*slotFunc)(QAreaSeries*, libqt_string) = reinterpret_cast<void (*)(QAreaSeries*, libqt_string)>(slot);
+    void (*slotFunc)(QAreaSeries*, const char*) = reinterpret_cast<void (*)(QAreaSeries*, const char*)>(slot);
     QAreaSeries::connect(self, &QAreaSeries::pointLabelsFormatChanged, [self, slotFunc](const QString& format) {
         const QString format_ret = format;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray format_b = format_ret.toUtf8();
-        libqt_string format_str;
-        format_str.len = format_b.length();
-        format_str.data = static_cast<const char*>(malloc(format_str.len + 1));
-        memcpy((void*)format_str.data, format_b.data(), format_str.len);
-        ((char*)format_str.data)[format_str.len] = '\0';
-        libqt_string sigval1 = format_str;
+        const char* format_str = static_cast<const char*>(malloc(format_b.length() + 1));
+        memcpy((void*)format_str, format_b.data(), format_b.length());
+        ((char*)format_str)[format_b.length()] = '\0';
+        const char* sigval1 = format_str;
         slotFunc(self, sigval1);
+        libqt_free(format_str);
     });
 }
 

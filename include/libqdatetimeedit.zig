@@ -727,8 +727,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: []const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -762,8 +762,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDateTimeEdit_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -795,8 +795,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, text: []const u8) callconv(.c) QtC.QDateTime ```
-    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QDateTime) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
+    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
         qtc.QDateTimeEdit_OnDateTimeFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3621,8 +3621,8 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3661,8 +3661,8 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5946,8 +5946,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDateTimeEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6023,8 +6023,8 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -9303,8 +9303,8 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -9343,8 +9343,8 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10310,8 +10310,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: []const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10351,8 +10351,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QTimeEdit_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10392,8 +10392,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, text: []const u8) callconv(.c) QtC.QDateTime ```
-    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QDateTime) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
+    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
         qtc.QTimeEdit_OnDateTimeFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -12196,8 +12196,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTimeEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -12273,8 +12273,8 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -15553,8 +15553,8 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -15593,8 +15593,8 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -16560,8 +16560,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: []const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, *i32) callconv(.c) i32) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QDateEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -16601,8 +16601,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: []const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QDateEdit_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -16642,8 +16642,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, text: []const u8) callconv(.c) QtC.QDateTime ```
-    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QDateTime) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
+    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
         qtc.QDateEdit_OnDateTimeFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -18446,8 +18446,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDateEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -18523,8 +18523,8 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -103,8 +103,8 @@ pub const qaccessibleobject = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: []const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QAccessibleObject_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1206,8 +1206,8 @@ pub const qaccessibleapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: []const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QAccessibleApplication_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

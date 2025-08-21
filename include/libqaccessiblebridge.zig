@@ -112,8 +112,8 @@ pub const qaccessiblebridgeplugin = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleBridgePlugin, slot: fn (self: QtC.QAccessibleBridgePlugin, key: []const u8) callconv(.c) QtC.QAccessibleBridge ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) QtC.QAccessibleBridge) void {
+    /// ``` self: QtC.QAccessibleBridgePlugin, slot: fn (self: QtC.QAccessibleBridgePlugin, key: [*:0]const u8) callconv(.c) QtC.QAccessibleBridge ```
+    pub fn OnCreate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QAccessibleBridge) void {
         qtc.QAccessibleBridgePlugin_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -860,8 +860,8 @@ pub const qaccessiblebridgeplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleBridgePlugin, slot: fn (self: QtC.QAccessibleBridgePlugin, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QAccessibleBridgePlugin, slot: fn (self: QtC.QAccessibleBridgePlugin, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAccessibleBridgePlugin_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -904,8 +904,8 @@ pub const qaccessiblebridgeplugin = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAccessibleBridgePlugin, slot: fn (self: QtC.QAccessibleBridgePlugin, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QAccessibleBridgePlugin, slot: fn (self: QtC.QAccessibleBridgePlugin, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

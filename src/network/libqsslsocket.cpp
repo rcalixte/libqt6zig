@@ -519,20 +519,19 @@ void QSslSocket_AlertSent(QSslSocket* self, int level, int typeVal, const libqt_
 }
 
 void QSslSocket_Connect_AlertSent(QSslSocket* self, intptr_t slot) {
-    void (*slotFunc)(QSslSocket*, int, int, libqt_string) = reinterpret_cast<void (*)(QSslSocket*, int, int, libqt_string)>(slot);
+    void (*slotFunc)(QSslSocket*, int, int, const char*) = reinterpret_cast<void (*)(QSslSocket*, int, int, const char*)>(slot);
     QSslSocket::connect(self, &QSslSocket::alertSent, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
         int sigval1 = static_cast<int>(level);
         int sigval2 = static_cast<int>(typeVal);
         const QString description_ret = description;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
-        libqt_string description_str;
-        description_str.len = description_b.length();
-        description_str.data = static_cast<const char*>(malloc(description_str.len + 1));
-        memcpy((void*)description_str.data, description_b.data(), description_str.len);
-        ((char*)description_str.data)[description_str.len] = '\0';
-        libqt_string sigval3 = description_str;
+        const char* description_str = static_cast<const char*>(malloc(description_b.length() + 1));
+        memcpy((void*)description_str, description_b.data(), description_b.length());
+        ((char*)description_str)[description_b.length()] = '\0';
+        const char* sigval3 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3);
+        libqt_free(description_str);
     });
 }
 
@@ -542,20 +541,19 @@ void QSslSocket_AlertReceived(QSslSocket* self, int level, int typeVal, const li
 }
 
 void QSslSocket_Connect_AlertReceived(QSslSocket* self, intptr_t slot) {
-    void (*slotFunc)(QSslSocket*, int, int, libqt_string) = reinterpret_cast<void (*)(QSslSocket*, int, int, libqt_string)>(slot);
+    void (*slotFunc)(QSslSocket*, int, int, const char*) = reinterpret_cast<void (*)(QSslSocket*, int, int, const char*)>(slot);
     QSslSocket::connect(self, &QSslSocket::alertReceived, [self, slotFunc](QSsl::AlertLevel level, QSsl::AlertType typeVal, const QString& description) {
         int sigval1 = static_cast<int>(level);
         int sigval2 = static_cast<int>(typeVal);
         const QString description_ret = description;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray description_b = description_ret.toUtf8();
-        libqt_string description_str;
-        description_str.len = description_b.length();
-        description_str.data = static_cast<const char*>(malloc(description_str.len + 1));
-        memcpy((void*)description_str.data, description_b.data(), description_str.len);
-        ((char*)description_str.data)[description_str.len] = '\0';
-        libqt_string sigval3 = description_str;
+        const char* description_str = static_cast<const char*>(malloc(description_b.length() + 1));
+        memcpy((void*)description_str, description_b.data(), description_b.length());
+        ((char*)description_str)[description_b.length()] = '\0';
+        const char* sigval3 = description_str;
         slotFunc(self, sigval1, sigval2, sigval3);
+        libqt_free(description_str);
     });
 }
 

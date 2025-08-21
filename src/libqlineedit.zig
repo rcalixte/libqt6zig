@@ -645,8 +645,8 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textChanged)
     ///
-    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: []const u8) callconv(.c) void ```
-    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -663,8 +663,8 @@ pub const qlineedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textEdited)
     ///
-    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: []const u8) callconv(.c) void ```
-    pub fn OnTextEdited(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextEdited(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3663,8 +3663,8 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3703,8 +3703,8 @@ pub const qlineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5493,8 +5493,8 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QLineEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5570,8 +5570,8 @@ pub const qlineedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QLineEdit, slot: fn (self: QtC.QLineEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

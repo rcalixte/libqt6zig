@@ -282,18 +282,17 @@ void QLabel_LinkActivated(QLabel* self, const libqt_string link) {
 }
 
 void QLabel_Connect_LinkActivated(QLabel* self, intptr_t slot) {
-    void (*slotFunc)(QLabel*, libqt_string) = reinterpret_cast<void (*)(QLabel*, libqt_string)>(slot);
+    void (*slotFunc)(QLabel*, const char*) = reinterpret_cast<void (*)(QLabel*, const char*)>(slot);
     QLabel::connect(self, &QLabel::linkActivated, [self, slotFunc](const QString& link) {
         const QString link_ret = link;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray link_b = link_ret.toUtf8();
-        libqt_string link_str;
-        link_str.len = link_b.length();
-        link_str.data = static_cast<const char*>(malloc(link_str.len + 1));
-        memcpy((void*)link_str.data, link_b.data(), link_str.len);
-        ((char*)link_str.data)[link_str.len] = '\0';
-        libqt_string sigval1 = link_str;
+        const char* link_str = static_cast<const char*>(malloc(link_b.length() + 1));
+        memcpy((void*)link_str, link_b.data(), link_b.length());
+        ((char*)link_str)[link_b.length()] = '\0';
+        const char* sigval1 = link_str;
         slotFunc(self, sigval1);
+        libqt_free(link_str);
     });
 }
 
@@ -303,18 +302,17 @@ void QLabel_LinkHovered(QLabel* self, const libqt_string link) {
 }
 
 void QLabel_Connect_LinkHovered(QLabel* self, intptr_t slot) {
-    void (*slotFunc)(QLabel*, libqt_string) = reinterpret_cast<void (*)(QLabel*, libqt_string)>(slot);
+    void (*slotFunc)(QLabel*, const char*) = reinterpret_cast<void (*)(QLabel*, const char*)>(slot);
     QLabel::connect(self, &QLabel::linkHovered, [self, slotFunc](const QString& link) {
         const QString link_ret = link;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray link_b = link_ret.toUtf8();
-        libqt_string link_str;
-        link_str.len = link_b.length();
-        link_str.data = static_cast<const char*>(malloc(link_str.len + 1));
-        memcpy((void*)link_str.data, link_b.data(), link_str.len);
-        ((char*)link_str.data)[link_str.len] = '\0';
-        libqt_string sigval1 = link_str;
+        const char* link_str = static_cast<const char*>(malloc(link_b.length() + 1));
+        memcpy((void*)link_str, link_b.data(), link_b.length());
+        ((char*)link_str)[link_b.length()] = '\0';
+        const char* sigval1 = link_str;
         slotFunc(self, sigval1);
+        libqt_free(link_str);
     });
 }
 

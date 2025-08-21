@@ -309,8 +309,8 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, tableName: []const u8) callconv(.c) void ```
-    pub fn OnSetTable(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, tableName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetTable(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSqlRelationalTableModel_OnSetTable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1808,8 +1808,8 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, filter: []const u8) callconv(.c) void ```
-    pub fn OnSetFilter(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, filter: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetFilter(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QSqlRelationalTableModel_OnSetFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4135,8 +4135,8 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSqlRelationalTableModel_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4333,8 +4333,8 @@ pub const qsqlrelationaltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QSqlRelationalTableModel, slot: fn (self: QtC.QSqlRelationalTableModel, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

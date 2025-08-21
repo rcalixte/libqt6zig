@@ -314,8 +314,8 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#labelFormatChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, format: []const u8) callconv(.c) void ```
-    pub fn OnLabelFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLabelFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1217,8 +1217,8 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, title: []const u8) callconv(.c) void ```
-    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2232,8 +2232,8 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QValueAxis_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2276,8 +2276,8 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -491,8 +491,8 @@ pub const qtextobject = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTextObject, slot: fn (self: QtC.QTextObject, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTextObject, slot: fn (self: QtC.QTextObject, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 };
@@ -992,8 +992,8 @@ pub const qtextblockgroup = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTextBlockGroup, slot: fn (self: QtC.QTextBlockGroup, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTextBlockGroup, slot: fn (self: QtC.QTextBlockGroup, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 };
@@ -1958,8 +1958,8 @@ pub const qtextframe = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextFrame, slot: fn (self: QtC.QTextFrame, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QTextFrame, slot: fn (self: QtC.QTextFrame, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QTextFrame_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2002,8 +2002,8 @@ pub const qtextframe = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTextFrame, slot: fn (self: QtC.QTextFrame, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QTextFrame, slot: fn (self: QtC.QTextFrame, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -243,8 +243,8 @@ pub const qmimedata = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, mimetype: []const u8) callconv(.c) bool ```
-    pub fn OnHasFormat(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) bool) void {
+    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, mimetype: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnHasFormat(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
         qtc.QMimeData_OnHasFormat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -338,8 +338,8 @@ pub const qmimedata = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, mimetype: []const u8, preferredType: QtC.QMetaType) callconv(.c) QtC.QVariant ```
-    pub fn OnRetrieveData(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, QtC.QMetaType) callconv(.c) QtC.QVariant) void {
+    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, mimetype: [*:0]const u8, preferredType: QtC.QMetaType) callconv(.c) QtC.QVariant ```
+    pub fn OnRetrieveData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, QtC.QMetaType) callconv(.c) QtC.QVariant) void {
         qtc.QMimeData_OnRetrieveData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1086,8 +1086,8 @@ pub const qmimedata = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QMimeData_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1130,8 +1130,8 @@ pub const qmimedata = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QMimeData, slot: fn (self: QtC.QMimeData, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

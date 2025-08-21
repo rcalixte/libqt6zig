@@ -463,8 +463,8 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormatChanged)
     ///
-    /// ``` self: QtC.QHorizontalStackedBarSeries, slot: fn (self: QtC.QHorizontalStackedBarSeries, format: []const u8) callconv(.c) void ```
-    pub fn OnLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QHorizontalStackedBarSeries, slot: fn (self: QtC.QHorizontalStackedBarSeries, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1508,8 +1508,8 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalStackedBarSeries, slot: fn (self: QtC.QHorizontalStackedBarSeries, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QHorizontalStackedBarSeries, slot: fn (self: QtC.QHorizontalStackedBarSeries, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QHorizontalStackedBarSeries_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1552,8 +1552,8 @@ pub const qhorizontalstackedbarseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QHorizontalStackedBarSeries, slot: fn (self: QtC.QHorizontalStackedBarSeries, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QHorizontalStackedBarSeries, slot: fn (self: QtC.QHorizontalStackedBarSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

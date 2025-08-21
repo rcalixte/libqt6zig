@@ -313,8 +313,8 @@ pub const qbarcategoryaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarcategoryaxis-qtcharts.html#minChanged)
     ///
-    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, min: []const u8) callconv(.c) void ```
-    pub fn OnMinChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, min: [*:0]const u8) callconv(.c) void ```
+    pub fn OnMinChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QBarCategoryAxis_Connect_MinChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -331,8 +331,8 @@ pub const qbarcategoryaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarcategoryaxis-qtcharts.html#maxChanged)
     ///
-    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, max: []const u8) callconv(.c) void ```
-    pub fn OnMaxChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, max: [*:0]const u8) callconv(.c) void ```
+    pub fn OnMaxChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QBarCategoryAxis_Connect_MaxChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -353,8 +353,8 @@ pub const qbarcategoryaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarcategoryaxis-qtcharts.html#rangeChanged)
     ///
-    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, min: []const u8, max: []const u8) callconv(.c) void ```
-    pub fn OnRangeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, min: [*:0]const u8, max: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRangeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QBarCategoryAxis_Connect_RangeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1228,8 +1228,8 @@ pub const qbarcategoryaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, title: []const u8) callconv(.c) void ```
-    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2243,8 +2243,8 @@ pub const qbarcategoryaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QBarCategoryAxis_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2287,8 +2287,8 @@ pub const qbarcategoryaxis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QBarCategoryAxis, slot: fn (self: QtC.QBarCategoryAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -297,18 +297,17 @@ void QWebEngineView_TitleChanged(QWebEngineView* self, const libqt_string title)
 }
 
 void QWebEngineView_Connect_TitleChanged(QWebEngineView* self, intptr_t slot) {
-    void (*slotFunc)(QWebEngineView*, libqt_string) = reinterpret_cast<void (*)(QWebEngineView*, libqt_string)>(slot);
+    void (*slotFunc)(QWebEngineView*, const char*) = reinterpret_cast<void (*)(QWebEngineView*, const char*)>(slot);
     QWebEngineView::connect(self, &QWebEngineView::titleChanged, [self, slotFunc](const QString& title) {
         const QString title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray title_b = title_ret.toUtf8();
-        libqt_string title_str;
-        title_str.len = title_b.length();
-        title_str.data = static_cast<const char*>(malloc(title_str.len + 1));
-        memcpy((void*)title_str.data, title_b.data(), title_str.len);
-        ((char*)title_str.data)[title_str.len] = '\0';
-        libqt_string sigval1 = title_str;
+        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
+        memcpy((void*)title_str, title_b.data(), title_b.length());
+        ((char*)title_str)[title_b.length()] = '\0';
+        const char* sigval1 = title_str;
         slotFunc(self, sigval1);
+        libqt_free(title_str);
     });
 }
 
@@ -384,19 +383,18 @@ void QWebEngineView_PdfPrintingFinished(QWebEngineView* self, const libqt_string
 }
 
 void QWebEngineView_Connect_PdfPrintingFinished(QWebEngineView* self, intptr_t slot) {
-    void (*slotFunc)(QWebEngineView*, libqt_string, bool) = reinterpret_cast<void (*)(QWebEngineView*, libqt_string, bool)>(slot);
+    void (*slotFunc)(QWebEngineView*, const char*, bool) = reinterpret_cast<void (*)(QWebEngineView*, const char*, bool)>(slot);
     QWebEngineView::connect(self, &QWebEngineView::pdfPrintingFinished, [self, slotFunc](const QString& filePath, bool success) {
         const QString filePath_ret = filePath;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray filePath_b = filePath_ret.toUtf8();
-        libqt_string filePath_str;
-        filePath_str.len = filePath_b.length();
-        filePath_str.data = static_cast<const char*>(malloc(filePath_str.len + 1));
-        memcpy((void*)filePath_str.data, filePath_b.data(), filePath_str.len);
-        ((char*)filePath_str.data)[filePath_str.len] = '\0';
-        libqt_string sigval1 = filePath_str;
+        const char* filePath_str = static_cast<const char*>(malloc(filePath_b.length() + 1));
+        memcpy((void*)filePath_str, filePath_b.data(), filePath_b.length());
+        ((char*)filePath_str)[filePath_b.length()] = '\0';
+        const char* sigval1 = filePath_str;
         bool sigval2 = success;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(filePath_str);
     });
 }
 

@@ -5881,8 +5881,8 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsObject_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6024,8 +6024,8 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -26346,8 +26346,8 @@ pub const qgraphicstextitem = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#linkActivated)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: []const u8) callconv(.c) void ```
-    pub fn OnLinkActivated(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLinkActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QGraphicsTextItem_Connect_LinkActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -26364,8 +26364,8 @@ pub const qgraphicstextitem = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#linkHovered)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: []const u8) callconv(.c) void ```
-    pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QGraphicsTextItem_Connect_LinkHovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -29650,8 +29650,8 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QGraphicsTextItem_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -29793,8 +29793,8 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

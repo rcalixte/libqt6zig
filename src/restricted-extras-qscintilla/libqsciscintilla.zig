@@ -471,8 +471,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) callconv(.c) bool ```
-    pub fn OnFindFirst(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, bool, bool, bool, bool, bool, i32, i32, bool, bool, bool) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, expr: [*:0]const u8, re: bool, cs: bool, wo: bool, wrap: bool, forward: bool, line: i32, index: i32, show: bool, posix: bool, cxx11: bool) callconv(.c) bool ```
+    pub fn OnFindFirst(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, bool, bool, bool, bool, bool, i32, i32, bool, bool, bool) callconv(.c) bool) void {
         qtc.QsciScintilla_OnFindFirst(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -504,8 +504,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, expr: []const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) callconv(.c) bool ```
-    pub fn OnFindFirstInSelection(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, bool, bool, bool, bool, bool, bool, bool) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, expr: [*:0]const u8, re: bool, cs: bool, wo: bool, forward: bool, show: bool, posix: bool, cxx11: bool) callconv(.c) bool ```
+    pub fn OnFindFirstInSelection(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, bool, bool, bool, bool, bool, bool, bool) callconv(.c) bool) void {
         qtc.QsciScintilla_OnFindFirstInSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -955,8 +955,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, replaceStr: []const u8) callconv(.c) void ```
-    pub fn OnReplace(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, replaceStr: [*:0]const u8) callconv(.c) void ```
+    pub fn OnReplace(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_OnReplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1632,8 +1632,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: []const u8) callconv(.c) void ```
-    pub fn OnAppend(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAppend(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_OnAppend(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1965,8 +1965,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: []const u8) callconv(.c) void ```
-    pub fn OnInsert(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnInsert(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_OnInsert(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1998,8 +1998,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: []const u8, line: i32, index: i32) callconv(.c) void ```
-    pub fn OnInsertAt(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8, i32, i32) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: [*:0]const u8, line: i32, index: i32) callconv(.c) void ```
+    pub fn OnInsertAt(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
         qtc.QsciScintilla_OnInsertAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2131,8 +2131,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: []const u8) callconv(.c) void ```
-    pub fn OnReplaceSelectedText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnReplaceSelectedText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_OnReplaceSelectedText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3089,8 +3089,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, margin: i32, s: []const u8) callconv(.c) void ```
-    pub fn OnSetMarginWidth2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, margin: i32, s: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetMarginWidth2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_OnSetMarginWidth2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3322,8 +3322,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: []const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -3757,8 +3757,8 @@ pub const qsciscintilla = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, id: i32, stringVal: []const u8) callconv(.c) void ```
-    pub fn OnUserListActivated(self: ?*anyopaque, slot: fn (?*anyopaque, i32, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, id: i32, stringVal: [*:0]const u8) callconv(.c) void ```
+    pub fn OnUserListActivated(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QsciScintilla_Connect_UserListActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7182,8 +7182,8 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, title: []const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7222,8 +7222,8 @@ pub const qsciscintilla = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, iconText: []const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10018,8 +10018,8 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, signal: []const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) i32) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
         qtc.QsciScintilla_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10095,8 +10095,8 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, objectName: []const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

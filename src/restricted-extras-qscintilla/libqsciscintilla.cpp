@@ -1048,19 +1048,18 @@ void QsciScintilla_UserListActivated(QsciScintilla* self, int id, const libqt_st
 }
 
 void QsciScintilla_Connect_UserListActivated(QsciScintilla* self, intptr_t slot) {
-    void (*slotFunc)(QsciScintilla*, int, libqt_string) = reinterpret_cast<void (*)(QsciScintilla*, int, libqt_string)>(slot);
+    void (*slotFunc)(QsciScintilla*, int, const char*) = reinterpret_cast<void (*)(QsciScintilla*, int, const char*)>(slot);
     QsciScintilla::connect(self, &QsciScintilla::userListActivated, [self, slotFunc](int id, const QString& stringVal) {
         int sigval1 = id;
         const QString stringVal_ret = stringVal;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
+        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
         QByteArray stringVal_b = stringVal_ret.toUtf8();
-        libqt_string stringVal_str;
-        stringVal_str.len = stringVal_b.length();
-        stringVal_str.data = static_cast<const char*>(malloc(stringVal_str.len + 1));
-        memcpy((void*)stringVal_str.data, stringVal_b.data(), stringVal_str.len);
-        ((char*)stringVal_str.data)[stringVal_str.len] = '\0';
-        libqt_string sigval2 = stringVal_str;
+        const char* stringVal_str = static_cast<const char*>(malloc(stringVal_b.length() + 1));
+        memcpy((void*)stringVal_str, stringVal_b.data(), stringVal_b.length());
+        ((char*)stringVal_str)[stringVal_b.length()] = '\0';
+        const char* sigval2 = stringVal_str;
         slotFunc(self, sigval1, sigval2);
+        libqt_free(stringVal_str);
     });
 }
 
