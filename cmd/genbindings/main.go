@@ -239,7 +239,7 @@ func (header *CppParsedHeader) RegisterFlags() map[string]CppFlagProperty {
 			flagProperty := CppFlagProperty{
 				PropertyName: typedef.Alias, // Fully qualified name
 				PropertyType: CppParameter{
-					ParameterType: typedef.UnderlyingType.RenderTypeCabi(),
+					ParameterType: typedef.UnderlyingType.RenderTypeCabi(false),
 				},
 			}
 
