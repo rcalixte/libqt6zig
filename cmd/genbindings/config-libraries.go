@@ -172,6 +172,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags: "--std=c++17 " + pkgConfigCflags("Qt6WebEngineWidgets"),
 		},
 
+		// extras
+
+		// KCodecs
+		// Depends on Qt Core
+		{
+			path: "extras-kcodecs",
+			dirs: []string{
+				"/usr/include/KF6/KCodecs",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KCodecs " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// restricted-extras
 
 		// Qt 6 Charts
