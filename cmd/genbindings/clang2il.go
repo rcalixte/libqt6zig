@@ -121,7 +121,25 @@ nextTopLevel:
 			// Ignore
 
 		case "FunctionDecl":
-			// TODO
+			fn, err := parseFunctionDecl(node)
+			if err != nil {
+				return nil, err
+			}
+			if fn == nil {
+				continue nextTopLevel
+			}
+
+			// Handle class method
+			if className := getClassFromMangledName(fn.mangledName); className != "" {
+				if shouldSkipClass(className) {
+					continue nextTopLevel
+				}
+
+				method := fn.createMethod()
+				if err := addMethodToClass(&ret.Classes, className, method); err != nil {
+					continue nextTopLevel
+				}
+			}
 
 		case "EnumDecl":
 			// Child class enum
@@ -900,6 +918,8 @@ func parseMethod(node map[string]interface{}, mm *CppMethod, className string) e
 
 			// Add resolution for parameters if they're enums
 			for i := range mm.Parameters {
+				mm.Parameters[i].ParameterType = strings.TrimPrefix(mm.Parameters[i].ParameterType, "enum ")
+
 				if !mm.Parameters[i].IsKnownEnum() {
 					// Check if it's a typedef and resolve to underlying type
 					classScoped := className + "::" + mm.Parameters[i].ParameterType
@@ -1186,4 +1206,123 @@ func parseSingleTypeString(p string) CppParameter {
 	insert.ParameterType = strings.TrimPrefix(insert.ParameterType, "::")
 
 	return insert
+}
+
+type functionInfo struct {
+	name        string
+	mangledName string
+	returnType  CppParameter
+	params      []CppParameter
+	isConst     bool
+}
+
+// parseFunctionDecl parses a single C++ function declaration into our
+// intermediate format.
+func parseFunctionDecl(node map[string]interface{}) (*functionInfo, error) {
+	name, ok := node["name"].(string)
+	if !ok {
+		return nil, errors.New("function has no name")
+	}
+
+	if strings.HasPrefix(name, "operator") {
+		return nil, nil
+	}
+
+	mangledName, ok := node["mangledName"].(string)
+	if !ok {
+		return nil, nil
+	}
+
+	typeInfo, ok := node["type"].(map[string]interface{})
+	if !ok {
+		return nil, nil
+	}
+
+	qualType, ok := typeInfo["qualType"].(string)
+	if !ok {
+		return nil, nil
+	}
+
+	returnType, params, isConst, err := parseTypeString(qualType)
+	if err != nil {
+		return nil, nil
+	}
+
+	return &functionInfo{
+		name:        name,
+		mangledName: mangledName,
+		returnType:  returnType,
+		params:      params,
+		isConst:     isConst,
+	}, nil
+}
+
+// getClassFromMangledName returns the class name from a mangled name
+// The format is typically _ZN<length><classname><length><methodname>E...
+func getClassFromMangledName(mangledName string) string {
+	if !strings.Contains(mangledName, "ZN") || strings.Count(mangledName, "E") == 0 {
+		return ""
+	}
+
+	parts := strings.Split(mangledName, "ZN")
+	if len(parts) != 2 {
+		return ""
+	}
+
+	rest := parts[1]
+	var classNameLen int
+	for i, c := range rest {
+		if c < '0' || c > '9' {
+			classNameLen, _ = strconv.Atoi(rest[:i])
+			rest = rest[i:]
+			break
+		}
+	}
+
+	if classNameLen == 0 || len(rest) < classNameLen {
+		return ""
+	}
+
+	return rest[:classNameLen]
+}
+
+func shouldSkipClass(className string) bool {
+	return className == "Qt" || className == "QTest"
+}
+
+// createMethod creates a CppMethod from a functionInfo
+// FunctionDecls often do not have the parameter information, so we need to
+// substitute it.
+func (fn *functionInfo) createMethod() CppMethod {
+	params := make([]CppParameter, len(fn.params))
+	for i, param := range fn.params {
+		params[i] = param
+		params[i].ParameterName = "param" + strconv.Itoa(i+1)
+		params[i].ParameterType = strings.TrimSuffix(param.ParameterType, "::enum_type")
+	}
+
+	return CppMethod{
+		MethodName: fn.name,
+		ReturnType: fn.returnType,
+		Parameters: params,
+		IsConst:    fn.isConst,
+		IsStatic:   true,
+	}
+}
+
+func addMethodToClass(classes *[]CppClass, className string, method CppMethod) error {
+	// Find existing class or create new one
+	for i := range *classes {
+		if (*classes)[i].ClassName == className {
+			(*classes)[i].Methods = append((*classes)[i].Methods, method)
+			return nil
+		}
+	}
+
+	// Create new class
+	*classes = append(*classes, CppClass{
+		ClassName: className,
+		Methods:   []CppMethod{method},
+	})
+	return nil
 }
