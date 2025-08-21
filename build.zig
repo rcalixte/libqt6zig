@@ -104,17 +104,14 @@ pub fn build(b: *std.Build) !void {
         @panic("No .cpp files found.\n");
 
     const qt_include_path: []const []const u8 = switch (host_os) {
-        .dragonfly, .freebsd, .netbsd, .openbsd => &.{"/usr/local/include/qt6"},
-        .linux => switch (host_arch) {
-            .x86_64 => &.{
-                "/usr/include/x86_64-linux-gnu/qt6",
-                "/usr/include/qt6",
-            },
-            .aarch64 => &.{
-                "/usr/include/aarch64-linux-gnu/qt6",
-                "/usr/include/qt6",
-            },
-            else => &.{"/usr/include/qt6"},
+        .dragonfly, .freebsd, .netbsd, .openbsd => &.{
+            "/usr/local/include/qt6",
+            "/usr/local/include/KF6",
+        },
+        .linux => &.{
+            "/usr/include/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6",
+            "/usr/include/qt6",
+            "/usr/include/KF6",
         },
         .macos => &.{
             "/usr/local/opt/qt6/include",
@@ -156,6 +153,8 @@ pub fn build(b: *std.Build) !void {
         "QtWebEngineWidgets",
         // Qt 6 QScintilla
         "Qsci",
+        // Qt 6 KCodecs
+        "KCodecs",
     };
 
     const base_cpp_flags = &.{
