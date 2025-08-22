@@ -67,12 +67,23 @@ struct libqt_pair {
 static inline void libqt_free(const void* ptr) { free((void*)ptr); }
 
 // Helper functions for common cases
+
 static inline void libqt_string_free(const libqt_string* str) {
     if (str && str->data) {
         free((void*)str->data);
         *(const char**)&str->data = NULL;
         *(size_t*)&str->len = 0;
     }
+}
+
+static size_t libqt_strv_length(const char** strv) {
+    size_t len = 0;
+    if (strv != NULL) {
+        while (strv[len] != NULL) {
+            len++;
+        }
+    }
+    return len;
 }
 
 static libqt_strview qstrview(const char* string) {
