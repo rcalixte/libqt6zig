@@ -98,6 +98,7 @@ func ImportHeaderForClass(className string) bool {
 		"QMicrophonePermission", // Qt 6.8 qpermissions.h
 		"QtVideo",               // Qt 6 qtvideo.h
 		"q20",                   // Qt 6 q20type_traits.h
+		"Kuit",                  // Qt 6 kuitsetup.h
 		"____last____":
 		return false
 	}
