@@ -181,7 +181,7 @@ QTextLength* QTextFormat_LengthProperty(const QTextFormat* self, int propertyId)
 libqt_list /* of QTextLength* */ QTextFormat_LengthVectorProperty(const QTextFormat* self, int propertyId) {
     QList<QTextLength> _ret = self->lengthVectorProperty(static_cast<int>(propertyId));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextLength** _arr = static_cast<QTextLength**>(malloc(sizeof(QTextLength*) * _ret.size()));
+    QTextLength** _arr = static_cast<QTextLength**>(malloc(sizeof(QTextLength*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextLength(_ret[i]);
     }
@@ -632,7 +632,7 @@ void QTextCharFormat_SetAnchorNames(QTextCharFormat* self, const libqt_list /* o
 libqt_list /* of libqt_string */ QTextCharFormat_AnchorNames(const QTextCharFormat* self) {
     QList<QString> _ret = self->anchorNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -795,7 +795,7 @@ void QTextBlockFormat_SetTabPositions(QTextBlockFormat* self, const libqt_list /
 libqt_list /* of QTextOption__Tab* */ QTextBlockFormat_TabPositions(const QTextBlockFormat* self) {
     QList<QTextOption::Tab> _ret = self->tabPositions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextOption__Tab** _arr = static_cast<QTextOption__Tab**>(malloc(sizeof(QTextOption__Tab*) * _ret.size()));
+    QTextOption__Tab** _arr = static_cast<QTextOption__Tab**>(malloc(sizeof(QTextOption__Tab*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextOption::Tab(_ret[i]);
     }
@@ -1105,7 +1105,7 @@ void QTextTableFormat_SetColumnWidthConstraints(QTextTableFormat* self, const li
 libqt_list /* of QTextLength* */ QTextTableFormat_ColumnWidthConstraints(const QTextTableFormat* self) {
     QList<QTextLength> _ret = self->columnWidthConstraints();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextLength** _arr = static_cast<QTextLength**>(malloc(sizeof(QTextLength*) * _ret.size()));
+    QTextLength** _arr = static_cast<QTextLength**>(malloc(sizeof(QTextLength*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextLength(_ret[i]);
     }

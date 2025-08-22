@@ -722,8 +722,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnLanguage(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLanguage(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnLanguage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -757,8 +757,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnLexer(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLexer(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnLexer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -825,8 +825,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnAutoCompletionFillups(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -888,8 +888,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [][]const u8 ```
-    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, slot: fn () callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
         qtc.QsciLexerHex_OnAutoCompletionWordSeparators(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -923,8 +923,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnBlockEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -991,8 +991,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStart(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockStart(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnBlockStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1026,8 +1026,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnBlockStartKeyword(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1259,8 +1259,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, set: i32) callconv(.c) []const u8 ```
-    pub fn OnKeywords(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, set: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnKeywords(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnKeywords(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1591,8 +1591,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnWordCharacters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2118,8 +2118,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, text: [*:0]const u8) callconv(.c) []u8 ```
-    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) []u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, text: [*:0]const u8) callconv(.c) [*:0]u8 ```
+    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
         qtc.QsciLexerHex_OnTextAsBytes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -2161,8 +2161,8 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, bytes: [*:0]const u8, size: i32) callconv(.c) []const u8 ```
-    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerHex_OnBytesAsText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

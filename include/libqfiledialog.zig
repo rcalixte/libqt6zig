@@ -723,8 +723,8 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#filesSelected)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, files: [][*:0]const u8) callconv(.c) void ```
-    pub fn OnFilesSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [][*:0]const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, files: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnFilesSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
         qtc.QFileDialog_Connect_FilesSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -791,8 +791,8 @@ pub const qfiledialog = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfiledialog.html#urlsSelected)
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, urls: []QtC.QUrl) callconv(.c) void ```
-    pub fn OnUrlsSelected(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QUrl) callconv(.c) void) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, urls: [*]QtC.QUrl) callconv(.c) void ```
+    pub fn OnUrlsSelected(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
         qtc.QFileDialog_Connect_UrlsSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5963,8 +5963,8 @@ pub const qfiledialog = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    /// ``` self: QtC.QFileDialog, slot: fn (self: QtC.QFileDialog, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFileDialog_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

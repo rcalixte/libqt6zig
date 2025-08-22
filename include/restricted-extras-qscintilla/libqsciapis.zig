@@ -179,8 +179,8 @@ pub const qsciapis = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [][*:0]const u8, list: [][*:0]const u8) callconv(.c) void ```
-    pub fn OnUpdateAutoCompletionList(self: ?*anyopaque, slot: fn (?*anyopaque, [][*:0]const u8, [][*:0]const u8) callconv(.c) void) void {
+    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [*][*:0]const u8, list: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnUpdateAutoCompletionList(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8, [*][*:0]const u8) callconv(.c) void) void {
         qtc.QsciAPIs_OnUpdateAutoCompletionList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -292,8 +292,8 @@ pub const qsciapis = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [][*:0]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: []i32) callconv(.c) [][]const u8 ```
-    pub fn OnCallTips(self: ?*anyopaque, slot: fn (?*anyopaque, [][*:0]const u8, i32, i32, []i32) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QsciAPIs, slot: fn (self: QtC.QsciAPIs, context: [*][*:0]const u8, commas: i32, style: qsciscintilla_enums.CallTipsStyle, shifts: [*:-1]i32) callconv(.c) [*][*:0]const u8 ```
+    pub fn OnCallTips(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8, i32, i32, [*:-1]i32) callconv(.c) [*][*:0]const u8) void {
         qtc.QsciAPIs_OnCallTips(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

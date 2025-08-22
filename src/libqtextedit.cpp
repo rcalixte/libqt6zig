@@ -418,7 +418,7 @@ void QTextEdit_SetExtraSelections(QTextEdit* self, const libqt_list /* of QTextE
 libqt_list /* of QTextEdit__ExtraSelection* */ QTextEdit_ExtraSelections(const QTextEdit* self) {
     QList<QTextEdit::ExtraSelection> _ret = self->extraSelections();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextEdit__ExtraSelection** _arr = static_cast<QTextEdit__ExtraSelection**>(malloc(sizeof(QTextEdit__ExtraSelection*) * _ret.size()));
+    QTextEdit__ExtraSelection** _arr = static_cast<QTextEdit__ExtraSelection**>(malloc(sizeof(QTextEdit__ExtraSelection*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextEdit::ExtraSelection(_ret[i]);
     }

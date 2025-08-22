@@ -408,7 +408,7 @@ libqt_string QXmlStreamReader_ReadElementText(QXmlStreamReader* self) {
 libqt_list /* of QXmlStreamNamespaceDeclaration* */ QXmlStreamReader_NamespaceDeclarations(const QXmlStreamReader* self) {
     QList<QXmlStreamNamespaceDeclaration> _ret = self->namespaceDeclarations();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QXmlStreamNamespaceDeclaration** _arr = static_cast<QXmlStreamNamespaceDeclaration**>(malloc(sizeof(QXmlStreamNamespaceDeclaration*) * _ret.size()));
+    QXmlStreamNamespaceDeclaration** _arr = static_cast<QXmlStreamNamespaceDeclaration**>(malloc(sizeof(QXmlStreamNamespaceDeclaration*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QXmlStreamNamespaceDeclaration(_ret[i]);
     }
@@ -435,7 +435,7 @@ void QXmlStreamReader_AddExtraNamespaceDeclarations(QXmlStreamReader* self, cons
 libqt_list /* of QXmlStreamNotationDeclaration* */ QXmlStreamReader_NotationDeclarations(const QXmlStreamReader* self) {
     QList<QXmlStreamNotationDeclaration> _ret = self->notationDeclarations();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QXmlStreamNotationDeclaration** _arr = static_cast<QXmlStreamNotationDeclaration**>(malloc(sizeof(QXmlStreamNotationDeclaration*) * _ret.size()));
+    QXmlStreamNotationDeclaration** _arr = static_cast<QXmlStreamNotationDeclaration**>(malloc(sizeof(QXmlStreamNotationDeclaration*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QXmlStreamNotationDeclaration(_ret[i]);
     }
@@ -448,7 +448,7 @@ libqt_list /* of QXmlStreamNotationDeclaration* */ QXmlStreamReader_NotationDecl
 libqt_list /* of QXmlStreamEntityDeclaration* */ QXmlStreamReader_EntityDeclarations(const QXmlStreamReader* self) {
     QList<QXmlStreamEntityDeclaration> _ret = self->entityDeclarations();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QXmlStreamEntityDeclaration** _arr = static_cast<QXmlStreamEntityDeclaration**>(malloc(sizeof(QXmlStreamEntityDeclaration*) * _ret.size()));
+    QXmlStreamEntityDeclaration** _arr = static_cast<QXmlStreamEntityDeclaration**>(malloc(sizeof(QXmlStreamEntityDeclaration*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QXmlStreamEntityDeclaration(_ret[i]);
     }

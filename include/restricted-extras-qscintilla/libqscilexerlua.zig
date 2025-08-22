@@ -936,8 +936,8 @@ pub const qscilexerlua = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerLua, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerLua, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerLua_OnAutoCompletionFillups(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -971,8 +971,8 @@ pub const qscilexerlua = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerLua_OnBlockEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1039,8 +1039,8 @@ pub const qscilexerlua = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerLua_OnBlockStartKeyword(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1470,8 +1470,8 @@ pub const qscilexerlua = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerLua, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerLua, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerLua_OnWordCharacters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1915,8 +1915,8 @@ pub const qscilexerlua = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, text: [*:0]const u8) callconv(.c) []u8 ```
-    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) []u8) void {
+    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, text: [*:0]const u8) callconv(.c) [*:0]u8 ```
+    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
         qtc.QsciLexerLua_OnTextAsBytes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1958,8 +1958,8 @@ pub const qscilexerlua = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, bytes: [*:0]const u8, size: i32) callconv(.c) []const u8 ```
-    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexerLua, slot: fn (self: QtC.QsciLexerLua, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexerLua_OnBytesAsText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

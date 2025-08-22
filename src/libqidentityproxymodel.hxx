@@ -29,7 +29,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     using QIdentityProxyModel_Sibling_Callback = QModelIndex* (*)(const QIdentityProxyModel*, int, int, QModelIndex*);
     using QIdentityProxyModel_MapSelectionFromSource_Callback = QItemSelection* (*)(const QIdentityProxyModel*, QItemSelection*);
     using QIdentityProxyModel_MapSelectionToSource_Callback = QItemSelection* (*)(const QIdentityProxyModel*, QItemSelection*);
-    using QIdentityProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QIdentityProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using QIdentityProxyModel_Match_Callback = QModelIndex** (*)(const QIdentityProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using QIdentityProxyModel_SetSourceModel_Callback = void (*)(QIdentityProxyModel*, QAbstractItemModel*);
     using QIdentityProxyModel_InsertColumns_Callback = bool (*)(QIdentityProxyModel*, int, int, QModelIndex*);
     using QIdentityProxyModel_InsertRows_Callback = bool (*)(QIdentityProxyModel*, int, int, QModelIndex*);
@@ -54,7 +54,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     using QIdentityProxyModel_HasChildren_Callback = bool (*)(const QIdentityProxyModel*, QModelIndex*);
     using QIdentityProxyModel_MimeData_Callback = QMimeData* (*)(const QIdentityProxyModel*, libqt_list /* of QModelIndex* */);
     using QIdentityProxyModel_CanDropMimeData_Callback = bool (*)(const QIdentityProxyModel*, QMimeData*, int, int, int, QModelIndex*);
-    using QIdentityProxyModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QIdentityProxyModel_MimeTypes_Callback = const char** (*)();
     using QIdentityProxyModel_SupportedDragActions_Callback = int (*)();
     using QIdentityProxyModel_SupportedDropActions_Callback = int (*)();
     using QIdentityProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
@@ -89,7 +89,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
     using QIdentityProxyModel_EndResetModel_Callback = void (*)();
     using QIdentityProxyModel_ChangePersistentIndex_Callback = void (*)(QIdentityProxyModel*, QModelIndex*, QModelIndex*);
     using QIdentityProxyModel_ChangePersistentIndexList_Callback = void (*)(QIdentityProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QIdentityProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QIdentityProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
     using QIdentityProxyModel_Sender_Callback = QObject* (*)();
     using QIdentityProxyModel_SenderSignalIndex_Callback = int (*)();
     using QIdentityProxyModel_Receivers_Callback = int (*)(const QIdentityProxyModel*, const char*);
@@ -724,13 +724,13 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qidentityproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndex** callback_ret = qidentityproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QIdentityProxyModel::match(start, role, value, hits, flags);
@@ -1153,7 +1153,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
         } else if (qidentityproxymodel_mimedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1196,12 +1196,13 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
             qidentityproxymodel_mimetypes_isbase = false;
             return QIdentityProxyModel::mimeTypes();
         } else if (qidentityproxymodel_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qidentityproxymodel_mimetypes_callback();
+            const char** callback_ret = qidentityproxymodel_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -1460,7 +1461,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
         } else if (qidentityproxymodel_encodedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1741,7 +1742,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
         } else if (qidentityproxymodel_changepersistentindexlist_callback != nullptr) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size() + 1)));
             for (qsizetype i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
             }
@@ -1751,7 +1752,7 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
             libqt_list /* of QModelIndex* */ cbval1 = from_out;
             const QList<QModelIndex>& to_ret = to;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size() + 1)));
             for (qsizetype i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);
             }
@@ -1772,13 +1773,13 @@ class VirtualQIdentityProxyModel final : public QIdentityProxyModel {
             qidentityproxymodel_persistentindexlist_isbase = false;
             return QIdentityProxyModel::persistentIndexList();
         } else if (qidentityproxymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qidentityproxymodel_persistentindexlist_callback();
+            QModelIndex** callback_ret = qidentityproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QIdentityProxyModel::persistentIndexList();

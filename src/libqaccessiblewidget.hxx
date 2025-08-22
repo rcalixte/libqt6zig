@@ -26,21 +26,21 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
     using QAccessibleWidget_Rect_Callback = QRect* (*)();
     using QAccessibleWidget_Parent_Callback = QAccessibleInterface* (*)();
     using QAccessibleWidget_Child_Callback = QAccessibleInterface* (*)(const QAccessibleWidget*, int);
-    using QAccessibleWidget_Text_Callback = libqt_string (*)(const QAccessibleWidget*, int);
+    using QAccessibleWidget_Text_Callback = const char* (*)(const QAccessibleWidget*, int);
     using QAccessibleWidget_Role_Callback = int (*)();
     using QAccessibleWidget_State_Callback = QAccessible__State* (*)();
     using QAccessibleWidget_ForegroundColor_Callback = QColor* (*)();
     using QAccessibleWidget_BackgroundColor_Callback = QColor* (*)();
     using QAccessibleWidget_InterfaceCast_Callback = void* (*)(QAccessibleWidget*, int);
-    using QAccessibleWidget_ActionNames_Callback = libqt_list /* of libqt_string */ (*)();
+    using QAccessibleWidget_ActionNames_Callback = const char** (*)();
     using QAccessibleWidget_DoAction_Callback = void (*)(QAccessibleWidget*, libqt_string);
-    using QAccessibleWidget_KeyBindingsForAction_Callback = libqt_list /* of libqt_string */ (*)(const QAccessibleWidget*, libqt_string);
+    using QAccessibleWidget_KeyBindingsForAction_Callback = const char** (*)(const QAccessibleWidget*, libqt_string);
     using QAccessibleWidget_Object_Callback = QObject* (*)();
     using QAccessibleWidget_SetText_Callback = void (*)(QAccessibleWidget*, int, libqt_string);
     using QAccessibleWidget_ChildAt_Callback = QAccessibleInterface* (*)(const QAccessibleWidget*, int, int);
     using QAccessibleWidget_VirtualHook_Callback = void (*)(QAccessibleWidget*, int, void*);
-    using QAccessibleWidget_LocalizedActionName_Callback = libqt_string (*)(const QAccessibleWidget*, libqt_string);
-    using QAccessibleWidget_LocalizedActionDescription_Callback = libqt_string (*)(const QAccessibleWidget*, libqt_string);
+    using QAccessibleWidget_LocalizedActionName_Callback = const char* (*)(const QAccessibleWidget*, libqt_string);
+    using QAccessibleWidget_LocalizedActionDescription_Callback = const char* (*)(const QAccessibleWidget*, libqt_string);
     using QAccessibleWidget_Widget_Callback = QWidget* (*)();
     using QAccessibleWidget_ParentObject_Callback = QObject* (*)();
     using QAccessibleWidget_AddControllingSignal_Callback = void (*)(QAccessibleWidget*, libqt_string);
@@ -341,8 +341,8 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
         } else if (qaccessiblewidget_text_callback != nullptr) {
             int cbval1 = static_cast<int>(t);
 
-            libqt_string callback_ret = qaccessiblewidget_text_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qaccessiblewidget_text_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QAccessibleWidget::text(t);
@@ -422,12 +422,13 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             qaccessiblewidget_actionnames_isbase = false;
             return QAccessibleWidget::actionNames();
         } else if (qaccessiblewidget_actionnames_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qaccessiblewidget_actionnames_callback();
+            const char** callback_ret = qaccessiblewidget_actionnames_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -474,12 +475,13 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             ((char*)actionName_str.data)[actionName_str.len] = '\0';
             libqt_string cbval1 = actionName_str;
 
-            libqt_list /* of libqt_string */ callback_ret = qaccessiblewidget_keybindingsforaction_callback(this, cbval1);
+            const char** callback_ret = qaccessiblewidget_keybindingsforaction_callback(this, cbval1);
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -571,8 +573,8 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
 
-            libqt_string callback_ret = qaccessiblewidget_localizedactionname_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qaccessiblewidget_localizedactionname_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QAccessibleWidget::localizedActionName(name);
@@ -595,8 +597,8 @@ class VirtualQAccessibleWidget final : public QAccessibleWidget {
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
 
-            libqt_string callback_ret = qaccessiblewidget_localizedactiondescription_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qaccessiblewidget_localizedactiondescription_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QAccessibleWidget::localizedActionDescription(name);

@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const std = @import("std");
-pub const struct_constu8_constu8 = struct { first: []const u8, second: []const u8 };
+pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
 
 /// https://doc.qt.io/qt-6/qurlquery.html
 pub const qurlquery = struct {

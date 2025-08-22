@@ -29,7 +29,7 @@ class VirtualQAccessibleObject final : public QAccessibleObject {
     using QAccessibleObject_Child_Callback = QAccessibleInterface* (*)(const QAccessibleObject*, int);
     using QAccessibleObject_ChildCount_Callback = int (*)();
     using QAccessibleObject_IndexOfChild_Callback = int (*)(const QAccessibleObject*, QAccessibleInterface*);
-    using QAccessibleObject_Text_Callback = libqt_string (*)(const QAccessibleObject*, int);
+    using QAccessibleObject_Text_Callback = const char* (*)(const QAccessibleObject*, int);
     using QAccessibleObject_Role_Callback = int (*)();
     using QAccessibleObject_State_Callback = QAccessible__State* (*)();
     using QAccessibleObject_ForegroundColor_Callback = QColor* (*)();
@@ -328,8 +328,8 @@ class VirtualQAccessibleObject final : public QAccessibleObject {
         if (qaccessibleobject_text_callback != nullptr) {
             int cbval1 = static_cast<int>(t);
 
-            libqt_string callback_ret = qaccessibleobject_text_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qaccessibleobject_text_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -427,7 +427,7 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
     using QAccessibleApplication_FocusChild_Callback = QAccessibleInterface* (*)();
     using QAccessibleApplication_Parent_Callback = QAccessibleInterface* (*)();
     using QAccessibleApplication_Child_Callback = QAccessibleInterface* (*)(const QAccessibleApplication*, int);
-    using QAccessibleApplication_Text_Callback = libqt_string (*)(const QAccessibleApplication*, int);
+    using QAccessibleApplication_Text_Callback = const char* (*)(const QAccessibleApplication*, int);
     using QAccessibleApplication_Role_Callback = int (*)();
     using QAccessibleApplication_State_Callback = QAccessible__State* (*)();
     using QAccessibleApplication_IsValid_Callback = bool (*)();
@@ -641,8 +641,8 @@ class VirtualQAccessibleApplication final : public QAccessibleApplication {
         } else if (qaccessibleapplication_text_callback != nullptr) {
             int cbval1 = static_cast<int>(t);
 
-            libqt_string callback_ret = qaccessibleapplication_text_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qaccessibleapplication_text_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QAccessibleApplication::text(t);

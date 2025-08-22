@@ -107,8 +107,8 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#sslErrors)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errors: []QtC.QSslError) callconv(.c) void ```
-    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []QtC.QSslError) callconv(.c) void) void {
+    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void ```
+    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QSslServer_Connect_SslErrors(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

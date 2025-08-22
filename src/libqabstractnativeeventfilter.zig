@@ -25,8 +25,8 @@ pub const qabstractnativeeventfilter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractNativeEventFilter, slot: fn (self: QtC.QAbstractNativeEventFilter, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    /// ``` self: QtC.QAbstractNativeEventFilter, slot: fn (self: QtC.QAbstractNativeEventFilter, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractNativeEventFilter_OnNativeEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

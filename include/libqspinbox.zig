@@ -320,8 +320,8 @@ pub const qspinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, val: i32) callconv(.c) []const u8 ```
-    pub fn OnTextFromValue(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, val: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnTextFromValue(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QSpinBox_OnTextFromValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5078,8 +5078,8 @@ pub const qspinbox = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    /// ``` self: QtC.QSpinBox, slot: fn (self: QtC.QSpinBox, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QSpinBox_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -6151,8 +6151,8 @@ pub const qdoublespinbox = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, val: f64) callconv(.c) []const u8 ```
-    pub fn OnTextFromValue(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, val: f64) callconv(.c) [*:0]const u8 ```
+    pub fn OnTextFromValue(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) [*:0]const u8) void {
         qtc.QDoubleSpinBox_OnTextFromValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -10942,8 +10942,8 @@ pub const qdoublespinbox = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    /// ``` self: QtC.QDoubleSpinBox, slot: fn (self: QtC.QDoubleSpinBox, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDoubleSpinBox_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

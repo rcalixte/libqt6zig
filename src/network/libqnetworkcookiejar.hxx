@@ -18,7 +18,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
 
     // Virtual class public types (including callbacks)
     using QNetworkCookieJar_Metacall_Callback = int (*)(QNetworkCookieJar*, int, int, void**);
-    using QNetworkCookieJar_CookiesForUrl_Callback = libqt_list /* of QNetworkCookie* */ (*)(const QNetworkCookieJar*, QUrl*);
+    using QNetworkCookieJar_CookiesForUrl_Callback = QNetworkCookie** (*)(const QNetworkCookieJar*, QUrl*);
     using QNetworkCookieJar_SetCookiesFromUrl_Callback = bool (*)(QNetworkCookieJar*, libqt_list /* of QNetworkCookie* */, QUrl*);
     using QNetworkCookieJar_InsertCookie_Callback = bool (*)(QNetworkCookieJar*, QNetworkCookie*);
     using QNetworkCookieJar_UpdateCookie_Callback = bool (*)(QNetworkCookieJar*, QNetworkCookie*);
@@ -31,7 +31,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
     using QNetworkCookieJar_CustomEvent_Callback = void (*)(QNetworkCookieJar*, QEvent*);
     using QNetworkCookieJar_ConnectNotify_Callback = void (*)(QNetworkCookieJar*, QMetaMethod*);
     using QNetworkCookieJar_DisconnectNotify_Callback = void (*)(QNetworkCookieJar*, QMetaMethod*);
-    using QNetworkCookieJar_AllCookies_Callback = libqt_list /* of QNetworkCookie* */ (*)();
+    using QNetworkCookieJar_AllCookies_Callback = QNetworkCookie** (*)();
     using QNetworkCookieJar_SetAllCookies_Callback = void (*)(QNetworkCookieJar*, libqt_list /* of QNetworkCookie* */);
     using QNetworkCookieJar_Sender_Callback = QObject* (*)();
     using QNetworkCookieJar_SenderSignalIndex_Callback = int (*)();
@@ -181,13 +181,13 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             // Cast returned reference into pointer
             QUrl* cbval1 = const_cast<QUrl*>(&url_ret);
 
-            libqt_list /* of QNetworkCookie* */ callback_ret = qnetworkcookiejar_cookiesforurl_callback(this, cbval1);
+            QNetworkCookie** callback_ret = qnetworkcookiejar_cookiesforurl_callback(this, cbval1);
             QList<QNetworkCookie> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QNetworkCookie** callback_ret_arr = static_cast<QNetworkCookie**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QNetworkCookie** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QNetworkCookieJar::cookiesForUrl(url);
@@ -202,7 +202,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         } else if (qnetworkcookiejar_setcookiesfromurl_callback != nullptr) {
             const QList<QNetworkCookie>& cookieList_ret = cookieList;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * cookieList_ret.size()));
+            QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (cookieList_ret.size() + 1)));
             for (qsizetype i = 0; i < cookieList_ret.size(); ++i) {
                 cookieList_arr[i] = new QNetworkCookie(cookieList_ret[i]);
             }
@@ -403,13 +403,13 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
             qnetworkcookiejar_allcookies_isbase = false;
             return QNetworkCookieJar::allCookies();
         } else if (qnetworkcookiejar_allcookies_callback != nullptr) {
-            libqt_list /* of QNetworkCookie* */ callback_ret = qnetworkcookiejar_allcookies_callback();
+            QNetworkCookie** callback_ret = qnetworkcookiejar_allcookies_callback();
             QList<QNetworkCookie> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QNetworkCookie** callback_ret_arr = static_cast<QNetworkCookie**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QNetworkCookie** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QNetworkCookieJar::allCookies();
@@ -424,7 +424,7 @@ class VirtualQNetworkCookieJar final : public QNetworkCookieJar {
         } else if (qnetworkcookiejar_setallcookies_callback != nullptr) {
             const QList<QNetworkCookie>& cookieList_ret = cookieList;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * cookieList_ret.size()));
+            QNetworkCookie** cookieList_arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (cookieList_ret.size() + 1)));
             for (qsizetype i = 0; i < cookieList_ret.size(); ++i) {
                 cookieList_arr[i] = new QNetworkCookie(cookieList_ret[i]);
             }

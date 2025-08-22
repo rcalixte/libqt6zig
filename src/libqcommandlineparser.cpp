@@ -142,7 +142,7 @@ libqt_list /* of libqt_string */ QCommandLineParser_Values(const QCommandLinePar
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QList<QString> _ret = self->values(name_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -179,7 +179,7 @@ libqt_string QCommandLineParser_Value2(const QCommandLineParser* self, const QCo
 libqt_list /* of libqt_string */ QCommandLineParser_Values2(const QCommandLineParser* self, const QCommandLineOption* option) {
     QList<QString> _ret = self->values(*option);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -200,7 +200,7 @@ libqt_list /* of libqt_string */ QCommandLineParser_Values2(const QCommandLinePa
 libqt_list /* of libqt_string */ QCommandLineParser_PositionalArguments(const QCommandLineParser* self) {
     QList<QString> _ret = self->positionalArguments();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -221,7 +221,7 @@ libqt_list /* of libqt_string */ QCommandLineParser_PositionalArguments(const QC
 libqt_list /* of libqt_string */ QCommandLineParser_OptionNames(const QCommandLineParser* self) {
     QList<QString> _ret = self->optionNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -242,7 +242,7 @@ libqt_list /* of libqt_string */ QCommandLineParser_OptionNames(const QCommandLi
 libqt_list /* of libqt_string */ QCommandLineParser_UnknownOptionNames(const QCommandLineParser* self) {
     QList<QString> _ret = self->unknownOptionNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

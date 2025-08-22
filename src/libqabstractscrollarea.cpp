@@ -147,7 +147,7 @@ void QAbstractScrollArea_AddScrollBarWidget(QAbstractScrollArea* self, QWidget* 
 libqt_list /* of QWidget* */ QAbstractScrollArea_ScrollBarWidgets(QAbstractScrollArea* self, int alignment) {
     QList<QWidget*> _ret = self->scrollBarWidgets(static_cast<Qt::Alignment>(alignment));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.size()));
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qaccessible_base_enums = enums;
-pub const struct_i32_i32 = struct { first: i32, second: i32 };
+pub const struct_i32_i32 = extern struct { first: i32, second: i32 };
 
 /// https://doc.qt.io/qt-6/qaccessible.html
 pub const qaccessible = struct {

@@ -93,7 +93,7 @@ bool QWebEngineHttpRequest_HasHeader(const QWebEngineHttpRequest* self, const li
 libqt_list /* of libqt_string */ QWebEngineHttpRequest_Headers(const QWebEngineHttpRequest* self) {
     QList<QByteArray> _ret = self->headers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;

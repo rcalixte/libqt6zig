@@ -46,10 +46,10 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     using QSortFilterProxyModel_CanFetchMore_Callback = bool (*)(const QSortFilterProxyModel*, QModelIndex*);
     using QSortFilterProxyModel_Flags_Callback = int (*)(const QSortFilterProxyModel*, QModelIndex*);
     using QSortFilterProxyModel_Buddy_Callback = QModelIndex* (*)(const QSortFilterProxyModel*, QModelIndex*);
-    using QSortFilterProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QSortFilterProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using QSortFilterProxyModel_Match_Callback = QModelIndex** (*)(const QSortFilterProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using QSortFilterProxyModel_Span_Callback = QSize* (*)(const QSortFilterProxyModel*, QModelIndex*);
     using QSortFilterProxyModel_Sort_Callback = void (*)(QSortFilterProxyModel*, int, int);
-    using QSortFilterProxyModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QSortFilterProxyModel_MimeTypes_Callback = const char** (*)();
     using QSortFilterProxyModel_SupportedDropActions_Callback = int (*)();
     using QSortFilterProxyModel_Submit_Callback = bool (*)();
     using QSortFilterProxyModel_Revert_Callback = void (*)();
@@ -93,7 +93,7 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
     using QSortFilterProxyModel_EndResetModel_Callback = void (*)();
     using QSortFilterProxyModel_ChangePersistentIndex_Callback = void (*)(QSortFilterProxyModel*, QModelIndex*, QModelIndex*);
     using QSortFilterProxyModel_ChangePersistentIndexList_Callback = void (*)(QSortFilterProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QSortFilterProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QSortFilterProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
     using QSortFilterProxyModel_Sender_Callback = QObject* (*)();
     using QSortFilterProxyModel_SenderSignalIndex_Callback = int (*)();
     using QSortFilterProxyModel_Receivers_Callback = int (*)(const QSortFilterProxyModel*, const char*);
@@ -865,7 +865,7 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         } else if (qsortfilterproxymodel_mimedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1061,13 +1061,13 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qsortfilterproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndex** callback_ret = qsortfilterproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QSortFilterProxyModel::match(start, role, value, hits, flags);
@@ -1112,12 +1112,13 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             qsortfilterproxymodel_mimetypes_isbase = false;
             return QSortFilterProxyModel::mimeTypes();
         } else if (qsortfilterproxymodel_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qsortfilterproxymodel_mimetypes_callback();
+            const char** callback_ret = qsortfilterproxymodel_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -1548,7 +1549,7 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         } else if (qsortfilterproxymodel_encodedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1829,7 +1830,7 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
         } else if (qsortfilterproxymodel_changepersistentindexlist_callback != nullptr) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size() + 1)));
             for (qsizetype i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
             }
@@ -1839,7 +1840,7 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             libqt_list /* of QModelIndex* */ cbval1 = from_out;
             const QList<QModelIndex>& to_ret = to;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size() + 1)));
             for (qsizetype i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);
             }
@@ -1860,13 +1861,13 @@ class VirtualQSortFilterProxyModel final : public QSortFilterProxyModel {
             qsortfilterproxymodel_persistentindexlist_isbase = false;
             return QSortFilterProxyModel::persistentIndexList();
         } else if (qsortfilterproxymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qsortfilterproxymodel_persistentindexlist_callback();
+            QModelIndex** callback_ret = qsortfilterproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QSortFilterProxyModel::persistentIndexList();

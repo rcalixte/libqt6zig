@@ -266,7 +266,7 @@ void QImage_SetPixelColor2(QImage* self, const QPoint* pt, const QColor* c) {
 libqt_list /* of unsigned int */ QImage_ColorTable(const QImage* self) {
     QList<unsigned int> _ret = self->colorTable();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * _ret.size()));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -489,7 +489,7 @@ void QImage_SetOffset(QImage* self, const QPoint* offset) {
 libqt_list /* of libqt_string */ QImage_TextKeys(const QImage* self) {
     QList<QString> _ret = self->textKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

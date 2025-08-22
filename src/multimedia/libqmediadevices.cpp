@@ -74,7 +74,7 @@ libqt_string QMediaDevices_Tr(const char* s) {
 libqt_list /* of QAudioDevice* */ QMediaDevices_AudioInputs() {
     QList<QAudioDevice> _ret = QMediaDevices::audioInputs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * _ret.size()));
+    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAudioDevice(_ret[i]);
     }
@@ -87,7 +87,7 @@ libqt_list /* of QAudioDevice* */ QMediaDevices_AudioInputs() {
 libqt_list /* of QAudioDevice* */ QMediaDevices_AudioOutputs() {
     QList<QAudioDevice> _ret = QMediaDevices::audioOutputs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * _ret.size()));
+    QAudioDevice** _arr = static_cast<QAudioDevice**>(malloc(sizeof(QAudioDevice*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAudioDevice(_ret[i]);
     }
@@ -100,7 +100,7 @@ libqt_list /* of QAudioDevice* */ QMediaDevices_AudioOutputs() {
 libqt_list /* of QCameraDevice* */ QMediaDevices_VideoInputs() {
     QList<QCameraDevice> _ret = QMediaDevices::videoInputs();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCameraDevice** _arr = static_cast<QCameraDevice**>(malloc(sizeof(QCameraDevice*) * _ret.size()));
+    QCameraDevice** _arr = static_cast<QCameraDevice**>(malloc(sizeof(QCameraDevice*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCameraDevice(_ret[i]);
     }

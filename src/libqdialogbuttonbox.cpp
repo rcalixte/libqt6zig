@@ -154,7 +154,7 @@ void QDialogButtonBox_Clear(QDialogButtonBox* self) {
 libqt_list /* of QAbstractButton* */ QDialogButtonBox_Buttons(const QDialogButtonBox* self) {
     QList<QAbstractButton*> _ret = self->buttons();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractButton** _arr = static_cast<QAbstractButton**>(malloc(sizeof(QAbstractButton*) * _ret.size()));
+    QAbstractButton** _arr = static_cast<QAbstractButton**>(malloc(sizeof(QAbstractButton*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

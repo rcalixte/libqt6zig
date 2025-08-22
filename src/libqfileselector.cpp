@@ -90,7 +90,7 @@ QUrl* QFileSelector_Select2(const QFileSelector* self, const QUrl* filePath) {
 libqt_list /* of libqt_string */ QFileSelector_ExtraSelectors(const QFileSelector* self) {
     QList<QString> _ret = self->extraSelectors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -122,7 +122,7 @@ void QFileSelector_SetExtraSelectors(QFileSelector* self, const libqt_list /* of
 libqt_list /* of libqt_string */ QFileSelector_AllSelectors(const QFileSelector* self) {
     QList<QString> _ret = self->allSelectors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -72,7 +72,7 @@ libqt_string QMimeData_Tr(const char* s) {
 libqt_list /* of QUrl* */ QMimeData_Urls(const QMimeData* self) {
     QList<QUrl> _ret = self->urls();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * _ret.size()));
+    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QUrl(_ret[i]);
     }
@@ -249,7 +249,7 @@ libqt_list /* of libqt_string */ QMimeData_Formats(const QMimeData* self) {
     if (vqmimedata && vqmimedata->isVirtualQMimeData) {
         QList<QString> _ret = vqmimedata->formats();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -268,7 +268,7 @@ libqt_list /* of libqt_string */ QMimeData_Formats(const QMimeData* self) {
     } else {
         QList<QString> _ret = self->QMimeData::formats();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -294,7 +294,7 @@ libqt_list /* of libqt_string */ QMimeData_QBaseFormats(const QMimeData* self) {
         vqmimedata->setQMimeData_Formats_IsBase(true);
         QList<QString> _ret = vqmimedata->formats();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -313,7 +313,7 @@ libqt_list /* of libqt_string */ QMimeData_QBaseFormats(const QMimeData* self) {
     } else {
         QList<QString> _ret = self->QMimeData::formats();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

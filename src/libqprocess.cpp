@@ -82,7 +82,7 @@ libqt_string QProcessEnvironment_Value(const QProcessEnvironment* self, const li
 libqt_list /* of libqt_string */ QProcessEnvironment_ToStringList(const QProcessEnvironment* self) {
     QList<QString> _ret = self->toStringList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -103,7 +103,7 @@ libqt_list /* of libqt_string */ QProcessEnvironment_ToStringList(const QProcess
 libqt_list /* of libqt_string */ QProcessEnvironment_Keys(const QProcessEnvironment* self) {
     QList<QString> _ret = self->keys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -241,7 +241,7 @@ void QProcess_SetProgram(QProcess* self, const libqt_string program) {
 libqt_list /* of libqt_string */ QProcess_Arguments(const QProcess* self) {
     QList<QString> _ret = self->arguments();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -368,7 +368,7 @@ void QProcess_SetEnvironment(QProcess* self, const libqt_list /* of libqt_string
 libqt_list /* of libqt_string */ QProcess_Environment(const QProcess* self) {
     QList<QString> _ret = self->environment();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -455,7 +455,7 @@ bool QProcess_StartDetached2(const libqt_string program) {
 libqt_list /* of libqt_string */ QProcess_SystemEnvironment() {
     QList<QString> _ret = QProcess::systemEnvironment();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

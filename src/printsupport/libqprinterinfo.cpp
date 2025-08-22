@@ -92,7 +92,7 @@ int QPrinterInfo_State(const QPrinterInfo* self) {
 libqt_list /* of QPageSize* */ QPrinterInfo_SupportedPageSizes(const QPrinterInfo* self) {
     QList<QPageSize> _ret = self->supportedPageSizes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPageSize** _arr = static_cast<QPageSize**>(malloc(sizeof(QPageSize*) * _ret.size()));
+    QPageSize** _arr = static_cast<QPageSize**>(malloc(sizeof(QPageSize*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPageSize(_ret[i]);
     }
@@ -121,7 +121,7 @@ QPageSize* QPrinterInfo_MaximumPhysicalPageSize(const QPrinterInfo* self) {
 libqt_list /* of int */ QPrinterInfo_SupportedResolutions(const QPrinterInfo* self) {
     QList<int> _ret = self->supportedResolutions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -138,7 +138,7 @@ int QPrinterInfo_DefaultDuplexMode(const QPrinterInfo* self) {
 libqt_list /* of int */ QPrinterInfo_SupportedDuplexModes(const QPrinterInfo* self) {
     QList<QPrinter::DuplexMode> _ret = self->supportedDuplexModes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
@@ -155,7 +155,7 @@ int QPrinterInfo_DefaultColorMode(const QPrinterInfo* self) {
 libqt_list /* of int */ QPrinterInfo_SupportedColorModes(const QPrinterInfo* self) {
     QList<QPrinter::ColorMode> _ret = self->supportedColorModes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
@@ -168,7 +168,7 @@ libqt_list /* of int */ QPrinterInfo_SupportedColorModes(const QPrinterInfo* sel
 libqt_list /* of libqt_string */ QPrinterInfo_AvailablePrinterNames() {
     QList<QString> _ret = QPrinterInfo::availablePrinterNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -189,7 +189,7 @@ libqt_list /* of libqt_string */ QPrinterInfo_AvailablePrinterNames() {
 libqt_list /* of QPrinterInfo* */ QPrinterInfo_AvailablePrinters() {
     QList<QPrinterInfo> _ret = QPrinterInfo::availablePrinters();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPrinterInfo** _arr = static_cast<QPrinterInfo**>(malloc(sizeof(QPrinterInfo*) * _ret.size()));
+    QPrinterInfo** _arr = static_cast<QPrinterInfo**>(malloc(sizeof(QPrinterInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPrinterInfo(_ret[i]);
     }

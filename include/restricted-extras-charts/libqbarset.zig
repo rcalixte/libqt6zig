@@ -620,8 +620,8 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBarsChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, indexes: []i32) callconv(.c) void ```
-    pub fn OnSelectedBarsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []i32) callconv(.c) void) void {
+    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, indexes: [*:-1]i32) callconv(.c) void ```
+    pub fn OnSelectedBarsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:-1]i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_SelectedBarsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -1228,8 +1228,8 @@ pub const qgraphicsscene = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscene.html#changed)
     ///
-    /// ``` self: QtC.QGraphicsScene, slot: fn (self: QtC.QGraphicsScene, region: []QtC.QRectF) callconv(.c) void ```
-    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QRectF) callconv(.c) void) void {
+    /// ``` self: QtC.QGraphicsScene, slot: fn (self: QtC.QGraphicsScene, region: [*]QtC.QRectF) callconv(.c) void ```
+    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QRectF) callconv(.c) void) void {
         qtc.QGraphicsScene_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

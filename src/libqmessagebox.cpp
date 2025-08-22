@@ -163,7 +163,7 @@ void QMessageBox_RemoveButton(QMessageBox* self, QAbstractButton* button) {
 libqt_list /* of QAbstractButton* */ QMessageBox_Buttons(const QMessageBox* self) {
     QList<QAbstractButton*> _ret = self->buttons();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractButton** _arr = static_cast<QAbstractButton**>(malloc(sizeof(QAbstractButton*) * _ret.size()));
+    QAbstractButton** _arr = static_cast<QAbstractButton**>(malloc(sizeof(QAbstractButton*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

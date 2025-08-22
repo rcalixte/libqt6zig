@@ -202,7 +202,7 @@ void QSettings_SetArrayIndex(QSettings* self, int i) {
 libqt_list /* of libqt_string */ QSettings_AllKeys(const QSettings* self) {
     QList<QString> _ret = self->allKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -223,7 +223,7 @@ libqt_list /* of libqt_string */ QSettings_AllKeys(const QSettings* self) {
 libqt_list /* of libqt_string */ QSettings_ChildKeys(const QSettings* self) {
     QList<QString> _ret = self->childKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -244,7 +244,7 @@ libqt_list /* of libqt_string */ QSettings_ChildKeys(const QSettings* self) {
 libqt_list /* of libqt_string */ QSettings_ChildGroups(const QSettings* self) {
     QList<QString> _ret = self->childGroups();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -76,8 +76,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnLanguage(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLanguage(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnLanguage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -103,8 +103,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnLexer(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLexer(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnLexer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -162,8 +162,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnAutoCompletionFillups(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -203,8 +203,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) [][]const u8 ```
-    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, slot: fn () callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
         qtc.QsciLexer_OnAutoCompletionWordSeparators(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -251,8 +251,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnBlockEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -303,8 +303,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStart(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockStart(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnBlockStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -330,8 +330,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: *i32) callconv(.c) []const u8 ```
-    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnBlockStartKeyword(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -507,8 +507,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, set: i32) callconv(.c) []const u8 ```
-    pub fn OnKeywords(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, set: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnKeywords(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnKeywords(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -562,8 +562,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: i32) callconv(.c) []const u8 ```
-    pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, style: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnDescription(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -855,8 +855,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnWordCharacters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1159,8 +1159,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, text: [*:0]const u8) callconv(.c) []u8 ```
-    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) []u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, text: [*:0]const u8) callconv(.c) [*:0]u8 ```
+    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
         qtc.QsciLexer_OnTextAsBytes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1197,8 +1197,8 @@ pub const qscilexer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, bytes: [*:0]const u8, size: i32) callconv(.c) []const u8 ```
-    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QsciLexer, slot: fn (self: QtC.QsciLexer, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QsciLexer_OnBytesAsText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -17,8 +17,8 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
     bool isVirtualQXmlStreamEntityResolver = true;
 
     // Virtual class public types (including callbacks)
-    using QXmlStreamEntityResolver_ResolveEntity_Callback = libqt_string (*)(QXmlStreamEntityResolver*, libqt_string, libqt_string);
-    using QXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback = libqt_string (*)(QXmlStreamEntityResolver*, libqt_string);
+    using QXmlStreamEntityResolver_ResolveEntity_Callback = const char* (*)(QXmlStreamEntityResolver*, libqt_string, libqt_string);
+    using QXmlStreamEntityResolver_ResolveUndeclaredEntity_Callback = const char* (*)(QXmlStreamEntityResolver*, libqt_string);
 
   protected:
     // Instance callback storage
@@ -70,8 +70,8 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             ((char*)systemId_str.data)[systemId_str.len] = '\0';
             libqt_string cbval2 = systemId_str;
 
-            libqt_string callback_ret = qxmlstreamentityresolver_resolveentity_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qxmlstreamentityresolver_resolveentity_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QXmlStreamEntityResolver::resolveEntity(publicId, systemId);
@@ -94,8 +94,8 @@ class VirtualQXmlStreamEntityResolver final : public QXmlStreamEntityResolver {
             ((char*)name_str.data)[name_str.len] = '\0';
             libqt_string cbval1 = name_str;
 
-            libqt_string callback_ret = qxmlstreamentityresolver_resolveundeclaredentity_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qxmlstreamentityresolver_resolveundeclaredentity_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QXmlStreamEntityResolver::resolveUndeclaredEntity(name);

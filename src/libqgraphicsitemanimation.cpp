@@ -97,7 +97,7 @@ QPointF* QGraphicsItemAnimation_PosAt(const QGraphicsItemAnimation* self, double
 libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnimation_PosList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->posList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
+    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
@@ -131,7 +131,7 @@ double QGraphicsItemAnimation_RotationAt(const QGraphicsItemAnimation* self, dou
 libqt_list /* of libqt_pair  tuple of double and double  */ QGraphicsItemAnimation_RotationList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, double>> _ret = self->rotationList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and double */* _arr = static_cast<libqt_pair /* tuple of double and double */*>(malloc(sizeof(libqt_pair /* tuple of double and double */) * _ret.size()));
+    libqt_pair /* tuple of double and double */* _arr = static_cast<libqt_pair /* tuple of double and double */*>(malloc(sizeof(libqt_pair /* tuple of double and double */) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, double> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
@@ -165,7 +165,7 @@ double QGraphicsItemAnimation_YTranslationAt(const QGraphicsItemAnimation* self,
 libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnimation_TranslationList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->translationList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
+    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
@@ -199,7 +199,7 @@ double QGraphicsItemAnimation_HorizontalScaleAt(const QGraphicsItemAnimation* se
 libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnimation_ScaleList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->scaleList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
+    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
@@ -233,7 +233,7 @@ double QGraphicsItemAnimation_HorizontalShearAt(const QGraphicsItemAnimation* se
 libqt_list /* of libqt_pair  tuple of double and QPointF*  */ QGraphicsItemAnimation_ShearList(const QGraphicsItemAnimation* self) {
     QList<QPair<double, QPointF>> _ret = self->shearList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * _ret.size()));
+    libqt_pair /* tuple of double and QPointF* */* _arr = static_cast<libqt_pair /* tuple of double and QPointF* */*>(malloc(sizeof(libqt_pair /* tuple of double and QPointF* */) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<double, QPointF> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory

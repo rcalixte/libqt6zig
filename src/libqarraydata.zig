@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qarraydata_enums = enums;
-pub const struct_qtcqarraydata_anyopaque = struct { first: QtC.QArrayData, second: ?*anyopaque };
+pub const struct_qtcqarraydata_anyopaque = extern struct { first: QtC.QArrayData, second: ?*anyopaque };
 
 /// https://doc.qt.io/qt-6/qarraydata.html
 pub const qarraydata = struct {

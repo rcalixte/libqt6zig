@@ -29,7 +29,7 @@ void QWebEngineClientCertificateSelection_SelectNone(QWebEngineClientCertificate
 libqt_list /* of QSslCertificate* */ QWebEngineClientCertificateSelection_Certificates(const QWebEngineClientCertificateSelection* self) {
     QList<QSslCertificate> _ret = self->certificates();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }

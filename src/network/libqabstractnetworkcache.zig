@@ -5,7 +5,7 @@ const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
 pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
-pub const struct_u8_u8 = struct { first: []u8, second: []u8 };
+pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
 
 /// https://doc.qt.io/qt-6/qnetworkcachemetadata.html
 pub const qnetworkcachemetadata = struct {

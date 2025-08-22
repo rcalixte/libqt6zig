@@ -80,8 +80,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkCookieJar, slot: fn (self: QtC.QNetworkCookieJar, url: QtC.QUrl) callconv(.c) []QtC.QNetworkCookie ```
-    pub fn OnCookiesForUrl(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []QtC.QNetworkCookie) void {
+    /// ``` self: QtC.QNetworkCookieJar, slot: fn (self: QtC.QNetworkCookieJar, url: QtC.QUrl) callconv(.c) [*:null]QtC.QNetworkCookie ```
+    pub fn OnCookiesForUrl(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QNetworkCookie) void {
         qtc.QNetworkCookieJar_OnCookiesForUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -114,8 +114,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkCookieJar, slot: fn (self: QtC.QNetworkCookieJar, cookieList: []QtC.QNetworkCookie, url: QtC.QUrl) callconv(.c) bool ```
-    pub fn OnSetCookiesFromUrl(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QNetworkCookie, ?*anyopaque) callconv(.c) bool) void {
+    /// ``` self: QtC.QNetworkCookieJar, slot: fn (self: QtC.QNetworkCookieJar, cookieList: [*]QtC.QNetworkCookie, url: QtC.QUrl) callconv(.c) bool ```
+    pub fn OnSetCookiesFromUrl(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QNetworkCookie, ?*anyopaque) callconv(.c) bool) void {
         qtc.QNetworkCookieJar_OnSetCookiesFromUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -223,8 +223,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkCookieJar, slot: fn () callconv(.c) []QtC.QNetworkCookie ```
-    pub fn OnAllCookies(self: ?*anyopaque, slot: fn () callconv(.c) []QtC.QNetworkCookie) void {
+    /// ``` self: QtC.QNetworkCookieJar, slot: fn () callconv(.c) [*:null]QtC.QNetworkCookie ```
+    pub fn OnAllCookies(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QNetworkCookie) void {
         qtc.QNetworkCookieJar_OnAllCookies(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -257,8 +257,8 @@ pub const qnetworkcookiejar = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkCookieJar, slot: fn (self: QtC.QNetworkCookieJar, cookieList: []QtC.QNetworkCookie) callconv(.c) void ```
-    pub fn OnSetAllCookies(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QNetworkCookie) callconv(.c) void) void {
+    /// ``` self: QtC.QNetworkCookieJar, slot: fn (self: QtC.QNetworkCookieJar, cookieList: [*]QtC.QNetworkCookie) callconv(.c) void ```
+    pub fn OnSetAllCookies(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QNetworkCookie) callconv(.c) void) void {
         qtc.QNetworkCookieJar_OnSetAllCookies(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

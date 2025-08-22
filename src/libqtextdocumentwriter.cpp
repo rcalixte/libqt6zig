@@ -82,7 +82,7 @@ bool QTextDocumentWriter_Write2(QTextDocumentWriter* self, const QTextDocumentFr
 libqt_list /* of libqt_string */ QTextDocumentWriter_SupportedDocumentFormats() {
     QList<QByteArray> _ret = QTextDocumentWriter::supportedDocumentFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;

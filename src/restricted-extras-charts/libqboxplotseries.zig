@@ -368,8 +368,8 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsAdded)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, sets: []QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnBoxsetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnBoxsetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QBoxPlotSeries_Connect_BoxsetsAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -386,8 +386,8 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsRemoved)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, sets: []QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnBoxsetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnBoxsetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QBoxPlotSeries_Connect_BoxsetsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

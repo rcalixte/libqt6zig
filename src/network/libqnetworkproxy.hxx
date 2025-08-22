@@ -17,7 +17,7 @@ class VirtualQNetworkProxyFactory final : public QNetworkProxyFactory {
     bool isVirtualQNetworkProxyFactory = true;
 
     // Virtual class public types (including callbacks)
-    using QNetworkProxyFactory_QueryProxy_Callback = libqt_list /* of QNetworkProxy* */ (*)(QNetworkProxyFactory*, QNetworkProxyQuery*);
+    using QNetworkProxyFactory_QueryProxy_Callback = QNetworkProxy** (*)(QNetworkProxyFactory*, QNetworkProxyQuery*);
 
   protected:
     // Instance callback storage
@@ -46,13 +46,13 @@ class VirtualQNetworkProxyFactory final : public QNetworkProxyFactory {
             // Cast returned reference into pointer
             QNetworkProxyQuery* cbval1 = const_cast<QNetworkProxyQuery*>(&query_ret);
 
-            libqt_list /* of QNetworkProxy* */ callback_ret = qnetworkproxyfactory_queryproxy_callback(this, cbval1);
+            QNetworkProxy** callback_ret = qnetworkproxyfactory_queryproxy_callback(this, cbval1);
             QList<QNetworkProxy> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QNetworkProxy** callback_ret_arr = static_cast<QNetworkProxy**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QNetworkProxy** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return {};

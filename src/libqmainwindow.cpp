@@ -273,7 +273,7 @@ void QMainWindow_TabifyDockWidget(QMainWindow* self, QDockWidget* first, QDockWi
 libqt_list /* of QDockWidget* */ QMainWindow_TabifiedDockWidgets(const QMainWindow* self, QDockWidget* dockwidget) {
     QList<QDockWidget*> _ret = self->tabifiedDockWidgets(dockwidget);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QDockWidget** _arr = static_cast<QDockWidget**>(malloc(sizeof(QDockWidget*) * _ret.size()));
+    QDockWidget** _arr = static_cast<QDockWidget**>(malloc(sizeof(QDockWidget*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

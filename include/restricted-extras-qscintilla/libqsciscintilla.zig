@@ -96,8 +96,8 @@ pub const qsciscintilla = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32) callconv(.c) [][]const u8 ```
-    pub fn OnApiContext(self: ?*anyopaque, slot: fn (?*anyopaque, i32, *i32, *i32) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, pos: i32, context_start: *i32, last_word_start: *i32) callconv(.c) [*][*:0]const u8 ```
+    pub fn OnApiContext(self: ?*anyopaque, slot: fn (?*anyopaque, i32, *i32, *i32) callconv(.c) [*][*:0]const u8) void {
         qtc.QsciScintilla_OnApiContext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7954,8 +7954,8 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: *bool) callconv(.c) []u8 ```
-    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) []u8) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, source: QtC.QMimeData, rectangular: *bool) callconv(.c) [*:0]u8 ```
+    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) [*:0]u8) void {
         qtc.QsciScintilla_OnFromMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -7995,8 +7995,8 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: []u8, rectangular: bool) callconv(.c) QtC.QMimeData ```
-    pub fn OnToMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, bool) callconv(.c) QtC.QMimeData) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, text: [*:0]u8, rectangular: bool) callconv(.c) QtC.QMimeData ```
+    pub fn OnToMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, bool) callconv(.c) QtC.QMimeData) void {
         qtc.QsciScintilla_OnToMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -9257,8 +9257,8 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciScintilla, slot: fn (self: QtC.QsciScintilla, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QsciScintilla_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

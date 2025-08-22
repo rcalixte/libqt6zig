@@ -496,7 +496,7 @@ void QAbstractItemModel_DataChanged3(QAbstractItemModel* self, const QModelIndex
 }
 
 void QAbstractItemModel_Connect_DataChanged3(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, QModelIndex*, QModelIndex*, libqt_list /* of int */) = reinterpret_cast<void (*)(QAbstractItemModel*, QModelIndex*, QModelIndex*, libqt_list /* of int */)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, QModelIndex*, QModelIndex*, int*) = reinterpret_cast<void (*)(QAbstractItemModel*, QModelIndex*, QModelIndex*, int*)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::dataChanged, [self, slotFunc](const QModelIndex& topLeft, const QModelIndex& bottomRight, const QList<int>& roles) {
         const QModelIndex& topLeft_ret = topLeft;
         // Cast returned reference into pointer
@@ -506,15 +506,15 @@ void QAbstractItemModel_Connect_DataChanged3(QAbstractItemModel* self, intptr_t 
         QModelIndex* sigval2 = const_cast<QModelIndex*>(&bottomRight_ret);
         const QList<int>& roles_ret = roles;
         // Convert QList<> from C++ memory to manually-managed C memory
-        int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+        int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
         for (qsizetype i = 0; i < roles_ret.size(); ++i) {
             roles_arr[i] = roles_ret[i];
         }
-        libqt_list roles_out;
-        roles_out.len = roles_ret.size();
-        roles_out.data = static_cast<void*>(roles_arr);
-        libqt_list /* of int */ sigval3 = roles_out;
+        // Append sentinel value to the list
+        roles_arr[roles_ret.size()] = -1;
+        int* sigval3 = roles_arr;
         slotFunc(self, sigval1, sigval2, sigval3);
+        free(roles_arr);
     });
 }
 
@@ -529,19 +529,19 @@ void QAbstractItemModel_LayoutChanged1(QAbstractItemModel* self, const libqt_lis
 }
 
 void QAbstractItemModel_Connect_LayoutChanged1(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
+        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (parents_ret.size() + 1)));
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        libqt_list parents_out;
-        parents_out.len = parents_ret.size();
-        parents_out.data = static_cast<void*>(parents_arr);
-        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
+        // Append sentinel value to the list
+        parents_arr[parents_ret.size()] = nullptr;
+        QPersistentModelIndex** sigval1 = parents_arr;
         slotFunc(self, sigval1);
+        free(parents_arr);
     });
 }
 
@@ -556,20 +556,20 @@ void QAbstractItemModel_LayoutChanged2(QAbstractItemModel* self, const libqt_lis
 }
 
 void QAbstractItemModel_Connect_LayoutChanged2(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**, int) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**, int)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents, QAbstractItemModel::LayoutChangeHint hint) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
+        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (parents_ret.size() + 1)));
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        libqt_list parents_out;
-        parents_out.len = parents_ret.size();
-        parents_out.data = static_cast<void*>(parents_arr);
-        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
+        // Append sentinel value to the list
+        parents_arr[parents_ret.size()] = nullptr;
+        QPersistentModelIndex** sigval1 = parents_arr;
         int sigval2 = static_cast<int>(hint);
         slotFunc(self, sigval1, sigval2);
+        free(parents_arr);
     });
 }
 
@@ -584,19 +584,19 @@ void QAbstractItemModel_LayoutAboutToBeChanged1(QAbstractItemModel* self, const 
 }
 
 void QAbstractItemModel_Connect_LayoutAboutToBeChanged1(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutAboutToBeChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
+        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (parents_ret.size() + 1)));
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        libqt_list parents_out;
-        parents_out.len = parents_ret.size();
-        parents_out.data = static_cast<void*>(parents_arr);
-        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
+        // Append sentinel value to the list
+        parents_arr[parents_ret.size()] = nullptr;
+        QPersistentModelIndex** sigval1 = parents_arr;
         slotFunc(self, sigval1);
+        free(parents_arr);
     });
 }
 
@@ -611,20 +611,20 @@ void QAbstractItemModel_LayoutAboutToBeChanged2(QAbstractItemModel* self, const 
 }
 
 void QAbstractItemModel_Connect_LayoutAboutToBeChanged2(QAbstractItemModel* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int) = reinterpret_cast<void (*)(QAbstractItemModel*, libqt_list /* of QPersistentModelIndex* */, int)>(slot);
+    void (*slotFunc)(QAbstractItemModel*, QPersistentModelIndex**, int) = reinterpret_cast<void (*)(QAbstractItemModel*, QPersistentModelIndex**, int)>(slot);
     QAbstractItemModel::connect(self, &QAbstractItemModel::layoutAboutToBeChanged, [self, slotFunc](const QList<QPersistentModelIndex>& parents, QAbstractItemModel::LayoutChangeHint hint) {
         const QList<QPersistentModelIndex>& parents_ret = parents;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * parents_ret.size()));
+        QPersistentModelIndex** parents_arr = static_cast<QPersistentModelIndex**>(malloc(sizeof(QPersistentModelIndex*) * (parents_ret.size() + 1)));
         for (qsizetype i = 0; i < parents_ret.size(); ++i) {
             parents_arr[i] = new QPersistentModelIndex(parents_ret[i]);
         }
-        libqt_list parents_out;
-        parents_out.len = parents_ret.size();
-        parents_out.data = static_cast<void*>(parents_arr);
-        libqt_list /* of QPersistentModelIndex* */ sigval1 = parents_out;
+        // Append sentinel value to the list
+        parents_arr[parents_ret.size()] = nullptr;
+        QPersistentModelIndex** sigval1 = parents_arr;
         int sigval2 = static_cast<int>(hint);
         slotFunc(self, sigval1, sigval2);
+        free(parents_arr);
     });
 }
 
@@ -1079,7 +1079,7 @@ libqt_list /* of libqt_string */ QAbstractItemModel_MimeTypes(const QAbstractIte
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         QList<QString> _ret = vqabstractitemmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1098,7 +1098,7 @@ libqt_list /* of libqt_string */ QAbstractItemModel_MimeTypes(const QAbstractIte
     } else {
         QList<QString> _ret = self->QAbstractItemModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1124,7 +1124,7 @@ libqt_list /* of libqt_string */ QAbstractItemModel_QBaseMimeTypes(const QAbstra
         vqabstractitemmodel->setQAbstractItemModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vqabstractitemmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1143,7 +1143,7 @@ libqt_list /* of libqt_string */ QAbstractItemModel_QBaseMimeTypes(const QAbstra
     } else {
         QList<QString> _ret = self->QAbstractItemModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1652,7 +1652,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_Match(const QAbstractItemMod
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         QList<QModelIndex> _ret = vqabstractitemmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1663,7 +1663,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_Match(const QAbstractItemMod
     } else {
         QList<QModelIndex> _ret = self->QAbstractItemModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1681,7 +1681,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_QBaseMatch(const QAbstractIt
         vqabstractitemmodel->setQAbstractItemModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vqabstractitemmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1692,7 +1692,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_QBaseMatch(const QAbstractIt
     } else {
         QList<QModelIndex> _ret = self->QAbstractItemModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2786,7 +2786,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_PersistentIndexList(const QA
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         QList<QModelIndex> _ret = vqabstractitemmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2797,7 +2797,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_PersistentIndexList(const QA
     } else {
         QList<QModelIndex> _ret = ((VirtualQAbstractItemModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2815,7 +2815,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_QBasePersistentIndexList(con
         vqabstractitemmodel->setQAbstractItemModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vqabstractitemmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2826,7 +2826,7 @@ libqt_list /* of QModelIndex* */ QAbstractItemModel_QBasePersistentIndexList(con
     } else {
         QList<QModelIndex> _ret = ((VirtualQAbstractItemModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -3697,7 +3697,7 @@ libqt_list /* of libqt_string */ QAbstractTableModel_MimeTypes(const QAbstractTa
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         QList<QString> _ret = vqabstracttablemodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -3716,7 +3716,7 @@ libqt_list /* of libqt_string */ QAbstractTableModel_MimeTypes(const QAbstractTa
     } else {
         QList<QString> _ret = self->QAbstractTableModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -3742,7 +3742,7 @@ libqt_list /* of libqt_string */ QAbstractTableModel_QBaseMimeTypes(const QAbstr
         vqabstracttablemodel->setQAbstractTableModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vqabstracttablemodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -3761,7 +3761,7 @@ libqt_list /* of libqt_string */ QAbstractTableModel_QBaseMimeTypes(const QAbstr
     } else {
         QList<QString> _ret = self->QAbstractTableModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -4212,7 +4212,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_Match(const QAbstractTableM
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         QList<QModelIndex> _ret = vqabstracttablemodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -4223,7 +4223,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_Match(const QAbstractTableM
     } else {
         QList<QModelIndex> _ret = self->QAbstractTableModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -4241,7 +4241,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_QBaseMatch(const QAbstractT
         vqabstracttablemodel->setQAbstractTableModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vqabstracttablemodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -4252,7 +4252,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_QBaseMatch(const QAbstractT
     } else {
         QList<QModelIndex> _ret = self->QAbstractTableModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -5319,7 +5319,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_PersistentIndexList(const Q
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
         QList<QModelIndex> _ret = vqabstracttablemodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -5330,7 +5330,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_PersistentIndexList(const Q
     } else {
         QList<QModelIndex> _ret = ((VirtualQAbstractTableModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -5348,7 +5348,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_QBasePersistentIndexList(co
         vqabstracttablemodel->setQAbstractTableModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vqabstracttablemodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -5359,7 +5359,7 @@ libqt_list /* of QModelIndex* */ QAbstractTableModel_QBasePersistentIndexList(co
     } else {
         QList<QModelIndex> _ret = ((VirtualQAbstractTableModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -6000,7 +6000,7 @@ libqt_list /* of libqt_string */ QAbstractListModel_MimeTypes(const QAbstractLis
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         QList<QString> _ret = vqabstractlistmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -6019,7 +6019,7 @@ libqt_list /* of libqt_string */ QAbstractListModel_MimeTypes(const QAbstractLis
     } else {
         QList<QString> _ret = self->QAbstractListModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -6045,7 +6045,7 @@ libqt_list /* of libqt_string */ QAbstractListModel_QBaseMimeTypes(const QAbstra
         vqabstractlistmodel->setQAbstractListModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vqabstractlistmodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -6064,7 +6064,7 @@ libqt_list /* of libqt_string */ QAbstractListModel_QBaseMimeTypes(const QAbstra
     } else {
         QList<QString> _ret = self->QAbstractListModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -6515,7 +6515,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_Match(const QAbstractListMod
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         QList<QModelIndex> _ret = vqabstractlistmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -6526,7 +6526,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_Match(const QAbstractListMod
     } else {
         QList<QModelIndex> _ret = self->QAbstractListModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -6544,7 +6544,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_QBaseMatch(const QAbstractLi
         vqabstractlistmodel->setQAbstractListModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vqabstractlistmodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -6555,7 +6555,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_QBaseMatch(const QAbstractLi
     } else {
         QList<QModelIndex> _ret = self->QAbstractListModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -7622,7 +7622,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_PersistentIndexList(const QA
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
         QList<QModelIndex> _ret = vqabstractlistmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -7633,7 +7633,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_PersistentIndexList(const QA
     } else {
         QList<QModelIndex> _ret = ((VirtualQAbstractListModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -7651,7 +7651,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_QBasePersistentIndexList(con
         vqabstractlistmodel->setQAbstractListModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vqabstractlistmodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -7662,7 +7662,7 @@ libqt_list /* of QModelIndex* */ QAbstractListModel_QBasePersistentIndexList(con
     } else {
         QList<QModelIndex> _ret = ((VirtualQAbstractListModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

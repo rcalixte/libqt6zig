@@ -21,7 +21,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
     using QWebEnginePage_TriggerAction_Callback = void (*)(QWebEnginePage*, int, bool);
     using QWebEnginePage_Event_Callback = bool (*)(QWebEnginePage*, QEvent*);
     using QWebEnginePage_CreateWindow_Callback = QWebEnginePage* (*)(QWebEnginePage*, int);
-    using QWebEnginePage_ChooseFiles_Callback = libqt_list /* of libqt_string */ (*)(QWebEnginePage*, int, libqt_list /* of libqt_string */, libqt_list /* of libqt_string */);
+    using QWebEnginePage_ChooseFiles_Callback = const char** (*)(QWebEnginePage*, int, libqt_list /* of libqt_string */, libqt_list /* of libqt_string */);
     using QWebEnginePage_JavaScriptAlert_Callback = void (*)(QWebEnginePage*, QUrl*, libqt_string);
     using QWebEnginePage_JavaScriptConfirm_Callback = bool (*)(QWebEnginePage*, QUrl*, libqt_string);
     using QWebEnginePage_JavaScriptConsoleMessage_Callback = void (*)(QWebEnginePage*, int, libqt_string, int, libqt_string);
@@ -221,7 +221,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             int cbval1 = static_cast<int>(mode);
             const QList<QString>& oldFiles_ret = oldFiles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* oldFiles_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * oldFiles_ret.size()));
+            libqt_string* oldFiles_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (oldFiles_ret.size() + 1)));
             for (qsizetype i = 0; i < oldFiles_ret.size(); ++i) {
                 QString oldFiles_lv_ret = oldFiles_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -239,7 +239,7 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             libqt_list /* of libqt_string */ cbval2 = oldFiles_out;
             const QList<QString>& acceptedMimeTypes_ret = acceptedMimeTypes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * acceptedMimeTypes_ret.size()));
+            libqt_string* acceptedMimeTypes_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (acceptedMimeTypes_ret.size() + 1)));
             for (qsizetype i = 0; i < acceptedMimeTypes_ret.size(); ++i) {
                 QString acceptedMimeTypes_lv_ret = acceptedMimeTypes_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -256,12 +256,13 @@ class VirtualQWebEnginePage final : public QWebEnginePage {
             acceptedMimeTypes_out.data = static_cast<void*>(acceptedMimeTypes_arr);
             libqt_list /* of libqt_string */ cbval3 = acceptedMimeTypes_out;
 
-            libqt_list /* of libqt_string */ callback_ret = qwebenginepage_choosefiles_callback(this, cbval1, cbval2, cbval3);
+            const char** callback_ret = qwebenginepage_choosefiles_callback(this, cbval1, cbval2, cbval3);
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;

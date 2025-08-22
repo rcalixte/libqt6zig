@@ -21,7 +21,7 @@ class VirtualQSpinBox final : public QSpinBox {
     using QSpinBox_Event_Callback = bool (*)(QSpinBox*, QEvent*);
     using QSpinBox_Validate_Callback = int (*)(const QSpinBox*, libqt_string, int*);
     using QSpinBox_ValueFromText_Callback = int (*)(const QSpinBox*, libqt_string);
-    using QSpinBox_TextFromValue_Callback = libqt_string (*)(const QSpinBox*, int);
+    using QSpinBox_TextFromValue_Callback = const char* (*)(const QSpinBox*, int);
     using QSpinBox_Fixup_Callback = void (*)(const QSpinBox*, libqt_string);
     using QSpinBox_SizeHint_Callback = QSize* (*)();
     using QSpinBox_MinimumSizeHint_Callback = QSize* (*)();
@@ -529,8 +529,8 @@ class VirtualQSpinBox final : public QSpinBox {
         } else if (qspinbox_textfromvalue_callback != nullptr) {
             int cbval1 = val;
 
-            libqt_string callback_ret = qspinbox_textfromvalue_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qspinbox_textfromvalue_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSpinBox::textFromValue(val);
@@ -1560,7 +1560,7 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
     using QDoubleSpinBox_Metacall_Callback = int (*)(QDoubleSpinBox*, int, int, void**);
     using QDoubleSpinBox_Validate_Callback = int (*)(const QDoubleSpinBox*, libqt_string, int*);
     using QDoubleSpinBox_ValueFromText_Callback = double (*)(const QDoubleSpinBox*, libqt_string);
-    using QDoubleSpinBox_TextFromValue_Callback = libqt_string (*)(const QDoubleSpinBox*, double);
+    using QDoubleSpinBox_TextFromValue_Callback = const char* (*)(const QDoubleSpinBox*, double);
     using QDoubleSpinBox_Fixup_Callback = void (*)(const QDoubleSpinBox*, libqt_string);
     using QDoubleSpinBox_SizeHint_Callback = QSize* (*)();
     using QDoubleSpinBox_MinimumSizeHint_Callback = QSize* (*)();
@@ -2054,8 +2054,8 @@ class VirtualQDoubleSpinBox final : public QDoubleSpinBox {
         } else if (qdoublespinbox_textfromvalue_callback != nullptr) {
             double cbval1 = val;
 
-            libqt_string callback_ret = qdoublespinbox_textfromvalue_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qdoublespinbox_textfromvalue_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QDoubleSpinBox::textFromValue(val);

@@ -22,12 +22,12 @@ class VirtualQSqlDriver final : public QSqlDriver {
     using QSqlDriver_BeginTransaction_Callback = bool (*)();
     using QSqlDriver_CommitTransaction_Callback = bool (*)();
     using QSqlDriver_RollbackTransaction_Callback = bool (*)();
-    using QSqlDriver_Tables_Callback = libqt_list /* of libqt_string */ (*)(const QSqlDriver*, int);
+    using QSqlDriver_Tables_Callback = const char** (*)(const QSqlDriver*, int);
     using QSqlDriver_PrimaryIndex_Callback = QSqlIndex* (*)(const QSqlDriver*, libqt_string);
     using QSqlDriver_Record_Callback = QSqlRecord* (*)(const QSqlDriver*, libqt_string);
-    using QSqlDriver_FormatValue_Callback = libqt_string (*)(const QSqlDriver*, QSqlField*, bool);
-    using QSqlDriver_EscapeIdentifier_Callback = libqt_string (*)(const QSqlDriver*, libqt_string, int);
-    using QSqlDriver_SqlStatement_Callback = libqt_string (*)(const QSqlDriver*, int, libqt_string, QSqlRecord*, bool);
+    using QSqlDriver_FormatValue_Callback = const char* (*)(const QSqlDriver*, QSqlField*, bool);
+    using QSqlDriver_EscapeIdentifier_Callback = const char* (*)(const QSqlDriver*, libqt_string, int);
+    using QSqlDriver_SqlStatement_Callback = const char* (*)(const QSqlDriver*, int, libqt_string, QSqlRecord*, bool);
     using QSqlDriver_Handle_Callback = QVariant* (*)();
     using QSqlDriver_HasFeature_Callback = bool (*)(const QSqlDriver*, int);
     using QSqlDriver_Close_Callback = void (*)();
@@ -35,9 +35,9 @@ class VirtualQSqlDriver final : public QSqlDriver {
     using QSqlDriver_Open_Callback = bool (*)(QSqlDriver*, libqt_string, libqt_string, libqt_string, libqt_string, int, libqt_string);
     using QSqlDriver_SubscribeToNotification_Callback = bool (*)(QSqlDriver*, libqt_string);
     using QSqlDriver_UnsubscribeFromNotification_Callback = bool (*)(QSqlDriver*, libqt_string);
-    using QSqlDriver_SubscribedToNotifications_Callback = libqt_list /* of libqt_string */ (*)();
+    using QSqlDriver_SubscribedToNotifications_Callback = const char** (*)();
     using QSqlDriver_IsIdentifierEscaped_Callback = bool (*)(const QSqlDriver*, libqt_string, int);
-    using QSqlDriver_StripDelimiters_Callback = libqt_string (*)(const QSqlDriver*, libqt_string, int);
+    using QSqlDriver_StripDelimiters_Callback = const char* (*)(const QSqlDriver*, libqt_string, int);
     using QSqlDriver_MaximumIdentifierLength_Callback = int (*)(const QSqlDriver*, int);
     using QSqlDriver_CancelQuery_Callback = bool (*)();
     using QSqlDriver_SetOpen_Callback = void (*)(QSqlDriver*, bool);
@@ -333,12 +333,13 @@ class VirtualQSqlDriver final : public QSqlDriver {
         } else if (qsqldriver_tables_callback != nullptr) {
             int cbval1 = static_cast<int>(tableType);
 
-            libqt_list /* of libqt_string */ callback_ret = qsqldriver_tables_callback(this, cbval1);
+            const char** callback_ret = qsqldriver_tables_callback(this, cbval1);
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -404,8 +405,8 @@ class VirtualQSqlDriver final : public QSqlDriver {
             QSqlField* cbval1 = const_cast<QSqlField*>(&field_ret);
             bool cbval2 = trimStrings;
 
-            libqt_string callback_ret = qsqldriver_formatvalue_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsqldriver_formatvalue_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSqlDriver::formatValue(field, trimStrings);
@@ -429,8 +430,8 @@ class VirtualQSqlDriver final : public QSqlDriver {
             libqt_string cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
 
-            libqt_string callback_ret = qsqldriver_escapeidentifier_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsqldriver_escapeidentifier_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSqlDriver::escapeIdentifier(identifier, typeVal);
@@ -458,8 +459,8 @@ class VirtualQSqlDriver final : public QSqlDriver {
             QSqlRecord* cbval3 = const_cast<QSqlRecord*>(&rec_ret);
             bool cbval4 = preparedStatement;
 
-            libqt_string callback_ret = qsqldriver_sqlstatement_callback(this, cbval1, cbval2, cbval3, cbval4);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsqldriver_sqlstatement_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSqlDriver::sqlStatement(typeVal, tableName, rec, preparedStatement);
@@ -617,12 +618,13 @@ class VirtualQSqlDriver final : public QSqlDriver {
             qsqldriver_subscribedtonotifications_isbase = false;
             return QSqlDriver::subscribedToNotifications();
         } else if (qsqldriver_subscribedtonotifications_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qsqldriver_subscribedtonotifications_callback();
+            const char** callback_ret = qsqldriver_subscribedtonotifications_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -672,8 +674,8 @@ class VirtualQSqlDriver final : public QSqlDriver {
             libqt_string cbval1 = identifier_str;
             int cbval2 = static_cast<int>(typeVal);
 
-            libqt_string callback_ret = qsqldriver_stripdelimiters_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsqldriver_stripdelimiters_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSqlDriver::stripDelimiters(identifier, typeVal);

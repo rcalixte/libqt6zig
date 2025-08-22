@@ -25,7 +25,7 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
     using QsciLexerHTML_Lexer_Callback = const char* (*)();
     using QsciLexerHTML_LexerId_Callback = int (*)();
     using QsciLexerHTML_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerHTML_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
+    using QsciLexerHTML_AutoCompletionWordSeparators_Callback = const char** (*)();
     using QsciLexerHTML_BlockEnd_Callback = const char* (*)(const QsciLexerHTML*, int*);
     using QsciLexerHTML_BlockLookback_Callback = int (*)();
     using QsciLexerHTML_BlockStart_Callback = const char* (*)(const QsciLexerHTML*, int*);
@@ -38,7 +38,7 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
     using QsciLexerHTML_IndentationGuideView_Callback = int (*)();
     using QsciLexerHTML_Keywords_Callback = const char* (*)(const QsciLexerHTML*, int);
     using QsciLexerHTML_DefaultStyle_Callback = int (*)();
-    using QsciLexerHTML_Description_Callback = libqt_string (*)(const QsciLexerHTML*, int);
+    using QsciLexerHTML_Description_Callback = const char* (*)(const QsciLexerHTML*, int);
     using QsciLexerHTML_Paper_Callback = QColor* (*)(const QsciLexerHTML*, int);
     using QsciLexerHTML_DefaultColor2_Callback = QColor* (*)(const QsciLexerHTML*, int);
     using QsciLexerHTML_DefaultEolFill_Callback = bool (*)(const QsciLexerHTML*, int);
@@ -62,8 +62,8 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
     using QsciLexerHTML_CustomEvent_Callback = void (*)(QsciLexerHTML*, QEvent*);
     using QsciLexerHTML_ConnectNotify_Callback = void (*)(QsciLexerHTML*, QMetaMethod*);
     using QsciLexerHTML_DisconnectNotify_Callback = void (*)(QsciLexerHTML*, QMetaMethod*);
-    using QsciLexerHTML_TextAsBytes_Callback = libqt_string (*)(const QsciLexerHTML*, libqt_string);
-    using QsciLexerHTML_BytesAsText_Callback = libqt_string (*)(const QsciLexerHTML*, const char*, int);
+    using QsciLexerHTML_TextAsBytes_Callback = const char* (*)(const QsciLexerHTML*, libqt_string);
+    using QsciLexerHTML_BytesAsText_Callback = const char* (*)(const QsciLexerHTML*, const char*, int);
     using QsciLexerHTML_Sender_Callback = QObject* (*)();
     using QsciLexerHTML_SenderSignalIndex_Callback = int (*)();
     using QsciLexerHTML_Receivers_Callback = int (*)(const QsciLexerHTML*, const char*);
@@ -454,12 +454,13 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
             qscilexerhtml_autocompletionwordseparators_isbase = false;
             return QsciLexerHTML::autoCompletionWordSeparators();
         } else if (qscilexerhtml_autocompletionwordseparators_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qscilexerhtml_autocompletionwordseparators_callback();
+            const char** callback_ret = qscilexerhtml_autocompletionwordseparators_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -643,8 +644,8 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
         if (qscilexerhtml_description_callback != nullptr) {
             int cbval1 = style;
 
-            libqt_string callback_ret = qscilexerhtml_description_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerhtml_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -1031,8 +1032,8 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexerhtml_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerhtml_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerHTML::textAsBytes(text);
@@ -1048,8 +1049,8 @@ class VirtualQsciLexerHTML final : public QsciLexerHTML {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            libqt_string callback_ret = qscilexerhtml_bytesastext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerhtml_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QsciLexerHTML::bytesAsText(bytes, size);

@@ -593,7 +593,7 @@ QTableWidgetItem* QTableWidget_TakeItem(QTableWidget* self, int row, int column)
 libqt_list /* of QTableWidgetItem* */ QTableWidget_Items(const QTableWidget* self, const QMimeData* data) {
     QList<QTableWidgetItem*> _ret = self->items(data);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.size()));
+    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -732,7 +732,7 @@ void QTableWidget_SetRangeSelected(QTableWidget* self, const QTableWidgetSelecti
 libqt_list /* of QTableWidgetSelectionRange* */ QTableWidget_SelectedRanges(const QTableWidget* self) {
     QList<QTableWidgetSelectionRange> _ret = self->selectedRanges();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetSelectionRange** _arr = static_cast<QTableWidgetSelectionRange**>(malloc(sizeof(QTableWidgetSelectionRange*) * _ret.size()));
+    QTableWidgetSelectionRange** _arr = static_cast<QTableWidgetSelectionRange**>(malloc(sizeof(QTableWidgetSelectionRange*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTableWidgetSelectionRange(_ret[i]);
     }
@@ -745,7 +745,7 @@ libqt_list /* of QTableWidgetSelectionRange* */ QTableWidget_SelectedRanges(cons
 libqt_list /* of QTableWidgetItem* */ QTableWidget_SelectedItems(const QTableWidget* self) {
     QList<QTableWidgetItem*> _ret = self->selectedItems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.size()));
+    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -759,7 +759,7 @@ libqt_list /* of QTableWidgetItem* */ QTableWidget_FindItems(const QTableWidget*
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QList<QTableWidgetItem*> _ret = self->findItems(text_QString, static_cast<Qt::MatchFlags>(flags));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * _ret.size()));
+    QTableWidgetItem** _arr = static_cast<QTableWidgetItem**>(malloc(sizeof(QTableWidgetItem*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -1081,7 +1081,7 @@ libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         QList<QString> _ret = vqtablewidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1100,7 +1100,7 @@ libqt_list /* of libqt_string */ QTableWidget_MimeTypes(const QTableWidget* self
     } else {
         QList<QString> _ret = ((VirtualQTableWidget*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1126,7 +1126,7 @@ libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget*
         vqtablewidget->setQTableWidget_MimeTypes_IsBase(true);
         QList<QString> _ret = vqtablewidget->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1145,7 +1145,7 @@ libqt_list /* of libqt_string */ QTableWidget_QBaseMimeTypes(const QTableWidget*
     } else {
         QList<QString> _ret = ((VirtualQTableWidget*)self)->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1737,7 +1737,7 @@ libqt_list /* of QModelIndex* */ QTableWidget_SelectedIndexes(const QTableWidget
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         QList<QModelIndex> _ret = vqtablewidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1748,7 +1748,7 @@ libqt_list /* of QModelIndex* */ QTableWidget_SelectedIndexes(const QTableWidget
     } else {
         QList<QModelIndex> _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1766,7 +1766,7 @@ libqt_list /* of QModelIndex* */ QTableWidget_QBaseSelectedIndexes(const QTableW
         vqtablewidget->setQTableWidget_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vqtablewidget->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1777,7 +1777,7 @@ libqt_list /* of QModelIndex* */ QTableWidget_QBaseSelectedIndexes(const QTableW
     } else {
         QList<QModelIndex> _ret = ((VirtualQTableWidget*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

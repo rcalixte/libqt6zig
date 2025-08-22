@@ -18,7 +18,7 @@ class VirtualQFile final : public QFile {
 
     // Virtual class public types (including callbacks)
     using QFile_Metacall_Callback = int (*)(QFile*, int, int, void**);
-    using QFile_FileName_Callback = libqt_string (*)();
+    using QFile_FileName_Callback = const char* (*)();
     using QFile_Open_Callback = bool (*)(QFile*, int);
     using QFile_Size_Callback = long long (*)();
     using QFile_Resize_Callback = bool (*)(QFile*, long long);
@@ -269,8 +269,8 @@ class VirtualQFile final : public QFile {
             qfile_filename_isbase = false;
             return QFile::fileName();
         } else if (qfile_filename_callback != nullptr) {
-            libqt_string callback_ret = qfile_filename_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qfile_filename_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QFile::fileName();

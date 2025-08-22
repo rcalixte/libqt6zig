@@ -82,7 +82,7 @@ void QUndoGroup_RemoveStack(QUndoGroup* self, QUndoStack* stack) {
 libqt_list /* of QUndoStack* */ QUndoGroup_Stacks(const QUndoGroup* self) {
     QList<QUndoStack*> _ret = self->stacks();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QUndoStack** _arr = static_cast<QUndoStack**>(malloc(sizeof(QUndoStack*) * _ret.size()));
+    QUndoStack** _arr = static_cast<QUndoStack**>(malloc(sizeof(QUndoStack*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

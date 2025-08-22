@@ -539,8 +539,8 @@ pub const qpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsAdded)
     ///
-    /// ``` self: QtC.QPercentBarSeries, slot: fn (self: QtC.QPercentBarSeries, sets: []QtC.QBarSet) callconv(.c) void ```
-    pub fn OnBarsetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QPercentBarSeries, slot: fn (self: QtC.QPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
+    pub fn OnBarsetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -561,8 +561,8 @@ pub const qpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsRemoved)
     ///
-    /// ``` self: QtC.QPercentBarSeries, slot: fn (self: QtC.QPercentBarSeries, sets: []QtC.QBarSet) callconv(.c) void ```
-    pub fn OnBarsetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QPercentBarSeries, slot: fn (self: QtC.QPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
+    pub fn OnBarsetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

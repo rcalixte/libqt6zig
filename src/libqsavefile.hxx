@@ -18,7 +18,7 @@ class VirtualQSaveFile final : public QSaveFile {
 
     // Virtual class public types (including callbacks)
     using QSaveFile_Metacall_Callback = int (*)(QSaveFile*, int, int, void**);
-    using QSaveFile_FileName_Callback = libqt_string (*)();
+    using QSaveFile_FileName_Callback = const char* (*)();
     using QSaveFile_Open_Callback = bool (*)(QSaveFile*, int);
     using QSaveFile_WriteData_Callback = long long (*)(QSaveFile*, const char*, long long);
     using QSaveFile_IsSequential_Callback = bool (*)();
@@ -263,8 +263,8 @@ class VirtualQSaveFile final : public QSaveFile {
             qsavefile_filename_isbase = false;
             return QSaveFile::fileName();
         } else if (qsavefile_filename_callback != nullptr) {
-            libqt_string callback_ret = qsavefile_filename_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsavefile_filename_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSaveFile::fileName();

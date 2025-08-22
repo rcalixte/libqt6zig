@@ -51,7 +51,7 @@ QWindow* QAccessibleInterface_Window(const QAccessibleInterface* self) {
 libqt_list /* of libqt_pair  tuple of QAccessibleInterface* and int  */ QAccessibleInterface_Relations(const QAccessibleInterface* self, int match) {
     QList<QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>>> _ret = self->relations(static_cast<QAccessible::Relation>(match));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * _ret.size()));
+    libqt_pair /* tuple of QAccessibleInterface* and int */* _arr = static_cast<libqt_pair /* tuple of QAccessibleInterface* and int */*>(malloc(sizeof(libqt_pair /* tuple of QAccessibleInterface* and int */) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<QAccessibleInterface*, QFlags<QAccessible::RelationFlag>> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory
@@ -348,7 +348,7 @@ bool QAccessibleTableCellInterface_IsSelected(const QAccessibleTableCellInterfac
 libqt_list /* of QAccessibleInterface* */ QAccessibleTableCellInterface_ColumnHeaderCells(const QAccessibleTableCellInterface* self) {
     QList<QAccessibleInterface*> _ret = self->columnHeaderCells();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * _ret.size()));
+    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -361,7 +361,7 @@ libqt_list /* of QAccessibleInterface* */ QAccessibleTableCellInterface_ColumnHe
 libqt_list /* of QAccessibleInterface* */ QAccessibleTableCellInterface_RowHeaderCells(const QAccessibleTableCellInterface* self) {
     QList<QAccessibleInterface*> _ret = self->rowHeaderCells();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * _ret.size()));
+    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -418,7 +418,7 @@ int QAccessibleTableInterface_SelectedCellCount(const QAccessibleTableInterface*
 libqt_list /* of QAccessibleInterface* */ QAccessibleTableInterface_SelectedCells(const QAccessibleTableInterface* self) {
     QList<QAccessibleInterface*> _ret = self->selectedCells();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * _ret.size()));
+    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -471,7 +471,7 @@ int QAccessibleTableInterface_RowCount(const QAccessibleTableInterface* self) {
 libqt_list /* of int */ QAccessibleTableInterface_SelectedColumns(const QAccessibleTableInterface* self) {
     QList<int> _ret = self->selectedColumns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -484,7 +484,7 @@ libqt_list /* of int */ QAccessibleTableInterface_SelectedColumns(const QAccessi
 libqt_list /* of int */ QAccessibleTableInterface_SelectedRows(const QAccessibleTableInterface* self) {
     QList<int> _ret = self->selectedRows();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -541,7 +541,7 @@ libqt_string QAccessibleActionInterface_Tr(const char* sourceText) {
 libqt_list /* of libqt_string */ QAccessibleActionInterface_ActionNames(const QAccessibleActionInterface* self) {
     QList<QString> _ret = self->actionNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -594,7 +594,7 @@ libqt_list /* of libqt_string */ QAccessibleActionInterface_KeyBindingsForAction
     QString actionName_QString = QString::fromUtf8(actionName.data, actionName.len);
     QList<QString> _ret = self->keyBindingsForAction(actionName_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -867,7 +867,7 @@ int QAccessibleSelectionInterface_SelectedItemCount(const QAccessibleSelectionIn
 libqt_list /* of QAccessibleInterface* */ QAccessibleSelectionInterface_SelectedItems(const QAccessibleSelectionInterface* self) {
     QList<QAccessibleInterface*> _ret = self->selectedItems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * _ret.size()));
+    QAccessibleInterface** _arr = static_cast<QAccessibleInterface**>(malloc(sizeof(QAccessibleInterface*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -912,7 +912,7 @@ void QAccessibleSelectionInterface_Delete(QAccessibleSelectionInterface* self) {
 libqt_list /* of int */ QAccessibleAttributesInterface_AttributeKeys(const QAccessibleAttributesInterface* self) {
     QList<QAccessible::Attribute> _ret = self->attributeKeys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }

@@ -125,7 +125,7 @@ QFontMetrics* QApplication_FontMetrics() {
 libqt_list /* of QWidget* */ QApplication_AllWidgets() {
     QList<QWidget*> _ret = QApplication::allWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.size()));
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -138,7 +138,7 @@ libqt_list /* of QWidget* */ QApplication_AllWidgets() {
 libqt_list /* of QWidget* */ QApplication_TopLevelWidgets() {
     QList<QWidget*> _ret = QApplication::topLevelWidgets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.size()));
+    QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

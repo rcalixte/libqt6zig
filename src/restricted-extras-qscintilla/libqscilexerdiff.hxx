@@ -22,7 +22,7 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
     using QsciLexerDiff_Lexer_Callback = const char* (*)();
     using QsciLexerDiff_LexerId_Callback = int (*)();
     using QsciLexerDiff_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerDiff_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
+    using QsciLexerDiff_AutoCompletionWordSeparators_Callback = const char** (*)();
     using QsciLexerDiff_BlockEnd_Callback = const char* (*)(const QsciLexerDiff*, int*);
     using QsciLexerDiff_BlockLookback_Callback = int (*)();
     using QsciLexerDiff_BlockStart_Callback = const char* (*)(const QsciLexerDiff*, int*);
@@ -35,7 +35,7 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
     using QsciLexerDiff_IndentationGuideView_Callback = int (*)();
     using QsciLexerDiff_Keywords_Callback = const char* (*)(const QsciLexerDiff*, int);
     using QsciLexerDiff_DefaultStyle_Callback = int (*)();
-    using QsciLexerDiff_Description_Callback = libqt_string (*)(const QsciLexerDiff*, int);
+    using QsciLexerDiff_Description_Callback = const char* (*)(const QsciLexerDiff*, int);
     using QsciLexerDiff_Paper_Callback = QColor* (*)(const QsciLexerDiff*, int);
     using QsciLexerDiff_DefaultColor2_Callback = QColor* (*)(const QsciLexerDiff*, int);
     using QsciLexerDiff_DefaultEolFill_Callback = bool (*)(const QsciLexerDiff*, int);
@@ -59,8 +59,8 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
     using QsciLexerDiff_CustomEvent_Callback = void (*)(QsciLexerDiff*, QEvent*);
     using QsciLexerDiff_ConnectNotify_Callback = void (*)(QsciLexerDiff*, QMetaMethod*);
     using QsciLexerDiff_DisconnectNotify_Callback = void (*)(QsciLexerDiff*, QMetaMethod*);
-    using QsciLexerDiff_TextAsBytes_Callback = libqt_string (*)(const QsciLexerDiff*, libqt_string);
-    using QsciLexerDiff_BytesAsText_Callback = libqt_string (*)(const QsciLexerDiff*, const char*, int);
+    using QsciLexerDiff_TextAsBytes_Callback = const char* (*)(const QsciLexerDiff*, libqt_string);
+    using QsciLexerDiff_BytesAsText_Callback = const char* (*)(const QsciLexerDiff*, const char*, int);
     using QsciLexerDiff_Sender_Callback = QObject* (*)();
     using QsciLexerDiff_SenderSignalIndex_Callback = int (*)();
     using QsciLexerDiff_Receivers_Callback = int (*)(const QsciLexerDiff*, const char*);
@@ -394,12 +394,13 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
             qscilexerdiff_autocompletionwordseparators_isbase = false;
             return QsciLexerDiff::autoCompletionWordSeparators();
         } else if (qscilexerdiff_autocompletionwordseparators_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qscilexerdiff_autocompletionwordseparators_callback();
+            const char** callback_ret = qscilexerdiff_autocompletionwordseparators_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -583,8 +584,8 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
         if (qscilexerdiff_description_callback != nullptr) {
             int cbval1 = style;
 
-            libqt_string callback_ret = qscilexerdiff_description_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerdiff_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -971,8 +972,8 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexerdiff_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerdiff_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerDiff::textAsBytes(text);
@@ -988,8 +989,8 @@ class VirtualQsciLexerDiff final : public QsciLexerDiff {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            libqt_string callback_ret = qscilexerdiff_bytesastext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerdiff_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QsciLexerDiff::bytesAsText(bytes, size);

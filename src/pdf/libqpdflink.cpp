@@ -73,7 +73,7 @@ libqt_string QPdfLink_ContextAfter(const QPdfLink* self) {
 libqt_list /* of QRectF* */ QPdfLink_Rectangles(const QPdfLink* self) {
     QList<QRectF> _ret = self->rectangles();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QRectF** _arr = static_cast<QRectF**>(malloc(sizeof(QRectF*) * _ret.size()));
+    QRectF** _arr = static_cast<QRectF**>(malloc(sizeof(QRectF*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QRectF(_ret[i]);
     }

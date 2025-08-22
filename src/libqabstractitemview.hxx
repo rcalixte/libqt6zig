@@ -56,7 +56,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
     using QAbstractItemView_IsIndexHidden_Callback = bool (*)(const QAbstractItemView*, QModelIndex*);
     using QAbstractItemView_SetSelection_Callback = void (*)(QAbstractItemView*, QRect*, int);
     using QAbstractItemView_VisualRegionForSelection_Callback = QRegion* (*)(const QAbstractItemView*, QItemSelection*);
-    using QAbstractItemView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QAbstractItemView_SelectedIndexes_Callback = QModelIndex** (*)();
     using QAbstractItemView_Edit2_Callback = bool (*)(QAbstractItemView*, QModelIndex*, int, QEvent*);
     using QAbstractItemView_SelectionCommand_Callback = int (*)(const QAbstractItemView*, QModelIndex*, QEvent*);
     using QAbstractItemView_StartDrag_Callback = void (*)(QAbstractItemView*, int);
@@ -968,7 +968,7 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
@@ -1271,13 +1271,13 @@ class VirtualQAbstractItemView final : public QAbstractItemView {
             qabstractitemview_selectedindexes_isbase = false;
             return QAbstractItemView::selectedIndexes();
         } else if (qabstractitemview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qabstractitemview_selectedindexes_callback();
+            QModelIndex** callback_ret = qabstractitemview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QAbstractItemView::selectedIndexes();

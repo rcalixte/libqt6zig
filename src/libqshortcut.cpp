@@ -123,7 +123,7 @@ void QShortcut_SetKeys2(QShortcut* self, const libqt_list /* of QKeySequence* */
 libqt_list /* of QKeySequence* */ QShortcut_Keys(const QShortcut* self) {
     QList<QKeySequence> _ret = self->keys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * _ret.size()));
+    QKeySequence** _arr = static_cast<QKeySequence**>(malloc(sizeof(QKeySequence*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeySequence(_ret[i]);
     }

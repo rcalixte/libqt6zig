@@ -100,7 +100,7 @@ libqt_list /* of unsigned int */ QRawFont_GlyphIndexesForString(const QRawFont* 
     QString text_QString = QString::fromUtf8(text.data, text.len);
     QList<unsigned int> _ret = self->glyphIndexesForString(text_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * _ret.size()));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -119,7 +119,7 @@ libqt_list /* of QPointF* */ QRawFont_AdvancesForGlyphIndexes(const QRawFont* se
     }
     QList<QPointF> _ret = self->advancesForGlyphIndexes(glyphIndexes_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
+    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
@@ -138,7 +138,7 @@ libqt_list /* of QPointF* */ QRawFont_AdvancesForGlyphIndexes2(const QRawFont* s
     }
     QList<QPointF> _ret = self->advancesForGlyphIndexes(glyphIndexes_QList, static_cast<QRawFont::LayoutFlags>(layoutFlags));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
+    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
@@ -245,7 +245,7 @@ bool QRawFont_SupportsCharacter2(const QRawFont* self, QChar* character) {
 libqt_list /* of int */ QRawFont_SupportedWritingSystems(const QRawFont* self) {
     QList<QFontDatabase::WritingSystem> _ret = self->supportedWritingSystems();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }

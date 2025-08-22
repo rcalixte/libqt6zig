@@ -285,7 +285,7 @@ void QWebEngineProfile_SetSpellCheckLanguages(QWebEngineProfile* self, const lib
 libqt_list /* of libqt_string */ QWebEngineProfile_SpellCheckLanguages(const QWebEngineProfile* self) {
     QList<QString> _ret = self->spellCheckLanguages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -347,7 +347,7 @@ QWebEnginePermission* QWebEngineProfile_QueryPermission(const QWebEngineProfile*
 libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListAllPermissions(const QWebEngineProfile* self) {
     QList<QWebEnginePermission> _ret = self->listAllPermissions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
+    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEnginePermission(_ret[i]);
     }
@@ -360,7 +360,7 @@ libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListAllPermissions(c
 libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForOrigin(const QWebEngineProfile* self, const QUrl* securityOrigin) {
     QList<QWebEnginePermission> _ret = self->listPermissionsForOrigin(*securityOrigin);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
+    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEnginePermission(_ret[i]);
     }
@@ -373,7 +373,7 @@ libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForOr
 libqt_list /* of QWebEnginePermission* */ QWebEngineProfile_ListPermissionsForPermissionType(const QWebEngineProfile* self, uint8_t permissionType) {
     QList<QWebEnginePermission> _ret = self->listPermissionsForPermissionType(static_cast<QWebEnginePermission::PermissionType>(permissionType));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * _ret.size()));
+    QWebEnginePermission** _arr = static_cast<QWebEnginePermission**>(malloc(sizeof(QWebEnginePermission*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEnginePermission(_ret[i]);
     }

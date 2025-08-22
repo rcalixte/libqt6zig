@@ -18,7 +18,7 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
 
     // Virtual class public types (including callbacks)
     using KLocalizedTranslator_Metacall_Callback = int (*)(KLocalizedTranslator*, int, int, void**);
-    using KLocalizedTranslator_Translate_Callback = libqt_string (*)(const KLocalizedTranslator*, const char*, const char*, const char*, int);
+    using KLocalizedTranslator_Translate_Callback = const char* (*)(const KLocalizedTranslator*, const char*, const char*, const char*, int);
     using KLocalizedTranslator_IsEmpty_Callback = bool (*)();
     using KLocalizedTranslator_Event_Callback = bool (*)(KLocalizedTranslator*, QEvent*);
     using KLocalizedTranslator_EventFilter_Callback = bool (*)(KLocalizedTranslator*, QObject*, QEvent*);
@@ -146,8 +146,8 @@ class VirtualKLocalizedTranslator final : public KLocalizedTranslator {
             const char* cbval3 = (const char*)disambiguation;
             int cbval4 = n;
 
-            libqt_string callback_ret = klocalizedtranslator_translate_callback(this, cbval1, cbval2, cbval3, cbval4);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = klocalizedtranslator_translate_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return KLocalizedTranslator::translate(context, sourceText, disambiguation, n);

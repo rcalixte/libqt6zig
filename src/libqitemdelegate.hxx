@@ -32,7 +32,7 @@ class VirtualQItemDelegate final : public QItemDelegate {
     using QItemDelegate_EditorEvent_Callback = bool (*)(QItemDelegate*, QEvent*, QAbstractItemModel*, QStyleOptionViewItem*, QModelIndex*);
     using QItemDelegate_DestroyEditor_Callback = void (*)(const QItemDelegate*, QWidget*, QModelIndex*);
     using QItemDelegate_HelpEvent_Callback = bool (*)(QItemDelegate*, QHelpEvent*, QAbstractItemView*, QStyleOptionViewItem*, QModelIndex*);
-    using QItemDelegate_PaintingRoles_Callback = libqt_list /* of int */ (*)();
+    using QItemDelegate_PaintingRoles_Callback = int* (*)();
     using QItemDelegate_Event_Callback = bool (*)(QItemDelegate*, QEvent*);
     using QItemDelegate_TimerEvent_Callback = void (*)(QItemDelegate*, QTimerEvent*);
     using QItemDelegate_ChildEvent_Callback = void (*)(QItemDelegate*, QChildEvent*);
@@ -541,12 +541,10 @@ class VirtualQItemDelegate final : public QItemDelegate {
             qitemdelegate_paintingroles_isbase = false;
             return QItemDelegate::paintingRoles();
         } else if (qitemdelegate_paintingroles_callback != nullptr) {
-            libqt_list /* of int */ callback_ret = qitemdelegate_paintingroles_callback();
+            int* callback_ret = qitemdelegate_paintingroles_callback();
             QList<int> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(static_cast<int>(callback_ret_arr[i]));
+            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
+                callback_ret_QList.push_back(*ptr);
             }
             return callback_ret_QList;
         } else {

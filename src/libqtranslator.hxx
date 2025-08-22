@@ -18,7 +18,7 @@ class VirtualQTranslator final : public QTranslator {
 
     // Virtual class public types (including callbacks)
     using QTranslator_Metacall_Callback = int (*)(QTranslator*, int, int, void**);
-    using QTranslator_Translate_Callback = libqt_string (*)(const QTranslator*, const char*, const char*, const char*, int);
+    using QTranslator_Translate_Callback = const char* (*)(const QTranslator*, const char*, const char*, const char*, int);
     using QTranslator_IsEmpty_Callback = bool (*)();
     using QTranslator_Event_Callback = bool (*)(QTranslator*, QEvent*);
     using QTranslator_EventFilter_Callback = bool (*)(QTranslator*, QObject*, QEvent*);
@@ -146,8 +146,8 @@ class VirtualQTranslator final : public QTranslator {
             const char* cbval3 = (const char*)disambiguation;
             int cbval4 = n;
 
-            libqt_string callback_ret = qtranslator_translate_callback(this, cbval1, cbval2, cbval3, cbval4);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qtranslator_translate_callback(this, cbval1, cbval2, cbval3, cbval4);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QTranslator::translate(context, sourceText, disambiguation, n);

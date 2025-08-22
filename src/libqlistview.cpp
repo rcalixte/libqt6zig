@@ -244,19 +244,19 @@ void QListView_IndexesMoved(QListView* self, const libqt_list /* of QModelIndex*
 }
 
 void QListView_Connect_IndexesMoved(QListView* self, intptr_t slot) {
-    void (*slotFunc)(QListView*, libqt_list /* of QModelIndex* */) = reinterpret_cast<void (*)(QListView*, libqt_list /* of QModelIndex* */)>(slot);
+    void (*slotFunc)(QListView*, QModelIndex**) = reinterpret_cast<void (*)(QListView*, QModelIndex**)>(slot);
     QListView::connect(self, &QListView::indexesMoved, [self, slotFunc](const QList<QModelIndex>& indexes) {
         const QList<QModelIndex>& indexes_ret = indexes;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+        QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
         for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
             indexes_arr[i] = new QModelIndex(indexes_ret[i]);
         }
-        libqt_list indexes_out;
-        indexes_out.len = indexes_ret.size();
-        indexes_out.data = static_cast<void*>(indexes_arr);
-        libqt_list /* of QModelIndex* */ sigval1 = indexes_out;
+        // Append sentinel value to the list
+        indexes_arr[indexes_ret.size()] = nullptr;
+        QModelIndex** sigval1 = indexes_arr;
         slotFunc(self, sigval1);
+        free(indexes_arr);
     });
 }
 
@@ -1081,7 +1081,7 @@ libqt_list /* of QModelIndex* */ QListView_SelectedIndexes(const QListView* self
     if (vqlistview && vqlistview->isVirtualQListView) {
         QList<QModelIndex> _ret = vqlistview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1092,7 +1092,7 @@ libqt_list /* of QModelIndex* */ QListView_SelectedIndexes(const QListView* self
     } else {
         QList<QModelIndex> _ret = ((VirtualQListView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1110,7 +1110,7 @@ libqt_list /* of QModelIndex* */ QListView_QBaseSelectedIndexes(const QListView*
         vqlistview->setQListView_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vqlistview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1121,7 +1121,7 @@ libqt_list /* of QModelIndex* */ QListView_QBaseSelectedIndexes(const QListView*
     } else {
         QList<QModelIndex> _ret = ((VirtualQListView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

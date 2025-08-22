@@ -74,7 +74,7 @@ libqt_string QWindowCapture_Tr(const char* s) {
 libqt_list /* of QCapturableWindow* */ QWindowCapture_CapturableWindows() {
     QList<QCapturableWindow> _ret = QWindowCapture::capturableWindows();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCapturableWindow** _arr = static_cast<QCapturableWindow**>(malloc(sizeof(QCapturableWindow*) * _ret.size()));
+    QCapturableWindow** _arr = static_cast<QCapturableWindow**>(malloc(sizeof(QCapturableWindow*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCapturableWindow(_ret[i]);
     }

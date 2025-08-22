@@ -48,7 +48,7 @@ void QHostInfo_SetHostName(QHostInfo* self, const libqt_string name) {
 libqt_list /* of QHostAddress* */ QHostInfo_Addresses(const QHostInfo* self) {
     QList<QHostAddress> _ret = self->addresses();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QHostAddress** _arr = static_cast<QHostAddress**>(malloc(sizeof(QHostAddress*) * _ret.size()));
+    QHostAddress** _arr = static_cast<QHostAddress**>(malloc(sizeof(QHostAddress*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QHostAddress(_ret[i]);
     }

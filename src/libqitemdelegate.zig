@@ -1163,8 +1163,8 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn () callconv(.c) []i32 ```
-    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) []i32) void {
+    /// ``` self: QtC.QItemDelegate, slot: fn () callconv(.c) [*:-1]i32 ```
+    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) [*:-1]i32) void {
         qtc.QItemDelegate_OnPaintingRoles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

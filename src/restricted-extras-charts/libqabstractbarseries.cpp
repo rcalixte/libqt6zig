@@ -77,7 +77,7 @@ int QAbstractBarSeries_Count(const QAbstractBarSeries* self) {
 libqt_list /* of QBarSet* */ QAbstractBarSeries_BarSets(const QAbstractBarSeries* self) {
     QList<QBarSet*> _ret = self->barSets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QBarSet** _arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * _ret.size()));
+    QBarSet** _arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -295,19 +295,19 @@ void QAbstractBarSeries_BarsetsAdded(QAbstractBarSeries* self, const libqt_list 
 }
 
 void QAbstractBarSeries_Connect_BarsetsAdded(QAbstractBarSeries* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractBarSeries*, libqt_list /* of QBarSet* */) = reinterpret_cast<void (*)(QAbstractBarSeries*, libqt_list /* of QBarSet* */)>(slot);
+    void (*slotFunc)(QAbstractBarSeries*, QBarSet**) = reinterpret_cast<void (*)(QAbstractBarSeries*, QBarSet**)>(slot);
     QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsAdded, [self, slotFunc](const QList<QBarSet*>& sets) {
         const QList<QBarSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * sets_ret.size()));
+        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size() + 1)));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QBarSet* */ sigval1 = sets_out;
+        // Append sentinel value to the list
+        sets_arr[sets_ret.size()] = nullptr;
+        QBarSet** sigval1 = sets_arr;
         slotFunc(self, sigval1);
+        free(sets_arr);
     });
 }
 
@@ -322,19 +322,19 @@ void QAbstractBarSeries_BarsetsRemoved(QAbstractBarSeries* self, const libqt_lis
 }
 
 void QAbstractBarSeries_Connect_BarsetsRemoved(QAbstractBarSeries* self, intptr_t slot) {
-    void (*slotFunc)(QAbstractBarSeries*, libqt_list /* of QBarSet* */) = reinterpret_cast<void (*)(QAbstractBarSeries*, libqt_list /* of QBarSet* */)>(slot);
+    void (*slotFunc)(QAbstractBarSeries*, QBarSet**) = reinterpret_cast<void (*)(QAbstractBarSeries*, QBarSet**)>(slot);
     QAbstractBarSeries::connect(self, &QAbstractBarSeries::barsetsRemoved, [self, slotFunc](const QList<QBarSet*>& sets) {
         const QList<QBarSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * sets_ret.size()));
+        QBarSet** sets_arr = static_cast<QBarSet**>(malloc(sizeof(QBarSet*) * (sets_ret.size() + 1)));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QBarSet* */ sigval1 = sets_out;
+        // Append sentinel value to the list
+        sets_arr[sets_ret.size()] = nullptr;
+        QBarSet** sigval1 = sets_arr;
         slotFunc(self, sigval1);
+        free(sets_arr);
     });
 }
 

@@ -48,7 +48,7 @@ class VirtualQListView final : public QListView {
     using QListView_MoveCursor_Callback = QModelIndex* (*)(QListView*, int, int);
     using QListView_SetSelection_Callback = void (*)(QListView*, QRect*, int);
     using QListView_VisualRegionForSelection_Callback = QRegion* (*)(const QListView*, QItemSelection*);
-    using QListView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QListView_SelectedIndexes_Callback = QModelIndex** (*)();
     using QListView_UpdateGeometries_Callback = void (*)();
     using QListView_IsIndexHidden_Callback = bool (*)(const QListView*, QModelIndex*);
     using QListView_SelectionChanged_Callback = void (*)(QListView*, QItemSelection*, QItemSelection*);
@@ -909,7 +909,7 @@ class VirtualQListView final : public QListView {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
@@ -1196,13 +1196,13 @@ class VirtualQListView final : public QListView {
             qlistview_selectedindexes_isbase = false;
             return QListView::selectedIndexes();
         } else if (qlistview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qlistview_selectedindexes_callback();
+            QModelIndex** callback_ret = qlistview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QListView::selectedIndexes();

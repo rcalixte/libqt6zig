@@ -101,7 +101,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_CookiesForUrl(const QNetwo
     if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
         QList<QNetworkCookie> _ret = vqnetworkcookiejar->cookiesForUrl(*url);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }
@@ -112,7 +112,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_CookiesForUrl(const QNetwo
     } else {
         QList<QNetworkCookie> _ret = self->QNetworkCookieJar::cookiesForUrl(*url);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }
@@ -130,7 +130,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_QBaseCookiesForUrl(const Q
         vqnetworkcookiejar->setQNetworkCookieJar_CookiesForUrl_IsBase(true);
         QList<QNetworkCookie> _ret = vqnetworkcookiejar->cookiesForUrl(*url);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }
@@ -141,7 +141,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_QBaseCookiesForUrl(const Q
     } else {
         QList<QNetworkCookie> _ret = self->QNetworkCookieJar::cookiesForUrl(*url);
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }
@@ -526,7 +526,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_AllCookies(const QNetworkC
     if (vqnetworkcookiejar && vqnetworkcookiejar->isVirtualQNetworkCookieJar) {
         QList<QNetworkCookie> _ret = vqnetworkcookiejar->allCookies();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }
@@ -537,7 +537,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_AllCookies(const QNetworkC
     } else {
         QList<QNetworkCookie> _ret = ((VirtualQNetworkCookieJar*)self)->allCookies();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }
@@ -555,7 +555,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_QBaseAllCookies(const QNet
         vqnetworkcookiejar->setQNetworkCookieJar_AllCookies_IsBase(true);
         QList<QNetworkCookie> _ret = vqnetworkcookiejar->allCookies();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }
@@ -566,7 +566,7 @@ libqt_list /* of QNetworkCookie* */ QNetworkCookieJar_QBaseAllCookies(const QNet
     } else {
         QList<QNetworkCookie> _ret = ((VirtualQNetworkCookieJar*)self)->allCookies();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+        QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QNetworkCookie(_ret[i]);
         }

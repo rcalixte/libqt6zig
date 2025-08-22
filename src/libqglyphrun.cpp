@@ -41,7 +41,7 @@ void QGlyphRun_SetRawData(QGlyphRun* self, const unsigned int* glyphIndexArray, 
 libqt_list /* of unsigned int */ QGlyphRun_GlyphIndexes(const QGlyphRun* self) {
     QList<unsigned int> _ret = self->glyphIndexes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * _ret.size()));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -64,7 +64,7 @@ void QGlyphRun_SetGlyphIndexes(QGlyphRun* self, const libqt_list /* of unsigned 
 libqt_list /* of QPointF* */ QGlyphRun_Positions(const QGlyphRun* self) {
     QList<QPointF> _ret = self->positions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
+    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
@@ -151,7 +151,7 @@ QRectF* QGlyphRun_BoundingRect(const QGlyphRun* self) {
 libqt_list /* of ptrdiff_t */ QGlyphRun_StringIndexes(const QGlyphRun* self) {
     QList<QIntegerForSizeof<std::size_t>::Signed> _ret = self->stringIndexes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    ptrdiff_t* _arr = static_cast<ptrdiff_t*>(malloc(sizeof(ptrdiff_t) * _ret.size()));
+    ptrdiff_t* _arr = static_cast<ptrdiff_t*>(malloc(sizeof(ptrdiff_t) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

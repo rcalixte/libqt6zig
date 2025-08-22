@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qaccessible_base_enums = @import("libqaccessible_base.zig").enums;
 const std = @import("std");
-pub const struct_qtcqaccessibleinterface_i64 = struct { first: QtC.QAccessibleInterface, second: i64 };
+pub const struct_qtcqaccessibleinterface_i64 = extern struct { first: QtC.QAccessibleInterface, second: i64 };
 
 /// https://doc.qt.io/qt-6/qaccessibleobject.html
 pub const qaccessibleobject = struct {
@@ -321,8 +321,8 @@ pub const qaccessibleobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
-    pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []struct_qtcqaccessibleinterface_i64) void {
+    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 ```
+    pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleObject_OnRelations(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -527,8 +527,8 @@ pub const qaccessibleobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text) callconv(.c) []const u8 ```
-    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QAccessibleObject, slot: fn (self: QtC.QAccessibleObject, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 ```
+    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QAccessibleObject_OnText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -909,8 +909,8 @@ pub const qaccessibleapplication = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text) callconv(.c) []const u8 ```
-    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 ```
+    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
         qtc.QAccessibleApplication_OnText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -1296,8 +1296,8 @@ pub const qaccessibleapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) []struct_qtcqaccessibleinterface_i64 ```
-    pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) []struct_qtcqaccessibleinterface_i64) void {
+    /// ``` self: QtC.QAccessibleApplication, slot: fn (self: QtC.QAccessibleApplication, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 ```
+    pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
         qtc.QAccessibleApplication_OnRelations(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

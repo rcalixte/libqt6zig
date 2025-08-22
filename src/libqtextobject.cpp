@@ -238,7 +238,7 @@ void QTextFrame_SetLayoutData(QTextFrame* self, QTextFrameLayoutData* data) {
 libqt_list /* of QTextFrame* */ QTextFrame_ChildFrames(const QTextFrame* self) {
     QList<QTextFrame*> _ret = self->childFrames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextFrame** _arr = static_cast<QTextFrame**>(malloc(sizeof(QTextFrame*) * _ret.size()));
+    QTextFrame** _arr = static_cast<QTextFrame**>(malloc(sizeof(QTextFrame*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -727,7 +727,7 @@ libqt_string QTextBlock_Text(const QTextBlock* self) {
 libqt_list /* of QTextLayout__FormatRange* */ QTextBlock_TextFormats(const QTextBlock* self) {
     QList<QTextLayout::FormatRange> _ret = self->textFormats();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QTextLayout__FormatRange** _arr = static_cast<QTextLayout__FormatRange**>(malloc(sizeof(QTextLayout__FormatRange*) * _ret.size()));
+    QTextLayout__FormatRange** _arr = static_cast<QTextLayout__FormatRange**>(malloc(sizeof(QTextLayout__FormatRange*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QTextLayout::FormatRange(_ret[i]);
     }
@@ -880,7 +880,7 @@ libqt_string QTextFragment_Text(const QTextFragment* self) {
 libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns(const QTextFragment* self) {
     QList<QGlyphRun> _ret = self->glyphRuns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.size()));
+    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGlyphRun(_ret[i]);
     }
@@ -893,7 +893,7 @@ libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns(const QTextFragment* self
 libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns1(const QTextFragment* self, int from) {
     QList<QGlyphRun> _ret = self->glyphRuns(static_cast<int>(from));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.size()));
+    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGlyphRun(_ret[i]);
     }
@@ -906,7 +906,7 @@ libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns1(const QTextFragment* sel
 libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns2(const QTextFragment* self, int from, int length) {
     QList<QGlyphRun> _ret = self->glyphRuns(static_cast<int>(from), static_cast<int>(length));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * _ret.size()));
+    QGlyphRun** _arr = static_cast<QGlyphRun**>(malloc(sizeof(QGlyphRun*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QGlyphRun(_ret[i]);
     }

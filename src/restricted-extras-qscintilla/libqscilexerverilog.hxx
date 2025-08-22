@@ -22,7 +22,7 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     using QsciLexerVerilog_Lexer_Callback = const char* (*)();
     using QsciLexerVerilog_LexerId_Callback = int (*)();
     using QsciLexerVerilog_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerVerilog_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
+    using QsciLexerVerilog_AutoCompletionWordSeparators_Callback = const char** (*)();
     using QsciLexerVerilog_BlockEnd_Callback = const char* (*)(const QsciLexerVerilog*, int*);
     using QsciLexerVerilog_BlockLookback_Callback = int (*)();
     using QsciLexerVerilog_BlockStart_Callback = const char* (*)(const QsciLexerVerilog*, int*);
@@ -35,7 +35,7 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     using QsciLexerVerilog_IndentationGuideView_Callback = int (*)();
     using QsciLexerVerilog_Keywords_Callback = const char* (*)(const QsciLexerVerilog*, int);
     using QsciLexerVerilog_DefaultStyle_Callback = int (*)();
-    using QsciLexerVerilog_Description_Callback = libqt_string (*)(const QsciLexerVerilog*, int);
+    using QsciLexerVerilog_Description_Callback = const char* (*)(const QsciLexerVerilog*, int);
     using QsciLexerVerilog_Paper_Callback = QColor* (*)(const QsciLexerVerilog*, int);
     using QsciLexerVerilog_DefaultColor2_Callback = QColor* (*)(const QsciLexerVerilog*, int);
     using QsciLexerVerilog_DefaultEolFill_Callback = bool (*)(const QsciLexerVerilog*, int);
@@ -59,8 +59,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
     using QsciLexerVerilog_CustomEvent_Callback = void (*)(QsciLexerVerilog*, QEvent*);
     using QsciLexerVerilog_ConnectNotify_Callback = void (*)(QsciLexerVerilog*, QMetaMethod*);
     using QsciLexerVerilog_DisconnectNotify_Callback = void (*)(QsciLexerVerilog*, QMetaMethod*);
-    using QsciLexerVerilog_TextAsBytes_Callback = libqt_string (*)(const QsciLexerVerilog*, libqt_string);
-    using QsciLexerVerilog_BytesAsText_Callback = libqt_string (*)(const QsciLexerVerilog*, const char*, int);
+    using QsciLexerVerilog_TextAsBytes_Callback = const char* (*)(const QsciLexerVerilog*, libqt_string);
+    using QsciLexerVerilog_BytesAsText_Callback = const char* (*)(const QsciLexerVerilog*, const char*, int);
     using QsciLexerVerilog_Sender_Callback = QObject* (*)();
     using QsciLexerVerilog_SenderSignalIndex_Callback = int (*)();
     using QsciLexerVerilog_Receivers_Callback = int (*)(const QsciLexerVerilog*, const char*);
@@ -394,12 +394,13 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
             qscilexerverilog_autocompletionwordseparators_isbase = false;
             return QsciLexerVerilog::autoCompletionWordSeparators();
         } else if (qscilexerverilog_autocompletionwordseparators_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qscilexerverilog_autocompletionwordseparators_callback();
+            const char** callback_ret = qscilexerverilog_autocompletionwordseparators_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -583,8 +584,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
         if (qscilexerverilog_description_callback != nullptr) {
             int cbval1 = style;
 
-            libqt_string callback_ret = qscilexerverilog_description_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerverilog_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -971,8 +972,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexerverilog_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerverilog_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerVerilog::textAsBytes(text);
@@ -988,8 +989,8 @@ class VirtualQsciLexerVerilog final : public QsciLexerVerilog {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            libqt_string callback_ret = qscilexerverilog_bytesastext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerverilog_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QsciLexerVerilog::bytesAsText(bytes, size);

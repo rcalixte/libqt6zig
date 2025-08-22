@@ -95,8 +95,8 @@ pub const qitemeditorfactory = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemEditorFactory, slot: fn (self: QtC.QItemEditorFactory, userType: i32) callconv(.c) []u8 ```
-    pub fn OnValuePropertyName(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) []u8) void {
+    /// ``` self: QtC.QItemEditorFactory, slot: fn (self: QtC.QItemEditorFactory, userType: i32) callconv(.c) [*:0]u8 ```
+    pub fn OnValuePropertyName(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]u8) void {
         qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

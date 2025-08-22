@@ -18,7 +18,7 @@ class VirtualQProgressBar final : public QProgressBar {
 
     // Virtual class public types (including callbacks)
     using QProgressBar_Metacall_Callback = int (*)(QProgressBar*, int, int, void**);
-    using QProgressBar_Text_Callback = libqt_string (*)();
+    using QProgressBar_Text_Callback = const char* (*)();
     using QProgressBar_SizeHint_Callback = QSize* (*)();
     using QProgressBar_MinimumSizeHint_Callback = QSize* (*)();
     using QProgressBar_Event_Callback = bool (*)(QProgressBar*, QEvent*);
@@ -417,8 +417,8 @@ class VirtualQProgressBar final : public QProgressBar {
             qprogressbar_text_isbase = false;
             return QProgressBar::text();
         } else if (qprogressbar_text_callback != nullptr) {
-            libqt_string callback_ret = qprogressbar_text_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qprogressbar_text_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QProgressBar::text();

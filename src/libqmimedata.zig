@@ -287,8 +287,8 @@ pub const qmimedata = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QMimeData, slot: fn () callconv(.c) [][]const u8 ```
-    pub fn OnFormats(self: ?*anyopaque, slot: fn () callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QMimeData, slot: fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnFormats(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
         qtc.QMimeData_OnFormats(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

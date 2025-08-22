@@ -18,7 +18,7 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
 
     // Virtual class public types (including callbacks)
     using QNetworkAccessManager_Metacall_Callback = int (*)(QNetworkAccessManager*, int, int, void**);
-    using QNetworkAccessManager_SupportedSchemes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QNetworkAccessManager_SupportedSchemes_Callback = const char** (*)();
     using QNetworkAccessManager_CreateRequest_Callback = QNetworkReply* (*)(QNetworkAccessManager*, int, QNetworkRequest*, QIODevice*);
     using QNetworkAccessManager_Event_Callback = bool (*)(QNetworkAccessManager*, QEvent*);
     using QNetworkAccessManager_EventFilter_Callback = bool (*)(QNetworkAccessManager*, QObject*, QEvent*);
@@ -27,7 +27,7 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
     using QNetworkAccessManager_CustomEvent_Callback = void (*)(QNetworkAccessManager*, QEvent*);
     using QNetworkAccessManager_ConnectNotify_Callback = void (*)(QNetworkAccessManager*, QMetaMethod*);
     using QNetworkAccessManager_DisconnectNotify_Callback = void (*)(QNetworkAccessManager*, QMetaMethod*);
-    using QNetworkAccessManager_SupportedSchemesImplementation_Callback = libqt_list /* of libqt_string */ (*)();
+    using QNetworkAccessManager_SupportedSchemesImplementation_Callback = const char** (*)();
     using QNetworkAccessManager_Sender_Callback = QObject* (*)();
     using QNetworkAccessManager_SenderSignalIndex_Callback = int (*)();
     using QNetworkAccessManager_Receivers_Callback = int (*)(const QNetworkAccessManager*, const char*);
@@ -147,12 +147,13 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
             qnetworkaccessmanager_supportedschemes_isbase = false;
             return QNetworkAccessManager::supportedSchemes();
         } else if (qnetworkaccessmanager_supportedschemes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qnetworkaccessmanager_supportedschemes_callback();
+            const char** callback_ret = qnetworkaccessmanager_supportedschemes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -291,12 +292,13 @@ class VirtualQNetworkAccessManager final : public QNetworkAccessManager {
             qnetworkaccessmanager_supportedschemesimplementation_isbase = false;
             return QNetworkAccessManager::supportedSchemesImplementation();
         } else if (qnetworkaccessmanager_supportedschemesimplementation_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qnetworkaccessmanager_supportedschemesimplementation_callback();
+            const char** callback_ret = qnetworkaccessmanager_supportedschemesimplementation_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;

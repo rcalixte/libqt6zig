@@ -86,7 +86,7 @@ libqt_string QStringView_ToLocal8Bit(const QStringView* self) {
 libqt_list /* of unsigned int */ QStringView_ToUcs4(const QStringView* self) {
     QList<unsigned int> _ret = self->toUcs4();
     // Convert QList<> from C++ memory to manually-managed C memory
-    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * _ret.size()));
+    unsigned int* _arr = static_cast<unsigned int*>(malloc(sizeof(unsigned int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

@@ -500,8 +500,8 @@ pub const qsciscintillabase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, source: QtC.QMimeData, rectangular: *bool) callconv(.c) []u8 ```
-    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) []u8) void {
+    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, source: QtC.QMimeData, rectangular: *bool) callconv(.c) [*:0]u8 ```
+    pub fn OnFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, *bool) callconv(.c) [*:0]u8) void {
         qtc.QsciScintillaBase_OnFromMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -533,8 +533,8 @@ pub const qsciscintillabase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, text: []u8, rectangular: bool) callconv(.c) QtC.QMimeData ```
-    pub fn OnToMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, bool) callconv(.c) QtC.QMimeData) void {
+    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, text: [*:0]u8, rectangular: bool) callconv(.c) QtC.QMimeData ```
+    pub fn OnToMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, bool) callconv(.c) QtC.QMimeData) void {
         qtc.QsciScintillaBase_OnToMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -5249,8 +5249,8 @@ pub const qsciscintillabase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    /// ``` self: QtC.QsciScintillaBase, slot: fn (self: QtC.QsciScintillaBase, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QsciScintillaBase_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

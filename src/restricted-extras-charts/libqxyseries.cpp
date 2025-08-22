@@ -110,7 +110,7 @@ int QXYSeries_Count(const QXYSeries* self) {
 libqt_list /* of QPointF* */ QXYSeries_Points(const QXYSeries* self) {
     QList<QPointF> _ret = self->points();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
+    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
@@ -123,7 +123,7 @@ libqt_list /* of QPointF* */ QXYSeries_Points(const QXYSeries* self) {
 libqt_list /* of QPointF* */ QXYSeries_PointsVector(const QXYSeries* self) {
     QList<QPointF> _ret = self->pointsVector();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * _ret.size()));
+    QPointF** _arr = static_cast<QPointF**>(malloc(sizeof(QPointF*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QPointF(_ret[i]);
     }
@@ -313,7 +313,7 @@ void QXYSeries_ToggleSelection(QXYSeries* self, const libqt_list /* of int */ in
 libqt_list /* of int */ QXYSeries_SelectedPoints(const QXYSeries* self) {
     QList<int> _ret = self->selectedPoints();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

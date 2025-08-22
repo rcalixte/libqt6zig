@@ -393,8 +393,8 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsAdded)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnCandlestickSetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnCandlestickSetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CandlestickSetsAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -411,8 +411,8 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsRemoved)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, sets: []QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnCandlestickSetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnCandlestickSetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QCandlestickSeries_Connect_CandlestickSetsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

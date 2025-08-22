@@ -105,8 +105,8 @@ pub const qsavefile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSaveFile, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnFileName(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSaveFile, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnFileName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QSaveFile_OnFileName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

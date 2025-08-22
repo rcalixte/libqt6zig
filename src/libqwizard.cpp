@@ -127,7 +127,7 @@ bool QWizard_HasVisitedPage(const QWizard* self, int id) {
 libqt_list /* of int */ QWizard_VisitedIds(const QWizard* self) {
     QList<int> _ret = self->visitedIds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -140,7 +140,7 @@ libqt_list /* of int */ QWizard_VisitedIds(const QWizard* self) {
 libqt_list /* of int */ QWizard_PageIds(const QWizard* self) {
     QList<int> _ret = self->pageIds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

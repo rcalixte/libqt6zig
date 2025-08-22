@@ -908,7 +908,7 @@ libqt_list /* of libqt_string */ QSqlQueryModel_MimeTypes(const QSqlQueryModel* 
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         QList<QString> _ret = vqsqlquerymodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -927,7 +927,7 @@ libqt_list /* of libqt_string */ QSqlQueryModel_MimeTypes(const QSqlQueryModel* 
     } else {
         QList<QString> _ret = self->QSqlQueryModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -953,7 +953,7 @@ libqt_list /* of libqt_string */ QSqlQueryModel_QBaseMimeTypes(const QSqlQueryMo
         vqsqlquerymodel->setQSqlQueryModel_MimeTypes_IsBase(true);
         QList<QString> _ret = vqsqlquerymodel->mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -972,7 +972,7 @@ libqt_list /* of libqt_string */ QSqlQueryModel_QBaseMimeTypes(const QSqlQueryMo
     } else {
         QList<QString> _ret = self->QSqlQueryModel::mimeTypes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -1307,7 +1307,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_Match(const QSqlQueryModel* self
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         QList<QModelIndex> _ret = vqsqlquerymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1318,7 +1318,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_Match(const QSqlQueryModel* self
     } else {
         QList<QModelIndex> _ret = self->QSqlQueryModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1336,7 +1336,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_QBaseMatch(const QSqlQueryModel*
         vqsqlquerymodel->setQSqlQueryModel_Match_IsBase(true);
         QList<QModelIndex> _ret = vqsqlquerymodel->match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1347,7 +1347,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_QBaseMatch(const QSqlQueryModel*
     } else {
         QList<QModelIndex> _ret = self->QSqlQueryModel::match(*start, static_cast<int>(role), *value, static_cast<int>(hits), static_cast<Qt::MatchFlags>(flags));
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2334,7 +2334,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_PersistentIndexList(const QSqlQu
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
         QList<QModelIndex> _ret = vqsqlquerymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2345,7 +2345,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_PersistentIndexList(const QSqlQu
     } else {
         QList<QModelIndex> _ret = ((VirtualQSqlQueryModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2363,7 +2363,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_QBasePersistentIndexList(const Q
         vqsqlquerymodel->setQSqlQueryModel_PersistentIndexList_IsBase(true);
         QList<QModelIndex> _ret = vqsqlquerymodel->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -2374,7 +2374,7 @@ libqt_list /* of QModelIndex* */ QSqlQueryModel_QBasePersistentIndexList(const Q
     } else {
         QList<QModelIndex> _ret = ((VirtualQSqlQueryModel*)self)->persistentIndexList();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

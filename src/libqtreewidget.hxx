@@ -218,7 +218,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
     using QTreeWidget_Metacall_Callback = int (*)(QTreeWidget*, int, int, void**);
     using QTreeWidget_SetSelectionModel_Callback = void (*)(QTreeWidget*, QItemSelectionModel*);
     using QTreeWidget_Event_Callback = bool (*)(QTreeWidget*, QEvent*);
-    using QTreeWidget_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QTreeWidget_MimeTypes_Callback = const char** (*)();
     using QTreeWidget_MimeData_Callback = QMimeData* (*)(const QTreeWidget*, libqt_list /* of QTreeWidgetItem* */);
     using QTreeWidget_DropMimeData_Callback = bool (*)(QTreeWidget*, QTreeWidgetItem*, int, QMimeData*, int);
     using QTreeWidget_SupportedDropActions_Callback = int (*)();
@@ -241,7 +241,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
     using QTreeWidget_VerticalOffset_Callback = int (*)();
     using QTreeWidget_SetSelection_Callback = void (*)(QTreeWidget*, QRect*, int);
     using QTreeWidget_VisualRegionForSelection_Callback = QRegion* (*)(const QTreeWidget*, QItemSelection*);
-    using QTreeWidget_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QTreeWidget_SelectedIndexes_Callback = QModelIndex** (*)();
     using QTreeWidget_ChangeEvent_Callback = void (*)(QTreeWidget*, QEvent*);
     using QTreeWidget_TimerEvent_Callback = void (*)(QTreeWidget*, QTimerEvent*);
     using QTreeWidget_PaintEvent_Callback = void (*)(QTreeWidget*, QPaintEvent*);
@@ -1058,12 +1058,13 @@ class VirtualQTreeWidget final : public QTreeWidget {
             qtreewidget_mimetypes_isbase = false;
             return QTreeWidget::mimeTypes();
         } else if (qtreewidget_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qtreewidget_mimetypes_callback();
+            const char** callback_ret = qtreewidget_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -1080,7 +1081,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
         } else if (qtreewidget_mimedata_callback != nullptr) {
             const QList<QTreeWidgetItem*>& items_ret = items;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QTreeWidgetItem** items_arr = static_cast<QTreeWidgetItem**>(malloc(sizeof(QTreeWidgetItem*) * items_ret.size()));
+            QTreeWidgetItem** items_arr = static_cast<QTreeWidgetItem**>(malloc(sizeof(QTreeWidgetItem*) * (items_ret.size() + 1)));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
                 items_arr[i] = items_ret[i];
             }
@@ -1268,7 +1269,7 @@ class VirtualQTreeWidget final : public QTreeWidget {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
@@ -1442,13 +1443,13 @@ class VirtualQTreeWidget final : public QTreeWidget {
             qtreewidget_selectedindexes_isbase = false;
             return QTreeWidget::selectedIndexes();
         } else if (qtreewidget_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qtreewidget_selectedindexes_callback();
+            QModelIndex** callback_ret = qtreewidget_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QTreeWidget::selectedIndexes();

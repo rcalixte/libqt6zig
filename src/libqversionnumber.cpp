@@ -62,7 +62,7 @@ QVersionNumber* QVersionNumber_Normalized(const QVersionNumber* self) {
 libqt_list /* of int */ QVersionNumber_Segments(const QVersionNumber* self) {
     QList<int> _ret = self->segments();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

@@ -199,8 +199,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, tableType: qtsqlglobal_enums.TableType) callconv(.c) [][]const u8 ```
-    pub fn OnTables(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, tableType: qtsqlglobal_enums.TableType) callconv(.c) [*][*:0]const u8 ```
+    pub fn OnTables(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*][*:0]const u8) void {
         qtc.QSqlDriver_OnTables(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -309,8 +309,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, field: QtC.QSqlField, trimStrings: bool) callconv(.c) []const u8 ```
-    pub fn OnFormatValue(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, field: QtC.QSqlField, trimStrings: bool) callconv(.c) [*:0]const u8 ```
+    pub fn OnFormatValue(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) [*:0]const u8) void {
         qtc.QSqlDriver_OnFormatValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -346,8 +346,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) []const u8 ```
-    pub fn OnEscapeIdentifier(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) [*:0]const u8 ```
+    pub fn OnEscapeIdentifier(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QSqlDriver_OnEscapeIdentifier(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -387,8 +387,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, typeVal: qsqldriver_enums.StatementType, tableName: [*:0]const u8, rec: QtC.QSqlRecord, preparedStatement: bool) callconv(.c) []const u8 ```
-    pub fn OnSqlStatement(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque, bool) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, typeVal: qsqldriver_enums.StatementType, tableName: [*:0]const u8, rec: QtC.QSqlRecord, preparedStatement: bool) callconv(.c) [*:0]const u8 ```
+    pub fn OnSqlStatement(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque, bool) callconv(.c) [*:0]const u8) void {
         qtc.QSqlDriver_OnSqlStatement(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -673,8 +673,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn () callconv(.c) [][]const u8 ```
-    pub fn OnSubscribedToNotifications(self: ?*anyopaque, slot: fn () callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnSubscribedToNotifications(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
         qtc.QSqlDriver_OnSubscribedToNotifications(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -754,8 +754,8 @@ pub const qsqldriver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) []const u8 ```
-    pub fn OnStripDelimiters(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QSqlDriver, slot: fn (self: QtC.QSqlDriver, identifier: [*:0]const u8, typeVal: qsqldriver_enums.IdentifierType) callconv(.c) [*:0]const u8 ```
+    pub fn OnStripDelimiters(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QSqlDriver_OnStripDelimiters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

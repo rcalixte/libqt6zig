@@ -82,8 +82,8 @@ pub const qtranslator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTranslator, slot: fn (self: QtC.QTranslator, context: [*:0]const u8, sourceText: [*:0]const u8, disambiguation: [*:0]const u8, n: i32) callconv(.c) []const u8 ```
-    pub fn OnTranslate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QTranslator, slot: fn (self: QtC.QTranslator, context: [*:0]const u8, sourceText: [*:0]const u8, disambiguation: [*:0]const u8, n: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnTranslate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
         qtc.QTranslator_OnTranslate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

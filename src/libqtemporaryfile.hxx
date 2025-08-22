@@ -18,7 +18,7 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
 
     // Virtual class public types (including callbacks)
     using QTemporaryFile_Metacall_Callback = int (*)(QTemporaryFile*, int, int, void**);
-    using QTemporaryFile_FileName_Callback = libqt_string (*)();
+    using QTemporaryFile_FileName_Callback = const char* (*)();
     using QTemporaryFile_Open2_Callback = bool (*)(QTemporaryFile*, int);
     using QTemporaryFile_Size_Callback = long long (*)();
     using QTemporaryFile_Resize_Callback = bool (*)(QTemporaryFile*, long long);
@@ -269,8 +269,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
             qtemporaryfile_filename_isbase = false;
             return QTemporaryFile::fileName();
         } else if (qtemporaryfile_filename_callback != nullptr) {
-            libqt_string callback_ret = qtemporaryfile_filename_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qtemporaryfile_filename_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QTemporaryFile::fileName();

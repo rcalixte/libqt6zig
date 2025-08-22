@@ -28,7 +28,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     using QConcatenateTablesProxyModel_RowCount_Callback = int (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
     using QConcatenateTablesProxyModel_HeaderData_Callback = QVariant* (*)(const QConcatenateTablesProxyModel*, int, int, int);
     using QConcatenateTablesProxyModel_ColumnCount_Callback = int (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
-    using QConcatenateTablesProxyModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QConcatenateTablesProxyModel_MimeTypes_Callback = const char** (*)();
     using QConcatenateTablesProxyModel_MimeData_Callback = QMimeData* (*)(const QConcatenateTablesProxyModel*, libqt_list /* of QModelIndex* */);
     using QConcatenateTablesProxyModel_CanDropMimeData_Callback = bool (*)(const QConcatenateTablesProxyModel*, QMimeData*, int, int, int, QModelIndex*);
     using QConcatenateTablesProxyModel_DropMimeData_Callback = bool (*)(QConcatenateTablesProxyModel*, QMimeData*, int, int, int, QModelIndex*);
@@ -49,7 +49,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     using QConcatenateTablesProxyModel_CanFetchMore_Callback = bool (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
     using QConcatenateTablesProxyModel_Sort_Callback = void (*)(QConcatenateTablesProxyModel*, int, int);
     using QConcatenateTablesProxyModel_Buddy_Callback = QModelIndex* (*)(const QConcatenateTablesProxyModel*, QModelIndex*);
-    using QConcatenateTablesProxyModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QConcatenateTablesProxyModel*, QModelIndex*, int, QVariant*, int, int);
+    using QConcatenateTablesProxyModel_Match_Callback = QModelIndex** (*)(const QConcatenateTablesProxyModel*, QModelIndex*, int, QVariant*, int, int);
     using QConcatenateTablesProxyModel_RoleNames_Callback = libqt_map /* of int to libqt_string */ (*)();
     using QConcatenateTablesProxyModel_MultiData_Callback = void (*)(const QConcatenateTablesProxyModel*, QModelIndex*, QModelRoleDataSpan*);
     using QConcatenateTablesProxyModel_Submit_Callback = bool (*)();
@@ -81,7 +81,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
     using QConcatenateTablesProxyModel_EndResetModel_Callback = void (*)();
     using QConcatenateTablesProxyModel_ChangePersistentIndex_Callback = void (*)(QConcatenateTablesProxyModel*, QModelIndex*, QModelIndex*);
     using QConcatenateTablesProxyModel_ChangePersistentIndexList_Callback = void (*)(QConcatenateTablesProxyModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QConcatenateTablesProxyModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QConcatenateTablesProxyModel_PersistentIndexList_Callback = QModelIndex** (*)();
     using QConcatenateTablesProxyModel_Sender_Callback = QObject* (*)();
     using QConcatenateTablesProxyModel_SenderSignalIndex_Callback = int (*)();
     using QConcatenateTablesProxyModel_Receivers_Callback = int (*)(const QConcatenateTablesProxyModel*, const char*);
@@ -669,12 +669,13 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
             qconcatenatetablesproxymodel_mimetypes_isbase = false;
             return QConcatenateTablesProxyModel::mimeTypes();
         } else if (qconcatenatetablesproxymodel_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qconcatenatetablesproxymodel_mimetypes_callback();
+            const char** callback_ret = qconcatenatetablesproxymodel_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -691,7 +692,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
         } else if (qconcatenatetablesproxymodel_mimedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1068,13 +1069,13 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qconcatenatetablesproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndex** callback_ret = qconcatenatetablesproxymodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QConcatenateTablesProxyModel::match(start, role, value, hits, flags);
@@ -1285,7 +1286,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
         } else if (qconcatenatetablesproxymodel_encodedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1566,7 +1567,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
         } else if (qconcatenatetablesproxymodel_changepersistentindexlist_callback != nullptr) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size() + 1)));
             for (qsizetype i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
             }
@@ -1576,7 +1577,7 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
             libqt_list /* of QModelIndex* */ cbval1 = from_out;
             const QList<QModelIndex>& to_ret = to;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size() + 1)));
             for (qsizetype i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);
             }
@@ -1597,13 +1598,13 @@ class VirtualQConcatenateTablesProxyModel final : public QConcatenateTablesProxy
             qconcatenatetablesproxymodel_persistentindexlist_isbase = false;
             return QConcatenateTablesProxyModel::persistentIndexList();
         } else if (qconcatenatetablesproxymodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qconcatenatetablesproxymodel_persistentindexlist_callback();
+            QModelIndex** callback_ret = qconcatenatetablesproxymodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QConcatenateTablesProxyModel::persistentIndexList();

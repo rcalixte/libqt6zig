@@ -966,7 +966,7 @@ libqt_list /* of QModelIndex* */ QTreeView_SelectedIndexes(const QTreeView* self
     if (vqtreeview && vqtreeview->isVirtualQTreeView) {
         QList<QModelIndex> _ret = vqtreeview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -977,7 +977,7 @@ libqt_list /* of QModelIndex* */ QTreeView_SelectedIndexes(const QTreeView* self
     } else {
         QList<QModelIndex> _ret = ((VirtualQTreeView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -995,7 +995,7 @@ libqt_list /* of QModelIndex* */ QTreeView_QBaseSelectedIndexes(const QTreeView*
         vqtreeview->setQTreeView_SelectedIndexes_IsBase(true);
         QList<QModelIndex> _ret = vqtreeview->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }
@@ -1006,7 +1006,7 @@ libqt_list /* of QModelIndex* */ QTreeView_QBaseSelectedIndexes(const QTreeView*
     } else {
         QList<QModelIndex> _ret = ((VirtualQTreeView*)self)->selectedIndexes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.size()));
+        QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             _arr[i] = new QModelIndex(_ret[i]);
         }

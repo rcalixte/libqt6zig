@@ -77,7 +77,7 @@ bool QAbstractEventDispatcher_UnregisterTimers(QAbstractEventDispatcher* self, Q
 libqt_list /* of QAbstractEventDispatcher__TimerInfo* */ QAbstractEventDispatcher_RegisteredTimers(const QAbstractEventDispatcher* self, QObject* object) {
     QList<QAbstractEventDispatcher::TimerInfo> _ret = self->registeredTimers(object);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractEventDispatcher__TimerInfo** _arr = static_cast<QAbstractEventDispatcher__TimerInfo**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfo*) * _ret.size()));
+    QAbstractEventDispatcher__TimerInfo** _arr = static_cast<QAbstractEventDispatcher__TimerInfo**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAbstractEventDispatcher::TimerInfo(_ret[i]);
     }
@@ -98,7 +98,7 @@ bool QAbstractEventDispatcher_UnregisterTimer2(QAbstractEventDispatcher* self, i
 libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatcher_TimersForObject(const QAbstractEventDispatcher* self, QObject* object) {
     QList<QAbstractEventDispatcher::TimerInfoV2> _ret = self->timersForObject(object);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * _ret.size()));
+    QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAbstractEventDispatcher::TimerInfoV2(_ret[i]);
     }
@@ -222,7 +222,7 @@ bool QAbstractEventDispatcherV2_UnregisterTimer(QAbstractEventDispatcherV2* self
 libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatcherV2_TimersForObject(const QAbstractEventDispatcherV2* self, QObject* object) {
     QList<QAbstractEventDispatcher::TimerInfoV2> _ret = self->timersForObject(object);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * _ret.size()));
+    QAbstractEventDispatcher__TimerInfoV2** _arr = static_cast<QAbstractEventDispatcher__TimerInfoV2**>(malloc(sizeof(QAbstractEventDispatcher__TimerInfoV2*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QAbstractEventDispatcher::TimerInfoV2(_ret[i]);
     }

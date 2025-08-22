@@ -76,7 +76,7 @@ bool QNetworkRequest_HasRawHeader(const QNetworkRequest* self, libqt_string head
 libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkRequest* self) {
     QList<QByteArray> _ret = self->rawHeaderList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;

@@ -371,8 +371,8 @@ pub const qcompleter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCompleter, slot: fn (self: QtC.QCompleter, index: QtC.QModelIndex) callconv(.c) []const u8 ```
-    pub fn OnPathFromIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QCompleter, slot: fn (self: QtC.QCompleter, index: QtC.QModelIndex) callconv(.c) [*:0]const u8 ```
+    pub fn OnPathFromIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
         qtc.QCompleter_OnPathFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -419,8 +419,8 @@ pub const qcompleter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCompleter, slot: fn (self: QtC.QCompleter, path: [*:0]const u8) callconv(.c) [][]const u8 ```
-    pub fn OnSplitPath(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QCompleter, slot: fn (self: QtC.QCompleter, path: [*:0]const u8) callconv(.c) [*][*:0]const u8 ```
+    pub fn OnSplitPath(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*][*:0]const u8) void {
         qtc.QCompleter_OnSplitPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -18,7 +18,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
 
     // Virtual class public types (including callbacks)
     using QsciScintilla_Metacall_Callback = int (*)(QsciScintilla*, int, int, void**);
-    using QsciScintilla_ApiContext_Callback = libqt_list /* of libqt_string */ (*)(QsciScintilla*, int, int*, int*);
+    using QsciScintilla_ApiContext_Callback = const char** (*)(QsciScintilla*, int, int*, int*);
     using QsciScintilla_FindFirst_Callback = bool (*)(QsciScintilla*, libqt_string, bool, bool, bool, bool, bool, int, int, bool, bool, bool);
     using QsciScintilla_FindFirstInSelection_Callback = bool (*)(QsciScintilla*, libqt_string, bool, bool, bool, bool, bool, bool, bool);
     using QsciScintilla_FindNext_Callback = bool (*)();
@@ -106,7 +106,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_ContextMenuEvent_Callback = void (*)(QsciScintilla*, QContextMenuEvent*);
     using QsciScintilla_WheelEvent_Callback = void (*)(QsciScintilla*, QWheelEvent*);
     using QsciScintilla_CanInsertFromMimeData_Callback = bool (*)(const QsciScintilla*, QMimeData*);
-    using QsciScintilla_FromMimeData_Callback = libqt_string (*)(const QsciScintilla*, QMimeData*, bool*);
+    using QsciScintilla_FromMimeData_Callback = const char* (*)(const QsciScintilla*, QMimeData*, bool*);
     using QsciScintilla_ToMimeData_Callback = QMimeData* (*)(const QsciScintilla*, libqt_string, bool);
     using QsciScintilla_DragEnterEvent_Callback = void (*)(QsciScintilla*, QDragEnterEvent*);
     using QsciScintilla_DragLeaveEvent_Callback = void (*)(QsciScintilla*, QDragLeaveEvent*);
@@ -985,12 +985,13 @@ class VirtualQsciScintilla final : public QsciScintilla {
             int* cbval2 = &context_start;
             int* cbval3 = &last_word_start;
 
-            libqt_list /* of libqt_string */ callback_ret = qsciscintilla_apicontext_callback(this, cbval1, cbval2, cbval3);
+            const char** callback_ret = qsciscintilla_apicontext_callback(this, cbval1, cbval2, cbval3);
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -2318,8 +2319,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
             QMimeData* cbval1 = (QMimeData*)source;
             bool* cbval2 = &rectangular;
 
-            libqt_string callback_ret = qsciscintilla_frommimedata_callback(this, cbval1, cbval2);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsciscintilla_frommimedata_callback(this, cbval1, cbval2);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciScintilla::fromMimeData(source, rectangular);

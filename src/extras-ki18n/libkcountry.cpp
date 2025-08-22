@@ -92,7 +92,7 @@ uint16_t KCountry_Country(const KCountry* self) {
 libqt_list /* of const char* */ KCountry_TimeZoneIds(const KCountry* self) {
     QList<const char*> _ret = self->timeZoneIds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    const char** _arr = static_cast<const char**>(malloc(sizeof(const char*) * _ret.size()));
+    const char** _arr = static_cast<const char**>(malloc(sizeof(const char*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = (const char*)_ret[i];
     }
@@ -117,7 +117,7 @@ libqt_string KCountry_CurrencyCode(const KCountry* self) {
 libqt_list /* of KCountrySubdivision* */ KCountry_Subdivisions(const KCountry* self) {
     QList<KCountrySubdivision> _ret = self->subdivisions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KCountrySubdivision** _arr = static_cast<KCountrySubdivision**>(malloc(sizeof(KCountrySubdivision*) * _ret.size()));
+    KCountrySubdivision** _arr = static_cast<KCountrySubdivision**>(malloc(sizeof(KCountrySubdivision*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KCountrySubdivision(_ret[i]);
     }
@@ -146,7 +146,7 @@ KCountry* KCountry_FromQLocale(uint16_t country) {
 libqt_list /* of KCountry* */ KCountry_AllCountries() {
     QList<KCountry> _ret = KCountry::allCountries();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KCountry** _arr = static_cast<KCountry**>(malloc(sizeof(KCountry*) * _ret.size()));
+    KCountry** _arr = static_cast<KCountry**>(malloc(sizeof(KCountry*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KCountry(_ret[i]);
     }

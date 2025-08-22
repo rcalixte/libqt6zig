@@ -203,8 +203,8 @@ pub const qwidgetaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetAction, slot: fn () callconv(.c) []QtC.QWidget ```
-    pub fn OnCreatedWidgets(self: ?*anyopaque, slot: fn () callconv(.c) []QtC.QWidget) void {
+    /// ``` self: QtC.QWidgetAction, slot: fn () callconv(.c) [*:null]QtC.QWidget ```
+    pub fn OnCreatedWidgets(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QWidget) void {
         qtc.QWidgetAction_OnCreatedWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

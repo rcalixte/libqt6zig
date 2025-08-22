@@ -104,8 +104,8 @@ pub const qprogressbar = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QProgressBar, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnText(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QProgressBar, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnText(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QProgressBar_OnText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -4465,8 +4465,8 @@ pub const qprogressbar = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QProgressBar, slot: fn (self: QtC.QProgressBar, eventType: []u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, []u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+    /// ``` self: QtC.QProgressBar, slot: fn (self: QtC.QProgressBar, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QProgressBar_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

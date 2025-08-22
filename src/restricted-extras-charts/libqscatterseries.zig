@@ -8,7 +8,7 @@ const qxyseries_enums = @import("libqxyseries.zig").enums;
 const std = @import("std");
 pub const map_i32_mapi32qtcqvariant = std.AutoHashMapUnmanaged(i32, map_i32_qtcqvariant);
 pub const map_i32_qtcqvariant = std.AutoHashMapUnmanaged(i32, QtC.QVariant);
-pub const struct_f64_f64 = struct { first: f64, second: f64 };
+pub const struct_f64_f64 = extern struct { first: f64, second: f64 };
 
 /// https://doc.qt.io/qt-6/qscatterseries-qtcharts.html
 pub const qscatterseries = struct {

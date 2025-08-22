@@ -13,7 +13,7 @@ libqt_list /* of libqt_string */ KEmailAddress_SplitAddressList(const libqt_stri
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
     QList<QString> _ret = KEmailAddress::splitAddressList(param1_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -26,7 +26,7 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     using QsciLexerMASM_Lexer_Callback = const char* (*)();
     using QsciLexerMASM_LexerId_Callback = int (*)();
     using QsciLexerMASM_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerMASM_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
+    using QsciLexerMASM_AutoCompletionWordSeparators_Callback = const char** (*)();
     using QsciLexerMASM_BlockEnd_Callback = const char* (*)(const QsciLexerMASM*, int*);
     using QsciLexerMASM_BlockLookback_Callback = int (*)();
     using QsciLexerMASM_BlockStart_Callback = const char* (*)(const QsciLexerMASM*, int*);
@@ -39,7 +39,7 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     using QsciLexerMASM_IndentationGuideView_Callback = int (*)();
     using QsciLexerMASM_Keywords_Callback = const char* (*)(const QsciLexerMASM*, int);
     using QsciLexerMASM_DefaultStyle_Callback = int (*)();
-    using QsciLexerMASM_Description_Callback = libqt_string (*)(const QsciLexerMASM*, int);
+    using QsciLexerMASM_Description_Callback = const char* (*)(const QsciLexerMASM*, int);
     using QsciLexerMASM_Paper_Callback = QColor* (*)(const QsciLexerMASM*, int);
     using QsciLexerMASM_DefaultColor2_Callback = QColor* (*)(const QsciLexerMASM*, int);
     using QsciLexerMASM_DefaultEolFill_Callback = bool (*)(const QsciLexerMASM*, int);
@@ -63,8 +63,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
     using QsciLexerMASM_CustomEvent_Callback = void (*)(QsciLexerMASM*, QEvent*);
     using QsciLexerMASM_ConnectNotify_Callback = void (*)(QsciLexerMASM*, QMetaMethod*);
     using QsciLexerMASM_DisconnectNotify_Callback = void (*)(QsciLexerMASM*, QMetaMethod*);
-    using QsciLexerMASM_TextAsBytes_Callback = libqt_string (*)(const QsciLexerMASM*, libqt_string);
-    using QsciLexerMASM_BytesAsText_Callback = libqt_string (*)(const QsciLexerMASM*, const char*, int);
+    using QsciLexerMASM_TextAsBytes_Callback = const char* (*)(const QsciLexerMASM*, libqt_string);
+    using QsciLexerMASM_BytesAsText_Callback = const char* (*)(const QsciLexerMASM*, const char*, int);
     using QsciLexerMASM_Sender_Callback = QObject* (*)();
     using QsciLexerMASM_SenderSignalIndex_Callback = int (*)();
     using QsciLexerMASM_Receivers_Callback = int (*)(const QsciLexerMASM*, const char*);
@@ -474,12 +474,13 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
             qscilexermasm_autocompletionwordseparators_isbase = false;
             return QsciLexerMASM::autoCompletionWordSeparators();
         } else if (qscilexermasm_autocompletionwordseparators_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qscilexermasm_autocompletionwordseparators_callback();
+            const char** callback_ret = qscilexermasm_autocompletionwordseparators_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -663,8 +664,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
         if (qscilexermasm_description_callback != nullptr) {
             int cbval1 = style;
 
-            libqt_string callback_ret = qscilexermasm_description_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexermasm_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -1051,8 +1052,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexermasm_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexermasm_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerMASM::textAsBytes(text);
@@ -1068,8 +1069,8 @@ class VirtualQsciLexerMASM final : public QsciLexerMASM {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            libqt_string callback_ret = qscilexermasm_bytesastext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexermasm_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QsciLexerMASM::bytesAsText(bytes, size);

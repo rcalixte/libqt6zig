@@ -26,7 +26,7 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_Lexer_Callback = const char* (*)();
     using QsciLexerPython_LexerId_Callback = int (*)();
     using QsciLexerPython_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerPython_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
+    using QsciLexerPython_AutoCompletionWordSeparators_Callback = const char** (*)();
     using QsciLexerPython_BlockEnd_Callback = const char* (*)(const QsciLexerPython*, int*);
     using QsciLexerPython_BlockLookback_Callback = int (*)();
     using QsciLexerPython_BlockStart_Callback = const char* (*)(const QsciLexerPython*, int*);
@@ -38,7 +38,7 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_Font_Callback = QFont* (*)(const QsciLexerPython*, int);
     using QsciLexerPython_Keywords_Callback = const char* (*)(const QsciLexerPython*, int);
     using QsciLexerPython_DefaultStyle_Callback = int (*)();
-    using QsciLexerPython_Description_Callback = libqt_string (*)(const QsciLexerPython*, int);
+    using QsciLexerPython_Description_Callback = const char* (*)(const QsciLexerPython*, int);
     using QsciLexerPython_Paper_Callback = QColor* (*)(const QsciLexerPython*, int);
     using QsciLexerPython_DefaultColor2_Callback = QColor* (*)(const QsciLexerPython*, int);
     using QsciLexerPython_DefaultEolFill_Callback = bool (*)(const QsciLexerPython*, int);
@@ -62,8 +62,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
     using QsciLexerPython_CustomEvent_Callback = void (*)(QsciLexerPython*, QEvent*);
     using QsciLexerPython_ConnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
     using QsciLexerPython_DisconnectNotify_Callback = void (*)(QsciLexerPython*, QMetaMethod*);
-    using QsciLexerPython_TextAsBytes_Callback = libqt_string (*)(const QsciLexerPython*, libqt_string);
-    using QsciLexerPython_BytesAsText_Callback = libqt_string (*)(const QsciLexerPython*, const char*, int);
+    using QsciLexerPython_TextAsBytes_Callback = const char* (*)(const QsciLexerPython*, libqt_string);
+    using QsciLexerPython_BytesAsText_Callback = const char* (*)(const QsciLexerPython*, const char*, int);
     using QsciLexerPython_Sender_Callback = QObject* (*)();
     using QsciLexerPython_SenderSignalIndex_Callback = int (*)();
     using QsciLexerPython_Receivers_Callback = int (*)(const QsciLexerPython*, const char*);
@@ -467,12 +467,13 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
             qscilexerpython_autocompletionwordseparators_isbase = false;
             return QsciLexerPython::autoCompletionWordSeparators();
         } else if (qscilexerpython_autocompletionwordseparators_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qscilexerpython_autocompletionwordseparators_callback();
+            const char** callback_ret = qscilexerpython_autocompletionwordseparators_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -643,8 +644,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
         if (qscilexerpython_description_callback != nullptr) {
             int cbval1 = style;
 
-            libqt_string callback_ret = qscilexerpython_description_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerpython_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -1031,8 +1032,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexerpython_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerpython_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerPython::textAsBytes(text);
@@ -1048,8 +1049,8 @@ class VirtualQsciLexerPython final : public QsciLexerPython {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            libqt_string callback_ret = qscilexerpython_bytesastext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerpython_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QsciLexerPython::bytesAsText(bytes, size);

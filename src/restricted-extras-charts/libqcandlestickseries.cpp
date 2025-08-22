@@ -117,7 +117,7 @@ void QCandlestickSeries_Clear(QCandlestickSeries* self) {
 libqt_list /* of QCandlestickSet* */ QCandlestickSeries_Sets(const QCandlestickSeries* self) {
     QList<QCandlestickSet*> _ret = self->sets();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCandlestickSet** _arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * _ret.size()));
+    QCandlestickSet** _arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -283,19 +283,19 @@ void QCandlestickSeries_CandlestickSetsAdded(QCandlestickSeries* self, const lib
 }
 
 void QCandlestickSeries_Connect_CandlestickSetsAdded(QCandlestickSeries* self, intptr_t slot) {
-    void (*slotFunc)(QCandlestickSeries*, libqt_list /* of QCandlestickSet* */) = reinterpret_cast<void (*)(QCandlestickSeries*, libqt_list /* of QCandlestickSet* */)>(slot);
+    void (*slotFunc)(QCandlestickSeries*, QCandlestickSet**) = reinterpret_cast<void (*)(QCandlestickSeries*, QCandlestickSet**)>(slot);
     QCandlestickSeries::connect(self, &QCandlestickSeries::candlestickSetsAdded, [self, slotFunc](const QList<QCandlestickSet*>& sets) {
         const QList<QCandlestickSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * sets_ret.size()));
+        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (sets_ret.size() + 1)));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QCandlestickSet* */ sigval1 = sets_out;
+        // Append sentinel value to the list
+        sets_arr[sets_ret.size()] = nullptr;
+        QCandlestickSet** sigval1 = sets_arr;
         slotFunc(self, sigval1);
+        free(sets_arr);
     });
 }
 
@@ -310,19 +310,19 @@ void QCandlestickSeries_CandlestickSetsRemoved(QCandlestickSeries* self, const l
 }
 
 void QCandlestickSeries_Connect_CandlestickSetsRemoved(QCandlestickSeries* self, intptr_t slot) {
-    void (*slotFunc)(QCandlestickSeries*, libqt_list /* of QCandlestickSet* */) = reinterpret_cast<void (*)(QCandlestickSeries*, libqt_list /* of QCandlestickSet* */)>(slot);
+    void (*slotFunc)(QCandlestickSeries*, QCandlestickSet**) = reinterpret_cast<void (*)(QCandlestickSeries*, QCandlestickSet**)>(slot);
     QCandlestickSeries::connect(self, &QCandlestickSeries::candlestickSetsRemoved, [self, slotFunc](const QList<QCandlestickSet*>& sets) {
         const QList<QCandlestickSet*>& sets_ret = sets;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * sets_ret.size()));
+        QCandlestickSet** sets_arr = static_cast<QCandlestickSet**>(malloc(sizeof(QCandlestickSet*) * (sets_ret.size() + 1)));
         for (qsizetype i = 0; i < sets_ret.size(); ++i) {
             sets_arr[i] = sets_ret[i];
         }
-        libqt_list sets_out;
-        sets_out.len = sets_ret.size();
-        sets_out.data = static_cast<void*>(sets_arr);
-        libqt_list /* of QCandlestickSet* */ sigval1 = sets_out;
+        // Append sentinel value to the list
+        sets_arr[sets_ret.size()] = nullptr;
+        QCandlestickSet** sigval1 = sets_arr;
         slotFunc(self, sigval1);
+        free(sets_arr);
     });
 }
 

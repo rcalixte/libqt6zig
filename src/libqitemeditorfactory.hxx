@@ -18,7 +18,7 @@ class VirtualQItemEditorFactory final : public QItemEditorFactory {
 
     // Virtual class public types (including callbacks)
     using QItemEditorFactory_CreateEditor_Callback = QWidget* (*)(const QItemEditorFactory*, int, QWidget*);
-    using QItemEditorFactory_ValuePropertyName_Callback = libqt_string (*)(const QItemEditorFactory*, int);
+    using QItemEditorFactory_ValuePropertyName_Callback = const char* (*)(const QItemEditorFactory*, int);
 
   protected:
     // Instance callback storage
@@ -70,8 +70,8 @@ class VirtualQItemEditorFactory final : public QItemEditorFactory {
         } else if (qitemeditorfactory_valuepropertyname_callback != nullptr) {
             int cbval1 = userType;
 
-            libqt_string callback_ret = qitemeditorfactory_valuepropertyname_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qitemeditorfactory_valuepropertyname_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QItemEditorFactory::valuePropertyName(userType);

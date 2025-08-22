@@ -188,7 +188,7 @@ class VirtualQListWidget final : public QListWidget {
     using QListWidget_SetSelectionModel_Callback = void (*)(QListWidget*, QItemSelectionModel*);
     using QListWidget_DropEvent_Callback = void (*)(QListWidget*, QDropEvent*);
     using QListWidget_Event_Callback = bool (*)(QListWidget*, QEvent*);
-    using QListWidget_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QListWidget_MimeTypes_Callback = const char** (*)();
     using QListWidget_MimeData_Callback = QMimeData* (*)(const QListWidget*, libqt_list /* of QListWidgetItem* */);
     using QListWidget_DropMimeData_Callback = bool (*)(QListWidget*, int, QMimeData*, int);
     using QListWidget_SupportedDropActions_Callback = int (*)();
@@ -217,7 +217,7 @@ class VirtualQListWidget final : public QListWidget {
     using QListWidget_MoveCursor_Callback = QModelIndex* (*)(QListWidget*, int, int);
     using QListWidget_SetSelection_Callback = void (*)(QListWidget*, QRect*, int);
     using QListWidget_VisualRegionForSelection_Callback = QRegion* (*)(const QListWidget*, QItemSelection*);
-    using QListWidget_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QListWidget_SelectedIndexes_Callback = QModelIndex** (*)();
     using QListWidget_UpdateGeometries_Callback = void (*)();
     using QListWidget_IsIndexHidden_Callback = bool (*)(const QListWidget*, QModelIndex*);
     using QListWidget_SelectionChanged_Callback = void (*)(QListWidget*, QItemSelection*, QItemSelection*);
@@ -1005,12 +1005,13 @@ class VirtualQListWidget final : public QListWidget {
             qlistwidget_mimetypes_isbase = false;
             return QListWidget::mimeTypes();
         } else if (qlistwidget_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qlistwidget_mimetypes_callback();
+            const char** callback_ret = qlistwidget_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -1027,7 +1028,7 @@ class VirtualQListWidget final : public QListWidget {
         } else if (qlistwidget_mimedata_callback != nullptr) {
             const QList<QListWidgetItem*>& items_ret = items;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QListWidgetItem** items_arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * items_ret.size()));
+            QListWidgetItem** items_arr = static_cast<QListWidgetItem**>(malloc(sizeof(QListWidgetItem*) * (items_ret.size() + 1)));
             for (qsizetype i = 0; i < items_ret.size(); ++i) {
                 items_arr[i] = items_ret[i];
             }
@@ -1193,7 +1194,7 @@ class VirtualQListWidget final : public QListWidget {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
@@ -1466,13 +1467,13 @@ class VirtualQListWidget final : public QListWidget {
             qlistwidget_selectedindexes_isbase = false;
             return QListWidget::selectedIndexes();
         } else if (qlistwidget_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qlistwidget_selectedindexes_callback();
+            QModelIndex** callback_ret = qlistwidget_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QListWidget::selectedIndexes();

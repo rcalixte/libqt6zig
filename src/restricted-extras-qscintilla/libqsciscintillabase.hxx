@@ -19,7 +19,7 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
     // Virtual class public types (including callbacks)
     using QsciScintillaBase_Metacall_Callback = int (*)(QsciScintillaBase*, int, int, void**);
     using QsciScintillaBase_CanInsertFromMimeData_Callback = bool (*)(const QsciScintillaBase*, QMimeData*);
-    using QsciScintillaBase_FromMimeData_Callback = libqt_string (*)(const QsciScintillaBase*, QMimeData*, bool*);
+    using QsciScintillaBase_FromMimeData_Callback = const char* (*)(const QsciScintillaBase*, QMimeData*, bool*);
     using QsciScintillaBase_ToMimeData_Callback = QMimeData* (*)(const QsciScintillaBase*, libqt_string, bool);
     using QsciScintillaBase_ChangeEvent_Callback = void (*)(QsciScintillaBase*, QEvent*);
     using QsciScintillaBase_ContextMenuEvent_Callback = void (*)(QsciScintillaBase*, QContextMenuEvent*);
@@ -501,8 +501,8 @@ class VirtualQsciScintillaBase final : public QsciScintillaBase {
             QMimeData* cbval1 = (QMimeData*)source;
             bool* cbval2 = &rectangular;
 
-            libqt_string callback_ret = qsciscintillabase_frommimedata_callback(this, cbval1, cbval2);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsciscintillabase_frommimedata_callback(this, cbval1, cbval2);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciScintillaBase::fromMimeData(source, rectangular);

@@ -27,10 +27,10 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     using QSqlRelationalTableModel_SetRelation_Callback = void (*)(QSqlRelationalTableModel*, int, QSqlRelation*);
     using QSqlRelationalTableModel_RelationModel_Callback = QSqlTableModel* (*)(const QSqlRelationalTableModel*, int);
     using QSqlRelationalTableModel_RevertRow_Callback = void (*)(QSqlRelationalTableModel*, int);
-    using QSqlRelationalTableModel_SelectStatement_Callback = libqt_string (*)();
+    using QSqlRelationalTableModel_SelectStatement_Callback = const char* (*)();
     using QSqlRelationalTableModel_UpdateRowInTable_Callback = bool (*)(QSqlRelationalTableModel*, int, QSqlRecord*);
     using QSqlRelationalTableModel_InsertRowIntoTable_Callback = bool (*)(QSqlRelationalTableModel*, QSqlRecord*);
-    using QSqlRelationalTableModel_OrderByClause_Callback = libqt_string (*)();
+    using QSqlRelationalTableModel_OrderByClause_Callback = const char* (*)();
     using QSqlRelationalTableModel_Flags_Callback = int (*)(const QSqlRelationalTableModel*, QModelIndex*);
     using QSqlRelationalTableModel_ClearItemData_Callback = bool (*)(QSqlRelationalTableModel*, QModelIndex*);
     using QSqlRelationalTableModel_HeaderData_Callback = QVariant* (*)(const QSqlRelationalTableModel*, int, int, int);
@@ -58,7 +58,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     using QSqlRelationalTableModel_DropMimeData_Callback = bool (*)(QSqlRelationalTableModel*, QMimeData*, int, int, int, QModelIndex*);
     using QSqlRelationalTableModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const QSqlRelationalTableModel*, QModelIndex*);
     using QSqlRelationalTableModel_SetItemData_Callback = bool (*)(QSqlRelationalTableModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
-    using QSqlRelationalTableModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QSqlRelationalTableModel_MimeTypes_Callback = const char** (*)();
     using QSqlRelationalTableModel_MimeData_Callback = QMimeData* (*)(const QSqlRelationalTableModel*, libqt_list /* of QModelIndex* */);
     using QSqlRelationalTableModel_CanDropMimeData_Callback = bool (*)(const QSqlRelationalTableModel*, QMimeData*, int, int, int, QModelIndex*);
     using QSqlRelationalTableModel_SupportedDropActions_Callback = int (*)();
@@ -66,7 +66,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     using QSqlRelationalTableModel_MoveRows_Callback = bool (*)(QSqlRelationalTableModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QSqlRelationalTableModel_MoveColumns_Callback = bool (*)(QSqlRelationalTableModel*, QModelIndex*, int, int, QModelIndex*, int);
     using QSqlRelationalTableModel_Buddy_Callback = QModelIndex* (*)(const QSqlRelationalTableModel*, QModelIndex*);
-    using QSqlRelationalTableModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QSqlRelationalTableModel*, QModelIndex*, int, QVariant*, int, int);
+    using QSqlRelationalTableModel_Match_Callback = QModelIndex** (*)(const QSqlRelationalTableModel*, QModelIndex*, int, QVariant*, int, int);
     using QSqlRelationalTableModel_Span_Callback = QSize* (*)(const QSqlRelationalTableModel*, QModelIndex*);
     using QSqlRelationalTableModel_MultiData_Callback = void (*)(const QSqlRelationalTableModel*, QModelIndex*, QModelRoleDataSpan*);
     using QSqlRelationalTableModel_ResetInternalData_Callback = void (*)();
@@ -99,7 +99,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
     using QSqlRelationalTableModel_EndMoveColumns_Callback = void (*)();
     using QSqlRelationalTableModel_ChangePersistentIndex_Callback = void (*)(QSqlRelationalTableModel*, QModelIndex*, QModelIndex*);
     using QSqlRelationalTableModel_ChangePersistentIndexList_Callback = void (*)(QSqlRelationalTableModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QSqlRelationalTableModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QSqlRelationalTableModel_PersistentIndexList_Callback = QModelIndex** (*)();
     using QSqlRelationalTableModel_Sender_Callback = QObject* (*)();
     using QSqlRelationalTableModel_SenderSignalIndex_Callback = int (*)();
     using QSqlRelationalTableModel_Receivers_Callback = int (*)(const QSqlRelationalTableModel*, const char*);
@@ -731,8 +731,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             qsqlrelationaltablemodel_selectstatement_isbase = false;
             return QSqlRelationalTableModel::selectStatement();
         } else if (qsqlrelationaltablemodel_selectstatement_callback != nullptr) {
-            libqt_string callback_ret = qsqlrelationaltablemodel_selectstatement_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsqlrelationaltablemodel_selectstatement_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSqlRelationalTableModel::selectStatement();
@@ -780,8 +780,8 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             qsqlrelationaltablemodel_orderbyclause_isbase = false;
             return QSqlRelationalTableModel::orderByClause();
         } else if (qsqlrelationaltablemodel_orderbyclause_callback != nullptr) {
-            libqt_string callback_ret = qsqlrelationaltablemodel_orderbyclause_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qsqlrelationaltablemodel_orderbyclause_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QSqlRelationalTableModel::orderByClause();
@@ -1274,12 +1274,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             qsqlrelationaltablemodel_mimetypes_isbase = false;
             return QSqlRelationalTableModel::mimeTypes();
         } else if (qsqlrelationaltablemodel_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qsqlrelationaltablemodel_mimetypes_callback();
+            const char** callback_ret = qsqlrelationaltablemodel_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -1296,7 +1297,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         } else if (qsqlrelationaltablemodel_mimedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1438,13 +1439,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qsqlrelationaltablemodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndex** callback_ret = qsqlrelationaltablemodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QSqlRelationalTableModel::match(start, role, value, hits, flags);
@@ -1817,7 +1818,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         } else if (qsqlrelationaltablemodel_encodedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1954,7 +1955,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
         } else if (qsqlrelationaltablemodel_changepersistentindexlist_callback != nullptr) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size() + 1)));
             for (qsizetype i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
             }
@@ -1964,7 +1965,7 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             libqt_list /* of QModelIndex* */ cbval1 = from_out;
             const QList<QModelIndex>& to_ret = to;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size() + 1)));
             for (qsizetype i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);
             }
@@ -1985,13 +1986,13 @@ class VirtualQSqlRelationalTableModel final : public QSqlRelationalTableModel {
             qsqlrelationaltablemodel_persistentindexlist_isbase = false;
             return QSqlRelationalTableModel::persistentIndexList();
         } else if (qsqlrelationaltablemodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qsqlrelationaltablemodel_persistentindexlist_callback();
+            QModelIndex** callback_ret = qsqlrelationaltablemodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QSqlRelationalTableModel::persistentIndexList();

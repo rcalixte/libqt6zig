@@ -24,13 +24,13 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
     using QStyledItemDelegate_SetEditorData_Callback = void (*)(const QStyledItemDelegate*, QWidget*, QModelIndex*);
     using QStyledItemDelegate_SetModelData_Callback = void (*)(const QStyledItemDelegate*, QWidget*, QAbstractItemModel*, QModelIndex*);
     using QStyledItemDelegate_UpdateEditorGeometry_Callback = void (*)(const QStyledItemDelegate*, QWidget*, QStyleOptionViewItem*, QModelIndex*);
-    using QStyledItemDelegate_DisplayText_Callback = libqt_string (*)(const QStyledItemDelegate*, QVariant*, QLocale*);
+    using QStyledItemDelegate_DisplayText_Callback = const char* (*)(const QStyledItemDelegate*, QVariant*, QLocale*);
     using QStyledItemDelegate_InitStyleOption_Callback = void (*)(const QStyledItemDelegate*, QStyleOptionViewItem*, QModelIndex*);
     using QStyledItemDelegate_EventFilter_Callback = bool (*)(QStyledItemDelegate*, QObject*, QEvent*);
     using QStyledItemDelegate_EditorEvent_Callback = bool (*)(QStyledItemDelegate*, QEvent*, QAbstractItemModel*, QStyleOptionViewItem*, QModelIndex*);
     using QStyledItemDelegate_DestroyEditor_Callback = void (*)(const QStyledItemDelegate*, QWidget*, QModelIndex*);
     using QStyledItemDelegate_HelpEvent_Callback = bool (*)(QStyledItemDelegate*, QHelpEvent*, QAbstractItemView*, QStyleOptionViewItem*, QModelIndex*);
-    using QStyledItemDelegate_PaintingRoles_Callback = libqt_list /* of int */ (*)();
+    using QStyledItemDelegate_PaintingRoles_Callback = int* (*)();
     using QStyledItemDelegate_Event_Callback = bool (*)(QStyledItemDelegate*, QEvent*);
     using QStyledItemDelegate_TimerEvent_Callback = void (*)(QStyledItemDelegate*, QTimerEvent*);
     using QStyledItemDelegate_ChildEvent_Callback = void (*)(QStyledItemDelegate*, QChildEvent*);
@@ -324,8 +324,8 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             // Cast returned reference into pointer
             QLocale* cbval2 = const_cast<QLocale*>(&locale_ret);
 
-            libqt_string callback_ret = qstyleditemdelegate_displaytext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qstyleditemdelegate_displaytext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QStyledItemDelegate::displayText(value, locale);
@@ -432,12 +432,10 @@ class VirtualQStyledItemDelegate final : public QStyledItemDelegate {
             qstyleditemdelegate_paintingroles_isbase = false;
             return QStyledItemDelegate::paintingRoles();
         } else if (qstyleditemdelegate_paintingroles_callback != nullptr) {
-            libqt_list /* of int */ callback_ret = qstyleditemdelegate_paintingroles_callback();
+            int* callback_ret = qstyleditemdelegate_paintingroles_callback();
             QList<int> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            int* callback_ret_arr = static_cast<int*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(static_cast<int>(callback_ret_arr[i]));
+            for (int* ptr = callback_ret; *ptr != -1; ++ptr) {
+                callback_ret_QList.push_back(*ptr);
             }
             return callback_ret_QList;
         } else {

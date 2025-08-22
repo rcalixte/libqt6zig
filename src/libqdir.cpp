@@ -112,7 +112,7 @@ libqt_list /* of libqt_string */ QDir_SearchPaths(const libqt_string prefix) {
     QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
     QList<QString> _ret = QDir::searchPaths(prefix_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -219,7 +219,7 @@ bool QDir_CdUp(QDir* self) {
 libqt_list /* of libqt_string */ QDir_NameFilters(const QDir* self) {
     QList<QString> _ret = self->nameFilters();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -288,7 +288,7 @@ libqt_list /* of libqt_string */ QDir_NameFiltersFromString(const libqt_string n
     QString nameFilter_QString = QString::fromUtf8(nameFilter.data, nameFilter.len);
     QList<QString> _ret = QDir::nameFiltersFromString(nameFilter_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -309,7 +309,7 @@ libqt_list /* of libqt_string */ QDir_NameFiltersFromString(const libqt_string n
 libqt_list /* of libqt_string */ QDir_EntryList(const QDir* self) {
     QList<QString> _ret = self->entryList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -337,7 +337,7 @@ libqt_list /* of libqt_string */ QDir_EntryList2(const QDir* self, const libqt_l
     }
     QList<QString> _ret = self->entryList(nameFilters_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -358,7 +358,7 @@ libqt_list /* of libqt_string */ QDir_EntryList2(const QDir* self, const libqt_l
 libqt_list /* of QFileInfo* */ QDir_EntryInfoList(const QDir* self) {
     QList<QFileInfo> _ret = self->entryInfoList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
+    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QFileInfo(_ret[i]);
     }
@@ -378,7 +378,7 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList2(const QDir* self, const libqt
     }
     QList<QFileInfo> _ret = self->entryInfoList(nameFilters_QList);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
+    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QFileInfo(_ret[i]);
     }
@@ -470,7 +470,7 @@ bool QDir_Exists2(const QDir* self, const libqt_string name) {
 libqt_list /* of QFileInfo* */ QDir_Drives() {
     QList<QFileInfo> _ret = QDir::drives();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
+    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QFileInfo(_ret[i]);
     }
@@ -603,7 +603,7 @@ bool QDir_IsEmpty1(const QDir* self, int filters) {
 libqt_list /* of libqt_string */ QDir_EntryList1(const QDir* self, int filters) {
     QList<QString> _ret = self->entryList(static_cast<QDir::Filters>(filters));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -624,7 +624,7 @@ libqt_list /* of libqt_string */ QDir_EntryList1(const QDir* self, int filters) 
 libqt_list /* of libqt_string */ QDir_EntryList22(const QDir* self, int filters, int sort) {
     QList<QString> _ret = self->entryList(static_cast<QDir::Filters>(filters), static_cast<QDir::SortFlags>(sort));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -652,7 +652,7 @@ libqt_list /* of libqt_string */ QDir_EntryList23(const QDir* self, const libqt_
     }
     QList<QString> _ret = self->entryList(nameFilters_QList, static_cast<QDir::Filters>(filters));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -680,7 +680,7 @@ libqt_list /* of libqt_string */ QDir_EntryList3(const QDir* self, const libqt_l
     }
     QList<QString> _ret = self->entryList(nameFilters_QList, static_cast<QDir::Filters>(filters), static_cast<QDir::SortFlags>(sort));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -701,7 +701,7 @@ libqt_list /* of libqt_string */ QDir_EntryList3(const QDir* self, const libqt_l
 libqt_list /* of QFileInfo* */ QDir_EntryInfoList1(const QDir* self, int filters) {
     QList<QFileInfo> _ret = self->entryInfoList(static_cast<QDir::Filters>(filters));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
+    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QFileInfo(_ret[i]);
     }
@@ -714,7 +714,7 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList1(const QDir* self, int filters
 libqt_list /* of QFileInfo* */ QDir_EntryInfoList22(const QDir* self, int filters, int sort) {
     QList<QFileInfo> _ret = self->entryInfoList(static_cast<QDir::Filters>(filters), static_cast<QDir::SortFlags>(sort));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
+    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QFileInfo(_ret[i]);
     }
@@ -734,7 +734,7 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList23(const QDir* self, const libq
     }
     QList<QFileInfo> _ret = self->entryInfoList(nameFilters_QList, static_cast<QDir::Filters>(filters));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
+    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QFileInfo(_ret[i]);
     }
@@ -754,7 +754,7 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList3(const QDir* self, const libqt
     }
     QList<QFileInfo> _ret = self->entryInfoList(nameFilters_QList, static_cast<QDir::Filters>(filters), static_cast<QDir::SortFlags>(sort));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * _ret.size()));
+    QFileInfo** _arr = static_cast<QFileInfo**>(malloc(sizeof(QFileInfo*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QFileInfo(_ret[i]);
     }

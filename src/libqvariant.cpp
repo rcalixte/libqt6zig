@@ -312,7 +312,7 @@ libqt_string QVariant_ToString(const QVariant* self) {
 libqt_list /* of libqt_string */ QVariant_ToStringList(const QVariant* self) {
     QList<QString> _ret = self->toStringList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -349,7 +349,7 @@ QDateTime* QVariant_ToDateTime(const QVariant* self) {
 libqt_list /* of QVariant* */ QVariant_ToList(const QVariant* self) {
     QList<QVariant> _ret = self->toList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }

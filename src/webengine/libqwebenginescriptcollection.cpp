@@ -24,7 +24,7 @@ libqt_list /* of QWebEngineScript* */ QWebEngineScriptCollection_Find(const QWeb
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QList<QWebEngineScript> _ret = self->find(name_QString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineScript** _arr = static_cast<QWebEngineScript**>(malloc(sizeof(QWebEngineScript*) * _ret.size()));
+    QWebEngineScript** _arr = static_cast<QWebEngineScript**>(malloc(sizeof(QWebEngineScript*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineScript(_ret[i]);
     }
@@ -59,7 +59,7 @@ void QWebEngineScriptCollection_Clear(QWebEngineScriptCollection* self) {
 libqt_list /* of QWebEngineScript* */ QWebEngineScriptCollection_ToList(const QWebEngineScriptCollection* self) {
     QList<QWebEngineScript> _ret = self->toList();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineScript** _arr = static_cast<QWebEngineScript**>(malloc(sizeof(QWebEngineScript*) * _ret.size()));
+    QWebEngineScript** _arr = static_cast<QWebEngineScript**>(malloc(sizeof(QWebEngineScript*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineScript(_ret[i]);
     }

@@ -69,7 +69,7 @@ void QSslConfiguration_SetPeerVerifyDepth(QSslConfiguration* self, int depth) {
 libqt_list /* of QSslCertificate* */ QSslConfiguration_LocalCertificateChain(const QSslConfiguration* self) {
     QList<QSslCertificate> _ret = self->localCertificateChain();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -104,7 +104,7 @@ QSslCertificate* QSslConfiguration_PeerCertificate(const QSslConfiguration* self
 libqt_list /* of QSslCertificate* */ QSslConfiguration_PeerCertificateChain(const QSslConfiguration* self) {
     QList<QSslCertificate> _ret = self->peerCertificateChain();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -133,7 +133,7 @@ void QSslConfiguration_SetPrivateKey(QSslConfiguration* self, const QSslKey* key
 libqt_list /* of QSslCipher* */ QSslConfiguration_Ciphers(const QSslConfiguration* self) {
     QList<QSslCipher> _ret = self->ciphers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCipher** _arr = static_cast<QSslCipher**>(malloc(sizeof(QSslCipher*) * _ret.size()));
+    QSslCipher** _arr = static_cast<QSslCipher**>(malloc(sizeof(QSslCipher*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCipher(_ret[i]);
     }
@@ -161,7 +161,7 @@ void QSslConfiguration_SetCiphers2(QSslConfiguration* self, const libqt_string c
 libqt_list /* of QSslCipher* */ QSslConfiguration_SupportedCiphers() {
     QList<QSslCipher> _ret = QSslConfiguration::supportedCiphers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCipher** _arr = static_cast<QSslCipher**>(malloc(sizeof(QSslCipher*) * _ret.size()));
+    QSslCipher** _arr = static_cast<QSslCipher**>(malloc(sizeof(QSslCipher*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCipher(_ret[i]);
     }
@@ -174,7 +174,7 @@ libqt_list /* of QSslCipher* */ QSslConfiguration_SupportedCiphers() {
 libqt_list /* of QSslCertificate* */ QSslConfiguration_CaCertificates(const QSslConfiguration* self) {
     QList<QSslCertificate> _ret = self->caCertificates();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -216,7 +216,7 @@ void QSslConfiguration_AddCaCertificates2(QSslConfiguration* self, const libqt_l
 libqt_list /* of QSslCertificate* */ QSslConfiguration_SystemCaCertificates() {
     QList<QSslCertificate> _ret = QSslConfiguration::systemCaCertificates();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * _ret.size()));
+    QSslCertificate** _arr = static_cast<QSslCertificate**>(malloc(sizeof(QSslCertificate*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslCertificate(_ret[i]);
     }
@@ -260,7 +260,7 @@ QSslKey* QSslConfiguration_EphemeralServerKey(const QSslConfiguration* self) {
 libqt_list /* of QSslEllipticCurve* */ QSslConfiguration_EllipticCurves(const QSslConfiguration* self) {
     QList<QSslEllipticCurve> _ret = self->ellipticCurves();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslEllipticCurve** _arr = static_cast<QSslEllipticCurve**>(malloc(sizeof(QSslEllipticCurve*) * _ret.size()));
+    QSslEllipticCurve** _arr = static_cast<QSslEllipticCurve**>(malloc(sizeof(QSslEllipticCurve*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslEllipticCurve(_ret[i]);
     }
@@ -283,7 +283,7 @@ void QSslConfiguration_SetEllipticCurves(QSslConfiguration* self, const libqt_li
 libqt_list /* of QSslEllipticCurve* */ QSslConfiguration_SupportedEllipticCurves() {
     QList<QSslEllipticCurve> _ret = QSslConfiguration::supportedEllipticCurves();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslEllipticCurve** _arr = static_cast<QSslEllipticCurve**>(malloc(sizeof(QSslEllipticCurve*) * _ret.size()));
+    QSslEllipticCurve** _arr = static_cast<QSslEllipticCurve**>(malloc(sizeof(QSslEllipticCurve*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslEllipticCurve(_ret[i]);
     }
@@ -387,7 +387,7 @@ void QSslConfiguration_SetAllowedNextProtocols(QSslConfiguration* self, const li
 libqt_list /* of libqt_string */ QSslConfiguration_AllowedNextProtocols(const QSslConfiguration* self) {
     QList<QByteArray> _ret = self->allowedNextProtocols();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;

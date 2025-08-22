@@ -64,7 +64,7 @@ void QScroller_UngrabGesture(QObject* target) {
 libqt_list /* of QScroller* */ QScroller_ActiveScrollers() {
     QList<QScroller*> _ret = QScroller::activeScrollers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QScroller** _arr = static_cast<QScroller**>(malloc(sizeof(QScroller*) * _ret.size()));
+    QScroller** _arr = static_cast<QScroller**>(malloc(sizeof(QScroller*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

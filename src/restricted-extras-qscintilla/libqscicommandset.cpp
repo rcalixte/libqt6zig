@@ -15,7 +15,7 @@ bool QsciCommandSet_WriteSettings(QsciCommandSet* self, QSettings* qs) {
 libqt_list /* of QsciCommand* */ QsciCommandSet_Commands(QsciCommandSet* self) {
     QList<QsciCommand*>& _ret = self->commands();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QsciCommand** _arr = static_cast<QsciCommand**>(malloc(sizeof(QsciCommand*) * _ret.size()));
+    QsciCommand** _arr = static_cast<QsciCommand**>(malloc(sizeof(QsciCommand*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

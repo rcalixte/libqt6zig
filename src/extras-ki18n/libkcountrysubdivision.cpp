@@ -67,7 +67,7 @@ KCountrySubdivision* KCountrySubdivision_Parent(const KCountrySubdivision* self)
 libqt_list /* of const char* */ KCountrySubdivision_TimeZoneIds(const KCountrySubdivision* self) {
     QList<const char*> _ret = self->timeZoneIds();
     // Convert QList<> from C++ memory to manually-managed C memory
-    const char** _arr = static_cast<const char**>(malloc(sizeof(const char*) * _ret.size()));
+    const char** _arr = static_cast<const char**>(malloc(sizeof(const char*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = (const char*)_ret[i];
     }
@@ -80,7 +80,7 @@ libqt_list /* of const char* */ KCountrySubdivision_TimeZoneIds(const KCountrySu
 libqt_list /* of KCountrySubdivision* */ KCountrySubdivision_Subdivisions(const KCountrySubdivision* self) {
     QList<KCountrySubdivision> _ret = self->subdivisions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    KCountrySubdivision** _arr = static_cast<KCountrySubdivision**>(malloc(sizeof(KCountrySubdivision*) * _ret.size()));
+    KCountrySubdivision** _arr = static_cast<KCountrySubdivision**>(malloc(sizeof(KCountrySubdivision*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new KCountrySubdivision(_ret[i]);
     }

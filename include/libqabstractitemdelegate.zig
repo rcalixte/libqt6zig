@@ -306,8 +306,8 @@ pub const qabstractitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractItemDelegate, slot: fn () callconv(.c) []i32 ```
-    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) []i32) void {
+    /// ``` self: QtC.QAbstractItemDelegate, slot: fn () callconv(.c) [*:-1]i32 ```
+    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) [*:-1]i32) void {
         qtc.QAbstractItemDelegate_OnPaintingRoles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

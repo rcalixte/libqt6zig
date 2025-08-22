@@ -98,8 +98,8 @@ pub const qfileiconprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, param1: QtC.QFileInfo) callconv(.c) []const u8 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 ```
+    pub fn OnType(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
         qtc.QFileIconProvider_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

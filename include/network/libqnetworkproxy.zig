@@ -626,8 +626,8 @@ pub const qnetworkproxyfactory = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkProxyFactory, slot: fn (self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery) callconv(.c) []QtC.QNetworkProxy ```
-    pub fn OnQueryProxy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) []QtC.QNetworkProxy) void {
+    /// ``` self: QtC.QNetworkProxyFactory, slot: fn (self: QtC.QNetworkProxyFactory, query: QtC.QNetworkProxyQuery) callconv(.c) [*:null]QtC.QNetworkProxy ```
+    pub fn OnQueryProxy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QNetworkProxy) void {
         qtc.QNetworkProxyFactory_OnQueryProxy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

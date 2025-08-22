@@ -3,7 +3,7 @@ const qtc = @import("qt6c");
 const qabstractsocket_enums = @import("libqabstractsocket.zig").enums;
 const qhostaddress_enums = enums;
 const std = @import("std");
-pub const struct_qtcqhostaddress_i32 = struct { first: QtC.QHostAddress, second: i32 };
+pub const struct_qtcqhostaddress_i32 = extern struct { first: QtC.QHostAddress, second: i32 };
 
 /// https://doc.qt.io/qt-6/qipv6address.html
 pub const qipv6address = struct {

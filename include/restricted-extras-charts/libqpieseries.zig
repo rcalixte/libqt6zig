@@ -303,8 +303,8 @@ pub const qpieseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#added)
     ///
-    /// ``` self: QtC.QPieSeries, slot: fn (self: QtC.QPieSeries, slices: []QtC.QPieSlice) callconv(.c) void ```
-    pub fn OnAdded(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QPieSeries, slot: fn (self: QtC.QPieSeries, slices: [*]QtC.QPieSlice) callconv(.c) void ```
+    pub fn OnAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Added(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -321,8 +321,8 @@ pub const qpieseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpieseries-qtcharts.html#removed)
     ///
-    /// ``` self: QtC.QPieSeries, slot: fn (self: QtC.QPieSeries, slices: []QtC.QPieSlice) callconv(.c) void ```
-    pub fn OnRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, []?*anyopaque) callconv(.c) void) void {
+    /// ``` self: QtC.QPieSeries, slot: fn (self: QtC.QPieSeries, slices: [*]QtC.QPieSlice) callconv(.c) void ```
+    pub fn OnRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
         qtc.QPieSeries_Connect_Removed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

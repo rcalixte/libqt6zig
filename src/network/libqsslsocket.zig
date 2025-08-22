@@ -984,8 +984,8 @@ pub const qsslsocket = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslsocket.html#sslErrors)
     ///
-    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, errors: []QtC.QSslError) callconv(.c) void ```
-    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QSslError) callconv(.c) void) void {
+    /// ``` self: QtC.QSslSocket, slot: fn (self: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void ```
+    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QSslSocket_Connect_SslErrors(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

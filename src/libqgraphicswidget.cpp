@@ -313,7 +313,7 @@ void QGraphicsWidget_RemoveAction(QGraphicsWidget* self, QAction* action) {
 libqt_list /* of QAction* */ QGraphicsWidget_Actions(const QGraphicsWidget* self) {
     QList<QAction*> _ret = self->actions();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * _ret.size()));
+    QAction** _arr = static_cast<QAction**>(malloc(sizeof(QAction*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

@@ -244,8 +244,8 @@ pub const qstyleditemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QStyledItemDelegate, slot: fn (self: QtC.QStyledItemDelegate, value: QtC.QVariant, locale: QtC.QLocale) callconv(.c) []const u8 ```
-    pub fn OnDisplayText(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QStyledItemDelegate, slot: fn (self: QtC.QStyledItemDelegate, value: QtC.QVariant, locale: QtC.QLocale) callconv(.c) [*:0]const u8 ```
+    pub fn OnDisplayText(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
         qtc.QStyledItemDelegate_OnDisplayText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -916,8 +916,8 @@ pub const qstyleditemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QStyledItemDelegate, slot: fn () callconv(.c) []i32 ```
-    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) []i32) void {
+    /// ``` self: QtC.QStyledItemDelegate, slot: fn () callconv(.c) [*:-1]i32 ```
+    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) [*:-1]i32) void {
         qtc.QStyledItemDelegate_OnPaintingRoles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

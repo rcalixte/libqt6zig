@@ -29,7 +29,7 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
     using QDateTimeEdit_Validate_Callback = int (*)(const QDateTimeEdit*, libqt_string, int*);
     using QDateTimeEdit_Fixup_Callback = void (*)(const QDateTimeEdit*, libqt_string);
     using QDateTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateTimeEdit*, libqt_string);
-    using QDateTimeEdit_TextFromDateTime_Callback = libqt_string (*)(const QDateTimeEdit*, QDateTime*);
+    using QDateTimeEdit_TextFromDateTime_Callback = const char* (*)(const QDateTimeEdit*, QDateTime*);
     using QDateTimeEdit_StepEnabled_Callback = int (*)();
     using QDateTimeEdit_MousePressEvent_Callback = void (*)(QDateTimeEdit*, QMouseEvent*);
     using QDateTimeEdit_PaintEvent_Callback = void (*)(QDateTimeEdit*, QPaintEvent*);
@@ -655,8 +655,8 @@ class VirtualQDateTimeEdit final : public QDateTimeEdit {
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
 
-            libqt_string callback_ret = qdatetimeedit_textfromdatetime_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qdatetimeedit_textfromdatetime_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QDateTimeEdit::textFromDateTime(dt);
@@ -1575,7 +1575,7 @@ class VirtualQTimeEdit final : public QTimeEdit {
     using QTimeEdit_Validate_Callback = int (*)(const QTimeEdit*, libqt_string, int*);
     using QTimeEdit_Fixup_Callback = void (*)(const QTimeEdit*, libqt_string);
     using QTimeEdit_DateTimeFromText_Callback = QDateTime* (*)(const QTimeEdit*, libqt_string);
-    using QTimeEdit_TextFromDateTime_Callback = libqt_string (*)(const QTimeEdit*, QDateTime*);
+    using QTimeEdit_TextFromDateTime_Callback = const char* (*)(const QTimeEdit*, QDateTime*);
     using QTimeEdit_StepEnabled_Callback = int (*)();
     using QTimeEdit_MousePressEvent_Callback = void (*)(QTimeEdit*, QMouseEvent*);
     using QTimeEdit_PaintEvent_Callback = void (*)(QTimeEdit*, QPaintEvent*);
@@ -2197,8 +2197,8 @@ class VirtualQTimeEdit final : public QTimeEdit {
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
 
-            libqt_string callback_ret = qtimeedit_textfromdatetime_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qtimeedit_textfromdatetime_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QTimeEdit::textFromDateTime(dt);
@@ -3117,7 +3117,7 @@ class VirtualQDateEdit final : public QDateEdit {
     using QDateEdit_Validate_Callback = int (*)(const QDateEdit*, libqt_string, int*);
     using QDateEdit_Fixup_Callback = void (*)(const QDateEdit*, libqt_string);
     using QDateEdit_DateTimeFromText_Callback = QDateTime* (*)(const QDateEdit*, libqt_string);
-    using QDateEdit_TextFromDateTime_Callback = libqt_string (*)(const QDateEdit*, QDateTime*);
+    using QDateEdit_TextFromDateTime_Callback = const char* (*)(const QDateEdit*, QDateTime*);
     using QDateEdit_StepEnabled_Callback = int (*)();
     using QDateEdit_MousePressEvent_Callback = void (*)(QDateEdit*, QMouseEvent*);
     using QDateEdit_PaintEvent_Callback = void (*)(QDateEdit*, QPaintEvent*);
@@ -3739,8 +3739,8 @@ class VirtualQDateEdit final : public QDateEdit {
             // Cast returned reference into pointer
             QDateTime* cbval1 = const_cast<QDateTime*>(&dt_ret);
 
-            libqt_string callback_ret = qdateedit_textfromdatetime_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qdateedit_textfromdatetime_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QDateEdit::textFromDateTime(dt);

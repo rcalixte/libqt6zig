@@ -167,7 +167,7 @@ void QNetworkCookie_Normalize(QNetworkCookie* self, const QUrl* url) {
 libqt_list /* of QNetworkCookie* */ QNetworkCookie_ParseCookies(QByteArrayView* cookieString) {
     QList<QNetworkCookie> _ret = QNetworkCookie::parseCookies(*cookieString);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * _ret.size()));
+    QNetworkCookie** _arr = static_cast<QNetworkCookie**>(malloc(sizeof(QNetworkCookie*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QNetworkCookie(_ret[i]);
     }

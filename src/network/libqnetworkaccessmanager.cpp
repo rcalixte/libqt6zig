@@ -152,7 +152,7 @@ void QNetworkAccessManager_AddStrictTransportSecurityHosts(QNetworkAccessManager
 libqt_list /* of QHstsPolicy* */ QNetworkAccessManager_StrictTransportSecurityHosts(const QNetworkAccessManager* self) {
     QList<QHstsPolicy> _ret = self->strictTransportSecurityHosts();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QHstsPolicy** _arr = static_cast<QHstsPolicy**>(malloc(sizeof(QHstsPolicy*) * _ret.size()));
+    QHstsPolicy** _arr = static_cast<QHstsPolicy**>(malloc(sizeof(QHstsPolicy*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QHstsPolicy(_ret[i]);
     }
@@ -332,20 +332,20 @@ void QNetworkAccessManager_SslErrors(QNetworkAccessManager* self, QNetworkReply*
 }
 
 void QNetworkAccessManager_Connect_SslErrors(QNetworkAccessManager* self, intptr_t slot) {
-    void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*, libqt_list /* of QSslError* */) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*, libqt_list /* of QSslError* */)>(slot);
+    void (*slotFunc)(QNetworkAccessManager*, QNetworkReply*, QSslError**) = reinterpret_cast<void (*)(QNetworkAccessManager*, QNetworkReply*, QSslError**)>(slot);
     QNetworkAccessManager::connect(self, &QNetworkAccessManager::sslErrors, [self, slotFunc](QNetworkReply* reply, const QList<QSslError>& errors) {
         QNetworkReply* sigval1 = reply;
         const QList<QSslError>& errors_ret = errors;
         // Convert QList<> from C++ memory to manually-managed C memory
-        QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * errors_ret.size()));
+        QSslError** errors_arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (errors_ret.size() + 1)));
         for (qsizetype i = 0; i < errors_ret.size(); ++i) {
             errors_arr[i] = new QSslError(errors_ret[i]);
         }
-        libqt_list errors_out;
-        errors_out.len = errors_ret.size();
-        errors_out.data = static_cast<void*>(errors_arr);
-        libqt_list /* of QSslError* */ sigval2 = errors_out;
+        // Append sentinel value to the list
+        errors_arr[errors_ret.size()] = nullptr;
+        QSslError** sigval2 = errors_arr;
         slotFunc(self, sigval1, sigval2);
+        free(errors_arr);
     });
 }
 
@@ -417,7 +417,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemes(const QN
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         QList<QString> _ret = vqnetworkaccessmanager->supportedSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -436,7 +436,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemes(const QN
     } else {
         QList<QString> _ret = self->QNetworkAccessManager::supportedSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -462,7 +462,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_QBaseSupportedSchemes(con
         vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemes_IsBase(true);
         QList<QString> _ret = vqnetworkaccessmanager->supportedSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -481,7 +481,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_QBaseSupportedSchemes(con
     } else {
         QList<QString> _ret = self->QNetworkAccessManager::supportedSchemes();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -746,7 +746,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemesImplement
     if (vqnetworkaccessmanager && vqnetworkaccessmanager->isVirtualQNetworkAccessManager) {
         QList<QString> _ret = vqnetworkaccessmanager->supportedSchemesImplementation();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -765,7 +765,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_SupportedSchemesImplement
     } else {
         QList<QString> _ret = ((VirtualQNetworkAccessManager*)self)->supportedSchemesImplementation();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -791,7 +791,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_QBaseSupportedSchemesImpl
         vqnetworkaccessmanager->setQNetworkAccessManager_SupportedSchemesImplementation_IsBase(true);
         QList<QString> _ret = vqnetworkaccessmanager->supportedSchemesImplementation();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -810,7 +810,7 @@ libqt_list /* of libqt_string */ QNetworkAccessManager_QBaseSupportedSchemesImpl
     } else {
         QList<QString> _ret = ((VirtualQNetworkAccessManager*)self)->supportedSchemesImplementation();
         // Convert QList<> from C++ memory to manually-managed C memory
-        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+        libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
         for (qsizetype i = 0; i < _ret.size(); ++i) {
             QString _lv_ret = _ret[i];
             // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

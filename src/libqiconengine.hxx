@@ -22,12 +22,12 @@ class VirtualQIconEngine final : public QIconEngine {
     using QIconEngine_Pixmap_Callback = QPixmap* (*)(QIconEngine*, QSize*, int, int);
     using QIconEngine_AddPixmap_Callback = void (*)(QIconEngine*, QPixmap*, int, int);
     using QIconEngine_AddFile_Callback = void (*)(QIconEngine*, libqt_string, QSize*, int, int);
-    using QIconEngine_Key_Callback = libqt_string (*)();
+    using QIconEngine_Key_Callback = const char* (*)();
     using QIconEngine_Clone_Callback = QIconEngine* (*)();
     using QIconEngine_Read_Callback = bool (*)(QIconEngine*, QDataStream*);
     using QIconEngine_Write_Callback = bool (*)(const QIconEngine*, QDataStream*);
-    using QIconEngine_AvailableSizes_Callback = libqt_list /* of QSize* */ (*)(QIconEngine*, int, int);
-    using QIconEngine_IconName_Callback = libqt_string (*)();
+    using QIconEngine_AvailableSizes_Callback = QSize** (*)(QIconEngine*, int, int);
+    using QIconEngine_IconName_Callback = const char* (*)();
     using QIconEngine_IsNull_Callback = bool (*)();
     using QIconEngine_ScaledPixmap_Callback = QPixmap* (*)(QIconEngine*, QSize*, int, int, double);
     using QIconEngine_VirtualHook_Callback = void (*)(QIconEngine*, int, void*);
@@ -220,8 +220,8 @@ class VirtualQIconEngine final : public QIconEngine {
             qiconengine_key_isbase = false;
             return QIconEngine::key();
         } else if (qiconengine_key_callback != nullptr) {
-            libqt_string callback_ret = qiconengine_key_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qiconengine_key_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QIconEngine::key();
@@ -281,13 +281,13 @@ class VirtualQIconEngine final : public QIconEngine {
             int cbval1 = static_cast<int>(mode);
             int cbval2 = static_cast<int>(state);
 
-            libqt_list /* of QSize* */ callback_ret = qiconengine_availablesizes_callback(this, cbval1, cbval2);
+            QSize** callback_ret = qiconengine_availablesizes_callback(this, cbval1, cbval2);
             QList<QSize> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QSize** callback_ret_arr = static_cast<QSize**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QSize** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QIconEngine::availableSizes(mode, state);
@@ -300,8 +300,8 @@ class VirtualQIconEngine final : public QIconEngine {
             qiconengine_iconname_isbase = false;
             return QIconEngine::iconName();
         } else if (qiconengine_iconname_callback != nullptr) {
-            libqt_string callback_ret = qiconengine_iconname_callback();
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qiconengine_iconname_callback();
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QIconEngine::iconName();

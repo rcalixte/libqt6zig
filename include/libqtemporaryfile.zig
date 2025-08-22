@@ -126,8 +126,8 @@ pub const qtemporaryfile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnFileName(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnFileName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QTemporaryFile_OnFileName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

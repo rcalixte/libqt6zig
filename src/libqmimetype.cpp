@@ -82,7 +82,7 @@ libqt_string QMimeType_IconName(const QMimeType* self) {
 libqt_list /* of libqt_string */ QMimeType_GlobPatterns(const QMimeType* self) {
     QList<QString> _ret = self->globPatterns();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -103,7 +103,7 @@ libqt_list /* of libqt_string */ QMimeType_GlobPatterns(const QMimeType* self) {
 libqt_list /* of libqt_string */ QMimeType_ParentMimeTypes(const QMimeType* self) {
     QList<QString> _ret = self->parentMimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -124,7 +124,7 @@ libqt_list /* of libqt_string */ QMimeType_ParentMimeTypes(const QMimeType* self
 libqt_list /* of libqt_string */ QMimeType_AllAncestors(const QMimeType* self) {
     QList<QString> _ret = self->allAncestors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -145,7 +145,7 @@ libqt_list /* of libqt_string */ QMimeType_AllAncestors(const QMimeType* self) {
 libqt_list /* of libqt_string */ QMimeType_Aliases(const QMimeType* self) {
     QList<QString> _ret = self->aliases();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -166,7 +166,7 @@ libqt_list /* of libqt_string */ QMimeType_Aliases(const QMimeType* self) {
 libqt_list /* of libqt_string */ QMimeType_Suffixes(const QMimeType* self) {
     QList<QString> _ret = self->suffixes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

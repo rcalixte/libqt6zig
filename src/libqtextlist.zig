@@ -922,8 +922,8 @@ pub const qtextlist = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextList, slot: fn () callconv(.c) []QtC.QTextBlock ```
-    pub fn OnBlockList(self: ?*anyopaque, slot: fn () callconv(.c) []QtC.QTextBlock) void {
+    /// ``` self: QtC.QTextList, slot: fn () callconv(.c) [*:null]QtC.QTextBlock ```
+    pub fn OnBlockList(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QTextBlock) void {
         qtc.QTextList_OnBlockList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

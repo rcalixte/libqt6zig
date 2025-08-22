@@ -63,7 +63,7 @@ bool QSqlDatabase_IsOpenError(const QSqlDatabase* self) {
 libqt_list /* of libqt_string */ QSqlDatabase_Tables(const QSqlDatabase* self) {
     QList<QString> _ret = self->tables();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -287,7 +287,7 @@ bool QSqlDatabase_Contains() {
 libqt_list /* of libqt_string */ QSqlDatabase_Drivers() {
     QList<QString> _ret = QSqlDatabase::drivers();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -308,7 +308,7 @@ libqt_list /* of libqt_string */ QSqlDatabase_Drivers() {
 libqt_list /* of libqt_string */ QSqlDatabase_ConnectionNames() {
     QList<QString> _ret = QSqlDatabase::connectionNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -339,7 +339,7 @@ bool QSqlDatabase_IsDriverAvailable(const libqt_string name) {
 libqt_list /* of libqt_string */ QSqlDatabase_Tables1(const QSqlDatabase* self, int typeVal) {
     QList<QString> _ret = self->tables(static_cast<QSql::TableType>(typeVal));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

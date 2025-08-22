@@ -279,8 +279,8 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, slot: fn (self: QtC.QXmlStreamEntityResolver, publicId: [*:0]const u8, systemId: [*:0]const u8) callconv(.c) []const u8 ```
-    pub fn OnResolveEntity(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QXmlStreamEntityResolver, slot: fn (self: QtC.QXmlStreamEntityResolver, publicId: [*:0]const u8, systemId: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    pub fn OnResolveEntity(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.QXmlStreamEntityResolver_OnResolveEntity(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -324,8 +324,8 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, slot: fn (self: QtC.QXmlStreamEntityResolver, name: [*:0]const u8) callconv(.c) []const u8 ```
-    pub fn OnResolveUndeclaredEntity(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) []const u8) void {
+    /// ``` self: QtC.QXmlStreamEntityResolver, slot: fn (self: QtC.QXmlStreamEntityResolver, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    pub fn OnResolveUndeclaredEntity(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.QXmlStreamEntityResolver_OnResolveUndeclaredEntity(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

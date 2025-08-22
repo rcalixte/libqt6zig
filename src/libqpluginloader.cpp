@@ -92,7 +92,7 @@ QJsonObject* QPluginLoader_MetaData(const QPluginLoader* self) {
 libqt_list /* of QObject* */ QPluginLoader_StaticInstances() {
     QList<QObject*> _ret = QPluginLoader::staticInstances();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * _ret.size()));
+    QObject** _arr = static_cast<QObject**>(malloc(sizeof(QObject*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -105,7 +105,7 @@ libqt_list /* of QObject* */ QPluginLoader_StaticInstances() {
 libqt_list /* of QStaticPlugin* */ QPluginLoader_StaticPlugins() {
     QList<QStaticPlugin> _ret = QPluginLoader::staticPlugins();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QStaticPlugin** _arr = static_cast<QStaticPlugin**>(malloc(sizeof(QStaticPlugin*) * _ret.size()));
+    QStaticPlugin** _arr = static_cast<QStaticPlugin**>(malloc(sizeof(QStaticPlugin*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QStaticPlugin(_ret[i]);
     }

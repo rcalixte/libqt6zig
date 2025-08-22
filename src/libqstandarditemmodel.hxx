@@ -283,7 +283,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     using QStandardItemModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const QStandardItemModel*, QModelIndex*);
     using QStandardItemModel_SetItemData_Callback = bool (*)(QStandardItemModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
     using QStandardItemModel_Sort_Callback = void (*)(QStandardItemModel*, int, int);
-    using QStandardItemModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QStandardItemModel_MimeTypes_Callback = const char** (*)();
     using QStandardItemModel_MimeData_Callback = QMimeData* (*)(const QStandardItemModel*, libqt_list /* of QModelIndex* */);
     using QStandardItemModel_DropMimeData_Callback = bool (*)(QStandardItemModel*, QMimeData*, int, int, int, QModelIndex*);
     using QStandardItemModel_Sibling_Callback = QModelIndex* (*)(const QStandardItemModel*, int, int, QModelIndex*);
@@ -294,7 +294,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     using QStandardItemModel_FetchMore_Callback = void (*)(QStandardItemModel*, QModelIndex*);
     using QStandardItemModel_CanFetchMore_Callback = bool (*)(const QStandardItemModel*, QModelIndex*);
     using QStandardItemModel_Buddy_Callback = QModelIndex* (*)(const QStandardItemModel*, QModelIndex*);
-    using QStandardItemModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QStandardItemModel*, QModelIndex*, int, QVariant*, int, int);
+    using QStandardItemModel_Match_Callback = QModelIndex** (*)(const QStandardItemModel*, QModelIndex*, int, QVariant*, int, int);
     using QStandardItemModel_Span_Callback = QSize* (*)(const QStandardItemModel*, QModelIndex*);
     using QStandardItemModel_Submit_Callback = bool (*)();
     using QStandardItemModel_Revert_Callback = void (*)();
@@ -325,7 +325,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
     using QStandardItemModel_EndResetModel_Callback = void (*)();
     using QStandardItemModel_ChangePersistentIndex_Callback = void (*)(QStandardItemModel*, QModelIndex*, QModelIndex*);
     using QStandardItemModel_ChangePersistentIndexList_Callback = void (*)(QStandardItemModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QStandardItemModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QStandardItemModel_PersistentIndexList_Callback = QModelIndex** (*)();
     using QStandardItemModel_Sender_Callback = QObject* (*)();
     using QStandardItemModel_SenderSignalIndex_Callback = int (*)();
     using QStandardItemModel_Receivers_Callback = int (*)(const QStandardItemModel*, const char*);
@@ -1111,12 +1111,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             qstandarditemmodel_mimetypes_isbase = false;
             return QStandardItemModel::mimeTypes();
         } else if (qstandarditemmodel_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qstandarditemmodel_mimetypes_callback();
+            const char** callback_ret = qstandarditemmodel_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -1133,7 +1134,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         } else if (qstandarditemmodel_mimedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1335,13 +1336,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qstandarditemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndex** callback_ret = qstandarditemmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QStandardItemModel::match(start, role, value, hits, flags);
@@ -1531,7 +1532,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         } else if (qstandarditemmodel_encodedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1812,7 +1813,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
         } else if (qstandarditemmodel_changepersistentindexlist_callback != nullptr) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size() + 1)));
             for (qsizetype i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
             }
@@ -1822,7 +1823,7 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             libqt_list /* of QModelIndex* */ cbval1 = from_out;
             const QList<QModelIndex>& to_ret = to;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size() + 1)));
             for (qsizetype i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);
             }
@@ -1843,13 +1844,13 @@ class VirtualQStandardItemModel final : public QStandardItemModel {
             qstandarditemmodel_persistentindexlist_isbase = false;
             return QStandardItemModel::persistentIndexList();
         } else if (qstandarditemmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qstandarditemmodel_persistentindexlist_callback();
+            QModelIndex** callback_ret = qstandarditemmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QStandardItemModel::persistentIndexList();

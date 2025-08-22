@@ -648,7 +648,7 @@ libqt_string QDtls_DtlsErrorString(const QDtls* self) {
 libqt_list /* of QSslError* */ QDtls_PeerVerificationErrors(const QDtls* self) {
     QList<QSslError> _ret = self->peerVerificationErrors();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QSslError** _arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * _ret.size()));
+    QSslError** _arr = static_cast<QSslError**>(malloc(sizeof(QSslError*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QSslError(_ret[i]);
     }

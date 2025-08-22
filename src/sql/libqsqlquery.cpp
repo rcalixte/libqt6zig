@@ -209,7 +209,7 @@ QVariant* QSqlQuery_BoundValue2(const QSqlQuery* self, int pos) {
 libqt_list /* of QVariant* */ QSqlQuery_BoundValues(const QSqlQuery* self) {
     QList<QVariant> _ret = self->boundValues();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * _ret.size()));
+    QVariant** _arr = static_cast<QVariant**>(malloc(sizeof(QVariant*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QVariant(_ret[i]);
     }
@@ -222,7 +222,7 @@ libqt_list /* of QVariant* */ QSqlQuery_BoundValues(const QSqlQuery* self) {
 libqt_list /* of libqt_string */ QSqlQuery_BoundValueNames(const QSqlQuery* self) {
     QList<QString> _ret = self->boundValueNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

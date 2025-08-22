@@ -92,8 +92,8 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkAccessManager, slot: fn () callconv(.c) [][]const u8 ```
-    pub fn OnSupportedSchemes(self: ?*anyopaque, slot: fn () callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QNetworkAccessManager, slot: fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnSupportedSchemes(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
         qtc.QNetworkAccessManager_OnSupportedSchemes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -525,8 +525,8 @@ pub const qnetworkaccessmanager = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkaccessmanager.html#sslErrors)
     ///
-    /// ``` self: QtC.QNetworkAccessManager, slot: fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, errors: []QtC.QSslError) callconv(.c) void ```
-    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, []QtC.QSslError) callconv(.c) void) void {
+    /// ``` self: QtC.QNetworkAccessManager, slot: fn (self: QtC.QNetworkAccessManager, reply: QtC.QNetworkReply, errors: [*]QtC.QSslError) callconv(.c) void ```
+    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QNetworkAccessManager_Connect_SslErrors(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -595,8 +595,8 @@ pub const qnetworkaccessmanager = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QNetworkAccessManager, slot: fn () callconv(.c) [][]const u8 ```
-    pub fn OnSupportedSchemesImplementation(self: ?*anyopaque, slot: fn () callconv(.c) [][]const u8) void {
+    /// ``` self: QtC.QNetworkAccessManager, slot: fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnSupportedSchemesImplementation(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
         qtc.QNetworkAccessManager_OnSupportedSchemesImplementation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

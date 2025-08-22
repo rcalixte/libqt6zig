@@ -32,7 +32,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
     using QPdfSearchModel_ItemData_Callback = libqt_map /* of int to QVariant* */ (*)(const QPdfSearchModel*, QModelIndex*);
     using QPdfSearchModel_SetItemData_Callback = bool (*)(QPdfSearchModel*, QModelIndex*, libqt_map /* of int to QVariant* */);
     using QPdfSearchModel_ClearItemData_Callback = bool (*)(QPdfSearchModel*, QModelIndex*);
-    using QPdfSearchModel_MimeTypes_Callback = libqt_list /* of libqt_string */ (*)();
+    using QPdfSearchModel_MimeTypes_Callback = const char** (*)();
     using QPdfSearchModel_MimeData_Callback = QMimeData* (*)(const QPdfSearchModel*, libqt_list /* of QModelIndex* */);
     using QPdfSearchModel_CanDropMimeData_Callback = bool (*)(const QPdfSearchModel*, QMimeData*, int, int, int, QModelIndex*);
     using QPdfSearchModel_SupportedDropActions_Callback = int (*)();
@@ -47,7 +47,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
     using QPdfSearchModel_CanFetchMore_Callback = bool (*)(const QPdfSearchModel*, QModelIndex*);
     using QPdfSearchModel_Sort_Callback = void (*)(QPdfSearchModel*, int, int);
     using QPdfSearchModel_Buddy_Callback = QModelIndex* (*)(const QPdfSearchModel*, QModelIndex*);
-    using QPdfSearchModel_Match_Callback = libqt_list /* of QModelIndex* */ (*)(const QPdfSearchModel*, QModelIndex*, int, QVariant*, int, int);
+    using QPdfSearchModel_Match_Callback = QModelIndex** (*)(const QPdfSearchModel*, QModelIndex*, int, QVariant*, int, int);
     using QPdfSearchModel_Span_Callback = QSize* (*)(const QPdfSearchModel*, QModelIndex*);
     using QPdfSearchModel_MultiData_Callback = void (*)(const QPdfSearchModel*, QModelIndex*, QModelRoleDataSpan*);
     using QPdfSearchModel_Submit_Callback = bool (*)();
@@ -79,7 +79,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
     using QPdfSearchModel_EndResetModel_Callback = void (*)();
     using QPdfSearchModel_ChangePersistentIndex_Callback = void (*)(QPdfSearchModel*, QModelIndex*, QModelIndex*);
     using QPdfSearchModel_ChangePersistentIndexList_Callback = void (*)(QPdfSearchModel*, libqt_list /* of QModelIndex* */, libqt_list /* of QModelIndex* */);
-    using QPdfSearchModel_PersistentIndexList_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QPdfSearchModel_PersistentIndexList_Callback = QModelIndex** (*)();
     using QPdfSearchModel_Sender_Callback = QObject* (*)();
     using QPdfSearchModel_SenderSignalIndex_Callback = int (*)();
     using QPdfSearchModel_Receivers_Callback = int (*)(const QPdfSearchModel*, const char*);
@@ -735,12 +735,13 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
             qpdfsearchmodel_mimetypes_isbase = false;
             return QPdfSearchModel::mimeTypes();
         } else if (qpdfsearchmodel_mimetypes_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qpdfsearchmodel_mimetypes_callback();
+            const char** callback_ret = qpdfsearchmodel_mimetypes_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -757,7 +758,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
         } else if (qpdfsearchmodel_mimedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1023,13 +1024,13 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
             int cbval4 = hits;
             int cbval5 = static_cast<int>(flags);
 
-            libqt_list /* of QModelIndex* */ callback_ret = qpdfsearchmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
+            QModelIndex** callback_ret = qpdfsearchmodel_match_callback(this, cbval1, cbval2, cbval3, cbval4, cbval5);
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QPdfSearchModel::match(start, role, value, hits, flags);
@@ -1236,7 +1237,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
         } else if (qpdfsearchmodel_encodedata_callback != nullptr) {
             const QList<QModelIndex>& indexes_ret = indexes;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * indexes_ret.size()));
+            QModelIndex** indexes_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (indexes_ret.size() + 1)));
             for (qsizetype i = 0; i < indexes_ret.size(); ++i) {
                 indexes_arr[i] = new QModelIndex(indexes_ret[i]);
             }
@@ -1517,7 +1518,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
         } else if (qpdfsearchmodel_changepersistentindexlist_callback != nullptr) {
             const QList<QModelIndex>& from_ret = from;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * from_ret.size()));
+            QModelIndex** from_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (from_ret.size() + 1)));
             for (qsizetype i = 0; i < from_ret.size(); ++i) {
                 from_arr[i] = new QModelIndex(from_ret[i]);
             }
@@ -1527,7 +1528,7 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
             libqt_list /* of QModelIndex* */ cbval1 = from_out;
             const QList<QModelIndex>& to_ret = to;
             // Convert QList<> from C++ memory to manually-managed C memory
-            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * to_ret.size()));
+            QModelIndex** to_arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * (to_ret.size() + 1)));
             for (qsizetype i = 0; i < to_ret.size(); ++i) {
                 to_arr[i] = new QModelIndex(to_ret[i]);
             }
@@ -1548,13 +1549,13 @@ class VirtualQPdfSearchModel final : public QPdfSearchModel {
             qpdfsearchmodel_persistentindexlist_isbase = false;
             return QPdfSearchModel::persistentIndexList();
         } else if (qpdfsearchmodel_persistentindexlist_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qpdfsearchmodel_persistentindexlist_callback();
+            QModelIndex** callback_ret = qpdfsearchmodel_persistentindexlist_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QPdfSearchModel::persistentIndexList();

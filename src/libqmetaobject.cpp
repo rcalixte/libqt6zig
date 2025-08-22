@@ -90,7 +90,7 @@ void QMetaMethod_GetParameterTypes(const QMetaMethod* self, int* types) {
 libqt_list /* of libqt_string */ QMetaMethod_ParameterTypes(const QMetaMethod* self) {
     QList<QByteArray> _ret = self->parameterTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;
@@ -119,7 +119,7 @@ libqt_string QMetaMethod_ParameterTypeName(const QMetaMethod* self, int index) {
 libqt_list /* of libqt_string */ QMetaMethod_ParameterNames(const QMetaMethod* self) {
     QList<QByteArray> _ret = self->parameterNames();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QByteArray _lv_qb = _ret[i];
         libqt_string _lv_str;

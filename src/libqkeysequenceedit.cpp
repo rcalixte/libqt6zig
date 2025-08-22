@@ -135,7 +135,7 @@ void QKeySequenceEdit_SetFinishingKeyCombinations(QKeySequenceEdit* self, const 
 libqt_list /* of QKeyCombination* */ QKeySequenceEdit_FinishingKeyCombinations(const QKeySequenceEdit* self) {
     QList<QKeyCombination> _ret = self->finishingKeyCombinations();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QKeyCombination** _arr = static_cast<QKeyCombination**>(malloc(sizeof(QKeyCombination*) * _ret.size()));
+    QKeyCombination** _arr = static_cast<QKeyCombination**>(malloc(sizeof(QKeyCombination*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QKeyCombination(_ret[i]);
     }

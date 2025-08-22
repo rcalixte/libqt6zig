@@ -19,7 +19,7 @@ class VirtualQMimeData final : public QMimeData {
     // Virtual class public types (including callbacks)
     using QMimeData_Metacall_Callback = int (*)(QMimeData*, int, int, void**);
     using QMimeData_HasFormat_Callback = bool (*)(const QMimeData*, libqt_string);
-    using QMimeData_Formats_Callback = libqt_list /* of libqt_string */ (*)();
+    using QMimeData_Formats_Callback = const char** (*)();
     using QMimeData_RetrieveData_Callback = QVariant* (*)(const QMimeData*, libqt_string, QMetaType*);
     using QMimeData_Event_Callback = bool (*)(QMimeData*, QEvent*);
     using QMimeData_EventFilter_Callback = bool (*)(QMimeData*, QObject*, QEvent*);
@@ -169,12 +169,13 @@ class VirtualQMimeData final : public QMimeData {
             qmimedata_formats_isbase = false;
             return QMimeData::formats();
         } else if (qmimedata_formats_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qmimedata_formats_callback();
+            const char** callback_ret = qmimedata_formats_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;

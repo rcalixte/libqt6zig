@@ -70,7 +70,7 @@ class VirtualQHeaderView final : public QHeaderView {
     using QHeaderView_CloseEditor_Callback = void (*)(QHeaderView*, QWidget*, int);
     using QHeaderView_CommitData_Callback = void (*)(QHeaderView*, QWidget*);
     using QHeaderView_EditorDestroyed_Callback = void (*)(QHeaderView*, QObject*);
-    using QHeaderView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QHeaderView_SelectedIndexes_Callback = QModelIndex** (*)();
     using QHeaderView_Edit2_Callback = bool (*)(QHeaderView*, QModelIndex*, int, QEvent*);
     using QHeaderView_SelectionCommand_Callback = int (*)(const QHeaderView*, QModelIndex*, QEvent*);
     using QHeaderView_StartDrag_Callback = void (*)(QHeaderView*, int);
@@ -1094,7 +1094,7 @@ class VirtualQHeaderView final : public QHeaderView {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
@@ -1566,13 +1566,13 @@ class VirtualQHeaderView final : public QHeaderView {
             qheaderview_selectedindexes_isbase = false;
             return QHeaderView::selectedIndexes();
         } else if (qheaderview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qheaderview_selectedindexes_callback();
+            QModelIndex** callback_ret = qheaderview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QHeaderView::selectedIndexes();

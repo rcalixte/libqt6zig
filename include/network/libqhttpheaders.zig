@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qhttpheaders_enums = enums;
 const std = @import("std");
-pub const struct_u8_u8 = struct { first: []u8, second: []u8 };
+pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
 
 /// https://doc.qt.io/qt-6/qhttpheaders.html
 pub const qhttpheaders = struct {

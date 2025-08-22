@@ -123,7 +123,7 @@ void QChart_RemoveAllSeries(QChart* self) {
 libqt_list /* of QAbstractSeries* */ QChart_Series(const QChart* self) {
     QList<QAbstractSeries*> _ret = self->series();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractSeries** _arr = static_cast<QAbstractSeries**>(malloc(sizeof(QAbstractSeries*) * _ret.size()));
+    QAbstractSeries** _arr = static_cast<QAbstractSeries**>(malloc(sizeof(QAbstractSeries*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -160,7 +160,7 @@ void QChart_RemoveAxis(QChart* self, QAbstractAxis* axis) {
 libqt_list /* of QAbstractAxis* */ QChart_Axes(const QChart* self) {
     QList<QAbstractAxis*> _ret = self->axes();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.size()));
+    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -436,7 +436,7 @@ QAbstractAxis* QChart_AxisY1(const QChart* self, QAbstractSeries* series) {
 libqt_list /* of QAbstractAxis* */ QChart_Axes1(const QChart* self, int orientation) {
     QList<QAbstractAxis*> _ret = self->axes(static_cast<Qt::Orientations>(orientation));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.size()));
+    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }
@@ -449,7 +449,7 @@ libqt_list /* of QAbstractAxis* */ QChart_Axes1(const QChart* self, int orientat
 libqt_list /* of QAbstractAxis* */ QChart_Axes2(const QChart* self, int orientation, QAbstractSeries* series) {
     QList<QAbstractAxis*> _ret = self->axes(static_cast<Qt::Orientations>(orientation), series);
     // Convert QList<> from C++ memory to manually-managed C memory
-    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * _ret.size()));
+    QAbstractAxis** _arr = static_cast<QAbstractAxis**>(malloc(sizeof(QAbstractAxis*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = _ret[i];
     }

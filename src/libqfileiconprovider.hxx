@@ -19,7 +19,7 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
     // Virtual class public types (including callbacks)
     using QFileIconProvider_Icon_Callback = QIcon* (*)(const QFileIconProvider*, int);
     using QFileIconProvider_Icon2_Callback = QIcon* (*)(const QFileIconProvider*, QFileInfo*);
-    using QFileIconProvider_Type_Callback = libqt_string (*)(const QFileIconProvider*, QFileInfo*);
+    using QFileIconProvider_Type_Callback = const char* (*)(const QFileIconProvider*, QFileInfo*);
     using QFileIconProvider_SetOptions_Callback = void (*)(QFileIconProvider*, int);
     using QFileIconProvider_Options_Callback = int (*)();
 
@@ -105,8 +105,8 @@ class VirtualQFileIconProvider final : public QFileIconProvider {
             // Cast returned reference into pointer
             QFileInfo* cbval1 = const_cast<QFileInfo*>(&param1_ret);
 
-            libqt_string callback_ret = qfileiconprovider_type_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qfileiconprovider_type_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QFileIconProvider::type(param1);

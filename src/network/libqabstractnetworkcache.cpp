@@ -58,7 +58,7 @@ void QNetworkCacheMetaData_SetUrl(QNetworkCacheMetaData* self, const QUrl* url) 
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkCacheMetaData_RawHeaders(const QNetworkCacheMetaData* self) {
     QList<QPair<QByteArray, QByteArray>> _ret = self->rawHeaders();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * _ret.size()));
+    libqt_pair /* tuple of libqt_string and libqt_string */* _arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(malloc(sizeof(libqt_pair /* tuple of libqt_string and libqt_string */) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QPair<QByteArray, QByteArray> _lv_ret = _ret[i];
         // Convert QPair<> from C++ memory to manually-managed C memory

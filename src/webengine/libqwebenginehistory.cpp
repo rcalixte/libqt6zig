@@ -184,7 +184,7 @@ void QWebEngineHistory_Clear(QWebEngineHistory* self) {
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_Items(const QWebEngineHistory* self) {
     QList<QWebEngineHistoryItem> _ret = self->items();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
+    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
@@ -197,7 +197,7 @@ libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_Items(const QWebEng
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_BackItems(const QWebEngineHistory* self, int maxItems) {
     QList<QWebEngineHistoryItem> _ret = self->backItems(static_cast<int>(maxItems));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
+    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }
@@ -210,7 +210,7 @@ libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_BackItems(const QWe
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_ForwardItems(const QWebEngineHistory* self, int maxItems) {
     QList<QWebEngineHistoryItem> _ret = self->forwardItems(static_cast<int>(maxItems));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * _ret.size()));
+    QWebEngineHistoryItem** _arr = static_cast<QWebEngineHistoryItem**>(malloc(sizeof(QWebEngineHistoryItem*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QWebEngineHistoryItem(_ret[i]);
     }

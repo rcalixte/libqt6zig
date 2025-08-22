@@ -52,7 +52,7 @@ void QCborMap_Clear(QCborMap* self) {
 libqt_list /* of QCborValue* */ QCborMap_Keys(const QCborMap* self) {
     QList<QCborValue> _ret = self->keys();
     // Convert QList<> from C++ memory to manually-managed C memory
-    QCborValue** _arr = static_cast<QCborValue**>(malloc(sizeof(QCborValue*) * _ret.size()));
+    QCborValue** _arr = static_cast<QCborValue**>(malloc(sizeof(QCborValue*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QCborValue(_ret[i]);
     }

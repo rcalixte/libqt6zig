@@ -7,7 +7,7 @@ const qnetworkreply_enums = enums;
 const qnetworkrequest_enums = @import("libqnetworkrequest.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_u8_u8 = struct { first: []u8, second: []u8 };
+pub const struct_u8_u8 = extern struct { first: []u8, second: []u8 };
 
 /// https://doc.qt.io/qt-6/qnetworkreply.html
 pub const qnetworkreply = struct {
@@ -349,8 +349,8 @@ pub const qnetworkreply = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkreply.html#sslErrors)
     ///
-    /// ``` self: QtC.QNetworkReply, slot: fn (self: QtC.QNetworkReply, errors: []QtC.QSslError) callconv(.c) void ```
-    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, []QtC.QSslError) callconv(.c) void) void {
+    /// ``` self: QtC.QNetworkReply, slot: fn (self: QtC.QNetworkReply, errors: [*]QtC.QSslError) callconv(.c) void ```
+    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
         qtc.QNetworkReply_Connect_SslErrors(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -41,7 +41,7 @@ class VirtualQTreeView final : public QTreeView {
     using QTreeView_VerticalOffset_Callback = int (*)();
     using QTreeView_SetSelection_Callback = void (*)(QTreeView*, QRect*, int);
     using QTreeView_VisualRegionForSelection_Callback = QRegion* (*)(const QTreeView*, QItemSelection*);
-    using QTreeView_SelectedIndexes_Callback = libqt_list /* of QModelIndex* */ (*)();
+    using QTreeView_SelectedIndexes_Callback = QModelIndex** (*)();
     using QTreeView_ChangeEvent_Callback = void (*)(QTreeView*, QEvent*);
     using QTreeView_TimerEvent_Callback = void (*)(QTreeView*, QTimerEvent*);
     using QTreeView_PaintEvent_Callback = void (*)(QTreeView*, QPaintEvent*);
@@ -965,7 +965,7 @@ class VirtualQTreeView final : public QTreeView {
             QModelIndex* cbval2 = const_cast<QModelIndex*>(&bottomRight_ret);
             const QList<int>& roles_ret = roles;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * roles_ret.size()));
+            int* roles_arr = static_cast<int*>(malloc(sizeof(int) * (roles_ret.size() + 1)));
             for (qsizetype i = 0; i < roles_ret.size(); ++i) {
                 roles_arr[i] = roles_ret[i];
             }
@@ -1139,13 +1139,13 @@ class VirtualQTreeView final : public QTreeView {
             qtreeview_selectedindexes_isbase = false;
             return QTreeView::selectedIndexes();
         } else if (qtreeview_selectedindexes_callback != nullptr) {
-            libqt_list /* of QModelIndex* */ callback_ret = qtreeview_selectedindexes_callback();
+            QModelIndex** callback_ret = qtreeview_selectedindexes_callback();
             QList<QModelIndex> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QModelIndex** callback_ret_arr = static_cast<QModelIndex**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QModelIndex** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QTreeView::selectedIndexes();

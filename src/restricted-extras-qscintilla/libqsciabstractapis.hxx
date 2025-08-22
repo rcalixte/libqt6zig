@@ -20,7 +20,7 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
     using QsciAbstractAPIs_Metacall_Callback = int (*)(QsciAbstractAPIs*, int, int, void**);
     using QsciAbstractAPIs_UpdateAutoCompletionList_Callback = void (*)(QsciAbstractAPIs*, libqt_list /* of libqt_string */, libqt_list /* of libqt_string */);
     using QsciAbstractAPIs_AutoCompletionSelected_Callback = void (*)(QsciAbstractAPIs*, libqt_string);
-    using QsciAbstractAPIs_CallTips_Callback = libqt_list /* of libqt_string */ (*)(QsciAbstractAPIs*, libqt_list /* of libqt_string */, int, int, libqt_list /* of int */);
+    using QsciAbstractAPIs_CallTips_Callback = const char** (*)(QsciAbstractAPIs*, libqt_list /* of libqt_string */, int, int, libqt_list /* of int */);
     using QsciAbstractAPIs_Event_Callback = bool (*)(QsciAbstractAPIs*, QEvent*);
     using QsciAbstractAPIs_EventFilter_Callback = bool (*)(QsciAbstractAPIs*, QObject*, QEvent*);
     using QsciAbstractAPIs_TimerEvent_Callback = void (*)(QsciAbstractAPIs*, QTimerEvent*);
@@ -145,7 +145,7 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
         if (qsciabstractapis_updateautocompletionlist_callback != nullptr) {
             const QList<QString>& context_ret = context;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * context_ret.size()));
+            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size() + 1)));
             for (qsizetype i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -163,7 +163,7 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             libqt_list /* of libqt_string */ cbval1 = context_out;
             QList<QString>& list_ret = list;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* list_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * list_ret.size()));
+            libqt_string* list_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (list_ret.size() + 1)));
             for (qsizetype i = 0; i < list_ret.size(); ++i) {
                 QString list_lv_ret = list_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -211,7 +211,7 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
         if (qsciabstractapis_calltips_callback != nullptr) {
             const QList<QString>& context_ret = context;
             // Convert QList<> from C++ memory to manually-managed C memory
-            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * context_ret.size()));
+            libqt_string* context_arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (context_ret.size() + 1)));
             for (qsizetype i = 0; i < context_ret.size(); ++i) {
                 QString context_lv_ret = context_ret[i];
                 // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -231,7 +231,7 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             int cbval3 = static_cast<int>(style);
             QList<int>& shifts_ret = shifts;
             // Convert QList<> from C++ memory to manually-managed C memory
-            int* shifts_arr = static_cast<int*>(malloc(sizeof(int) * shifts_ret.size()));
+            int* shifts_arr = static_cast<int*>(malloc(sizeof(int) * (shifts_ret.size() + 1)));
             for (qsizetype i = 0; i < shifts_ret.size(); ++i) {
                 shifts_arr[i] = shifts_ret[i];
             }
@@ -240,12 +240,13 @@ class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
             shifts_out.data = static_cast<void*>(shifts_arr);
             libqt_list /* of int */ cbval4 = shifts_out;
 
-            libqt_list /* of libqt_string */ callback_ret = qsciabstractapis_calltips_callback(this, cbval1, cbval2, cbval3, cbval4);
+            const char** callback_ret = qsciabstractapis_calltips_callback(this, cbval1, cbval2, cbval3, cbval4);
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;

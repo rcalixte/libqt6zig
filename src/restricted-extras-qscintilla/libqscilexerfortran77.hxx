@@ -23,7 +23,7 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     using QsciLexerFortran77_Lexer_Callback = const char* (*)();
     using QsciLexerFortran77_LexerId_Callback = int (*)();
     using QsciLexerFortran77_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerFortran77_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
+    using QsciLexerFortran77_AutoCompletionWordSeparators_Callback = const char** (*)();
     using QsciLexerFortran77_BlockEnd_Callback = const char* (*)(const QsciLexerFortran77*, int*);
     using QsciLexerFortran77_BlockLookback_Callback = int (*)();
     using QsciLexerFortran77_BlockStart_Callback = const char* (*)(const QsciLexerFortran77*, int*);
@@ -36,7 +36,7 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     using QsciLexerFortran77_IndentationGuideView_Callback = int (*)();
     using QsciLexerFortran77_Keywords_Callback = const char* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_DefaultStyle_Callback = int (*)();
-    using QsciLexerFortran77_Description_Callback = libqt_string (*)(const QsciLexerFortran77*, int);
+    using QsciLexerFortran77_Description_Callback = const char* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_Paper_Callback = QColor* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_DefaultColor2_Callback = QColor* (*)(const QsciLexerFortran77*, int);
     using QsciLexerFortran77_DefaultEolFill_Callback = bool (*)(const QsciLexerFortran77*, int);
@@ -60,8 +60,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
     using QsciLexerFortran77_CustomEvent_Callback = void (*)(QsciLexerFortran77*, QEvent*);
     using QsciLexerFortran77_ConnectNotify_Callback = void (*)(QsciLexerFortran77*, QMetaMethod*);
     using QsciLexerFortran77_DisconnectNotify_Callback = void (*)(QsciLexerFortran77*, QMetaMethod*);
-    using QsciLexerFortran77_TextAsBytes_Callback = libqt_string (*)(const QsciLexerFortran77*, libqt_string);
-    using QsciLexerFortran77_BytesAsText_Callback = libqt_string (*)(const QsciLexerFortran77*, const char*, int);
+    using QsciLexerFortran77_TextAsBytes_Callback = const char* (*)(const QsciLexerFortran77*, libqt_string);
+    using QsciLexerFortran77_BytesAsText_Callback = const char* (*)(const QsciLexerFortran77*, const char*, int);
     using QsciLexerFortran77_Sender_Callback = QObject* (*)();
     using QsciLexerFortran77_SenderSignalIndex_Callback = int (*)();
     using QsciLexerFortran77_Receivers_Callback = int (*)(const QsciLexerFortran77*, const char*);
@@ -414,12 +414,13 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
             qscilexerfortran77_autocompletionwordseparators_isbase = false;
             return QsciLexerFortran77::autoCompletionWordSeparators();
         } else if (qscilexerfortran77_autocompletionwordseparators_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qscilexerfortran77_autocompletionwordseparators_callback();
+            const char** callback_ret = qscilexerfortran77_autocompletionwordseparators_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -603,8 +604,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
         if (qscilexerfortran77_description_callback != nullptr) {
             int cbval1 = style;
 
-            libqt_string callback_ret = qscilexerfortran77_description_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerfortran77_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -991,8 +992,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexerfortran77_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerfortran77_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerFortran77::textAsBytes(text);
@@ -1008,8 +1009,8 @@ class VirtualQsciLexerFortran77 final : public QsciLexerFortran77 {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            libqt_string callback_ret = qscilexerfortran77_bytesastext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexerfortran77_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QsciLexerFortran77::bytesAsText(bytes, size);

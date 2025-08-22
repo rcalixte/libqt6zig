@@ -28,7 +28,7 @@ class VirtualQTextList final : public QTextList {
     using QTextList_CustomEvent_Callback = void (*)(QTextList*, QEvent*);
     using QTextList_ConnectNotify_Callback = void (*)(QTextList*, QMetaMethod*);
     using QTextList_DisconnectNotify_Callback = void (*)(QTextList*, QMetaMethod*);
-    using QTextList_BlockList_Callback = libqt_list /* of QTextBlock* */ (*)();
+    using QTextList_BlockList_Callback = QTextBlock** (*)();
     using QTextList_Sender_Callback = QObject* (*)();
     using QTextList_SenderSignalIndex_Callback = int (*)();
     using QTextList_Receivers_Callback = int (*)(const QTextList*, const char*);
@@ -305,13 +305,13 @@ class VirtualQTextList final : public QTextList {
             qtextlist_blocklist_isbase = false;
             return QTextList::blockList();
         } else if (qtextlist_blocklist_callback != nullptr) {
-            libqt_list /* of QTextBlock* */ callback_ret = qtextlist_blocklist_callback();
+            QTextBlock** callback_ret = qtextlist_blocklist_callback();
             QList<QTextBlock> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QTextBlock** callback_ret_arr = static_cast<QTextBlock**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(*(callback_ret_arr[i]));
+            // Iterate until null pointer sentinel
+            for (QTextBlock** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(**ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QTextList::blockList();

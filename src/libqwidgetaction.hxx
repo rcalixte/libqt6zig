@@ -27,7 +27,7 @@ class VirtualQWidgetAction final : public QWidgetAction {
     using QWidgetAction_CustomEvent_Callback = void (*)(QWidgetAction*, QEvent*);
     using QWidgetAction_ConnectNotify_Callback = void (*)(QWidgetAction*, QMetaMethod*);
     using QWidgetAction_DisconnectNotify_Callback = void (*)(QWidgetAction*, QMetaMethod*);
-    using QWidgetAction_CreatedWidgets_Callback = libqt_list /* of QWidget* */ (*)();
+    using QWidgetAction_CreatedWidgets_Callback = QWidget** (*)();
     using QWidgetAction_Sender_Callback = QObject* (*)();
     using QWidgetAction_SenderSignalIndex_Callback = int (*)();
     using QWidgetAction_Receivers_Callback = int (*)(const QWidgetAction*, const char*);
@@ -280,13 +280,13 @@ class VirtualQWidgetAction final : public QWidgetAction {
             qwidgetaction_createdwidgets_isbase = false;
             return QWidgetAction::createdWidgets();
         } else if (qwidgetaction_createdwidgets_callback != nullptr) {
-            libqt_list /* of QWidget* */ callback_ret = qwidgetaction_createdwidgets_callback();
+            QWidget** callback_ret = qwidgetaction_createdwidgets_callback();
             QList<QWidget*> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            QWidget** callback_ret_arr = static_cast<QWidget**>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                callback_ret_QList.push_back(callback_ret_arr[i]);
+            // Iterate until null pointer sentinel
+            for (QWidget** ptridx = callback_ret; *ptridx != nullptr; ptridx++) {
+                callback_ret_QList.push_back(*ptridx);
             }
+            free(callback_ret);
             return callback_ret_QList;
         } else {
             return QWidgetAction::createdWidgets();

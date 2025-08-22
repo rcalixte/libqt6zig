@@ -160,8 +160,8 @@ pub const qiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QIconEngine, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnKey(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QIconEngine, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnKey(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QIconEngine_OnKey(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -269,8 +269,8 @@ pub const qiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) []QtC.QSize ```
-    pub fn OnAvailableSizes(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) []QtC.QSize) void {
+    /// ``` self: QtC.QIconEngine, slot: fn (self: QtC.QIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) [*:null]QtC.QSize ```
+    pub fn OnAvailableSizes(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QSize) void {
         qtc.QIconEngine_OnAvailableSizes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 
@@ -303,8 +303,8 @@ pub const qiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QIconEngine, slot: fn () callconv(.c) []const u8 ```
-    pub fn OnIconName(self: ?*anyopaque, slot: fn () callconv(.c) []const u8) void {
+    /// ``` self: QtC.QIconEngine, slot: fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnIconName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
         qtc.QIconEngine_OnIconName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
     }
 

@@ -22,7 +22,7 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     using QsciLexerCoffeeScript_Lexer_Callback = const char* (*)();
     using QsciLexerCoffeeScript_LexerId_Callback = int (*)();
     using QsciLexerCoffeeScript_AutoCompletionFillups_Callback = const char* (*)();
-    using QsciLexerCoffeeScript_AutoCompletionWordSeparators_Callback = libqt_list /* of libqt_string */ (*)();
+    using QsciLexerCoffeeScript_AutoCompletionWordSeparators_Callback = const char** (*)();
     using QsciLexerCoffeeScript_BlockEnd_Callback = const char* (*)(const QsciLexerCoffeeScript*, int*);
     using QsciLexerCoffeeScript_BlockLookback_Callback = int (*)();
     using QsciLexerCoffeeScript_BlockStart_Callback = const char* (*)(const QsciLexerCoffeeScript*, int*);
@@ -35,7 +35,7 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     using QsciLexerCoffeeScript_IndentationGuideView_Callback = int (*)();
     using QsciLexerCoffeeScript_Keywords_Callback = const char* (*)(const QsciLexerCoffeeScript*, int);
     using QsciLexerCoffeeScript_DefaultStyle_Callback = int (*)();
-    using QsciLexerCoffeeScript_Description_Callback = libqt_string (*)(const QsciLexerCoffeeScript*, int);
+    using QsciLexerCoffeeScript_Description_Callback = const char* (*)(const QsciLexerCoffeeScript*, int);
     using QsciLexerCoffeeScript_Paper_Callback = QColor* (*)(const QsciLexerCoffeeScript*, int);
     using QsciLexerCoffeeScript_DefaultColor2_Callback = QColor* (*)(const QsciLexerCoffeeScript*, int);
     using QsciLexerCoffeeScript_DefaultEolFill_Callback = bool (*)(const QsciLexerCoffeeScript*, int);
@@ -59,8 +59,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
     using QsciLexerCoffeeScript_CustomEvent_Callback = void (*)(QsciLexerCoffeeScript*, QEvent*);
     using QsciLexerCoffeeScript_ConnectNotify_Callback = void (*)(QsciLexerCoffeeScript*, QMetaMethod*);
     using QsciLexerCoffeeScript_DisconnectNotify_Callback = void (*)(QsciLexerCoffeeScript*, QMetaMethod*);
-    using QsciLexerCoffeeScript_TextAsBytes_Callback = libqt_string (*)(const QsciLexerCoffeeScript*, libqt_string);
-    using QsciLexerCoffeeScript_BytesAsText_Callback = libqt_string (*)(const QsciLexerCoffeeScript*, const char*, int);
+    using QsciLexerCoffeeScript_TextAsBytes_Callback = const char* (*)(const QsciLexerCoffeeScript*, libqt_string);
+    using QsciLexerCoffeeScript_BytesAsText_Callback = const char* (*)(const QsciLexerCoffeeScript*, const char*, int);
     using QsciLexerCoffeeScript_Sender_Callback = QObject* (*)();
     using QsciLexerCoffeeScript_SenderSignalIndex_Callback = int (*)();
     using QsciLexerCoffeeScript_Receivers_Callback = int (*)(const QsciLexerCoffeeScript*, const char*);
@@ -394,12 +394,13 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
             qscilexercoffeescript_autocompletionwordseparators_isbase = false;
             return QsciLexerCoffeeScript::autoCompletionWordSeparators();
         } else if (qscilexercoffeescript_autocompletionwordseparators_callback != nullptr) {
-            libqt_list /* of libqt_string */ callback_ret = qscilexercoffeescript_autocompletionwordseparators_callback();
+            const char** callback_ret = qscilexercoffeescript_autocompletionwordseparators_callback();
             QList<QString> callback_ret_QList;
-            callback_ret_QList.reserve(callback_ret.len);
-            libqt_string* callback_ret_arr = static_cast<libqt_string*>(callback_ret.data);
-            for (size_t i = 0; i < callback_ret.len; ++i) {
-                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i].data, callback_ret_arr[i].len);
+            size_t callback_ret_len = libqt_strv_length(callback_ret);
+            callback_ret_QList.reserve(callback_ret_len);
+            const char** callback_ret_arr = static_cast<const char**>(callback_ret);
+            for (size_t i = 0; i < callback_ret_len; ++i) {
+                QString callback_ret_arr_i_QString = QString::fromUtf8(callback_ret_arr[i]);
                 callback_ret_QList.push_back(callback_ret_arr_i_QString);
             }
             return callback_ret_QList;
@@ -583,8 +584,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
         if (qscilexercoffeescript_description_callback != nullptr) {
             int cbval1 = style;
 
-            libqt_string callback_ret = qscilexercoffeescript_description_callback(this, cbval1);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexercoffeescript_description_callback(this, cbval1);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return {};
@@ -971,8 +972,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
             ((char*)text_str.data)[text_str.len] = '\0';
             libqt_string cbval1 = text_str;
 
-            libqt_string callback_ret = qscilexercoffeescript_textasbytes_callback(this, cbval1);
-            QByteArray callback_ret_QByteArray(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexercoffeescript_textasbytes_callback(this, cbval1);
+            QByteArray callback_ret_QByteArray(callback_ret);
             return callback_ret_QByteArray;
         } else {
             return QsciLexerCoffeeScript::textAsBytes(text);
@@ -988,8 +989,8 @@ class VirtualQsciLexerCoffeeScript final : public QsciLexerCoffeeScript {
             const char* cbval1 = (const char*)bytes;
             int cbval2 = size;
 
-            libqt_string callback_ret = qscilexercoffeescript_bytesastext_callback(this, cbval1, cbval2);
-            QString callback_ret_QString = QString::fromUtf8(callback_ret.data, callback_ret.len);
+            const char* callback_ret = qscilexercoffeescript_bytesastext_callback(this, cbval1, cbval2);
+            QString callback_ret_QString = QString::fromUtf8(callback_ret);
             return callback_ret_QString;
         } else {
             return QsciLexerCoffeeScript::bytesAsText(bytes, size);

@@ -4,7 +4,7 @@ const qabstractanimation_enums = @import("libqabstractanimation.zig").enums;
 const qnamespace_enums = @import("libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_f64_qtcqvariant = struct { first: f64, second: QtC.QVariant };
+pub const struct_f64_qtcqvariant = extern struct { first: f64, second: QtC.QVariant };
 
 /// https://doc.qt.io/qt-6/qvariantanimation.html
 pub const qvariantanimation = struct {

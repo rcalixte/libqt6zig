@@ -623,7 +623,7 @@ int QLocale_FirstDayOfWeek(const QLocale* self) {
 libqt_list /* of int */ QLocale_Weekdays(const QLocale* self) {
     QList<Qt::DayOfWeek> _ret = self->weekdays();
     // Convert QList<> from C++ memory to manually-managed C memory
-    int* _arr = static_cast<int*>(malloc(sizeof(int) * _ret.size()));
+    int* _arr = static_cast<int*>(malloc(sizeof(int) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<int>(_ret[i]);
     }
@@ -818,7 +818,7 @@ libqt_string QLocale_FormattedDataSize(const QLocale* self, long long bytes) {
 libqt_list /* of libqt_string */ QLocale_UiLanguages(const QLocale* self) {
     QList<QString> _ret = self->uiLanguages();
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -947,7 +947,7 @@ QLocale* QLocale_System() {
 libqt_list /* of QLocale* */ QLocale_MatchingLocales(uint16_t language, uint16_t script, uint16_t territory) {
     QList<QLocale> _ret = QLocale::matchingLocales(static_cast<QLocale::Language>(language), static_cast<QLocale::Script>(script), static_cast<QLocale::Territory>(territory));
     // Convert QList<> from C++ memory to manually-managed C memory
-    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * _ret.size()));
+    QLocale** _arr = static_cast<QLocale**>(malloc(sizeof(QLocale*) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = new QLocale(_ret[i]);
     }
@@ -960,7 +960,7 @@ libqt_list /* of QLocale* */ QLocale_MatchingLocales(uint16_t language, uint16_t
 libqt_list /* of uint16_t */ QLocale_CountriesForLanguage(uint16_t lang) {
     QList<QLocale::Country> _ret = QLocale::countriesForLanguage(static_cast<QLocale::Language>(lang));
     // Convert QList<> from C++ memory to manually-managed C memory
-    uint16_t* _arr = static_cast<uint16_t*>(malloc(sizeof(uint16_t) * _ret.size()));
+    uint16_t* _arr = static_cast<uint16_t*>(malloc(sizeof(uint16_t) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         _arr[i] = static_cast<uint16_t>(_ret[i]);
     }
@@ -1480,7 +1480,7 @@ libqt_string QLocale_FormattedDataSize3(const QLocale* self, long long bytes, in
 libqt_list /* of libqt_string */ QLocale_UiLanguages1(const QLocale* self, char separator) {
     QList<QString> _ret = self->uiLanguages(static_cast<QLocale::TagSeparator>(separator));
     // Convert QList<> from C++ memory to manually-managed C memory
-    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * _ret.size()));
+    libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size() + 1)));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
         QString _lv_ret = _ret[i];
         // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
