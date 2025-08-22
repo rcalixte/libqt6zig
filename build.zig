@@ -155,6 +155,9 @@ pub fn build(b: *std.Build) !void {
         "Qsci",
         // Qt 6 KCodecs
         "KCodecs",
+        // Qt 6 KI18n
+        "KI18n",
+        "KI18nLocaleData",
     };
 
     const base_cpp_flags = &.{
