@@ -4,6 +4,7 @@ import (
 	"log"
 	"regexp"
 	"strings"
+	"unicode"
 )
 
 type CppParameter struct {
@@ -54,6 +55,13 @@ func (p *CppParameter) ConstCast(isConst bool) CppParameter {
 
 func (p *CppParameter) GetQtCppType() *CppParameter {
 	if p.QtCppOriginalType != nil {
+		if !strings.Contains(p.QtCppOriginalType.ParameterType, "::") && strings.Contains(p.ParameterType, "::") &&
+			unicode.IsUpper(rune(p.QtCppOriginalType.ParameterType[0])) && !strings.HasPrefix(p.ParameterType, "QInt") {
+			return p
+		}
+		if strings.Contains(p.ParameterType, p.QtCppOriginalType.ParameterType) && !strings.HasPrefix(p.ParameterType, "QFlags<") {
+			return p
+		}
 		return p.QtCppOriginalType
 	}
 
