@@ -248,7 +248,11 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 
 	if p.ParameterType == "QString" {
 		if isSlot {
-			preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ");\n"
+			if p.Pointer {
+				preamble += indent + "QString* " + nameprefix + "_QString = new QString(QString::fromUtf8(" + p.ParameterName + "));\n"
+			} else {
+				preamble += indent + "QString " + nameprefix + "_QString = QString::fromUtf8(" + p.ParameterName + ");\n"
+			}
 		} else {
 			// The CABI received parameter is a libqt_string, passed by C++ needs
 			// it as a QString. Create one on the stack for automatic cleanup
