@@ -197,6 +197,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// posix-restricted
+
+		// QTermWidget
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "posix-restricted-qtermwidget",
+			dirs: []string{
+				"/usr/include/qtermwidget6",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      `--std=c++17 -DQ_DECLARE_INTERFACE(x,y)= -DQTermWidgetInterface_iid="lxqt.qtermwidget.QTermWidgetInterface/1.5 ` + pkgConfigCflags("qtermwidget6"),
+		},
+
 		// restricted-extras
 
 		// Qt 6 Charts
