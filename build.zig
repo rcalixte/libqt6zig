@@ -107,11 +107,13 @@ pub fn build(b: *std.Build) !void {
         .dragonfly, .freebsd, .netbsd, .openbsd => &.{
             "/usr/local/include/qt6",
             "/usr/local/include/KF6",
+            "/usr/include",
         },
         .linux => &.{
             "/usr/include/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6",
             "/usr/include/qt6",
             "/usr/include/KF6",
+            "/usr/include",
         },
         .macos => &.{
             "/usr/local/opt/qt6/include",
@@ -151,13 +153,15 @@ pub fn build(b: *std.Build) !void {
         // Qt 6 WebEngine
         "QtWebEngineCore",
         "QtWebEngineWidgets",
-        // Qt 6 QScintilla
-        "Qsci",
         // Qt 6 KCodecs
         "KCodecs",
         // Qt 6 KI18n
         "KI18n",
         "KI18nLocaleData",
+        // Qt 6 QScintilla
+        "Qsci",
+        // Qt 6 QTermWidget
+        "qtermwidget6",
     };
 
     const base_cpp_flags = &.{
