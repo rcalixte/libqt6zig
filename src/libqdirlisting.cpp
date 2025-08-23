@@ -365,7 +365,9 @@ void QDirListing__const_iterator_MoveAssign(QDirListing__const_iterator* self, Q
 }
 
 QDirListing__DirEntry* QDirListing__const_iterator_OperatorMultiply(const QDirListing__const_iterator* self) {
-    return new QDirListing::DirEntry(self->operator*());
+    const QDirListing::DirEntry& _ret = self->operator*();
+    // Cast returned reference into pointer
+    return const_cast<QDirListing::DirEntry*>(&_ret);
 }
 
 QDirListing__const_iterator* QDirListing__const_iterator_OperatorPlusPlus(QDirListing__const_iterator* self) {
