@@ -238,6 +238,11 @@ func getPreferredType(node interface{}) string {
 		qualType = q
 	}
 
+	desugared = strings.ReplaceAll(desugared, "enum ", "")
+	desugared = strings.ReplaceAll(desugared, "::enum_type", "")
+	qualType = strings.ReplaceAll(qualType, "enum ", "")
+	qualType = strings.ReplaceAll(qualType, "::enum_type", "")
+
 	if qualType != "" && shouldPreferQualType(qualType) {
 		return qualType
 	}
@@ -918,8 +923,6 @@ func parseMethod(node map[string]interface{}, mm *CppMethod, className string) e
 
 			// Add resolution for parameters if they're enums
 			for i := range mm.Parameters {
-				mm.Parameters[i].ParameterType = strings.TrimPrefix(mm.Parameters[i].ParameterType, "enum ")
-
 				if !mm.Parameters[i].IsKnownEnum() {
 					// Check if it's a typedef and resolve to underlying type
 					classScoped := className + "::" + mm.Parameters[i].ParameterType
@@ -1055,14 +1058,13 @@ func parseMethod(node map[string]interface{}, mm *CppMethod, className string) e
 // These clang strings never contain the parameter's name, so the names here are
 // not filled in.
 func parseTypeString(typeString string) (CppParameter, []CppParameter, bool, error) {
-
-	if strings.Contains(typeString, `&&`) { // TODO Rvalue references
+	if strings.Contains(typeString, "&&") { // TODO Rvalue references
 		return CppParameter{}, nil, false, ErrTooComplex
 	}
 
 	// Cut to exterior-most (, ) pair
-	opos := strings.Index(typeString, `(`)
-	epos := strings.LastIndex(typeString, `)`)
+	opos := strings.Index(typeString, "(")
+	epos := strings.LastIndex(typeString, ")")
 
 	if opos == -1 || epos == -1 {
 		return CppParameter{}, nil, false, fmt.Errorf("type string %q missing brackets", typeString)
@@ -1075,12 +1077,12 @@ func parseTypeString(typeString string) (CppParameter, []CppParameter, bool, err
 	inner := typeString[opos+1 : epos]
 
 	// Should be no more brackets
-	if strings.ContainsAny(inner, `()`) {
+	if strings.ContainsAny(inner, "()") {
 		return CppParameter{}, nil, false, ErrTooComplex
 	}
 
 	// Parameters are separated by commas and nesting can not be possible
-	params := tokenizeMultipleParameters(inner) // strings.Split(inner, `,`)
+	params := tokenizeMultipleParameters(inner)
 
 	ret := make([]CppParameter, 0, len(params))
 	for _, p := range params {
@@ -1204,6 +1206,8 @@ func parseSingleTypeString(p string) CppParameter {
 	}
 	insert.ParameterType = strings.TrimSpace(insert.ParameterType)
 	insert.ParameterType = strings.TrimPrefix(insert.ParameterType, "::")
+	insert.ParameterType = strings.ReplaceAll(insert.ParameterType, "enum ", "")
+	insert.ParameterType = strings.ReplaceAll(insert.ParameterType, "::enum_type", "")
 
 	return insert
 }
@@ -1242,6 +1246,9 @@ func parseFunctionDecl(node map[string]interface{}) (*functionInfo, error) {
 	if !ok {
 		return nil, nil
 	}
+
+	qualType = strings.ReplaceAll(qualType, "enum ", "")
+	qualType = strings.ReplaceAll(qualType, "::enum_type", "")
 
 	returnType, params, isConst, err := parseTypeString(qualType)
 	if err != nil {
@@ -1298,7 +1305,6 @@ func (fn *functionInfo) createMethod() CppMethod {
 	for i, param := range fn.params {
 		params[i] = param
 		params[i].ParameterName = "param" + strconv.Itoa(i+1)
-		params[i].ParameterType = strings.TrimSuffix(param.ParameterType, "::enum_type")
 	}
 
 	return CppMethod{
