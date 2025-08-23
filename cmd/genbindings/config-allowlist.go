@@ -15,6 +15,11 @@ func InsertTypedefs() {
 	// QFile doesn't see QFileDevice parent class enum
 	KnownTypedefs["QFile::Permissions"] = lookupResultTypedef{pp, CppTypedef{"QFile::Permissions", parseSingleTypeString("QFileDevice::Permissions")}}
 	KnownTypedefs["QIODevice::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QIODevice::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode")}}
+
+	// Qt 6 QTermWidget has a broken typedef for Command
+	KnownTypedefs["KeyboardTranslator::Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
+	KnownTypedefs["Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
+	KnownImports["Command"] = lookupResultImport{"posix-restricted-qtermwidget", "KeyboardTranslator"}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -99,6 +104,9 @@ func ImportHeaderForClass(className string) bool {
 		"QtVideo",               // Qt 6 qtvideo.h
 		"q20",                   // Qt 6 q20type_traits.h
 		"Kuit",                  // Qt 6 kuitsetup.h
+		"QTermWidget",           // Qt 6 qtermwidget.h
+		"QTermWidgetInterface",  // Qt 6 qtermwidget_interface.h
+		"Konsole",               // Qt 6 KeyboardTranslator.h
 		"____last____":
 		return false
 	}
@@ -352,6 +360,16 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	// Qt 6 QTermWidget
+	if className == "Konsole::Filter" && (mm.MethodName == "hotSpots" || mm.MethodName == "hotSpotsAtLine") {
+		// Skip these methods due to broken typedefs
+		return ErrTooComplex
+	}
+	if className == "Konsole::FilterChain" && mm.MethodName == "hotSpotsAtLine" {
+		// Skip these methods due to broken typedefs
+		return ErrTooComplex
+	}
+
 	// Skip functions that return ints-by-reference since the ergonomics don't
 	// go through the binding
 	if mm.ReturnType.IntType() && mm.ReturnType.ByRef {
@@ -592,6 +610,10 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QQmlWebChannelAttached",          // Qt 5 qqmlwebchannel.h. Need to add QML support for this to work
 		"QQmlEngine",                      // Qt 6 qqmlengine.h, need to add QtQml for this to work
 		"QJSEngine",                       // Qt 6 qjsengine.h, need to add QtQml for this to work
+		"Character",                       // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
+		"HistoryType",                     // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
+		"ScreenWindow",                    // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
+		"TerminalCharacterDecoder",        // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"____last____":
 		return ErrTooComplex
 	}
