@@ -580,10 +580,12 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		if isSignal && cType == "libqt_string" {
+			maybeMethod := ifv(t.ParameterType == "QByteArray", "", ".toUtf8()")
+
 			afterCall = indent + "// Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory\n"
 			afterCall = indent + "const char** " + namePrefix + "_arr = static_cast<const char**>(malloc(sizeof(const char*) * (" + namePrefix + "_ret" + memberRef + "size() + 1)));\n"
 			afterCall += indent + "for (qsizetype i = 0; i < " + namePrefix + "_ret" + memberRef + "size(); ++i) {\n"
-			afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret[i].toUtf8();\n"
+			afterCall += indent + "QByteArray " + namePrefix + "_b = " + namePrefix + "_ret[i]" + maybeMethod + ";\n"
 			afterCall += indent + "char* " + namePrefix + "_str = static_cast<char*>(malloc(" + namePrefix + "_b.length() + 1));\n"
 			afterCall += indent + "memcpy(" + namePrefix + "_str, " + namePrefix + "_b.data(), " + namePrefix + "_b.length());\n"
 			afterCall += indent + namePrefix + "_str[" + namePrefix + "_b.length()] = '\\0';\n"
@@ -1752,6 +1754,17 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				}
 
 			writeString:
+
+				if m.IsVariable {
+					ret.WriteString(returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n")
+					if strings.HasPrefix(m.MethodName, "set") {
+						ret.WriteString(preamble + "self->" + m.VariableFieldName + " = " + forwarding + ";\n}\n\n")
+					} else {
+						ret.WriteString(emitAssignCppToCabi("\treturn ", m.ReturnType, "self->"+m.VariableFieldName) + "}\n\n")
+					}
+					continue
+				}
+
 				ret.WriteString(returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n" +
 					preamble + virtualStart +
 					emitAssignCppToCabi("\treturn ", m.ReturnType, returnCallTarget) +
