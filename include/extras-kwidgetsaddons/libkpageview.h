@@ -1,0 +1,268 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKPAGEVIEW_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKPAGEVIEW_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KPageView KPageView;
+typedef struct QAbstractItemDelegate QAbstractItemDelegate;
+typedef struct QAbstractItemModel QAbstractItemModel;
+typedef struct QAbstractItemView QAbstractItemView;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QModelIndex QModelIndex;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KPageView* KPageView_new(QWidget* parent);
+KPageView* KPageView_new2();
+QMetaObject* KPageView_MetaObject(const KPageView* self);
+void* KPageView_Metacast(KPageView* self, const char* param1);
+int KPageView_Metacall(KPageView* self, int param1, int param2, void** param3);
+void KPageView_OnMetacall(KPageView* self, intptr_t slot);
+int KPageView_QBaseMetacall(KPageView* self, int param1, int param2, void** param3);
+libqt_string KPageView_Tr(const char* s);
+void KPageView_SetModel(KPageView* self, QAbstractItemModel* model);
+QAbstractItemModel* KPageView_Model(const KPageView* self);
+void KPageView_SetFaceType(KPageView* self, int faceType);
+int KPageView_FaceType(const KPageView* self);
+void KPageView_SetCurrentPage(KPageView* self, const QModelIndex* index);
+QModelIndex* KPageView_CurrentPage(const KPageView* self);
+void KPageView_SetItemDelegate(KPageView* self, QAbstractItemDelegate* delegate);
+QAbstractItemDelegate* KPageView_ItemDelegate(const KPageView* self);
+void KPageView_SetDefaultWidget(KPageView* self, QWidget* widget);
+void KPageView_SetPageHeader(KPageView* self, QWidget* header);
+QWidget* KPageView_PageHeader(const KPageView* self);
+void KPageView_SetPageFooter(KPageView* self, QWidget* footer);
+QWidget* KPageView_PageFooter(const KPageView* self);
+void KPageView_CurrentPageChanged(KPageView* self, const QModelIndex* current, const QModelIndex* previous);
+void KPageView_Connect_CurrentPageChanged(KPageView* self, intptr_t slot);
+QAbstractItemView* KPageView_CreateView(KPageView* self);
+void KPageView_OnCreateView(KPageView* self, intptr_t slot);
+QAbstractItemView* KPageView_QBaseCreateView(KPageView* self);
+bool KPageView_ShowPageHeader(const KPageView* self);
+void KPageView_OnShowPageHeader(const KPageView* self, intptr_t slot);
+bool KPageView_QBaseShowPageHeader(const KPageView* self);
+int KPageView_ViewPosition(const KPageView* self);
+void KPageView_OnViewPosition(const KPageView* self, intptr_t slot);
+int KPageView_QBaseViewPosition(const KPageView* self);
+libqt_string KPageView_Tr2(const char* s, const char* c);
+libqt_string KPageView_Tr3(const char* s, const char* c, int n);
+int KPageView_DevType(const KPageView* self);
+void KPageView_OnDevType(const KPageView* self, intptr_t slot);
+int KPageView_QBaseDevType(const KPageView* self);
+void KPageView_SetVisible(KPageView* self, bool visible);
+void KPageView_OnSetVisible(KPageView* self, intptr_t slot);
+void KPageView_QBaseSetVisible(KPageView* self, bool visible);
+QSize* KPageView_SizeHint(const KPageView* self);
+void KPageView_OnSizeHint(const KPageView* self, intptr_t slot);
+QSize* KPageView_QBaseSizeHint(const KPageView* self);
+QSize* KPageView_MinimumSizeHint(const KPageView* self);
+void KPageView_OnMinimumSizeHint(const KPageView* self, intptr_t slot);
+QSize* KPageView_QBaseMinimumSizeHint(const KPageView* self);
+int KPageView_HeightForWidth(const KPageView* self, int param1);
+void KPageView_OnHeightForWidth(const KPageView* self, intptr_t slot);
+int KPageView_QBaseHeightForWidth(const KPageView* self, int param1);
+bool KPageView_HasHeightForWidth(const KPageView* self);
+void KPageView_OnHasHeightForWidth(const KPageView* self, intptr_t slot);
+bool KPageView_QBaseHasHeightForWidth(const KPageView* self);
+QPaintEngine* KPageView_PaintEngine(const KPageView* self);
+void KPageView_OnPaintEngine(const KPageView* self, intptr_t slot);
+QPaintEngine* KPageView_QBasePaintEngine(const KPageView* self);
+bool KPageView_Event(KPageView* self, QEvent* event);
+void KPageView_OnEvent(KPageView* self, intptr_t slot);
+bool KPageView_QBaseEvent(KPageView* self, QEvent* event);
+void KPageView_MousePressEvent(KPageView* self, QMouseEvent* event);
+void KPageView_OnMousePressEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseMousePressEvent(KPageView* self, QMouseEvent* event);
+void KPageView_MouseReleaseEvent(KPageView* self, QMouseEvent* event);
+void KPageView_OnMouseReleaseEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseMouseReleaseEvent(KPageView* self, QMouseEvent* event);
+void KPageView_MouseDoubleClickEvent(KPageView* self, QMouseEvent* event);
+void KPageView_OnMouseDoubleClickEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseMouseDoubleClickEvent(KPageView* self, QMouseEvent* event);
+void KPageView_MouseMoveEvent(KPageView* self, QMouseEvent* event);
+void KPageView_OnMouseMoveEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseMouseMoveEvent(KPageView* self, QMouseEvent* event);
+void KPageView_WheelEvent(KPageView* self, QWheelEvent* event);
+void KPageView_OnWheelEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseWheelEvent(KPageView* self, QWheelEvent* event);
+void KPageView_KeyPressEvent(KPageView* self, QKeyEvent* event);
+void KPageView_OnKeyPressEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseKeyPressEvent(KPageView* self, QKeyEvent* event);
+void KPageView_KeyReleaseEvent(KPageView* self, QKeyEvent* event);
+void KPageView_OnKeyReleaseEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseKeyReleaseEvent(KPageView* self, QKeyEvent* event);
+void KPageView_FocusInEvent(KPageView* self, QFocusEvent* event);
+void KPageView_OnFocusInEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseFocusInEvent(KPageView* self, QFocusEvent* event);
+void KPageView_FocusOutEvent(KPageView* self, QFocusEvent* event);
+void KPageView_OnFocusOutEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseFocusOutEvent(KPageView* self, QFocusEvent* event);
+void KPageView_EnterEvent(KPageView* self, QEnterEvent* event);
+void KPageView_OnEnterEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseEnterEvent(KPageView* self, QEnterEvent* event);
+void KPageView_LeaveEvent(KPageView* self, QEvent* event);
+void KPageView_OnLeaveEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseLeaveEvent(KPageView* self, QEvent* event);
+void KPageView_PaintEvent(KPageView* self, QPaintEvent* event);
+void KPageView_OnPaintEvent(KPageView* self, intptr_t slot);
+void KPageView_QBasePaintEvent(KPageView* self, QPaintEvent* event);
+void KPageView_MoveEvent(KPageView* self, QMoveEvent* event);
+void KPageView_OnMoveEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseMoveEvent(KPageView* self, QMoveEvent* event);
+void KPageView_ResizeEvent(KPageView* self, QResizeEvent* event);
+void KPageView_OnResizeEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseResizeEvent(KPageView* self, QResizeEvent* event);
+void KPageView_CloseEvent(KPageView* self, QCloseEvent* event);
+void KPageView_OnCloseEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseCloseEvent(KPageView* self, QCloseEvent* event);
+void KPageView_ContextMenuEvent(KPageView* self, QContextMenuEvent* event);
+void KPageView_OnContextMenuEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseContextMenuEvent(KPageView* self, QContextMenuEvent* event);
+void KPageView_TabletEvent(KPageView* self, QTabletEvent* event);
+void KPageView_OnTabletEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseTabletEvent(KPageView* self, QTabletEvent* event);
+void KPageView_ActionEvent(KPageView* self, QActionEvent* event);
+void KPageView_OnActionEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseActionEvent(KPageView* self, QActionEvent* event);
+void KPageView_DragEnterEvent(KPageView* self, QDragEnterEvent* event);
+void KPageView_OnDragEnterEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseDragEnterEvent(KPageView* self, QDragEnterEvent* event);
+void KPageView_DragMoveEvent(KPageView* self, QDragMoveEvent* event);
+void KPageView_OnDragMoveEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseDragMoveEvent(KPageView* self, QDragMoveEvent* event);
+void KPageView_DragLeaveEvent(KPageView* self, QDragLeaveEvent* event);
+void KPageView_OnDragLeaveEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseDragLeaveEvent(KPageView* self, QDragLeaveEvent* event);
+void KPageView_DropEvent(KPageView* self, QDropEvent* event);
+void KPageView_OnDropEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseDropEvent(KPageView* self, QDropEvent* event);
+void KPageView_ShowEvent(KPageView* self, QShowEvent* event);
+void KPageView_OnShowEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseShowEvent(KPageView* self, QShowEvent* event);
+void KPageView_HideEvent(KPageView* self, QHideEvent* event);
+void KPageView_OnHideEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseHideEvent(KPageView* self, QHideEvent* event);
+bool KPageView_NativeEvent(KPageView* self, const libqt_string eventType, void* message, intptr_t* result);
+void KPageView_OnNativeEvent(KPageView* self, intptr_t slot);
+bool KPageView_QBaseNativeEvent(KPageView* self, const libqt_string eventType, void* message, intptr_t* result);
+void KPageView_ChangeEvent(KPageView* self, QEvent* param1);
+void KPageView_OnChangeEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseChangeEvent(KPageView* self, QEvent* param1);
+int KPageView_Metric(const KPageView* self, int param1);
+void KPageView_OnMetric(const KPageView* self, intptr_t slot);
+int KPageView_QBaseMetric(const KPageView* self, int param1);
+void KPageView_InitPainter(const KPageView* self, QPainter* painter);
+void KPageView_OnInitPainter(const KPageView* self, intptr_t slot);
+void KPageView_QBaseInitPainter(const KPageView* self, QPainter* painter);
+QPaintDevice* KPageView_Redirected(const KPageView* self, QPoint* offset);
+void KPageView_OnRedirected(const KPageView* self, intptr_t slot);
+QPaintDevice* KPageView_QBaseRedirected(const KPageView* self, QPoint* offset);
+QPainter* KPageView_SharedPainter(const KPageView* self);
+void KPageView_OnSharedPainter(const KPageView* self, intptr_t slot);
+QPainter* KPageView_QBaseSharedPainter(const KPageView* self);
+void KPageView_InputMethodEvent(KPageView* self, QInputMethodEvent* param1);
+void KPageView_OnInputMethodEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseInputMethodEvent(KPageView* self, QInputMethodEvent* param1);
+QVariant* KPageView_InputMethodQuery(const KPageView* self, int param1);
+void KPageView_OnInputMethodQuery(const KPageView* self, intptr_t slot);
+QVariant* KPageView_QBaseInputMethodQuery(const KPageView* self, int param1);
+bool KPageView_FocusNextPrevChild(KPageView* self, bool next);
+void KPageView_OnFocusNextPrevChild(KPageView* self, intptr_t slot);
+bool KPageView_QBaseFocusNextPrevChild(KPageView* self, bool next);
+bool KPageView_EventFilter(KPageView* self, QObject* watched, QEvent* event);
+void KPageView_OnEventFilter(KPageView* self, intptr_t slot);
+bool KPageView_QBaseEventFilter(KPageView* self, QObject* watched, QEvent* event);
+void KPageView_TimerEvent(KPageView* self, QTimerEvent* event);
+void KPageView_OnTimerEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseTimerEvent(KPageView* self, QTimerEvent* event);
+void KPageView_ChildEvent(KPageView* self, QChildEvent* event);
+void KPageView_OnChildEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseChildEvent(KPageView* self, QChildEvent* event);
+void KPageView_CustomEvent(KPageView* self, QEvent* event);
+void KPageView_OnCustomEvent(KPageView* self, intptr_t slot);
+void KPageView_QBaseCustomEvent(KPageView* self, QEvent* event);
+void KPageView_ConnectNotify(KPageView* self, const QMetaMethod* signal);
+void KPageView_OnConnectNotify(KPageView* self, intptr_t slot);
+void KPageView_QBaseConnectNotify(KPageView* self, const QMetaMethod* signal);
+void KPageView_DisconnectNotify(KPageView* self, const QMetaMethod* signal);
+void KPageView_OnDisconnectNotify(KPageView* self, intptr_t slot);
+void KPageView_QBaseDisconnectNotify(KPageView* self, const QMetaMethod* signal);
+void KPageView_UpdateMicroFocus(KPageView* self);
+void KPageView_OnUpdateMicroFocus(KPageView* self, intptr_t slot);
+void KPageView_QBaseUpdateMicroFocus(KPageView* self);
+void KPageView_Create(KPageView* self);
+void KPageView_OnCreate(KPageView* self, intptr_t slot);
+void KPageView_QBaseCreate(KPageView* self);
+void KPageView_Destroy(KPageView* self);
+void KPageView_OnDestroy(KPageView* self, intptr_t slot);
+void KPageView_QBaseDestroy(KPageView* self);
+bool KPageView_FocusNextChild(KPageView* self);
+void KPageView_OnFocusNextChild(KPageView* self, intptr_t slot);
+bool KPageView_QBaseFocusNextChild(KPageView* self);
+bool KPageView_FocusPreviousChild(KPageView* self);
+void KPageView_OnFocusPreviousChild(KPageView* self, intptr_t slot);
+bool KPageView_QBaseFocusPreviousChild(KPageView* self);
+QObject* KPageView_Sender(const KPageView* self);
+void KPageView_OnSender(const KPageView* self, intptr_t slot);
+QObject* KPageView_QBaseSender(const KPageView* self);
+int KPageView_SenderSignalIndex(const KPageView* self);
+void KPageView_OnSenderSignalIndex(const KPageView* self, intptr_t slot);
+int KPageView_QBaseSenderSignalIndex(const KPageView* self);
+int KPageView_Receivers(const KPageView* self, const char* signal);
+void KPageView_OnReceivers(const KPageView* self, intptr_t slot);
+int KPageView_QBaseReceivers(const KPageView* self, const char* signal);
+bool KPageView_IsSignalConnected(const KPageView* self, const QMetaMethod* signal);
+void KPageView_OnIsSignalConnected(const KPageView* self, intptr_t slot);
+bool KPageView_QBaseIsSignalConnected(const KPageView* self, const QMetaMethod* signal);
+double KPageView_GetDecodedMetricF(const KPageView* self, int metricA, int metricB);
+void KPageView_OnGetDecodedMetricF(const KPageView* self, intptr_t slot);
+double KPageView_QBaseGetDecodedMetricF(const KPageView* self, int metricA, int metricB);
+void KPageView_Delete(KPageView* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

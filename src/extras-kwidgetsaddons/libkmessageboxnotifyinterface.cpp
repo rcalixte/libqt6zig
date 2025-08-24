@@ -1,0 +1,51 @@
+#include <KMessageBoxNotifyInterface>
+#include <QString>
+#include <QByteArray>
+#include <cstring>
+#include <QWidget>
+#include <kmessageboxnotifyinterface.h>
+#include "libkmessageboxnotifyinterface.h"
+#include "libkmessageboxnotifyinterface.hxx"
+
+KMessageBoxNotifyInterface* KMessageBoxNotifyInterface_new() {
+    return new VirtualKMessageBoxNotifyInterface();
+}
+
+void KMessageBoxNotifyInterface_OperatorAssign(KMessageBoxNotifyInterface* self, const KMessageBoxNotifyInterface* param1) {
+    self->operator=(*param1);
+}
+
+// Derived class handler implementation
+void KMessageBoxNotifyInterface_SendNotification(KMessageBoxNotifyInterface* self, int notificationType, const libqt_string message, QWidget* parent) {
+    auto* vkmessageboxnotifyinterface = dynamic_cast<VirtualKMessageBoxNotifyInterface*>(self);
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    if (vkmessageboxnotifyinterface && vkmessageboxnotifyinterface->isVirtualKMessageBoxNotifyInterface) {
+        vkmessageboxnotifyinterface->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
+    } else {
+        ((VirtualKMessageBoxNotifyInterface*)self)->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
+    }
+}
+
+// Base class handler implementation
+void KMessageBoxNotifyInterface_QBaseSendNotification(KMessageBoxNotifyInterface* self, int notificationType, const libqt_string message, QWidget* parent) {
+    auto* vkmessageboxnotifyinterface = dynamic_cast<VirtualKMessageBoxNotifyInterface*>(self);
+    QString message_QString = QString::fromUtf8(message.data, message.len);
+    if (vkmessageboxnotifyinterface && vkmessageboxnotifyinterface->isVirtualKMessageBoxNotifyInterface) {
+        vkmessageboxnotifyinterface->setKMessageBoxNotifyInterface_SendNotification_IsBase(true);
+        vkmessageboxnotifyinterface->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
+    } else {
+        ((VirtualKMessageBoxNotifyInterface*)self)->sendNotification(static_cast<QMessageBox::Icon>(notificationType), message_QString, parent);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KMessageBoxNotifyInterface_OnSendNotification(KMessageBoxNotifyInterface* self, intptr_t slot) {
+    auto* vkmessageboxnotifyinterface = dynamic_cast<VirtualKMessageBoxNotifyInterface*>(self);
+    if (vkmessageboxnotifyinterface && vkmessageboxnotifyinterface->isVirtualKMessageBoxNotifyInterface) {
+        vkmessageboxnotifyinterface->setKMessageBoxNotifyInterface_SendNotification_Callback(reinterpret_cast<VirtualKMessageBoxNotifyInterface::KMessageBoxNotifyInterface_SendNotification_Callback>(slot));
+    }
+}
+
+void KMessageBoxNotifyInterface_Delete(KMessageBoxNotifyInterface* self) {
+    delete self;
+}

@@ -1,0 +1,261 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKPASSWORDLINEEDIT_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKPASSWORDLINEEDIT_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KPasswordLineEdit KPasswordLineEdit;
+typedef struct QAction QAction;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QLineEdit QLineEdit;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KPasswordLineEdit* KPasswordLineEdit_new(QWidget* parent);
+KPasswordLineEdit* KPasswordLineEdit_new2();
+QMetaObject* KPasswordLineEdit_MetaObject(const KPasswordLineEdit* self);
+void* KPasswordLineEdit_Metacast(KPasswordLineEdit* self, const char* param1);
+int KPasswordLineEdit_Metacall(KPasswordLineEdit* self, int param1, int param2, void** param3);
+void KPasswordLineEdit_OnMetacall(KPasswordLineEdit* self, intptr_t slot);
+int KPasswordLineEdit_QBaseMetacall(KPasswordLineEdit* self, int param1, int param2, void** param3);
+libqt_string KPasswordLineEdit_Tr(const char* s);
+void KPasswordLineEdit_SetPassword(KPasswordLineEdit* self, const libqt_string password);
+libqt_string KPasswordLineEdit_Password(const KPasswordLineEdit* self);
+void KPasswordLineEdit_Clear(KPasswordLineEdit* self);
+void KPasswordLineEdit_SetClearButtonEnabled(KPasswordLineEdit* self, bool clear);
+bool KPasswordLineEdit_IsClearButtonEnabled(const KPasswordLineEdit* self);
+void KPasswordLineEdit_SetEchoMode(KPasswordLineEdit* self, int mode);
+int KPasswordLineEdit_EchoMode(const KPasswordLineEdit* self);
+void KPasswordLineEdit_SetReadOnly(KPasswordLineEdit* self, bool readOnly);
+bool KPasswordLineEdit_IsReadOnly(const KPasswordLineEdit* self);
+int KPasswordLineEdit_RevealPasswordMode(const KPasswordLineEdit* self);
+void KPasswordLineEdit_SetRevealPasswordMode(KPasswordLineEdit* self, int revealPasswordMode);
+void KPasswordLineEdit_SetRevealPasswordAvailable(KPasswordLineEdit* self, bool reveal);
+bool KPasswordLineEdit_IsRevealPasswordAvailable(const KPasswordLineEdit* self);
+QAction* KPasswordLineEdit_ToggleEchoModeAction(const KPasswordLineEdit* self);
+QLineEdit* KPasswordLineEdit_LineEdit(const KPasswordLineEdit* self);
+void KPasswordLineEdit_EchoModeChanged(KPasswordLineEdit* self, int echoMode);
+void KPasswordLineEdit_Connect_EchoModeChanged(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_PasswordChanged(KPasswordLineEdit* self, const libqt_string password);
+void KPasswordLineEdit_Connect_PasswordChanged(KPasswordLineEdit* self, intptr_t slot);
+libqt_string KPasswordLineEdit_Tr2(const char* s, const char* c);
+libqt_string KPasswordLineEdit_Tr3(const char* s, const char* c, int n);
+int KPasswordLineEdit_DevType(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnDevType(const KPasswordLineEdit* self, intptr_t slot);
+int KPasswordLineEdit_QBaseDevType(const KPasswordLineEdit* self);
+void KPasswordLineEdit_SetVisible(KPasswordLineEdit* self, bool visible);
+void KPasswordLineEdit_OnSetVisible(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseSetVisible(KPasswordLineEdit* self, bool visible);
+QSize* KPasswordLineEdit_SizeHint(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnSizeHint(const KPasswordLineEdit* self, intptr_t slot);
+QSize* KPasswordLineEdit_QBaseSizeHint(const KPasswordLineEdit* self);
+QSize* KPasswordLineEdit_MinimumSizeHint(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnMinimumSizeHint(const KPasswordLineEdit* self, intptr_t slot);
+QSize* KPasswordLineEdit_QBaseMinimumSizeHint(const KPasswordLineEdit* self);
+int KPasswordLineEdit_HeightForWidth(const KPasswordLineEdit* self, int param1);
+void KPasswordLineEdit_OnHeightForWidth(const KPasswordLineEdit* self, intptr_t slot);
+int KPasswordLineEdit_QBaseHeightForWidth(const KPasswordLineEdit* self, int param1);
+bool KPasswordLineEdit_HasHeightForWidth(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnHasHeightForWidth(const KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseHasHeightForWidth(const KPasswordLineEdit* self);
+QPaintEngine* KPasswordLineEdit_PaintEngine(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnPaintEngine(const KPasswordLineEdit* self, intptr_t slot);
+QPaintEngine* KPasswordLineEdit_QBasePaintEngine(const KPasswordLineEdit* self);
+bool KPasswordLineEdit_Event(KPasswordLineEdit* self, QEvent* event);
+void KPasswordLineEdit_OnEvent(KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseEvent(KPasswordLineEdit* self, QEvent* event);
+void KPasswordLineEdit_MousePressEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_OnMousePressEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseMousePressEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_MouseReleaseEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_OnMouseReleaseEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseMouseReleaseEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_MouseDoubleClickEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_OnMouseDoubleClickEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseMouseDoubleClickEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_MouseMoveEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_OnMouseMoveEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseMouseMoveEvent(KPasswordLineEdit* self, QMouseEvent* event);
+void KPasswordLineEdit_WheelEvent(KPasswordLineEdit* self, QWheelEvent* event);
+void KPasswordLineEdit_OnWheelEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseWheelEvent(KPasswordLineEdit* self, QWheelEvent* event);
+void KPasswordLineEdit_KeyPressEvent(KPasswordLineEdit* self, QKeyEvent* event);
+void KPasswordLineEdit_OnKeyPressEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseKeyPressEvent(KPasswordLineEdit* self, QKeyEvent* event);
+void KPasswordLineEdit_KeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* event);
+void KPasswordLineEdit_OnKeyReleaseEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseKeyReleaseEvent(KPasswordLineEdit* self, QKeyEvent* event);
+void KPasswordLineEdit_FocusInEvent(KPasswordLineEdit* self, QFocusEvent* event);
+void KPasswordLineEdit_OnFocusInEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseFocusInEvent(KPasswordLineEdit* self, QFocusEvent* event);
+void KPasswordLineEdit_FocusOutEvent(KPasswordLineEdit* self, QFocusEvent* event);
+void KPasswordLineEdit_OnFocusOutEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseFocusOutEvent(KPasswordLineEdit* self, QFocusEvent* event);
+void KPasswordLineEdit_EnterEvent(KPasswordLineEdit* self, QEnterEvent* event);
+void KPasswordLineEdit_OnEnterEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseEnterEvent(KPasswordLineEdit* self, QEnterEvent* event);
+void KPasswordLineEdit_LeaveEvent(KPasswordLineEdit* self, QEvent* event);
+void KPasswordLineEdit_OnLeaveEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseLeaveEvent(KPasswordLineEdit* self, QEvent* event);
+void KPasswordLineEdit_PaintEvent(KPasswordLineEdit* self, QPaintEvent* event);
+void KPasswordLineEdit_OnPaintEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBasePaintEvent(KPasswordLineEdit* self, QPaintEvent* event);
+void KPasswordLineEdit_MoveEvent(KPasswordLineEdit* self, QMoveEvent* event);
+void KPasswordLineEdit_OnMoveEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseMoveEvent(KPasswordLineEdit* self, QMoveEvent* event);
+void KPasswordLineEdit_ResizeEvent(KPasswordLineEdit* self, QResizeEvent* event);
+void KPasswordLineEdit_OnResizeEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseResizeEvent(KPasswordLineEdit* self, QResizeEvent* event);
+void KPasswordLineEdit_CloseEvent(KPasswordLineEdit* self, QCloseEvent* event);
+void KPasswordLineEdit_OnCloseEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseCloseEvent(KPasswordLineEdit* self, QCloseEvent* event);
+void KPasswordLineEdit_ContextMenuEvent(KPasswordLineEdit* self, QContextMenuEvent* event);
+void KPasswordLineEdit_OnContextMenuEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseContextMenuEvent(KPasswordLineEdit* self, QContextMenuEvent* event);
+void KPasswordLineEdit_TabletEvent(KPasswordLineEdit* self, QTabletEvent* event);
+void KPasswordLineEdit_OnTabletEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseTabletEvent(KPasswordLineEdit* self, QTabletEvent* event);
+void KPasswordLineEdit_ActionEvent(KPasswordLineEdit* self, QActionEvent* event);
+void KPasswordLineEdit_OnActionEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseActionEvent(KPasswordLineEdit* self, QActionEvent* event);
+void KPasswordLineEdit_DragEnterEvent(KPasswordLineEdit* self, QDragEnterEvent* event);
+void KPasswordLineEdit_OnDragEnterEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseDragEnterEvent(KPasswordLineEdit* self, QDragEnterEvent* event);
+void KPasswordLineEdit_DragMoveEvent(KPasswordLineEdit* self, QDragMoveEvent* event);
+void KPasswordLineEdit_OnDragMoveEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseDragMoveEvent(KPasswordLineEdit* self, QDragMoveEvent* event);
+void KPasswordLineEdit_DragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEvent* event);
+void KPasswordLineEdit_OnDragLeaveEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseDragLeaveEvent(KPasswordLineEdit* self, QDragLeaveEvent* event);
+void KPasswordLineEdit_DropEvent(KPasswordLineEdit* self, QDropEvent* event);
+void KPasswordLineEdit_OnDropEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseDropEvent(KPasswordLineEdit* self, QDropEvent* event);
+void KPasswordLineEdit_ShowEvent(KPasswordLineEdit* self, QShowEvent* event);
+void KPasswordLineEdit_OnShowEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseShowEvent(KPasswordLineEdit* self, QShowEvent* event);
+void KPasswordLineEdit_HideEvent(KPasswordLineEdit* self, QHideEvent* event);
+void KPasswordLineEdit_OnHideEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseHideEvent(KPasswordLineEdit* self, QHideEvent* event);
+bool KPasswordLineEdit_NativeEvent(KPasswordLineEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+void KPasswordLineEdit_OnNativeEvent(KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseNativeEvent(KPasswordLineEdit* self, const libqt_string eventType, void* message, intptr_t* result);
+void KPasswordLineEdit_ChangeEvent(KPasswordLineEdit* self, QEvent* param1);
+void KPasswordLineEdit_OnChangeEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseChangeEvent(KPasswordLineEdit* self, QEvent* param1);
+int KPasswordLineEdit_Metric(const KPasswordLineEdit* self, int param1);
+void KPasswordLineEdit_OnMetric(const KPasswordLineEdit* self, intptr_t slot);
+int KPasswordLineEdit_QBaseMetric(const KPasswordLineEdit* self, int param1);
+void KPasswordLineEdit_InitPainter(const KPasswordLineEdit* self, QPainter* painter);
+void KPasswordLineEdit_OnInitPainter(const KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseInitPainter(const KPasswordLineEdit* self, QPainter* painter);
+QPaintDevice* KPasswordLineEdit_Redirected(const KPasswordLineEdit* self, QPoint* offset);
+void KPasswordLineEdit_OnRedirected(const KPasswordLineEdit* self, intptr_t slot);
+QPaintDevice* KPasswordLineEdit_QBaseRedirected(const KPasswordLineEdit* self, QPoint* offset);
+QPainter* KPasswordLineEdit_SharedPainter(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnSharedPainter(const KPasswordLineEdit* self, intptr_t slot);
+QPainter* KPasswordLineEdit_QBaseSharedPainter(const KPasswordLineEdit* self);
+void KPasswordLineEdit_InputMethodEvent(KPasswordLineEdit* self, QInputMethodEvent* param1);
+void KPasswordLineEdit_OnInputMethodEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseInputMethodEvent(KPasswordLineEdit* self, QInputMethodEvent* param1);
+QVariant* KPasswordLineEdit_InputMethodQuery(const KPasswordLineEdit* self, int param1);
+void KPasswordLineEdit_OnInputMethodQuery(const KPasswordLineEdit* self, intptr_t slot);
+QVariant* KPasswordLineEdit_QBaseInputMethodQuery(const KPasswordLineEdit* self, int param1);
+bool KPasswordLineEdit_FocusNextPrevChild(KPasswordLineEdit* self, bool next);
+void KPasswordLineEdit_OnFocusNextPrevChild(KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseFocusNextPrevChild(KPasswordLineEdit* self, bool next);
+bool KPasswordLineEdit_EventFilter(KPasswordLineEdit* self, QObject* watched, QEvent* event);
+void KPasswordLineEdit_OnEventFilter(KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseEventFilter(KPasswordLineEdit* self, QObject* watched, QEvent* event);
+void KPasswordLineEdit_TimerEvent(KPasswordLineEdit* self, QTimerEvent* event);
+void KPasswordLineEdit_OnTimerEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseTimerEvent(KPasswordLineEdit* self, QTimerEvent* event);
+void KPasswordLineEdit_ChildEvent(KPasswordLineEdit* self, QChildEvent* event);
+void KPasswordLineEdit_OnChildEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseChildEvent(KPasswordLineEdit* self, QChildEvent* event);
+void KPasswordLineEdit_CustomEvent(KPasswordLineEdit* self, QEvent* event);
+void KPasswordLineEdit_OnCustomEvent(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseCustomEvent(KPasswordLineEdit* self, QEvent* event);
+void KPasswordLineEdit_ConnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal);
+void KPasswordLineEdit_OnConnectNotify(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseConnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal);
+void KPasswordLineEdit_DisconnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal);
+void KPasswordLineEdit_OnDisconnectNotify(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseDisconnectNotify(KPasswordLineEdit* self, const QMetaMethod* signal);
+void KPasswordLineEdit_UpdateMicroFocus(KPasswordLineEdit* self);
+void KPasswordLineEdit_OnUpdateMicroFocus(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseUpdateMicroFocus(KPasswordLineEdit* self);
+void KPasswordLineEdit_Create(KPasswordLineEdit* self);
+void KPasswordLineEdit_OnCreate(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseCreate(KPasswordLineEdit* self);
+void KPasswordLineEdit_Destroy(KPasswordLineEdit* self);
+void KPasswordLineEdit_OnDestroy(KPasswordLineEdit* self, intptr_t slot);
+void KPasswordLineEdit_QBaseDestroy(KPasswordLineEdit* self);
+bool KPasswordLineEdit_FocusNextChild(KPasswordLineEdit* self);
+void KPasswordLineEdit_OnFocusNextChild(KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseFocusNextChild(KPasswordLineEdit* self);
+bool KPasswordLineEdit_FocusPreviousChild(KPasswordLineEdit* self);
+void KPasswordLineEdit_OnFocusPreviousChild(KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseFocusPreviousChild(KPasswordLineEdit* self);
+QObject* KPasswordLineEdit_Sender(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnSender(const KPasswordLineEdit* self, intptr_t slot);
+QObject* KPasswordLineEdit_QBaseSender(const KPasswordLineEdit* self);
+int KPasswordLineEdit_SenderSignalIndex(const KPasswordLineEdit* self);
+void KPasswordLineEdit_OnSenderSignalIndex(const KPasswordLineEdit* self, intptr_t slot);
+int KPasswordLineEdit_QBaseSenderSignalIndex(const KPasswordLineEdit* self);
+int KPasswordLineEdit_Receivers(const KPasswordLineEdit* self, const char* signal);
+void KPasswordLineEdit_OnReceivers(const KPasswordLineEdit* self, intptr_t slot);
+int KPasswordLineEdit_QBaseReceivers(const KPasswordLineEdit* self, const char* signal);
+bool KPasswordLineEdit_IsSignalConnected(const KPasswordLineEdit* self, const QMetaMethod* signal);
+void KPasswordLineEdit_OnIsSignalConnected(const KPasswordLineEdit* self, intptr_t slot);
+bool KPasswordLineEdit_QBaseIsSignalConnected(const KPasswordLineEdit* self, const QMetaMethod* signal);
+double KPasswordLineEdit_GetDecodedMetricF(const KPasswordLineEdit* self, int metricA, int metricB);
+void KPasswordLineEdit_OnGetDecodedMetricF(const KPasswordLineEdit* self, intptr_t slot);
+double KPasswordLineEdit_QBaseGetDecodedMetricF(const KPasswordLineEdit* self, int metricA, int metricB);
+void KPasswordLineEdit_Delete(KPasswordLineEdit* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

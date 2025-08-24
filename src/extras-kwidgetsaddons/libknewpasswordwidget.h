@@ -1,0 +1,263 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKNEWPASSWORDWIDGET_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKNEWPASSWORDWIDGET_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KNewPasswordWidget KNewPasswordWidget;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QColor QColor;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KNewPasswordWidget* KNewPasswordWidget_new(QWidget* parent);
+KNewPasswordWidget* KNewPasswordWidget_new2();
+QMetaObject* KNewPasswordWidget_MetaObject(const KNewPasswordWidget* self);
+void* KNewPasswordWidget_Metacast(KNewPasswordWidget* self, const char* param1);
+int KNewPasswordWidget_Metacall(KNewPasswordWidget* self, int param1, int param2, void** param3);
+void KNewPasswordWidget_OnMetacall(KNewPasswordWidget* self, intptr_t slot);
+int KNewPasswordWidget_QBaseMetacall(KNewPasswordWidget* self, int param1, int param2, void** param3);
+libqt_string KNewPasswordWidget_Tr(const char* s);
+int KNewPasswordWidget_PasswordStatus(const KNewPasswordWidget* self);
+bool KNewPasswordWidget_AllowEmptyPasswords(const KNewPasswordWidget* self);
+int KNewPasswordWidget_MinimumPasswordLength(const KNewPasswordWidget* self);
+int KNewPasswordWidget_MaximumPasswordLength(const KNewPasswordWidget* self);
+int KNewPasswordWidget_ReasonablePasswordLength(const KNewPasswordWidget* self);
+int KNewPasswordWidget_PasswordStrengthWarningLevel(const KNewPasswordWidget* self);
+QColor* KNewPasswordWidget_BackgroundWarningColor(const KNewPasswordWidget* self);
+bool KNewPasswordWidget_IsPasswordStrengthMeterVisible(const KNewPasswordWidget* self);
+bool KNewPasswordWidget_IsRevealPasswordAvailable(const KNewPasswordWidget* self);
+int KNewPasswordWidget_RevealPasswordMode(const KNewPasswordWidget* self);
+libqt_string KNewPasswordWidget_Password(const KNewPasswordWidget* self);
+void KNewPasswordWidget_SetAllowEmptyPasswords(KNewPasswordWidget* self, bool allowed);
+void KNewPasswordWidget_SetMinimumPasswordLength(KNewPasswordWidget* self, int minLength);
+void KNewPasswordWidget_SetMaximumPasswordLength(KNewPasswordWidget* self, int maxLength);
+void KNewPasswordWidget_SetReasonablePasswordLength(KNewPasswordWidget* self, int reasonableLength);
+void KNewPasswordWidget_SetPasswordStrengthWarningLevel(KNewPasswordWidget* self, int warningLevel);
+void KNewPasswordWidget_SetBackgroundWarningColor(KNewPasswordWidget* self, const QColor* color);
+void KNewPasswordWidget_SetPasswordStrengthMeterVisible(KNewPasswordWidget* self, bool visible);
+void KNewPasswordWidget_SetRevealPasswordAvailable(KNewPasswordWidget* self, bool reveal);
+void KNewPasswordWidget_SetRevealPasswordMode(KNewPasswordWidget* self, int revealPasswordMode);
+void KNewPasswordWidget_PasswordStatusChanged(KNewPasswordWidget* self);
+void KNewPasswordWidget_Connect_PasswordStatusChanged(KNewPasswordWidget* self, intptr_t slot);
+libqt_string KNewPasswordWidget_Tr2(const char* s, const char* c);
+libqt_string KNewPasswordWidget_Tr3(const char* s, const char* c, int n);
+int KNewPasswordWidget_DevType(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnDevType(const KNewPasswordWidget* self, intptr_t slot);
+int KNewPasswordWidget_QBaseDevType(const KNewPasswordWidget* self);
+void KNewPasswordWidget_SetVisible(KNewPasswordWidget* self, bool visible);
+void KNewPasswordWidget_OnSetVisible(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseSetVisible(KNewPasswordWidget* self, bool visible);
+QSize* KNewPasswordWidget_SizeHint(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnSizeHint(const KNewPasswordWidget* self, intptr_t slot);
+QSize* KNewPasswordWidget_QBaseSizeHint(const KNewPasswordWidget* self);
+QSize* KNewPasswordWidget_MinimumSizeHint(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnMinimumSizeHint(const KNewPasswordWidget* self, intptr_t slot);
+QSize* KNewPasswordWidget_QBaseMinimumSizeHint(const KNewPasswordWidget* self);
+int KNewPasswordWidget_HeightForWidth(const KNewPasswordWidget* self, int param1);
+void KNewPasswordWidget_OnHeightForWidth(const KNewPasswordWidget* self, intptr_t slot);
+int KNewPasswordWidget_QBaseHeightForWidth(const KNewPasswordWidget* self, int param1);
+bool KNewPasswordWidget_HasHeightForWidth(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnHasHeightForWidth(const KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseHasHeightForWidth(const KNewPasswordWidget* self);
+QPaintEngine* KNewPasswordWidget_PaintEngine(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnPaintEngine(const KNewPasswordWidget* self, intptr_t slot);
+QPaintEngine* KNewPasswordWidget_QBasePaintEngine(const KNewPasswordWidget* self);
+bool KNewPasswordWidget_Event(KNewPasswordWidget* self, QEvent* event);
+void KNewPasswordWidget_OnEvent(KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseEvent(KNewPasswordWidget* self, QEvent* event);
+void KNewPasswordWidget_MousePressEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_OnMousePressEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseMousePressEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_MouseReleaseEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_OnMouseReleaseEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseMouseReleaseEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_MouseDoubleClickEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_OnMouseDoubleClickEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseMouseDoubleClickEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_MouseMoveEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_OnMouseMoveEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseMouseMoveEvent(KNewPasswordWidget* self, QMouseEvent* event);
+void KNewPasswordWidget_WheelEvent(KNewPasswordWidget* self, QWheelEvent* event);
+void KNewPasswordWidget_OnWheelEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseWheelEvent(KNewPasswordWidget* self, QWheelEvent* event);
+void KNewPasswordWidget_KeyPressEvent(KNewPasswordWidget* self, QKeyEvent* event);
+void KNewPasswordWidget_OnKeyPressEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseKeyPressEvent(KNewPasswordWidget* self, QKeyEvent* event);
+void KNewPasswordWidget_KeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent* event);
+void KNewPasswordWidget_OnKeyReleaseEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseKeyReleaseEvent(KNewPasswordWidget* self, QKeyEvent* event);
+void KNewPasswordWidget_FocusInEvent(KNewPasswordWidget* self, QFocusEvent* event);
+void KNewPasswordWidget_OnFocusInEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseFocusInEvent(KNewPasswordWidget* self, QFocusEvent* event);
+void KNewPasswordWidget_FocusOutEvent(KNewPasswordWidget* self, QFocusEvent* event);
+void KNewPasswordWidget_OnFocusOutEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseFocusOutEvent(KNewPasswordWidget* self, QFocusEvent* event);
+void KNewPasswordWidget_EnterEvent(KNewPasswordWidget* self, QEnterEvent* event);
+void KNewPasswordWidget_OnEnterEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseEnterEvent(KNewPasswordWidget* self, QEnterEvent* event);
+void KNewPasswordWidget_LeaveEvent(KNewPasswordWidget* self, QEvent* event);
+void KNewPasswordWidget_OnLeaveEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseLeaveEvent(KNewPasswordWidget* self, QEvent* event);
+void KNewPasswordWidget_PaintEvent(KNewPasswordWidget* self, QPaintEvent* event);
+void KNewPasswordWidget_OnPaintEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBasePaintEvent(KNewPasswordWidget* self, QPaintEvent* event);
+void KNewPasswordWidget_MoveEvent(KNewPasswordWidget* self, QMoveEvent* event);
+void KNewPasswordWidget_OnMoveEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseMoveEvent(KNewPasswordWidget* self, QMoveEvent* event);
+void KNewPasswordWidget_ResizeEvent(KNewPasswordWidget* self, QResizeEvent* event);
+void KNewPasswordWidget_OnResizeEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseResizeEvent(KNewPasswordWidget* self, QResizeEvent* event);
+void KNewPasswordWidget_CloseEvent(KNewPasswordWidget* self, QCloseEvent* event);
+void KNewPasswordWidget_OnCloseEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseCloseEvent(KNewPasswordWidget* self, QCloseEvent* event);
+void KNewPasswordWidget_ContextMenuEvent(KNewPasswordWidget* self, QContextMenuEvent* event);
+void KNewPasswordWidget_OnContextMenuEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseContextMenuEvent(KNewPasswordWidget* self, QContextMenuEvent* event);
+void KNewPasswordWidget_TabletEvent(KNewPasswordWidget* self, QTabletEvent* event);
+void KNewPasswordWidget_OnTabletEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseTabletEvent(KNewPasswordWidget* self, QTabletEvent* event);
+void KNewPasswordWidget_ActionEvent(KNewPasswordWidget* self, QActionEvent* event);
+void KNewPasswordWidget_OnActionEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseActionEvent(KNewPasswordWidget* self, QActionEvent* event);
+void KNewPasswordWidget_DragEnterEvent(KNewPasswordWidget* self, QDragEnterEvent* event);
+void KNewPasswordWidget_OnDragEnterEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseDragEnterEvent(KNewPasswordWidget* self, QDragEnterEvent* event);
+void KNewPasswordWidget_DragMoveEvent(KNewPasswordWidget* self, QDragMoveEvent* event);
+void KNewPasswordWidget_OnDragMoveEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseDragMoveEvent(KNewPasswordWidget* self, QDragMoveEvent* event);
+void KNewPasswordWidget_DragLeaveEvent(KNewPasswordWidget* self, QDragLeaveEvent* event);
+void KNewPasswordWidget_OnDragLeaveEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseDragLeaveEvent(KNewPasswordWidget* self, QDragLeaveEvent* event);
+void KNewPasswordWidget_DropEvent(KNewPasswordWidget* self, QDropEvent* event);
+void KNewPasswordWidget_OnDropEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseDropEvent(KNewPasswordWidget* self, QDropEvent* event);
+void KNewPasswordWidget_ShowEvent(KNewPasswordWidget* self, QShowEvent* event);
+void KNewPasswordWidget_OnShowEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseShowEvent(KNewPasswordWidget* self, QShowEvent* event);
+void KNewPasswordWidget_HideEvent(KNewPasswordWidget* self, QHideEvent* event);
+void KNewPasswordWidget_OnHideEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseHideEvent(KNewPasswordWidget* self, QHideEvent* event);
+bool KNewPasswordWidget_NativeEvent(KNewPasswordWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KNewPasswordWidget_OnNativeEvent(KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseNativeEvent(KNewPasswordWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KNewPasswordWidget_ChangeEvent(KNewPasswordWidget* self, QEvent* param1);
+void KNewPasswordWidget_OnChangeEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseChangeEvent(KNewPasswordWidget* self, QEvent* param1);
+int KNewPasswordWidget_Metric(const KNewPasswordWidget* self, int param1);
+void KNewPasswordWidget_OnMetric(const KNewPasswordWidget* self, intptr_t slot);
+int KNewPasswordWidget_QBaseMetric(const KNewPasswordWidget* self, int param1);
+void KNewPasswordWidget_InitPainter(const KNewPasswordWidget* self, QPainter* painter);
+void KNewPasswordWidget_OnInitPainter(const KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseInitPainter(const KNewPasswordWidget* self, QPainter* painter);
+QPaintDevice* KNewPasswordWidget_Redirected(const KNewPasswordWidget* self, QPoint* offset);
+void KNewPasswordWidget_OnRedirected(const KNewPasswordWidget* self, intptr_t slot);
+QPaintDevice* KNewPasswordWidget_QBaseRedirected(const KNewPasswordWidget* self, QPoint* offset);
+QPainter* KNewPasswordWidget_SharedPainter(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnSharedPainter(const KNewPasswordWidget* self, intptr_t slot);
+QPainter* KNewPasswordWidget_QBaseSharedPainter(const KNewPasswordWidget* self);
+void KNewPasswordWidget_InputMethodEvent(KNewPasswordWidget* self, QInputMethodEvent* param1);
+void KNewPasswordWidget_OnInputMethodEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseInputMethodEvent(KNewPasswordWidget* self, QInputMethodEvent* param1);
+QVariant* KNewPasswordWidget_InputMethodQuery(const KNewPasswordWidget* self, int param1);
+void KNewPasswordWidget_OnInputMethodQuery(const KNewPasswordWidget* self, intptr_t slot);
+QVariant* KNewPasswordWidget_QBaseInputMethodQuery(const KNewPasswordWidget* self, int param1);
+bool KNewPasswordWidget_FocusNextPrevChild(KNewPasswordWidget* self, bool next);
+void KNewPasswordWidget_OnFocusNextPrevChild(KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseFocusNextPrevChild(KNewPasswordWidget* self, bool next);
+bool KNewPasswordWidget_EventFilter(KNewPasswordWidget* self, QObject* watched, QEvent* event);
+void KNewPasswordWidget_OnEventFilter(KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseEventFilter(KNewPasswordWidget* self, QObject* watched, QEvent* event);
+void KNewPasswordWidget_TimerEvent(KNewPasswordWidget* self, QTimerEvent* event);
+void KNewPasswordWidget_OnTimerEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseTimerEvent(KNewPasswordWidget* self, QTimerEvent* event);
+void KNewPasswordWidget_ChildEvent(KNewPasswordWidget* self, QChildEvent* event);
+void KNewPasswordWidget_OnChildEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseChildEvent(KNewPasswordWidget* self, QChildEvent* event);
+void KNewPasswordWidget_CustomEvent(KNewPasswordWidget* self, QEvent* event);
+void KNewPasswordWidget_OnCustomEvent(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseCustomEvent(KNewPasswordWidget* self, QEvent* event);
+void KNewPasswordWidget_ConnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal);
+void KNewPasswordWidget_OnConnectNotify(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseConnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal);
+void KNewPasswordWidget_DisconnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal);
+void KNewPasswordWidget_OnDisconnectNotify(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseDisconnectNotify(KNewPasswordWidget* self, const QMetaMethod* signal);
+void KNewPasswordWidget_UpdateMicroFocus(KNewPasswordWidget* self);
+void KNewPasswordWidget_OnUpdateMicroFocus(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseUpdateMicroFocus(KNewPasswordWidget* self);
+void KNewPasswordWidget_Create(KNewPasswordWidget* self);
+void KNewPasswordWidget_OnCreate(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseCreate(KNewPasswordWidget* self);
+void KNewPasswordWidget_Destroy(KNewPasswordWidget* self);
+void KNewPasswordWidget_OnDestroy(KNewPasswordWidget* self, intptr_t slot);
+void KNewPasswordWidget_QBaseDestroy(KNewPasswordWidget* self);
+bool KNewPasswordWidget_FocusNextChild(KNewPasswordWidget* self);
+void KNewPasswordWidget_OnFocusNextChild(KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseFocusNextChild(KNewPasswordWidget* self);
+bool KNewPasswordWidget_FocusPreviousChild(KNewPasswordWidget* self);
+void KNewPasswordWidget_OnFocusPreviousChild(KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseFocusPreviousChild(KNewPasswordWidget* self);
+QObject* KNewPasswordWidget_Sender(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnSender(const KNewPasswordWidget* self, intptr_t slot);
+QObject* KNewPasswordWidget_QBaseSender(const KNewPasswordWidget* self);
+int KNewPasswordWidget_SenderSignalIndex(const KNewPasswordWidget* self);
+void KNewPasswordWidget_OnSenderSignalIndex(const KNewPasswordWidget* self, intptr_t slot);
+int KNewPasswordWidget_QBaseSenderSignalIndex(const KNewPasswordWidget* self);
+int KNewPasswordWidget_Receivers(const KNewPasswordWidget* self, const char* signal);
+void KNewPasswordWidget_OnReceivers(const KNewPasswordWidget* self, intptr_t slot);
+int KNewPasswordWidget_QBaseReceivers(const KNewPasswordWidget* self, const char* signal);
+bool KNewPasswordWidget_IsSignalConnected(const KNewPasswordWidget* self, const QMetaMethod* signal);
+void KNewPasswordWidget_OnIsSignalConnected(const KNewPasswordWidget* self, intptr_t slot);
+bool KNewPasswordWidget_QBaseIsSignalConnected(const KNewPasswordWidget* self, const QMetaMethod* signal);
+double KNewPasswordWidget_GetDecodedMetricF(const KNewPasswordWidget* self, int metricA, int metricB);
+void KNewPasswordWidget_OnGetDecodedMetricF(const KNewPasswordWidget* self, intptr_t slot);
+double KNewPasswordWidget_QBaseGetDecodedMetricF(const KNewPasswordWidget* self, int metricA, int metricB);
+void KNewPasswordWidget_Delete(KNewPasswordWidget* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

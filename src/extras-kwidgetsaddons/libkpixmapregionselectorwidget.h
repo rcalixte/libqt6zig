@@ -1,0 +1,262 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKPIXMAPREGIONSELECTORWIDGET_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKPIXMAPREGIONSELECTORWIDGET_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KPixmapRegionSelectorWidget KPixmapRegionSelectorWidget;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QImage QImage;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMenu QMenu;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPixmap QPixmap;
+typedef struct QPoint QPoint;
+typedef struct QRect QRect;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KPixmapRegionSelectorWidget* KPixmapRegionSelectorWidget_new(QWidget* parent);
+KPixmapRegionSelectorWidget* KPixmapRegionSelectorWidget_new2();
+QMetaObject* KPixmapRegionSelectorWidget_MetaObject(const KPixmapRegionSelectorWidget* self);
+void* KPixmapRegionSelectorWidget_Metacast(KPixmapRegionSelectorWidget* self, const char* param1);
+int KPixmapRegionSelectorWidget_Metacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3);
+void KPixmapRegionSelectorWidget_OnMetacall(KPixmapRegionSelectorWidget* self, intptr_t slot);
+int KPixmapRegionSelectorWidget_QBaseMetacall(KPixmapRegionSelectorWidget* self, int param1, int param2, void** param3);
+libqt_string KPixmapRegionSelectorWidget_Tr(const char* s);
+void KPixmapRegionSelectorWidget_SetPixmap(KPixmapRegionSelectorWidget* self, const QPixmap* pixmap);
+QPixmap* KPixmapRegionSelectorWidget_Pixmap(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_SetSelectedRegion(KPixmapRegionSelectorWidget* self, const QRect* rect);
+QRect* KPixmapRegionSelectorWidget_SelectedRegion(const KPixmapRegionSelectorWidget* self);
+QRect* KPixmapRegionSelectorWidget_UnzoomedSelectedRegion(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_ResetSelection(KPixmapRegionSelectorWidget* self);
+QImage* KPixmapRegionSelectorWidget_SelectedImage(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_SetSelectionAspectRatio(KPixmapRegionSelectorWidget* self, int width, int height);
+void KPixmapRegionSelectorWidget_SetFreeSelectionAspectRatio(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_SetMaximumWidgetSize(KPixmapRegionSelectorWidget* self, int width, int height);
+void KPixmapRegionSelectorWidget_Rotate(KPixmapRegionSelectorWidget* self, int direction);
+void KPixmapRegionSelectorWidget_RotateClockwise(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_RotateCounterclockwise(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_PixmapRotated(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_Connect_PixmapRotated(KPixmapRegionSelectorWidget* self, intptr_t slot);
+QMenu* KPixmapRegionSelectorWidget_CreatePopupMenu(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnCreatePopupMenu(KPixmapRegionSelectorWidget* self, intptr_t slot);
+QMenu* KPixmapRegionSelectorWidget_QBaseCreatePopupMenu(KPixmapRegionSelectorWidget* self);
+bool KPixmapRegionSelectorWidget_EventFilter(KPixmapRegionSelectorWidget* self, QObject* obj, QEvent* ev);
+void KPixmapRegionSelectorWidget_OnEventFilter(KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseEventFilter(KPixmapRegionSelectorWidget* self, QObject* obj, QEvent* ev);
+libqt_string KPixmapRegionSelectorWidget_Tr2(const char* s, const char* c);
+libqt_string KPixmapRegionSelectorWidget_Tr3(const char* s, const char* c, int n);
+int KPixmapRegionSelectorWidget_DevType(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnDevType(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+int KPixmapRegionSelectorWidget_QBaseDevType(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_SetVisible(KPixmapRegionSelectorWidget* self, bool visible);
+void KPixmapRegionSelectorWidget_OnSetVisible(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseSetVisible(KPixmapRegionSelectorWidget* self, bool visible);
+QSize* KPixmapRegionSelectorWidget_SizeHint(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnSizeHint(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QSize* KPixmapRegionSelectorWidget_QBaseSizeHint(const KPixmapRegionSelectorWidget* self);
+QSize* KPixmapRegionSelectorWidget_MinimumSizeHint(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnMinimumSizeHint(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QSize* KPixmapRegionSelectorWidget_QBaseMinimumSizeHint(const KPixmapRegionSelectorWidget* self);
+int KPixmapRegionSelectorWidget_HeightForWidth(const KPixmapRegionSelectorWidget* self, int param1);
+void KPixmapRegionSelectorWidget_OnHeightForWidth(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+int KPixmapRegionSelectorWidget_QBaseHeightForWidth(const KPixmapRegionSelectorWidget* self, int param1);
+bool KPixmapRegionSelectorWidget_HasHeightForWidth(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnHasHeightForWidth(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseHasHeightForWidth(const KPixmapRegionSelectorWidget* self);
+QPaintEngine* KPixmapRegionSelectorWidget_PaintEngine(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnPaintEngine(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QPaintEngine* KPixmapRegionSelectorWidget_QBasePaintEngine(const KPixmapRegionSelectorWidget* self);
+bool KPixmapRegionSelectorWidget_Event(KPixmapRegionSelectorWidget* self, QEvent* event);
+void KPixmapRegionSelectorWidget_OnEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseEvent(KPixmapRegionSelectorWidget* self, QEvent* event);
+void KPixmapRegionSelectorWidget_MousePressEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_OnMousePressEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseMousePressEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_MouseReleaseEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_OnMouseReleaseEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseMouseReleaseEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_MouseDoubleClickEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_OnMouseDoubleClickEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseMouseDoubleClickEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_MouseMoveEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_OnMouseMoveEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseMouseMoveEvent(KPixmapRegionSelectorWidget* self, QMouseEvent* event);
+void KPixmapRegionSelectorWidget_WheelEvent(KPixmapRegionSelectorWidget* self, QWheelEvent* event);
+void KPixmapRegionSelectorWidget_OnWheelEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseWheelEvent(KPixmapRegionSelectorWidget* self, QWheelEvent* event);
+void KPixmapRegionSelectorWidget_KeyPressEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event);
+void KPixmapRegionSelectorWidget_OnKeyPressEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseKeyPressEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event);
+void KPixmapRegionSelectorWidget_KeyReleaseEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event);
+void KPixmapRegionSelectorWidget_OnKeyReleaseEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseKeyReleaseEvent(KPixmapRegionSelectorWidget* self, QKeyEvent* event);
+void KPixmapRegionSelectorWidget_FocusInEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event);
+void KPixmapRegionSelectorWidget_OnFocusInEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseFocusInEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event);
+void KPixmapRegionSelectorWidget_FocusOutEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event);
+void KPixmapRegionSelectorWidget_OnFocusOutEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseFocusOutEvent(KPixmapRegionSelectorWidget* self, QFocusEvent* event);
+void KPixmapRegionSelectorWidget_EnterEvent(KPixmapRegionSelectorWidget* self, QEnterEvent* event);
+void KPixmapRegionSelectorWidget_OnEnterEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseEnterEvent(KPixmapRegionSelectorWidget* self, QEnterEvent* event);
+void KPixmapRegionSelectorWidget_LeaveEvent(KPixmapRegionSelectorWidget* self, QEvent* event);
+void KPixmapRegionSelectorWidget_OnLeaveEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseLeaveEvent(KPixmapRegionSelectorWidget* self, QEvent* event);
+void KPixmapRegionSelectorWidget_PaintEvent(KPixmapRegionSelectorWidget* self, QPaintEvent* event);
+void KPixmapRegionSelectorWidget_OnPaintEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBasePaintEvent(KPixmapRegionSelectorWidget* self, QPaintEvent* event);
+void KPixmapRegionSelectorWidget_MoveEvent(KPixmapRegionSelectorWidget* self, QMoveEvent* event);
+void KPixmapRegionSelectorWidget_OnMoveEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseMoveEvent(KPixmapRegionSelectorWidget* self, QMoveEvent* event);
+void KPixmapRegionSelectorWidget_ResizeEvent(KPixmapRegionSelectorWidget* self, QResizeEvent* event);
+void KPixmapRegionSelectorWidget_OnResizeEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseResizeEvent(KPixmapRegionSelectorWidget* self, QResizeEvent* event);
+void KPixmapRegionSelectorWidget_CloseEvent(KPixmapRegionSelectorWidget* self, QCloseEvent* event);
+void KPixmapRegionSelectorWidget_OnCloseEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseCloseEvent(KPixmapRegionSelectorWidget* self, QCloseEvent* event);
+void KPixmapRegionSelectorWidget_ContextMenuEvent(KPixmapRegionSelectorWidget* self, QContextMenuEvent* event);
+void KPixmapRegionSelectorWidget_OnContextMenuEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseContextMenuEvent(KPixmapRegionSelectorWidget* self, QContextMenuEvent* event);
+void KPixmapRegionSelectorWidget_TabletEvent(KPixmapRegionSelectorWidget* self, QTabletEvent* event);
+void KPixmapRegionSelectorWidget_OnTabletEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseTabletEvent(KPixmapRegionSelectorWidget* self, QTabletEvent* event);
+void KPixmapRegionSelectorWidget_ActionEvent(KPixmapRegionSelectorWidget* self, QActionEvent* event);
+void KPixmapRegionSelectorWidget_OnActionEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseActionEvent(KPixmapRegionSelectorWidget* self, QActionEvent* event);
+void KPixmapRegionSelectorWidget_DragEnterEvent(KPixmapRegionSelectorWidget* self, QDragEnterEvent* event);
+void KPixmapRegionSelectorWidget_OnDragEnterEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseDragEnterEvent(KPixmapRegionSelectorWidget* self, QDragEnterEvent* event);
+void KPixmapRegionSelectorWidget_DragMoveEvent(KPixmapRegionSelectorWidget* self, QDragMoveEvent* event);
+void KPixmapRegionSelectorWidget_OnDragMoveEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseDragMoveEvent(KPixmapRegionSelectorWidget* self, QDragMoveEvent* event);
+void KPixmapRegionSelectorWidget_DragLeaveEvent(KPixmapRegionSelectorWidget* self, QDragLeaveEvent* event);
+void KPixmapRegionSelectorWidget_OnDragLeaveEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseDragLeaveEvent(KPixmapRegionSelectorWidget* self, QDragLeaveEvent* event);
+void KPixmapRegionSelectorWidget_DropEvent(KPixmapRegionSelectorWidget* self, QDropEvent* event);
+void KPixmapRegionSelectorWidget_OnDropEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseDropEvent(KPixmapRegionSelectorWidget* self, QDropEvent* event);
+void KPixmapRegionSelectorWidget_ShowEvent(KPixmapRegionSelectorWidget* self, QShowEvent* event);
+void KPixmapRegionSelectorWidget_OnShowEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseShowEvent(KPixmapRegionSelectorWidget* self, QShowEvent* event);
+void KPixmapRegionSelectorWidget_HideEvent(KPixmapRegionSelectorWidget* self, QHideEvent* event);
+void KPixmapRegionSelectorWidget_OnHideEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseHideEvent(KPixmapRegionSelectorWidget* self, QHideEvent* event);
+bool KPixmapRegionSelectorWidget_NativeEvent(KPixmapRegionSelectorWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KPixmapRegionSelectorWidget_OnNativeEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseNativeEvent(KPixmapRegionSelectorWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KPixmapRegionSelectorWidget_ChangeEvent(KPixmapRegionSelectorWidget* self, QEvent* param1);
+void KPixmapRegionSelectorWidget_OnChangeEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseChangeEvent(KPixmapRegionSelectorWidget* self, QEvent* param1);
+int KPixmapRegionSelectorWidget_Metric(const KPixmapRegionSelectorWidget* self, int param1);
+void KPixmapRegionSelectorWidget_OnMetric(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+int KPixmapRegionSelectorWidget_QBaseMetric(const KPixmapRegionSelectorWidget* self, int param1);
+void KPixmapRegionSelectorWidget_InitPainter(const KPixmapRegionSelectorWidget* self, QPainter* painter);
+void KPixmapRegionSelectorWidget_OnInitPainter(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseInitPainter(const KPixmapRegionSelectorWidget* self, QPainter* painter);
+QPaintDevice* KPixmapRegionSelectorWidget_Redirected(const KPixmapRegionSelectorWidget* self, QPoint* offset);
+void KPixmapRegionSelectorWidget_OnRedirected(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QPaintDevice* KPixmapRegionSelectorWidget_QBaseRedirected(const KPixmapRegionSelectorWidget* self, QPoint* offset);
+QPainter* KPixmapRegionSelectorWidget_SharedPainter(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnSharedPainter(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QPainter* KPixmapRegionSelectorWidget_QBaseSharedPainter(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_InputMethodEvent(KPixmapRegionSelectorWidget* self, QInputMethodEvent* param1);
+void KPixmapRegionSelectorWidget_OnInputMethodEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseInputMethodEvent(KPixmapRegionSelectorWidget* self, QInputMethodEvent* param1);
+QVariant* KPixmapRegionSelectorWidget_InputMethodQuery(const KPixmapRegionSelectorWidget* self, int param1);
+void KPixmapRegionSelectorWidget_OnInputMethodQuery(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QVariant* KPixmapRegionSelectorWidget_QBaseInputMethodQuery(const KPixmapRegionSelectorWidget* self, int param1);
+bool KPixmapRegionSelectorWidget_FocusNextPrevChild(KPixmapRegionSelectorWidget* self, bool next);
+void KPixmapRegionSelectorWidget_OnFocusNextPrevChild(KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseFocusNextPrevChild(KPixmapRegionSelectorWidget* self, bool next);
+void KPixmapRegionSelectorWidget_TimerEvent(KPixmapRegionSelectorWidget* self, QTimerEvent* event);
+void KPixmapRegionSelectorWidget_OnTimerEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseTimerEvent(KPixmapRegionSelectorWidget* self, QTimerEvent* event);
+void KPixmapRegionSelectorWidget_ChildEvent(KPixmapRegionSelectorWidget* self, QChildEvent* event);
+void KPixmapRegionSelectorWidget_OnChildEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseChildEvent(KPixmapRegionSelectorWidget* self, QChildEvent* event);
+void KPixmapRegionSelectorWidget_CustomEvent(KPixmapRegionSelectorWidget* self, QEvent* event);
+void KPixmapRegionSelectorWidget_OnCustomEvent(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseCustomEvent(KPixmapRegionSelectorWidget* self, QEvent* event);
+void KPixmapRegionSelectorWidget_ConnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal);
+void KPixmapRegionSelectorWidget_OnConnectNotify(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseConnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal);
+void KPixmapRegionSelectorWidget_DisconnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal);
+void KPixmapRegionSelectorWidget_OnDisconnectNotify(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseDisconnectNotify(KPixmapRegionSelectorWidget* self, const QMetaMethod* signal);
+void KPixmapRegionSelectorWidget_UpdateMicroFocus(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnUpdateMicroFocus(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseUpdateMicroFocus(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_Create(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnCreate(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseCreate(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_Destroy(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnDestroy(KPixmapRegionSelectorWidget* self, intptr_t slot);
+void KPixmapRegionSelectorWidget_QBaseDestroy(KPixmapRegionSelectorWidget* self);
+bool KPixmapRegionSelectorWidget_FocusNextChild(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnFocusNextChild(KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseFocusNextChild(KPixmapRegionSelectorWidget* self);
+bool KPixmapRegionSelectorWidget_FocusPreviousChild(KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnFocusPreviousChild(KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseFocusPreviousChild(KPixmapRegionSelectorWidget* self);
+QObject* KPixmapRegionSelectorWidget_Sender(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnSender(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+QObject* KPixmapRegionSelectorWidget_QBaseSender(const KPixmapRegionSelectorWidget* self);
+int KPixmapRegionSelectorWidget_SenderSignalIndex(const KPixmapRegionSelectorWidget* self);
+void KPixmapRegionSelectorWidget_OnSenderSignalIndex(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+int KPixmapRegionSelectorWidget_QBaseSenderSignalIndex(const KPixmapRegionSelectorWidget* self);
+int KPixmapRegionSelectorWidget_Receivers(const KPixmapRegionSelectorWidget* self, const char* signal);
+void KPixmapRegionSelectorWidget_OnReceivers(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+int KPixmapRegionSelectorWidget_QBaseReceivers(const KPixmapRegionSelectorWidget* self, const char* signal);
+bool KPixmapRegionSelectorWidget_IsSignalConnected(const KPixmapRegionSelectorWidget* self, const QMetaMethod* signal);
+void KPixmapRegionSelectorWidget_OnIsSignalConnected(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+bool KPixmapRegionSelectorWidget_QBaseIsSignalConnected(const KPixmapRegionSelectorWidget* self, const QMetaMethod* signal);
+double KPixmapRegionSelectorWidget_GetDecodedMetricF(const KPixmapRegionSelectorWidget* self, int metricA, int metricB);
+void KPixmapRegionSelectorWidget_OnGetDecodedMetricF(const KPixmapRegionSelectorWidget* self, intptr_t slot);
+double KPixmapRegionSelectorWidget_QBaseGetDecodedMetricF(const KPixmapRegionSelectorWidget* self, int metricA, int metricB);
+void KPixmapRegionSelectorWidget_Delete(KPixmapRegionSelectorWidget* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

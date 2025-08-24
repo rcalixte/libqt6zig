@@ -1,0 +1,293 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKEDITLISTWIDGET_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKEDITLISTWIDGET_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KEditListWidget__CustomEditor)
+typedef KEditListWidget::CustomEditor KEditListWidget__CustomEditor;
+#endif
+#else
+typedef struct KEditListWidget KEditListWidget;
+typedef struct KEditListWidget__CustomEditor KEditListWidget__CustomEditor;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QComboBox QComboBox;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QLineEdit QLineEdit;
+typedef struct QListView QListView;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QPushButton QPushButton;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KEditListWidget* KEditListWidget_new(QWidget* parent);
+KEditListWidget* KEditListWidget_new2();
+KEditListWidget* KEditListWidget_new3(const KEditListWidget__CustomEditor* customEditor);
+KEditListWidget* KEditListWidget_new4(const KEditListWidget__CustomEditor* customEditor, QWidget* parent);
+KEditListWidget* KEditListWidget_new5(const KEditListWidget__CustomEditor* customEditor, QWidget* parent, bool checkAtEntering);
+KEditListWidget* KEditListWidget_new6(const KEditListWidget__CustomEditor* customEditor, QWidget* parent, bool checkAtEntering, int buttons);
+QMetaObject* KEditListWidget_MetaObject(const KEditListWidget* self);
+void* KEditListWidget_Metacast(KEditListWidget* self, const char* param1);
+int KEditListWidget_Metacall(KEditListWidget* self, int param1, int param2, void** param3);
+void KEditListWidget_OnMetacall(KEditListWidget* self, intptr_t slot);
+int KEditListWidget_QBaseMetacall(KEditListWidget* self, int param1, int param2, void** param3);
+libqt_string KEditListWidget_Tr(const char* s);
+QListView* KEditListWidget_ListView(const KEditListWidget* self);
+QLineEdit* KEditListWidget_LineEdit(const KEditListWidget* self);
+QPushButton* KEditListWidget_AddButton(const KEditListWidget* self);
+QPushButton* KEditListWidget_RemoveButton(const KEditListWidget* self);
+QPushButton* KEditListWidget_UpButton(const KEditListWidget* self);
+QPushButton* KEditListWidget_DownButton(const KEditListWidget* self);
+int KEditListWidget_Count(const KEditListWidget* self);
+void KEditListWidget_InsertStringList(KEditListWidget* self, const libqt_list /* of libqt_string */ list);
+void KEditListWidget_InsertItem(KEditListWidget* self, const libqt_string text);
+void KEditListWidget_Clear(KEditListWidget* self);
+libqt_string KEditListWidget_Text(const KEditListWidget* self, int index);
+int KEditListWidget_CurrentItem(const KEditListWidget* self);
+libqt_string KEditListWidget_CurrentText(const KEditListWidget* self);
+libqt_list /* of libqt_string */ KEditListWidget_Items(const KEditListWidget* self);
+void KEditListWidget_SetItems(KEditListWidget* self, const libqt_list /* of libqt_string */ items);
+int KEditListWidget_Buttons(const KEditListWidget* self);
+void KEditListWidget_SetButtons(KEditListWidget* self, int buttons);
+void KEditListWidget_SetCheckAtEntering(KEditListWidget* self, bool check);
+bool KEditListWidget_CheckAtEntering(KEditListWidget* self);
+void KEditListWidget_SetCustomEditor(KEditListWidget* self, const KEditListWidget__CustomEditor* editor);
+bool KEditListWidget_EventFilter(KEditListWidget* self, QObject* o, QEvent* e);
+void KEditListWidget_OnEventFilter(KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseEventFilter(KEditListWidget* self, QObject* o, QEvent* e);
+void KEditListWidget_Changed(KEditListWidget* self);
+void KEditListWidget_Connect_Changed(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_Added(KEditListWidget* self, const libqt_string text);
+void KEditListWidget_Connect_Added(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_Removed(KEditListWidget* self, const libqt_string text);
+void KEditListWidget_Connect_Removed(KEditListWidget* self, intptr_t slot);
+libqt_string KEditListWidget_Tr2(const char* s, const char* c);
+libqt_string KEditListWidget_Tr3(const char* s, const char* c, int n);
+void KEditListWidget_InsertStringList2(KEditListWidget* self, const libqt_list /* of libqt_string */ list, int index);
+void KEditListWidget_InsertItem2(KEditListWidget* self, const libqt_string text, int index);
+int KEditListWidget_DevType(const KEditListWidget* self);
+void KEditListWidget_OnDevType(const KEditListWidget* self, intptr_t slot);
+int KEditListWidget_QBaseDevType(const KEditListWidget* self);
+void KEditListWidget_SetVisible(KEditListWidget* self, bool visible);
+void KEditListWidget_OnSetVisible(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseSetVisible(KEditListWidget* self, bool visible);
+QSize* KEditListWidget_SizeHint(const KEditListWidget* self);
+void KEditListWidget_OnSizeHint(const KEditListWidget* self, intptr_t slot);
+QSize* KEditListWidget_QBaseSizeHint(const KEditListWidget* self);
+QSize* KEditListWidget_MinimumSizeHint(const KEditListWidget* self);
+void KEditListWidget_OnMinimumSizeHint(const KEditListWidget* self, intptr_t slot);
+QSize* KEditListWidget_QBaseMinimumSizeHint(const KEditListWidget* self);
+int KEditListWidget_HeightForWidth(const KEditListWidget* self, int param1);
+void KEditListWidget_OnHeightForWidth(const KEditListWidget* self, intptr_t slot);
+int KEditListWidget_QBaseHeightForWidth(const KEditListWidget* self, int param1);
+bool KEditListWidget_HasHeightForWidth(const KEditListWidget* self);
+void KEditListWidget_OnHasHeightForWidth(const KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseHasHeightForWidth(const KEditListWidget* self);
+QPaintEngine* KEditListWidget_PaintEngine(const KEditListWidget* self);
+void KEditListWidget_OnPaintEngine(const KEditListWidget* self, intptr_t slot);
+QPaintEngine* KEditListWidget_QBasePaintEngine(const KEditListWidget* self);
+bool KEditListWidget_Event(KEditListWidget* self, QEvent* event);
+void KEditListWidget_OnEvent(KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseEvent(KEditListWidget* self, QEvent* event);
+void KEditListWidget_MousePressEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_OnMousePressEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseMousePressEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_MouseReleaseEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_OnMouseReleaseEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseMouseReleaseEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_MouseDoubleClickEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_OnMouseDoubleClickEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseMouseDoubleClickEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_MouseMoveEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_OnMouseMoveEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseMouseMoveEvent(KEditListWidget* self, QMouseEvent* event);
+void KEditListWidget_WheelEvent(KEditListWidget* self, QWheelEvent* event);
+void KEditListWidget_OnWheelEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseWheelEvent(KEditListWidget* self, QWheelEvent* event);
+void KEditListWidget_KeyPressEvent(KEditListWidget* self, QKeyEvent* event);
+void KEditListWidget_OnKeyPressEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseKeyPressEvent(KEditListWidget* self, QKeyEvent* event);
+void KEditListWidget_KeyReleaseEvent(KEditListWidget* self, QKeyEvent* event);
+void KEditListWidget_OnKeyReleaseEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseKeyReleaseEvent(KEditListWidget* self, QKeyEvent* event);
+void KEditListWidget_FocusInEvent(KEditListWidget* self, QFocusEvent* event);
+void KEditListWidget_OnFocusInEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseFocusInEvent(KEditListWidget* self, QFocusEvent* event);
+void KEditListWidget_FocusOutEvent(KEditListWidget* self, QFocusEvent* event);
+void KEditListWidget_OnFocusOutEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseFocusOutEvent(KEditListWidget* self, QFocusEvent* event);
+void KEditListWidget_EnterEvent(KEditListWidget* self, QEnterEvent* event);
+void KEditListWidget_OnEnterEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseEnterEvent(KEditListWidget* self, QEnterEvent* event);
+void KEditListWidget_LeaveEvent(KEditListWidget* self, QEvent* event);
+void KEditListWidget_OnLeaveEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseLeaveEvent(KEditListWidget* self, QEvent* event);
+void KEditListWidget_PaintEvent(KEditListWidget* self, QPaintEvent* event);
+void KEditListWidget_OnPaintEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBasePaintEvent(KEditListWidget* self, QPaintEvent* event);
+void KEditListWidget_MoveEvent(KEditListWidget* self, QMoveEvent* event);
+void KEditListWidget_OnMoveEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseMoveEvent(KEditListWidget* self, QMoveEvent* event);
+void KEditListWidget_ResizeEvent(KEditListWidget* self, QResizeEvent* event);
+void KEditListWidget_OnResizeEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseResizeEvent(KEditListWidget* self, QResizeEvent* event);
+void KEditListWidget_CloseEvent(KEditListWidget* self, QCloseEvent* event);
+void KEditListWidget_OnCloseEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseCloseEvent(KEditListWidget* self, QCloseEvent* event);
+void KEditListWidget_ContextMenuEvent(KEditListWidget* self, QContextMenuEvent* event);
+void KEditListWidget_OnContextMenuEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseContextMenuEvent(KEditListWidget* self, QContextMenuEvent* event);
+void KEditListWidget_TabletEvent(KEditListWidget* self, QTabletEvent* event);
+void KEditListWidget_OnTabletEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseTabletEvent(KEditListWidget* self, QTabletEvent* event);
+void KEditListWidget_ActionEvent(KEditListWidget* self, QActionEvent* event);
+void KEditListWidget_OnActionEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseActionEvent(KEditListWidget* self, QActionEvent* event);
+void KEditListWidget_DragEnterEvent(KEditListWidget* self, QDragEnterEvent* event);
+void KEditListWidget_OnDragEnterEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseDragEnterEvent(KEditListWidget* self, QDragEnterEvent* event);
+void KEditListWidget_DragMoveEvent(KEditListWidget* self, QDragMoveEvent* event);
+void KEditListWidget_OnDragMoveEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseDragMoveEvent(KEditListWidget* self, QDragMoveEvent* event);
+void KEditListWidget_DragLeaveEvent(KEditListWidget* self, QDragLeaveEvent* event);
+void KEditListWidget_OnDragLeaveEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseDragLeaveEvent(KEditListWidget* self, QDragLeaveEvent* event);
+void KEditListWidget_DropEvent(KEditListWidget* self, QDropEvent* event);
+void KEditListWidget_OnDropEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseDropEvent(KEditListWidget* self, QDropEvent* event);
+void KEditListWidget_ShowEvent(KEditListWidget* self, QShowEvent* event);
+void KEditListWidget_OnShowEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseShowEvent(KEditListWidget* self, QShowEvent* event);
+void KEditListWidget_HideEvent(KEditListWidget* self, QHideEvent* event);
+void KEditListWidget_OnHideEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseHideEvent(KEditListWidget* self, QHideEvent* event);
+bool KEditListWidget_NativeEvent(KEditListWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KEditListWidget_OnNativeEvent(KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseNativeEvent(KEditListWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KEditListWidget_ChangeEvent(KEditListWidget* self, QEvent* param1);
+void KEditListWidget_OnChangeEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseChangeEvent(KEditListWidget* self, QEvent* param1);
+int KEditListWidget_Metric(const KEditListWidget* self, int param1);
+void KEditListWidget_OnMetric(const KEditListWidget* self, intptr_t slot);
+int KEditListWidget_QBaseMetric(const KEditListWidget* self, int param1);
+void KEditListWidget_InitPainter(const KEditListWidget* self, QPainter* painter);
+void KEditListWidget_OnInitPainter(const KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseInitPainter(const KEditListWidget* self, QPainter* painter);
+QPaintDevice* KEditListWidget_Redirected(const KEditListWidget* self, QPoint* offset);
+void KEditListWidget_OnRedirected(const KEditListWidget* self, intptr_t slot);
+QPaintDevice* KEditListWidget_QBaseRedirected(const KEditListWidget* self, QPoint* offset);
+QPainter* KEditListWidget_SharedPainter(const KEditListWidget* self);
+void KEditListWidget_OnSharedPainter(const KEditListWidget* self, intptr_t slot);
+QPainter* KEditListWidget_QBaseSharedPainter(const KEditListWidget* self);
+void KEditListWidget_InputMethodEvent(KEditListWidget* self, QInputMethodEvent* param1);
+void KEditListWidget_OnInputMethodEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseInputMethodEvent(KEditListWidget* self, QInputMethodEvent* param1);
+QVariant* KEditListWidget_InputMethodQuery(const KEditListWidget* self, int param1);
+void KEditListWidget_OnInputMethodQuery(const KEditListWidget* self, intptr_t slot);
+QVariant* KEditListWidget_QBaseInputMethodQuery(const KEditListWidget* self, int param1);
+bool KEditListWidget_FocusNextPrevChild(KEditListWidget* self, bool next);
+void KEditListWidget_OnFocusNextPrevChild(KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseFocusNextPrevChild(KEditListWidget* self, bool next);
+void KEditListWidget_TimerEvent(KEditListWidget* self, QTimerEvent* event);
+void KEditListWidget_OnTimerEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseTimerEvent(KEditListWidget* self, QTimerEvent* event);
+void KEditListWidget_ChildEvent(KEditListWidget* self, QChildEvent* event);
+void KEditListWidget_OnChildEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseChildEvent(KEditListWidget* self, QChildEvent* event);
+void KEditListWidget_CustomEvent(KEditListWidget* self, QEvent* event);
+void KEditListWidget_OnCustomEvent(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseCustomEvent(KEditListWidget* self, QEvent* event);
+void KEditListWidget_ConnectNotify(KEditListWidget* self, const QMetaMethod* signal);
+void KEditListWidget_OnConnectNotify(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseConnectNotify(KEditListWidget* self, const QMetaMethod* signal);
+void KEditListWidget_DisconnectNotify(KEditListWidget* self, const QMetaMethod* signal);
+void KEditListWidget_OnDisconnectNotify(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseDisconnectNotify(KEditListWidget* self, const QMetaMethod* signal);
+void KEditListWidget_UpdateMicroFocus(KEditListWidget* self);
+void KEditListWidget_OnUpdateMicroFocus(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseUpdateMicroFocus(KEditListWidget* self);
+void KEditListWidget_Create(KEditListWidget* self);
+void KEditListWidget_OnCreate(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseCreate(KEditListWidget* self);
+void KEditListWidget_Destroy(KEditListWidget* self);
+void KEditListWidget_OnDestroy(KEditListWidget* self, intptr_t slot);
+void KEditListWidget_QBaseDestroy(KEditListWidget* self);
+bool KEditListWidget_FocusNextChild(KEditListWidget* self);
+void KEditListWidget_OnFocusNextChild(KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseFocusNextChild(KEditListWidget* self);
+bool KEditListWidget_FocusPreviousChild(KEditListWidget* self);
+void KEditListWidget_OnFocusPreviousChild(KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseFocusPreviousChild(KEditListWidget* self);
+QObject* KEditListWidget_Sender(const KEditListWidget* self);
+void KEditListWidget_OnSender(const KEditListWidget* self, intptr_t slot);
+QObject* KEditListWidget_QBaseSender(const KEditListWidget* self);
+int KEditListWidget_SenderSignalIndex(const KEditListWidget* self);
+void KEditListWidget_OnSenderSignalIndex(const KEditListWidget* self, intptr_t slot);
+int KEditListWidget_QBaseSenderSignalIndex(const KEditListWidget* self);
+int KEditListWidget_Receivers(const KEditListWidget* self, const char* signal);
+void KEditListWidget_OnReceivers(const KEditListWidget* self, intptr_t slot);
+int KEditListWidget_QBaseReceivers(const KEditListWidget* self, const char* signal);
+bool KEditListWidget_IsSignalConnected(const KEditListWidget* self, const QMetaMethod* signal);
+void KEditListWidget_OnIsSignalConnected(const KEditListWidget* self, intptr_t slot);
+bool KEditListWidget_QBaseIsSignalConnected(const KEditListWidget* self, const QMetaMethod* signal);
+double KEditListWidget_GetDecodedMetricF(const KEditListWidget* self, int metricA, int metricB);
+void KEditListWidget_OnGetDecodedMetricF(const KEditListWidget* self, intptr_t slot);
+double KEditListWidget_QBaseGetDecodedMetricF(const KEditListWidget* self, int metricA, int metricB);
+void KEditListWidget_Delete(KEditListWidget* self);
+
+KEditListWidget__CustomEditor* KEditListWidget__CustomEditor_new();
+KEditListWidget__CustomEditor* KEditListWidget__CustomEditor_new2(QWidget* repWidget, QLineEdit* edit);
+KEditListWidget__CustomEditor* KEditListWidget__CustomEditor_new3(QComboBox* combo);
+void KEditListWidget__CustomEditor_SetRepresentationWidget(KEditListWidget__CustomEditor* self, QWidget* repWidget);
+void KEditListWidget__CustomEditor_SetLineEdit(KEditListWidget__CustomEditor* self, QLineEdit* edit);
+QWidget* KEditListWidget__CustomEditor_RepresentationWidget(const KEditListWidget__CustomEditor* self);
+void KEditListWidget__CustomEditor_OnRepresentationWidget(const KEditListWidget__CustomEditor* self, intptr_t slot);
+QWidget* KEditListWidget__CustomEditor_QBaseRepresentationWidget(const KEditListWidget__CustomEditor* self);
+QLineEdit* KEditListWidget__CustomEditor_LineEdit(const KEditListWidget__CustomEditor* self);
+void KEditListWidget__CustomEditor_OnLineEdit(const KEditListWidget__CustomEditor* self, intptr_t slot);
+QLineEdit* KEditListWidget__CustomEditor_QBaseLineEdit(const KEditListWidget__CustomEditor* self);
+void KEditListWidget__CustomEditor_Delete(KEditListWidget__CustomEditor* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

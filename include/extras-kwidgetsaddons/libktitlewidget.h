@@ -1,0 +1,261 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKTITLEWIDGET_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKTITLEWIDGET_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KTitleWidget KTitleWidget;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QIcon QIcon;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KTitleWidget* KTitleWidget_new(QWidget* parent);
+KTitleWidget* KTitleWidget_new2();
+QMetaObject* KTitleWidget_MetaObject(const KTitleWidget* self);
+void* KTitleWidget_Metacast(KTitleWidget* self, const char* param1);
+int KTitleWidget_Metacall(KTitleWidget* self, int param1, int param2, void** param3);
+void KTitleWidget_OnMetacall(KTitleWidget* self, intptr_t slot);
+int KTitleWidget_QBaseMetacall(KTitleWidget* self, int param1, int param2, void** param3);
+libqt_string KTitleWidget_Tr(const char* s);
+void KTitleWidget_SetWidget(KTitleWidget* self, QWidget* widget);
+libqt_string KTitleWidget_Text(const KTitleWidget* self);
+libqt_string KTitleWidget_Comment(const KTitleWidget* self);
+QIcon* KTitleWidget_Icon(const KTitleWidget* self);
+QSize* KTitleWidget_IconSize(const KTitleWidget* self);
+void KTitleWidget_SetBuddy(KTitleWidget* self, QWidget* buddy);
+int KTitleWidget_AutoHideTimeout(const KTitleWidget* self);
+int KTitleWidget_Level(KTitleWidget* self);
+void KTitleWidget_SetText(KTitleWidget* self, const libqt_string text);
+void KTitleWidget_SetText2(KTitleWidget* self, const libqt_string text, int typeVal);
+void KTitleWidget_SetComment(KTitleWidget* self, const libqt_string comment);
+void KTitleWidget_SetIcon(KTitleWidget* self, const QIcon* icon);
+void KTitleWidget_SetIcon2(KTitleWidget* self, int typeVal);
+void KTitleWidget_SetIconSize(KTitleWidget* self, const QSize* iconSize);
+void KTitleWidget_SetAutoHideTimeout(KTitleWidget* self, int msecs);
+void KTitleWidget_SetLevel(KTitleWidget* self, int level);
+void KTitleWidget_ChangeEvent(KTitleWidget* self, QEvent* e);
+void KTitleWidget_OnChangeEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseChangeEvent(KTitleWidget* self, QEvent* e);
+void KTitleWidget_ShowEvent(KTitleWidget* self, QShowEvent* event);
+void KTitleWidget_OnShowEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseShowEvent(KTitleWidget* self, QShowEvent* event);
+bool KTitleWidget_EventFilter(KTitleWidget* self, QObject* object, QEvent* event);
+void KTitleWidget_OnEventFilter(KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseEventFilter(KTitleWidget* self, QObject* object, QEvent* event);
+libqt_string KTitleWidget_Tr2(const char* s, const char* c);
+libqt_string KTitleWidget_Tr3(const char* s, const char* c, int n);
+void KTitleWidget_SetText22(KTitleWidget* self, const libqt_string text, int alignment);
+void KTitleWidget_SetComment2(KTitleWidget* self, const libqt_string comment, int typeVal);
+void KTitleWidget_SetIcon22(KTitleWidget* self, const QIcon* icon, int alignment);
+void KTitleWidget_SetIcon23(KTitleWidget* self, int typeVal, int alignment);
+int KTitleWidget_DevType(const KTitleWidget* self);
+void KTitleWidget_OnDevType(const KTitleWidget* self, intptr_t slot);
+int KTitleWidget_QBaseDevType(const KTitleWidget* self);
+void KTitleWidget_SetVisible(KTitleWidget* self, bool visible);
+void KTitleWidget_OnSetVisible(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseSetVisible(KTitleWidget* self, bool visible);
+QSize* KTitleWidget_SizeHint(const KTitleWidget* self);
+void KTitleWidget_OnSizeHint(const KTitleWidget* self, intptr_t slot);
+QSize* KTitleWidget_QBaseSizeHint(const KTitleWidget* self);
+QSize* KTitleWidget_MinimumSizeHint(const KTitleWidget* self);
+void KTitleWidget_OnMinimumSizeHint(const KTitleWidget* self, intptr_t slot);
+QSize* KTitleWidget_QBaseMinimumSizeHint(const KTitleWidget* self);
+int KTitleWidget_HeightForWidth(const KTitleWidget* self, int param1);
+void KTitleWidget_OnHeightForWidth(const KTitleWidget* self, intptr_t slot);
+int KTitleWidget_QBaseHeightForWidth(const KTitleWidget* self, int param1);
+bool KTitleWidget_HasHeightForWidth(const KTitleWidget* self);
+void KTitleWidget_OnHasHeightForWidth(const KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseHasHeightForWidth(const KTitleWidget* self);
+QPaintEngine* KTitleWidget_PaintEngine(const KTitleWidget* self);
+void KTitleWidget_OnPaintEngine(const KTitleWidget* self, intptr_t slot);
+QPaintEngine* KTitleWidget_QBasePaintEngine(const KTitleWidget* self);
+bool KTitleWidget_Event(KTitleWidget* self, QEvent* event);
+void KTitleWidget_OnEvent(KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseEvent(KTitleWidget* self, QEvent* event);
+void KTitleWidget_MousePressEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_OnMousePressEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseMousePressEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_MouseReleaseEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_OnMouseReleaseEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseMouseReleaseEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_MouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_OnMouseDoubleClickEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseMouseDoubleClickEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_MouseMoveEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_OnMouseMoveEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseMouseMoveEvent(KTitleWidget* self, QMouseEvent* event);
+void KTitleWidget_WheelEvent(KTitleWidget* self, QWheelEvent* event);
+void KTitleWidget_OnWheelEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseWheelEvent(KTitleWidget* self, QWheelEvent* event);
+void KTitleWidget_KeyPressEvent(KTitleWidget* self, QKeyEvent* event);
+void KTitleWidget_OnKeyPressEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseKeyPressEvent(KTitleWidget* self, QKeyEvent* event);
+void KTitleWidget_KeyReleaseEvent(KTitleWidget* self, QKeyEvent* event);
+void KTitleWidget_OnKeyReleaseEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseKeyReleaseEvent(KTitleWidget* self, QKeyEvent* event);
+void KTitleWidget_FocusInEvent(KTitleWidget* self, QFocusEvent* event);
+void KTitleWidget_OnFocusInEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseFocusInEvent(KTitleWidget* self, QFocusEvent* event);
+void KTitleWidget_FocusOutEvent(KTitleWidget* self, QFocusEvent* event);
+void KTitleWidget_OnFocusOutEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseFocusOutEvent(KTitleWidget* self, QFocusEvent* event);
+void KTitleWidget_EnterEvent(KTitleWidget* self, QEnterEvent* event);
+void KTitleWidget_OnEnterEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseEnterEvent(KTitleWidget* self, QEnterEvent* event);
+void KTitleWidget_LeaveEvent(KTitleWidget* self, QEvent* event);
+void KTitleWidget_OnLeaveEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseLeaveEvent(KTitleWidget* self, QEvent* event);
+void KTitleWidget_PaintEvent(KTitleWidget* self, QPaintEvent* event);
+void KTitleWidget_OnPaintEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBasePaintEvent(KTitleWidget* self, QPaintEvent* event);
+void KTitleWidget_MoveEvent(KTitleWidget* self, QMoveEvent* event);
+void KTitleWidget_OnMoveEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseMoveEvent(KTitleWidget* self, QMoveEvent* event);
+void KTitleWidget_ResizeEvent(KTitleWidget* self, QResizeEvent* event);
+void KTitleWidget_OnResizeEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseResizeEvent(KTitleWidget* self, QResizeEvent* event);
+void KTitleWidget_CloseEvent(KTitleWidget* self, QCloseEvent* event);
+void KTitleWidget_OnCloseEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseCloseEvent(KTitleWidget* self, QCloseEvent* event);
+void KTitleWidget_ContextMenuEvent(KTitleWidget* self, QContextMenuEvent* event);
+void KTitleWidget_OnContextMenuEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseContextMenuEvent(KTitleWidget* self, QContextMenuEvent* event);
+void KTitleWidget_TabletEvent(KTitleWidget* self, QTabletEvent* event);
+void KTitleWidget_OnTabletEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseTabletEvent(KTitleWidget* self, QTabletEvent* event);
+void KTitleWidget_ActionEvent(KTitleWidget* self, QActionEvent* event);
+void KTitleWidget_OnActionEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseActionEvent(KTitleWidget* self, QActionEvent* event);
+void KTitleWidget_DragEnterEvent(KTitleWidget* self, QDragEnterEvent* event);
+void KTitleWidget_OnDragEnterEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseDragEnterEvent(KTitleWidget* self, QDragEnterEvent* event);
+void KTitleWidget_DragMoveEvent(KTitleWidget* self, QDragMoveEvent* event);
+void KTitleWidget_OnDragMoveEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseDragMoveEvent(KTitleWidget* self, QDragMoveEvent* event);
+void KTitleWidget_DragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event);
+void KTitleWidget_OnDragLeaveEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseDragLeaveEvent(KTitleWidget* self, QDragLeaveEvent* event);
+void KTitleWidget_DropEvent(KTitleWidget* self, QDropEvent* event);
+void KTitleWidget_OnDropEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseDropEvent(KTitleWidget* self, QDropEvent* event);
+void KTitleWidget_HideEvent(KTitleWidget* self, QHideEvent* event);
+void KTitleWidget_OnHideEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseHideEvent(KTitleWidget* self, QHideEvent* event);
+bool KTitleWidget_NativeEvent(KTitleWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KTitleWidget_OnNativeEvent(KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseNativeEvent(KTitleWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+int KTitleWidget_Metric(const KTitleWidget* self, int param1);
+void KTitleWidget_OnMetric(const KTitleWidget* self, intptr_t slot);
+int KTitleWidget_QBaseMetric(const KTitleWidget* self, int param1);
+void KTitleWidget_InitPainter(const KTitleWidget* self, QPainter* painter);
+void KTitleWidget_OnInitPainter(const KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseInitPainter(const KTitleWidget* self, QPainter* painter);
+QPaintDevice* KTitleWidget_Redirected(const KTitleWidget* self, QPoint* offset);
+void KTitleWidget_OnRedirected(const KTitleWidget* self, intptr_t slot);
+QPaintDevice* KTitleWidget_QBaseRedirected(const KTitleWidget* self, QPoint* offset);
+QPainter* KTitleWidget_SharedPainter(const KTitleWidget* self);
+void KTitleWidget_OnSharedPainter(const KTitleWidget* self, intptr_t slot);
+QPainter* KTitleWidget_QBaseSharedPainter(const KTitleWidget* self);
+void KTitleWidget_InputMethodEvent(KTitleWidget* self, QInputMethodEvent* param1);
+void KTitleWidget_OnInputMethodEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseInputMethodEvent(KTitleWidget* self, QInputMethodEvent* param1);
+QVariant* KTitleWidget_InputMethodQuery(const KTitleWidget* self, int param1);
+void KTitleWidget_OnInputMethodQuery(const KTitleWidget* self, intptr_t slot);
+QVariant* KTitleWidget_QBaseInputMethodQuery(const KTitleWidget* self, int param1);
+bool KTitleWidget_FocusNextPrevChild(KTitleWidget* self, bool next);
+void KTitleWidget_OnFocusNextPrevChild(KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseFocusNextPrevChild(KTitleWidget* self, bool next);
+void KTitleWidget_TimerEvent(KTitleWidget* self, QTimerEvent* event);
+void KTitleWidget_OnTimerEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseTimerEvent(KTitleWidget* self, QTimerEvent* event);
+void KTitleWidget_ChildEvent(KTitleWidget* self, QChildEvent* event);
+void KTitleWidget_OnChildEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseChildEvent(KTitleWidget* self, QChildEvent* event);
+void KTitleWidget_CustomEvent(KTitleWidget* self, QEvent* event);
+void KTitleWidget_OnCustomEvent(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseCustomEvent(KTitleWidget* self, QEvent* event);
+void KTitleWidget_ConnectNotify(KTitleWidget* self, const QMetaMethod* signal);
+void KTitleWidget_OnConnectNotify(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseConnectNotify(KTitleWidget* self, const QMetaMethod* signal);
+void KTitleWidget_DisconnectNotify(KTitleWidget* self, const QMetaMethod* signal);
+void KTitleWidget_OnDisconnectNotify(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseDisconnectNotify(KTitleWidget* self, const QMetaMethod* signal);
+void KTitleWidget_UpdateMicroFocus(KTitleWidget* self);
+void KTitleWidget_OnUpdateMicroFocus(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseUpdateMicroFocus(KTitleWidget* self);
+void KTitleWidget_Create(KTitleWidget* self);
+void KTitleWidget_OnCreate(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseCreate(KTitleWidget* self);
+void KTitleWidget_Destroy(KTitleWidget* self);
+void KTitleWidget_OnDestroy(KTitleWidget* self, intptr_t slot);
+void KTitleWidget_QBaseDestroy(KTitleWidget* self);
+bool KTitleWidget_FocusNextChild(KTitleWidget* self);
+void KTitleWidget_OnFocusNextChild(KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseFocusNextChild(KTitleWidget* self);
+bool KTitleWidget_FocusPreviousChild(KTitleWidget* self);
+void KTitleWidget_OnFocusPreviousChild(KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseFocusPreviousChild(KTitleWidget* self);
+QObject* KTitleWidget_Sender(const KTitleWidget* self);
+void KTitleWidget_OnSender(const KTitleWidget* self, intptr_t slot);
+QObject* KTitleWidget_QBaseSender(const KTitleWidget* self);
+int KTitleWidget_SenderSignalIndex(const KTitleWidget* self);
+void KTitleWidget_OnSenderSignalIndex(const KTitleWidget* self, intptr_t slot);
+int KTitleWidget_QBaseSenderSignalIndex(const KTitleWidget* self);
+int KTitleWidget_Receivers(const KTitleWidget* self, const char* signal);
+void KTitleWidget_OnReceivers(const KTitleWidget* self, intptr_t slot);
+int KTitleWidget_QBaseReceivers(const KTitleWidget* self, const char* signal);
+bool KTitleWidget_IsSignalConnected(const KTitleWidget* self, const QMetaMethod* signal);
+void KTitleWidget_OnIsSignalConnected(const KTitleWidget* self, intptr_t slot);
+bool KTitleWidget_QBaseIsSignalConnected(const KTitleWidget* self, const QMetaMethod* signal);
+double KTitleWidget_GetDecodedMetricF(const KTitleWidget* self, int metricA, int metricB);
+void KTitleWidget_OnGetDecodedMetricF(const KTitleWidget* self, intptr_t slot);
+double KTitleWidget_QBaseGetDecodedMetricF(const KTitleWidget* self, int metricA, int metricB);
+void KTitleWidget_Delete(KTitleWidget* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,0 +1,261 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKFONTREQUESTER_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKFONTREQUESTER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KFontRequester KFontRequester;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QFont QFont;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QLabel QLabel;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QPushButton QPushButton;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KFontRequester* KFontRequester_new(QWidget* parent);
+KFontRequester* KFontRequester_new2();
+KFontRequester* KFontRequester_new3(QWidget* parent, bool onlyFixed);
+QMetaObject* KFontRequester_MetaObject(const KFontRequester* self);
+void* KFontRequester_Metacast(KFontRequester* self, const char* param1);
+int KFontRequester_Metacall(KFontRequester* self, int param1, int param2, void** param3);
+void KFontRequester_OnMetacall(KFontRequester* self, intptr_t slot);
+int KFontRequester_QBaseMetacall(KFontRequester* self, int param1, int param2, void** param3);
+libqt_string KFontRequester_Tr(const char* s);
+QFont* KFontRequester_Font(const KFontRequester* self);
+bool KFontRequester_IsFixedOnly(const KFontRequester* self);
+libqt_string KFontRequester_SampleText(const KFontRequester* self);
+libqt_string KFontRequester_Title(const KFontRequester* self);
+QLabel* KFontRequester_Label(const KFontRequester* self);
+QPushButton* KFontRequester_Button(const KFontRequester* self);
+void KFontRequester_SetFont(KFontRequester* self, const QFont* font, bool onlyFixed);
+void KFontRequester_OnSetFont(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseSetFont(KFontRequester* self, const QFont* font, bool onlyFixed);
+void KFontRequester_SetSampleText(KFontRequester* self, const libqt_string text);
+void KFontRequester_OnSetSampleText(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseSetSampleText(KFontRequester* self, const libqt_string text);
+void KFontRequester_SetTitle(KFontRequester* self, const libqt_string title);
+void KFontRequester_OnSetTitle(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseSetTitle(KFontRequester* self, const libqt_string title);
+void KFontRequester_FontSelected(KFontRequester* self, const QFont* font);
+void KFontRequester_Connect_FontSelected(KFontRequester* self, intptr_t slot);
+bool KFontRequester_EventFilter(KFontRequester* self, QObject* watched, QEvent* event);
+void KFontRequester_OnEventFilter(KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseEventFilter(KFontRequester* self, QObject* watched, QEvent* event);
+libqt_string KFontRequester_Tr2(const char* s, const char* c);
+libqt_string KFontRequester_Tr3(const char* s, const char* c, int n);
+int KFontRequester_DevType(const KFontRequester* self);
+void KFontRequester_OnDevType(const KFontRequester* self, intptr_t slot);
+int KFontRequester_QBaseDevType(const KFontRequester* self);
+void KFontRequester_SetVisible(KFontRequester* self, bool visible);
+void KFontRequester_OnSetVisible(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseSetVisible(KFontRequester* self, bool visible);
+QSize* KFontRequester_SizeHint(const KFontRequester* self);
+void KFontRequester_OnSizeHint(const KFontRequester* self, intptr_t slot);
+QSize* KFontRequester_QBaseSizeHint(const KFontRequester* self);
+QSize* KFontRequester_MinimumSizeHint(const KFontRequester* self);
+void KFontRequester_OnMinimumSizeHint(const KFontRequester* self, intptr_t slot);
+QSize* KFontRequester_QBaseMinimumSizeHint(const KFontRequester* self);
+int KFontRequester_HeightForWidth(const KFontRequester* self, int param1);
+void KFontRequester_OnHeightForWidth(const KFontRequester* self, intptr_t slot);
+int KFontRequester_QBaseHeightForWidth(const KFontRequester* self, int param1);
+bool KFontRequester_HasHeightForWidth(const KFontRequester* self);
+void KFontRequester_OnHasHeightForWidth(const KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseHasHeightForWidth(const KFontRequester* self);
+QPaintEngine* KFontRequester_PaintEngine(const KFontRequester* self);
+void KFontRequester_OnPaintEngine(const KFontRequester* self, intptr_t slot);
+QPaintEngine* KFontRequester_QBasePaintEngine(const KFontRequester* self);
+bool KFontRequester_Event(KFontRequester* self, QEvent* event);
+void KFontRequester_OnEvent(KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseEvent(KFontRequester* self, QEvent* event);
+void KFontRequester_MousePressEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_OnMousePressEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseMousePressEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_MouseReleaseEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_OnMouseReleaseEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseMouseReleaseEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_MouseDoubleClickEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_OnMouseDoubleClickEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseMouseDoubleClickEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_MouseMoveEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_OnMouseMoveEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseMouseMoveEvent(KFontRequester* self, QMouseEvent* event);
+void KFontRequester_WheelEvent(KFontRequester* self, QWheelEvent* event);
+void KFontRequester_OnWheelEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseWheelEvent(KFontRequester* self, QWheelEvent* event);
+void KFontRequester_KeyPressEvent(KFontRequester* self, QKeyEvent* event);
+void KFontRequester_OnKeyPressEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseKeyPressEvent(KFontRequester* self, QKeyEvent* event);
+void KFontRequester_KeyReleaseEvent(KFontRequester* self, QKeyEvent* event);
+void KFontRequester_OnKeyReleaseEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseKeyReleaseEvent(KFontRequester* self, QKeyEvent* event);
+void KFontRequester_FocusInEvent(KFontRequester* self, QFocusEvent* event);
+void KFontRequester_OnFocusInEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseFocusInEvent(KFontRequester* self, QFocusEvent* event);
+void KFontRequester_FocusOutEvent(KFontRequester* self, QFocusEvent* event);
+void KFontRequester_OnFocusOutEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseFocusOutEvent(KFontRequester* self, QFocusEvent* event);
+void KFontRequester_EnterEvent(KFontRequester* self, QEnterEvent* event);
+void KFontRequester_OnEnterEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseEnterEvent(KFontRequester* self, QEnterEvent* event);
+void KFontRequester_LeaveEvent(KFontRequester* self, QEvent* event);
+void KFontRequester_OnLeaveEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseLeaveEvent(KFontRequester* self, QEvent* event);
+void KFontRequester_PaintEvent(KFontRequester* self, QPaintEvent* event);
+void KFontRequester_OnPaintEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBasePaintEvent(KFontRequester* self, QPaintEvent* event);
+void KFontRequester_MoveEvent(KFontRequester* self, QMoveEvent* event);
+void KFontRequester_OnMoveEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseMoveEvent(KFontRequester* self, QMoveEvent* event);
+void KFontRequester_ResizeEvent(KFontRequester* self, QResizeEvent* event);
+void KFontRequester_OnResizeEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseResizeEvent(KFontRequester* self, QResizeEvent* event);
+void KFontRequester_CloseEvent(KFontRequester* self, QCloseEvent* event);
+void KFontRequester_OnCloseEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseCloseEvent(KFontRequester* self, QCloseEvent* event);
+void KFontRequester_ContextMenuEvent(KFontRequester* self, QContextMenuEvent* event);
+void KFontRequester_OnContextMenuEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseContextMenuEvent(KFontRequester* self, QContextMenuEvent* event);
+void KFontRequester_TabletEvent(KFontRequester* self, QTabletEvent* event);
+void KFontRequester_OnTabletEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseTabletEvent(KFontRequester* self, QTabletEvent* event);
+void KFontRequester_ActionEvent(KFontRequester* self, QActionEvent* event);
+void KFontRequester_OnActionEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseActionEvent(KFontRequester* self, QActionEvent* event);
+void KFontRequester_DragEnterEvent(KFontRequester* self, QDragEnterEvent* event);
+void KFontRequester_OnDragEnterEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseDragEnterEvent(KFontRequester* self, QDragEnterEvent* event);
+void KFontRequester_DragMoveEvent(KFontRequester* self, QDragMoveEvent* event);
+void KFontRequester_OnDragMoveEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseDragMoveEvent(KFontRequester* self, QDragMoveEvent* event);
+void KFontRequester_DragLeaveEvent(KFontRequester* self, QDragLeaveEvent* event);
+void KFontRequester_OnDragLeaveEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseDragLeaveEvent(KFontRequester* self, QDragLeaveEvent* event);
+void KFontRequester_DropEvent(KFontRequester* self, QDropEvent* event);
+void KFontRequester_OnDropEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseDropEvent(KFontRequester* self, QDropEvent* event);
+void KFontRequester_ShowEvent(KFontRequester* self, QShowEvent* event);
+void KFontRequester_OnShowEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseShowEvent(KFontRequester* self, QShowEvent* event);
+void KFontRequester_HideEvent(KFontRequester* self, QHideEvent* event);
+void KFontRequester_OnHideEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseHideEvent(KFontRequester* self, QHideEvent* event);
+bool KFontRequester_NativeEvent(KFontRequester* self, const libqt_string eventType, void* message, intptr_t* result);
+void KFontRequester_OnNativeEvent(KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseNativeEvent(KFontRequester* self, const libqt_string eventType, void* message, intptr_t* result);
+void KFontRequester_ChangeEvent(KFontRequester* self, QEvent* param1);
+void KFontRequester_OnChangeEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseChangeEvent(KFontRequester* self, QEvent* param1);
+int KFontRequester_Metric(const KFontRequester* self, int param1);
+void KFontRequester_OnMetric(const KFontRequester* self, intptr_t slot);
+int KFontRequester_QBaseMetric(const KFontRequester* self, int param1);
+void KFontRequester_InitPainter(const KFontRequester* self, QPainter* painter);
+void KFontRequester_OnInitPainter(const KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseInitPainter(const KFontRequester* self, QPainter* painter);
+QPaintDevice* KFontRequester_Redirected(const KFontRequester* self, QPoint* offset);
+void KFontRequester_OnRedirected(const KFontRequester* self, intptr_t slot);
+QPaintDevice* KFontRequester_QBaseRedirected(const KFontRequester* self, QPoint* offset);
+QPainter* KFontRequester_SharedPainter(const KFontRequester* self);
+void KFontRequester_OnSharedPainter(const KFontRequester* self, intptr_t slot);
+QPainter* KFontRequester_QBaseSharedPainter(const KFontRequester* self);
+void KFontRequester_InputMethodEvent(KFontRequester* self, QInputMethodEvent* param1);
+void KFontRequester_OnInputMethodEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseInputMethodEvent(KFontRequester* self, QInputMethodEvent* param1);
+QVariant* KFontRequester_InputMethodQuery(const KFontRequester* self, int param1);
+void KFontRequester_OnInputMethodQuery(const KFontRequester* self, intptr_t slot);
+QVariant* KFontRequester_QBaseInputMethodQuery(const KFontRequester* self, int param1);
+bool KFontRequester_FocusNextPrevChild(KFontRequester* self, bool next);
+void KFontRequester_OnFocusNextPrevChild(KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseFocusNextPrevChild(KFontRequester* self, bool next);
+void KFontRequester_TimerEvent(KFontRequester* self, QTimerEvent* event);
+void KFontRequester_OnTimerEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseTimerEvent(KFontRequester* self, QTimerEvent* event);
+void KFontRequester_ChildEvent(KFontRequester* self, QChildEvent* event);
+void KFontRequester_OnChildEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseChildEvent(KFontRequester* self, QChildEvent* event);
+void KFontRequester_CustomEvent(KFontRequester* self, QEvent* event);
+void KFontRequester_OnCustomEvent(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseCustomEvent(KFontRequester* self, QEvent* event);
+void KFontRequester_ConnectNotify(KFontRequester* self, const QMetaMethod* signal);
+void KFontRequester_OnConnectNotify(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseConnectNotify(KFontRequester* self, const QMetaMethod* signal);
+void KFontRequester_DisconnectNotify(KFontRequester* self, const QMetaMethod* signal);
+void KFontRequester_OnDisconnectNotify(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseDisconnectNotify(KFontRequester* self, const QMetaMethod* signal);
+void KFontRequester_UpdateMicroFocus(KFontRequester* self);
+void KFontRequester_OnUpdateMicroFocus(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseUpdateMicroFocus(KFontRequester* self);
+void KFontRequester_Create(KFontRequester* self);
+void KFontRequester_OnCreate(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseCreate(KFontRequester* self);
+void KFontRequester_Destroy(KFontRequester* self);
+void KFontRequester_OnDestroy(KFontRequester* self, intptr_t slot);
+void KFontRequester_QBaseDestroy(KFontRequester* self);
+bool KFontRequester_FocusNextChild(KFontRequester* self);
+void KFontRequester_OnFocusNextChild(KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseFocusNextChild(KFontRequester* self);
+bool KFontRequester_FocusPreviousChild(KFontRequester* self);
+void KFontRequester_OnFocusPreviousChild(KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseFocusPreviousChild(KFontRequester* self);
+QObject* KFontRequester_Sender(const KFontRequester* self);
+void KFontRequester_OnSender(const KFontRequester* self, intptr_t slot);
+QObject* KFontRequester_QBaseSender(const KFontRequester* self);
+int KFontRequester_SenderSignalIndex(const KFontRequester* self);
+void KFontRequester_OnSenderSignalIndex(const KFontRequester* self, intptr_t slot);
+int KFontRequester_QBaseSenderSignalIndex(const KFontRequester* self);
+int KFontRequester_Receivers(const KFontRequester* self, const char* signal);
+void KFontRequester_OnReceivers(const KFontRequester* self, intptr_t slot);
+int KFontRequester_QBaseReceivers(const KFontRequester* self, const char* signal);
+bool KFontRequester_IsSignalConnected(const KFontRequester* self, const QMetaMethod* signal);
+void KFontRequester_OnIsSignalConnected(const KFontRequester* self, intptr_t slot);
+bool KFontRequester_QBaseIsSignalConnected(const KFontRequester* self, const QMetaMethod* signal);
+double KFontRequester_GetDecodedMetricF(const KFontRequester* self, int metricA, int metricB);
+void KFontRequester_OnGetDecodedMetricF(const KFontRequester* self, intptr_t slot);
+double KFontRequester_QBaseGetDecodedMetricF(const KFontRequester* self, int metricA, int metricB);
+void KFontRequester_Delete(KFontRequester* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

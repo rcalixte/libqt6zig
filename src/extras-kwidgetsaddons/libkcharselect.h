@@ -1,0 +1,266 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKCHARSELECT_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKCHARSELECT_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KCharSelect KCharSelect;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChar QChar;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QFont QFont;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KCharSelect* KCharSelect_new(QWidget* parent);
+KCharSelect* KCharSelect_new2(QWidget* parent, QObject* actionParent);
+KCharSelect* KCharSelect_new3(QWidget* parent, const int controls);
+KCharSelect* KCharSelect_new4(QWidget* parent, QObject* actionParent, const int controls);
+QMetaObject* KCharSelect_MetaObject(const KCharSelect* self);
+void* KCharSelect_Metacast(KCharSelect* self, const char* param1);
+int KCharSelect_Metacall(KCharSelect* self, int param1, int param2, void** param3);
+void KCharSelect_OnMetacall(KCharSelect* self, intptr_t slot);
+int KCharSelect_QBaseMetacall(KCharSelect* self, int param1, int param2, void** param3);
+libqt_string KCharSelect_Tr(const char* s);
+QSize* KCharSelect_SizeHint(const KCharSelect* self);
+void KCharSelect_OnSizeHint(const KCharSelect* self, intptr_t slot);
+QSize* KCharSelect_QBaseSizeHint(const KCharSelect* self);
+void KCharSelect_SetAllPlanesEnabled(KCharSelect* self, bool all);
+bool KCharSelect_AllPlanesEnabled(const KCharSelect* self);
+QChar* KCharSelect_CurrentChar(const KCharSelect* self);
+unsigned int KCharSelect_CurrentCodePoint(const KCharSelect* self);
+QFont* KCharSelect_CurrentFont(const KCharSelect* self);
+libqt_list /* of QChar* */ KCharSelect_DisplayedChars(const KCharSelect* self);
+libqt_list /* of unsigned int */ KCharSelect_DisplayedCodePoints(const KCharSelect* self);
+void KCharSelect_SetCurrentChar(KCharSelect* self, const QChar* c);
+void KCharSelect_SetCurrentCodePoint(KCharSelect* self, unsigned int codePoint);
+void KCharSelect_SetCurrentFont(KCharSelect* self, const QFont* font);
+void KCharSelect_CurrentFontChanged(KCharSelect* self, const QFont* font);
+void KCharSelect_Connect_CurrentFontChanged(KCharSelect* self, intptr_t slot);
+void KCharSelect_CurrentCharChanged(KCharSelect* self, const QChar* c);
+void KCharSelect_Connect_CurrentCharChanged(KCharSelect* self, intptr_t slot);
+void KCharSelect_CurrentCodePointChanged(KCharSelect* self, unsigned int codePoint);
+void KCharSelect_Connect_CurrentCodePointChanged(KCharSelect* self, intptr_t slot);
+void KCharSelect_DisplayedCharsChanged(KCharSelect* self);
+void KCharSelect_Connect_DisplayedCharsChanged(KCharSelect* self, intptr_t slot);
+void KCharSelect_CharSelected(KCharSelect* self, const QChar* c);
+void KCharSelect_Connect_CharSelected(KCharSelect* self, intptr_t slot);
+void KCharSelect_CodePointSelected(KCharSelect* self, unsigned int codePoint);
+void KCharSelect_Connect_CodePointSelected(KCharSelect* self, intptr_t slot);
+libqt_string KCharSelect_Tr2(const char* s, const char* c);
+libqt_string KCharSelect_Tr3(const char* s, const char* c, int n);
+int KCharSelect_DevType(const KCharSelect* self);
+void KCharSelect_OnDevType(const KCharSelect* self, intptr_t slot);
+int KCharSelect_QBaseDevType(const KCharSelect* self);
+void KCharSelect_SetVisible(KCharSelect* self, bool visible);
+void KCharSelect_OnSetVisible(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseSetVisible(KCharSelect* self, bool visible);
+QSize* KCharSelect_MinimumSizeHint(const KCharSelect* self);
+void KCharSelect_OnMinimumSizeHint(const KCharSelect* self, intptr_t slot);
+QSize* KCharSelect_QBaseMinimumSizeHint(const KCharSelect* self);
+int KCharSelect_HeightForWidth(const KCharSelect* self, int param1);
+void KCharSelect_OnHeightForWidth(const KCharSelect* self, intptr_t slot);
+int KCharSelect_QBaseHeightForWidth(const KCharSelect* self, int param1);
+bool KCharSelect_HasHeightForWidth(const KCharSelect* self);
+void KCharSelect_OnHasHeightForWidth(const KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseHasHeightForWidth(const KCharSelect* self);
+QPaintEngine* KCharSelect_PaintEngine(const KCharSelect* self);
+void KCharSelect_OnPaintEngine(const KCharSelect* self, intptr_t slot);
+QPaintEngine* KCharSelect_QBasePaintEngine(const KCharSelect* self);
+bool KCharSelect_Event(KCharSelect* self, QEvent* event);
+void KCharSelect_OnEvent(KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseEvent(KCharSelect* self, QEvent* event);
+void KCharSelect_MousePressEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_OnMousePressEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseMousePressEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_MouseReleaseEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_OnMouseReleaseEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseMouseReleaseEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_MouseDoubleClickEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_OnMouseDoubleClickEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseMouseDoubleClickEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_MouseMoveEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_OnMouseMoveEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseMouseMoveEvent(KCharSelect* self, QMouseEvent* event);
+void KCharSelect_WheelEvent(KCharSelect* self, QWheelEvent* event);
+void KCharSelect_OnWheelEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseWheelEvent(KCharSelect* self, QWheelEvent* event);
+void KCharSelect_KeyPressEvent(KCharSelect* self, QKeyEvent* event);
+void KCharSelect_OnKeyPressEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseKeyPressEvent(KCharSelect* self, QKeyEvent* event);
+void KCharSelect_KeyReleaseEvent(KCharSelect* self, QKeyEvent* event);
+void KCharSelect_OnKeyReleaseEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseKeyReleaseEvent(KCharSelect* self, QKeyEvent* event);
+void KCharSelect_FocusInEvent(KCharSelect* self, QFocusEvent* event);
+void KCharSelect_OnFocusInEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseFocusInEvent(KCharSelect* self, QFocusEvent* event);
+void KCharSelect_FocusOutEvent(KCharSelect* self, QFocusEvent* event);
+void KCharSelect_OnFocusOutEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseFocusOutEvent(KCharSelect* self, QFocusEvent* event);
+void KCharSelect_EnterEvent(KCharSelect* self, QEnterEvent* event);
+void KCharSelect_OnEnterEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseEnterEvent(KCharSelect* self, QEnterEvent* event);
+void KCharSelect_LeaveEvent(KCharSelect* self, QEvent* event);
+void KCharSelect_OnLeaveEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseLeaveEvent(KCharSelect* self, QEvent* event);
+void KCharSelect_PaintEvent(KCharSelect* self, QPaintEvent* event);
+void KCharSelect_OnPaintEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBasePaintEvent(KCharSelect* self, QPaintEvent* event);
+void KCharSelect_MoveEvent(KCharSelect* self, QMoveEvent* event);
+void KCharSelect_OnMoveEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseMoveEvent(KCharSelect* self, QMoveEvent* event);
+void KCharSelect_ResizeEvent(KCharSelect* self, QResizeEvent* event);
+void KCharSelect_OnResizeEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseResizeEvent(KCharSelect* self, QResizeEvent* event);
+void KCharSelect_CloseEvent(KCharSelect* self, QCloseEvent* event);
+void KCharSelect_OnCloseEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseCloseEvent(KCharSelect* self, QCloseEvent* event);
+void KCharSelect_ContextMenuEvent(KCharSelect* self, QContextMenuEvent* event);
+void KCharSelect_OnContextMenuEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseContextMenuEvent(KCharSelect* self, QContextMenuEvent* event);
+void KCharSelect_TabletEvent(KCharSelect* self, QTabletEvent* event);
+void KCharSelect_OnTabletEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseTabletEvent(KCharSelect* self, QTabletEvent* event);
+void KCharSelect_ActionEvent(KCharSelect* self, QActionEvent* event);
+void KCharSelect_OnActionEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseActionEvent(KCharSelect* self, QActionEvent* event);
+void KCharSelect_DragEnterEvent(KCharSelect* self, QDragEnterEvent* event);
+void KCharSelect_OnDragEnterEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseDragEnterEvent(KCharSelect* self, QDragEnterEvent* event);
+void KCharSelect_DragMoveEvent(KCharSelect* self, QDragMoveEvent* event);
+void KCharSelect_OnDragMoveEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseDragMoveEvent(KCharSelect* self, QDragMoveEvent* event);
+void KCharSelect_DragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event);
+void KCharSelect_OnDragLeaveEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseDragLeaveEvent(KCharSelect* self, QDragLeaveEvent* event);
+void KCharSelect_DropEvent(KCharSelect* self, QDropEvent* event);
+void KCharSelect_OnDropEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseDropEvent(KCharSelect* self, QDropEvent* event);
+void KCharSelect_ShowEvent(KCharSelect* self, QShowEvent* event);
+void KCharSelect_OnShowEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseShowEvent(KCharSelect* self, QShowEvent* event);
+void KCharSelect_HideEvent(KCharSelect* self, QHideEvent* event);
+void KCharSelect_OnHideEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseHideEvent(KCharSelect* self, QHideEvent* event);
+bool KCharSelect_NativeEvent(KCharSelect* self, const libqt_string eventType, void* message, intptr_t* result);
+void KCharSelect_OnNativeEvent(KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseNativeEvent(KCharSelect* self, const libqt_string eventType, void* message, intptr_t* result);
+void KCharSelect_ChangeEvent(KCharSelect* self, QEvent* param1);
+void KCharSelect_OnChangeEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseChangeEvent(KCharSelect* self, QEvent* param1);
+int KCharSelect_Metric(const KCharSelect* self, int param1);
+void KCharSelect_OnMetric(const KCharSelect* self, intptr_t slot);
+int KCharSelect_QBaseMetric(const KCharSelect* self, int param1);
+void KCharSelect_InitPainter(const KCharSelect* self, QPainter* painter);
+void KCharSelect_OnInitPainter(const KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseInitPainter(const KCharSelect* self, QPainter* painter);
+QPaintDevice* KCharSelect_Redirected(const KCharSelect* self, QPoint* offset);
+void KCharSelect_OnRedirected(const KCharSelect* self, intptr_t slot);
+QPaintDevice* KCharSelect_QBaseRedirected(const KCharSelect* self, QPoint* offset);
+QPainter* KCharSelect_SharedPainter(const KCharSelect* self);
+void KCharSelect_OnSharedPainter(const KCharSelect* self, intptr_t slot);
+QPainter* KCharSelect_QBaseSharedPainter(const KCharSelect* self);
+void KCharSelect_InputMethodEvent(KCharSelect* self, QInputMethodEvent* param1);
+void KCharSelect_OnInputMethodEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseInputMethodEvent(KCharSelect* self, QInputMethodEvent* param1);
+QVariant* KCharSelect_InputMethodQuery(const KCharSelect* self, int param1);
+void KCharSelect_OnInputMethodQuery(const KCharSelect* self, intptr_t slot);
+QVariant* KCharSelect_QBaseInputMethodQuery(const KCharSelect* self, int param1);
+bool KCharSelect_FocusNextPrevChild(KCharSelect* self, bool next);
+void KCharSelect_OnFocusNextPrevChild(KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseFocusNextPrevChild(KCharSelect* self, bool next);
+bool KCharSelect_EventFilter(KCharSelect* self, QObject* watched, QEvent* event);
+void KCharSelect_OnEventFilter(KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseEventFilter(KCharSelect* self, QObject* watched, QEvent* event);
+void KCharSelect_TimerEvent(KCharSelect* self, QTimerEvent* event);
+void KCharSelect_OnTimerEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseTimerEvent(KCharSelect* self, QTimerEvent* event);
+void KCharSelect_ChildEvent(KCharSelect* self, QChildEvent* event);
+void KCharSelect_OnChildEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseChildEvent(KCharSelect* self, QChildEvent* event);
+void KCharSelect_CustomEvent(KCharSelect* self, QEvent* event);
+void KCharSelect_OnCustomEvent(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseCustomEvent(KCharSelect* self, QEvent* event);
+void KCharSelect_ConnectNotify(KCharSelect* self, const QMetaMethod* signal);
+void KCharSelect_OnConnectNotify(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseConnectNotify(KCharSelect* self, const QMetaMethod* signal);
+void KCharSelect_DisconnectNotify(KCharSelect* self, const QMetaMethod* signal);
+void KCharSelect_OnDisconnectNotify(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseDisconnectNotify(KCharSelect* self, const QMetaMethod* signal);
+void KCharSelect_UpdateMicroFocus(KCharSelect* self);
+void KCharSelect_OnUpdateMicroFocus(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseUpdateMicroFocus(KCharSelect* self);
+void KCharSelect_Create(KCharSelect* self);
+void KCharSelect_OnCreate(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseCreate(KCharSelect* self);
+void KCharSelect_Destroy(KCharSelect* self);
+void KCharSelect_OnDestroy(KCharSelect* self, intptr_t slot);
+void KCharSelect_QBaseDestroy(KCharSelect* self);
+bool KCharSelect_FocusNextChild(KCharSelect* self);
+void KCharSelect_OnFocusNextChild(KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseFocusNextChild(KCharSelect* self);
+bool KCharSelect_FocusPreviousChild(KCharSelect* self);
+void KCharSelect_OnFocusPreviousChild(KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseFocusPreviousChild(KCharSelect* self);
+QObject* KCharSelect_Sender(const KCharSelect* self);
+void KCharSelect_OnSender(const KCharSelect* self, intptr_t slot);
+QObject* KCharSelect_QBaseSender(const KCharSelect* self);
+int KCharSelect_SenderSignalIndex(const KCharSelect* self);
+void KCharSelect_OnSenderSignalIndex(const KCharSelect* self, intptr_t slot);
+int KCharSelect_QBaseSenderSignalIndex(const KCharSelect* self);
+int KCharSelect_Receivers(const KCharSelect* self, const char* signal);
+void KCharSelect_OnReceivers(const KCharSelect* self, intptr_t slot);
+int KCharSelect_QBaseReceivers(const KCharSelect* self, const char* signal);
+bool KCharSelect_IsSignalConnected(const KCharSelect* self, const QMetaMethod* signal);
+void KCharSelect_OnIsSignalConnected(const KCharSelect* self, intptr_t slot);
+bool KCharSelect_QBaseIsSignalConnected(const KCharSelect* self, const QMetaMethod* signal);
+double KCharSelect_GetDecodedMetricF(const KCharSelect* self, int metricA, int metricB);
+void KCharSelect_OnGetDecodedMetricF(const KCharSelect* self, intptr_t slot);
+double KCharSelect_QBaseGetDecodedMetricF(const KCharSelect* self, int metricA, int metricB);
+void KCharSelect_Delete(KCharSelect* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,0 +1,267 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKSQUEEZEDTEXTLABEL_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKSQUEEZEDTEXTLABEL_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KSqueezedTextLabel KSqueezedTextLabel;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QFrame QFrame;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QLabel QLabel;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QRect QRect;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QStyleOptionFrame QStyleOptionFrame;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KSqueezedTextLabel* KSqueezedTextLabel_new(QWidget* parent);
+KSqueezedTextLabel* KSqueezedTextLabel_new2();
+KSqueezedTextLabel* KSqueezedTextLabel_new3(const libqt_string text);
+KSqueezedTextLabel* KSqueezedTextLabel_new4(const libqt_string text, QWidget* parent);
+QMetaObject* KSqueezedTextLabel_MetaObject(const KSqueezedTextLabel* self);
+void* KSqueezedTextLabel_Metacast(KSqueezedTextLabel* self, const char* param1);
+int KSqueezedTextLabel_Metacall(KSqueezedTextLabel* self, int param1, int param2, void** param3);
+void KSqueezedTextLabel_OnMetacall(KSqueezedTextLabel* self, intptr_t slot);
+int KSqueezedTextLabel_QBaseMetacall(KSqueezedTextLabel* self, int param1, int param2, void** param3);
+libqt_string KSqueezedTextLabel_Tr(const char* s);
+QSize* KSqueezedTextLabel_MinimumSizeHint(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnMinimumSizeHint(const KSqueezedTextLabel* self, intptr_t slot);
+QSize* KSqueezedTextLabel_QBaseMinimumSizeHint(const KSqueezedTextLabel* self);
+QSize* KSqueezedTextLabel_SizeHint(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnSizeHint(const KSqueezedTextLabel* self, intptr_t slot);
+QSize* KSqueezedTextLabel_QBaseSizeHint(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_SetIndent(KSqueezedTextLabel* self, int indent);
+void KSqueezedTextLabel_SetMargin(KSqueezedTextLabel* self, int margin);
+void KSqueezedTextLabel_SetAlignment(KSqueezedTextLabel* self, int alignment);
+void KSqueezedTextLabel_OnSetAlignment(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseSetAlignment(KSqueezedTextLabel* self, int alignment);
+int KSqueezedTextLabel_TextElideMode(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_SetTextElideMode(KSqueezedTextLabel* self, int mode);
+libqt_string KSqueezedTextLabel_FullText(const KSqueezedTextLabel* self);
+bool KSqueezedTextLabel_IsSqueezed(const KSqueezedTextLabel* self);
+QRect* KSqueezedTextLabel_ContentsRect(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_SetText(KSqueezedTextLabel* self, const libqt_string text);
+void KSqueezedTextLabel_Clear(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_MouseReleaseEvent(KSqueezedTextLabel* self, QMouseEvent* param1);
+void KSqueezedTextLabel_OnMouseReleaseEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseMouseReleaseEvent(KSqueezedTextLabel* self, QMouseEvent* param1);
+void KSqueezedTextLabel_ResizeEvent(KSqueezedTextLabel* self, QResizeEvent* param1);
+void KSqueezedTextLabel_OnResizeEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseResizeEvent(KSqueezedTextLabel* self, QResizeEvent* param1);
+void KSqueezedTextLabel_ContextMenuEvent(KSqueezedTextLabel* self, QContextMenuEvent* param1);
+void KSqueezedTextLabel_OnContextMenuEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseContextMenuEvent(KSqueezedTextLabel* self, QContextMenuEvent* param1);
+libqt_string KSqueezedTextLabel_Tr2(const char* s, const char* c);
+libqt_string KSqueezedTextLabel_Tr3(const char* s, const char* c, int n);
+int KSqueezedTextLabel_HeightForWidth(const KSqueezedTextLabel* self, int param1);
+void KSqueezedTextLabel_OnHeightForWidth(const KSqueezedTextLabel* self, intptr_t slot);
+int KSqueezedTextLabel_QBaseHeightForWidth(const KSqueezedTextLabel* self, int param1);
+bool KSqueezedTextLabel_Event(KSqueezedTextLabel* self, QEvent* e);
+void KSqueezedTextLabel_OnEvent(KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseEvent(KSqueezedTextLabel* self, QEvent* e);
+void KSqueezedTextLabel_KeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* ev);
+void KSqueezedTextLabel_OnKeyPressEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseKeyPressEvent(KSqueezedTextLabel* self, QKeyEvent* ev);
+void KSqueezedTextLabel_PaintEvent(KSqueezedTextLabel* self, QPaintEvent* param1);
+void KSqueezedTextLabel_OnPaintEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBasePaintEvent(KSqueezedTextLabel* self, QPaintEvent* param1);
+void KSqueezedTextLabel_ChangeEvent(KSqueezedTextLabel* self, QEvent* param1);
+void KSqueezedTextLabel_OnChangeEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseChangeEvent(KSqueezedTextLabel* self, QEvent* param1);
+void KSqueezedTextLabel_MousePressEvent(KSqueezedTextLabel* self, QMouseEvent* ev);
+void KSqueezedTextLabel_OnMousePressEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseMousePressEvent(KSqueezedTextLabel* self, QMouseEvent* ev);
+void KSqueezedTextLabel_MouseMoveEvent(KSqueezedTextLabel* self, QMouseEvent* ev);
+void KSqueezedTextLabel_OnMouseMoveEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseMouseMoveEvent(KSqueezedTextLabel* self, QMouseEvent* ev);
+void KSqueezedTextLabel_FocusInEvent(KSqueezedTextLabel* self, QFocusEvent* ev);
+void KSqueezedTextLabel_OnFocusInEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseFocusInEvent(KSqueezedTextLabel* self, QFocusEvent* ev);
+void KSqueezedTextLabel_FocusOutEvent(KSqueezedTextLabel* self, QFocusEvent* ev);
+void KSqueezedTextLabel_OnFocusOutEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseFocusOutEvent(KSqueezedTextLabel* self, QFocusEvent* ev);
+bool KSqueezedTextLabel_FocusNextPrevChild(KSqueezedTextLabel* self, bool next);
+void KSqueezedTextLabel_OnFocusNextPrevChild(KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseFocusNextPrevChild(KSqueezedTextLabel* self, bool next);
+void KSqueezedTextLabel_InitStyleOption(const KSqueezedTextLabel* self, QStyleOptionFrame* option);
+void KSqueezedTextLabel_OnInitStyleOption(const KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseInitStyleOption(const KSqueezedTextLabel* self, QStyleOptionFrame* option);
+int KSqueezedTextLabel_DevType(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnDevType(const KSqueezedTextLabel* self, intptr_t slot);
+int KSqueezedTextLabel_QBaseDevType(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_SetVisible(KSqueezedTextLabel* self, bool visible);
+void KSqueezedTextLabel_OnSetVisible(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseSetVisible(KSqueezedTextLabel* self, bool visible);
+bool KSqueezedTextLabel_HasHeightForWidth(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnHasHeightForWidth(const KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseHasHeightForWidth(const KSqueezedTextLabel* self);
+QPaintEngine* KSqueezedTextLabel_PaintEngine(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnPaintEngine(const KSqueezedTextLabel* self, intptr_t slot);
+QPaintEngine* KSqueezedTextLabel_QBasePaintEngine(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_MouseDoubleClickEvent(KSqueezedTextLabel* self, QMouseEvent* event);
+void KSqueezedTextLabel_OnMouseDoubleClickEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseMouseDoubleClickEvent(KSqueezedTextLabel* self, QMouseEvent* event);
+void KSqueezedTextLabel_WheelEvent(KSqueezedTextLabel* self, QWheelEvent* event);
+void KSqueezedTextLabel_OnWheelEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseWheelEvent(KSqueezedTextLabel* self, QWheelEvent* event);
+void KSqueezedTextLabel_KeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent* event);
+void KSqueezedTextLabel_OnKeyReleaseEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseKeyReleaseEvent(KSqueezedTextLabel* self, QKeyEvent* event);
+void KSqueezedTextLabel_EnterEvent(KSqueezedTextLabel* self, QEnterEvent* event);
+void KSqueezedTextLabel_OnEnterEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseEnterEvent(KSqueezedTextLabel* self, QEnterEvent* event);
+void KSqueezedTextLabel_LeaveEvent(KSqueezedTextLabel* self, QEvent* event);
+void KSqueezedTextLabel_OnLeaveEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseLeaveEvent(KSqueezedTextLabel* self, QEvent* event);
+void KSqueezedTextLabel_MoveEvent(KSqueezedTextLabel* self, QMoveEvent* event);
+void KSqueezedTextLabel_OnMoveEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseMoveEvent(KSqueezedTextLabel* self, QMoveEvent* event);
+void KSqueezedTextLabel_CloseEvent(KSqueezedTextLabel* self, QCloseEvent* event);
+void KSqueezedTextLabel_OnCloseEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseCloseEvent(KSqueezedTextLabel* self, QCloseEvent* event);
+void KSqueezedTextLabel_TabletEvent(KSqueezedTextLabel* self, QTabletEvent* event);
+void KSqueezedTextLabel_OnTabletEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseTabletEvent(KSqueezedTextLabel* self, QTabletEvent* event);
+void KSqueezedTextLabel_ActionEvent(KSqueezedTextLabel* self, QActionEvent* event);
+void KSqueezedTextLabel_OnActionEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseActionEvent(KSqueezedTextLabel* self, QActionEvent* event);
+void KSqueezedTextLabel_DragEnterEvent(KSqueezedTextLabel* self, QDragEnterEvent* event);
+void KSqueezedTextLabel_OnDragEnterEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseDragEnterEvent(KSqueezedTextLabel* self, QDragEnterEvent* event);
+void KSqueezedTextLabel_DragMoveEvent(KSqueezedTextLabel* self, QDragMoveEvent* event);
+void KSqueezedTextLabel_OnDragMoveEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseDragMoveEvent(KSqueezedTextLabel* self, QDragMoveEvent* event);
+void KSqueezedTextLabel_DragLeaveEvent(KSqueezedTextLabel* self, QDragLeaveEvent* event);
+void KSqueezedTextLabel_OnDragLeaveEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseDragLeaveEvent(KSqueezedTextLabel* self, QDragLeaveEvent* event);
+void KSqueezedTextLabel_DropEvent(KSqueezedTextLabel* self, QDropEvent* event);
+void KSqueezedTextLabel_OnDropEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseDropEvent(KSqueezedTextLabel* self, QDropEvent* event);
+void KSqueezedTextLabel_ShowEvent(KSqueezedTextLabel* self, QShowEvent* event);
+void KSqueezedTextLabel_OnShowEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseShowEvent(KSqueezedTextLabel* self, QShowEvent* event);
+void KSqueezedTextLabel_HideEvent(KSqueezedTextLabel* self, QHideEvent* event);
+void KSqueezedTextLabel_OnHideEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseHideEvent(KSqueezedTextLabel* self, QHideEvent* event);
+bool KSqueezedTextLabel_NativeEvent(KSqueezedTextLabel* self, const libqt_string eventType, void* message, intptr_t* result);
+void KSqueezedTextLabel_OnNativeEvent(KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseNativeEvent(KSqueezedTextLabel* self, const libqt_string eventType, void* message, intptr_t* result);
+int KSqueezedTextLabel_Metric(const KSqueezedTextLabel* self, int param1);
+void KSqueezedTextLabel_OnMetric(const KSqueezedTextLabel* self, intptr_t slot);
+int KSqueezedTextLabel_QBaseMetric(const KSqueezedTextLabel* self, int param1);
+void KSqueezedTextLabel_InitPainter(const KSqueezedTextLabel* self, QPainter* painter);
+void KSqueezedTextLabel_OnInitPainter(const KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseInitPainter(const KSqueezedTextLabel* self, QPainter* painter);
+QPaintDevice* KSqueezedTextLabel_Redirected(const KSqueezedTextLabel* self, QPoint* offset);
+void KSqueezedTextLabel_OnRedirected(const KSqueezedTextLabel* self, intptr_t slot);
+QPaintDevice* KSqueezedTextLabel_QBaseRedirected(const KSqueezedTextLabel* self, QPoint* offset);
+QPainter* KSqueezedTextLabel_SharedPainter(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnSharedPainter(const KSqueezedTextLabel* self, intptr_t slot);
+QPainter* KSqueezedTextLabel_QBaseSharedPainter(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_InputMethodEvent(KSqueezedTextLabel* self, QInputMethodEvent* param1);
+void KSqueezedTextLabel_OnInputMethodEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseInputMethodEvent(KSqueezedTextLabel* self, QInputMethodEvent* param1);
+QVariant* KSqueezedTextLabel_InputMethodQuery(const KSqueezedTextLabel* self, int param1);
+void KSqueezedTextLabel_OnInputMethodQuery(const KSqueezedTextLabel* self, intptr_t slot);
+QVariant* KSqueezedTextLabel_QBaseInputMethodQuery(const KSqueezedTextLabel* self, int param1);
+bool KSqueezedTextLabel_EventFilter(KSqueezedTextLabel* self, QObject* watched, QEvent* event);
+void KSqueezedTextLabel_OnEventFilter(KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseEventFilter(KSqueezedTextLabel* self, QObject* watched, QEvent* event);
+void KSqueezedTextLabel_TimerEvent(KSqueezedTextLabel* self, QTimerEvent* event);
+void KSqueezedTextLabel_OnTimerEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseTimerEvent(KSqueezedTextLabel* self, QTimerEvent* event);
+void KSqueezedTextLabel_ChildEvent(KSqueezedTextLabel* self, QChildEvent* event);
+void KSqueezedTextLabel_OnChildEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseChildEvent(KSqueezedTextLabel* self, QChildEvent* event);
+void KSqueezedTextLabel_CustomEvent(KSqueezedTextLabel* self, QEvent* event);
+void KSqueezedTextLabel_OnCustomEvent(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseCustomEvent(KSqueezedTextLabel* self, QEvent* event);
+void KSqueezedTextLabel_ConnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal);
+void KSqueezedTextLabel_OnConnectNotify(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseConnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal);
+void KSqueezedTextLabel_DisconnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal);
+void KSqueezedTextLabel_OnDisconnectNotify(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseDisconnectNotify(KSqueezedTextLabel* self, const QMetaMethod* signal);
+void KSqueezedTextLabel_SqueezeTextToLabel(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnSqueezeTextToLabel(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseSqueezeTextToLabel(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_DrawFrame(KSqueezedTextLabel* self, QPainter* param1);
+void KSqueezedTextLabel_OnDrawFrame(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseDrawFrame(KSqueezedTextLabel* self, QPainter* param1);
+void KSqueezedTextLabel_UpdateMicroFocus(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnUpdateMicroFocus(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseUpdateMicroFocus(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_Create(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnCreate(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseCreate(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_Destroy(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnDestroy(KSqueezedTextLabel* self, intptr_t slot);
+void KSqueezedTextLabel_QBaseDestroy(KSqueezedTextLabel* self);
+bool KSqueezedTextLabel_FocusNextChild(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnFocusNextChild(KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseFocusNextChild(KSqueezedTextLabel* self);
+bool KSqueezedTextLabel_FocusPreviousChild(KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnFocusPreviousChild(KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseFocusPreviousChild(KSqueezedTextLabel* self);
+QObject* KSqueezedTextLabel_Sender(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnSender(const KSqueezedTextLabel* self, intptr_t slot);
+QObject* KSqueezedTextLabel_QBaseSender(const KSqueezedTextLabel* self);
+int KSqueezedTextLabel_SenderSignalIndex(const KSqueezedTextLabel* self);
+void KSqueezedTextLabel_OnSenderSignalIndex(const KSqueezedTextLabel* self, intptr_t slot);
+int KSqueezedTextLabel_QBaseSenderSignalIndex(const KSqueezedTextLabel* self);
+int KSqueezedTextLabel_Receivers(const KSqueezedTextLabel* self, const char* signal);
+void KSqueezedTextLabel_OnReceivers(const KSqueezedTextLabel* self, intptr_t slot);
+int KSqueezedTextLabel_QBaseReceivers(const KSqueezedTextLabel* self, const char* signal);
+bool KSqueezedTextLabel_IsSignalConnected(const KSqueezedTextLabel* self, const QMetaMethod* signal);
+void KSqueezedTextLabel_OnIsSignalConnected(const KSqueezedTextLabel* self, intptr_t slot);
+bool KSqueezedTextLabel_QBaseIsSignalConnected(const KSqueezedTextLabel* self, const QMetaMethod* signal);
+double KSqueezedTextLabel_GetDecodedMetricF(const KSqueezedTextLabel* self, int metricA, int metricB);
+void KSqueezedTextLabel_OnGetDecodedMetricF(const KSqueezedTextLabel* self, intptr_t slot);
+double KSqueezedTextLabel_QBaseGetDecodedMetricF(const KSqueezedTextLabel* self, int metricA, int metricB);
+void KSqueezedTextLabel_Delete(KSqueezedTextLabel* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

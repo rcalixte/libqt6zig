@@ -1,0 +1,268 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKRATINGWIDGET_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKRATINGWIDGET_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KRatingWidget KRatingWidget;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QFrame QFrame;
+typedef struct QHideEvent QHideEvent;
+typedef struct QIcon QIcon;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPixmap QPixmap;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QStyleOptionFrame QStyleOptionFrame;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KRatingWidget* KRatingWidget_new(QWidget* parent);
+KRatingWidget* KRatingWidget_new2();
+QMetaObject* KRatingWidget_MetaObject(const KRatingWidget* self);
+void* KRatingWidget_Metacast(KRatingWidget* self, const char* param1);
+int KRatingWidget_Metacall(KRatingWidget* self, int param1, int param2, void** param3);
+void KRatingWidget_OnMetacall(KRatingWidget* self, intptr_t slot);
+int KRatingWidget_QBaseMetacall(KRatingWidget* self, int param1, int param2, void** param3);
+libqt_string KRatingWidget_Tr(const char* s);
+int KRatingWidget_Rating(const KRatingWidget* self);
+int KRatingWidget_MaxRating(const KRatingWidget* self);
+int KRatingWidget_Alignment(const KRatingWidget* self);
+int KRatingWidget_LayoutDirection(const KRatingWidget* self);
+int KRatingWidget_Spacing(const KRatingWidget* self);
+QSize* KRatingWidget_SizeHint(const KRatingWidget* self);
+void KRatingWidget_OnSizeHint(const KRatingWidget* self, intptr_t slot);
+QSize* KRatingWidget_QBaseSizeHint(const KRatingWidget* self);
+bool KRatingWidget_HalfStepsEnabled(const KRatingWidget* self);
+QIcon* KRatingWidget_Icon(const KRatingWidget* self);
+void KRatingWidget_RatingChanged(KRatingWidget* self, int rating);
+void KRatingWidget_Connect_RatingChanged(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_SetRating(KRatingWidget* self, int rating);
+void KRatingWidget_SetMaxRating(KRatingWidget* self, int max);
+void KRatingWidget_SetHalfStepsEnabled(KRatingWidget* self, bool enabled);
+void KRatingWidget_SetSpacing(KRatingWidget* self, int spacing);
+void KRatingWidget_SetAlignment(KRatingWidget* self, int alignVal);
+void KRatingWidget_SetLayoutDirection(KRatingWidget* self, int direction);
+void KRatingWidget_SetIcon(KRatingWidget* self, const QIcon* icon);
+void KRatingWidget_SetCustomPixmap(KRatingWidget* self, const QPixmap* pixmap);
+void KRatingWidget_SetPixmapSize(KRatingWidget* self, int size);
+void KRatingWidget_MousePressEvent(KRatingWidget* self, QMouseEvent* e);
+void KRatingWidget_OnMousePressEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseMousePressEvent(KRatingWidget* self, QMouseEvent* e);
+void KRatingWidget_MouseMoveEvent(KRatingWidget* self, QMouseEvent* e);
+void KRatingWidget_OnMouseMoveEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseMouseMoveEvent(KRatingWidget* self, QMouseEvent* e);
+void KRatingWidget_LeaveEvent(KRatingWidget* self, QEvent* e);
+void KRatingWidget_OnLeaveEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseLeaveEvent(KRatingWidget* self, QEvent* e);
+void KRatingWidget_PaintEvent(KRatingWidget* self, QPaintEvent* e);
+void KRatingWidget_OnPaintEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBasePaintEvent(KRatingWidget* self, QPaintEvent* e);
+void KRatingWidget_ResizeEvent(KRatingWidget* self, QResizeEvent* e);
+void KRatingWidget_OnResizeEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseResizeEvent(KRatingWidget* self, QResizeEvent* e);
+libqt_string KRatingWidget_Tr2(const char* s, const char* c);
+libqt_string KRatingWidget_Tr3(const char* s, const char* c, int n);
+bool KRatingWidget_Event(KRatingWidget* self, QEvent* e);
+void KRatingWidget_OnEvent(KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseEvent(KRatingWidget* self, QEvent* e);
+void KRatingWidget_ChangeEvent(KRatingWidget* self, QEvent* param1);
+void KRatingWidget_OnChangeEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseChangeEvent(KRatingWidget* self, QEvent* param1);
+void KRatingWidget_InitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option);
+void KRatingWidget_OnInitStyleOption(const KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseInitStyleOption(const KRatingWidget* self, QStyleOptionFrame* option);
+int KRatingWidget_DevType(const KRatingWidget* self);
+void KRatingWidget_OnDevType(const KRatingWidget* self, intptr_t slot);
+int KRatingWidget_QBaseDevType(const KRatingWidget* self);
+void KRatingWidget_SetVisible(KRatingWidget* self, bool visible);
+void KRatingWidget_OnSetVisible(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseSetVisible(KRatingWidget* self, bool visible);
+QSize* KRatingWidget_MinimumSizeHint(const KRatingWidget* self);
+void KRatingWidget_OnMinimumSizeHint(const KRatingWidget* self, intptr_t slot);
+QSize* KRatingWidget_QBaseMinimumSizeHint(const KRatingWidget* self);
+int KRatingWidget_HeightForWidth(const KRatingWidget* self, int param1);
+void KRatingWidget_OnHeightForWidth(const KRatingWidget* self, intptr_t slot);
+int KRatingWidget_QBaseHeightForWidth(const KRatingWidget* self, int param1);
+bool KRatingWidget_HasHeightForWidth(const KRatingWidget* self);
+void KRatingWidget_OnHasHeightForWidth(const KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseHasHeightForWidth(const KRatingWidget* self);
+QPaintEngine* KRatingWidget_PaintEngine(const KRatingWidget* self);
+void KRatingWidget_OnPaintEngine(const KRatingWidget* self, intptr_t slot);
+QPaintEngine* KRatingWidget_QBasePaintEngine(const KRatingWidget* self);
+void KRatingWidget_MouseReleaseEvent(KRatingWidget* self, QMouseEvent* event);
+void KRatingWidget_OnMouseReleaseEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseMouseReleaseEvent(KRatingWidget* self, QMouseEvent* event);
+void KRatingWidget_MouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event);
+void KRatingWidget_OnMouseDoubleClickEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseMouseDoubleClickEvent(KRatingWidget* self, QMouseEvent* event);
+void KRatingWidget_WheelEvent(KRatingWidget* self, QWheelEvent* event);
+void KRatingWidget_OnWheelEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseWheelEvent(KRatingWidget* self, QWheelEvent* event);
+void KRatingWidget_KeyPressEvent(KRatingWidget* self, QKeyEvent* event);
+void KRatingWidget_OnKeyPressEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseKeyPressEvent(KRatingWidget* self, QKeyEvent* event);
+void KRatingWidget_KeyReleaseEvent(KRatingWidget* self, QKeyEvent* event);
+void KRatingWidget_OnKeyReleaseEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseKeyReleaseEvent(KRatingWidget* self, QKeyEvent* event);
+void KRatingWidget_FocusInEvent(KRatingWidget* self, QFocusEvent* event);
+void KRatingWidget_OnFocusInEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseFocusInEvent(KRatingWidget* self, QFocusEvent* event);
+void KRatingWidget_FocusOutEvent(KRatingWidget* self, QFocusEvent* event);
+void KRatingWidget_OnFocusOutEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseFocusOutEvent(KRatingWidget* self, QFocusEvent* event);
+void KRatingWidget_EnterEvent(KRatingWidget* self, QEnterEvent* event);
+void KRatingWidget_OnEnterEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseEnterEvent(KRatingWidget* self, QEnterEvent* event);
+void KRatingWidget_MoveEvent(KRatingWidget* self, QMoveEvent* event);
+void KRatingWidget_OnMoveEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseMoveEvent(KRatingWidget* self, QMoveEvent* event);
+void KRatingWidget_CloseEvent(KRatingWidget* self, QCloseEvent* event);
+void KRatingWidget_OnCloseEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseCloseEvent(KRatingWidget* self, QCloseEvent* event);
+void KRatingWidget_ContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event);
+void KRatingWidget_OnContextMenuEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseContextMenuEvent(KRatingWidget* self, QContextMenuEvent* event);
+void KRatingWidget_TabletEvent(KRatingWidget* self, QTabletEvent* event);
+void KRatingWidget_OnTabletEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseTabletEvent(KRatingWidget* self, QTabletEvent* event);
+void KRatingWidget_ActionEvent(KRatingWidget* self, QActionEvent* event);
+void KRatingWidget_OnActionEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseActionEvent(KRatingWidget* self, QActionEvent* event);
+void KRatingWidget_DragEnterEvent(KRatingWidget* self, QDragEnterEvent* event);
+void KRatingWidget_OnDragEnterEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseDragEnterEvent(KRatingWidget* self, QDragEnterEvent* event);
+void KRatingWidget_DragMoveEvent(KRatingWidget* self, QDragMoveEvent* event);
+void KRatingWidget_OnDragMoveEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseDragMoveEvent(KRatingWidget* self, QDragMoveEvent* event);
+void KRatingWidget_DragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event);
+void KRatingWidget_OnDragLeaveEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseDragLeaveEvent(KRatingWidget* self, QDragLeaveEvent* event);
+void KRatingWidget_DropEvent(KRatingWidget* self, QDropEvent* event);
+void KRatingWidget_OnDropEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseDropEvent(KRatingWidget* self, QDropEvent* event);
+void KRatingWidget_ShowEvent(KRatingWidget* self, QShowEvent* event);
+void KRatingWidget_OnShowEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseShowEvent(KRatingWidget* self, QShowEvent* event);
+void KRatingWidget_HideEvent(KRatingWidget* self, QHideEvent* event);
+void KRatingWidget_OnHideEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseHideEvent(KRatingWidget* self, QHideEvent* event);
+bool KRatingWidget_NativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+void KRatingWidget_OnNativeEvent(KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseNativeEvent(KRatingWidget* self, const libqt_string eventType, void* message, intptr_t* result);
+int KRatingWidget_Metric(const KRatingWidget* self, int param1);
+void KRatingWidget_OnMetric(const KRatingWidget* self, intptr_t slot);
+int KRatingWidget_QBaseMetric(const KRatingWidget* self, int param1);
+void KRatingWidget_InitPainter(const KRatingWidget* self, QPainter* painter);
+void KRatingWidget_OnInitPainter(const KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseInitPainter(const KRatingWidget* self, QPainter* painter);
+QPaintDevice* KRatingWidget_Redirected(const KRatingWidget* self, QPoint* offset);
+void KRatingWidget_OnRedirected(const KRatingWidget* self, intptr_t slot);
+QPaintDevice* KRatingWidget_QBaseRedirected(const KRatingWidget* self, QPoint* offset);
+QPainter* KRatingWidget_SharedPainter(const KRatingWidget* self);
+void KRatingWidget_OnSharedPainter(const KRatingWidget* self, intptr_t slot);
+QPainter* KRatingWidget_QBaseSharedPainter(const KRatingWidget* self);
+void KRatingWidget_InputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1);
+void KRatingWidget_OnInputMethodEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseInputMethodEvent(KRatingWidget* self, QInputMethodEvent* param1);
+QVariant* KRatingWidget_InputMethodQuery(const KRatingWidget* self, int param1);
+void KRatingWidget_OnInputMethodQuery(const KRatingWidget* self, intptr_t slot);
+QVariant* KRatingWidget_QBaseInputMethodQuery(const KRatingWidget* self, int param1);
+bool KRatingWidget_FocusNextPrevChild(KRatingWidget* self, bool next);
+void KRatingWidget_OnFocusNextPrevChild(KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseFocusNextPrevChild(KRatingWidget* self, bool next);
+bool KRatingWidget_EventFilter(KRatingWidget* self, QObject* watched, QEvent* event);
+void KRatingWidget_OnEventFilter(KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseEventFilter(KRatingWidget* self, QObject* watched, QEvent* event);
+void KRatingWidget_TimerEvent(KRatingWidget* self, QTimerEvent* event);
+void KRatingWidget_OnTimerEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseTimerEvent(KRatingWidget* self, QTimerEvent* event);
+void KRatingWidget_ChildEvent(KRatingWidget* self, QChildEvent* event);
+void KRatingWidget_OnChildEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseChildEvent(KRatingWidget* self, QChildEvent* event);
+void KRatingWidget_CustomEvent(KRatingWidget* self, QEvent* event);
+void KRatingWidget_OnCustomEvent(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseCustomEvent(KRatingWidget* self, QEvent* event);
+void KRatingWidget_ConnectNotify(KRatingWidget* self, const QMetaMethod* signal);
+void KRatingWidget_OnConnectNotify(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseConnectNotify(KRatingWidget* self, const QMetaMethod* signal);
+void KRatingWidget_DisconnectNotify(KRatingWidget* self, const QMetaMethod* signal);
+void KRatingWidget_OnDisconnectNotify(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseDisconnectNotify(KRatingWidget* self, const QMetaMethod* signal);
+void KRatingWidget_DrawFrame(KRatingWidget* self, QPainter* param1);
+void KRatingWidget_OnDrawFrame(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseDrawFrame(KRatingWidget* self, QPainter* param1);
+void KRatingWidget_UpdateMicroFocus(KRatingWidget* self);
+void KRatingWidget_OnUpdateMicroFocus(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseUpdateMicroFocus(KRatingWidget* self);
+void KRatingWidget_Create(KRatingWidget* self);
+void KRatingWidget_OnCreate(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseCreate(KRatingWidget* self);
+void KRatingWidget_Destroy(KRatingWidget* self);
+void KRatingWidget_OnDestroy(KRatingWidget* self, intptr_t slot);
+void KRatingWidget_QBaseDestroy(KRatingWidget* self);
+bool KRatingWidget_FocusNextChild(KRatingWidget* self);
+void KRatingWidget_OnFocusNextChild(KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseFocusNextChild(KRatingWidget* self);
+bool KRatingWidget_FocusPreviousChild(KRatingWidget* self);
+void KRatingWidget_OnFocusPreviousChild(KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseFocusPreviousChild(KRatingWidget* self);
+QObject* KRatingWidget_Sender(const KRatingWidget* self);
+void KRatingWidget_OnSender(const KRatingWidget* self, intptr_t slot);
+QObject* KRatingWidget_QBaseSender(const KRatingWidget* self);
+int KRatingWidget_SenderSignalIndex(const KRatingWidget* self);
+void KRatingWidget_OnSenderSignalIndex(const KRatingWidget* self, intptr_t slot);
+int KRatingWidget_QBaseSenderSignalIndex(const KRatingWidget* self);
+int KRatingWidget_Receivers(const KRatingWidget* self, const char* signal);
+void KRatingWidget_OnReceivers(const KRatingWidget* self, intptr_t slot);
+int KRatingWidget_QBaseReceivers(const KRatingWidget* self, const char* signal);
+bool KRatingWidget_IsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal);
+void KRatingWidget_OnIsSignalConnected(const KRatingWidget* self, intptr_t slot);
+bool KRatingWidget_QBaseIsSignalConnected(const KRatingWidget* self, const QMetaMethod* signal);
+double KRatingWidget_GetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB);
+void KRatingWidget_OnGetDecodedMetricF(const KRatingWidget* self, intptr_t slot);
+double KRatingWidget_QBaseGetDecodedMetricF(const KRatingWidget* self, int metricA, int metricB);
+void KRatingWidget_Delete(KRatingWidget* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

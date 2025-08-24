@@ -1,0 +1,266 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKCOLORCOMBO_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKCOLORCOMBO_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KColorCombo KColorCombo;
+typedef struct QAbstractItemModel QAbstractItemModel;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QColor QColor;
+typedef struct QComboBox QComboBox;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QStyleOptionComboBox QStyleOptionComboBox;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KColorCombo* KColorCombo_new(QWidget* parent);
+KColorCombo* KColorCombo_new2();
+QMetaObject* KColorCombo_MetaObject(const KColorCombo* self);
+void* KColorCombo_Metacast(KColorCombo* self, const char* param1);
+int KColorCombo_Metacall(KColorCombo* self, int param1, int param2, void** param3);
+void KColorCombo_OnMetacall(KColorCombo* self, intptr_t slot);
+int KColorCombo_QBaseMetacall(KColorCombo* self, int param1, int param2, void** param3);
+libqt_string KColorCombo_Tr(const char* s);
+void KColorCombo_SetColor(KColorCombo* self, const QColor* col);
+QColor* KColorCombo_Color(const KColorCombo* self);
+bool KColorCombo_IsCustomColor(const KColorCombo* self);
+void KColorCombo_SetColors(KColorCombo* self, const libqt_list /* of QColor* */ colors);
+libqt_list /* of QColor* */ KColorCombo_Colors(const KColorCombo* self);
+void KColorCombo_ShowEmptyList(KColorCombo* self);
+void KColorCombo_Activated(KColorCombo* self, const QColor* col);
+void KColorCombo_Connect_Activated(KColorCombo* self, intptr_t slot);
+void KColorCombo_Highlighted(KColorCombo* self, const QColor* col);
+void KColorCombo_Connect_Highlighted(KColorCombo* self, intptr_t slot);
+void KColorCombo_PaintEvent(KColorCombo* self, QPaintEvent* event);
+void KColorCombo_OnPaintEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBasePaintEvent(KColorCombo* self, QPaintEvent* event);
+libqt_string KColorCombo_Tr2(const char* s, const char* c);
+libqt_string KColorCombo_Tr3(const char* s, const char* c, int n);
+void KColorCombo_SetModel(KColorCombo* self, QAbstractItemModel* model);
+void KColorCombo_OnSetModel(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseSetModel(KColorCombo* self, QAbstractItemModel* model);
+QSize* KColorCombo_SizeHint(const KColorCombo* self);
+void KColorCombo_OnSizeHint(const KColorCombo* self, intptr_t slot);
+QSize* KColorCombo_QBaseSizeHint(const KColorCombo* self);
+QSize* KColorCombo_MinimumSizeHint(const KColorCombo* self);
+void KColorCombo_OnMinimumSizeHint(const KColorCombo* self, intptr_t slot);
+QSize* KColorCombo_QBaseMinimumSizeHint(const KColorCombo* self);
+void KColorCombo_ShowPopup(KColorCombo* self);
+void KColorCombo_OnShowPopup(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseShowPopup(KColorCombo* self);
+void KColorCombo_HidePopup(KColorCombo* self);
+void KColorCombo_OnHidePopup(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseHidePopup(KColorCombo* self);
+bool KColorCombo_Event(KColorCombo* self, QEvent* event);
+void KColorCombo_OnEvent(KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseEvent(KColorCombo* self, QEvent* event);
+QVariant* KColorCombo_InputMethodQuery(const KColorCombo* self, int param1);
+void KColorCombo_OnInputMethodQuery(const KColorCombo* self, intptr_t slot);
+QVariant* KColorCombo_QBaseInputMethodQuery(const KColorCombo* self, int param1);
+void KColorCombo_FocusInEvent(KColorCombo* self, QFocusEvent* e);
+void KColorCombo_OnFocusInEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseFocusInEvent(KColorCombo* self, QFocusEvent* e);
+void KColorCombo_FocusOutEvent(KColorCombo* self, QFocusEvent* e);
+void KColorCombo_OnFocusOutEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseFocusOutEvent(KColorCombo* self, QFocusEvent* e);
+void KColorCombo_ChangeEvent(KColorCombo* self, QEvent* e);
+void KColorCombo_OnChangeEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseChangeEvent(KColorCombo* self, QEvent* e);
+void KColorCombo_ResizeEvent(KColorCombo* self, QResizeEvent* e);
+void KColorCombo_OnResizeEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseResizeEvent(KColorCombo* self, QResizeEvent* e);
+void KColorCombo_ShowEvent(KColorCombo* self, QShowEvent* e);
+void KColorCombo_OnShowEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseShowEvent(KColorCombo* self, QShowEvent* e);
+void KColorCombo_HideEvent(KColorCombo* self, QHideEvent* e);
+void KColorCombo_OnHideEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseHideEvent(KColorCombo* self, QHideEvent* e);
+void KColorCombo_MousePressEvent(KColorCombo* self, QMouseEvent* e);
+void KColorCombo_OnMousePressEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseMousePressEvent(KColorCombo* self, QMouseEvent* e);
+void KColorCombo_MouseReleaseEvent(KColorCombo* self, QMouseEvent* e);
+void KColorCombo_OnMouseReleaseEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseMouseReleaseEvent(KColorCombo* self, QMouseEvent* e);
+void KColorCombo_KeyPressEvent(KColorCombo* self, QKeyEvent* e);
+void KColorCombo_OnKeyPressEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseKeyPressEvent(KColorCombo* self, QKeyEvent* e);
+void KColorCombo_KeyReleaseEvent(KColorCombo* self, QKeyEvent* e);
+void KColorCombo_OnKeyReleaseEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseKeyReleaseEvent(KColorCombo* self, QKeyEvent* e);
+void KColorCombo_WheelEvent(KColorCombo* self, QWheelEvent* e);
+void KColorCombo_OnWheelEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseWheelEvent(KColorCombo* self, QWheelEvent* e);
+void KColorCombo_ContextMenuEvent(KColorCombo* self, QContextMenuEvent* e);
+void KColorCombo_OnContextMenuEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseContextMenuEvent(KColorCombo* self, QContextMenuEvent* e);
+void KColorCombo_InputMethodEvent(KColorCombo* self, QInputMethodEvent* param1);
+void KColorCombo_OnInputMethodEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseInputMethodEvent(KColorCombo* self, QInputMethodEvent* param1);
+void KColorCombo_InitStyleOption(const KColorCombo* self, QStyleOptionComboBox* option);
+void KColorCombo_OnInitStyleOption(const KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseInitStyleOption(const KColorCombo* self, QStyleOptionComboBox* option);
+int KColorCombo_DevType(const KColorCombo* self);
+void KColorCombo_OnDevType(const KColorCombo* self, intptr_t slot);
+int KColorCombo_QBaseDevType(const KColorCombo* self);
+void KColorCombo_SetVisible(KColorCombo* self, bool visible);
+void KColorCombo_OnSetVisible(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseSetVisible(KColorCombo* self, bool visible);
+int KColorCombo_HeightForWidth(const KColorCombo* self, int param1);
+void KColorCombo_OnHeightForWidth(const KColorCombo* self, intptr_t slot);
+int KColorCombo_QBaseHeightForWidth(const KColorCombo* self, int param1);
+bool KColorCombo_HasHeightForWidth(const KColorCombo* self);
+void KColorCombo_OnHasHeightForWidth(const KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseHasHeightForWidth(const KColorCombo* self);
+QPaintEngine* KColorCombo_PaintEngine(const KColorCombo* self);
+void KColorCombo_OnPaintEngine(const KColorCombo* self, intptr_t slot);
+QPaintEngine* KColorCombo_QBasePaintEngine(const KColorCombo* self);
+void KColorCombo_MouseDoubleClickEvent(KColorCombo* self, QMouseEvent* event);
+void KColorCombo_OnMouseDoubleClickEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseMouseDoubleClickEvent(KColorCombo* self, QMouseEvent* event);
+void KColorCombo_MouseMoveEvent(KColorCombo* self, QMouseEvent* event);
+void KColorCombo_OnMouseMoveEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseMouseMoveEvent(KColorCombo* self, QMouseEvent* event);
+void KColorCombo_EnterEvent(KColorCombo* self, QEnterEvent* event);
+void KColorCombo_OnEnterEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseEnterEvent(KColorCombo* self, QEnterEvent* event);
+void KColorCombo_LeaveEvent(KColorCombo* self, QEvent* event);
+void KColorCombo_OnLeaveEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseLeaveEvent(KColorCombo* self, QEvent* event);
+void KColorCombo_MoveEvent(KColorCombo* self, QMoveEvent* event);
+void KColorCombo_OnMoveEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseMoveEvent(KColorCombo* self, QMoveEvent* event);
+void KColorCombo_CloseEvent(KColorCombo* self, QCloseEvent* event);
+void KColorCombo_OnCloseEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseCloseEvent(KColorCombo* self, QCloseEvent* event);
+void KColorCombo_TabletEvent(KColorCombo* self, QTabletEvent* event);
+void KColorCombo_OnTabletEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseTabletEvent(KColorCombo* self, QTabletEvent* event);
+void KColorCombo_ActionEvent(KColorCombo* self, QActionEvent* event);
+void KColorCombo_OnActionEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseActionEvent(KColorCombo* self, QActionEvent* event);
+void KColorCombo_DragEnterEvent(KColorCombo* self, QDragEnterEvent* event);
+void KColorCombo_OnDragEnterEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseDragEnterEvent(KColorCombo* self, QDragEnterEvent* event);
+void KColorCombo_DragMoveEvent(KColorCombo* self, QDragMoveEvent* event);
+void KColorCombo_OnDragMoveEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseDragMoveEvent(KColorCombo* self, QDragMoveEvent* event);
+void KColorCombo_DragLeaveEvent(KColorCombo* self, QDragLeaveEvent* event);
+void KColorCombo_OnDragLeaveEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseDragLeaveEvent(KColorCombo* self, QDragLeaveEvent* event);
+void KColorCombo_DropEvent(KColorCombo* self, QDropEvent* event);
+void KColorCombo_OnDropEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseDropEvent(KColorCombo* self, QDropEvent* event);
+bool KColorCombo_NativeEvent(KColorCombo* self, const libqt_string eventType, void* message, intptr_t* result);
+void KColorCombo_OnNativeEvent(KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseNativeEvent(KColorCombo* self, const libqt_string eventType, void* message, intptr_t* result);
+int KColorCombo_Metric(const KColorCombo* self, int param1);
+void KColorCombo_OnMetric(const KColorCombo* self, intptr_t slot);
+int KColorCombo_QBaseMetric(const KColorCombo* self, int param1);
+void KColorCombo_InitPainter(const KColorCombo* self, QPainter* painter);
+void KColorCombo_OnInitPainter(const KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseInitPainter(const KColorCombo* self, QPainter* painter);
+QPaintDevice* KColorCombo_Redirected(const KColorCombo* self, QPoint* offset);
+void KColorCombo_OnRedirected(const KColorCombo* self, intptr_t slot);
+QPaintDevice* KColorCombo_QBaseRedirected(const KColorCombo* self, QPoint* offset);
+QPainter* KColorCombo_SharedPainter(const KColorCombo* self);
+void KColorCombo_OnSharedPainter(const KColorCombo* self, intptr_t slot);
+QPainter* KColorCombo_QBaseSharedPainter(const KColorCombo* self);
+bool KColorCombo_FocusNextPrevChild(KColorCombo* self, bool next);
+void KColorCombo_OnFocusNextPrevChild(KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseFocusNextPrevChild(KColorCombo* self, bool next);
+bool KColorCombo_EventFilter(KColorCombo* self, QObject* watched, QEvent* event);
+void KColorCombo_OnEventFilter(KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseEventFilter(KColorCombo* self, QObject* watched, QEvent* event);
+void KColorCombo_TimerEvent(KColorCombo* self, QTimerEvent* event);
+void KColorCombo_OnTimerEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseTimerEvent(KColorCombo* self, QTimerEvent* event);
+void KColorCombo_ChildEvent(KColorCombo* self, QChildEvent* event);
+void KColorCombo_OnChildEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseChildEvent(KColorCombo* self, QChildEvent* event);
+void KColorCombo_CustomEvent(KColorCombo* self, QEvent* event);
+void KColorCombo_OnCustomEvent(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseCustomEvent(KColorCombo* self, QEvent* event);
+void KColorCombo_ConnectNotify(KColorCombo* self, const QMetaMethod* signal);
+void KColorCombo_OnConnectNotify(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseConnectNotify(KColorCombo* self, const QMetaMethod* signal);
+void KColorCombo_DisconnectNotify(KColorCombo* self, const QMetaMethod* signal);
+void KColorCombo_OnDisconnectNotify(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseDisconnectNotify(KColorCombo* self, const QMetaMethod* signal);
+void KColorCombo_UpdateMicroFocus(KColorCombo* self);
+void KColorCombo_OnUpdateMicroFocus(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseUpdateMicroFocus(KColorCombo* self);
+void KColorCombo_Create(KColorCombo* self);
+void KColorCombo_OnCreate(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseCreate(KColorCombo* self);
+void KColorCombo_Destroy(KColorCombo* self);
+void KColorCombo_OnDestroy(KColorCombo* self, intptr_t slot);
+void KColorCombo_QBaseDestroy(KColorCombo* self);
+bool KColorCombo_FocusNextChild(KColorCombo* self);
+void KColorCombo_OnFocusNextChild(KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseFocusNextChild(KColorCombo* self);
+bool KColorCombo_FocusPreviousChild(KColorCombo* self);
+void KColorCombo_OnFocusPreviousChild(KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseFocusPreviousChild(KColorCombo* self);
+QObject* KColorCombo_Sender(const KColorCombo* self);
+void KColorCombo_OnSender(const KColorCombo* self, intptr_t slot);
+QObject* KColorCombo_QBaseSender(const KColorCombo* self);
+int KColorCombo_SenderSignalIndex(const KColorCombo* self);
+void KColorCombo_OnSenderSignalIndex(const KColorCombo* self, intptr_t slot);
+int KColorCombo_QBaseSenderSignalIndex(const KColorCombo* self);
+int KColorCombo_Receivers(const KColorCombo* self, const char* signal);
+void KColorCombo_OnReceivers(const KColorCombo* self, intptr_t slot);
+int KColorCombo_QBaseReceivers(const KColorCombo* self, const char* signal);
+bool KColorCombo_IsSignalConnected(const KColorCombo* self, const QMetaMethod* signal);
+void KColorCombo_OnIsSignalConnected(const KColorCombo* self, intptr_t slot);
+bool KColorCombo_QBaseIsSignalConnected(const KColorCombo* self, const QMetaMethod* signal);
+double KColorCombo_GetDecodedMetricF(const KColorCombo* self, int metricA, int metricB);
+void KColorCombo_OnGetDecodedMetricF(const KColorCombo* self, intptr_t slot);
+double KColorCombo_QBaseGetDecodedMetricF(const KColorCombo* self, int metricA, int metricB);
+void KColorCombo_Delete(KColorCombo* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,0 +1,266 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKADJUSTINGSCROLLAREA_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKADJUSTINGSCROLLAREA_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KAdjustingScrollArea KAdjustingScrollArea;
+typedef struct QAbstractScrollArea QAbstractScrollArea;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QFrame QFrame;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMargins QMargins;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QScrollArea QScrollArea;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QStyleOptionFrame QStyleOptionFrame;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KAdjustingScrollArea* KAdjustingScrollArea_new(QWidget* parent);
+KAdjustingScrollArea* KAdjustingScrollArea_new2();
+QMetaObject* KAdjustingScrollArea_MetaObject(const KAdjustingScrollArea* self);
+void* KAdjustingScrollArea_Metacast(KAdjustingScrollArea* self, const char* param1);
+int KAdjustingScrollArea_Metacall(KAdjustingScrollArea* self, int param1, int param2, void** param3);
+void KAdjustingScrollArea_OnMetacall(KAdjustingScrollArea* self, intptr_t slot);
+int KAdjustingScrollArea_QBaseMetacall(KAdjustingScrollArea* self, int param1, int param2, void** param3);
+libqt_string KAdjustingScrollArea_Tr(const char* s);
+QSize* KAdjustingScrollArea_MinimumSizeHint(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnMinimumSizeHint(const KAdjustingScrollArea* self, intptr_t slot);
+QSize* KAdjustingScrollArea_QBaseMinimumSizeHint(const KAdjustingScrollArea* self);
+QSize* KAdjustingScrollArea_SizeHint(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnSizeHint(const KAdjustingScrollArea* self, intptr_t slot);
+QSize* KAdjustingScrollArea_QBaseSizeHint(const KAdjustingScrollArea* self);
+bool KAdjustingScrollArea_Event(KAdjustingScrollArea* self, QEvent* event);
+void KAdjustingScrollArea_OnEvent(KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseEvent(KAdjustingScrollArea* self, QEvent* event);
+libqt_string KAdjustingScrollArea_Tr2(const char* s, const char* c);
+libqt_string KAdjustingScrollArea_Tr3(const char* s, const char* c, int n);
+bool KAdjustingScrollArea_FocusNextPrevChild(KAdjustingScrollArea* self, bool next);
+void KAdjustingScrollArea_OnFocusNextPrevChild(KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseFocusNextPrevChild(KAdjustingScrollArea* self, bool next);
+void KAdjustingScrollArea_ResizeEvent(KAdjustingScrollArea* self, QResizeEvent* param1);
+void KAdjustingScrollArea_OnResizeEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseResizeEvent(KAdjustingScrollArea* self, QResizeEvent* param1);
+void KAdjustingScrollArea_ScrollContentsBy(KAdjustingScrollArea* self, int dx, int dy);
+void KAdjustingScrollArea_OnScrollContentsBy(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseScrollContentsBy(KAdjustingScrollArea* self, int dx, int dy);
+QSize* KAdjustingScrollArea_ViewportSizeHint(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnViewportSizeHint(const KAdjustingScrollArea* self, intptr_t slot);
+QSize* KAdjustingScrollArea_QBaseViewportSizeHint(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_SetupViewport(KAdjustingScrollArea* self, QWidget* viewport);
+void KAdjustingScrollArea_OnSetupViewport(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseSetupViewport(KAdjustingScrollArea* self, QWidget* viewport);
+bool KAdjustingScrollArea_ViewportEvent(KAdjustingScrollArea* self, QEvent* param1);
+void KAdjustingScrollArea_OnViewportEvent(KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseViewportEvent(KAdjustingScrollArea* self, QEvent* param1);
+void KAdjustingScrollArea_PaintEvent(KAdjustingScrollArea* self, QPaintEvent* param1);
+void KAdjustingScrollArea_OnPaintEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBasePaintEvent(KAdjustingScrollArea* self, QPaintEvent* param1);
+void KAdjustingScrollArea_MousePressEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_OnMousePressEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseMousePressEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_MouseReleaseEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_OnMouseReleaseEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseMouseReleaseEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_MouseDoubleClickEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_OnMouseDoubleClickEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseMouseDoubleClickEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_MouseMoveEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_OnMouseMoveEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseMouseMoveEvent(KAdjustingScrollArea* self, QMouseEvent* param1);
+void KAdjustingScrollArea_WheelEvent(KAdjustingScrollArea* self, QWheelEvent* param1);
+void KAdjustingScrollArea_OnWheelEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseWheelEvent(KAdjustingScrollArea* self, QWheelEvent* param1);
+void KAdjustingScrollArea_ContextMenuEvent(KAdjustingScrollArea* self, QContextMenuEvent* param1);
+void KAdjustingScrollArea_OnContextMenuEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseContextMenuEvent(KAdjustingScrollArea* self, QContextMenuEvent* param1);
+void KAdjustingScrollArea_DragEnterEvent(KAdjustingScrollArea* self, QDragEnterEvent* param1);
+void KAdjustingScrollArea_OnDragEnterEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseDragEnterEvent(KAdjustingScrollArea* self, QDragEnterEvent* param1);
+void KAdjustingScrollArea_DragMoveEvent(KAdjustingScrollArea* self, QDragMoveEvent* param1);
+void KAdjustingScrollArea_OnDragMoveEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseDragMoveEvent(KAdjustingScrollArea* self, QDragMoveEvent* param1);
+void KAdjustingScrollArea_DragLeaveEvent(KAdjustingScrollArea* self, QDragLeaveEvent* param1);
+void KAdjustingScrollArea_OnDragLeaveEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseDragLeaveEvent(KAdjustingScrollArea* self, QDragLeaveEvent* param1);
+void KAdjustingScrollArea_DropEvent(KAdjustingScrollArea* self, QDropEvent* param1);
+void KAdjustingScrollArea_OnDropEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseDropEvent(KAdjustingScrollArea* self, QDropEvent* param1);
+void KAdjustingScrollArea_KeyPressEvent(KAdjustingScrollArea* self, QKeyEvent* param1);
+void KAdjustingScrollArea_OnKeyPressEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseKeyPressEvent(KAdjustingScrollArea* self, QKeyEvent* param1);
+void KAdjustingScrollArea_ChangeEvent(KAdjustingScrollArea* self, QEvent* param1);
+void KAdjustingScrollArea_OnChangeEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseChangeEvent(KAdjustingScrollArea* self, QEvent* param1);
+void KAdjustingScrollArea_InitStyleOption(const KAdjustingScrollArea* self, QStyleOptionFrame* option);
+void KAdjustingScrollArea_OnInitStyleOption(const KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseInitStyleOption(const KAdjustingScrollArea* self, QStyleOptionFrame* option);
+int KAdjustingScrollArea_DevType(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnDevType(const KAdjustingScrollArea* self, intptr_t slot);
+int KAdjustingScrollArea_QBaseDevType(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_SetVisible(KAdjustingScrollArea* self, bool visible);
+void KAdjustingScrollArea_OnSetVisible(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseSetVisible(KAdjustingScrollArea* self, bool visible);
+int KAdjustingScrollArea_HeightForWidth(const KAdjustingScrollArea* self, int param1);
+void KAdjustingScrollArea_OnHeightForWidth(const KAdjustingScrollArea* self, intptr_t slot);
+int KAdjustingScrollArea_QBaseHeightForWidth(const KAdjustingScrollArea* self, int param1);
+bool KAdjustingScrollArea_HasHeightForWidth(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnHasHeightForWidth(const KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseHasHeightForWidth(const KAdjustingScrollArea* self);
+QPaintEngine* KAdjustingScrollArea_PaintEngine(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnPaintEngine(const KAdjustingScrollArea* self, intptr_t slot);
+QPaintEngine* KAdjustingScrollArea_QBasePaintEngine(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_KeyReleaseEvent(KAdjustingScrollArea* self, QKeyEvent* event);
+void KAdjustingScrollArea_OnKeyReleaseEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseKeyReleaseEvent(KAdjustingScrollArea* self, QKeyEvent* event);
+void KAdjustingScrollArea_FocusInEvent(KAdjustingScrollArea* self, QFocusEvent* event);
+void KAdjustingScrollArea_OnFocusInEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseFocusInEvent(KAdjustingScrollArea* self, QFocusEvent* event);
+void KAdjustingScrollArea_FocusOutEvent(KAdjustingScrollArea* self, QFocusEvent* event);
+void KAdjustingScrollArea_OnFocusOutEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseFocusOutEvent(KAdjustingScrollArea* self, QFocusEvent* event);
+void KAdjustingScrollArea_EnterEvent(KAdjustingScrollArea* self, QEnterEvent* event);
+void KAdjustingScrollArea_OnEnterEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseEnterEvent(KAdjustingScrollArea* self, QEnterEvent* event);
+void KAdjustingScrollArea_LeaveEvent(KAdjustingScrollArea* self, QEvent* event);
+void KAdjustingScrollArea_OnLeaveEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseLeaveEvent(KAdjustingScrollArea* self, QEvent* event);
+void KAdjustingScrollArea_MoveEvent(KAdjustingScrollArea* self, QMoveEvent* event);
+void KAdjustingScrollArea_OnMoveEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseMoveEvent(KAdjustingScrollArea* self, QMoveEvent* event);
+void KAdjustingScrollArea_CloseEvent(KAdjustingScrollArea* self, QCloseEvent* event);
+void KAdjustingScrollArea_OnCloseEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseCloseEvent(KAdjustingScrollArea* self, QCloseEvent* event);
+void KAdjustingScrollArea_TabletEvent(KAdjustingScrollArea* self, QTabletEvent* event);
+void KAdjustingScrollArea_OnTabletEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseTabletEvent(KAdjustingScrollArea* self, QTabletEvent* event);
+void KAdjustingScrollArea_ActionEvent(KAdjustingScrollArea* self, QActionEvent* event);
+void KAdjustingScrollArea_OnActionEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseActionEvent(KAdjustingScrollArea* self, QActionEvent* event);
+void KAdjustingScrollArea_ShowEvent(KAdjustingScrollArea* self, QShowEvent* event);
+void KAdjustingScrollArea_OnShowEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseShowEvent(KAdjustingScrollArea* self, QShowEvent* event);
+void KAdjustingScrollArea_HideEvent(KAdjustingScrollArea* self, QHideEvent* event);
+void KAdjustingScrollArea_OnHideEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseHideEvent(KAdjustingScrollArea* self, QHideEvent* event);
+bool KAdjustingScrollArea_NativeEvent(KAdjustingScrollArea* self, const libqt_string eventType, void* message, intptr_t* result);
+void KAdjustingScrollArea_OnNativeEvent(KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseNativeEvent(KAdjustingScrollArea* self, const libqt_string eventType, void* message, intptr_t* result);
+int KAdjustingScrollArea_Metric(const KAdjustingScrollArea* self, int param1);
+void KAdjustingScrollArea_OnMetric(const KAdjustingScrollArea* self, intptr_t slot);
+int KAdjustingScrollArea_QBaseMetric(const KAdjustingScrollArea* self, int param1);
+void KAdjustingScrollArea_InitPainter(const KAdjustingScrollArea* self, QPainter* painter);
+void KAdjustingScrollArea_OnInitPainter(const KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseInitPainter(const KAdjustingScrollArea* self, QPainter* painter);
+QPaintDevice* KAdjustingScrollArea_Redirected(const KAdjustingScrollArea* self, QPoint* offset);
+void KAdjustingScrollArea_OnRedirected(const KAdjustingScrollArea* self, intptr_t slot);
+QPaintDevice* KAdjustingScrollArea_QBaseRedirected(const KAdjustingScrollArea* self, QPoint* offset);
+QPainter* KAdjustingScrollArea_SharedPainter(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnSharedPainter(const KAdjustingScrollArea* self, intptr_t slot);
+QPainter* KAdjustingScrollArea_QBaseSharedPainter(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_InputMethodEvent(KAdjustingScrollArea* self, QInputMethodEvent* param1);
+void KAdjustingScrollArea_OnInputMethodEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseInputMethodEvent(KAdjustingScrollArea* self, QInputMethodEvent* param1);
+QVariant* KAdjustingScrollArea_InputMethodQuery(const KAdjustingScrollArea* self, int param1);
+void KAdjustingScrollArea_OnInputMethodQuery(const KAdjustingScrollArea* self, intptr_t slot);
+QVariant* KAdjustingScrollArea_QBaseInputMethodQuery(const KAdjustingScrollArea* self, int param1);
+void KAdjustingScrollArea_TimerEvent(KAdjustingScrollArea* self, QTimerEvent* event);
+void KAdjustingScrollArea_OnTimerEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseTimerEvent(KAdjustingScrollArea* self, QTimerEvent* event);
+void KAdjustingScrollArea_ChildEvent(KAdjustingScrollArea* self, QChildEvent* event);
+void KAdjustingScrollArea_OnChildEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseChildEvent(KAdjustingScrollArea* self, QChildEvent* event);
+void KAdjustingScrollArea_CustomEvent(KAdjustingScrollArea* self, QEvent* event);
+void KAdjustingScrollArea_OnCustomEvent(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseCustomEvent(KAdjustingScrollArea* self, QEvent* event);
+void KAdjustingScrollArea_ConnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal);
+void KAdjustingScrollArea_OnConnectNotify(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseConnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal);
+void KAdjustingScrollArea_DisconnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal);
+void KAdjustingScrollArea_OnDisconnectNotify(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseDisconnectNotify(KAdjustingScrollArea* self, const QMetaMethod* signal);
+void KAdjustingScrollArea_SetViewportMargins(KAdjustingScrollArea* self, int left, int top, int right, int bottom);
+void KAdjustingScrollArea_OnSetViewportMargins(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseSetViewportMargins(KAdjustingScrollArea* self, int left, int top, int right, int bottom);
+QMargins* KAdjustingScrollArea_ViewportMargins(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnViewportMargins(const KAdjustingScrollArea* self, intptr_t slot);
+QMargins* KAdjustingScrollArea_QBaseViewportMargins(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_DrawFrame(KAdjustingScrollArea* self, QPainter* param1);
+void KAdjustingScrollArea_OnDrawFrame(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseDrawFrame(KAdjustingScrollArea* self, QPainter* param1);
+void KAdjustingScrollArea_UpdateMicroFocus(KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnUpdateMicroFocus(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseUpdateMicroFocus(KAdjustingScrollArea* self);
+void KAdjustingScrollArea_Create(KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnCreate(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseCreate(KAdjustingScrollArea* self);
+void KAdjustingScrollArea_Destroy(KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnDestroy(KAdjustingScrollArea* self, intptr_t slot);
+void KAdjustingScrollArea_QBaseDestroy(KAdjustingScrollArea* self);
+bool KAdjustingScrollArea_FocusNextChild(KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnFocusNextChild(KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseFocusNextChild(KAdjustingScrollArea* self);
+bool KAdjustingScrollArea_FocusPreviousChild(KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnFocusPreviousChild(KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseFocusPreviousChild(KAdjustingScrollArea* self);
+QObject* KAdjustingScrollArea_Sender(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnSender(const KAdjustingScrollArea* self, intptr_t slot);
+QObject* KAdjustingScrollArea_QBaseSender(const KAdjustingScrollArea* self);
+int KAdjustingScrollArea_SenderSignalIndex(const KAdjustingScrollArea* self);
+void KAdjustingScrollArea_OnSenderSignalIndex(const KAdjustingScrollArea* self, intptr_t slot);
+int KAdjustingScrollArea_QBaseSenderSignalIndex(const KAdjustingScrollArea* self);
+int KAdjustingScrollArea_Receivers(const KAdjustingScrollArea* self, const char* signal);
+void KAdjustingScrollArea_OnReceivers(const KAdjustingScrollArea* self, intptr_t slot);
+int KAdjustingScrollArea_QBaseReceivers(const KAdjustingScrollArea* self, const char* signal);
+bool KAdjustingScrollArea_IsSignalConnected(const KAdjustingScrollArea* self, const QMetaMethod* signal);
+void KAdjustingScrollArea_OnIsSignalConnected(const KAdjustingScrollArea* self, intptr_t slot);
+bool KAdjustingScrollArea_QBaseIsSignalConnected(const KAdjustingScrollArea* self, const QMetaMethod* signal);
+double KAdjustingScrollArea_GetDecodedMetricF(const KAdjustingScrollArea* self, int metricA, int metricB);
+void KAdjustingScrollArea_OnGetDecodedMetricF(const KAdjustingScrollArea* self, intptr_t slot);
+double KAdjustingScrollArea_QBaseGetDecodedMetricF(const KAdjustingScrollArea* self, int metricA, int metricB);
+void KAdjustingScrollArea_Delete(KAdjustingScrollArea* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

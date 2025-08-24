@@ -1,0 +1,261 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKXYSELECTOR_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKXYSELECTOR_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KXYSelector KXYSelector;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QColor QColor;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QRect QRect;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KXYSelector* KXYSelector_new(QWidget* parent);
+KXYSelector* KXYSelector_new2();
+QMetaObject* KXYSelector_MetaObject(const KXYSelector* self);
+void* KXYSelector_Metacast(KXYSelector* self, const char* param1);
+int KXYSelector_Metacall(KXYSelector* self, int param1, int param2, void** param3);
+void KXYSelector_OnMetacall(KXYSelector* self, intptr_t slot);
+int KXYSelector_QBaseMetacall(KXYSelector* self, int param1, int param2, void** param3);
+libqt_string KXYSelector_Tr(const char* s);
+void KXYSelector_SetValues(KXYSelector* self, int xPos, int yPos);
+void KXYSelector_SetXValue(KXYSelector* self, int xPos);
+void KXYSelector_SetYValue(KXYSelector* self, int yPos);
+void KXYSelector_SetRange(KXYSelector* self, int minX, int minY, int maxX, int maxY);
+void KXYSelector_SetMarkerColor(KXYSelector* self, const QColor* col);
+int KXYSelector_XValue(const KXYSelector* self);
+int KXYSelector_YValue(const KXYSelector* self);
+QRect* KXYSelector_ContentsRect(const KXYSelector* self);
+QSize* KXYSelector_MinimumSizeHint(const KXYSelector* self);
+void KXYSelector_OnMinimumSizeHint(const KXYSelector* self, intptr_t slot);
+QSize* KXYSelector_QBaseMinimumSizeHint(const KXYSelector* self);
+void KXYSelector_ValueChanged(KXYSelector* self, int x, int y);
+void KXYSelector_Connect_ValueChanged(KXYSelector* self, intptr_t slot);
+void KXYSelector_DrawContents(KXYSelector* self, QPainter* param1);
+void KXYSelector_OnDrawContents(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDrawContents(KXYSelector* self, QPainter* param1);
+void KXYSelector_DrawMarker(KXYSelector* self, QPainter* p, int xp, int yp);
+void KXYSelector_OnDrawMarker(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDrawMarker(KXYSelector* self, QPainter* p, int xp, int yp);
+void KXYSelector_PaintEvent(KXYSelector* self, QPaintEvent* e);
+void KXYSelector_OnPaintEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBasePaintEvent(KXYSelector* self, QPaintEvent* e);
+void KXYSelector_MousePressEvent(KXYSelector* self, QMouseEvent* e);
+void KXYSelector_OnMousePressEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseMousePressEvent(KXYSelector* self, QMouseEvent* e);
+void KXYSelector_MouseMoveEvent(KXYSelector* self, QMouseEvent* e);
+void KXYSelector_OnMouseMoveEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseMouseMoveEvent(KXYSelector* self, QMouseEvent* e);
+void KXYSelector_WheelEvent(KXYSelector* self, QWheelEvent* param1);
+void KXYSelector_OnWheelEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseWheelEvent(KXYSelector* self, QWheelEvent* param1);
+libqt_string KXYSelector_Tr2(const char* s, const char* c);
+libqt_string KXYSelector_Tr3(const char* s, const char* c, int n);
+int KXYSelector_DevType(const KXYSelector* self);
+void KXYSelector_OnDevType(const KXYSelector* self, intptr_t slot);
+int KXYSelector_QBaseDevType(const KXYSelector* self);
+void KXYSelector_SetVisible(KXYSelector* self, bool visible);
+void KXYSelector_OnSetVisible(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseSetVisible(KXYSelector* self, bool visible);
+QSize* KXYSelector_SizeHint(const KXYSelector* self);
+void KXYSelector_OnSizeHint(const KXYSelector* self, intptr_t slot);
+QSize* KXYSelector_QBaseSizeHint(const KXYSelector* self);
+int KXYSelector_HeightForWidth(const KXYSelector* self, int param1);
+void KXYSelector_OnHeightForWidth(const KXYSelector* self, intptr_t slot);
+int KXYSelector_QBaseHeightForWidth(const KXYSelector* self, int param1);
+bool KXYSelector_HasHeightForWidth(const KXYSelector* self);
+void KXYSelector_OnHasHeightForWidth(const KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseHasHeightForWidth(const KXYSelector* self);
+QPaintEngine* KXYSelector_PaintEngine(const KXYSelector* self);
+void KXYSelector_OnPaintEngine(const KXYSelector* self, intptr_t slot);
+QPaintEngine* KXYSelector_QBasePaintEngine(const KXYSelector* self);
+bool KXYSelector_Event(KXYSelector* self, QEvent* event);
+void KXYSelector_OnEvent(KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseEvent(KXYSelector* self, QEvent* event);
+void KXYSelector_MouseReleaseEvent(KXYSelector* self, QMouseEvent* event);
+void KXYSelector_OnMouseReleaseEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseMouseReleaseEvent(KXYSelector* self, QMouseEvent* event);
+void KXYSelector_MouseDoubleClickEvent(KXYSelector* self, QMouseEvent* event);
+void KXYSelector_OnMouseDoubleClickEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseMouseDoubleClickEvent(KXYSelector* self, QMouseEvent* event);
+void KXYSelector_KeyPressEvent(KXYSelector* self, QKeyEvent* event);
+void KXYSelector_OnKeyPressEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseKeyPressEvent(KXYSelector* self, QKeyEvent* event);
+void KXYSelector_KeyReleaseEvent(KXYSelector* self, QKeyEvent* event);
+void KXYSelector_OnKeyReleaseEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseKeyReleaseEvent(KXYSelector* self, QKeyEvent* event);
+void KXYSelector_FocusInEvent(KXYSelector* self, QFocusEvent* event);
+void KXYSelector_OnFocusInEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseFocusInEvent(KXYSelector* self, QFocusEvent* event);
+void KXYSelector_FocusOutEvent(KXYSelector* self, QFocusEvent* event);
+void KXYSelector_OnFocusOutEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseFocusOutEvent(KXYSelector* self, QFocusEvent* event);
+void KXYSelector_EnterEvent(KXYSelector* self, QEnterEvent* event);
+void KXYSelector_OnEnterEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseEnterEvent(KXYSelector* self, QEnterEvent* event);
+void KXYSelector_LeaveEvent(KXYSelector* self, QEvent* event);
+void KXYSelector_OnLeaveEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseLeaveEvent(KXYSelector* self, QEvent* event);
+void KXYSelector_MoveEvent(KXYSelector* self, QMoveEvent* event);
+void KXYSelector_OnMoveEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseMoveEvent(KXYSelector* self, QMoveEvent* event);
+void KXYSelector_ResizeEvent(KXYSelector* self, QResizeEvent* event);
+void KXYSelector_OnResizeEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseResizeEvent(KXYSelector* self, QResizeEvent* event);
+void KXYSelector_CloseEvent(KXYSelector* self, QCloseEvent* event);
+void KXYSelector_OnCloseEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseCloseEvent(KXYSelector* self, QCloseEvent* event);
+void KXYSelector_ContextMenuEvent(KXYSelector* self, QContextMenuEvent* event);
+void KXYSelector_OnContextMenuEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseContextMenuEvent(KXYSelector* self, QContextMenuEvent* event);
+void KXYSelector_TabletEvent(KXYSelector* self, QTabletEvent* event);
+void KXYSelector_OnTabletEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseTabletEvent(KXYSelector* self, QTabletEvent* event);
+void KXYSelector_ActionEvent(KXYSelector* self, QActionEvent* event);
+void KXYSelector_OnActionEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseActionEvent(KXYSelector* self, QActionEvent* event);
+void KXYSelector_DragEnterEvent(KXYSelector* self, QDragEnterEvent* event);
+void KXYSelector_OnDragEnterEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDragEnterEvent(KXYSelector* self, QDragEnterEvent* event);
+void KXYSelector_DragMoveEvent(KXYSelector* self, QDragMoveEvent* event);
+void KXYSelector_OnDragMoveEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDragMoveEvent(KXYSelector* self, QDragMoveEvent* event);
+void KXYSelector_DragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event);
+void KXYSelector_OnDragLeaveEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDragLeaveEvent(KXYSelector* self, QDragLeaveEvent* event);
+void KXYSelector_DropEvent(KXYSelector* self, QDropEvent* event);
+void KXYSelector_OnDropEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDropEvent(KXYSelector* self, QDropEvent* event);
+void KXYSelector_ShowEvent(KXYSelector* self, QShowEvent* event);
+void KXYSelector_OnShowEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseShowEvent(KXYSelector* self, QShowEvent* event);
+void KXYSelector_HideEvent(KXYSelector* self, QHideEvent* event);
+void KXYSelector_OnHideEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseHideEvent(KXYSelector* self, QHideEvent* event);
+bool KXYSelector_NativeEvent(KXYSelector* self, const libqt_string eventType, void* message, intptr_t* result);
+void KXYSelector_OnNativeEvent(KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseNativeEvent(KXYSelector* self, const libqt_string eventType, void* message, intptr_t* result);
+void KXYSelector_ChangeEvent(KXYSelector* self, QEvent* param1);
+void KXYSelector_OnChangeEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseChangeEvent(KXYSelector* self, QEvent* param1);
+int KXYSelector_Metric(const KXYSelector* self, int param1);
+void KXYSelector_OnMetric(const KXYSelector* self, intptr_t slot);
+int KXYSelector_QBaseMetric(const KXYSelector* self, int param1);
+void KXYSelector_InitPainter(const KXYSelector* self, QPainter* painter);
+void KXYSelector_OnInitPainter(const KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseInitPainter(const KXYSelector* self, QPainter* painter);
+QPaintDevice* KXYSelector_Redirected(const KXYSelector* self, QPoint* offset);
+void KXYSelector_OnRedirected(const KXYSelector* self, intptr_t slot);
+QPaintDevice* KXYSelector_QBaseRedirected(const KXYSelector* self, QPoint* offset);
+QPainter* KXYSelector_SharedPainter(const KXYSelector* self);
+void KXYSelector_OnSharedPainter(const KXYSelector* self, intptr_t slot);
+QPainter* KXYSelector_QBaseSharedPainter(const KXYSelector* self);
+void KXYSelector_InputMethodEvent(KXYSelector* self, QInputMethodEvent* param1);
+void KXYSelector_OnInputMethodEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseInputMethodEvent(KXYSelector* self, QInputMethodEvent* param1);
+QVariant* KXYSelector_InputMethodQuery(const KXYSelector* self, int param1);
+void KXYSelector_OnInputMethodQuery(const KXYSelector* self, intptr_t slot);
+QVariant* KXYSelector_QBaseInputMethodQuery(const KXYSelector* self, int param1);
+bool KXYSelector_FocusNextPrevChild(KXYSelector* self, bool next);
+void KXYSelector_OnFocusNextPrevChild(KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseFocusNextPrevChild(KXYSelector* self, bool next);
+bool KXYSelector_EventFilter(KXYSelector* self, QObject* watched, QEvent* event);
+void KXYSelector_OnEventFilter(KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseEventFilter(KXYSelector* self, QObject* watched, QEvent* event);
+void KXYSelector_TimerEvent(KXYSelector* self, QTimerEvent* event);
+void KXYSelector_OnTimerEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseTimerEvent(KXYSelector* self, QTimerEvent* event);
+void KXYSelector_ChildEvent(KXYSelector* self, QChildEvent* event);
+void KXYSelector_OnChildEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseChildEvent(KXYSelector* self, QChildEvent* event);
+void KXYSelector_CustomEvent(KXYSelector* self, QEvent* event);
+void KXYSelector_OnCustomEvent(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseCustomEvent(KXYSelector* self, QEvent* event);
+void KXYSelector_ConnectNotify(KXYSelector* self, const QMetaMethod* signal);
+void KXYSelector_OnConnectNotify(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseConnectNotify(KXYSelector* self, const QMetaMethod* signal);
+void KXYSelector_DisconnectNotify(KXYSelector* self, const QMetaMethod* signal);
+void KXYSelector_OnDisconnectNotify(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDisconnectNotify(KXYSelector* self, const QMetaMethod* signal);
+void KXYSelector_ValuesFromPosition(const KXYSelector* self, int x, int y, int* xVal, int* yVal);
+void KXYSelector_OnValuesFromPosition(const KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseValuesFromPosition(const KXYSelector* self, int x, int y, int* xVal, int* yVal);
+void KXYSelector_UpdateMicroFocus(KXYSelector* self);
+void KXYSelector_OnUpdateMicroFocus(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseUpdateMicroFocus(KXYSelector* self);
+void KXYSelector_Create(KXYSelector* self);
+void KXYSelector_OnCreate(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseCreate(KXYSelector* self);
+void KXYSelector_Destroy(KXYSelector* self);
+void KXYSelector_OnDestroy(KXYSelector* self, intptr_t slot);
+void KXYSelector_QBaseDestroy(KXYSelector* self);
+bool KXYSelector_FocusNextChild(KXYSelector* self);
+void KXYSelector_OnFocusNextChild(KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseFocusNextChild(KXYSelector* self);
+bool KXYSelector_FocusPreviousChild(KXYSelector* self);
+void KXYSelector_OnFocusPreviousChild(KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseFocusPreviousChild(KXYSelector* self);
+QObject* KXYSelector_Sender(const KXYSelector* self);
+void KXYSelector_OnSender(const KXYSelector* self, intptr_t slot);
+QObject* KXYSelector_QBaseSender(const KXYSelector* self);
+int KXYSelector_SenderSignalIndex(const KXYSelector* self);
+void KXYSelector_OnSenderSignalIndex(const KXYSelector* self, intptr_t slot);
+int KXYSelector_QBaseSenderSignalIndex(const KXYSelector* self);
+int KXYSelector_Receivers(const KXYSelector* self, const char* signal);
+void KXYSelector_OnReceivers(const KXYSelector* self, intptr_t slot);
+int KXYSelector_QBaseReceivers(const KXYSelector* self, const char* signal);
+bool KXYSelector_IsSignalConnected(const KXYSelector* self, const QMetaMethod* signal);
+void KXYSelector_OnIsSignalConnected(const KXYSelector* self, intptr_t slot);
+bool KXYSelector_QBaseIsSignalConnected(const KXYSelector* self, const QMetaMethod* signal);
+double KXYSelector_GetDecodedMetricF(const KXYSelector* self, int metricA, int metricB);
+void KXYSelector_OnGetDecodedMetricF(const KXYSelector* self, intptr_t slot);
+double KXYSelector_QBaseGetDecodedMetricF(const KXYSelector* self, int metricA, int metricB);
+void KXYSelector_Delete(KXYSelector* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

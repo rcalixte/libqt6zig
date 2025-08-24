@@ -1,0 +1,268 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKCOLORBUTTON_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKCOLORBUTTON_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KColorButton KColorButton;
+typedef struct QAbstractButton QAbstractButton;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QColor QColor;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QPushButton QPushButton;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QStyleOptionButton QStyleOptionButton;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KColorButton* KColorButton_new(QWidget* parent);
+KColorButton* KColorButton_new2();
+KColorButton* KColorButton_new3(const QColor* c);
+KColorButton* KColorButton_new4(const QColor* c, const QColor* defaultColor);
+KColorButton* KColorButton_new5(const QColor* c, QWidget* parent);
+KColorButton* KColorButton_new6(const QColor* c, const QColor* defaultColor, QWidget* parent);
+QMetaObject* KColorButton_MetaObject(const KColorButton* self);
+void* KColorButton_Metacast(KColorButton* self, const char* param1);
+int KColorButton_Metacall(KColorButton* self, int param1, int param2, void** param3);
+void KColorButton_OnMetacall(KColorButton* self, intptr_t slot);
+int KColorButton_QBaseMetacall(KColorButton* self, int param1, int param2, void** param3);
+libqt_string KColorButton_Tr(const char* s);
+QColor* KColorButton_Color(const KColorButton* self);
+void KColorButton_SetColor(KColorButton* self, const QColor* c);
+void KColorButton_SetAlphaChannelEnabled(KColorButton* self, bool alpha);
+bool KColorButton_IsAlphaChannelEnabled(const KColorButton* self);
+QColor* KColorButton_DefaultColor(const KColorButton* self);
+void KColorButton_SetDefaultColor(KColorButton* self, const QColor* c);
+QSize* KColorButton_SizeHint(const KColorButton* self);
+void KColorButton_OnSizeHint(const KColorButton* self, intptr_t slot);
+QSize* KColorButton_QBaseSizeHint(const KColorButton* self);
+QSize* KColorButton_MinimumSizeHint(const KColorButton* self);
+void KColorButton_OnMinimumSizeHint(const KColorButton* self, intptr_t slot);
+QSize* KColorButton_QBaseMinimumSizeHint(const KColorButton* self);
+void KColorButton_Changed(KColorButton* self, const QColor* newColor);
+void KColorButton_Connect_Changed(KColorButton* self, intptr_t slot);
+void KColorButton_PaintEvent(KColorButton* self, QPaintEvent* pe);
+void KColorButton_OnPaintEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBasePaintEvent(KColorButton* self, QPaintEvent* pe);
+void KColorButton_DragEnterEvent(KColorButton* self, QDragEnterEvent* param1);
+void KColorButton_OnDragEnterEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseDragEnterEvent(KColorButton* self, QDragEnterEvent* param1);
+void KColorButton_DropEvent(KColorButton* self, QDropEvent* param1);
+void KColorButton_OnDropEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseDropEvent(KColorButton* self, QDropEvent* param1);
+void KColorButton_MousePressEvent(KColorButton* self, QMouseEvent* e);
+void KColorButton_OnMousePressEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseMousePressEvent(KColorButton* self, QMouseEvent* e);
+void KColorButton_MouseMoveEvent(KColorButton* self, QMouseEvent* e);
+void KColorButton_OnMouseMoveEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseMouseMoveEvent(KColorButton* self, QMouseEvent* e);
+void KColorButton_KeyPressEvent(KColorButton* self, QKeyEvent* e);
+void KColorButton_OnKeyPressEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseKeyPressEvent(KColorButton* self, QKeyEvent* e);
+libqt_string KColorButton_Tr2(const char* s, const char* c);
+libqt_string KColorButton_Tr3(const char* s, const char* c, int n);
+bool KColorButton_Event(KColorButton* self, QEvent* e);
+void KColorButton_OnEvent(KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseEvent(KColorButton* self, QEvent* e);
+void KColorButton_FocusInEvent(KColorButton* self, QFocusEvent* param1);
+void KColorButton_OnFocusInEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseFocusInEvent(KColorButton* self, QFocusEvent* param1);
+void KColorButton_FocusOutEvent(KColorButton* self, QFocusEvent* param1);
+void KColorButton_OnFocusOutEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseFocusOutEvent(KColorButton* self, QFocusEvent* param1);
+void KColorButton_InitStyleOption(const KColorButton* self, QStyleOptionButton* option);
+void KColorButton_OnInitStyleOption(const KColorButton* self, intptr_t slot);
+void KColorButton_QBaseInitStyleOption(const KColorButton* self, QStyleOptionButton* option);
+bool KColorButton_HitButton(const KColorButton* self, const QPoint* pos);
+void KColorButton_OnHitButton(const KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseHitButton(const KColorButton* self, const QPoint* pos);
+void KColorButton_CheckStateSet(KColorButton* self);
+void KColorButton_OnCheckStateSet(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseCheckStateSet(KColorButton* self);
+void KColorButton_NextCheckState(KColorButton* self);
+void KColorButton_OnNextCheckState(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseNextCheckState(KColorButton* self);
+void KColorButton_KeyReleaseEvent(KColorButton* self, QKeyEvent* e);
+void KColorButton_OnKeyReleaseEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseKeyReleaseEvent(KColorButton* self, QKeyEvent* e);
+void KColorButton_MouseReleaseEvent(KColorButton* self, QMouseEvent* e);
+void KColorButton_OnMouseReleaseEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseMouseReleaseEvent(KColorButton* self, QMouseEvent* e);
+void KColorButton_ChangeEvent(KColorButton* self, QEvent* e);
+void KColorButton_OnChangeEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseChangeEvent(KColorButton* self, QEvent* e);
+void KColorButton_TimerEvent(KColorButton* self, QTimerEvent* e);
+void KColorButton_OnTimerEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseTimerEvent(KColorButton* self, QTimerEvent* e);
+int KColorButton_DevType(const KColorButton* self);
+void KColorButton_OnDevType(const KColorButton* self, intptr_t slot);
+int KColorButton_QBaseDevType(const KColorButton* self);
+void KColorButton_SetVisible(KColorButton* self, bool visible);
+void KColorButton_OnSetVisible(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseSetVisible(KColorButton* self, bool visible);
+int KColorButton_HeightForWidth(const KColorButton* self, int param1);
+void KColorButton_OnHeightForWidth(const KColorButton* self, intptr_t slot);
+int KColorButton_QBaseHeightForWidth(const KColorButton* self, int param1);
+bool KColorButton_HasHeightForWidth(const KColorButton* self);
+void KColorButton_OnHasHeightForWidth(const KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseHasHeightForWidth(const KColorButton* self);
+QPaintEngine* KColorButton_PaintEngine(const KColorButton* self);
+void KColorButton_OnPaintEngine(const KColorButton* self, intptr_t slot);
+QPaintEngine* KColorButton_QBasePaintEngine(const KColorButton* self);
+void KColorButton_MouseDoubleClickEvent(KColorButton* self, QMouseEvent* event);
+void KColorButton_OnMouseDoubleClickEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseMouseDoubleClickEvent(KColorButton* self, QMouseEvent* event);
+void KColorButton_WheelEvent(KColorButton* self, QWheelEvent* event);
+void KColorButton_OnWheelEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseWheelEvent(KColorButton* self, QWheelEvent* event);
+void KColorButton_EnterEvent(KColorButton* self, QEnterEvent* event);
+void KColorButton_OnEnterEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseEnterEvent(KColorButton* self, QEnterEvent* event);
+void KColorButton_LeaveEvent(KColorButton* self, QEvent* event);
+void KColorButton_OnLeaveEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseLeaveEvent(KColorButton* self, QEvent* event);
+void KColorButton_MoveEvent(KColorButton* self, QMoveEvent* event);
+void KColorButton_OnMoveEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseMoveEvent(KColorButton* self, QMoveEvent* event);
+void KColorButton_ResizeEvent(KColorButton* self, QResizeEvent* event);
+void KColorButton_OnResizeEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseResizeEvent(KColorButton* self, QResizeEvent* event);
+void KColorButton_CloseEvent(KColorButton* self, QCloseEvent* event);
+void KColorButton_OnCloseEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseCloseEvent(KColorButton* self, QCloseEvent* event);
+void KColorButton_ContextMenuEvent(KColorButton* self, QContextMenuEvent* event);
+void KColorButton_OnContextMenuEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseContextMenuEvent(KColorButton* self, QContextMenuEvent* event);
+void KColorButton_TabletEvent(KColorButton* self, QTabletEvent* event);
+void KColorButton_OnTabletEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseTabletEvent(KColorButton* self, QTabletEvent* event);
+void KColorButton_ActionEvent(KColorButton* self, QActionEvent* event);
+void KColorButton_OnActionEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseActionEvent(KColorButton* self, QActionEvent* event);
+void KColorButton_DragMoveEvent(KColorButton* self, QDragMoveEvent* event);
+void KColorButton_OnDragMoveEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseDragMoveEvent(KColorButton* self, QDragMoveEvent* event);
+void KColorButton_DragLeaveEvent(KColorButton* self, QDragLeaveEvent* event);
+void KColorButton_OnDragLeaveEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseDragLeaveEvent(KColorButton* self, QDragLeaveEvent* event);
+void KColorButton_ShowEvent(KColorButton* self, QShowEvent* event);
+void KColorButton_OnShowEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseShowEvent(KColorButton* self, QShowEvent* event);
+void KColorButton_HideEvent(KColorButton* self, QHideEvent* event);
+void KColorButton_OnHideEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseHideEvent(KColorButton* self, QHideEvent* event);
+bool KColorButton_NativeEvent(KColorButton* self, const libqt_string eventType, void* message, intptr_t* result);
+void KColorButton_OnNativeEvent(KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseNativeEvent(KColorButton* self, const libqt_string eventType, void* message, intptr_t* result);
+int KColorButton_Metric(const KColorButton* self, int param1);
+void KColorButton_OnMetric(const KColorButton* self, intptr_t slot);
+int KColorButton_QBaseMetric(const KColorButton* self, int param1);
+void KColorButton_InitPainter(const KColorButton* self, QPainter* painter);
+void KColorButton_OnInitPainter(const KColorButton* self, intptr_t slot);
+void KColorButton_QBaseInitPainter(const KColorButton* self, QPainter* painter);
+QPaintDevice* KColorButton_Redirected(const KColorButton* self, QPoint* offset);
+void KColorButton_OnRedirected(const KColorButton* self, intptr_t slot);
+QPaintDevice* KColorButton_QBaseRedirected(const KColorButton* self, QPoint* offset);
+QPainter* KColorButton_SharedPainter(const KColorButton* self);
+void KColorButton_OnSharedPainter(const KColorButton* self, intptr_t slot);
+QPainter* KColorButton_QBaseSharedPainter(const KColorButton* self);
+void KColorButton_InputMethodEvent(KColorButton* self, QInputMethodEvent* param1);
+void KColorButton_OnInputMethodEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseInputMethodEvent(KColorButton* self, QInputMethodEvent* param1);
+QVariant* KColorButton_InputMethodQuery(const KColorButton* self, int param1);
+void KColorButton_OnInputMethodQuery(const KColorButton* self, intptr_t slot);
+QVariant* KColorButton_QBaseInputMethodQuery(const KColorButton* self, int param1);
+bool KColorButton_FocusNextPrevChild(KColorButton* self, bool next);
+void KColorButton_OnFocusNextPrevChild(KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseFocusNextPrevChild(KColorButton* self, bool next);
+bool KColorButton_EventFilter(KColorButton* self, QObject* watched, QEvent* event);
+void KColorButton_OnEventFilter(KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseEventFilter(KColorButton* self, QObject* watched, QEvent* event);
+void KColorButton_ChildEvent(KColorButton* self, QChildEvent* event);
+void KColorButton_OnChildEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseChildEvent(KColorButton* self, QChildEvent* event);
+void KColorButton_CustomEvent(KColorButton* self, QEvent* event);
+void KColorButton_OnCustomEvent(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseCustomEvent(KColorButton* self, QEvent* event);
+void KColorButton_ConnectNotify(KColorButton* self, const QMetaMethod* signal);
+void KColorButton_OnConnectNotify(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseConnectNotify(KColorButton* self, const QMetaMethod* signal);
+void KColorButton_DisconnectNotify(KColorButton* self, const QMetaMethod* signal);
+void KColorButton_OnDisconnectNotify(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseDisconnectNotify(KColorButton* self, const QMetaMethod* signal);
+void KColorButton_UpdateMicroFocus(KColorButton* self);
+void KColorButton_OnUpdateMicroFocus(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseUpdateMicroFocus(KColorButton* self);
+void KColorButton_Create(KColorButton* self);
+void KColorButton_OnCreate(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseCreate(KColorButton* self);
+void KColorButton_Destroy(KColorButton* self);
+void KColorButton_OnDestroy(KColorButton* self, intptr_t slot);
+void KColorButton_QBaseDestroy(KColorButton* self);
+bool KColorButton_FocusNextChild(KColorButton* self);
+void KColorButton_OnFocusNextChild(KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseFocusNextChild(KColorButton* self);
+bool KColorButton_FocusPreviousChild(KColorButton* self);
+void KColorButton_OnFocusPreviousChild(KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseFocusPreviousChild(KColorButton* self);
+QObject* KColorButton_Sender(const KColorButton* self);
+void KColorButton_OnSender(const KColorButton* self, intptr_t slot);
+QObject* KColorButton_QBaseSender(const KColorButton* self);
+int KColorButton_SenderSignalIndex(const KColorButton* self);
+void KColorButton_OnSenderSignalIndex(const KColorButton* self, intptr_t slot);
+int KColorButton_QBaseSenderSignalIndex(const KColorButton* self);
+int KColorButton_Receivers(const KColorButton* self, const char* signal);
+void KColorButton_OnReceivers(const KColorButton* self, intptr_t slot);
+int KColorButton_QBaseReceivers(const KColorButton* self, const char* signal);
+bool KColorButton_IsSignalConnected(const KColorButton* self, const QMetaMethod* signal);
+void KColorButton_OnIsSignalConnected(const KColorButton* self, intptr_t slot);
+bool KColorButton_QBaseIsSignalConnected(const KColorButton* self, const QMetaMethod* signal);
+double KColorButton_GetDecodedMetricF(const KColorButton* self, int metricA, int metricB);
+void KColorButton_OnGetDecodedMetricF(const KColorButton* self, intptr_t slot);
+double KColorButton_QBaseGetDecodedMetricF(const KColorButton* self, int metricA, int metricB);
+void KColorButton_Delete(KColorButton* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

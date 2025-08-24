@@ -1,0 +1,262 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKCONTEXTUALHELPBUTTON_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKCONTEXTUALHELPBUTTON_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KContextualHelpButton KContextualHelpButton;
+typedef struct QAbstractButton QAbstractButton;
+typedef struct QActionEvent QActionEvent;
+typedef struct QChildEvent QChildEvent;
+typedef struct QCloseEvent QCloseEvent;
+typedef struct QContextMenuEvent QContextMenuEvent;
+typedef struct QDragEnterEvent QDragEnterEvent;
+typedef struct QDragLeaveEvent QDragLeaveEvent;
+typedef struct QDragMoveEvent QDragMoveEvent;
+typedef struct QDropEvent QDropEvent;
+typedef struct QEnterEvent QEnterEvent;
+typedef struct QEvent QEvent;
+typedef struct QFocusEvent QFocusEvent;
+typedef struct QHideEvent QHideEvent;
+typedef struct QInputMethodEvent QInputMethodEvent;
+typedef struct QKeyEvent QKeyEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMouseEvent QMouseEvent;
+typedef struct QMoveEvent QMoveEvent;
+typedef struct QObject QObject;
+typedef struct QPaintDevice QPaintDevice;
+typedef struct QPaintEngine QPaintEngine;
+typedef struct QPaintEvent QPaintEvent;
+typedef struct QPainter QPainter;
+typedef struct QPoint QPoint;
+typedef struct QResizeEvent QResizeEvent;
+typedef struct QShowEvent QShowEvent;
+typedef struct QSize QSize;
+typedef struct QStyleOptionToolButton QStyleOptionToolButton;
+typedef struct QTabletEvent QTabletEvent;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QToolButton QToolButton;
+typedef struct QVariant QVariant;
+typedef struct QWheelEvent QWheelEvent;
+typedef struct QWidget QWidget;
+#endif
+
+KContextualHelpButton* KContextualHelpButton_new(QWidget* parent);
+KContextualHelpButton* KContextualHelpButton_new2(const libqt_string contextualHelpText, const QWidget* heightHintWidget, QWidget* parent);
+KContextualHelpButton* KContextualHelpButton_new3();
+QMetaObject* KContextualHelpButton_MetaObject(const KContextualHelpButton* self);
+void* KContextualHelpButton_Metacast(KContextualHelpButton* self, const char* param1);
+int KContextualHelpButton_Metacall(KContextualHelpButton* self, int param1, int param2, void** param3);
+void KContextualHelpButton_OnMetacall(KContextualHelpButton* self, intptr_t slot);
+int KContextualHelpButton_QBaseMetacall(KContextualHelpButton* self, int param1, int param2, void** param3);
+libqt_string KContextualHelpButton_Tr(const char* s);
+void KContextualHelpButton_SetContextualHelpText(KContextualHelpButton* self, const libqt_string contextualHelpText);
+libqt_string KContextualHelpButton_ContextualHelpText(const KContextualHelpButton* self);
+void KContextualHelpButton_SetHeightHintWidget(KContextualHelpButton* self, const QWidget* heightHintWidget);
+QWidget* KContextualHelpButton_HeightHintWidget(const KContextualHelpButton* self);
+QSize* KContextualHelpButton_SizeHint(const KContextualHelpButton* self);
+void KContextualHelpButton_OnSizeHint(const KContextualHelpButton* self, intptr_t slot);
+QSize* KContextualHelpButton_QBaseSizeHint(const KContextualHelpButton* self);
+void KContextualHelpButton_ContextualHelpTextChanged(KContextualHelpButton* self, const libqt_string newContextualHelpText);
+void KContextualHelpButton_Connect_ContextualHelpTextChanged(KContextualHelpButton* self, intptr_t slot);
+libqt_string KContextualHelpButton_Tr2(const char* s, const char* c);
+libqt_string KContextualHelpButton_Tr3(const char* s, const char* c, int n);
+QSize* KContextualHelpButton_MinimumSizeHint(const KContextualHelpButton* self);
+void KContextualHelpButton_OnMinimumSizeHint(const KContextualHelpButton* self, intptr_t slot);
+QSize* KContextualHelpButton_QBaseMinimumSizeHint(const KContextualHelpButton* self);
+bool KContextualHelpButton_Event(KContextualHelpButton* self, QEvent* e);
+void KContextualHelpButton_OnEvent(KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseEvent(KContextualHelpButton* self, QEvent* e);
+void KContextualHelpButton_MousePressEvent(KContextualHelpButton* self, QMouseEvent* param1);
+void KContextualHelpButton_OnMousePressEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseMousePressEvent(KContextualHelpButton* self, QMouseEvent* param1);
+void KContextualHelpButton_MouseReleaseEvent(KContextualHelpButton* self, QMouseEvent* param1);
+void KContextualHelpButton_OnMouseReleaseEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseMouseReleaseEvent(KContextualHelpButton* self, QMouseEvent* param1);
+void KContextualHelpButton_PaintEvent(KContextualHelpButton* self, QPaintEvent* param1);
+void KContextualHelpButton_OnPaintEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBasePaintEvent(KContextualHelpButton* self, QPaintEvent* param1);
+void KContextualHelpButton_ActionEvent(KContextualHelpButton* self, QActionEvent* param1);
+void KContextualHelpButton_OnActionEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseActionEvent(KContextualHelpButton* self, QActionEvent* param1);
+void KContextualHelpButton_EnterEvent(KContextualHelpButton* self, QEnterEvent* param1);
+void KContextualHelpButton_OnEnterEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseEnterEvent(KContextualHelpButton* self, QEnterEvent* param1);
+void KContextualHelpButton_LeaveEvent(KContextualHelpButton* self, QEvent* param1);
+void KContextualHelpButton_OnLeaveEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseLeaveEvent(KContextualHelpButton* self, QEvent* param1);
+void KContextualHelpButton_TimerEvent(KContextualHelpButton* self, QTimerEvent* param1);
+void KContextualHelpButton_OnTimerEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseTimerEvent(KContextualHelpButton* self, QTimerEvent* param1);
+void KContextualHelpButton_ChangeEvent(KContextualHelpButton* self, QEvent* param1);
+void KContextualHelpButton_OnChangeEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseChangeEvent(KContextualHelpButton* self, QEvent* param1);
+bool KContextualHelpButton_HitButton(const KContextualHelpButton* self, const QPoint* pos);
+void KContextualHelpButton_OnHitButton(const KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseHitButton(const KContextualHelpButton* self, const QPoint* pos);
+void KContextualHelpButton_CheckStateSet(KContextualHelpButton* self);
+void KContextualHelpButton_OnCheckStateSet(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseCheckStateSet(KContextualHelpButton* self);
+void KContextualHelpButton_NextCheckState(KContextualHelpButton* self);
+void KContextualHelpButton_OnNextCheckState(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseNextCheckState(KContextualHelpButton* self);
+void KContextualHelpButton_InitStyleOption(const KContextualHelpButton* self, QStyleOptionToolButton* option);
+void KContextualHelpButton_OnInitStyleOption(const KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseInitStyleOption(const KContextualHelpButton* self, QStyleOptionToolButton* option);
+void KContextualHelpButton_KeyPressEvent(KContextualHelpButton* self, QKeyEvent* e);
+void KContextualHelpButton_OnKeyPressEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseKeyPressEvent(KContextualHelpButton* self, QKeyEvent* e);
+void KContextualHelpButton_KeyReleaseEvent(KContextualHelpButton* self, QKeyEvent* e);
+void KContextualHelpButton_OnKeyReleaseEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseKeyReleaseEvent(KContextualHelpButton* self, QKeyEvent* e);
+void KContextualHelpButton_MouseMoveEvent(KContextualHelpButton* self, QMouseEvent* e);
+void KContextualHelpButton_OnMouseMoveEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseMouseMoveEvent(KContextualHelpButton* self, QMouseEvent* e);
+void KContextualHelpButton_FocusInEvent(KContextualHelpButton* self, QFocusEvent* e);
+void KContextualHelpButton_OnFocusInEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseFocusInEvent(KContextualHelpButton* self, QFocusEvent* e);
+void KContextualHelpButton_FocusOutEvent(KContextualHelpButton* self, QFocusEvent* e);
+void KContextualHelpButton_OnFocusOutEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseFocusOutEvent(KContextualHelpButton* self, QFocusEvent* e);
+int KContextualHelpButton_DevType(const KContextualHelpButton* self);
+void KContextualHelpButton_OnDevType(const KContextualHelpButton* self, intptr_t slot);
+int KContextualHelpButton_QBaseDevType(const KContextualHelpButton* self);
+void KContextualHelpButton_SetVisible(KContextualHelpButton* self, bool visible);
+void KContextualHelpButton_OnSetVisible(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseSetVisible(KContextualHelpButton* self, bool visible);
+int KContextualHelpButton_HeightForWidth(const KContextualHelpButton* self, int param1);
+void KContextualHelpButton_OnHeightForWidth(const KContextualHelpButton* self, intptr_t slot);
+int KContextualHelpButton_QBaseHeightForWidth(const KContextualHelpButton* self, int param1);
+bool KContextualHelpButton_HasHeightForWidth(const KContextualHelpButton* self);
+void KContextualHelpButton_OnHasHeightForWidth(const KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseHasHeightForWidth(const KContextualHelpButton* self);
+QPaintEngine* KContextualHelpButton_PaintEngine(const KContextualHelpButton* self);
+void KContextualHelpButton_OnPaintEngine(const KContextualHelpButton* self, intptr_t slot);
+QPaintEngine* KContextualHelpButton_QBasePaintEngine(const KContextualHelpButton* self);
+void KContextualHelpButton_MouseDoubleClickEvent(KContextualHelpButton* self, QMouseEvent* event);
+void KContextualHelpButton_OnMouseDoubleClickEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseMouseDoubleClickEvent(KContextualHelpButton* self, QMouseEvent* event);
+void KContextualHelpButton_WheelEvent(KContextualHelpButton* self, QWheelEvent* event);
+void KContextualHelpButton_OnWheelEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseWheelEvent(KContextualHelpButton* self, QWheelEvent* event);
+void KContextualHelpButton_MoveEvent(KContextualHelpButton* self, QMoveEvent* event);
+void KContextualHelpButton_OnMoveEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseMoveEvent(KContextualHelpButton* self, QMoveEvent* event);
+void KContextualHelpButton_ResizeEvent(KContextualHelpButton* self, QResizeEvent* event);
+void KContextualHelpButton_OnResizeEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseResizeEvent(KContextualHelpButton* self, QResizeEvent* event);
+void KContextualHelpButton_CloseEvent(KContextualHelpButton* self, QCloseEvent* event);
+void KContextualHelpButton_OnCloseEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseCloseEvent(KContextualHelpButton* self, QCloseEvent* event);
+void KContextualHelpButton_ContextMenuEvent(KContextualHelpButton* self, QContextMenuEvent* event);
+void KContextualHelpButton_OnContextMenuEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseContextMenuEvent(KContextualHelpButton* self, QContextMenuEvent* event);
+void KContextualHelpButton_TabletEvent(KContextualHelpButton* self, QTabletEvent* event);
+void KContextualHelpButton_OnTabletEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseTabletEvent(KContextualHelpButton* self, QTabletEvent* event);
+void KContextualHelpButton_DragEnterEvent(KContextualHelpButton* self, QDragEnterEvent* event);
+void KContextualHelpButton_OnDragEnterEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseDragEnterEvent(KContextualHelpButton* self, QDragEnterEvent* event);
+void KContextualHelpButton_DragMoveEvent(KContextualHelpButton* self, QDragMoveEvent* event);
+void KContextualHelpButton_OnDragMoveEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseDragMoveEvent(KContextualHelpButton* self, QDragMoveEvent* event);
+void KContextualHelpButton_DragLeaveEvent(KContextualHelpButton* self, QDragLeaveEvent* event);
+void KContextualHelpButton_OnDragLeaveEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseDragLeaveEvent(KContextualHelpButton* self, QDragLeaveEvent* event);
+void KContextualHelpButton_DropEvent(KContextualHelpButton* self, QDropEvent* event);
+void KContextualHelpButton_OnDropEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseDropEvent(KContextualHelpButton* self, QDropEvent* event);
+void KContextualHelpButton_ShowEvent(KContextualHelpButton* self, QShowEvent* event);
+void KContextualHelpButton_OnShowEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseShowEvent(KContextualHelpButton* self, QShowEvent* event);
+void KContextualHelpButton_HideEvent(KContextualHelpButton* self, QHideEvent* event);
+void KContextualHelpButton_OnHideEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseHideEvent(KContextualHelpButton* self, QHideEvent* event);
+bool KContextualHelpButton_NativeEvent(KContextualHelpButton* self, const libqt_string eventType, void* message, intptr_t* result);
+void KContextualHelpButton_OnNativeEvent(KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseNativeEvent(KContextualHelpButton* self, const libqt_string eventType, void* message, intptr_t* result);
+int KContextualHelpButton_Metric(const KContextualHelpButton* self, int param1);
+void KContextualHelpButton_OnMetric(const KContextualHelpButton* self, intptr_t slot);
+int KContextualHelpButton_QBaseMetric(const KContextualHelpButton* self, int param1);
+void KContextualHelpButton_InitPainter(const KContextualHelpButton* self, QPainter* painter);
+void KContextualHelpButton_OnInitPainter(const KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseInitPainter(const KContextualHelpButton* self, QPainter* painter);
+QPaintDevice* KContextualHelpButton_Redirected(const KContextualHelpButton* self, QPoint* offset);
+void KContextualHelpButton_OnRedirected(const KContextualHelpButton* self, intptr_t slot);
+QPaintDevice* KContextualHelpButton_QBaseRedirected(const KContextualHelpButton* self, QPoint* offset);
+QPainter* KContextualHelpButton_SharedPainter(const KContextualHelpButton* self);
+void KContextualHelpButton_OnSharedPainter(const KContextualHelpButton* self, intptr_t slot);
+QPainter* KContextualHelpButton_QBaseSharedPainter(const KContextualHelpButton* self);
+void KContextualHelpButton_InputMethodEvent(KContextualHelpButton* self, QInputMethodEvent* param1);
+void KContextualHelpButton_OnInputMethodEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseInputMethodEvent(KContextualHelpButton* self, QInputMethodEvent* param1);
+QVariant* KContextualHelpButton_InputMethodQuery(const KContextualHelpButton* self, int param1);
+void KContextualHelpButton_OnInputMethodQuery(const KContextualHelpButton* self, intptr_t slot);
+QVariant* KContextualHelpButton_QBaseInputMethodQuery(const KContextualHelpButton* self, int param1);
+bool KContextualHelpButton_FocusNextPrevChild(KContextualHelpButton* self, bool next);
+void KContextualHelpButton_OnFocusNextPrevChild(KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseFocusNextPrevChild(KContextualHelpButton* self, bool next);
+bool KContextualHelpButton_EventFilter(KContextualHelpButton* self, QObject* watched, QEvent* event);
+void KContextualHelpButton_OnEventFilter(KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseEventFilter(KContextualHelpButton* self, QObject* watched, QEvent* event);
+void KContextualHelpButton_ChildEvent(KContextualHelpButton* self, QChildEvent* event);
+void KContextualHelpButton_OnChildEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseChildEvent(KContextualHelpButton* self, QChildEvent* event);
+void KContextualHelpButton_CustomEvent(KContextualHelpButton* self, QEvent* event);
+void KContextualHelpButton_OnCustomEvent(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseCustomEvent(KContextualHelpButton* self, QEvent* event);
+void KContextualHelpButton_ConnectNotify(KContextualHelpButton* self, const QMetaMethod* signal);
+void KContextualHelpButton_OnConnectNotify(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseConnectNotify(KContextualHelpButton* self, const QMetaMethod* signal);
+void KContextualHelpButton_DisconnectNotify(KContextualHelpButton* self, const QMetaMethod* signal);
+void KContextualHelpButton_OnDisconnectNotify(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseDisconnectNotify(KContextualHelpButton* self, const QMetaMethod* signal);
+void KContextualHelpButton_UpdateMicroFocus(KContextualHelpButton* self);
+void KContextualHelpButton_OnUpdateMicroFocus(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseUpdateMicroFocus(KContextualHelpButton* self);
+void KContextualHelpButton_Create(KContextualHelpButton* self);
+void KContextualHelpButton_OnCreate(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseCreate(KContextualHelpButton* self);
+void KContextualHelpButton_Destroy(KContextualHelpButton* self);
+void KContextualHelpButton_OnDestroy(KContextualHelpButton* self, intptr_t slot);
+void KContextualHelpButton_QBaseDestroy(KContextualHelpButton* self);
+bool KContextualHelpButton_FocusNextChild(KContextualHelpButton* self);
+void KContextualHelpButton_OnFocusNextChild(KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseFocusNextChild(KContextualHelpButton* self);
+bool KContextualHelpButton_FocusPreviousChild(KContextualHelpButton* self);
+void KContextualHelpButton_OnFocusPreviousChild(KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseFocusPreviousChild(KContextualHelpButton* self);
+QObject* KContextualHelpButton_Sender(const KContextualHelpButton* self);
+void KContextualHelpButton_OnSender(const KContextualHelpButton* self, intptr_t slot);
+QObject* KContextualHelpButton_QBaseSender(const KContextualHelpButton* self);
+int KContextualHelpButton_SenderSignalIndex(const KContextualHelpButton* self);
+void KContextualHelpButton_OnSenderSignalIndex(const KContextualHelpButton* self, intptr_t slot);
+int KContextualHelpButton_QBaseSenderSignalIndex(const KContextualHelpButton* self);
+int KContextualHelpButton_Receivers(const KContextualHelpButton* self, const char* signal);
+void KContextualHelpButton_OnReceivers(const KContextualHelpButton* self, intptr_t slot);
+int KContextualHelpButton_QBaseReceivers(const KContextualHelpButton* self, const char* signal);
+bool KContextualHelpButton_IsSignalConnected(const KContextualHelpButton* self, const QMetaMethod* signal);
+void KContextualHelpButton_OnIsSignalConnected(const KContextualHelpButton* self, intptr_t slot);
+bool KContextualHelpButton_QBaseIsSignalConnected(const KContextualHelpButton* self, const QMetaMethod* signal);
+double KContextualHelpButton_GetDecodedMetricF(const KContextualHelpButton* self, int metricA, int metricB);
+void KContextualHelpButton_OnGetDecodedMetricF(const KContextualHelpButton* self, intptr_t slot);
+double KContextualHelpButton_QBaseGetDecodedMetricF(const KContextualHelpButton* self, int metricA, int metricB);
+void KContextualHelpButton_Delete(KContextualHelpButton* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

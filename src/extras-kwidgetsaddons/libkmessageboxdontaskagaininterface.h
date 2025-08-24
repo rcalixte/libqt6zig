@@ -1,0 +1,51 @@
+#pragma once
+#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKMESSAGEBOXDONTASKAGAININTERFACE_H
+#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKMESSAGEBOXDONTASKAGAININTERFACE_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KConfig KConfig;
+typedef struct KMessageBoxDontAskAgainInterface KMessageBoxDontAskAgainInterface;
+#endif
+
+KMessageBoxDontAskAgainInterface* KMessageBoxDontAskAgainInterface_new();
+bool KMessageBoxDontAskAgainInterface_ShouldBeShownTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int* result);
+void KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(KMessageBoxDontAskAgainInterface* self, intptr_t slot);
+bool KMessageBoxDontAskAgainInterface_QBaseShouldBeShownTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int* result);
+bool KMessageBoxDontAskAgainInterface_ShouldBeShownContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName);
+void KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(KMessageBoxDontAskAgainInterface* self, intptr_t slot);
+bool KMessageBoxDontAskAgainInterface_QBaseShouldBeShownContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName);
+void KMessageBoxDontAskAgainInterface_SaveDontShowAgainTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int result);
+void KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(KMessageBoxDontAskAgainInterface* self, intptr_t slot);
+void KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainTwoActions(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName, int result);
+void KMessageBoxDontAskAgainInterface_SaveDontShowAgainContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName);
+void KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(KMessageBoxDontAskAgainInterface* self, intptr_t slot);
+void KMessageBoxDontAskAgainInterface_QBaseSaveDontShowAgainContinue(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName);
+void KMessageBoxDontAskAgainInterface_EnableAllMessages(KMessageBoxDontAskAgainInterface* self);
+void KMessageBoxDontAskAgainInterface_OnEnableAllMessages(KMessageBoxDontAskAgainInterface* self, intptr_t slot);
+void KMessageBoxDontAskAgainInterface_QBaseEnableAllMessages(KMessageBoxDontAskAgainInterface* self);
+void KMessageBoxDontAskAgainInterface_EnableMessage(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName);
+void KMessageBoxDontAskAgainInterface_OnEnableMessage(KMessageBoxDontAskAgainInterface* self, intptr_t slot);
+void KMessageBoxDontAskAgainInterface_QBaseEnableMessage(KMessageBoxDontAskAgainInterface* self, const libqt_string dontShowAgainName);
+void KMessageBoxDontAskAgainInterface_SetConfig(KMessageBoxDontAskAgainInterface* self, KConfig* config);
+void KMessageBoxDontAskAgainInterface_OnSetConfig(KMessageBoxDontAskAgainInterface* self, intptr_t slot);
+void KMessageBoxDontAskAgainInterface_QBaseSetConfig(KMessageBoxDontAskAgainInterface* self, KConfig* config);
+void KMessageBoxDontAskAgainInterface_OperatorAssign(KMessageBoxDontAskAgainInterface* self, const KMessageBoxDontAskAgainInterface* param1);
+void KMessageBoxDontAskAgainInterface_Delete(KMessageBoxDontAskAgainInterface* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
