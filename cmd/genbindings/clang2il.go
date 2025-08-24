@@ -25,9 +25,14 @@ var (
 	}
 
 	noCopyAssign = map[string]struct{}{
-		"QCborValueConstRef":          {},
-		"QDirListing::const_iterator": {},
-		"QJsonValueConstRef":          {},
+		"KStandardActions::RawStringData": {},
+		"QCborValueConstRef":              {},
+		"QDirListing::const_iterator":     {},
+		"QJsonValueConstRef":              {},
+	}
+
+	noMoveAssign = map[string]struct{}{
+		"KStandardActions::RawStringData": {},
 	}
 )
 
@@ -449,7 +454,9 @@ func processClassType(node map[string]interface{}, addNamePrefix string) (CppCla
 
 			if moveAssign, ok := definitionData["moveAssign"].(map[string]interface{}); ok {
 				if trivial, ok := moveAssign["trivial"].(bool); ok && trivial {
-					ret.HasTrivialMoveAssign = trivial
+					if _, ok := noMoveAssign[ret.ClassName]; !ok {
+						ret.HasTrivialMoveAssign = trivial
+					}
 				}
 			}
 		}
@@ -753,7 +760,7 @@ nextMethod:
 			}
 
 			setter := CppMethod{
-				MethodName:        "set" + strings.Title(fieldName),
+				MethodName:        "set" + strings.ToUpper(fieldName[:1]) + fieldName[1:],
 				ReturnType:        CppParameter{ParameterType: "void"},
 				Parameters:        []CppParameter{fieldType},
 				IsVariable:        true,
