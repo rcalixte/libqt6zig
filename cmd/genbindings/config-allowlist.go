@@ -16,6 +16,9 @@ func InsertTypedefs() {
 	KnownTypedefs["QFile::Permissions"] = lookupResultTypedef{pp, CppTypedef{"QFile::Permissions", parseSingleTypeString("QFileDevice::Permissions")}}
 	KnownTypedefs["QIODevice::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QIODevice::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode")}}
 
+	// Qt 6 KConfig uses an inherited enum
+	KnownTypedefs["KConfigGroup::WriteConfigFlags"] = lookupResultTypedef{pp, CppTypedef{"KConfigGroup::WriteConfigFlags", parseSingleTypeString("KConfigBase::WriteConfigFlags")}}
+
 	// Qt 6 QTermWidget has a broken typedef for Command
 	KnownTypedefs["KeyboardTranslator::Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
 	KnownTypedefs["Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
@@ -91,22 +94,28 @@ func ImportHeaderForClass(className string) bool {
 
 	switch className {
 	case "QGraphicsEffectSource", // e.g. qgraphicseffect.h
-		"QAbstractConcatenable", // qstringbuilder.h
-		"QTextEngine",           // qtextlayout.h
-		"QText",                 // e.g. qtextcursor.h
-		"QVLABaseBase",          // e.g. Qt 6 qvarlengtharray.h
-		"QAdoptSharedDataTag",   // Qt 6 qshareddata.h
-		"qfloat16",              // Qt 6 qfloat16.h
-		"QFormDataPartBuilder",  // Qt 6.8 qformdatabuilder.h
-		"QGenericRunnable",      // Qt 6.8 qrunnable.h
-		"QCameraPermission",     // Qt 6.8 qpermissions.h
-		"QMicrophonePermission", // Qt 6.8 qpermissions.h
-		"QtVideo",               // Qt 6 qtvideo.h
-		"q20",                   // Qt 6 q20type_traits.h
-		"Kuit",                  // Qt 6 kuitsetup.h
-		"QTermWidget",           // Qt 6 qtermwidget.h
-		"QTermWidgetInterface",  // Qt 6 qtermwidget_interface.h
-		"Konsole",               // Qt 6 KeyboardTranslator.h
+		"QAbstractConcatenable",         // qstringbuilder.h
+		"QTextEngine",                   // qtextlayout.h
+		"QText",                         // e.g. qtextcursor.h
+		"QVLABaseBase",                  // e.g. Qt 6 qvarlengtharray.h
+		"QAdoptSharedDataTag",           // Qt 6 qshareddata.h
+		"qfloat16",                      // Qt 6 qfloat16.h
+		"QFormDataPartBuilder",          // Qt 6.8 qformdatabuilder.h
+		"QGenericRunnable",              // Qt 6.8 qrunnable.h
+		"QCameraPermission",             // Qt 6.8 qpermissions.h
+		"QMicrophonePermission",         // Qt 6.8 qpermissions.h
+		"QtVideo",                       // Qt 6 qtvideo.h
+		"q20",                           // Qt 6 q20type_traits.h
+		"Kuit",                          // Qt 6 kuitsetup.h
+		"QTermWidget",                   // Qt 6 qtermwidget.h
+		"QTermWidgetInterface",          // Qt 6 qtermwidget_interface.h
+		"Konsole",                       // Qt 6 KeyboardTranslator.h
+		"KConfigSkeletonItem",           // Qt 6 kconfigloader.h
+		"KConfigCompilerSignallingItem", // Qt 6 kcoreconfigskeleton.h
+		"KPropertySkeletonItem",         // Qt 6 kcoreconfigskeleton.h
+		"KDragWidgetDecoratorBase",      // Qt 6 kdragwidgetdecorator.h
+		"KTwoFingerSwipeRecognizer",     // Qt 6 ktwofingerswipe.h
+		"KTwoFingerTapRecognizer",       // Qt 6 ktwofingertap.h
 		"____last____":
 		return false
 	}
@@ -130,22 +139,43 @@ func AllowClass(className string) bool {
 
 	switch className {
 	case
-		"QTextStreamManipulator",     // Only seems to contain garbage methods
-		"QException",                 // Extends std::exception, too hard
-		"QGenericRunnable",           // Qt 6, Unavailable class header in Qt 6.8
-		"QUnhandledException",        // As above (child class)
-		"QPolygon",                   // Extends a QVector<QPoint> template class, too hard
-		"QPolygonF",                  // Extends a QVector<QPoint> template class, too hard
-		"QAssociativeIterator",       // Qt 6. Extends a QIterator<>, too hard
-		"QAssociativeConstIterator",  // Qt 6. Extends a QIterator<>, too hard
-		"QAssociativeIterable",       // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialIterator",        // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialConstIterator",   // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialIterable",        // Qt 6. Extends a QIterator<>, too hard
-		"QBrushDataPointerDeleter",   // Qt 6 qbrush.h. Appears in header but cannot be linked
-		"QPropertyBindingPrivatePtr", // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
-		"QDeferredDeleteEvent",       // Qt 6. Hidden/undocumented class in Qt 6.4, moved to private header in Qt 6.7. Intended for test use only
-		"QVariantConstPointer",       // Qt 6, possible to bind but yields little value
+		"QTextStreamManipulator",              // Only seems to contain garbage methods
+		"QException",                          // Extends std::exception, too hard
+		"QGenericRunnable",                    // Qt 6, Unavailable class header in Qt 6.8
+		"QUnhandledException",                 // As above (child class)
+		"QPolygon",                            // Extends a QVector<QPoint> template class, too hard
+		"QPolygonF",                           // Extends a QVector<QPoint> template class, too hard
+		"QAssociativeIterator",                // Qt 6. Extends a QIterator<>, too hard
+		"QAssociativeConstIterator",           // Qt 6. Extends a QIterator<>, too hard
+		"QAssociativeIterable",                // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialIterator",                 // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialConstIterator",            // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialIterable",                 // Qt 6. Extends a QIterator<>, too hard
+		"QBrushDataPointerDeleter",            // Qt 6 qbrush.h. Appears in header but cannot be linked
+		"QPropertyBindingPrivatePtr",          // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
+		"QDeferredDeleteEvent",                // Qt 6. Hidden/undocumented class in Qt 6.4, moved to private header in Qt 6.7. Intended for test use only
+		"QVariantConstPointer",                // Qt 6, possible to bind but yields little value
+		"KCoreConfigSkeleton::ItemString",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QString>
+		"KCoreConfigSkeleton::ItemUrl",        // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QUrl>
+		"KCoreConfigSkeleton::ItemProperty",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QVariant>
+		"KCoreConfigSkeleton::ItemBool",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<bool>
+		"KCoreConfigSkeleton::ItemInt",        // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<qint32>
+		"KCoreConfigSkeleton::ItemLongLong",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<qint64>
+		"KCoreConfigSkeleton::ItemUInt",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<quint32>
+		"KCoreConfigSkeleton::ItemULongLong",  // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<quint64>
+		"KCoreConfigSkeleton::ItemDouble",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<double>
+		"KCoreConfigSkeleton::ItemRect",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QRect>
+		"KCoreConfigSkeleton::ItemRectF",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QRectF>
+		"KCoreConfigSkeleton::ItemPoint",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QPoint>
+		"KCoreConfigSkeleton::ItemPointF",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QPointF>
+		"KCoreConfigSkeleton::ItemSize",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QSize>
+		"KCoreConfigSkeleton::ItemSizeF",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QSizeF>
+		"KCoreConfigSkeleton::ItemDateTime",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QDateTime>
+		"KCoreConfigSkeleton::ItemStringList", // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QStringList>
+		"KCoreConfigSkeleton::ItemUrlList",    // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QList<QUrl>>
+		"KCoreConfigSkeleton::ItemIntList",    // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QList<int>>
+		"KConfigSkeleton::ItemColor",          // Qt 6 kconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QColor>
+		"KConfigSkeleton::ItemFont",           // Qt 6 kconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QFont>
 
 		"QUntypedPropertyData::InheritsQUntypedPropertyData", // qpropertyprivate.h . Hidden/undocumented class in Qt 6.4, removed in 6.7
 		"____last____":
@@ -269,6 +299,19 @@ func AllowVirtualForClass(className string) bool {
 		return false
 	}
 
+	// Qt 6 KConfig
+	if className == "KConfigBase" {
+		return false
+	}
+
+	// Qt 6 KWidgetsAddons
+	if className == "KMultiTabBarButton" {
+		return false
+	}
+	if className == "KMultiTabBarTab" {
+		return false
+	}
+
 	return true
 }
 
@@ -357,6 +400,12 @@ func AllowMethod(className string, mm CppMethod) error {
 	if className == "QWebEnginePage" && mm.MethodName == "setFeaturePermission" {
 		// Qt 6.8: Skip this method, a parameter type is not properly handled yet
 		// and the function does not appear in the Qt documentation
+		return ErrTooComplex
+	}
+
+	// Qt 6 KConfig
+	if className == "KCoreConfigSkeleton::ItemInt" && (mm.MethodName == "setMinValue" || mm.MethodName == "setMaxValue") {
+		// Qt 6 kcoreconfigskeleton.h: inherited method of a blocked class
 		return ErrTooComplex
 	}
 
