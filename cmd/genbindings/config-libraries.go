@@ -185,6 +185,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KCodecs " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KConfig
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "extras-kconfig",
+			dirs: []string{
+				"/usr/include/KF6/KConfig",
+				"/usr/include/KF6/KConfigCore",
+				"/usr/include/KF6/KConfigGui",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// KI18n
 		// Depends on Qt Core
 		{
@@ -195,6 +208,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
+		},
+
+		// KWidgetsAddons
+		// Depends on Qt Core, GUI, Widgets, KConfig
+		{
+			path: "extras-kwidgetsaddons",
+			dirs: []string{
+				"/usr/include/KF6/KWidgetsAddons",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets"),
 		},
 
 		// posix-restricted
