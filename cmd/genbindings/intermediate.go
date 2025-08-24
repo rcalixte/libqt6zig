@@ -301,6 +301,7 @@ type CppMethod struct {
 	IsMoveCtor         bool
 	IsSignal           bool
 	IsConst            bool
+	IsVariable         bool
 	IsPrivate          bool
 	IsVirtual          bool
 	IsPureVirtual      bool           // Virtual method was declared with = 0 i.e. there is no base method here to call
@@ -308,6 +309,7 @@ type CppMethod struct {
 	HiddenParams       []CppParameter // Populated if there is an overload with more parameters
 	InheritedFrom      string
 	InheritedInClass   string
+	VariableFieldName  string
 
 	// Special quirks
 	LinuxOnly                bool
