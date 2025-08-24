@@ -512,8 +512,32 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	if strings.Contains(p.ParameterType, "::DataPointer") {
 		return ErrTooComplex // Qt 6 qbytearray.h. This could probably be made to work
 	}
+	if strings.HasPrefix(p.ParameterType, "QSharedPointer<") {
+		return ErrTooComplex // Qt 6 qwebengineclientcertificateselection.h
+	}
+	if strings.HasPrefix(p.ParameterType, "QWeakPointer<") {
+		return ErrTooComplex // Qt 6 qwebengineframe.h
+	}
 	if strings.HasPrefix(p.ParameterType, "QArrayDataPointer<") {
 		return ErrTooComplex // Qt 6 qbytearray.h. This could probably be made to work
+	}
+	if strings.HasPrefix(p.ParameterType, "QAtomicPointer<") {
+		return ErrTooComplex // Qt 6 qreadwritelock.h
+	}
+	if strings.HasPrefix(p.ParameterType, "QBasicAtomicPointer<") {
+		return ErrTooComplex // Qt 6 qmutex.h
+	}
+	if strings.HasPrefix(p.ParameterType, "QBasicAtomicInteger<") {
+		return ErrTooComplex // Qt 6 qarraydata.h
+	}
+	if strings.HasPrefix(p.ParameterType, "QTaggedPointer<") {
+		return ErrTooComplex // Qt 6 qproperty.h
+	}
+	if strings.Contains(p.ParameterType, "totally_ordered_wrapper<") {
+		return ErrTooComplex // Qt 6 qabstractitemmodel.h
+	}
+	if strings.HasSuffix(p.ParameterType, "]") {
+		return ErrTooComplex // Qt 6 quuid.h
 	}
 
 	// Some QFoo constructors take a QFooPrivate
@@ -614,6 +638,15 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"HistoryType",                     // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"ScreenWindow",                    // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
 		"TerminalCharacterDecoder",        // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
+		"QueryPair",                       // Qt 6 qevent.h
+		"QWidgetItemData",                 // Qt 6 qtablewidget.h
+		"Macro",                           // Qt 6 qscimacro.h
+		"QList<QString>::const_iterator",  // Qt 6 qsciapis.h
+		"QAtomicInt",                      // Qt 6 qobject.h
+		"QDynamicMetaObjectData",          // Qt 6 qobject.h
+		"QPropertyDelayedNotifications",   // Qt 6 qbindingstorage.h
+		"QList<bool>",                     // Qt 6 qsqlindex.h, this can probably be implemented at some point
+
 		"____last____":
 		return ErrTooComplex
 	}
