@@ -83,12 +83,6 @@ func (e CppEnum) getEnumTypeZig() string {
 
 func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	for _, c := range parsed.Classes {
-		if parsed.Filename != "" && !strings.Contains(c.ClassName, "::") {
-			f := filepath.Base(parsed.Filename)
-			filename := f[:len(f)-2]
-			KnownImports[c.ClassName] = lookupResultImport{packageName, filename}
-		}
-
 		KnownClassnames[c.ClassName] = lookupResultClass{packageName, c /* copy */}
 
 		// If it's a nested class, also register its local name
@@ -140,7 +134,7 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	}
 
 	for _, en := range parsed.Enums {
-		if parsed.Filename != "" && en.EnumName != "" && !strings.Contains(en.EnumName, "::") {
+		if parsed.Filename != "" && en.EnumName != "" {
 			// enum classes... in Qt 6, these are found in qcborcommon.h, qdtls.h, qlogging.h, qmetatype.h, qocspresponse.h
 			f := filepath.Base(parsed.Filename)
 			filename := f[:len(f)-2]
