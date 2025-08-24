@@ -80,6 +80,16 @@ void QTimeZone_Delete(QTimeZone* self);
 
 QTimeZone__OffsetData* QTimeZone__OffsetData_new(const QTimeZone__OffsetData* param1);
 QTimeZone__OffsetData* QTimeZone__OffsetData_new2();
+libqt_string QTimeZone__OffsetData_Abbreviation(const QTimeZone__OffsetData* self);
+void QTimeZone__OffsetData_SetAbbreviation(QTimeZone__OffsetData* self, libqt_string abbreviation);
+QDateTime* QTimeZone__OffsetData_AtUtc(const QTimeZone__OffsetData* self);
+void QTimeZone__OffsetData_SetAtUtc(QTimeZone__OffsetData* self, QDateTime* atUtc);
+int QTimeZone__OffsetData_OffsetFromUtc(const QTimeZone__OffsetData* self);
+void QTimeZone__OffsetData_SetOffsetFromUtc(QTimeZone__OffsetData* self, int offsetFromUtc);
+int QTimeZone__OffsetData_StandardTimeOffset(const QTimeZone__OffsetData* self);
+void QTimeZone__OffsetData_SetStandardTimeOffset(QTimeZone__OffsetData* self, int standardTimeOffset);
+int QTimeZone__OffsetData_DaylightTimeOffset(const QTimeZone__OffsetData* self);
+void QTimeZone__OffsetData_SetDaylightTimeOffset(QTimeZone__OffsetData* self, int daylightTimeOffset);
 void QTimeZone__OffsetData_OperatorAssign(QTimeZone__OffsetData* self, const QTimeZone__OffsetData* param1);
 void QTimeZone__OffsetData_Delete(QTimeZone__OffsetData* self);
 

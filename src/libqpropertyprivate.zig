@@ -40,3 +40,43 @@ pub const quntypedpropertydata = struct {
         qtc.QUntypedPropertyData_Delete(@ptrCast(self));
     }
 };
+
+/// https://doc.qt.io/qt-6/qpropertyproxybindingdata.html
+pub const qpropertyproxybindingdata = struct {
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyproxybindingdata.html#d_ptr-var)
+    ///
+    /// ``` self: QtC.QPropertyProxyBindingData ```
+    pub fn DPtr(self: ?*anyopaque) usize {
+        return qtc.QPropertyProxyBindingData_DPtr(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyproxybindingdata.html#d_ptr-var)
+    ///
+    /// ``` self: QtC.QPropertyProxyBindingData, d_ptr: usize ```
+    pub fn SetDPtr(self: ?*anyopaque, d_ptr: usize) void {
+        qtc.QPropertyProxyBindingData_SetDPtr(@ptrCast(self), @intCast(d_ptr));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyproxybindingdata.html#propertyData-var)
+    ///
+    /// ``` self: QtC.QPropertyProxyBindingData ```
+    pub fn PropertyData(self: ?*anyopaque) QtC.QUntypedPropertyData {
+        return qtc.QPropertyProxyBindingData_PropertyData(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyproxybindingdata.html#propertyData-var)
+    ///
+    /// ``` self: QtC.QPropertyProxyBindingData, propertyData: QtC.QUntypedPropertyData ```
+    pub fn SetPropertyData(self: ?*anyopaque, propertyData: ?*anyopaque) void {
+        qtc.QPropertyProxyBindingData_SetPropertyData(@ptrCast(self), @ptrCast(propertyData));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertyproxybindingdata.html#dtor.QPropertyProxyBindingData)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QPropertyProxyBindingData ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QPropertyProxyBindingData_Delete(@ptrCast(self));
+    }
+};

@@ -124,6 +124,46 @@ QWebEngineCookieStore__FilterRequest* QWebEngineCookieStore__FilterRequest_new(c
     return new QWebEngineCookieStore::FilterRequest(*param1);
 }
 
+QUrl* QWebEngineCookieStore__FilterRequest_FirstPartyUrl(const QWebEngineCookieStore__FilterRequest* self) {
+    return new QUrl(self->firstPartyUrl);
+}
+
+void QWebEngineCookieStore__FilterRequest_SetFirstPartyUrl(QWebEngineCookieStore__FilterRequest* self, QUrl* firstPartyUrl) {
+    self->firstPartyUrl = *firstPartyUrl;
+}
+
+QUrl* QWebEngineCookieStore__FilterRequest_Origin(const QWebEngineCookieStore__FilterRequest* self) {
+    return new QUrl(self->origin);
+}
+
+void QWebEngineCookieStore__FilterRequest_SetOrigin(QWebEngineCookieStore__FilterRequest* self, QUrl* origin) {
+    self->origin = *origin;
+}
+
+bool QWebEngineCookieStore__FilterRequest_ThirdParty(const QWebEngineCookieStore__FilterRequest* self) {
+    return self->thirdParty;
+}
+
+void QWebEngineCookieStore__FilterRequest_SetThirdParty(QWebEngineCookieStore__FilterRequest* self, bool thirdParty) {
+    self->thirdParty = thirdParty;
+}
+
+bool QWebEngineCookieStore__FilterRequest_ReservedFlag(const QWebEngineCookieStore__FilterRequest* self) {
+    return self->_reservedFlag;
+}
+
+void QWebEngineCookieStore__FilterRequest_SetReservedFlag(QWebEngineCookieStore__FilterRequest* self, bool _reservedFlag) {
+    self->_reservedFlag = _reservedFlag;
+}
+
+uint16_t QWebEngineCookieStore__FilterRequest_ReservedType(const QWebEngineCookieStore__FilterRequest* self) {
+    return static_cast<uint16_t>(self->_reservedType);
+}
+
+void QWebEngineCookieStore__FilterRequest_SetReservedType(QWebEngineCookieStore__FilterRequest* self, uint16_t _reservedType) {
+    self->_reservedType = static_cast<ushort>(_reservedType);
+}
+
 void QWebEngineCookieStore__FilterRequest_OperatorAssign(QWebEngineCookieStore__FilterRequest* self, const QWebEngineCookieStore__FilterRequest* param1) {
     self->operator=(*param1);
 }

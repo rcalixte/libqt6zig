@@ -101,6 +101,30 @@ void QGenericReturnArgument_Delete(QGenericReturnArgument* self) {
     delete self;
 }
 
+const char* QMetaMethodArgument_Name(const QMetaMethodArgument* self) {
+    return (const char*)self->name;
+}
+
+void QMetaMethodArgument_SetName(QMetaMethodArgument* self, const char* name) {
+    self->name = name;
+}
+
+void QMetaMethodArgument_Delete(QMetaMethodArgument* self) {
+    delete self;
+}
+
+const char* QMetaMethodReturnArgument_Name(const QMetaMethodReturnArgument* self) {
+    return (const char*)self->name;
+}
+
+void QMetaMethodReturnArgument_SetName(QMetaMethodReturnArgument* self, const char* name) {
+    self->name = name;
+}
+
+void QMetaMethodReturnArgument_Delete(QMetaMethodReturnArgument* self) {
+    delete self;
+}
+
 QMetaObject* QMetaObject_new() {
     return new QMetaObject();
 }
@@ -315,6 +339,14 @@ int QMetaObject_StaticMetacall(const QMetaObject* self, int param1, int param2, 
 
 int QMetaObject_Metacall(QObject* param1, int param2, int param3, void** param4) {
     return QMetaObject::metacall(param1, static_cast<QMetaObject::Call>(param2), static_cast<int>(param3), param4);
+}
+
+QMetaObject__Data* QMetaObject_D(const QMetaObject* self) {
+    return new QMetaObject::Data(self->d);
+}
+
+void QMetaObject_SetD(QMetaObject* self, QMetaObject__Data* d) {
+    self->d = *d;
 }
 
 libqt_string QMetaObject_Tr3(const QMetaObject* self, const char* s, const char* c, int n) {
@@ -561,6 +593,14 @@ QMetaObject__SuperData* QMetaObject__SuperData_new3(const QMetaObject__SuperData
     return new QMetaObject::SuperData(*param1);
 }
 
+QMetaObject* QMetaObject__SuperData_Direct(const QMetaObject__SuperData* self) {
+    return (QMetaObject*)self->direct;
+}
+
+void QMetaObject__SuperData_SetDirect(QMetaObject__SuperData* self, const QMetaObject* direct) {
+    self->direct = direct;
+}
+
 QMetaObject* QMetaObject__SuperData_OperatorMinusGreater(const QMetaObject__SuperData* self) {
     return (QMetaObject*)self->operator->();
 }
@@ -583,6 +623,38 @@ QMetaObject__Data* QMetaObject__Data_new() {
 
 QMetaObject__Data* QMetaObject__Data_new2(const QMetaObject__Data* param1) {
     return new QMetaObject::Data(*param1);
+}
+
+QMetaObject__SuperData* QMetaObject__Data_Superdata(const QMetaObject__Data* self) {
+    return new QMetaObject::SuperData(self->superdata);
+}
+
+void QMetaObject__Data_SetSuperdata(QMetaObject__Data* self, QMetaObject__SuperData* superdata) {
+    self->superdata = *superdata;
+}
+
+const unsigned int* QMetaObject__Data_Stringdata(const QMetaObject__Data* self) {
+    return static_cast<const unsigned int*>(self->stringdata);
+}
+
+void QMetaObject__Data_SetStringdata(QMetaObject__Data* self, const unsigned int* stringdata) {
+    self->stringdata = static_cast<const uint*>(stringdata);
+}
+
+const unsigned int* QMetaObject__Data_Data(const QMetaObject__Data* self) {
+    return static_cast<const unsigned int*>(self->data);
+}
+
+void QMetaObject__Data_SetData(QMetaObject__Data* self, const unsigned int* data) {
+    self->data = static_cast<const uint*>(data);
+}
+
+QMetaObject__SuperData* QMetaObject__Data_RelatedMetaObjects(const QMetaObject__Data* self) {
+    return (QMetaObject__SuperData*)self->relatedMetaObjects;
+}
+
+void QMetaObject__Data_SetRelatedMetaObjects(QMetaObject__Data* self, const QMetaObject__SuperData* relatedMetaObjects) {
+    self->relatedMetaObjects = relatedMetaObjects;
 }
 
 void QMetaObject__Data_OperatorAssign(QMetaObject__Data* self, const QMetaObject__Data* param1) {

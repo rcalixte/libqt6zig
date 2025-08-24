@@ -26,6 +26,7 @@ typedef struct QPointF QPointF;
 typedef struct QRawFont QRawFont;
 typedef struct QRectF QRectF;
 typedef struct QTextBlock QTextBlock;
+typedef struct QTextCharFormat QTextCharFormat;
 typedef struct QTextFormat QTextFormat;
 typedef struct QTextInlineObject QTextInlineObject;
 typedef struct QTextLayout QTextLayout;
@@ -148,6 +149,12 @@ libqt_list /* of QGlyphRun* */ QTextLine_GlyphRuns22(const QTextLine* self, int 
 void QTextLine_Delete(QTextLine* self);
 
 QTextLayout__FormatRange* QTextLayout__FormatRange_new();
+int QTextLayout__FormatRange_Start(const QTextLayout__FormatRange* self);
+void QTextLayout__FormatRange_SetStart(QTextLayout__FormatRange* self, int start);
+int QTextLayout__FormatRange_Length(const QTextLayout__FormatRange* self);
+void QTextLayout__FormatRange_SetLength(QTextLayout__FormatRange* self, int length);
+QTextCharFormat* QTextLayout__FormatRange_Format(const QTextLayout__FormatRange* self);
+void QTextLayout__FormatRange_SetFormat(QTextLayout__FormatRange* self, QTextCharFormat* format);
 void QTextLayout__FormatRange_Delete(QTextLayout__FormatRange* self);
 
 #ifdef __cplusplus

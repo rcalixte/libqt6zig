@@ -415,6 +415,30 @@ QPainterPath__Element* QPainterPath__Element_new2(const QPainterPath__Element* p
     return new QPainterPath::Element(*param1);
 }
 
+double QPainterPath__Element_X(const QPainterPath__Element* self) {
+    return self->x;
+}
+
+void QPainterPath__Element_SetX(QPainterPath__Element* self, double x) {
+    self->x = static_cast<double>(x);
+}
+
+double QPainterPath__Element_Y(const QPainterPath__Element* self) {
+    return self->y;
+}
+
+void QPainterPath__Element_SetY(QPainterPath__Element* self, double y) {
+    self->y = static_cast<double>(y);
+}
+
+int QPainterPath__Element_Type(const QPainterPath__Element* self) {
+    return static_cast<int>(self->type);
+}
+
+void QPainterPath__Element_SetType(QPainterPath__Element* self, int type) {
+    self->type = static_cast<QPainterPath::ElementType>(type);
+}
+
 bool QPainterPath__Element_IsMoveTo(const QPainterPath__Element* self) {
     return self->isMoveTo();
 }

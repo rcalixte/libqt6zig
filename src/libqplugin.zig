@@ -10,6 +10,20 @@ pub const qpluginmetadata = struct {
         return qtc.QPluginMetaData_ArchRequirements();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata.html#size-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData ```
+    pub fn Size(self: ?*anyopaque) u64 {
+        return qtc.QPluginMetaData_Size(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata.html#size-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData, size: u64 ```
+    pub fn SetSize(self: ?*anyopaque, size: u64) void {
+        qtc.QPluginMetaData_SetSize(@ptrCast(self), @intCast(size));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata.html#dtor.QPluginMetaData)
     ///
     /// Delete this object from C++ memory.
@@ -111,6 +125,62 @@ pub const qpluginmetadata__header = struct {
         qtc.QPluginMetaData__Header_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#version-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header ```
+    pub fn Version(self: ?*anyopaque) u8 {
+        return qtc.QPluginMetaData__Header_Version(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#version-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header, version: u8 ```
+    pub fn SetVersion(self: ?*anyopaque, version: u8) void {
+        qtc.QPluginMetaData__Header_SetVersion(@ptrCast(self), @intCast(version));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#qt_major_version-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header ```
+    pub fn MajorVersion(self: ?*anyopaque) u8 {
+        return qtc.QPluginMetaData__Header_MajorVersion(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#qt_major_version-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header, qt_major_version: u8 ```
+    pub fn SetQtMajorVersion(self: ?*anyopaque, qt_major_version: u8) void {
+        qtc.QPluginMetaData__Header_SetQtMajorVersion(@ptrCast(self), @intCast(qt_major_version));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#qt_minor_version-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header ```
+    pub fn MinorVersion(self: ?*anyopaque) u8 {
+        return qtc.QPluginMetaData__Header_MinorVersion(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#qt_minor_version-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header, qt_minor_version: u8 ```
+    pub fn SetQtMinorVersion(self: ?*anyopaque, qt_minor_version: u8) void {
+        qtc.QPluginMetaData__Header_SetQtMinorVersion(@ptrCast(self), @intCast(qt_minor_version));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#plugin_arch_requirements-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header ```
+    pub fn PluginArchRequirements(self: ?*anyopaque) u8 {
+        return qtc.QPluginMetaData__Header_PluginArchRequirements(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-header.html#plugin_arch_requirements-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__Header, plugin_arch_requirements: u8 ```
+    pub fn SetPluginArchRequirements(self: ?*anyopaque, plugin_arch_requirements: u8) void {
+        qtc.QPluginMetaData__Header_SetPluginArchRequirements(@ptrCast(self), @intCast(plugin_arch_requirements));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QPluginMetaData__Header ```
@@ -154,6 +224,20 @@ pub const qpluginmetadata__magicheader = struct {
     /// ``` self: QtC.QPluginMetaData__MagicHeader, other: QtC.QPluginMetaData__MagicHeader ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPluginMetaData__MagicHeader_MoveAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-magicheader.html#header-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__MagicHeader ```
+    pub fn Header(self: ?*anyopaque) QtC.QPluginMetaData__Header {
+        return qtc.QPluginMetaData__MagicHeader_Header(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-magicheader.html#header-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__MagicHeader, header: QtC.QPluginMetaData__Header ```
+    pub fn SetHeader(self: ?*anyopaque, header: QtC.QPluginMetaData__Header) void {
+        qtc.QPluginMetaData__MagicHeader_SetHeader(@ptrCast(self), @ptrCast(header));
     }
 
     /// Delete this object from C++ memory.
@@ -206,6 +290,62 @@ pub const qpluginmetadata__elfnoteheader = struct {
     /// ``` self: QtC.QPluginMetaData__ElfNoteHeader, other: QtC.QPluginMetaData__ElfNoteHeader ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QPluginMetaData__ElfNoteHeader_MoveAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#n_namesz-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader ```
+    pub fn NNamesz(self: ?*anyopaque) u32 {
+        return qtc.QPluginMetaData__ElfNoteHeader_NNamesz(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#n_namesz-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader, n_namesz: u32 ```
+    pub fn SetNNamesz(self: ?*anyopaque, n_namesz: u32) void {
+        qtc.QPluginMetaData__ElfNoteHeader_SetNNamesz(@ptrCast(self), @intCast(n_namesz));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#n_descsz-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader ```
+    pub fn NDescsz(self: ?*anyopaque) u32 {
+        return qtc.QPluginMetaData__ElfNoteHeader_NDescsz(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#n_descsz-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader, n_descsz: u32 ```
+    pub fn SetNDescsz(self: ?*anyopaque, n_descsz: u32) void {
+        qtc.QPluginMetaData__ElfNoteHeader_SetNDescsz(@ptrCast(self), @intCast(n_descsz));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#n_type-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader ```
+    pub fn NType(self: ?*anyopaque) u32 {
+        return qtc.QPluginMetaData__ElfNoteHeader_NType(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#n_type-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader, n_type: u32 ```
+    pub fn SetNType(self: ?*anyopaque, n_type: u32) void {
+        qtc.QPluginMetaData__ElfNoteHeader_SetNType(@ptrCast(self), @intCast(n_type));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#header-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader ```
+    pub fn Header(self: ?*anyopaque) QtC.QPluginMetaData__Header {
+        return qtc.QPluginMetaData__ElfNoteHeader_Header(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpluginmetadata-elfnoteheader.html#header-var)
+    ///
+    /// ``` self: QtC.QPluginMetaData__ElfNoteHeader, header: QtC.QPluginMetaData__Header ```
+    pub fn SetHeader(self: ?*anyopaque, header: QtC.QPluginMetaData__Header) void {
+        qtc.QPluginMetaData__ElfNoteHeader_SetHeader(@ptrCast(self), @ptrCast(header));
     }
 
     /// Delete this object from C++ memory.

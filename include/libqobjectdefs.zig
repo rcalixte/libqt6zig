@@ -182,6 +182,62 @@ pub const qgenericreturnargument = struct {
     }
 };
 
+/// https://doc.qt.io/qt-6/qmetamethodargument.html
+pub const qmetamethodargument = struct {
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethodargument.html#name-var)
+    ///
+    /// ``` self: QtC.QMetaMethodArgument ```
+    pub fn Name(self: ?*anyopaque) []const u8 {
+        const name_ret = qtc.QMetaMethodArgument_Name(@ptrCast(self));
+        return std.mem.span(name_ret);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethodargument.html#name-var)
+    ///
+    /// ``` self: QtC.QMetaMethodArgument, name: []const u8 ```
+    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QMetaMethodArgument_SetName(@ptrCast(self), name_Cstring);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethodargument.html#dtor.QMetaMethodArgument)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QMetaMethodArgument ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QMetaMethodArgument_Delete(@ptrCast(self));
+    }
+};
+
+/// https://doc.qt.io/qt-6/qmetamethodreturnargument.html
+pub const qmetamethodreturnargument = struct {
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethodreturnargument.html#name-var)
+    ///
+    /// ``` self: QtC.QMetaMethodReturnArgument ```
+    pub fn Name(self: ?*anyopaque) []const u8 {
+        const name_ret = qtc.QMetaMethodReturnArgument_Name(@ptrCast(self));
+        return std.mem.span(name_ret);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethodreturnargument.html#name-var)
+    ///
+    /// ``` self: QtC.QMetaMethodReturnArgument, name: []const u8 ```
+    pub fn SetName(self: ?*anyopaque, name: []const u8) void {
+        const name_Cstring = name.ptr;
+        qtc.QMetaMethodReturnArgument_SetName(@ptrCast(self), name_Cstring);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethodreturnargument.html#dtor.QMetaMethodReturnArgument)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QMetaMethodReturnArgument ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QMetaMethodReturnArgument_Delete(@ptrCast(self));
+    }
+};
+
 /// https://doc.qt.io/qt-6/qmetaobject.html
 pub const qmetaobject = struct {
     /// New constructs a new QMetaObject object.
@@ -555,6 +611,20 @@ pub const qmetaobject = struct {
     /// ``` param1: QtC.QObject, param2: qobjectdefs_enums.Call, param3: i32, param4: ?*anyopaque ```
     pub fn Metacall(param1: ?*anyopaque, param2: i32, param3: i32, param4: ?*anyopaque) i32 {
         return qtc.QMetaObject_Metacall(@ptrCast(param1), @intCast(param2), @intCast(param3), param4);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#d-var)
+    ///
+    /// ``` self: QtC.QMetaObject ```
+    pub fn D(self: ?*anyopaque) QtC.QMetaObject__Data {
+        return qtc.QMetaObject_D(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#d-var)
+    ///
+    /// ``` self: QtC.QMetaObject, d: QtC.QMetaObject__Data ```
+    pub fn SetD(self: ?*anyopaque, d: QtC.QMetaObject__Data) void {
+        qtc.QMetaObject_SetD(@ptrCast(self), @ptrCast(d));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1022,6 +1092,20 @@ pub const qmetaobject__superdata = struct {
         return qtc.QMetaObject__SuperData_new3(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-superdata.html#direct-var)
+    ///
+    /// ``` self: QtC.QMetaObject__SuperData ```
+    pub fn Direct(self: ?*anyopaque) QtC.QMetaObject {
+        return qtc.QMetaObject__SuperData_Direct(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-superdata.html#direct-var)
+    ///
+    /// ``` self: QtC.QMetaObject__SuperData, direct: QtC.QMetaObject ```
+    pub fn SetDirect(self: ?*anyopaque, direct: ?*anyopaque) void {
+        qtc.QMetaObject__SuperData_SetDirect(@ptrCast(self), @ptrCast(direct));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-superdata.html#operator--gt)
     ///
     /// ``` self: QtC.QMetaObject__SuperData ```
@@ -1065,6 +1149,62 @@ pub const qmetaobject__data = struct {
     /// ``` param1: QtC.QMetaObject__Data ```
     pub fn New2(param1: ?*anyopaque) QtC.QMetaObject__Data {
         return qtc.QMetaObject__Data_new2(@ptrCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#superdata-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data ```
+    pub fn Superdata(self: ?*anyopaque) QtC.QMetaObject__SuperData {
+        return qtc.QMetaObject__Data_Superdata(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#superdata-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data, superdata: QtC.QMetaObject__SuperData ```
+    pub fn SetSuperdata(self: ?*anyopaque, superdata: QtC.QMetaObject__SuperData) void {
+        qtc.QMetaObject__Data_SetSuperdata(@ptrCast(self), @ptrCast(superdata));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#stringdata-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data ```
+    pub fn Stringdata(self: ?*anyopaque) ?*const u32 {
+        return @ptrCast(qtc.QMetaObject__Data_Stringdata(@ptrCast(self)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#stringdata-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data, stringdata: *const u32 ```
+    pub fn SetStringdata(self: ?*anyopaque, stringdata: *const u32) void {
+        qtc.QMetaObject__Data_SetStringdata(@ptrCast(self), @ptrCast(stringdata));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#data-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data ```
+    pub fn Data(self: ?*anyopaque) ?*const u32 {
+        return @ptrCast(qtc.QMetaObject__Data_Data(@ptrCast(self)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#data-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data, data: *const u32 ```
+    pub fn SetData(self: ?*anyopaque, data: *const u32) void {
+        qtc.QMetaObject__Data_SetData(@ptrCast(self), @ptrCast(data));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#relatedMetaObjects-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data ```
+    pub fn RelatedMetaObjects(self: ?*anyopaque) QtC.QMetaObject__SuperData {
+        return qtc.QMetaObject__Data_RelatedMetaObjects(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#relatedMetaObjects-var)
+    ///
+    /// ``` self: QtC.QMetaObject__Data, relatedMetaObjects: QtC.QMetaObject__SuperData ```
+    pub fn SetRelatedMetaObjects(self: ?*anyopaque, relatedMetaObjects: ?*anyopaque) void {
+        qtc.QMetaObject__Data_SetRelatedMetaObjects(@ptrCast(self), @ptrCast(relatedMetaObjects));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject-data.html#operator-eq)

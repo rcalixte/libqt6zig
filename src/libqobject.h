@@ -44,6 +44,40 @@ typedef struct QTimerEvent QTimerEvent;
 typedef struct QVariant QVariant;
 #endif
 
+QObject* QObjectData_QPtr(const QObjectData* self);
+void QObjectData_SetQPtr(QObjectData* self, QObject* q_ptr);
+QObject* QObjectData_Parent(const QObjectData* self);
+void QObjectData_SetParent(QObjectData* self, QObject* parent);
+libqt_list /* of QObject* */ QObjectData_Children(const QObjectData* self);
+void QObjectData_SetChildren(QObjectData* self, libqt_list /* of QObject* */ children);
+unsigned int QObjectData_IsWidget(const QObjectData* self);
+void QObjectData_SetIsWidget(QObjectData* self, unsigned int isWidget);
+unsigned int QObjectData_BlockSig(const QObjectData* self);
+void QObjectData_SetBlockSig(QObjectData* self, unsigned int blockSig);
+unsigned int QObjectData_WasDeleted(const QObjectData* self);
+void QObjectData_SetWasDeleted(QObjectData* self, unsigned int wasDeleted);
+unsigned int QObjectData_IsDeletingChildren(const QObjectData* self);
+void QObjectData_SetIsDeletingChildren(QObjectData* self, unsigned int isDeletingChildren);
+unsigned int QObjectData_SendChildEvents(const QObjectData* self);
+void QObjectData_SetSendChildEvents(QObjectData* self, unsigned int sendChildEvents);
+unsigned int QObjectData_ReceiveChildEvents(const QObjectData* self);
+void QObjectData_SetReceiveChildEvents(QObjectData* self, unsigned int receiveChildEvents);
+unsigned int QObjectData_IsWindow(const QObjectData* self);
+void QObjectData_SetIsWindow(QObjectData* self, unsigned int isWindow);
+unsigned int QObjectData_DeleteLaterCalled(const QObjectData* self);
+void QObjectData_SetDeleteLaterCalled(QObjectData* self, unsigned int deleteLaterCalled);
+unsigned int QObjectData_IsQuickItem(const QObjectData* self);
+void QObjectData_SetIsQuickItem(QObjectData* self, unsigned int isQuickItem);
+unsigned int QObjectData_WillBeWidget(const QObjectData* self);
+void QObjectData_SetWillBeWidget(QObjectData* self, unsigned int willBeWidget);
+unsigned int QObjectData_WasWidget(const QObjectData* self);
+void QObjectData_SetWasWidget(QObjectData* self, unsigned int wasWidget);
+unsigned int QObjectData_ReceiveParentEvents(const QObjectData* self);
+void QObjectData_SetReceiveParentEvents(QObjectData* self, unsigned int receiveParentEvents);
+unsigned int QObjectData_Unused(const QObjectData* self);
+void QObjectData_SetUnused(QObjectData* self, unsigned int unused);
+QBindingStorage* QObjectData_BindingStorage(const QObjectData* self);
+void QObjectData_SetBindingStorage(QObjectData* self, QBindingStorage* bindingStorage);
 // This method's return type was changed from non-const to const in Qt 6.9
 #if QT_VERSION >= QT_VERSION_CHECK(6, 9, 0)
 const QMetaObject* QObjectData_DynamicMetaObject(const QObjectData* self);

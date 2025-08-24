@@ -1343,6 +1343,34 @@ pub const qabstracttextdocumentlayout__selection = struct {
         return qtc.QAbstractTextDocumentLayout__Selection_new();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#cursor-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection ```
+    pub fn Cursor(self: ?*anyopaque) QtC.QTextCursor {
+        return qtc.QAbstractTextDocumentLayout__Selection_Cursor(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#cursor-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, cursor: QtC.QTextCursor ```
+    pub fn SetCursor(self: ?*anyopaque, cursor: QtC.QTextCursor) void {
+        qtc.QAbstractTextDocumentLayout__Selection_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#format-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection ```
+    pub fn Format(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QAbstractTextDocumentLayout__Selection_Format(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#format-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, format: QtC.QTextCharFormat ```
+    pub fn SetFormat(self: ?*anyopaque, format: QtC.QTextCharFormat) void {
+        qtc.QAbstractTextDocumentLayout__Selection_SetFormat(@ptrCast(self), @ptrCast(format));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#operator-eq)
     ///
     /// ``` self: QtC.QAbstractTextDocumentLayout__Selection, param1: QtC.QAbstractTextDocumentLayout__Selection ```
@@ -1365,6 +1393,71 @@ pub const qabstracttextdocumentlayout__paintcontext = struct {
     ///
     pub fn New() QtC.QAbstractTextDocumentLayout__PaintContext {
         return qtc.QAbstractTextDocumentLayout__PaintContext_new();
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    pub fn CursorPosition(self: ?*anyopaque) i32 {
+        return qtc.QAbstractTextDocumentLayout__PaintContext_CursorPosition(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#cursorPosition-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, cursorPosition: i32 ```
+    pub fn SetCursorPosition(self: ?*anyopaque, cursorPosition: i32) void {
+        qtc.QAbstractTextDocumentLayout__PaintContext_SetCursorPosition(@ptrCast(self), @intCast(cursorPosition));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#palette-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    pub fn Palette(self: ?*anyopaque) QtC.QPalette {
+        return qtc.QAbstractTextDocumentLayout__PaintContext_Palette(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#palette-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, palette: QtC.QPalette ```
+    pub fn SetPalette(self: ?*anyopaque, palette: QtC.QPalette) void {
+        qtc.QAbstractTextDocumentLayout__PaintContext_SetPalette(@ptrCast(self), @ptrCast(palette));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#clip-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext ```
+    pub fn Clip(self: ?*anyopaque) QtC.QRectF {
+        return qtc.QAbstractTextDocumentLayout__PaintContext_Clip(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#clip-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, clip: QtC.QRectF ```
+    pub fn SetClip(self: ?*anyopaque, clip: QtC.QRectF) void {
+        qtc.QAbstractTextDocumentLayout__PaintContext_SetClip(@ptrCast(self), @ptrCast(clip));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#selections-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, allocator: std.mem.Allocator ```
+    pub fn Selections(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QAbstractTextDocumentLayout__Selection {
+        const selections_arr: qtc.libqt_list = qtc.QAbstractTextDocumentLayout__PaintContext_Selections(@ptrCast(self));
+        defer qtc.libqt_free(selections_arr.data);
+        const selections_ret = allocator.alloc(QtC.QAbstractTextDocumentLayout__Selection, selections_arr.len) catch @panic("qabstracttextdocumentlayout::paintcontext.Selections: Memory allocation failed");
+        const selections_data: [*]QtC.QAbstractTextDocumentLayout__Selection = @ptrCast(@alignCast(selections_arr.data));
+        @memcpy(selections_ret, selections_data[0..selections_arr.len]);
+        return selections_ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#selections-var)
+    ///
+    /// ``` self: QtC.QAbstractTextDocumentLayout__PaintContext, selections: []QtC.QAbstractTextDocumentLayout__Selection ```
+    pub fn SetSelections(self: ?*anyopaque, selections: []QtC.QAbstractTextDocumentLayout__Selection) void {
+        const selections_list = qtc.libqt_list{
+            .len = selections.len,
+            .data = @ptrCast(selections.ptr),
+        };
+        qtc.QAbstractTextDocumentLayout__PaintContext_SetSelections(@ptrCast(self), selections_list);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-paintcontext.html#operator-eq)

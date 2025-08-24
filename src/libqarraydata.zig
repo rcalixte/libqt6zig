@@ -5,6 +5,36 @@ pub const struct_qtcqarraydata_anyopaque = extern struct { first: QtC.QArrayData
 
 /// https://doc.qt.io/qt-6/qarraydata.html
 pub const qarraydata = struct {
+    /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#flags-var)
+    ///
+    /// ``` self: QtC.QArrayData ```
+    ///
+    /// Returns: ``` flag of qarraydata_enums.ArrayOption ```
+    pub fn Flags(self: ?*anyopaque) i64 {
+        return qtc.QArrayData_Flags(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#flags-var)
+    ///
+    /// ``` self: QtC.QArrayData, flags: flag of qarraydata_enums.ArrayOption ```
+    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+        qtc.QArrayData_SetFlags(@ptrCast(self), @intCast(flags));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#alloc-var)
+    ///
+    /// ``` self: QtC.QArrayData ```
+    pub fn Alloc(self: ?*anyopaque) i64 {
+        return qtc.QArrayData_Alloc(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#alloc-var)
+    ///
+    /// ``` self: QtC.QArrayData, alloc: i64 ```
+    pub fn SetAlloc(self: ?*anyopaque, alloc: i64) void {
+        qtc.QArrayData_SetAlloc(@ptrCast(self), @intCast(alloc));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qarraydata.html#allocatedCapacity)
     ///
     /// ``` self: QtC.QArrayData ```

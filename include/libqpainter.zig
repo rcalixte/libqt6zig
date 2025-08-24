@@ -1680,6 +1680,146 @@ pub const qpainter__pixmapfragment = struct {
         return qtc.QPainter__PixmapFragment_new2(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#x-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn X(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_X(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#x-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, x: f64 ```
+    pub fn SetX(self: ?*anyopaque, x: f64) void {
+        qtc.QPainter__PixmapFragment_SetX(@ptrCast(self), @floatCast(x));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#y-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn Y(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_Y(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#y-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, y: f64 ```
+    pub fn SetY(self: ?*anyopaque, y: f64) void {
+        qtc.QPainter__PixmapFragment_SetY(@ptrCast(self), @floatCast(y));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceLeft-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn SourceLeft(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_SourceLeft(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceLeft-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, sourceLeft: f64 ```
+    pub fn SetSourceLeft(self: ?*anyopaque, sourceLeft: f64) void {
+        qtc.QPainter__PixmapFragment_SetSourceLeft(@ptrCast(self), @floatCast(sourceLeft));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceTop-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn SourceTop(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_SourceTop(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceTop-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, sourceTop: f64 ```
+    pub fn SetSourceTop(self: ?*anyopaque, sourceTop: f64) void {
+        qtc.QPainter__PixmapFragment_SetSourceTop(@ptrCast(self), @floatCast(sourceTop));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#width-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn Width(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_Width(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#width-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, width: f64 ```
+    pub fn SetWidth(self: ?*anyopaque, width: f64) void {
+        qtc.QPainter__PixmapFragment_SetWidth(@ptrCast(self), @floatCast(width));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#height-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn Height(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_Height(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#height-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, height: f64 ```
+    pub fn SetHeight(self: ?*anyopaque, height: f64) void {
+        qtc.QPainter__PixmapFragment_SetHeight(@ptrCast(self), @floatCast(height));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleX-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn ScaleX(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_ScaleX(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleX-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, scaleX: f64 ```
+    pub fn SetScaleX(self: ?*anyopaque, scaleX: f64) void {
+        qtc.QPainter__PixmapFragment_SetScaleX(@ptrCast(self), @floatCast(scaleX));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleY-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn ScaleY(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_ScaleY(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleY-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, scaleY: f64 ```
+    pub fn SetScaleY(self: ?*anyopaque, scaleY: f64) void {
+        qtc.QPainter__PixmapFragment_SetScaleY(@ptrCast(self), @floatCast(scaleY));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#rotation-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn Rotation(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_Rotation(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#rotation-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, rotation: f64 ```
+    pub fn SetRotation(self: ?*anyopaque, rotation: f64) void {
+        qtc.QPainter__PixmapFragment_SetRotation(@ptrCast(self), @floatCast(rotation));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#opacity-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment ```
+    pub fn Opacity(self: ?*anyopaque) f64 {
+        return qtc.QPainter__PixmapFragment_Opacity(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#opacity-var)
+    ///
+    /// ``` self: QtC.QPainter__PixmapFragment, opacity: f64 ```
+    pub fn SetOpacity(self: ?*anyopaque, opacity: f64) void {
+        qtc.QPainter__PixmapFragment_SetOpacity(@ptrCast(self), @floatCast(opacity));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create)
     ///
     /// ``` pos: QtC.QPointF, sourceRect: QtC.QRectF ```

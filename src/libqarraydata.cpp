@@ -4,6 +4,22 @@
 #include "libqarraydata.h"
 #include "libqarraydata.hxx"
 
+int QArrayData_Flags(const QArrayData* self) {
+    return static_cast<int>(self->flags);
+}
+
+void QArrayData_SetFlags(QArrayData* self, int flags) {
+    self->flags = static_cast<QFlags<QArrayData::ArrayOption>>(flags);
+}
+
+ptrdiff_t QArrayData_Alloc(const QArrayData* self) {
+    return static_cast<ptrdiff_t>(self->alloc);
+}
+
+void QArrayData_SetAlloc(QArrayData* self, ptrdiff_t alloc) {
+    self->alloc = (qsizetype)(alloc);
+}
+
 ptrdiff_t QArrayData_AllocatedCapacity(QArrayData* self) {
     return static_cast<ptrdiff_t>(self->allocatedCapacity());
 }

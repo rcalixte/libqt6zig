@@ -35,6 +35,14 @@ QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new3();
 QPropertyBindingSourceLocation* QPropertyBindingSourceLocation_new4(const QPropertyBindingSourceLocation* param1);
 void QPropertyBindingSourceLocation_CopyAssign(QPropertyBindingSourceLocation* self, QPropertyBindingSourceLocation* other);
 void QPropertyBindingSourceLocation_MoveAssign(QPropertyBindingSourceLocation* self, QPropertyBindingSourceLocation* other);
+const char* QPropertyBindingSourceLocation_FileName(const QPropertyBindingSourceLocation* self);
+void QPropertyBindingSourceLocation_SetFileName(QPropertyBindingSourceLocation* self, const char* fileName);
+const char* QPropertyBindingSourceLocation_FunctionName(const QPropertyBindingSourceLocation* self);
+void QPropertyBindingSourceLocation_SetFunctionName(QPropertyBindingSourceLocation* self, const char* functionName);
+unsigned int QPropertyBindingSourceLocation_Line(const QPropertyBindingSourceLocation* self);
+void QPropertyBindingSourceLocation_SetLine(QPropertyBindingSourceLocation* self, unsigned int line);
+unsigned int QPropertyBindingSourceLocation_Column(const QPropertyBindingSourceLocation* self);
+void QPropertyBindingSourceLocation_SetColumn(QPropertyBindingSourceLocation* self, unsigned int column);
 void QPropertyBindingSourceLocation_Delete(QPropertyBindingSourceLocation* self);
 
 QPropertyBindingError* QPropertyBindingError_new();

@@ -6,6 +6,253 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qobjectdata.html
 pub const qobjectdata = struct {
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#q_ptr-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn QPtr(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObjectData_QPtr(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#q_ptr-var)
+    ///
+    /// ``` self: QtC.QObjectData, q_ptr: QtC.QObject ```
+    pub fn SetQPtr(self: ?*anyopaque, q_ptr: ?*anyopaque) void {
+        qtc.QObjectData_SetQPtr(@ptrCast(self), @ptrCast(q_ptr));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#parent-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn Parent(self: ?*anyopaque) QtC.QObject {
+        return qtc.QObjectData_Parent(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#parent-var)
+    ///
+    /// ``` self: QtC.QObjectData, parent: QtC.QObject ```
+    pub fn SetParent(self: ?*anyopaque, parent: ?*anyopaque) void {
+        qtc.QObjectData_SetParent(@ptrCast(self), @ptrCast(parent));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#children-var)
+    ///
+    /// ``` self: QtC.QObjectData, allocator: std.mem.Allocator ```
+    pub fn Children(self: ?*anyopaque, allocator: std.mem.Allocator) []QtC.QObject {
+        const children_arr: qtc.libqt_list = qtc.QObjectData_Children(@ptrCast(self));
+        defer qtc.libqt_free(children_arr.data);
+        const children_ret = allocator.alloc(QtC.QObject, children_arr.len) catch @panic("qobjectdata.Children: Memory allocation failed");
+        const children_data: [*]QtC.QObject = @ptrCast(@alignCast(children_arr.data));
+        @memcpy(children_ret, children_data[0..children_arr.len]);
+        return children_ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#children-var)
+    ///
+    /// ``` self: QtC.QObjectData, children: []QtC.QObject ```
+    pub fn SetChildren(self: ?*anyopaque, children: []?*anyopaque) void {
+        const children_list = qtc.libqt_list{
+            .len = children.len,
+            .data = @ptrCast(children.ptr),
+        };
+        qtc.QObjectData_SetChildren(@ptrCast(self), children_list);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isWidget-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn IsWidget(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_IsWidget(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isWidget-var)
+    ///
+    /// ``` self: QtC.QObjectData, isWidget: u32 ```
+    pub fn SetIsWidget(self: ?*anyopaque, isWidget: u32) void {
+        qtc.QObjectData_SetIsWidget(@ptrCast(self), @intCast(isWidget));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#blockSig-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn BlockSig(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_BlockSig(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#blockSig-var)
+    ///
+    /// ``` self: QtC.QObjectData, blockSig: u32 ```
+    pub fn SetBlockSig(self: ?*anyopaque, blockSig: u32) void {
+        qtc.QObjectData_SetBlockSig(@ptrCast(self), @intCast(blockSig));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#wasDeleted-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn WasDeleted(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_WasDeleted(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#wasDeleted-var)
+    ///
+    /// ``` self: QtC.QObjectData, wasDeleted: u32 ```
+    pub fn SetWasDeleted(self: ?*anyopaque, wasDeleted: u32) void {
+        qtc.QObjectData_SetWasDeleted(@ptrCast(self), @intCast(wasDeleted));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isDeletingChildren-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn IsDeletingChildren(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_IsDeletingChildren(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isDeletingChildren-var)
+    ///
+    /// ``` self: QtC.QObjectData, isDeletingChildren: u32 ```
+    pub fn SetIsDeletingChildren(self: ?*anyopaque, isDeletingChildren: u32) void {
+        qtc.QObjectData_SetIsDeletingChildren(@ptrCast(self), @intCast(isDeletingChildren));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#sendChildEvents-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn SendChildEvents(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_SendChildEvents(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#sendChildEvents-var)
+    ///
+    /// ``` self: QtC.QObjectData, sendChildEvents: u32 ```
+    pub fn SetSendChildEvents(self: ?*anyopaque, sendChildEvents: u32) void {
+        qtc.QObjectData_SetSendChildEvents(@ptrCast(self), @intCast(sendChildEvents));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#receiveChildEvents-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn ReceiveChildEvents(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_ReceiveChildEvents(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#receiveChildEvents-var)
+    ///
+    /// ``` self: QtC.QObjectData, receiveChildEvents: u32 ```
+    pub fn SetReceiveChildEvents(self: ?*anyopaque, receiveChildEvents: u32) void {
+        qtc.QObjectData_SetReceiveChildEvents(@ptrCast(self), @intCast(receiveChildEvents));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isWindow-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn IsWindow(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_IsWindow(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isWindow-var)
+    ///
+    /// ``` self: QtC.QObjectData, isWindow: u32 ```
+    pub fn SetIsWindow(self: ?*anyopaque, isWindow: u32) void {
+        qtc.QObjectData_SetIsWindow(@ptrCast(self), @intCast(isWindow));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#deleteLaterCalled-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn DeleteLaterCalled(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_DeleteLaterCalled(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#deleteLaterCalled-var)
+    ///
+    /// ``` self: QtC.QObjectData, deleteLaterCalled: u32 ```
+    pub fn SetDeleteLaterCalled(self: ?*anyopaque, deleteLaterCalled: u32) void {
+        qtc.QObjectData_SetDeleteLaterCalled(@ptrCast(self), @intCast(deleteLaterCalled));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isQuickItem-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn IsQuickItem(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_IsQuickItem(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#isQuickItem-var)
+    ///
+    /// ``` self: QtC.QObjectData, isQuickItem: u32 ```
+    pub fn SetIsQuickItem(self: ?*anyopaque, isQuickItem: u32) void {
+        qtc.QObjectData_SetIsQuickItem(@ptrCast(self), @intCast(isQuickItem));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#willBeWidget-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn WillBeWidget(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_WillBeWidget(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#willBeWidget-var)
+    ///
+    /// ``` self: QtC.QObjectData, willBeWidget: u32 ```
+    pub fn SetWillBeWidget(self: ?*anyopaque, willBeWidget: u32) void {
+        qtc.QObjectData_SetWillBeWidget(@ptrCast(self), @intCast(willBeWidget));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#wasWidget-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn WasWidget(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_WasWidget(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#wasWidget-var)
+    ///
+    /// ``` self: QtC.QObjectData, wasWidget: u32 ```
+    pub fn SetWasWidget(self: ?*anyopaque, wasWidget: u32) void {
+        qtc.QObjectData_SetWasWidget(@ptrCast(self), @intCast(wasWidget));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#receiveParentEvents-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn ReceiveParentEvents(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_ReceiveParentEvents(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#receiveParentEvents-var)
+    ///
+    /// ``` self: QtC.QObjectData, receiveParentEvents: u32 ```
+    pub fn SetReceiveParentEvents(self: ?*anyopaque, receiveParentEvents: u32) void {
+        qtc.QObjectData_SetReceiveParentEvents(@ptrCast(self), @intCast(receiveParentEvents));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#unused-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn Unused(self: ?*anyopaque) u32 {
+        return qtc.QObjectData_Unused(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#unused-var)
+    ///
+    /// ``` self: QtC.QObjectData, unused: u32 ```
+    pub fn SetUnused(self: ?*anyopaque, unused: u32) void {
+        qtc.QObjectData_SetUnused(@ptrCast(self), @intCast(unused));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#bindingStorage-var)
+    ///
+    /// ``` self: QtC.QObjectData ```
+    pub fn BindingStorage(self: ?*anyopaque) QtC.QBindingStorage {
+        return qtc.QObjectData_BindingStorage(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#bindingStorage-var)
+    ///
+    /// ``` self: QtC.QObjectData, bindingStorage: QtC.QBindingStorage ```
+    pub fn SetBindingStorage(self: ?*anyopaque, bindingStorage: QtC.QBindingStorage) void {
+        qtc.QObjectData_SetBindingStorage(@ptrCast(self), @ptrCast(bindingStorage));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobjectdata.html#dynamicMetaObject)
     ///
     /// ``` self: QtC.QObjectData ```

@@ -1,3 +1,4 @@
+#include <QColor>
 #include <QImage>
 #include <QPainter>
 #include <QRectF>
@@ -207,6 +208,30 @@ void QVideoFrame__PaintOptions_CopyAssign(QVideoFrame__PaintOptions* self, QVide
 
 void QVideoFrame__PaintOptions_MoveAssign(QVideoFrame__PaintOptions* self, QVideoFrame__PaintOptions* other) {
     *self = std::move(*other);
+}
+
+QColor* QVideoFrame__PaintOptions_BackgroundColor(const QVideoFrame__PaintOptions* self) {
+    return new QColor(self->backgroundColor);
+}
+
+void QVideoFrame__PaintOptions_SetBackgroundColor(QVideoFrame__PaintOptions* self, QColor* backgroundColor) {
+    self->backgroundColor = *backgroundColor;
+}
+
+int QVideoFrame__PaintOptions_AspectRatioMode(const QVideoFrame__PaintOptions* self) {
+    return static_cast<int>(self->aspectRatioMode);
+}
+
+void QVideoFrame__PaintOptions_SetAspectRatioMode(QVideoFrame__PaintOptions* self, int aspectRatioMode) {
+    self->aspectRatioMode = static_cast<Qt::AspectRatioMode>(aspectRatioMode);
+}
+
+int QVideoFrame__PaintOptions_PaintFlags(const QVideoFrame__PaintOptions* self) {
+    return static_cast<int>(self->paintFlags);
+}
+
+void QVideoFrame__PaintOptions_SetPaintFlags(QVideoFrame__PaintOptions* self, int paintFlags) {
+    self->paintFlags = static_cast<QFlags<QVideoFrame::PaintOptions::PaintFlag>>(paintFlags);
 }
 
 void QVideoFrame__PaintOptions_Delete(QVideoFrame__PaintOptions* self) {

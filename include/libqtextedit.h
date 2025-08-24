@@ -405,6 +405,10 @@ double QTextEdit_QBaseGetDecodedMetricF(const QTextEdit* self, int metricA, int 
 void QTextEdit_Delete(QTextEdit* self);
 
 QTextEdit__ExtraSelection* QTextEdit__ExtraSelection_new(const QTextEdit__ExtraSelection* param1);
+QTextCursor* QTextEdit__ExtraSelection_Cursor(const QTextEdit__ExtraSelection* self);
+void QTextEdit__ExtraSelection_SetCursor(QTextEdit__ExtraSelection* self, QTextCursor* cursor);
+QTextCharFormat* QTextEdit__ExtraSelection_Format(const QTextEdit__ExtraSelection* self);
+void QTextEdit__ExtraSelection_SetFormat(QTextEdit__ExtraSelection* self, QTextCharFormat* format);
 void QTextEdit__ExtraSelection_OperatorAssign(QTextEdit__ExtraSelection* self, const QTextEdit__ExtraSelection* param1);
 void QTextEdit__ExtraSelection_Delete(QTextEdit__ExtraSelection* self);
 

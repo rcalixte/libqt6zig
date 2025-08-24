@@ -1613,6 +1613,22 @@ void QProcess__UnixProcessParameters_MoveAssign(QProcess__UnixProcessParameters*
     *self = std::move(*other);
 }
 
+int QProcess__UnixProcessParameters_Flags(const QProcess__UnixProcessParameters* self) {
+    return static_cast<int>(self->flags);
+}
+
+void QProcess__UnixProcessParameters_SetFlags(QProcess__UnixProcessParameters* self, int flags) {
+    self->flags = static_cast<QFlags<QProcess::UnixProcessFlag>>(flags);
+}
+
+int QProcess__UnixProcessParameters_LowestFileDescriptorToClose(const QProcess__UnixProcessParameters* self) {
+    return self->lowestFileDescriptorToClose;
+}
+
+void QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(QProcess__UnixProcessParameters* self, int lowestFileDescriptorToClose) {
+    self->lowestFileDescriptorToClose = static_cast<int>(lowestFileDescriptorToClose);
+}
+
 void QProcess__UnixProcessParameters_Delete(QProcess__UnixProcessParameters* self) {
     delete self;
 }

@@ -2762,6 +2762,22 @@ QTextEdit__ExtraSelection* QTextEdit__ExtraSelection_new(const QTextEdit__ExtraS
     return new QTextEdit::ExtraSelection(*param1);
 }
 
+QTextCursor* QTextEdit__ExtraSelection_Cursor(const QTextEdit__ExtraSelection* self) {
+    return new QTextCursor(self->cursor);
+}
+
+void QTextEdit__ExtraSelection_SetCursor(QTextEdit__ExtraSelection* self, QTextCursor* cursor) {
+    self->cursor = *cursor;
+}
+
+QTextCharFormat* QTextEdit__ExtraSelection_Format(const QTextEdit__ExtraSelection* self) {
+    return new QTextCharFormat(self->format);
+}
+
+void QTextEdit__ExtraSelection_SetFormat(QTextEdit__ExtraSelection* self, QTextCharFormat* format) {
+    self->format = *format;
+}
+
 void QTextEdit__ExtraSelection_OperatorAssign(QTextEdit__ExtraSelection* self, const QTextEdit__ExtraSelection* param1) {
     self->operator=(*param1);
 }

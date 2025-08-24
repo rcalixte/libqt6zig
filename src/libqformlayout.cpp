@@ -1416,6 +1416,22 @@ QFormLayout__TakeRowResult* QFormLayout__TakeRowResult_new2(const QFormLayout__T
     return new QFormLayout::TakeRowResult(*param1);
 }
 
+QLayoutItem* QFormLayout__TakeRowResult_LabelItem(const QFormLayout__TakeRowResult* self) {
+    return self->labelItem;
+}
+
+void QFormLayout__TakeRowResult_SetLabelItem(QFormLayout__TakeRowResult* self, QLayoutItem* labelItem) {
+    self->labelItem = labelItem;
+}
+
+QLayoutItem* QFormLayout__TakeRowResult_FieldItem(const QFormLayout__TakeRowResult* self) {
+    return self->fieldItem;
+}
+
+void QFormLayout__TakeRowResult_SetFieldItem(QFormLayout__TakeRowResult* self, QLayoutItem* fieldItem) {
+    self->fieldItem = fieldItem;
+}
+
 void QFormLayout__TakeRowResult_Delete(QFormLayout__TakeRowResult* self) {
     delete self;
 }

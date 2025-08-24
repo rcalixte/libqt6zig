@@ -322,6 +322,30 @@ bool QCalendar__YearMonthDay_IsValid(const QCalendar__YearMonthDay* self) {
     return self->isValid();
 }
 
+int QCalendar__YearMonthDay_Year(const QCalendar__YearMonthDay* self) {
+    return self->year;
+}
+
+void QCalendar__YearMonthDay_SetYear(QCalendar__YearMonthDay* self, int year) {
+    self->year = static_cast<int>(year);
+}
+
+int QCalendar__YearMonthDay_Month(const QCalendar__YearMonthDay* self) {
+    return self->month;
+}
+
+void QCalendar__YearMonthDay_SetMonth(QCalendar__YearMonthDay* self, int month) {
+    self->month = static_cast<int>(month);
+}
+
+int QCalendar__YearMonthDay_Day(const QCalendar__YearMonthDay* self) {
+    return self->day;
+}
+
+void QCalendar__YearMonthDay_SetDay(QCalendar__YearMonthDay* self, int day) {
+    self->day = static_cast<int>(day);
+}
+
 void QCalendar__YearMonthDay_Delete(QCalendar__YearMonthDay* self) {
     delete self;
 }

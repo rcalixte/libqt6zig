@@ -4783,6 +4783,38 @@ QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new2(int typ, int s, 
     return new QInputMethodEvent::Attribute(static_cast<QInputMethodEvent::AttributeType>(typ), static_cast<int>(s), static_cast<int>(l));
 }
 
+int QInputMethodEvent__Attribute_Type(const QInputMethodEvent__Attribute* self) {
+    return static_cast<int>(self->type);
+}
+
+void QInputMethodEvent__Attribute_SetType(QInputMethodEvent__Attribute* self, int type) {
+    self->type = static_cast<QInputMethodEvent::AttributeType>(type);
+}
+
+int QInputMethodEvent__Attribute_Start(const QInputMethodEvent__Attribute* self) {
+    return self->start;
+}
+
+void QInputMethodEvent__Attribute_SetStart(QInputMethodEvent__Attribute* self, int start) {
+    self->start = static_cast<int>(start);
+}
+
+int QInputMethodEvent__Attribute_Length(const QInputMethodEvent__Attribute* self) {
+    return self->length;
+}
+
+void QInputMethodEvent__Attribute_SetLength(QInputMethodEvent__Attribute* self, int length) {
+    self->length = static_cast<int>(length);
+}
+
+QVariant* QInputMethodEvent__Attribute_Value(const QInputMethodEvent__Attribute* self) {
+    return new QVariant(self->value);
+}
+
+void QInputMethodEvent__Attribute_SetValue(QInputMethodEvent__Attribute* self, QVariant* value) {
+    self->value = *value;
+}
+
 void QInputMethodEvent__Attribute_OperatorAssign(QInputMethodEvent__Attribute* self, const QInputMethodEvent__Attribute* param1) {
     self->operator=(*param1);
 }

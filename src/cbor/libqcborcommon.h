@@ -18,6 +18,8 @@ extern "C" {
 typedef struct QCborError QCborError;
 #endif
 
+int QCborError_C(const QCborError* self);
+void QCborError_SetC(QCborError* self, int c);
 int QCborError_ToQCborError__Code(const QCborError* self);
 libqt_string QCborError_ToString(const QCborError* self);
 void QCborError_Delete(QCborError* self);

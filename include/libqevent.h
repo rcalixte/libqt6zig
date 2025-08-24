@@ -780,6 +780,14 @@ void QChildWindowEvent_Delete(QChildWindowEvent* self);
 
 QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new(int typ, int s, int l, QVariant* val);
 QInputMethodEvent__Attribute* QInputMethodEvent__Attribute_new2(int typ, int s, int l);
+int QInputMethodEvent__Attribute_Type(const QInputMethodEvent__Attribute* self);
+void QInputMethodEvent__Attribute_SetType(QInputMethodEvent__Attribute* self, int type);
+int QInputMethodEvent__Attribute_Start(const QInputMethodEvent__Attribute* self);
+void QInputMethodEvent__Attribute_SetStart(QInputMethodEvent__Attribute* self, int start);
+int QInputMethodEvent__Attribute_Length(const QInputMethodEvent__Attribute* self);
+void QInputMethodEvent__Attribute_SetLength(QInputMethodEvent__Attribute* self, int length);
+QVariant* QInputMethodEvent__Attribute_Value(const QInputMethodEvent__Attribute* self);
+void QInputMethodEvent__Attribute_SetValue(QInputMethodEvent__Attribute* self, QVariant* value);
 void QInputMethodEvent__Attribute_OperatorAssign(QInputMethodEvent__Attribute* self, const QInputMethodEvent__Attribute* param1);
 void QInputMethodEvent__Attribute_Delete(QInputMethodEvent__Attribute* self);
 

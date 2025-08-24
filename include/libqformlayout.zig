@@ -2303,6 +2303,34 @@ pub const qformlayout__takerowresult = struct {
         return qtc.QFormLayout__TakeRowResult_new2(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
+    ///
+    /// ``` self: QtC.QFormLayout__TakeRowResult ```
+    pub fn LabelItem(self: ?*anyopaque) QtC.QLayoutItem {
+        return qtc.QFormLayout__TakeRowResult_LabelItem(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#labelItem-var)
+    ///
+    /// ``` self: QtC.QFormLayout__TakeRowResult, labelItem: QtC.QLayoutItem ```
+    pub fn SetLabelItem(self: ?*anyopaque, labelItem: ?*anyopaque) void {
+        qtc.QFormLayout__TakeRowResult_SetLabelItem(@ptrCast(self), @ptrCast(labelItem));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
+    ///
+    /// ``` self: QtC.QFormLayout__TakeRowResult ```
+    pub fn FieldItem(self: ?*anyopaque) QtC.QLayoutItem {
+        return qtc.QFormLayout__TakeRowResult_FieldItem(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qformlayout-takerowresult.html#fieldItem-var)
+    ///
+    /// ``` self: QtC.QFormLayout__TakeRowResult, fieldItem: QtC.QLayoutItem ```
+    pub fn SetFieldItem(self: ?*anyopaque, fieldItem: ?*anyopaque) void {
+        qtc.QFormLayout__TakeRowResult_SetFieldItem(@ptrCast(self), @ptrCast(fieldItem));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QFormLayout__TakeRowResult ```

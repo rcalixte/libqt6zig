@@ -35,6 +35,22 @@ void QTileRules_MoveAssign(QTileRules* self, QTileRules* other) {
     *self = std::move(*other);
 }
 
+int QTileRules_Horizontal(const QTileRules* self) {
+    return static_cast<int>(self->horizontal);
+}
+
+void QTileRules_SetHorizontal(QTileRules* self, int horizontal) {
+    self->horizontal = static_cast<Qt::TileRule>(horizontal);
+}
+
+int QTileRules_Vertical(const QTileRules* self) {
+    return static_cast<int>(self->vertical);
+}
+
+void QTileRules_SetVertical(QTileRules* self, int vertical) {
+    self->vertical = static_cast<Qt::TileRule>(vertical);
+}
+
 void QTileRules_Delete(QTileRules* self) {
     delete self;
 }

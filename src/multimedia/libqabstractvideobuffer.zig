@@ -57,6 +57,20 @@ pub const qabstractvideobuffer__mapdata = struct {
         qtc.QAbstractVideoBuffer__MapData_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
+    ///
+    /// ``` self: QtC.QAbstractVideoBuffer__MapData ```
+    pub fn PlaneCount(self: ?*anyopaque) i32 {
+        return qtc.QAbstractVideoBuffer__MapData_PlaneCount(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer-mapdata.html#planeCount-var)
+    ///
+    /// ``` self: QtC.QAbstractVideoBuffer__MapData, planeCount: i32 ```
+    pub fn SetPlaneCount(self: ?*anyopaque, planeCount: i32) void {
+        qtc.QAbstractVideoBuffer__MapData_SetPlaneCount(@ptrCast(self), @intCast(planeCount));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QAbstractVideoBuffer__MapData ```

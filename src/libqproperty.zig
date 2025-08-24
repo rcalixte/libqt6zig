@@ -66,6 +66,66 @@ pub const qpropertybindingsourcelocation = struct {
         qtc.QPropertyBindingSourceLocation_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#fileName-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation ```
+    pub fn FileName(self: ?*anyopaque) []const u8 {
+        const fileName_ret = qtc.QPropertyBindingSourceLocation_FileName(@ptrCast(self));
+        return std.mem.span(fileName_ret);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#fileName-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation, fileName: []const u8 ```
+    pub fn SetFileName(self: ?*anyopaque, fileName: []const u8) void {
+        const fileName_Cstring = fileName.ptr;
+        qtc.QPropertyBindingSourceLocation_SetFileName(@ptrCast(self), fileName_Cstring);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#functionName-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation ```
+    pub fn FunctionName(self: ?*anyopaque) []const u8 {
+        const functionName_ret = qtc.QPropertyBindingSourceLocation_FunctionName(@ptrCast(self));
+        return std.mem.span(functionName_ret);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#functionName-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation, functionName: []const u8 ```
+    pub fn SetFunctionName(self: ?*anyopaque, functionName: []const u8) void {
+        const functionName_Cstring = functionName.ptr;
+        qtc.QPropertyBindingSourceLocation_SetFunctionName(@ptrCast(self), functionName_Cstring);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#line-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation ```
+    pub fn Line(self: ?*anyopaque) u32 {
+        return qtc.QPropertyBindingSourceLocation_Line(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#line-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation, line: u32 ```
+    pub fn SetLine(self: ?*anyopaque, line: u32) void {
+        qtc.QPropertyBindingSourceLocation_SetLine(@ptrCast(self), @intCast(line));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#column-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation ```
+    pub fn Column(self: ?*anyopaque) u32 {
+        return qtc.QPropertyBindingSourceLocation_Column(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#column-var)
+    ///
+    /// ``` self: QtC.QPropertyBindingSourceLocation, column: u32 ```
+    pub fn SetColumn(self: ?*anyopaque, column: u32) void {
+        qtc.QPropertyBindingSourceLocation_SetColumn(@ptrCast(self), @intCast(column));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpropertybindingsourcelocation.html#dtor.QPropertyBindingSourceLocation)
     ///
     /// Delete this object from C++ memory.

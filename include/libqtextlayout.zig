@@ -890,6 +890,48 @@ pub const qtextlayout__formatrange = struct {
         return qtc.QTextLayout__FormatRange_new();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#start-var)
+    ///
+    /// ``` self: QtC.QTextLayout__FormatRange ```
+    pub fn Start(self: ?*anyopaque) i32 {
+        return qtc.QTextLayout__FormatRange_Start(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#start-var)
+    ///
+    /// ``` self: QtC.QTextLayout__FormatRange, start: i32 ```
+    pub fn SetStart(self: ?*anyopaque, start: i32) void {
+        qtc.QTextLayout__FormatRange_SetStart(@ptrCast(self), @intCast(start));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#length-var)
+    ///
+    /// ``` self: QtC.QTextLayout__FormatRange ```
+    pub fn Length(self: ?*anyopaque) i32 {
+        return qtc.QTextLayout__FormatRange_Length(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#length-var)
+    ///
+    /// ``` self: QtC.QTextLayout__FormatRange, length: i32 ```
+    pub fn SetLength(self: ?*anyopaque, length: i32) void {
+        qtc.QTextLayout__FormatRange_SetLength(@ptrCast(self), @intCast(length));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#format-var)
+    ///
+    /// ``` self: QtC.QTextLayout__FormatRange ```
+    pub fn Format(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextLayout__FormatRange_Format(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextlayout-formatrange.html#format-var)
+    ///
+    /// ``` self: QtC.QTextLayout__FormatRange, format: QtC.QTextCharFormat ```
+    pub fn SetFormat(self: ?*anyopaque, format: QtC.QTextCharFormat) void {
+        qtc.QTextLayout__FormatRange_SetFormat(@ptrCast(self), @ptrCast(format));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QTextLayout__FormatRange ```

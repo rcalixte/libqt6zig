@@ -19,6 +19,14 @@ void QThreadStorageData_Finish(void** param1) {
     QThreadStorageData::finish(param1);
 }
 
+int QThreadStorageData_Id(const QThreadStorageData* self) {
+    return self->id;
+}
+
+void QThreadStorageData_SetId(QThreadStorageData* self, int id) {
+    self->id = static_cast<int>(id);
+}
+
 void QThreadStorageData_Delete(QThreadStorageData* self) {
     delete self;
 }

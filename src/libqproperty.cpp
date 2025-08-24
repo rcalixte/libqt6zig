@@ -46,6 +46,38 @@ void QPropertyBindingSourceLocation_MoveAssign(QPropertyBindingSourceLocation* s
     *self = std::move(*other);
 }
 
+const char* QPropertyBindingSourceLocation_FileName(const QPropertyBindingSourceLocation* self) {
+    return (const char*)self->fileName;
+}
+
+void QPropertyBindingSourceLocation_SetFileName(QPropertyBindingSourceLocation* self, const char* fileName) {
+    self->fileName = fileName;
+}
+
+const char* QPropertyBindingSourceLocation_FunctionName(const QPropertyBindingSourceLocation* self) {
+    return (const char*)self->functionName;
+}
+
+void QPropertyBindingSourceLocation_SetFunctionName(QPropertyBindingSourceLocation* self, const char* functionName) {
+    self->functionName = functionName;
+}
+
+unsigned int QPropertyBindingSourceLocation_Line(const QPropertyBindingSourceLocation* self) {
+    return static_cast<unsigned int>(self->line);
+}
+
+void QPropertyBindingSourceLocation_SetLine(QPropertyBindingSourceLocation* self, unsigned int line) {
+    self->line = static_cast<quint32>(line);
+}
+
+unsigned int QPropertyBindingSourceLocation_Column(const QPropertyBindingSourceLocation* self) {
+    return static_cast<unsigned int>(self->column);
+}
+
+void QPropertyBindingSourceLocation_SetColumn(QPropertyBindingSourceLocation* self, unsigned int column) {
+    self->column = static_cast<quint32>(column);
+}
+
 void QPropertyBindingSourceLocation_Delete(QPropertyBindingSourceLocation* self) {
     delete self;
 }

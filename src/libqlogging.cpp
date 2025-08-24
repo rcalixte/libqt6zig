@@ -15,6 +15,46 @@ QMessageLogContext* QMessageLogContext_new2(const char* fileName, int lineNumber
     return new QMessageLogContext(fileName, static_cast<int>(lineNumber), functionName, categoryName);
 }
 
+int QMessageLogContext_Version(const QMessageLogContext* self) {
+    return self->version;
+}
+
+void QMessageLogContext_SetVersion(QMessageLogContext* self, int version) {
+    self->version = static_cast<int>(version);
+}
+
+int QMessageLogContext_Line(const QMessageLogContext* self) {
+    return self->line;
+}
+
+void QMessageLogContext_SetLine(QMessageLogContext* self, int line) {
+    self->line = static_cast<int>(line);
+}
+
+const char* QMessageLogContext_File(const QMessageLogContext* self) {
+    return (const char*)self->file;
+}
+
+void QMessageLogContext_SetFile(QMessageLogContext* self, const char* file) {
+    self->file = file;
+}
+
+const char* QMessageLogContext_Function(const QMessageLogContext* self) {
+    return (const char*)self->function;
+}
+
+void QMessageLogContext_SetFunction(QMessageLogContext* self, const char* function) {
+    self->function = function;
+}
+
+const char* QMessageLogContext_Category(const QMessageLogContext* self) {
+    return (const char*)self->category;
+}
+
+void QMessageLogContext_SetCategory(QMessageLogContext* self, const char* category) {
+    self->category = category;
+}
+
 void QMessageLogContext_Delete(QMessageLogContext* self) {
     delete self;
 }

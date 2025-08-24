@@ -5,6 +5,22 @@ const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qcborerror.html
 pub const qcborerror = struct {
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#c-var)
+    ///
+    /// ``` self: QtC.QCborError ```
+    ///
+    /// Returns: ``` qcborcommon_enums.Code ```
+    pub fn C(self: ?*anyopaque) i32 {
+        return qtc.QCborError_C(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#c-var)
+    ///
+    /// ``` self: QtC.QCborError, c: qcborcommon_enums.Code ```
+    pub fn SetC(self: ?*anyopaque, c: i32) void {
+        qtc.QCborError_SetC(@ptrCast(self), @intCast(c));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborerror.html#operator)
     ///
     /// ``` self: QtC.QCborError ```

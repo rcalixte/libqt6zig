@@ -125,6 +125,12 @@ void QPainterPathStroker_Delete(QPainterPathStroker* self);
 
 QPainterPath__Element* QPainterPath__Element_new();
 QPainterPath__Element* QPainterPath__Element_new2(const QPainterPath__Element* param1);
+double QPainterPath__Element_X(const QPainterPath__Element* self);
+void QPainterPath__Element_SetX(QPainterPath__Element* self, double x);
+double QPainterPath__Element_Y(const QPainterPath__Element* self);
+void QPainterPath__Element_SetY(QPainterPath__Element* self, double y);
+int QPainterPath__Element_Type(const QPainterPath__Element* self);
+void QPainterPath__Element_SetType(QPainterPath__Element* self, int type);
 bool QPainterPath__Element_IsMoveTo(const QPainterPath__Element* self);
 bool QPainterPath__Element_IsLineTo(const QPainterPath__Element* self);
 bool QPainterPath__Element_IsCurveTo(const QPainterPath__Element* self);

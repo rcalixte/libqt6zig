@@ -2862,6 +2862,36 @@ pub const qprocess__unixprocessparameters = struct {
         qtc.QProcess__UnixProcessParameters_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#flags-var)
+    ///
+    /// ``` self: QtC.QProcess__UnixProcessParameters ```
+    ///
+    /// Returns: ``` flag of qprocess_enums.UnixProcessFlag ```
+    pub fn Flags(self: ?*anyopaque) i64 {
+        return qtc.QProcess__UnixProcessParameters_Flags(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#flags-var)
+    ///
+    /// ``` self: QtC.QProcess__UnixProcessParameters, flags: flag of qprocess_enums.UnixProcessFlag ```
+    pub fn SetFlags(self: ?*anyopaque, flags: i64) void {
+        qtc.QProcess__UnixProcessParameters_SetFlags(@ptrCast(self), @intCast(flags));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#lowestFileDescriptorToClose-var)
+    ///
+    /// ``` self: QtC.QProcess__UnixProcessParameters ```
+    pub fn LowestFileDescriptorToClose(self: ?*anyopaque) i32 {
+        return qtc.QProcess__UnixProcessParameters_LowestFileDescriptorToClose(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qprocess-unixprocessparameters.html#lowestFileDescriptorToClose-var)
+    ///
+    /// ``` self: QtC.QProcess__UnixProcessParameters, lowestFileDescriptorToClose: i32 ```
+    pub fn SetLowestFileDescriptorToClose(self: ?*anyopaque, lowestFileDescriptorToClose: i32) void {
+        qtc.QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(@ptrCast(self), @intCast(lowestFileDescriptorToClose));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QProcess__UnixProcessParameters ```

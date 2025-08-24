@@ -16,6 +16,260 @@ pub const qwidgetdata = struct {
         return qtc.QWidgetData_new(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#winid-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn Winid(self: ?*anyopaque) u64 {
+        return qtc.QWidgetData_Winid(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#winid-var)
+    ///
+    /// ``` self: QtC.QWidgetData, winid: u64 ```
+    pub fn SetWinid(self: ?*anyopaque, winid: u64) void {
+        qtc.QWidgetData_SetWinid(@ptrCast(self), @intCast(winid));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#widget_attributes-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn WidgetAttributes(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_WidgetAttributes(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#widget_attributes-var)
+    ///
+    /// ``` self: QtC.QWidgetData, widget_attributes: u32 ```
+    pub fn SetWidgetAttributes(self: ?*anyopaque, widget_attributes: u32) void {
+        qtc.QWidgetData_SetWidgetAttributes(@ptrCast(self), @intCast(widget_attributes));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#window_flags-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    ///
+    /// Returns: ``` flag of qnamespace_enums.WindowType ```
+    pub fn WindowFlags(self: ?*anyopaque) i64 {
+        return qtc.QWidgetData_WindowFlags(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#window_flags-var)
+    ///
+    /// ``` self: QtC.QWidgetData, window_flags: flag of qnamespace_enums.WindowType ```
+    pub fn SetWindowFlags(self: ?*anyopaque, window_flags: i64) void {
+        qtc.QWidgetData_SetWindowFlags(@ptrCast(self), @intCast(window_flags));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#window_state-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn WindowState(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_WindowState(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#window_state-var)
+    ///
+    /// ``` self: QtC.QWidgetData, window_state: u32 ```
+    pub fn SetWindowState(self: ?*anyopaque, window_state: u32) void {
+        qtc.QWidgetData_SetWindowState(@ptrCast(self), @intCast(window_state));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#focus_policy-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn FocusPolicy(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_FocusPolicy(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#focus_policy-var)
+    ///
+    /// ``` self: QtC.QWidgetData, focus_policy: u32 ```
+    pub fn SetFocusPolicy(self: ?*anyopaque, focus_policy: u32) void {
+        qtc.QWidgetData_SetFocusPolicy(@ptrCast(self), @intCast(focus_policy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#sizehint_forced-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn SizehintForced(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_SizehintForced(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#sizehint_forced-var)
+    ///
+    /// ``` self: QtC.QWidgetData, sizehint_forced: u32 ```
+    pub fn SetSizehintForced(self: ?*anyopaque, sizehint_forced: u32) void {
+        qtc.QWidgetData_SetSizehintForced(@ptrCast(self), @intCast(sizehint_forced));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#is_closing-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn IsClosing(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_IsClosing(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#is_closing-var)
+    ///
+    /// ``` self: QtC.QWidgetData, is_closing: u32 ```
+    pub fn SetIsClosing(self: ?*anyopaque, is_closing: u32) void {
+        qtc.QWidgetData_SetIsClosing(@ptrCast(self), @intCast(is_closing));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#in_show-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn InShow(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_InShow(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#in_show-var)
+    ///
+    /// ``` self: QtC.QWidgetData, in_show: u32 ```
+    pub fn SetInShow(self: ?*anyopaque, in_show: u32) void {
+        qtc.QWidgetData_SetInShow(@ptrCast(self), @intCast(in_show));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#in_set_window_state-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn InSetWindowState(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_InSetWindowState(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#in_set_window_state-var)
+    ///
+    /// ``` self: QtC.QWidgetData, in_set_window_state: u32 ```
+    pub fn SetInSetWindowState(self: ?*anyopaque, in_set_window_state: u32) void {
+        qtc.QWidgetData_SetInSetWindowState(@ptrCast(self), @intCast(in_set_window_state));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#fstrut_dirty-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn FstrutDirty(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_FstrutDirty(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#fstrut_dirty-var)
+    ///
+    /// ``` self: QtC.QWidgetData, fstrut_dirty: u32 ```
+    pub fn SetFstrutDirty(self: ?*anyopaque, fstrut_dirty: u32) void {
+        qtc.QWidgetData_SetFstrutDirty(@ptrCast(self), @intCast(fstrut_dirty));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#context_menu_policy-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn ContextMenuPolicy(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_ContextMenuPolicy(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#context_menu_policy-var)
+    ///
+    /// ``` self: QtC.QWidgetData, context_menu_policy: u32 ```
+    pub fn SetContextMenuPolicy(self: ?*anyopaque, context_menu_policy: u32) void {
+        qtc.QWidgetData_SetContextMenuPolicy(@ptrCast(self), @intCast(context_menu_policy));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#window_modality-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn WindowModality(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_WindowModality(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#window_modality-var)
+    ///
+    /// ``` self: QtC.QWidgetData, window_modality: u32 ```
+    pub fn SetWindowModality(self: ?*anyopaque, window_modality: u32) void {
+        qtc.QWidgetData_SetWindowModality(@ptrCast(self), @intCast(window_modality));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#in_destructor-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn InDestructor(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_InDestructor(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#in_destructor-var)
+    ///
+    /// ``` self: QtC.QWidgetData, in_destructor: u32 ```
+    pub fn SetInDestructor(self: ?*anyopaque, in_destructor: u32) void {
+        qtc.QWidgetData_SetInDestructor(@ptrCast(self), @intCast(in_destructor));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#unused-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn Unused(self: ?*anyopaque) u32 {
+        return qtc.QWidgetData_Unused(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#unused-var)
+    ///
+    /// ``` self: QtC.QWidgetData, unused: u32 ```
+    pub fn SetUnused(self: ?*anyopaque, unused: u32) void {
+        qtc.QWidgetData_SetUnused(@ptrCast(self), @intCast(unused));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#crect-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn Crect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidgetData_Crect(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#crect-var)
+    ///
+    /// ``` self: QtC.QWidgetData, crect: QtC.QRect ```
+    pub fn SetCrect(self: ?*anyopaque, crect: QtC.QRect) void {
+        qtc.QWidgetData_SetCrect(@ptrCast(self), @ptrCast(crect));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#pal-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn Pal(self: ?*anyopaque) QtC.QPalette {
+        return qtc.QWidgetData_Pal(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#pal-var)
+    ///
+    /// ``` self: QtC.QWidgetData, pal: QtC.QPalette ```
+    pub fn SetPal(self: ?*anyopaque, pal: QtC.QPalette) void {
+        qtc.QWidgetData_SetPal(@ptrCast(self), @ptrCast(pal));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#fnt-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn Fnt(self: ?*anyopaque) QtC.QFont {
+        return qtc.QWidgetData_Fnt(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#fnt-var)
+    ///
+    /// ``` self: QtC.QWidgetData, fnt: QtC.QFont ```
+    pub fn SetFnt(self: ?*anyopaque, fnt: QtC.QFont) void {
+        qtc.QWidgetData_SetFnt(@ptrCast(self), @ptrCast(fnt));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#wrect-var)
+    ///
+    /// ``` self: QtC.QWidgetData ```
+    pub fn Wrect(self: ?*anyopaque) QtC.QRect {
+        return qtc.QWidgetData_Wrect(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#wrect-var)
+    ///
+    /// ``` self: QtC.QWidgetData, wrect: QtC.QRect ```
+    pub fn SetWrect(self: ?*anyopaque, wrect: QtC.QRect) void {
+        qtc.QWidgetData_SetWrect(@ptrCast(self), @ptrCast(wrect));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetdata.html#operator-eq)
     ///
     /// ``` self: QtC.QWidgetData, param1: QtC.QWidgetData ```

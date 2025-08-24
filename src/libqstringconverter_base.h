@@ -34,6 +34,14 @@ QStringConverterBase__State* QStringConverterBase__State_new();
 QStringConverterBase__State* QStringConverterBase__State_new2(int f);
 void QStringConverterBase__State_Clear(QStringConverterBase__State* self);
 void QStringConverterBase__State_Reset(QStringConverterBase__State* self);
+int QStringConverterBase__State_Flags(const QStringConverterBase__State* self);
+void QStringConverterBase__State_SetFlags(QStringConverterBase__State* self, int flags);
+int QStringConverterBase__State_InternalState(const QStringConverterBase__State* self);
+void QStringConverterBase__State_SetInternalState(QStringConverterBase__State* self, int internalState);
+ptrdiff_t QStringConverterBase__State_RemainingChars(const QStringConverterBase__State* self);
+void QStringConverterBase__State_SetRemainingChars(QStringConverterBase__State* self, ptrdiff_t remainingChars);
+ptrdiff_t QStringConverterBase__State_InvalidChars(const QStringConverterBase__State* self);
+void QStringConverterBase__State_SetInvalidChars(QStringConverterBase__State* self, ptrdiff_t invalidChars);
 void QStringConverterBase__State_Delete(QStringConverterBase__State* self);
 
 #ifdef __cplusplus

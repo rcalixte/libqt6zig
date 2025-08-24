@@ -1,5 +1,6 @@
 #include <QByteArray>
 #include <QCborArray>
+#include <QCborError>
 #include <QCborMap>
 #include <QCborParserError>
 #include <QCborStreamReader>
@@ -34,6 +35,22 @@ void QCborParserError_CopyAssign(QCborParserError* self, QCborParserError* other
 
 void QCborParserError_MoveAssign(QCborParserError* self, QCborParserError* other) {
     *self = std::move(*other);
+}
+
+long long QCborParserError_Offset(const QCborParserError* self) {
+    return static_cast<long long>(self->offset);
+}
+
+void QCborParserError_SetOffset(QCborParserError* self, long long offset) {
+    self->offset = static_cast<qint64>(offset);
+}
+
+QCborError* QCborParserError_Error(const QCborParserError* self) {
+    return new QCborError(self->error);
+}
+
+void QCborParserError_SetError(QCborParserError* self, QCborError* error) {
+    self->error = *error;
 }
 
 libqt_string QCborParserError_ErrorString(const QCborParserError* self) {

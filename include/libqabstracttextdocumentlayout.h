@@ -31,11 +31,13 @@ typedef struct QMetaObject QMetaObject;
 typedef struct QObject QObject;
 typedef struct QPaintDevice QPaintDevice;
 typedef struct QPainter QPainter;
+typedef struct QPalette QPalette;
 typedef struct QPointF QPointF;
 typedef struct QRectF QRectF;
 typedef struct QSizeF QSizeF;
 typedef struct QTextBlock QTextBlock;
 typedef struct QTextCharFormat QTextCharFormat;
+typedef struct QTextCursor QTextCursor;
 typedef struct QTextDocument QTextDocument;
 typedef struct QTextFormat QTextFormat;
 typedef struct QTextFrame QTextFrame;
@@ -151,10 +153,22 @@ void QTextObjectInterface_OperatorAssign(QTextObjectInterface* self, const QText
 void QTextObjectInterface_Delete(QTextObjectInterface* self);
 
 QAbstractTextDocumentLayout__Selection* QAbstractTextDocumentLayout__Selection_new();
+QTextCursor* QAbstractTextDocumentLayout__Selection_Cursor(const QAbstractTextDocumentLayout__Selection* self);
+void QAbstractTextDocumentLayout__Selection_SetCursor(QAbstractTextDocumentLayout__Selection* self, QTextCursor* cursor);
+QTextCharFormat* QAbstractTextDocumentLayout__Selection_Format(const QAbstractTextDocumentLayout__Selection* self);
+void QAbstractTextDocumentLayout__Selection_SetFormat(QAbstractTextDocumentLayout__Selection* self, QTextCharFormat* format);
 void QAbstractTextDocumentLayout__Selection_OperatorAssign(QAbstractTextDocumentLayout__Selection* self, const QAbstractTextDocumentLayout__Selection* param1);
 void QAbstractTextDocumentLayout__Selection_Delete(QAbstractTextDocumentLayout__Selection* self);
 
 QAbstractTextDocumentLayout__PaintContext* QAbstractTextDocumentLayout__PaintContext_new();
+int QAbstractTextDocumentLayout__PaintContext_CursorPosition(const QAbstractTextDocumentLayout__PaintContext* self);
+void QAbstractTextDocumentLayout__PaintContext_SetCursorPosition(QAbstractTextDocumentLayout__PaintContext* self, int cursorPosition);
+QPalette* QAbstractTextDocumentLayout__PaintContext_Palette(const QAbstractTextDocumentLayout__PaintContext* self);
+void QAbstractTextDocumentLayout__PaintContext_SetPalette(QAbstractTextDocumentLayout__PaintContext* self, QPalette* palette);
+QRectF* QAbstractTextDocumentLayout__PaintContext_Clip(const QAbstractTextDocumentLayout__PaintContext* self);
+void QAbstractTextDocumentLayout__PaintContext_SetClip(QAbstractTextDocumentLayout__PaintContext* self, QRectF* clip);
+libqt_list /* of QAbstractTextDocumentLayout__Selection* */ QAbstractTextDocumentLayout__PaintContext_Selections(const QAbstractTextDocumentLayout__PaintContext* self);
+void QAbstractTextDocumentLayout__PaintContext_SetSelections(QAbstractTextDocumentLayout__PaintContext* self, libqt_list /* of QAbstractTextDocumentLayout__Selection* */ selections);
 void QAbstractTextDocumentLayout__PaintContext_OperatorAssign(QAbstractTextDocumentLayout__PaintContext* self, const QAbstractTextDocumentLayout__PaintContext* param1);
 void QAbstractTextDocumentLayout__PaintContext_Delete(QAbstractTextDocumentLayout__PaintContext* self);
 

@@ -587,6 +587,78 @@ pub const qwebenginewebauthuxrequest = struct {
     }
 };
 
+/// https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html
+pub const qwebenginewebauthpinrequest = struct {
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#reason-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    ///
+    /// Returns: ``` qwebenginewebauthuxrequest_enums.PinEntryReason ```
+    pub fn Reason(self: ?*anyopaque) i32 {
+        return qtc.QWebEngineWebAuthPinRequest_Reason(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#reason-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest, reason: qwebenginewebauthuxrequest_enums.PinEntryReason ```
+    pub fn SetReason(self: ?*anyopaque, reason: i32) void {
+        qtc.QWebEngineWebAuthPinRequest_SetReason(@ptrCast(self), @intCast(reason));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#error-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    ///
+    /// Returns: ``` qwebenginewebauthuxrequest_enums.PinEntryError ```
+    pub fn Error(self: ?*anyopaque) i32 {
+        return qtc.QWebEngineWebAuthPinRequest_Error(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#error-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest, error: qwebenginewebauthuxrequest_enums.PinEntryError ```
+    pub fn SetError(self: ?*anyopaque, _error: i32) void {
+        qtc.QWebEngineWebAuthPinRequest_SetError(@ptrCast(self), @intCast(_error));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#minPinLength-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    pub fn MinPinLength(self: ?*anyopaque) i32 {
+        return qtc.QWebEngineWebAuthPinRequest_MinPinLength(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#minPinLength-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest, minPinLength: i32 ```
+    pub fn SetMinPinLength(self: ?*anyopaque, minPinLength: i32) void {
+        qtc.QWebEngineWebAuthPinRequest_SetMinPinLength(@ptrCast(self), @intCast(minPinLength));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#remainingAttempts-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    pub fn RemainingAttempts(self: ?*anyopaque) i32 {
+        return qtc.QWebEngineWebAuthPinRequest_RemainingAttempts(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#remainingAttempts-var)
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest, remainingAttempts: i32 ```
+    pub fn SetRemainingAttempts(self: ?*anyopaque, remainingAttempts: i32) void {
+        qtc.QWebEngineWebAuthPinRequest_SetRemainingAttempts(@ptrCast(self), @intCast(remainingAttempts));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthpinrequest.html#dtor.QWebEngineWebAuthPinRequest)
+    ///
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.QWebEngineWebAuthPinRequest ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.QWebEngineWebAuthPinRequest_Delete(@ptrCast(self));
+    }
+};
+
 /// https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#types
 pub const enums = struct {
     pub const WebAuthUxState = enum {

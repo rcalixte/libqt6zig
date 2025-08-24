@@ -2070,6 +2070,44 @@ pub const qdtlsclientverifier__generatorparameters = struct {
         return qtc.QDtlsClientVerifier__GeneratorParameters_new3(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
+    ///
+    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters ```
+    ///
+    /// Returns: ``` qcryptographichash_enums.Algorithm ```
+    pub fn Hash(self: ?*anyopaque) i32 {
+        return qtc.QDtlsClientVerifier__GeneratorParameters_Hash(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#hash-var)
+    ///
+    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, hash: qcryptographichash_enums.Algorithm ```
+    pub fn SetHash(self: ?*anyopaque, hash: i32) void {
+        qtc.QDtlsClientVerifier__GeneratorParameters_SetHash(@ptrCast(self), @intCast(hash));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
+    ///
+    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, allocator: std.mem.Allocator ```
+    pub fn Secret(self: ?*anyopaque, allocator: std.mem.Allocator) []u8 {
+        const secret_bytearray: qtc.libqt_string = qtc.QDtlsClientVerifier__GeneratorParameters_Secret(@ptrCast(self));
+        defer qtc.libqt_string_free(&secret_bytearray);
+        const secret_ret = allocator.alloc(u8, secret_bytearray.len) catch @panic("qdtlsclientverifier::generatorparameters.Secret: Memory allocation failed");
+        @memcpy(secret_ret, secret_bytearray.data[0..secret_bytearray.len]);
+        return secret_ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#secret-var)
+    ///
+    /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, secret: []u8 ```
+    pub fn SetSecret(self: ?*anyopaque, secret: []u8) void {
+        const secret_str = qtc.libqt_string{
+            .len = secret.len,
+            .data = secret.ptr,
+        };
+        qtc.QDtlsClientVerifier__GeneratorParameters_SetSecret(@ptrCast(self), secret_str);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qdtlsclientverifier-generatorparameters.html#operator-eq)
     ///
     /// ``` self: QtC.QDtlsClientVerifier__GeneratorParameters, param1: QtC.QDtlsClientVerifier__GeneratorParameters ```

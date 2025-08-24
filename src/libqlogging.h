@@ -24,6 +24,16 @@ typedef struct QNoDebug QNoDebug;
 
 QMessageLogContext* QMessageLogContext_new();
 QMessageLogContext* QMessageLogContext_new2(const char* fileName, int lineNumber, const char* functionName, const char* categoryName);
+int QMessageLogContext_Version(const QMessageLogContext* self);
+void QMessageLogContext_SetVersion(QMessageLogContext* self, int version);
+int QMessageLogContext_Line(const QMessageLogContext* self);
+void QMessageLogContext_SetLine(QMessageLogContext* self, int line);
+const char* QMessageLogContext_File(const QMessageLogContext* self);
+void QMessageLogContext_SetFile(QMessageLogContext* self, const char* file);
+const char* QMessageLogContext_Function(const QMessageLogContext* self);
+void QMessageLogContext_SetFunction(QMessageLogContext* self, const char* function);
+const char* QMessageLogContext_Category(const QMessageLogContext* self);
+void QMessageLogContext_SetCategory(QMessageLogContext* self, const char* category);
 void QMessageLogContext_Delete(QMessageLogContext* self);
 
 QMessageLogger* QMessageLogger_new();

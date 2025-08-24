@@ -245,6 +245,50 @@ pub const qbrushdata = struct {
         return qtc.QBrushData_new(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#style-var)
+    ///
+    /// ``` self: QtC.QBrushData ```
+    ///
+    /// Returns: ``` qnamespace_enums.BrushStyle ```
+    pub fn Style(self: ?*anyopaque) i32 {
+        return qtc.QBrushData_Style(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#style-var)
+    ///
+    /// ``` self: QtC.QBrushData, style: qnamespace_enums.BrushStyle ```
+    pub fn SetStyle(self: ?*anyopaque, style: i32) void {
+        qtc.QBrushData_SetStyle(@ptrCast(self), @intCast(style));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#color-var)
+    ///
+    /// ``` self: QtC.QBrushData ```
+    pub fn Color(self: ?*anyopaque) QtC.QColor {
+        return qtc.QBrushData_Color(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#color-var)
+    ///
+    /// ``` self: QtC.QBrushData, color: QtC.QColor ```
+    pub fn SetColor(self: ?*anyopaque, color: QtC.QColor) void {
+        qtc.QBrushData_SetColor(@ptrCast(self), @ptrCast(color));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#transform-var)
+    ///
+    /// ``` self: QtC.QBrushData ```
+    pub fn Transform(self: ?*anyopaque) QtC.QTransform {
+        return qtc.QBrushData_Transform(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#transform-var)
+    ///
+    /// ``` self: QtC.QBrushData, transform: QtC.QTransform ```
+    pub fn SetTransform(self: ?*anyopaque, transform: QtC.QTransform) void {
+        qtc.QBrushData_SetTransform(@ptrCast(self), @ptrCast(transform));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#operator-eq)
     ///
     /// ``` self: QtC.QBrushData, param1: QtC.QBrushData ```

@@ -228,6 +228,10 @@ QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new(const QProc
 QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new2(QProcess__UnixProcessParameters* other);
 void QProcess__UnixProcessParameters_CopyAssign(QProcess__UnixProcessParameters* self, QProcess__UnixProcessParameters* other);
 void QProcess__UnixProcessParameters_MoveAssign(QProcess__UnixProcessParameters* self, QProcess__UnixProcessParameters* other);
+int QProcess__UnixProcessParameters_Flags(const QProcess__UnixProcessParameters* self);
+void QProcess__UnixProcessParameters_SetFlags(QProcess__UnixProcessParameters* self, int flags);
+int QProcess__UnixProcessParameters_LowestFileDescriptorToClose(const QProcess__UnixProcessParameters* self);
+void QProcess__UnixProcessParameters_SetLowestFileDescriptorToClose(QProcess__UnixProcessParameters* self, int lowestFileDescriptorToClose);
 void QProcess__UnixProcessParameters_Delete(QProcess__UnixProcessParameters* self);
 
 #ifdef __cplusplus

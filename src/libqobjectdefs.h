@@ -63,6 +63,14 @@ void QGenericReturnArgument_CopyAssign(QGenericReturnArgument* self, QGenericRet
 void QGenericReturnArgument_MoveAssign(QGenericReturnArgument* self, QGenericReturnArgument* other);
 void QGenericReturnArgument_Delete(QGenericReturnArgument* self);
 
+const char* QMetaMethodArgument_Name(const QMetaMethodArgument* self);
+void QMetaMethodArgument_SetName(QMetaMethodArgument* self, const char* name);
+void QMetaMethodArgument_Delete(QMetaMethodArgument* self);
+
+const char* QMetaMethodReturnArgument_Name(const QMetaMethodReturnArgument* self);
+void QMetaMethodReturnArgument_SetName(QMetaMethodReturnArgument* self, const char* name);
+void QMetaMethodReturnArgument_Delete(QMetaMethodReturnArgument* self);
+
 QMetaObject* QMetaObject_new();
 QMetaObject* QMetaObject_new2(const QMetaObject* param1);
 const char* QMetaObject_ClassName(const QMetaObject* self);
@@ -112,6 +120,8 @@ bool QMetaObject_InvokeMethod4(QObject* obj, const char* member, QGenericArgumen
 QObject* QMetaObject_NewInstance(const QMetaObject* self, QGenericArgument* val0);
 int QMetaObject_StaticMetacall(const QMetaObject* self, int param1, int param2, void** param3);
 int QMetaObject_Metacall(QObject* param1, int param2, int param3, void** param4);
+QMetaObject__Data* QMetaObject_D(const QMetaObject* self);
+void QMetaObject_SetD(QMetaObject* self, QMetaObject__Data* d);
 libqt_string QMetaObject_Tr3(const QMetaObject* self, const char* s, const char* c, int n);
 QMetaObject__Connection* QMetaObject_Connect5(const QObject* sender, int signal_index, const QObject* receiver, int method_index, int typeVal);
 QMetaObject__Connection* QMetaObject_Connect6(const QObject* sender, int signal_index, const QObject* receiver, int method_index, int typeVal, int* types);
@@ -173,6 +183,8 @@ void QMetaObject__Connection_Delete(QMetaObject__Connection* self);
 QMetaObject__SuperData* QMetaObject__SuperData_new();
 QMetaObject__SuperData* QMetaObject__SuperData_new2(const QMetaObject* mo);
 QMetaObject__SuperData* QMetaObject__SuperData_new3(const QMetaObject__SuperData* param1);
+QMetaObject* QMetaObject__SuperData_Direct(const QMetaObject__SuperData* self);
+void QMetaObject__SuperData_SetDirect(QMetaObject__SuperData* self, const QMetaObject* direct);
 QMetaObject* QMetaObject__SuperData_OperatorMinusGreater(const QMetaObject__SuperData* self);
 QMetaObject* QMetaObject__SuperData_ToConstQMetaObjectMultiply(const QMetaObject__SuperData* self);
 void QMetaObject__SuperData_OperatorAssign(QMetaObject__SuperData* self, const QMetaObject__SuperData* param1);
@@ -180,6 +192,14 @@ void QMetaObject__SuperData_Delete(QMetaObject__SuperData* self);
 
 QMetaObject__Data* QMetaObject__Data_new();
 QMetaObject__Data* QMetaObject__Data_new2(const QMetaObject__Data* param1);
+QMetaObject__SuperData* QMetaObject__Data_Superdata(const QMetaObject__Data* self);
+void QMetaObject__Data_SetSuperdata(QMetaObject__Data* self, QMetaObject__SuperData* superdata);
+const unsigned int* QMetaObject__Data_Stringdata(const QMetaObject__Data* self);
+void QMetaObject__Data_SetStringdata(QMetaObject__Data* self, const unsigned int* stringdata);
+const unsigned int* QMetaObject__Data_Data(const QMetaObject__Data* self);
+void QMetaObject__Data_SetData(QMetaObject__Data* self, const unsigned int* data);
+QMetaObject__SuperData* QMetaObject__Data_RelatedMetaObjects(const QMetaObject__Data* self);
+void QMetaObject__Data_SetRelatedMetaObjects(QMetaObject__Data* self, const QMetaObject__SuperData* relatedMetaObjects);
 void QMetaObject__Data_OperatorAssign(QMetaObject__Data* self, const QMetaObject__Data* param1);
 void QMetaObject__Data_Delete(QMetaObject__Data* self);
 

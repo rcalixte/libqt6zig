@@ -44,6 +44,36 @@ pub const qjsonparseerror = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonparseerror.html#offset-var)
+    ///
+    /// ``` self: QtC.QJsonParseError ```
+    pub fn Offset(self: ?*anyopaque) i32 {
+        return qtc.QJsonParseError_Offset(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonparseerror.html#offset-var)
+    ///
+    /// ``` self: QtC.QJsonParseError, offset: i32 ```
+    pub fn SetOffset(self: ?*anyopaque, offset: i32) void {
+        qtc.QJsonParseError_SetOffset(@ptrCast(self), @intCast(offset));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonparseerror.html#error-var)
+    ///
+    /// ``` self: QtC.QJsonParseError ```
+    ///
+    /// Returns: ``` qjsondocument_enums.ParseError ```
+    pub fn Error(self: ?*anyopaque) i32 {
+        return qtc.QJsonParseError_Error(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonparseerror.html#error-var)
+    ///
+    /// ``` self: QtC.QJsonParseError, error: qjsondocument_enums.ParseError ```
+    pub fn SetError(self: ?*anyopaque, _error: i32) void {
+        qtc.QJsonParseError_SetError(@ptrCast(self), @intCast(_error));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qjsonparseerror.html#dtor.QJsonParseError)
     ///
     /// Delete this object from C++ memory.

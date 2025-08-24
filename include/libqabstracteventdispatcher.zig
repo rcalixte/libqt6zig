@@ -1411,6 +1411,50 @@ pub const qabstracteventdispatcher__timerinfo = struct {
         qtc.QAbstractEventDispatcher__TimerInfo_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerId-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo ```
+    pub fn TimerId(self: ?*anyopaque) i32 {
+        return qtc.QAbstractEventDispatcher__TimerInfo_TimerId(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerId-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo, timerId: i32 ```
+    pub fn SetTimerId(self: ?*anyopaque, timerId: i32) void {
+        qtc.QAbstractEventDispatcher__TimerInfo_SetTimerId(@ptrCast(self), @intCast(timerId));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#interval-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo ```
+    pub fn Interval(self: ?*anyopaque) i32 {
+        return qtc.QAbstractEventDispatcher__TimerInfo_Interval(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#interval-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo, interval: i32 ```
+    pub fn SetInterval(self: ?*anyopaque, interval: i32) void {
+        qtc.QAbstractEventDispatcher__TimerInfo_SetInterval(@ptrCast(self), @intCast(interval));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerType-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo ```
+    ///
+    /// Returns: ``` qnamespace_enums.TimerType ```
+    pub fn TimerType(self: ?*anyopaque) i32 {
+        return qtc.QAbstractEventDispatcher__TimerInfo_TimerType(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfo.html#timerType-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo, timerType: qnamespace_enums.TimerType ```
+    pub fn SetTimerType(self: ?*anyopaque, timerType: i32) void {
+        qtc.QAbstractEventDispatcher__TimerInfo_SetTimerType(@ptrCast(self), @intCast(timerType));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QAbstractEventDispatcher__TimerInfo ```
@@ -1433,6 +1477,38 @@ pub const qabstracteventdispatcher__timerinfov2 = struct {
     ///
     pub fn New2() QtC.QAbstractEventDispatcher__TimerInfoV2 {
         return qtc.QAbstractEventDispatcher__TimerInfoV2_new2();
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerId-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2 ```
+    ///
+    /// Returns: ``` qnamespace_enums.TimerId ```
+    pub fn TimerId(self: ?*anyopaque) i32 {
+        return qtc.QAbstractEventDispatcher__TimerInfoV2_TimerId(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerId-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2, timerId: qnamespace_enums.TimerId ```
+    pub fn SetTimerId(self: ?*anyopaque, timerId: i32) void {
+        qtc.QAbstractEventDispatcher__TimerInfoV2_SetTimerId(@ptrCast(self), @intCast(timerId));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerType-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2 ```
+    ///
+    /// Returns: ``` qnamespace_enums.TimerType ```
+    pub fn TimerType(self: ?*anyopaque) i32 {
+        return qtc.QAbstractEventDispatcher__TimerInfoV2_TimerType(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#timerType-var)
+    ///
+    /// ``` self: QtC.QAbstractEventDispatcher__TimerInfoV2, timerType: qnamespace_enums.TimerType ```
+    pub fn SetTimerType(self: ?*anyopaque, timerType: i32) void {
+        qtc.QAbstractEventDispatcher__TimerInfoV2_SetTimerType(@ptrCast(self), @intCast(timerType));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher-timerinfov2.html#operator-eq)

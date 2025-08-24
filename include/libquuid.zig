@@ -192,6 +192,48 @@ pub const quuid = struct {
         return qtc.QUuid_Version(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data1-var)
+    ///
+    /// ``` self: QtC.QUuid ```
+    pub fn Data1(self: ?*anyopaque) u32 {
+        return qtc.QUuid_Data1(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data1-var)
+    ///
+    /// ``` self: QtC.QUuid, data1: u32 ```
+    pub fn SetData1(self: ?*anyopaque, data1: u32) void {
+        qtc.QUuid_SetData1(@ptrCast(self), @intCast(data1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data2-var)
+    ///
+    /// ``` self: QtC.QUuid ```
+    pub fn Data2(self: ?*anyopaque) u16 {
+        return qtc.QUuid_Data2(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data2-var)
+    ///
+    /// ``` self: QtC.QUuid, data2: u16 ```
+    pub fn SetData2(self: ?*anyopaque, data2: u16) void {
+        qtc.QUuid_SetData2(@ptrCast(self), @intCast(data2));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data3-var)
+    ///
+    /// ``` self: QtC.QUuid ```
+    pub fn Data3(self: ?*anyopaque) u16 {
+        return qtc.QUuid_Data3(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#data3-var)
+    ///
+    /// ``` self: QtC.QUuid, data3: u16 ```
+    pub fn SetData3(self: ?*anyopaque, data3: u16) void {
+        qtc.QUuid_SetData3(@ptrCast(self), @intCast(data3));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#toString)
     ///
     /// ``` self: QtC.QUuid, mode: quuid_enums.StringFormat, allocator: std.mem.Allocator ```

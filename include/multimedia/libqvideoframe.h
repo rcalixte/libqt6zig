@@ -18,6 +18,7 @@ extern "C" {
 typedef QVideoFrame::PaintOptions QVideoFrame__PaintOptions;
 #endif
 #else
+typedef struct QColor QColor;
 typedef struct QImage QImage;
 typedef struct QPainter QPainter;
 typedef struct QRectF QRectF;
@@ -75,6 +76,12 @@ QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new(const QVideoFrame__Pain
 QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new2(QVideoFrame__PaintOptions* other);
 void QVideoFrame__PaintOptions_CopyAssign(QVideoFrame__PaintOptions* self, QVideoFrame__PaintOptions* other);
 void QVideoFrame__PaintOptions_MoveAssign(QVideoFrame__PaintOptions* self, QVideoFrame__PaintOptions* other);
+QColor* QVideoFrame__PaintOptions_BackgroundColor(const QVideoFrame__PaintOptions* self);
+void QVideoFrame__PaintOptions_SetBackgroundColor(QVideoFrame__PaintOptions* self, QColor* backgroundColor);
+int QVideoFrame__PaintOptions_AspectRatioMode(const QVideoFrame__PaintOptions* self);
+void QVideoFrame__PaintOptions_SetAspectRatioMode(QVideoFrame__PaintOptions* self, int aspectRatioMode);
+int QVideoFrame__PaintOptions_PaintFlags(const QVideoFrame__PaintOptions* self);
+void QVideoFrame__PaintOptions_SetPaintFlags(QVideoFrame__PaintOptions* self, int paintFlags);
 void QVideoFrame__PaintOptions_Delete(QVideoFrame__PaintOptions* self);
 
 #ifdef __cplusplus

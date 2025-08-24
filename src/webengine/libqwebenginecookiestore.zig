@@ -564,6 +564,76 @@ pub const qwebenginecookiestore__filterrequest = struct {
         return qtc.QWebEngineCookieStore__FilterRequest_new(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#firstPartyUrl-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn FirstPartyUrl(self: ?*anyopaque) QtC.QUrl {
+        return qtc.QWebEngineCookieStore__FilterRequest_FirstPartyUrl(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#firstPartyUrl-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, firstPartyUrl: QtC.QUrl ```
+    pub fn SetFirstPartyUrl(self: ?*anyopaque, firstPartyUrl: QtC.QUrl) void {
+        qtc.QWebEngineCookieStore__FilterRequest_SetFirstPartyUrl(@ptrCast(self), @ptrCast(firstPartyUrl));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#origin-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn Origin(self: ?*anyopaque) QtC.QUrl {
+        return qtc.QWebEngineCookieStore__FilterRequest_Origin(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#origin-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, origin: QtC.QUrl ```
+    pub fn SetOrigin(self: ?*anyopaque, origin: QtC.QUrl) void {
+        qtc.QWebEngineCookieStore__FilterRequest_SetOrigin(@ptrCast(self), @ptrCast(origin));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#thirdParty-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn ThirdParty(self: ?*anyopaque) bool {
+        return qtc.QWebEngineCookieStore__FilterRequest_ThirdParty(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#thirdParty-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, thirdParty: bool ```
+    pub fn SetThirdParty(self: ?*anyopaque, thirdParty: bool) void {
+        qtc.QWebEngineCookieStore__FilterRequest_SetThirdParty(@ptrCast(self), thirdParty);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#_reservedFlag-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn ReservedFlag(self: ?*anyopaque) bool {
+        return qtc.QWebEngineCookieStore__FilterRequest_ReservedFlag(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#_reservedFlag-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, _reservedFlag: bool ```
+    pub fn SetReservedFlag(self: ?*anyopaque, _reservedFlag: bool) void {
+        qtc.QWebEngineCookieStore__FilterRequest_SetReservedFlag(@ptrCast(self), _reservedFlag);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#_reservedType-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest ```
+    pub fn ReservedType(self: ?*anyopaque) u16 {
+        return qtc.QWebEngineCookieStore__FilterRequest_ReservedType(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#_reservedType-var)
+    ///
+    /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, _reservedType: u16 ```
+    pub fn SetReservedType(self: ?*anyopaque, _reservedType: u16) void {
+        qtc.QWebEngineCookieStore__FilterRequest_SetReservedType(@ptrCast(self), @intCast(_reservedType));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#operator-eq)
     ///
     /// ``` self: QtC.QWebEngineCookieStore__FilterRequest, param1: QtC.QWebEngineCookieStore__FilterRequest ```

@@ -415,6 +415,80 @@ pub const qiconengine__scaledpixmapargument = struct {
         return qtc.QIconEngine__ScaledPixmapArgument_new(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#size-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument ```
+    pub fn Size(self: ?*anyopaque) QtC.QSize {
+        return qtc.QIconEngine__ScaledPixmapArgument_Size(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#size-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, size: QtC.QSize ```
+    pub fn SetSize(self: ?*anyopaque, size: QtC.QSize) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetSize(@ptrCast(self), @ptrCast(size));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#mode-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument ```
+    ///
+    /// Returns: ``` qicon_enums.Mode ```
+    pub fn Mode(self: ?*anyopaque) i32 {
+        return qtc.QIconEngine__ScaledPixmapArgument_Mode(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#mode-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, mode: qicon_enums.Mode ```
+    pub fn SetMode(self: ?*anyopaque, mode: i32) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetMode(@ptrCast(self), @intCast(mode));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#state-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument ```
+    ///
+    /// Returns: ``` qicon_enums.State ```
+    pub fn State(self: ?*anyopaque) i32 {
+        return qtc.QIconEngine__ScaledPixmapArgument_State(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#state-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, state: qicon_enums.State ```
+    pub fn SetState(self: ?*anyopaque, state: i32) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetState(@ptrCast(self), @intCast(state));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#scale-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument ```
+    pub fn Scale(self: ?*anyopaque) f64 {
+        return qtc.QIconEngine__ScaledPixmapArgument_Scale(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#scale-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, scale: f64 ```
+    pub fn SetScale(self: ?*anyopaque, scale: f64) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetScale(@ptrCast(self), @floatCast(scale));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#pixmap-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument ```
+    pub fn Pixmap(self: ?*anyopaque) QtC.QPixmap {
+        return qtc.QIconEngine__ScaledPixmapArgument_Pixmap(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#pixmap-var)
+    ///
+    /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, pixmap: QtC.QPixmap ```
+    pub fn SetPixmap(self: ?*anyopaque, pixmap: QtC.QPixmap) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetPixmap(@ptrCast(self), @ptrCast(pixmap));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#operator-eq)
     ///
     /// ``` self: QtC.QIconEngine__ScaledPixmapArgument, param1: QtC.QIconEngine__ScaledPixmapArgument ```

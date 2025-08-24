@@ -6478,6 +6478,34 @@ pub const qtextedit__extraselection = struct {
         return qtc.QTextEdit__ExtraSelection_new(@ptrCast(param1));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#cursor-var)
+    ///
+    /// ``` self: QtC.QTextEdit__ExtraSelection ```
+    pub fn Cursor(self: ?*anyopaque) QtC.QTextCursor {
+        return qtc.QTextEdit__ExtraSelection_Cursor(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#cursor-var)
+    ///
+    /// ``` self: QtC.QTextEdit__ExtraSelection, cursor: QtC.QTextCursor ```
+    pub fn SetCursor(self: ?*anyopaque, cursor: QtC.QTextCursor) void {
+        qtc.QTextEdit__ExtraSelection_SetCursor(@ptrCast(self), @ptrCast(cursor));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#format-var)
+    ///
+    /// ``` self: QtC.QTextEdit__ExtraSelection ```
+    pub fn Format(self: ?*anyopaque) QtC.QTextCharFormat {
+        return qtc.QTextEdit__ExtraSelection_Format(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#format-var)
+    ///
+    /// ``` self: QtC.QTextEdit__ExtraSelection, format: QtC.QTextCharFormat ```
+    pub fn SetFormat(self: ?*anyopaque, format: QtC.QTextCharFormat) void {
+        qtc.QTextEdit__ExtraSelection_SetFormat(@ptrCast(self), @ptrCast(format));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit-extraselection.html#operator-eq)
     ///
     /// ``` self: QtC.QTextEdit__ExtraSelection, param1: QtC.QTextEdit__ExtraSelection ```

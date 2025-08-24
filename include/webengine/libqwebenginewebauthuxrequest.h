@@ -41,6 +41,16 @@ libqt_string QWebEngineWebAuthUxRequest_Tr2(const char* s, const char* c);
 libqt_string QWebEngineWebAuthUxRequest_Tr3(const char* s, const char* c, int n);
 void QWebEngineWebAuthUxRequest_Delete(QWebEngineWebAuthUxRequest* self);
 
+int QWebEngineWebAuthPinRequest_Reason(const QWebEngineWebAuthPinRequest* self);
+void QWebEngineWebAuthPinRequest_SetReason(QWebEngineWebAuthPinRequest* self, int reason);
+int QWebEngineWebAuthPinRequest_Error(const QWebEngineWebAuthPinRequest* self);
+void QWebEngineWebAuthPinRequest_SetError(QWebEngineWebAuthPinRequest* self, int error);
+int QWebEngineWebAuthPinRequest_MinPinLength(const QWebEngineWebAuthPinRequest* self);
+void QWebEngineWebAuthPinRequest_SetMinPinLength(QWebEngineWebAuthPinRequest* self, int minPinLength);
+int QWebEngineWebAuthPinRequest_RemainingAttempts(const QWebEngineWebAuthPinRequest* self);
+void QWebEngineWebAuthPinRequest_SetRemainingAttempts(QWebEngineWebAuthPinRequest* self, int remainingAttempts);
+void QWebEngineWebAuthPinRequest_Delete(QWebEngineWebAuthPinRequest* self);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

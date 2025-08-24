@@ -26,6 +26,10 @@ QTileRules* QTileRules_new5(const QTileRules* param1);
 QTileRules* QTileRules_new6(int rule);
 void QTileRules_CopyAssign(QTileRules* self, QTileRules* other);
 void QTileRules_MoveAssign(QTileRules* self, QTileRules* other);
+int QTileRules_Horizontal(const QTileRules* self);
+void QTileRules_SetHorizontal(QTileRules* self, int horizontal);
+int QTileRules_Vertical(const QTileRules* self);
+void QTileRules_SetVertical(QTileRules* self, int vertical);
 void QTileRules_Delete(QTileRules* self);
 
 #ifdef __cplusplus

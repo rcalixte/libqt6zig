@@ -18,6 +18,10 @@ extern "C" {
 typedef struct QArrayData QArrayData;
 #endif
 
+int QArrayData_Flags(const QArrayData* self);
+void QArrayData_SetFlags(QArrayData* self, int flags);
+ptrdiff_t QArrayData_Alloc(const QArrayData* self);
+void QArrayData_SetAlloc(QArrayData* self, ptrdiff_t alloc);
 ptrdiff_t QArrayData_AllocatedCapacity(QArrayData* self);
 ptrdiff_t QArrayData_ConstAllocatedCapacity(const QArrayData* self);
 bool QArrayData_Ref(QArrayData* self);

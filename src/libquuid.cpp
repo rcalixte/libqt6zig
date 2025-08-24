@@ -124,6 +124,30 @@ int QUuid_Version(const QUuid* self) {
     return static_cast<int>(self->version());
 }
 
+unsigned int QUuid_Data1(const QUuid* self) {
+    return static_cast<unsigned int>(self->data1);
+}
+
+void QUuid_SetData1(QUuid* self, unsigned int data1) {
+    self->data1 = static_cast<uint>(data1);
+}
+
+uint16_t QUuid_Data2(const QUuid* self) {
+    return static_cast<uint16_t>(self->data2);
+}
+
+void QUuid_SetData2(QUuid* self, uint16_t data2) {
+    self->data2 = static_cast<ushort>(data2);
+}
+
+uint16_t QUuid_Data3(const QUuid* self) {
+    return static_cast<uint16_t>(self->data3);
+}
+
+void QUuid_SetData3(QUuid* self, uint16_t data3) {
+    self->data3 = static_cast<ushort>(data3);
+}
+
 libqt_string QUuid_ToString1(const QUuid* self, int mode) {
     QString _ret = self->toString(static_cast<QUuid::StringFormat>(mode));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

@@ -156,6 +156,30 @@ bool QTextOption__Tab_OperatorNotEqual(const QTextOption__Tab* self, const QText
     return (*self != *other);
 }
 
+double QTextOption__Tab_Position(const QTextOption__Tab* self) {
+    return self->position;
+}
+
+void QTextOption__Tab_SetPosition(QTextOption__Tab* self, double position) {
+    self->position = static_cast<double>(position);
+}
+
+int QTextOption__Tab_Type(const QTextOption__Tab* self) {
+    return static_cast<int>(self->type);
+}
+
+void QTextOption__Tab_SetType(QTextOption__Tab* self, int type) {
+    self->type = static_cast<QTextOption::TabType>(type);
+}
+
+QChar* QTextOption__Tab_Delimiter(const QTextOption__Tab* self) {
+    return new QChar(self->delimiter);
+}
+
+void QTextOption__Tab_SetDelimiter(QTextOption__Tab* self, QChar* delimiter) {
+    self->delimiter = *delimiter;
+}
+
 void QTextOption__Tab_Delete(QTextOption__Tab* self) {
     delete self;
 }

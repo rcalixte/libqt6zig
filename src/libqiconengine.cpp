@@ -533,6 +533,46 @@ QIconEngine__ScaledPixmapArgument* QIconEngine__ScaledPixmapArgument_new(const Q
     return new QIconEngine::ScaledPixmapArgument(*param1);
 }
 
+QSize* QIconEngine__ScaledPixmapArgument_Size(const QIconEngine__ScaledPixmapArgument* self) {
+    return new QSize(self->size);
+}
+
+void QIconEngine__ScaledPixmapArgument_SetSize(QIconEngine__ScaledPixmapArgument* self, QSize* size) {
+    self->size = *size;
+}
+
+int QIconEngine__ScaledPixmapArgument_Mode(const QIconEngine__ScaledPixmapArgument* self) {
+    return static_cast<int>(self->mode);
+}
+
+void QIconEngine__ScaledPixmapArgument_SetMode(QIconEngine__ScaledPixmapArgument* self, int mode) {
+    self->mode = static_cast<QIcon::Mode>(mode);
+}
+
+int QIconEngine__ScaledPixmapArgument_State(const QIconEngine__ScaledPixmapArgument* self) {
+    return static_cast<int>(self->state);
+}
+
+void QIconEngine__ScaledPixmapArgument_SetState(QIconEngine__ScaledPixmapArgument* self, int state) {
+    self->state = static_cast<QIcon::State>(state);
+}
+
+double QIconEngine__ScaledPixmapArgument_Scale(const QIconEngine__ScaledPixmapArgument* self) {
+    return self->scale;
+}
+
+void QIconEngine__ScaledPixmapArgument_SetScale(QIconEngine__ScaledPixmapArgument* self, double scale) {
+    self->scale = static_cast<double>(scale);
+}
+
+QPixmap* QIconEngine__ScaledPixmapArgument_Pixmap(const QIconEngine__ScaledPixmapArgument* self) {
+    return new QPixmap(self->pixmap);
+}
+
+void QIconEngine__ScaledPixmapArgument_SetPixmap(QIconEngine__ScaledPixmapArgument* self, QPixmap* pixmap) {
+    self->pixmap = *pixmap;
+}
+
 void QIconEngine__ScaledPixmapArgument_OperatorAssign(QIconEngine__ScaledPixmapArgument* self, const QIconEngine__ScaledPixmapArgument* param1) {
     self->operator=(*param1);
 }

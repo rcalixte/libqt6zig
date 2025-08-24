@@ -40,6 +40,22 @@ libqt_string QJsonParseError_ErrorString(const QJsonParseError* self) {
     return _str;
 }
 
+int QJsonParseError_Offset(const QJsonParseError* self) {
+    return self->offset;
+}
+
+void QJsonParseError_SetOffset(QJsonParseError* self, int offset) {
+    self->offset = static_cast<int>(offset);
+}
+
+int QJsonParseError_Error(const QJsonParseError* self) {
+    return static_cast<int>(self->error);
+}
+
+void QJsonParseError_SetError(QJsonParseError* self, int error) {
+    self->error = static_cast<QJsonParseError::ParseError>(error);
+}
+
 void QJsonParseError_Delete(QJsonParseError* self) {
     delete self;
 }

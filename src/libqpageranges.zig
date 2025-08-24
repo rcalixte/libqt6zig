@@ -176,6 +176,34 @@ pub const qpageranges__range = struct {
         qtc.QPageRanges__Range_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges-range.html#from-var)
+    ///
+    /// ``` self: QtC.QPageRanges__Range ```
+    pub fn From(self: ?*anyopaque) i32 {
+        return qtc.QPageRanges__Range_From(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges-range.html#from-var)
+    ///
+    /// ``` self: QtC.QPageRanges__Range, from: i32 ```
+    pub fn SetFrom(self: ?*anyopaque, from: i32) void {
+        qtc.QPageRanges__Range_SetFrom(@ptrCast(self), @intCast(from));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges-range.html#to-var)
+    ///
+    /// ``` self: QtC.QPageRanges__Range ```
+    pub fn To(self: ?*anyopaque) i32 {
+        return qtc.QPageRanges__Range_To(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges-range.html#to-var)
+    ///
+    /// ``` self: QtC.QPageRanges__Range, to: i32 ```
+    pub fn SetTo(self: ?*anyopaque, to: i32) void {
+        qtc.QPageRanges__Range_SetTo(@ptrCast(self), @intCast(to));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpageranges-range.html#contains)
     ///
     /// ``` self: QtC.QPageRanges__Range, pageNumber: i32 ```

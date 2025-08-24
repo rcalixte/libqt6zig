@@ -67,6 +67,12 @@ bool QBrush_IsDetached(const QBrush* self);
 void QBrush_Delete(QBrush* self);
 
 QBrushData* QBrushData_new(const QBrushData* param1);
+int QBrushData_Style(const QBrushData* self);
+void QBrushData_SetStyle(QBrushData* self, int style);
+QColor* QBrushData_Color(const QBrushData* self);
+void QBrushData_SetColor(QBrushData* self, QColor* color);
+QTransform* QBrushData_Transform(const QBrushData* self);
+void QBrushData_SetTransform(QBrushData* self, QTransform* transform);
 void QBrushData_OperatorAssign(QBrushData* self, const QBrushData* param1);
 void QBrushData_Delete(QBrushData* self);
 

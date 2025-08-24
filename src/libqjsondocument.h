@@ -28,6 +28,10 @@ QJsonParseError* QJsonParseError_new2(QJsonParseError* other);
 void QJsonParseError_CopyAssign(QJsonParseError* self, QJsonParseError* other);
 void QJsonParseError_MoveAssign(QJsonParseError* self, QJsonParseError* other);
 libqt_string QJsonParseError_ErrorString(const QJsonParseError* self);
+int QJsonParseError_Offset(const QJsonParseError* self);
+void QJsonParseError_SetOffset(QJsonParseError* self, int offset);
+int QJsonParseError_Error(const QJsonParseError* self);
+void QJsonParseError_SetError(QJsonParseError* self, int error);
 void QJsonParseError_Delete(QJsonParseError* self);
 
 QJsonDocument* QJsonDocument_new();

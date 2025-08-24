@@ -16,6 +16,7 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct QCborArray QCborArray;
+typedef struct QCborError QCborError;
 typedef struct QCborMap QCborMap;
 typedef struct QCborParserError QCborParserError;
 typedef struct QCborStreamReader QCborStreamReader;
@@ -35,6 +36,10 @@ QCborParserError* QCborParserError_new(const QCborParserError* other);
 QCborParserError* QCborParserError_new2(QCborParserError* other);
 void QCborParserError_CopyAssign(QCborParserError* self, QCborParserError* other);
 void QCborParserError_MoveAssign(QCborParserError* self, QCborParserError* other);
+long long QCborParserError_Offset(const QCborParserError* self);
+void QCborParserError_SetOffset(QCborParserError* self, long long offset);
+QCborError* QCborParserError_Error(const QCborParserError* self);
+void QCborParserError_SetError(QCborParserError* self, QCborError* error);
 libqt_string QCborParserError_ErrorString(const QCborParserError* self);
 void QCborParserError_Delete(QCborParserError* self);
 

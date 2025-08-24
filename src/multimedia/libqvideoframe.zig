@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qtvideo_enums = @import("libqtvideo.zig").enums;
 const qvideoframe_enums = enums;
 const qvideoframeformat_enums = @import("libqvideoframeformat.zig").enums;
@@ -357,6 +358,52 @@ pub const qvideoframe__paintoptions = struct {
     /// ``` self: QtC.QVideoFrame__PaintOptions, other: QtC.QVideoFrame__PaintOptions ```
     pub fn MoveAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QVideoFrame__PaintOptions_MoveAssign(@ptrCast(self), @ptrCast(other));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#backgroundColor-var)
+    ///
+    /// ``` self: QtC.QVideoFrame__PaintOptions ```
+    pub fn BackgroundColor(self: ?*anyopaque) QtC.QColor {
+        return qtc.QVideoFrame__PaintOptions_BackgroundColor(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#backgroundColor-var)
+    ///
+    /// ``` self: QtC.QVideoFrame__PaintOptions, backgroundColor: QtC.QColor ```
+    pub fn SetBackgroundColor(self: ?*anyopaque, backgroundColor: QtC.QColor) void {
+        qtc.QVideoFrame__PaintOptions_SetBackgroundColor(@ptrCast(self), @ptrCast(backgroundColor));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#aspectRatioMode-var)
+    ///
+    /// ``` self: QtC.QVideoFrame__PaintOptions ```
+    ///
+    /// Returns: ``` qnamespace_enums.AspectRatioMode ```
+    pub fn AspectRatioMode(self: ?*anyopaque) i32 {
+        return qtc.QVideoFrame__PaintOptions_AspectRatioMode(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#aspectRatioMode-var)
+    ///
+    /// ``` self: QtC.QVideoFrame__PaintOptions, aspectRatioMode: qnamespace_enums.AspectRatioMode ```
+    pub fn SetAspectRatioMode(self: ?*anyopaque, aspectRatioMode: i32) void {
+        qtc.QVideoFrame__PaintOptions_SetAspectRatioMode(@ptrCast(self), @intCast(aspectRatioMode));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#paintFlags-var)
+    ///
+    /// ``` self: QtC.QVideoFrame__PaintOptions ```
+    ///
+    /// Returns: ``` flag of qvideoframe_enums.PaintFlag ```
+    pub fn PaintFlags(self: ?*anyopaque) i64 {
+        return qtc.QVideoFrame__PaintOptions_PaintFlags(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe-paintoptions.html#paintFlags-var)
+    ///
+    /// ``` self: QtC.QVideoFrame__PaintOptions, paintFlags: flag of qvideoframe_enums.PaintFlag ```
+    pub fn SetPaintFlags(self: ?*anyopaque, paintFlags: i64) void {
+        qtc.QVideoFrame__PaintOptions_SetPaintFlags(@ptrCast(self), @intCast(paintFlags));
     }
 
     /// Delete this object from C++ memory.

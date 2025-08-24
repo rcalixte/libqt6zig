@@ -73,6 +73,16 @@ void QIconEngine_QBaseVirtualHook(QIconEngine* self, int id, void* data);
 void QIconEngine_Delete(QIconEngine* self);
 
 QIconEngine__ScaledPixmapArgument* QIconEngine__ScaledPixmapArgument_new(const QIconEngine__ScaledPixmapArgument* param1);
+QSize* QIconEngine__ScaledPixmapArgument_Size(const QIconEngine__ScaledPixmapArgument* self);
+void QIconEngine__ScaledPixmapArgument_SetSize(QIconEngine__ScaledPixmapArgument* self, QSize* size);
+int QIconEngine__ScaledPixmapArgument_Mode(const QIconEngine__ScaledPixmapArgument* self);
+void QIconEngine__ScaledPixmapArgument_SetMode(QIconEngine__ScaledPixmapArgument* self, int mode);
+int QIconEngine__ScaledPixmapArgument_State(const QIconEngine__ScaledPixmapArgument* self);
+void QIconEngine__ScaledPixmapArgument_SetState(QIconEngine__ScaledPixmapArgument* self, int state);
+double QIconEngine__ScaledPixmapArgument_Scale(const QIconEngine__ScaledPixmapArgument* self);
+void QIconEngine__ScaledPixmapArgument_SetScale(QIconEngine__ScaledPixmapArgument* self, double scale);
+QPixmap* QIconEngine__ScaledPixmapArgument_Pixmap(const QIconEngine__ScaledPixmapArgument* self);
+void QIconEngine__ScaledPixmapArgument_SetPixmap(QIconEngine__ScaledPixmapArgument* self, QPixmap* pixmap);
 void QIconEngine__ScaledPixmapArgument_OperatorAssign(QIconEngine__ScaledPixmapArgument* self, const QIconEngine__ScaledPixmapArgument* param1);
 void QIconEngine__ScaledPixmapArgument_Delete(QIconEngine__ScaledPixmapArgument* self);
 

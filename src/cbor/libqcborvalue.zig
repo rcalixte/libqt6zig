@@ -34,6 +34,34 @@ pub const qcborparsererror = struct {
         qtc.QCborParserError_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
+    ///
+    /// ``` self: QtC.QCborParserError ```
+    pub fn Offset(self: ?*anyopaque) i64 {
+        return qtc.QCborParserError_Offset(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
+    ///
+    /// ``` self: QtC.QCborParserError, offset: i64 ```
+    pub fn SetOffset(self: ?*anyopaque, offset: i64) void {
+        qtc.QCborParserError_SetOffset(@ptrCast(self), @intCast(offset));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
+    ///
+    /// ``` self: QtC.QCborParserError ```
+    pub fn Error(self: ?*anyopaque) QtC.QCborError {
+        return qtc.QCborParserError_Error(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
+    ///
+    /// ``` self: QtC.QCborParserError, error: QtC.QCborError ```
+    pub fn SetError(self: ?*anyopaque, _error: QtC.QCborError) void {
+        qtc.QCborParserError_SetError(@ptrCast(self), @ptrCast(_error));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qcborparsererror.html#errorString)
     ///
     /// ``` self: QtC.QCborParserError, allocator: std.mem.Allocator ```

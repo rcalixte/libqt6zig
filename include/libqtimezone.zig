@@ -600,6 +600,84 @@ pub const qtimezone__offsetdata = struct {
         return qtc.QTimeZone__OffsetData_new2();
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#abbreviation-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData, allocator: std.mem.Allocator ```
+    pub fn Abbreviation(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
+        const abbreviation_str = qtc.QTimeZone__OffsetData_Abbreviation(@ptrCast(self));
+        defer qtc.libqt_string_free(&abbreviation_str);
+        const abbreviation_ret = allocator.alloc(u8, abbreviation_str.len) catch @panic("qtimezone::offsetdata.Abbreviation: Memory allocation failed");
+        @memcpy(abbreviation_ret, abbreviation_str.data[0..abbreviation_str.len]);
+        return abbreviation_ret;
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#abbreviation-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData, abbreviation: []const u8 ```
+    pub fn SetAbbreviation(self: ?*anyopaque, abbreviation: []const u8) void {
+        const abbreviation_str = qtc.libqt_string{
+            .len = abbreviation.len,
+            .data = abbreviation.ptr,
+        };
+        qtc.QTimeZone__OffsetData_SetAbbreviation(@ptrCast(self), abbreviation_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#atUtc-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData ```
+    pub fn AtUtc(self: ?*anyopaque) QtC.QDateTime {
+        return qtc.QTimeZone__OffsetData_AtUtc(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#atUtc-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData, atUtc: QtC.QDateTime ```
+    pub fn SetAtUtc(self: ?*anyopaque, atUtc: QtC.QDateTime) void {
+        qtc.QTimeZone__OffsetData_SetAtUtc(@ptrCast(self), @ptrCast(atUtc));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#offsetFromUtc-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData ```
+    pub fn OffsetFromUtc(self: ?*anyopaque) i32 {
+        return qtc.QTimeZone__OffsetData_OffsetFromUtc(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#offsetFromUtc-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData, offsetFromUtc: i32 ```
+    pub fn SetOffsetFromUtc(self: ?*anyopaque, offsetFromUtc: i32) void {
+        qtc.QTimeZone__OffsetData_SetOffsetFromUtc(@ptrCast(self), @intCast(offsetFromUtc));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#standardTimeOffset-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData ```
+    pub fn StandardTimeOffset(self: ?*anyopaque) i32 {
+        return qtc.QTimeZone__OffsetData_StandardTimeOffset(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#standardTimeOffset-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData, standardTimeOffset: i32 ```
+    pub fn SetStandardTimeOffset(self: ?*anyopaque, standardTimeOffset: i32) void {
+        qtc.QTimeZone__OffsetData_SetStandardTimeOffset(@ptrCast(self), @intCast(standardTimeOffset));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#daylightTimeOffset-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData ```
+    pub fn DaylightTimeOffset(self: ?*anyopaque) i32 {
+        return qtc.QTimeZone__OffsetData_DaylightTimeOffset(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#daylightTimeOffset-var)
+    ///
+    /// ``` self: QtC.QTimeZone__OffsetData, daylightTimeOffset: i32 ```
+    pub fn SetDaylightTimeOffset(self: ?*anyopaque, daylightTimeOffset: i32) void {
+        qtc.QTimeZone__OffsetData_SetDaylightTimeOffset(@ptrCast(self), @intCast(daylightTimeOffset));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#operator-eq)
     ///
     /// ``` self: QtC.QTimeZone__OffsetData, param1: QtC.QTimeZone__OffsetData ```

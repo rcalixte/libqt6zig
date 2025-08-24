@@ -6,6 +6,14 @@
 #include "libqcborcommon.h"
 #include "libqcborcommon.hxx"
 
+int QCborError_C(const QCborError* self) {
+    return static_cast<int>(self->c);
+}
+
+void QCborError_SetC(QCborError* self, int c) {
+    self->c = static_cast<QCborError::Code>(c);
+}
+
 int QCborError_ToQCborError__Code(const QCborError* self) {
     return static_cast<int>(self->operator QCborError::Code());
 }

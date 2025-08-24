@@ -22,6 +22,12 @@ typedef struct QWebEngineGlobalSettings QWebEngineGlobalSettings;
 typedef struct QWebEngineGlobalSettings__DnsMode QWebEngineGlobalSettings__DnsMode;
 #endif
 
+uint8_t QWebEngineGlobalSettings__DnsMode_SecureMode(const QWebEngineGlobalSettings__DnsMode* self);
+void QWebEngineGlobalSettings__DnsMode_SetSecureMode(QWebEngineGlobalSettings__DnsMode* self, uint8_t secureMode);
+libqt_list /* of libqt_string */ QWebEngineGlobalSettings__DnsMode_ServerTemplates(const QWebEngineGlobalSettings__DnsMode* self);
+void QWebEngineGlobalSettings__DnsMode_SetServerTemplates(QWebEngineGlobalSettings__DnsMode* self, libqt_list /* of libqt_string */ serverTemplates);
+void QWebEngineGlobalSettings__DnsMode_Delete(QWebEngineGlobalSettings__DnsMode* self);
+
 bool QWebEngineGlobalSettings_SetDnsMode(QWebEngineGlobalSettings__DnsMode* param1);
 
 #ifdef __cplusplus

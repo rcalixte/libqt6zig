@@ -432,6 +432,48 @@ pub const qcalendar__yearmonthday = struct {
         return qtc.QCalendar__YearMonthDay_IsValid(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
+    ///
+    /// ``` self: QtC.QCalendar__YearMonthDay ```
+    pub fn Year(self: ?*anyopaque) i32 {
+        return qtc.QCalendar__YearMonthDay_Year(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
+    ///
+    /// ``` self: QtC.QCalendar__YearMonthDay, year: i32 ```
+    pub fn SetYear(self: ?*anyopaque, year: i32) void {
+        qtc.QCalendar__YearMonthDay_SetYear(@ptrCast(self), @intCast(year));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
+    ///
+    /// ``` self: QtC.QCalendar__YearMonthDay ```
+    pub fn Month(self: ?*anyopaque) i32 {
+        return qtc.QCalendar__YearMonthDay_Month(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
+    ///
+    /// ``` self: QtC.QCalendar__YearMonthDay, month: i32 ```
+    pub fn SetMonth(self: ?*anyopaque, month: i32) void {
+        qtc.QCalendar__YearMonthDay_SetMonth(@ptrCast(self), @intCast(month));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
+    ///
+    /// ``` self: QtC.QCalendar__YearMonthDay ```
+    pub fn Day(self: ?*anyopaque) i32 {
+        return qtc.QCalendar__YearMonthDay_Day(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
+    ///
+    /// ``` self: QtC.QCalendar__YearMonthDay, day: i32 ```
+    pub fn SetDay(self: ?*anyopaque, day: i32) void {
+        qtc.QCalendar__YearMonthDay_SetDay(@ptrCast(self), @intCast(day));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QCalendar__YearMonthDay ```

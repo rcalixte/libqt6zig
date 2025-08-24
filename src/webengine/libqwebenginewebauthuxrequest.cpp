@@ -137,3 +137,39 @@ libqt_string QWebEngineWebAuthUxRequest_Tr3(const char* s, const char* c, int n)
 void QWebEngineWebAuthUxRequest_Delete(QWebEngineWebAuthUxRequest* self) {
     delete self;
 }
+
+int QWebEngineWebAuthPinRequest_Reason(const QWebEngineWebAuthPinRequest* self) {
+    return static_cast<int>(self->reason);
+}
+
+void QWebEngineWebAuthPinRequest_SetReason(QWebEngineWebAuthPinRequest* self, int reason) {
+    self->reason = static_cast<QWebEngineWebAuthUxRequest::PinEntryReason>(reason);
+}
+
+int QWebEngineWebAuthPinRequest_Error(const QWebEngineWebAuthPinRequest* self) {
+    return static_cast<int>(self->error);
+}
+
+void QWebEngineWebAuthPinRequest_SetError(QWebEngineWebAuthPinRequest* self, int error) {
+    self->error = static_cast<QWebEngineWebAuthUxRequest::PinEntryError>(error);
+}
+
+int QWebEngineWebAuthPinRequest_MinPinLength(const QWebEngineWebAuthPinRequest* self) {
+    return static_cast<int>(self->minPinLength);
+}
+
+void QWebEngineWebAuthPinRequest_SetMinPinLength(QWebEngineWebAuthPinRequest* self, int minPinLength) {
+    self->minPinLength = static_cast<qint32>(minPinLength);
+}
+
+int QWebEngineWebAuthPinRequest_RemainingAttempts(const QWebEngineWebAuthPinRequest* self) {
+    return self->remainingAttempts;
+}
+
+void QWebEngineWebAuthPinRequest_SetRemainingAttempts(QWebEngineWebAuthPinRequest* self, int remainingAttempts) {
+    self->remainingAttempts = static_cast<int>(remainingAttempts);
+}
+
+void QWebEngineWebAuthPinRequest_Delete(QWebEngineWebAuthPinRequest* self) {
+    delete self;
+}

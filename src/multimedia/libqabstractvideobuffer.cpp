@@ -33,6 +33,14 @@ void QAbstractVideoBuffer__MapData_MoveAssign(QAbstractVideoBuffer__MapData* sel
     *self = std::move(*other);
 }
 
+int QAbstractVideoBuffer__MapData_PlaneCount(const QAbstractVideoBuffer__MapData* self) {
+    return self->planeCount;
+}
+
+void QAbstractVideoBuffer__MapData_SetPlaneCount(QAbstractVideoBuffer__MapData* self, int planeCount) {
+    self->planeCount = static_cast<int>(planeCount);
+}
+
 void QAbstractVideoBuffer__MapData_Delete(QAbstractVideoBuffer__MapData* self) {
     delete self;
 }

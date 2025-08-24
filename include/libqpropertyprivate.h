@@ -25,6 +25,12 @@ void QUntypedPropertyData_CopyAssign(QUntypedPropertyData* self, QUntypedPropert
 void QUntypedPropertyData_MoveAssign(QUntypedPropertyData* self, QUntypedPropertyData* other);
 void QUntypedPropertyData_Delete(QUntypedPropertyData* self);
 
+uintptr_t QPropertyProxyBindingData_DPtr(const QPropertyProxyBindingData* self);
+void QPropertyProxyBindingData_SetDPtr(QPropertyProxyBindingData* self, uintptr_t d_ptr);
+QUntypedPropertyData* QPropertyProxyBindingData_PropertyData(const QPropertyProxyBindingData* self);
+void QPropertyProxyBindingData_SetPropertyData(QPropertyProxyBindingData* self, QUntypedPropertyData* propertyData);
+void QPropertyProxyBindingData_Delete(QPropertyProxyBindingData* self);
+
 #ifdef __cplusplus
 } /* extern C */
 #endif

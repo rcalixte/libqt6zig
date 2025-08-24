@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = @import("libqnamespace.zig").enums;
+const qpainterpath_enums = enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qpainterpath.html
@@ -701,6 +702,50 @@ pub const qpainterpath__element = struct {
     /// ``` param1: QtC.QPainterPath__Element ```
     pub fn New2(param1: ?*anyopaque) QtC.QPainterPath__Element {
         return qtc.QPainterPath__Element_new2(@ptrCast(param1));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#x-var)
+    ///
+    /// ``` self: QtC.QPainterPath__Element ```
+    pub fn X(self: ?*anyopaque) f64 {
+        return qtc.QPainterPath__Element_X(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#x-var)
+    ///
+    /// ``` self: QtC.QPainterPath__Element, x: f64 ```
+    pub fn SetX(self: ?*anyopaque, x: f64) void {
+        qtc.QPainterPath__Element_SetX(@ptrCast(self), @floatCast(x));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#y-var)
+    ///
+    /// ``` self: QtC.QPainterPath__Element ```
+    pub fn Y(self: ?*anyopaque) f64 {
+        return qtc.QPainterPath__Element_Y(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#y-var)
+    ///
+    /// ``` self: QtC.QPainterPath__Element, y: f64 ```
+    pub fn SetY(self: ?*anyopaque, y: f64) void {
+        qtc.QPainterPath__Element_SetY(@ptrCast(self), @floatCast(y));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#type-var)
+    ///
+    /// ``` self: QtC.QPainterPath__Element ```
+    ///
+    /// Returns: ``` qpainterpath_enums.ElementType ```
+    pub fn Type(self: ?*anyopaque) i32 {
+        return qtc.QPainterPath__Element_Type(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#type-var)
+    ///
+    /// ``` self: QtC.QPainterPath__Element, type: qpainterpath_enums.ElementType ```
+    pub fn SetType(self: ?*anyopaque, _type: i32) void {
+        qtc.QPainterPath__Element_SetType(@ptrCast(self), @intCast(_type));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpainterpath-element.html#isMoveTo)

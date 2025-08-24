@@ -247,6 +247,50 @@ pub const qtextoption__tab = struct {
         return qtc.QTextOption__Tab_OperatorNotEqual(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
+    ///
+    /// ``` self: QtC.QTextOption__Tab ```
+    pub fn Position(self: ?*anyopaque) f64 {
+        return qtc.QTextOption__Tab_Position(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#position-var)
+    ///
+    /// ``` self: QtC.QTextOption__Tab, position: f64 ```
+    pub fn SetPosition(self: ?*anyopaque, position: f64) void {
+        qtc.QTextOption__Tab_SetPosition(@ptrCast(self), @floatCast(position));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
+    ///
+    /// ``` self: QtC.QTextOption__Tab ```
+    ///
+    /// Returns: ``` qtextoption_enums.TabType ```
+    pub fn Type(self: ?*anyopaque) i32 {
+        return qtc.QTextOption__Tab_Type(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#type-var)
+    ///
+    /// ``` self: QtC.QTextOption__Tab, type: qtextoption_enums.TabType ```
+    pub fn SetType(self: ?*anyopaque, _type: i32) void {
+        qtc.QTextOption__Tab_SetType(@ptrCast(self), @intCast(_type));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
+    ///
+    /// ``` self: QtC.QTextOption__Tab ```
+    pub fn Delimiter(self: ?*anyopaque) QtC.QChar {
+        return qtc.QTextOption__Tab_Delimiter(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qtextoption-tab.html#delimiter-var)
+    ///
+    /// ``` self: QtC.QTextOption__Tab, delimiter: QtC.QChar ```
+    pub fn SetDelimiter(self: ?*anyopaque, delimiter: QtC.QChar) void {
+        qtc.QTextOption__Tab_SetDelimiter(@ptrCast(self), @ptrCast(delimiter));
+    }
+
     /// Delete this object from C++ memory.
     ///
     /// ``` self: QtC.QTextOption__Tab ```

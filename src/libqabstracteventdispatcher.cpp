@@ -288,6 +288,30 @@ void QAbstractEventDispatcher__TimerInfo_MoveAssign(QAbstractEventDispatcher__Ti
     *self = std::move(*other);
 }
 
+int QAbstractEventDispatcher__TimerInfo_TimerId(const QAbstractEventDispatcher__TimerInfo* self) {
+    return self->timerId;
+}
+
+void QAbstractEventDispatcher__TimerInfo_SetTimerId(QAbstractEventDispatcher__TimerInfo* self, int timerId) {
+    self->timerId = static_cast<int>(timerId);
+}
+
+int QAbstractEventDispatcher__TimerInfo_Interval(const QAbstractEventDispatcher__TimerInfo* self) {
+    return self->interval;
+}
+
+void QAbstractEventDispatcher__TimerInfo_SetInterval(QAbstractEventDispatcher__TimerInfo* self, int interval) {
+    self->interval = static_cast<int>(interval);
+}
+
+int QAbstractEventDispatcher__TimerInfo_TimerType(const QAbstractEventDispatcher__TimerInfo* self) {
+    return static_cast<int>(self->timerType);
+}
+
+void QAbstractEventDispatcher__TimerInfo_SetTimerType(QAbstractEventDispatcher__TimerInfo* self, int timerType) {
+    self->timerType = static_cast<Qt::TimerType>(timerType);
+}
+
 void QAbstractEventDispatcher__TimerInfo_Delete(QAbstractEventDispatcher__TimerInfo* self) {
     delete self;
 }
@@ -298,6 +322,22 @@ QAbstractEventDispatcher__TimerInfoV2* QAbstractEventDispatcher__TimerInfoV2_new
 
 QAbstractEventDispatcher__TimerInfoV2* QAbstractEventDispatcher__TimerInfoV2_new2() {
     return new QAbstractEventDispatcher::TimerInfoV2();
+}
+
+int QAbstractEventDispatcher__TimerInfoV2_TimerId(const QAbstractEventDispatcher__TimerInfoV2* self) {
+    return static_cast<int>(self->timerId);
+}
+
+void QAbstractEventDispatcher__TimerInfoV2_SetTimerId(QAbstractEventDispatcher__TimerInfoV2* self, int timerId) {
+    self->timerId = static_cast<Qt::TimerId>(timerId);
+}
+
+int QAbstractEventDispatcher__TimerInfoV2_TimerType(const QAbstractEventDispatcher__TimerInfoV2* self) {
+    return static_cast<int>(self->timerType);
+}
+
+void QAbstractEventDispatcher__TimerInfoV2_SetTimerType(QAbstractEventDispatcher__TimerInfoV2* self, int timerType) {
+    self->timerType = static_cast<Qt::TimerType>(timerType);
 }
 
 void QAbstractEventDispatcher__TimerInfoV2_OperatorAssign(QAbstractEventDispatcher__TimerInfoV2* self, const QAbstractEventDispatcher__TimerInfoV2* param1) {

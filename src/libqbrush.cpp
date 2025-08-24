@@ -151,6 +151,30 @@ QBrushData* QBrushData_new(const QBrushData* param1) {
     return new QBrushData(*param1);
 }
 
+int QBrushData_Style(const QBrushData* self) {
+    return static_cast<int>(self->style);
+}
+
+void QBrushData_SetStyle(QBrushData* self, int style) {
+    self->style = static_cast<Qt::BrushStyle>(style);
+}
+
+QColor* QBrushData_Color(const QBrushData* self) {
+    return new QColor(self->color);
+}
+
+void QBrushData_SetColor(QBrushData* self, QColor* color) {
+    self->color = *color;
+}
+
+QTransform* QBrushData_Transform(const QBrushData* self) {
+    return new QTransform(self->transform);
+}
+
+void QBrushData_SetTransform(QBrushData* self, QTransform* transform) {
+    self->transform = *transform;
+}
+
 void QBrushData_OperatorAssign(QBrushData* self, const QBrushData* param1) {
     self->operator=(*param1);
 }

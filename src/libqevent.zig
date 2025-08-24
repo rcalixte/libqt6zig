@@ -11937,6 +11937,64 @@ pub const qinputmethodevent__attribute = struct {
         return qtc.QInputMethodEvent__Attribute_new2(@intCast(typ), @intCast(s), @intCast(l));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#type-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute ```
+    ///
+    /// Returns: ``` qevent_enums.AttributeType ```
+    pub fn Type(self: ?*anyopaque) i32 {
+        return qtc.QInputMethodEvent__Attribute_Type(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#type-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute, type: qevent_enums.AttributeType ```
+    pub fn SetType(self: ?*anyopaque, _type: i32) void {
+        qtc.QInputMethodEvent__Attribute_SetType(@ptrCast(self), @intCast(_type));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#start-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute ```
+    pub fn Start(self: ?*anyopaque) i32 {
+        return qtc.QInputMethodEvent__Attribute_Start(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#start-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute, start: i32 ```
+    pub fn SetStart(self: ?*anyopaque, start: i32) void {
+        qtc.QInputMethodEvent__Attribute_SetStart(@ptrCast(self), @intCast(start));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#length-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute ```
+    pub fn Length(self: ?*anyopaque) i32 {
+        return qtc.QInputMethodEvent__Attribute_Length(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#length-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute, length: i32 ```
+    pub fn SetLength(self: ?*anyopaque, length: i32) void {
+        qtc.QInputMethodEvent__Attribute_SetLength(@ptrCast(self), @intCast(length));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#value-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute ```
+    pub fn Value(self: ?*anyopaque) QtC.QVariant {
+        return qtc.QInputMethodEvent__Attribute_Value(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#value-var)
+    ///
+    /// ``` self: QtC.QInputMethodEvent__Attribute, value: QtC.QVariant ```
+    pub fn SetValue(self: ?*anyopaque, value: QtC.QVariant) void {
+        qtc.QInputMethodEvent__Attribute_SetValue(@ptrCast(self), @ptrCast(value));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethodevent-attribute.html#operator-eq)
     ///
     /// ``` self: QtC.QInputMethodEvent__Attribute, param1: QtC.QInputMethodEvent__Attribute ```
