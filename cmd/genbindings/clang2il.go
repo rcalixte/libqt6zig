@@ -706,6 +706,62 @@ nextMethod:
 
 			ret.Methods = append(ret.Methods, mm)
 
+		case "FieldDecl":
+			fieldName, ok := node["name"].(string)
+			if !ok {
+				continue // Skip unnamed fields
+			}
+
+			if visibility == VsPrivate || visibility == VsProtected {
+				continue // Skip private/protected fields
+			}
+
+			if fieldName == "psName" || fieldName == "psIconName" {
+				continue // Skip broken fields for now
+			}
+
+			var fieldType CppParameter
+			if typobj, ok := node["type"].(map[string]interface{}); ok {
+				qualType := getPreferredType(typobj)
+				if qualType != "" {
+					fieldType = parseSingleTypeString(qualType)
+					fieldType.ParameterName = fieldName
+
+					if err := AllowType(fieldType, false); err != nil {
+						log.Printf("Skipping field %q with complex type", fieldName)
+						continue
+					}
+
+					if strings.Contains(fieldType.ParameterType, "unnamed") || strings.Contains(fieldType.ParameterType, "struct ") ||
+						strings.Contains(fieldType.ParameterType, "void") {
+						continue // Skip broken types for now
+					}
+
+					if _, ok := KnownEnums[fieldType.ParameterType]; ok {
+						fieldType.ParameterType = resolveEnumType(fieldType.ParameterType, ret.ClassName, "Qt")
+					}
+				}
+			}
+
+			getter := CppMethod{
+				MethodName:        fieldName,
+				ReturnType:        fieldType,
+				Parameters:        []CppParameter{},
+				IsConst:           true,
+				IsVariable:        true,
+				VariableFieldName: fieldName,
+			}
+
+			setter := CppMethod{
+				MethodName:        "set" + strings.Title(fieldName),
+				ReturnType:        CppParameter{ParameterType: "void"},
+				Parameters:        []CppParameter{fieldType},
+				IsVariable:        true,
+				VariableFieldName: fieldName,
+			}
+
+			ret.Methods = append(ret.Methods, getter, setter)
+
 		default:
 			log.Printf("==> NOT IMPLEMENTED %q\n", kind)
 		}
