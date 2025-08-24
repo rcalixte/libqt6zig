@@ -1062,6 +1062,11 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 				cppParams := emitParametersCpp(ctor, false)
 				paramNames := emitParameterNames(ctor, false)
 
+				// hacking around this poor constructor definition
+				if paramNames == "title, text, selectedMimeTypes, defaultGroup" {
+					paramNames += ", nullptr"
+				}
+
 				if !slices.Contains(seenCtors, cppParams) {
 					ret.WriteString("\t" + overriddenClassName + "(" + cppParams + "): " + cppClassName + "(" + paramNames + ") {};\n")
 					seenCtors = append(seenCtors, cppParams)
