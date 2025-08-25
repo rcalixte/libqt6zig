@@ -290,25 +290,37 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		}
 		containerType = strings.ReplaceAll(containerType, "::", "__")
 
+		var maybePointer string
+		refType := "."
+		if isSlot && p.ByRef && listType.PointerCount > 0 {
+			refType = "->"
+			maybePointer = "*"
+		}
+
 		lType := listType.RenderTypeCabi(isSlot)
 
-		preamble += indent + containerQtType + " " + nameprefix + "_" + containerType + ";\n"
+		preamble += indent + containerQtType + maybePointer + " " + nameprefix + "_" + containerType + ";\n"
 
 		if isSlot && lType == "int" {
+			var maybeCast, maybeCloseCast string
+			if listType.IsKnownEnum() {
+				maybeCast = "static_cast<" + listType.ParameterType + ">("
+				maybeCloseCast = ")"
+			}
 			preamble += indent + "for (int* ptr = " + p.ParameterName + "; *ptr != -1; ++ptr) {\n"
-			preamble += indent + "\t" + nameprefix + "_" + containerType + ".push_back(*ptr);\n"
+			preamble += indent + "\t" + nameprefix + "_" + containerType + refType + "push_back(" + maybeCast + "*ptr" + maybeCloseCast + ");\n"
 			preamble += indent + "}\n"
 		} else {
 			dataField := ".data"
 			iterField := ".len"
 			if isSlot && lType == "const char*" {
 				preamble += indent + "size_t " + p.ParameterName + "_len = libqt_strv_length(" + p.ParameterName + ");\n"
-				preamble += indent + nameprefix + "_" + containerType + ".reserve(" + p.ParameterName + "_len);\n"
+				preamble += indent + nameprefix + "_" + containerType + refType + "reserve(" + p.ParameterName + "_len);\n"
 				dataField = ""
 				iterField = "_len"
 			} else if isSlot && IsKnownClass(strings.TrimSuffix(lType, "*")) {
 			} else {
-				preamble += indent + nameprefix + "_" + containerType + ".reserve(" + p.ParameterName + ".len);\n"
+				preamble += indent + nameprefix + "_" + containerType + refType + "reserve(" + p.ParameterName + ".len);\n"
 			}
 
 			if isSlot && IsKnownClass(strings.TrimSuffix(lType, "*")) {
@@ -318,7 +330,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 				}
 				preamble += indent + "// Iterate until null pointer sentinel\n"
 				preamble += indent + "for (" + lType + "* ptridx = " + nameprefix + "; *ptridx != nullptr; ptridx++) {\n"
-				preamble += indent + "\t" + nameprefix + "_" + containerType + ".push_back(" + maybeExtraDeref + "*ptridx);\n"
+				preamble += indent + "\t" + nameprefix + "_" + containerType + refType + "push_back(" + maybeExtraDeref + "*ptridx);\n"
 				preamble += indent + "}\n"
 				preamble += indent + "free(" + nameprefix + ");\n"
 			} else {
@@ -328,7 +340,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 				listType.ParameterName = nameprefix + "_arr[i]"
 				addPre, addFwd := emitCABI2CppForwarding(listType, indent+"\t", currentClass, isSlot)
 				preamble += addPre
-				preamble += indent + "\t" + nameprefix + "_" + containerType + ".push_back(" + addFwd + ");\n"
+				preamble += indent + "\t" + nameprefix + "_" + containerType + refType + "push_back(" + addFwd + ");\n"
 
 				preamble += indent + "}\n"
 			}
@@ -338,7 +350,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		if p.Pointer {
 			return preamble, "&" + nameprefix + "_" + containerType
 		} else {
-			return preamble, nameprefix + "_" + containerType
+			return preamble, maybePointer + nameprefix + "_" + containerType
 		}
 
 	} else if kType, vType, _, ok := p.QMapOf(); ok {
