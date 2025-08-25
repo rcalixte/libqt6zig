@@ -17,10 +17,6 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 		p.ParameterType = resolveEnumType(etd.Enum.EnumName, className, namespace)
 	}
 
-	if ctd, ok := KnownClassnames[p.ParameterType]; ok {
-		p.ParameterType = resolveStructType(ctd.Class.ClassName, className, namespace)
-	}
-
 	if ft, ok := KnownEnums[p.ParameterType+"Flag"]; ok && !strings.Contains(p.ParameterType, "::") {
 		p.ParameterType = strings.TrimSuffix(ft.Enum.EnumName, "Flag")
 	}
@@ -78,7 +74,7 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 		k2 := resolveStructType(kType2.RenderTypeQtCpp(), className, namespace)
 		v2 := resolveStructType(vType2.RenderTypeQtCpp(), className, namespace)
 
-		p.ParameterType = containerType + `<` + k2 + `, ` + v2 + `>`
+		p.ParameterType = containerType + "<" + k2 + ", " + v2 + ">"
 
 		if p.QtCppOriginalType == nil {
 			tmp := p // copy
@@ -100,7 +96,7 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 		k2 := resolveStructType(kType2.RenderTypeQtCpp(), className, namespace)
 		v2 := resolveStructType(vType2.RenderTypeQtCpp(), className, namespace)
 
-		p.ParameterType = `QPair<` + k2 + `, ` + v2 + `>`
+		p.ParameterType = "QPair<" + k2 + ", " + v2 + ">"
 
 		if p.QtCppOriginalType == nil {
 			tmp := p // copy
@@ -111,6 +107,10 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 				p.QtCppOriginalType.ParameterType = p.ParameterType
 			}
 		}
+	}
+
+	if ctd, ok := KnownClassnames[p.ParameterType]; ok {
+		p.ParameterType = resolveStructType(ctd.Class.ClassName, className, namespace)
 	}
 
 	return p
