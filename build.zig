@@ -162,6 +162,8 @@ pub fn build(b: *std.Build) !void {
         // Qt 6 KI18n
         "KI18n",
         "KI18nLocaleData",
+        // Qt 6 KItemViews
+        "KItemViews",
         // Qt 6 KWidgetsAddons
         "KWidgetsAddons",
         // Qt 6 QScintilla
