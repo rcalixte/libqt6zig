@@ -210,6 +210,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KItemViews
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "extras-kitemviews",
+			dirs: []string{
+				"/usr/include/KF6/KItemViews",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KItemViews " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// KWidgetsAddons
 		// Depends on Qt Core, GUI, Widgets, KConfig
 		{
