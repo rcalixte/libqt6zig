@@ -277,7 +277,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			ret += "u64"
 		}
 
-	case "unsigned int", "quint32", "uint":
+	case "unsigned int", "quint32", "uint", "gid_t", "uid_t":
 		ret += "u32"
 	case "qint32", "int":
 		ret += "i32"
