@@ -562,16 +562,16 @@ void QProcess_Start3(QProcess* self, const libqt_string program, const libqt_lis
         QString arguments_arr_i_QString = QString::fromUtf8(arguments_arr[i].data, arguments_arr[i].len);
         arguments_QList.push_back(arguments_arr_i_QString);
     }
-    self->start(program_QString, arguments_QList, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+    self->start(program_QString, arguments_QList, static_cast<QProcess::OpenMode>(mode));
 }
 
 void QProcess_Start1(QProcess* self, int mode) {
-    self->start(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+    self->start(static_cast<QProcess::OpenMode>(mode));
 }
 
 void QProcess_StartCommand2(QProcess* self, const libqt_string command, int mode) {
     QString command_QString = QString::fromUtf8(command.data, command.len);
-    self->startCommand(command_QString, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+    self->startCommand(command_QString, static_cast<QProcess::OpenMode>(mode));
 }
 
 bool QProcess_StartDetached1(QProcess* self, long long* pid) {
@@ -580,12 +580,12 @@ bool QProcess_StartDetached1(QProcess* self, long long* pid) {
 
 void QProcess_SetStandardOutputFile2(QProcess* self, const libqt_string fileName, int mode) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    self->setStandardOutputFile(fileName_QString, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+    self->setStandardOutputFile(fileName_QString, static_cast<QProcess::OpenMode>(mode));
 }
 
 void QProcess_SetStandardErrorFile2(QProcess* self, const libqt_string fileName, int mode) {
     QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-    self->setStandardErrorFile(fileName_QString, static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+    self->setStandardErrorFile(fileName_QString, static_cast<QProcess::OpenMode>(mode));
 }
 
 void QProcess_FailChildProcessModifier2(QProcess* self, const char* description, int errorVal) {
@@ -667,9 +667,9 @@ void QProcess_Connect_Finished2(QProcess* self, intptr_t slot) {
 bool QProcess_Open(QProcess* self, int mode) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
-        return vqprocess->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+        return vqprocess->open(static_cast<QProcess::OpenMode>(mode));
     } else {
-        return self->QProcess::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+        return self->QProcess::open(static_cast<QProcess::OpenMode>(mode));
     }
 }
 
@@ -678,9 +678,9 @@ bool QProcess_QBaseOpen(QProcess* self, int mode) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_Open_IsBase(true);
-        return vqprocess->open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+        return vqprocess->open(static_cast<QProcess::OpenMode>(mode));
     } else {
-        return self->QProcess::open(static_cast<QFlags<QIODeviceBase::OpenModeFlag>>(mode));
+        return self->QProcess::open(static_cast<QProcess::OpenMode>(mode));
     }
 }
 

@@ -244,7 +244,7 @@ class VirtualQProcess final : public QProcess {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual bool open(QFlags<QIODeviceBase::OpenModeFlag> mode) override {
+    virtual bool open(QProcess::OpenMode mode) override {
         if (qprocess_open_isbase) {
             qprocess_open_isbase = false;
             return QProcess::open(mode);
