@@ -719,12 +719,16 @@ nextMethod:
 				continue // Skip unnamed fields
 			}
 
-			if visibility == VsPrivate || visibility == VsProtected {
-				continue // Skip private/protected fields
+			if !AllowField(fieldName) {
+				continue
 			}
 
-			if fieldName == "psName" || fieldName == "psIconName" {
-				continue // Skip broken fields for now
+			if !AllowFieldForClass(ret.ClassName) {
+				continue
+			}
+
+			if visibility == VsPrivate || visibility == VsProtected {
+				continue // Skip private/protected fields
 			}
 
 			var fieldType CppParameter
