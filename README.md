@@ -122,7 +122,7 @@ FreeBSD (native)
 For dynamic linking with the Qt 6 system libraries:
 
 ```bash
-sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine kf6-kcodecs kf6-kconfig kf6-kcoreaddons kf6-kcrash kf6-ki18n kf6-kitemviews kf6-kwidgetsaddons qscintilla2-qt6 qtermwidget zig
+sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine kf6-kcodecs kf6-kconfig kf6-kcoreaddons kf6-kcrash kf6-kguiaddons kf6-ki18n kf6-kitemviews kf6-kwidgetsaddons qscintilla2-qt6 qtermwidget zig
 ```
 
 > [!NOTE]
@@ -146,7 +146,7 @@ For dynamic linking with the Qt 6 system libraries:
 - __Debian-based distributions__:
 
 ```bash
-sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libkf6codecs-dev libkf6config-dev libkf6coreaddons-dev libkf6crash-dev libkf6i18n-dev libkf6itemviews-dev libkf6widgetsaddons-dev libqscintilla2-qt6-dev libqtermwidget-dev
+sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libkf6codecs-dev libkf6config-dev libkf6coreaddons-dev libkf6crash-dev libkf6guiaddons-dev libkf6i18n-dev libkf6itemviews-dev libkf6widgetsaddons-dev libqscintilla2-qt6-dev libqtermwidget-dev
 ```
 
 > [!NOTE]
@@ -155,7 +155,7 @@ sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia
 - __Fedora-based distributions__:
 
 ```bash
-sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kf6-kcodecs-devel kf6-kconfig-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-ki18n-devel kf6-kitemviews-devel kf6-kwidgetsaddons-devel qtermwidget-devel qscintilla-qt6-devel zig
+sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kf6-kcodecs-devel kf6-kconfig-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kitemviews-devel kf6-kwidgetsaddons-devel qtermwidget-devel qscintilla-qt6-devel zig
 ```
 
 > [!NOTE]
@@ -164,7 +164,7 @@ sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-
 - __Arch-based distributions__:
 
 ```bash
-sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine kcodecs kconfig kcoreaddons kcrash ki18n kitemviews kwidgetsaddons qscintilla-qt6 qtermwidget zig
+sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine kcodecs kconfig kcoreaddons kcrash kguiaddons ki18n kitemviews kwidgetsaddons qscintilla-qt6 qtermwidget zig
 ```
 
 Once the required packages are installed, the library can be built from the root of the repository:
