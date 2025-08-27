@@ -209,6 +209,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KCoreAddons " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KGuiAddons
+		// Depends on Qt Core, GUI, KCoreAddons
+		{
+			path: "extras-kguiaddons",
+			dirs: []string{
+				"/usr/include/KF6/KGuiAddons",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KGuiAddons -I/usr/include/KF6/KCoreAddons " + pkgConfigCflags("Qt6Gui"),
+		},
+
 		// KI18n
 		// Depends on Qt Core
 		{
