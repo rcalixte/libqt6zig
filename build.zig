@@ -162,6 +162,8 @@ pub fn build(b: *std.Build) !void {
         // Qt 6 KCoreAddons
         "KCoreAddons",
         "KCrash", // build dependency
+        // Qt 6 KGuiAddons
+        "KGuiAddons",
         // Qt 6 KI18n
         "KI18n",
         "KI18nLocaleData",
