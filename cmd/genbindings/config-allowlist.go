@@ -97,32 +97,34 @@ func ImportHeaderForClass(className string) bool {
 
 	switch className {
 	case "QGraphicsEffectSource", // e.g. qgraphicseffect.h
-		"QAbstractConcatenable",         // qstringbuilder.h
-		"QTextEngine",                   // qtextlayout.h
-		"QText",                         // e.g. qtextcursor.h
-		"QVLABaseBase",                  // e.g. Qt 6 qvarlengtharray.h
-		"QAdoptSharedDataTag",           // Qt 6 qshareddata.h
-		"qfloat16",                      // Qt 6 qfloat16.h
-		"QFormDataPartBuilder",          // Qt 6.8 qformdatabuilder.h
-		"QGenericRunnable",              // Qt 6.8 qrunnable.h
-		"QCameraPermission",             // Qt 6.8 qpermissions.h
-		"QMicrophonePermission",         // Qt 6.8 qpermissions.h
-		"QtVideo",                       // Qt 6 qtvideo.h
-		"q20",                           // Qt 6 q20type_traits.h
-		"Kuit",                          // Qt 6 kuitsetup.h
-		"QTermWidget",                   // Qt 6 qtermwidget.h
-		"QTermWidgetInterface",          // Qt 6 qtermwidget_interface.h
-		"Konsole",                       // Qt 6 KeyboardTranslator.h
-		"KConfigSkeletonItem",           // Qt 6 kconfigloader.h
-		"KConfigCompilerSignallingItem", // Qt 6 kcoreconfigskeleton.h
-		"KPropertySkeletonItem",         // Qt 6 kcoreconfigskeleton.h
-		"KDragWidgetDecoratorBase",      // Qt 6 kdragwidgetdecorator.h
-		"KTwoFingerSwipeRecognizer",     // Qt 6 ktwofingerswipe.h
-		"KTwoFingerTapRecognizer",       // Qt 6 ktwofingertap.h
-		"KCharMacroExpander",            // Qt 6 kmacroexpander.h
-		"KMacroExpanderBase",            // Qt 6 kmacroexpander.h
-		"KWordMacroExpander",            // Qt 6 kmacroexpander.h
-		"KUserGroup",                    // Qt 6 kuser.h
+		"QAbstractConcatenable",          // qstringbuilder.h
+		"QTextEngine",                    // qtextlayout.h
+		"QText",                          // e.g. qtextcursor.h
+		"QVLABaseBase",                   // e.g. Qt 6 qvarlengtharray.h
+		"QAdoptSharedDataTag",            // Qt 6 qshareddata.h
+		"qfloat16",                       // Qt 6 qfloat16.h
+		"QFormDataPartBuilder",           // Qt 6.8 qformdatabuilder.h
+		"QGenericRunnable",               // Qt 6.8 qrunnable.h
+		"QCameraPermission",              // Qt 6.8 qpermissions.h
+		"QMicrophonePermission",          // Qt 6.8 qpermissions.h
+		"QtVideo",                        // Qt 6 qtvideo.h
+		"q20",                            // Qt 6 q20type_traits.h
+		"Kuit",                           // Qt 6 kuitsetup.h
+		"QTermWidget",                    // Qt 6 qtermwidget.h
+		"QTermWidgetInterface",           // Qt 6 qtermwidget_interface.h
+		"Konsole",                        // Qt 6 KeyboardTranslator.h
+		"KConfigSkeletonItem",            // Qt 6 kconfigloader.h
+		"KConfigCompilerSignallingItem",  // Qt 6 kcoreconfigskeleton.h
+		"KPropertySkeletonItem",          // Qt 6 kcoreconfigskeleton.h
+		"KDragWidgetDecoratorBase",       // Qt 6 kdragwidgetdecorator.h
+		"KTwoFingerSwipeRecognizer",      // Qt 6 ktwofingerswipe.h
+		"KTwoFingerTapRecognizer",        // Qt 6 ktwofingertap.h
+		"KCharMacroExpander",             // Qt 6 kmacroexpander.h
+		"KMacroExpanderBase",             // Qt 6 kmacroexpander.h
+		"KWordMacroExpander",             // Qt 6 kmacroexpander.h
+		"KUserGroup",                     // Qt 6 kuser.h
+		"KLocalImageCacheImplementation", // Qt 6 klocalimagecacheimpl.h
+		"KModifierKeyInfoProvider",       // Qt 6 kmodifierkeyinfoprovider_p.h
 		"____last____":
 		return false
 	}
